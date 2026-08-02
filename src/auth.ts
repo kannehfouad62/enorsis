@@ -67,6 +67,8 @@ async function authorizeDatabaseUser(email: string, password: string) {
     legalEntityScopeIds: membership.legalEntityScopeIds,
     siteScopeIds: membership.siteScopeIds,
     departmentScopeIds: membership.departmentScopeIds,
+    mustChangePassword: user.mustChangePassword,
+    sessionVersion: user.sessionVersion,
   };
 }
 
@@ -96,6 +98,8 @@ function authorizeRecoveryAdministrator(email: string, password: string) {
     legalEntityScopeIds: [],
     siteScopeIds: [],
     departmentScopeIds: [],
+    mustChangePassword: false,
+    sessionVersion: 1,
   };
 }
 
@@ -133,7 +137,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (!request.nextUrl.pathname.startsWith("/app")) return true;
       return Boolean(session?.user);
     },
-    jwt({ token, user }) {
+    async jwt({ token, user }) {
       if (user) {
         token.userId = user.id;
         token.tenantId = user.tenantId;
@@ -145,6 +149,23 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         token.legalEntityScopeIds = user.legalEntityScopeIds;
         token.siteScopeIds = user.siteScopeIds;
         token.departmentScopeIds = user.departmentScopeIds;
+        token.mustChangePassword = user.mustChangePassword;
+        token.sessionVersion = user.sessionVersion;
+      } else if (
+        typeof token.userId === "string" &&
+        typeof token.sessionVersion === "number" &&
+        token.userId !== "development-platform-admin"
+      ) {
+        const current = await prisma.user.findUnique({
+          where: { id: token.userId },
+          select: { isActive: true, sessionVersion: true },
+        });
+        if (
+          !current?.isActive ||
+          current.sessionVersion !== token.sessionVersion
+        ) {
+          return null;
+        }
       }
       return token;
     },
@@ -185,6 +206,12 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       session.user.departmentScopeIds = stringArray(
         token.departmentScopeIds,
       );
+      session.user.mustChangePassword =
+        token.mustChangePassword === true;
+      session.user.sessionVersion =
+        typeof token.sessionVersion === "number"
+          ? token.sessionVersion
+          : 1;
 
       if (session.user.roles.length === 0) {
         throw new Error("The authenticated session has no assigned roles.");

@@ -10,6 +10,8 @@ interface EnorsisIdentity {
   legalEntityScopeIds: string[];
   siteScopeIds: string[];
   departmentScopeIds: string[];
+  mustChangePassword: boolean;
+  sessionVersion: number;
 }
 
 declare module "next-auth" {

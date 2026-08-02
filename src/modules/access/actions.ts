@@ -33,6 +33,21 @@ function value(formData: FormData, key: string): string {
   return String(formData.get(key) ?? "");
 }
 
+function assertSegregationOfDuties(roles: readonly string[]) {
+  const roleSet = new Set(roles);
+  const conflicts = [
+    ["REQUESTER", "APPROVER"],
+    ["BUYER", "AUDITOR"],
+    ["FINANCE", "AUDITOR"],
+  ] as const;
+
+  for (const [left, right] of conflicts) {
+    if (roleSet.has(left) && roleSet.has(right)) {
+      throw new Error(`${left} and ${right} cannot be assigned together.`);
+    }
+  }
+}
+
 export async function inviteMemberAction(formData: FormData) {
   const actor = await requireAccessAdministrator();
   const input = inviteMemberSchema.parse({
@@ -48,6 +63,7 @@ export async function inviteMemberAction(formData: FormData) {
     departmentScopeIds: values(formData, "departmentScopeIds"),
   });
 
+  assertSegregationOfDuties(input.roles);
   const passwordHash = await hash(input.temporaryPassword, 12);
 
   await prisma.$transaction(async (tx) => {
@@ -57,6 +73,8 @@ export async function inviteMemberAction(formData: FormData) {
         name: input.name,
         passwordHash,
         passwordChangedAt: new Date(),
+        mustChangePassword: true,
+        sessionVersion: { increment: 1 },
         isActive: true,
       },
       create: {
@@ -64,6 +82,7 @@ export async function inviteMemberAction(formData: FormData) {
         name: input.name,
         passwordHash,
         passwordChangedAt: new Date(),
+        mustChangePassword: true,
         isActive: true,
       },
     });
@@ -135,6 +154,8 @@ export async function updateMembershipAction(formData: FormData) {
     siteScopeIds: values(formData, "siteScopeIds"),
     departmentScopeIds: values(formData, "departmentScopeIds"),
   });
+
+  assertSegregationOfDuties(input.roles);
 
   const existing = await prisma.membership.findFirstOrThrow({
     where: { id: input.membershipId, tenantId: actor.tenantId },

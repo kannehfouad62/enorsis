@@ -99,8 +99,11 @@ model User {
   emailVerified DateTime?
   name          String?
   image         String?
-  passwordHash  String?
+  passwordHash      String?
   passwordChangedAt DateTime?
+  mustChangePassword Boolean          @default(false)
+  sessionVersion    Int              @default(1)
+  passwordResetTokens PasswordResetToken[]
   locale        String       @default("en-US")
   timeZone      String       @default("UTC")
   isActive      Boolean      @default(true)
@@ -110,6 +113,18 @@ model User {
   updatedAt     DateTime     @updatedAt
 
   @@index([isActive])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, expiresAt])
 }
 
 model Tenant {

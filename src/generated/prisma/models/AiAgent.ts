@@ -681,14 +681,6 @@ export type AiAgentUpdaterestrictedActionsInput = {
   push?: string | string[]
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type AiAgentCreateWithoutTenantInput = {
   id?: string
   key: string
