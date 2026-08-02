@@ -1,0 +1,299 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TenantStatus {
+  PROVISIONING
+  ACTIVE
+  SUSPENDED
+  ARCHIVED
+}
+
+enum MembershipStatus {
+  INVITED
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum PlatformRole {
+  PLATFORM_SUPER_ADMIN
+  PLATFORM_SUPPORT
+  PLATFORM_AUDITOR
+  TENANT_OWNER
+  TENANT_ADMIN
+  PROCUREMENT_EXECUTIVE
+  PROCUREMENT_MANAGER
+  BUYER
+  REQUESTER
+  APPROVER
+  FINANCE
+  LEGAL
+  RISK_COMPLIANCE
+  SUPPLIER_MANAGER
+  AUDITOR
+  VIEWER
+}
+
+enum CurrencyPolicyMode {
+  USD_ONLY
+  USD_WITH_LOCAL_DISPLAY
+  TENANT_BASE_CURRENCY
+}
+
+enum ExchangeRateSource {
+  MANUAL
+  ECB
+  FEDERAL_RESERVE
+  OPEN_EXCHANGE_RATES
+  OTHER
+}
+
+enum LegalEntityStatus {
+  ACTIVE
+  INACTIVE
+  DISSOLVED
+}
+
+enum SiteStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum AuditActorType {
+  USER
+  SYSTEM
+  AI_AGENT
+  INTEGRATION
+}
+
+enum AuditOutcome {
+  SUCCESS
+  FAILURE
+  DENIED
+  PARTIAL
+}
+
+enum AiAgentStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  RETIRED
+}
+
+enum AiAutonomyLevel {
+  ADVISORY
+  DRAFT_ONLY
+  HUMAN_APPROVAL_REQUIRED
+  POLICY_BOUND_AUTONOMOUS
+}
+
+model User {
+  id            String       @id @default(cuid())
+  email         String       @unique
+  emailVerified DateTime?
+  name          String?
+  image         String?
+  locale        String       @default("en-US")
+  timeZone      String       @default("UTC")
+  isActive      Boolean      @default(true)
+  memberships   Membership[]
+  auditEvents   AuditEvent[] @relation("AuditEventUser")
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([isActive])
+}
+
+model Tenant {
+  id                    String             @id @default(cuid())
+  slug                  String             @unique
+  name                  String
+  legalName             String?
+  status                TenantStatus       @default(PROVISIONING)
+  countryCode           String?
+  defaultLocale         String             @default("en-US")
+  defaultTimeZone       String             @default("UTC")
+  currencyPolicyMode    CurrencyPolicyMode @default(USD_ONLY)
+  baseCurrencyCode      String             @default("USD")
+  localDisplayCurrency  String?
+  usdReportingEnabled   Boolean            @default(true)
+  memberships           Membership[]
+  legalEntities         LegalEntity[]
+  sites                 Site[]
+  departments           Department[]
+  exchangeRates         ExchangeRate[]
+  auditEvents           AuditEvent[]
+  aiAgents              AiAgent[]
+  createdAt             DateTime           @default(now())
+  updatedAt             DateTime           @updatedAt
+  archivedAt            DateTime?
+
+  @@index([status])
+  @@index([countryCode])
+}
+
+model Membership {
+  id           String           @id @default(cuid())
+  tenantId     String
+  userId       String
+  status       MembershipStatus @default(INVITED)
+  roles        PlatformRole[]
+  jobTitle     String?
+  employeeId   String?
+  invitedAt    DateTime         @default(now())
+  activatedAt  DateTime?
+  lastActiveAt DateTime?
+  tenant       Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  @@unique([tenantId, userId])
+  @@index([tenantId, status])
+  @@index([userId, status])
+}
+
+model LegalEntity {
+  id                   String            @id @default(cuid())
+  tenantId             String
+  name                 String
+  legalName            String
+  registrationNumber   String?
+  taxIdentificationNo  String?
+  countryCode          String
+  baseCurrencyCode     String
+  status               LegalEntityStatus @default(ACTIVE)
+  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sites                Site[]
+  departments          Department[]
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+
+  @@unique([tenantId, legalName, countryCode])
+  @@index([tenantId, status])
+}
+
+model Site {
+  id             String       @id @default(cuid())
+  tenantId       String
+  legalEntityId  String?
+  code           String
+  name           String
+  countryCode    String
+  region         String?
+  city           String?
+  addressLine1   String?
+  addressLine2   String?
+  postalCode     String?
+  timeZone       String       @default("UTC")
+  status         SiteStatus   @default(ACTIVE)
+  tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  legalEntity    LegalEntity? @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  departments    Department[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([tenantId, code])
+  @@index([tenantId, status])
+  @@index([legalEntityId])
+}
+
+model Department {
+  id             String       @id @default(cuid())
+  tenantId       String
+  legalEntityId  String?
+  siteId         String?
+  code           String
+  name           String
+  parentId       String?
+  isActive       Boolean      @default(true)
+  tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  legalEntity    LegalEntity? @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  site           Site?        @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  parent         Department?  @relation("DepartmentHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children       Department[] @relation("DepartmentHierarchy")
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([tenantId, code])
+  @@index([tenantId, isActive])
+  @@index([legalEntityId])
+  @@index([siteId])
+  @@index([parentId])
+}
+
+model ExchangeRate {
+  id             String             @id @default(cuid())
+  tenantId       String
+  baseCurrency   String
+  quoteCurrency  String
+  rate           Decimal            @db.Decimal(24, 12)
+  effectiveAt    DateTime
+  expiresAt      DateTime?
+  source         ExchangeRateSource
+  sourceReference String?
+  isOfficial     Boolean            @default(false)
+  tenant         Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt      DateTime           @default(now())
+
+  @@unique([tenantId, baseCurrency, quoteCurrency, effectiveAt])
+  @@index([tenantId, baseCurrency, quoteCurrency, effectiveAt])
+}
+
+model AuditEvent {
+  id             String         @id @default(cuid())
+  tenantId       String?
+  userId         String?
+  actorType      AuditActorType
+  actorId        String?
+  actorLabel     String?
+  action         String
+  resourceType   String
+  resourceId     String?
+  outcome        AuditOutcome   @default(SUCCESS)
+  reason         String?
+  requestId      String?
+  ipAddress      String?
+  userAgent      String?
+  before         Json?
+  after          Json?
+  metadata       Json?
+  occurredAt     DateTime       @default(now())
+  tenant         Tenant?        @relation(fields: [tenantId], references: [id], onDelete: SetNull)
+  user           User?          @relation("AuditEventUser", fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, occurredAt])
+  @@index([tenantId, resourceType, resourceId])
+  @@index([userId, occurredAt])
+  @@index([action, occurredAt])
+}
+
+model AiAgent {
+  id                    String          @id @default(cuid())
+  tenantId              String
+  key                   String
+  name                  String
+  description           String?
+  status                AiAgentStatus   @default(DRAFT)
+  autonomyLevel         AiAutonomyLevel @default(ADVISORY)
+  modelProvider         String?
+  modelName             String?
+  systemInstructions    String?
+  allowedCapabilities   String[]
+  restrictedActions     String[]
+  humanApprovalRequired Boolean         @default(true)
+  riskTier              Int             @default(1)
+  configuration         Json?
+  tenant                Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+
+  @@unique([tenantId, key])
+  @@index([tenantId, status])
+}
