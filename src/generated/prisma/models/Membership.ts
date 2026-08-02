@@ -20,8 +20,18 @@ export type MembershipModel = runtime.Types.Result.DefaultSelection<Prisma.$Memb
 
 export type AggregateMembership = {
   _count: MembershipCountAggregateOutputType | null
+  _avg: MembershipAvgAggregateOutputType | null
+  _sum: MembershipSumAggregateOutputType | null
   _min: MembershipMinAggregateOutputType | null
   _max: MembershipMaxAggregateOutputType | null
+}
+
+export type MembershipAvgAggregateOutputType = {
+  approvalLimitUsd: runtime.Decimal | null
+}
+
+export type MembershipSumAggregateOutputType = {
+  approvalLimitUsd: runtime.Decimal | null
 }
 
 export type MembershipMinAggregateOutputType = {
@@ -31,6 +41,8 @@ export type MembershipMinAggregateOutputType = {
   status: $Enums.MembershipStatus | null
   jobTitle: string | null
   employeeId: string | null
+  approvalLimitUsd: runtime.Decimal | null
+  invitedByUserId: string | null
   invitedAt: Date | null
   activatedAt: Date | null
   lastActiveAt: Date | null
@@ -45,6 +57,8 @@ export type MembershipMaxAggregateOutputType = {
   status: $Enums.MembershipStatus | null
   jobTitle: string | null
   employeeId: string | null
+  approvalLimitUsd: runtime.Decimal | null
+  invitedByUserId: string | null
   invitedAt: Date | null
   activatedAt: Date | null
   lastActiveAt: Date | null
@@ -60,6 +74,11 @@ export type MembershipCountAggregateOutputType = {
   roles: number
   jobTitle: number
   employeeId: number
+  approvalLimitUsd: number
+  legalEntityScopeIds: number
+  siteScopeIds: number
+  departmentScopeIds: number
+  invitedByUserId: number
   invitedAt: number
   activatedAt: number
   lastActiveAt: number
@@ -69,6 +88,14 @@ export type MembershipCountAggregateOutputType = {
 }
 
 
+export type MembershipAvgAggregateInputType = {
+  approvalLimitUsd?: true
+}
+
+export type MembershipSumAggregateInputType = {
+  approvalLimitUsd?: true
+}
+
 export type MembershipMinAggregateInputType = {
   id?: true
   tenantId?: true
@@ -76,6 +103,8 @@ export type MembershipMinAggregateInputType = {
   status?: true
   jobTitle?: true
   employeeId?: true
+  approvalLimitUsd?: true
+  invitedByUserId?: true
   invitedAt?: true
   activatedAt?: true
   lastActiveAt?: true
@@ -90,6 +119,8 @@ export type MembershipMaxAggregateInputType = {
   status?: true
   jobTitle?: true
   employeeId?: true
+  approvalLimitUsd?: true
+  invitedByUserId?: true
   invitedAt?: true
   activatedAt?: true
   lastActiveAt?: true
@@ -105,6 +136,11 @@ export type MembershipCountAggregateInputType = {
   roles?: true
   jobTitle?: true
   employeeId?: true
+  approvalLimitUsd?: true
+  legalEntityScopeIds?: true
+  siteScopeIds?: true
+  departmentScopeIds?: true
+  invitedByUserId?: true
   invitedAt?: true
   activatedAt?: true
   lastActiveAt?: true
@@ -151,6 +187,18 @@ export type MembershipAggregateArgs<ExtArgs extends runtime.Types.Extensions.Int
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: MembershipAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: MembershipSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: MembershipMinAggregateInputType
@@ -181,6 +229,8 @@ export type MembershipGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   _count?: MembershipCountAggregateInputType | true
+  _avg?: MembershipAvgAggregateInputType
+  _sum?: MembershipSumAggregateInputType
   _min?: MembershipMinAggregateInputType
   _max?: MembershipMaxAggregateInputType
 }
@@ -193,12 +243,19 @@ export type MembershipGroupByOutputType = {
   roles: $Enums.PlatformRole[]
   jobTitle: string | null
   employeeId: string | null
+  approvalLimitUsd: runtime.Decimal | null
+  legalEntityScopeIds: string[]
+  siteScopeIds: string[]
+  departmentScopeIds: string[]
+  invitedByUserId: string | null
   invitedAt: Date
   activatedAt: Date | null
   lastActiveAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: MembershipCountAggregateOutputType | null
+  _avg: MembershipAvgAggregateOutputType | null
+  _sum: MembershipSumAggregateOutputType | null
   _min: MembershipMinAggregateOutputType | null
   _max: MembershipMaxAggregateOutputType | null
 }
@@ -229,6 +286,11 @@ export type MembershipWhereInput = {
   roles?: Prisma.EnumPlatformRoleNullableListFilter<"Membership">
   jobTitle?: Prisma.StringNullableFilter<"Membership"> | string | null
   employeeId?: Prisma.StringNullableFilter<"Membership"> | string | null
+  approvalLimitUsd?: Prisma.DecimalNullableFilter<"Membership"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  siteScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  departmentScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  invitedByUserId?: Prisma.StringNullableFilter<"Membership"> | string | null
   invitedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
   activatedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   lastActiveAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
@@ -246,6 +308,11 @@ export type MembershipOrderByWithRelationInput = {
   roles?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   employeeId?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvalLimitUsd?: Prisma.SortOrderInput | Prisma.SortOrder
+  legalEntityScopeIds?: Prisma.SortOrder
+  siteScopeIds?: Prisma.SortOrder
+  departmentScopeIds?: Prisma.SortOrder
+  invitedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   invitedAt?: Prisma.SortOrder
   activatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastActiveAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -267,6 +334,11 @@ export type MembershipWhereUniqueInput = Prisma.AtLeast<{
   roles?: Prisma.EnumPlatformRoleNullableListFilter<"Membership">
   jobTitle?: Prisma.StringNullableFilter<"Membership"> | string | null
   employeeId?: Prisma.StringNullableFilter<"Membership"> | string | null
+  approvalLimitUsd?: Prisma.DecimalNullableFilter<"Membership"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  siteScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  departmentScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  invitedByUserId?: Prisma.StringNullableFilter<"Membership"> | string | null
   invitedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
   activatedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   lastActiveAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
@@ -284,14 +356,21 @@ export type MembershipOrderByWithAggregationInput = {
   roles?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrderInput | Prisma.SortOrder
   employeeId?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvalLimitUsd?: Prisma.SortOrderInput | Prisma.SortOrder
+  legalEntityScopeIds?: Prisma.SortOrder
+  siteScopeIds?: Prisma.SortOrder
+  departmentScopeIds?: Prisma.SortOrder
+  invitedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   invitedAt?: Prisma.SortOrder
   activatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastActiveAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.MembershipCountOrderByAggregateInput
+  _avg?: Prisma.MembershipAvgOrderByAggregateInput
   _max?: Prisma.MembershipMaxOrderByAggregateInput
   _min?: Prisma.MembershipMinOrderByAggregateInput
+  _sum?: Prisma.MembershipSumOrderByAggregateInput
 }
 
 export type MembershipScalarWhereWithAggregatesInput = {
@@ -305,6 +384,11 @@ export type MembershipScalarWhereWithAggregatesInput = {
   roles?: Prisma.EnumPlatformRoleNullableListFilter<"Membership">
   jobTitle?: Prisma.StringNullableWithAggregatesFilter<"Membership"> | string | null
   employeeId?: Prisma.StringNullableWithAggregatesFilter<"Membership"> | string | null
+  approvalLimitUsd?: Prisma.DecimalNullableWithAggregatesFilter<"Membership"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  siteScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  departmentScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  invitedByUserId?: Prisma.StringNullableWithAggregatesFilter<"Membership"> | string | null
   invitedAt?: Prisma.DateTimeWithAggregatesFilter<"Membership"> | Date | string
   activatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Membership"> | Date | string | null
   lastActiveAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Membership"> | Date | string | null
@@ -318,6 +402,11 @@ export type MembershipCreateInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -335,6 +424,11 @@ export type MembershipUncheckedCreateInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -348,6 +442,11 @@ export type MembershipUpdateInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -365,6 +464,11 @@ export type MembershipUncheckedUpdateInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -380,6 +484,11 @@ export type MembershipCreateManyInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -393,6 +502,11 @@ export type MembershipUpdateManyMutationInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -408,6 +522,11 @@ export type MembershipUncheckedUpdateManyInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -433,6 +552,14 @@ export type EnumPlatformRoleNullableListFilter<$PrismaModel = never> = {
   isEmpty?: boolean
 }
 
+export type StringNullableListFilter<$PrismaModel = never> = {
+  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
+  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
+  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type MembershipTenantIdUserIdCompoundUniqueInput = {
   tenantId: string
   userId: string
@@ -446,11 +573,20 @@ export type MembershipCountOrderByAggregateInput = {
   roles?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
+  approvalLimitUsd?: Prisma.SortOrder
+  legalEntityScopeIds?: Prisma.SortOrder
+  siteScopeIds?: Prisma.SortOrder
+  departmentScopeIds?: Prisma.SortOrder
+  invitedByUserId?: Prisma.SortOrder
   invitedAt?: Prisma.SortOrder
   activatedAt?: Prisma.SortOrder
   lastActiveAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type MembershipAvgOrderByAggregateInput = {
+  approvalLimitUsd?: Prisma.SortOrder
 }
 
 export type MembershipMaxOrderByAggregateInput = {
@@ -460,6 +596,8 @@ export type MembershipMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
+  approvalLimitUsd?: Prisma.SortOrder
+  invitedByUserId?: Prisma.SortOrder
   invitedAt?: Prisma.SortOrder
   activatedAt?: Prisma.SortOrder
   lastActiveAt?: Prisma.SortOrder
@@ -474,11 +612,17 @@ export type MembershipMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   jobTitle?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
+  approvalLimitUsd?: Prisma.SortOrder
+  invitedByUserId?: Prisma.SortOrder
   invitedAt?: Prisma.SortOrder
   activatedAt?: Prisma.SortOrder
   lastActiveAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type MembershipSumOrderByAggregateInput = {
+  approvalLimitUsd?: Prisma.SortOrder
 }
 
 export type MembershipCreateNestedManyWithoutUserInput = {
@@ -569,6 +713,18 @@ export type MembershipCreaterolesInput = {
   set: $Enums.PlatformRole[]
 }
 
+export type MembershipCreatelegalEntityScopeIdsInput = {
+  set: string[]
+}
+
+export type MembershipCreatesiteScopeIdsInput = {
+  set: string[]
+}
+
+export type MembershipCreatedepartmentScopeIdsInput = {
+  set: string[]
+}
+
 export type EnumMembershipStatusFieldUpdateOperationsInput = {
   set?: $Enums.MembershipStatus
 }
@@ -578,12 +734,40 @@ export type MembershipUpdaterolesInput = {
   push?: $Enums.PlatformRole | $Enums.PlatformRole[]
 }
 
+export type NullableDecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type MembershipUpdatelegalEntityScopeIdsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type MembershipUpdatesiteScopeIdsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type MembershipUpdatedepartmentScopeIdsInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
 export type MembershipCreateWithoutUserInput = {
   id?: string
   status?: $Enums.MembershipStatus
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -599,6 +783,11 @@ export type MembershipUncheckedCreateWithoutUserInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -643,6 +832,11 @@ export type MembershipScalarWhereInput = {
   roles?: Prisma.EnumPlatformRoleNullableListFilter<"Membership">
   jobTitle?: Prisma.StringNullableFilter<"Membership"> | string | null
   employeeId?: Prisma.StringNullableFilter<"Membership"> | string | null
+  approvalLimitUsd?: Prisma.DecimalNullableFilter<"Membership"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  siteScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  departmentScopeIds?: Prisma.StringNullableListFilter<"Membership">
+  invitedByUserId?: Prisma.StringNullableFilter<"Membership"> | string | null
   invitedAt?: Prisma.DateTimeFilter<"Membership"> | Date | string
   activatedAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
   lastActiveAt?: Prisma.DateTimeNullableFilter<"Membership"> | Date | string | null
@@ -656,6 +850,11 @@ export type MembershipCreateWithoutTenantInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -671,6 +870,11 @@ export type MembershipUncheckedCreateWithoutTenantInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -711,6 +915,11 @@ export type MembershipCreateManyUserInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -724,6 +933,11 @@ export type MembershipUpdateWithoutUserInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -739,6 +953,11 @@ export type MembershipUncheckedUpdateWithoutUserInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -753,6 +972,11 @@ export type MembershipUncheckedUpdateManyWithoutUserInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -767,6 +991,11 @@ export type MembershipCreateManyTenantInput = {
   roles?: Prisma.MembershipCreaterolesInput | $Enums.PlatformRole[]
   jobTitle?: string | null
   employeeId?: string | null
+  approvalLimitUsd?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipCreatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipCreatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipCreatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: string | null
   invitedAt?: Date | string
   activatedAt?: Date | string | null
   lastActiveAt?: Date | string | null
@@ -780,6 +1009,11 @@ export type MembershipUpdateWithoutTenantInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -795,6 +1029,11 @@ export type MembershipUncheckedUpdateWithoutTenantInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -809,6 +1048,11 @@ export type MembershipUncheckedUpdateManyWithoutTenantInput = {
   roles?: Prisma.MembershipUpdaterolesInput | $Enums.PlatformRole[]
   jobTitle?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   employeeId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvalLimitUsd?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  legalEntityScopeIds?: Prisma.MembershipUpdatelegalEntityScopeIdsInput | string[]
+  siteScopeIds?: Prisma.MembershipUpdatesiteScopeIdsInput | string[]
+  departmentScopeIds?: Prisma.MembershipUpdatedepartmentScopeIdsInput | string[]
+  invitedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   activatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastActiveAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -826,6 +1070,11 @@ export type MembershipSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   roles?: boolean
   jobTitle?: boolean
   employeeId?: boolean
+  approvalLimitUsd?: boolean
+  legalEntityScopeIds?: boolean
+  siteScopeIds?: boolean
+  departmentScopeIds?: boolean
+  invitedByUserId?: boolean
   invitedAt?: boolean
   activatedAt?: boolean
   lastActiveAt?: boolean
@@ -843,6 +1092,11 @@ export type MembershipSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   roles?: boolean
   jobTitle?: boolean
   employeeId?: boolean
+  approvalLimitUsd?: boolean
+  legalEntityScopeIds?: boolean
+  siteScopeIds?: boolean
+  departmentScopeIds?: boolean
+  invitedByUserId?: boolean
   invitedAt?: boolean
   activatedAt?: boolean
   lastActiveAt?: boolean
@@ -860,6 +1114,11 @@ export type MembershipSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   roles?: boolean
   jobTitle?: boolean
   employeeId?: boolean
+  approvalLimitUsd?: boolean
+  legalEntityScopeIds?: boolean
+  siteScopeIds?: boolean
+  departmentScopeIds?: boolean
+  invitedByUserId?: boolean
   invitedAt?: boolean
   activatedAt?: boolean
   lastActiveAt?: boolean
@@ -877,6 +1136,11 @@ export type MembershipSelectScalar = {
   roles?: boolean
   jobTitle?: boolean
   employeeId?: boolean
+  approvalLimitUsd?: boolean
+  legalEntityScopeIds?: boolean
+  siteScopeIds?: boolean
+  departmentScopeIds?: boolean
+  invitedByUserId?: boolean
   invitedAt?: boolean
   activatedAt?: boolean
   lastActiveAt?: boolean
@@ -884,7 +1148,7 @@ export type MembershipSelectScalar = {
   updatedAt?: boolean
 }
 
-export type MembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "userId" | "status" | "roles" | "jobTitle" | "employeeId" | "invitedAt" | "activatedAt" | "lastActiveAt" | "createdAt" | "updatedAt", ExtArgs["result"]["membership"]>
+export type MembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "userId" | "status" | "roles" | "jobTitle" | "employeeId" | "approvalLimitUsd" | "legalEntityScopeIds" | "siteScopeIds" | "departmentScopeIds" | "invitedByUserId" | "invitedAt" | "activatedAt" | "lastActiveAt" | "createdAt" | "updatedAt", ExtArgs["result"]["membership"]>
 export type MembershipInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -912,6 +1176,11 @@ export type $MembershipPayload<ExtArgs extends runtime.Types.Extensions.Internal
     roles: $Enums.PlatformRole[]
     jobTitle: string | null
     employeeId: string | null
+    approvalLimitUsd: runtime.Decimal | null
+    legalEntityScopeIds: string[]
+    siteScopeIds: string[]
+    departmentScopeIds: string[]
+    invitedByUserId: string | null
     invitedAt: Date
     activatedAt: Date | null
     lastActiveAt: Date | null
@@ -1349,6 +1618,11 @@ export interface MembershipFieldRefs {
   readonly roles: Prisma.FieldRef<"Membership", 'PlatformRole[]'>
   readonly jobTitle: Prisma.FieldRef<"Membership", 'String'>
   readonly employeeId: Prisma.FieldRef<"Membership", 'String'>
+  readonly approvalLimitUsd: Prisma.FieldRef<"Membership", 'Decimal'>
+  readonly legalEntityScopeIds: Prisma.FieldRef<"Membership", 'String[]'>
+  readonly siteScopeIds: Prisma.FieldRef<"Membership", 'String[]'>
+  readonly departmentScopeIds: Prisma.FieldRef<"Membership", 'String[]'>
+  readonly invitedByUserId: Prisma.FieldRef<"Membership", 'String'>
   readonly invitedAt: Prisma.FieldRef<"Membership", 'DateTime'>
   readonly activatedAt: Prisma.FieldRef<"Membership", 'DateTime'>
   readonly lastActiveAt: Prisma.FieldRef<"Membership", 'DateTime'>

@@ -145,8 +145,13 @@ model Membership {
   status       MembershipStatus @default(INVITED)
   roles        PlatformRole[]
   jobTitle     String?
-  employeeId   String?
-  invitedAt    DateTime         @default(now())
+  employeeId         String?
+  approvalLimitUsd    Decimal?         @db.Decimal(18, 2)
+  legalEntityScopeIds String[]         @default([])
+  siteScopeIds        String[]         @default([])
+  departmentScopeIds  String[]         @default([])
+  invitedByUserId     String?
+  invitedAt           DateTime         @default(now())
   activatedAt  DateTime?
   lastActiveAt DateTime?
   tenant       Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)

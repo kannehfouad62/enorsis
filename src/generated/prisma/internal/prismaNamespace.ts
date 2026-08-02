@@ -1175,6 +1175,11 @@ export const MembershipScalarFieldEnum = {
   roles: 'roles',
   jobTitle: 'jobTitle',
   employeeId: 'employeeId',
+  approvalLimitUsd: 'approvalLimitUsd',
+  legalEntityScopeIds: 'legalEntityScopeIds',
+  siteScopeIds: 'siteScopeIds',
+  departmentScopeIds: 'departmentScopeIds',
+  invitedByUserId: 'invitedByUserId',
   invitedAt: 'invitedAt',
   activatedAt: 'activatedAt',
   lastActiveAt: 'lastActiveAt',
@@ -1442,6 +1447,20 @@ export type EnumPlatformRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
 
 
 /**
+ * Reference to a field of type 'Decimal'
+ */
+export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
  * Reference to a field of type 'LegalEntityStatus'
  */
 export type EnumLegalEntityStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LegalEntityStatus'>
@@ -1466,20 +1485,6 @@ export type EnumSiteStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
  * Reference to a field of type 'SiteStatus[]'
  */
 export type ListEnumSiteStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SiteStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'Decimal'
- */
-export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
-    
-
-
-/**
- * Reference to a field of type 'Decimal[]'
- */
-export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
     
 
 
