@@ -9,6 +9,33 @@
 * 🟢 You can import this file directly.
 */
 
+export const SourcingQuestionStatus = {
+  OPEN: 'OPEN',
+  ANSWERED: 'ANSWERED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type SourcingQuestionStatus = (typeof SourcingQuestionStatus)[keyof typeof SourcingQuestionStatus]
+
+
+export const SourcingAttachmentType = {
+  RESPONSE: 'RESPONSE',
+  CLARIFICATION: 'CLARIFICATION',
+  EVENT_DOCUMENT: 'EVENT_DOCUMENT'
+} as const
+
+export type SourcingAttachmentType = (typeof SourcingAttachmentType)[keyof typeof SourcingAttachmentType]
+
+
+export const SealedBidOpeningStatus = {
+  SCHEDULED: 'SCHEDULED',
+  OPENED: 'OPENED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SealedBidOpeningStatus = (typeof SealedBidOpeningStatus)[keyof typeof SealedBidOpeningStatus]
+
+
 export const SourcingEvaluatorStatus = {
   ASSIGNED: 'ASSIGNED',
   IN_PROGRESS: 'IN_PROGRESS',

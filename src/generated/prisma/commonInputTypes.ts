@@ -749,6 +749,57 @@ export type EnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
 }
 
+export type EnumSourcingQuestionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingQuestionStatus | Prisma.EnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel> | $Enums.SourcingQuestionStatus
+}
+
+export type EnumSourcingQuestionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingQuestionStatus | Prisma.EnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingQuestionStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingQuestionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel>
+}
+
+export type EnumSourcingAttachmentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingAttachmentType | Prisma.EnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel> | $Enums.SourcingAttachmentType
+}
+
+export type EnumSourcingAttachmentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingAttachmentType | Prisma.EnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingAttachmentTypeWithAggregatesFilter<$PrismaModel> | $Enums.SourcingAttachmentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel>
+}
+
+export type EnumSealedBidOpeningStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SealedBidOpeningStatus | Prisma.EnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel> | $Enums.SealedBidOpeningStatus
+}
+
+export type EnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SealedBidOpeningStatus | Prisma.EnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel> | $Enums.SealedBidOpeningStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1468,6 +1519,57 @@ export type NestedEnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel = nev
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSourcingQuestionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingQuestionStatus | Prisma.EnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel> | $Enums.SourcingQuestionStatus
+}
+
+export type NestedEnumSourcingQuestionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingQuestionStatus | Prisma.EnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingQuestionStatus[] | Prisma.ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingQuestionStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingQuestionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingQuestionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSourcingAttachmentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingAttachmentType | Prisma.EnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel> | $Enums.SourcingAttachmentType
+}
+
+export type NestedEnumSourcingAttachmentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingAttachmentType | Prisma.EnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingAttachmentType[] | Prisma.ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingAttachmentTypeWithAggregatesFilter<$PrismaModel> | $Enums.SourcingAttachmentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingAttachmentTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSealedBidOpeningStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SealedBidOpeningStatus | Prisma.EnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel> | $Enums.SealedBidOpeningStatus
+}
+
+export type NestedEnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SealedBidOpeningStatus | Prisma.EnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SealedBidOpeningStatus[] | Prisma.ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel> | $Enums.SealedBidOpeningStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
 }
 
 

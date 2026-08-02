@@ -32,6 +32,9 @@ export type SourcingInvitationMinAggregateOutputType = {
   invitedAt: Date | null
   viewedAt: Date | null
   submittedAt: Date | null
+  accessTokenHash: string | null
+  accessExpiresAt: Date | null
+  accessRevokedAt: Date | null
 }
 
 export type SourcingInvitationMaxAggregateOutputType = {
@@ -42,6 +45,9 @@ export type SourcingInvitationMaxAggregateOutputType = {
   invitedAt: Date | null
   viewedAt: Date | null
   submittedAt: Date | null
+  accessTokenHash: string | null
+  accessExpiresAt: Date | null
+  accessRevokedAt: Date | null
 }
 
 export type SourcingInvitationCountAggregateOutputType = {
@@ -52,6 +58,9 @@ export type SourcingInvitationCountAggregateOutputType = {
   invitedAt: number
   viewedAt: number
   submittedAt: number
+  accessTokenHash: number
+  accessExpiresAt: number
+  accessRevokedAt: number
   _all: number
 }
 
@@ -64,6 +73,9 @@ export type SourcingInvitationMinAggregateInputType = {
   invitedAt?: true
   viewedAt?: true
   submittedAt?: true
+  accessTokenHash?: true
+  accessExpiresAt?: true
+  accessRevokedAt?: true
 }
 
 export type SourcingInvitationMaxAggregateInputType = {
@@ -74,6 +86,9 @@ export type SourcingInvitationMaxAggregateInputType = {
   invitedAt?: true
   viewedAt?: true
   submittedAt?: true
+  accessTokenHash?: true
+  accessExpiresAt?: true
+  accessRevokedAt?: true
 }
 
 export type SourcingInvitationCountAggregateInputType = {
@@ -84,6 +99,9 @@ export type SourcingInvitationCountAggregateInputType = {
   invitedAt?: true
   viewedAt?: true
   submittedAt?: true
+  accessTokenHash?: true
+  accessExpiresAt?: true
+  accessRevokedAt?: true
   _all?: true
 }
 
@@ -167,6 +185,9 @@ export type SourcingInvitationGroupByOutputType = {
   invitedAt: Date
   viewedAt: Date | null
   submittedAt: Date | null
+  accessTokenHash: string | null
+  accessExpiresAt: Date | null
+  accessRevokedAt: Date | null
   _count: SourcingInvitationCountAggregateOutputType | null
   _min: SourcingInvitationMinAggregateOutputType | null
   _max: SourcingInvitationMaxAggregateOutputType | null
@@ -198,6 +219,9 @@ export type SourcingInvitationWhereInput = {
   invitedAt?: Prisma.DateTimeFilter<"SourcingInvitation"> | Date | string
   viewedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessTokenHash?: Prisma.StringNullableFilter<"SourcingInvitation"> | string | null
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessRevokedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
   event?: Prisma.XOR<Prisma.SourcingEventScalarRelationFilter, Prisma.SourcingEventWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
 }
@@ -210,12 +234,16 @@ export type SourcingInvitationOrderByWithRelationInput = {
   invitedAt?: Prisma.SortOrder
   viewedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessTokenHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessRevokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   event?: Prisma.SourcingEventOrderByWithRelationInput
   supplier?: Prisma.SupplierOrderByWithRelationInput
 }
 
 export type SourcingInvitationWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  accessTokenHash?: string
   sourcingEventId_supplierId?: Prisma.SourcingInvitationSourcingEventIdSupplierIdCompoundUniqueInput
   AND?: Prisma.SourcingInvitationWhereInput | Prisma.SourcingInvitationWhereInput[]
   OR?: Prisma.SourcingInvitationWhereInput[]
@@ -226,9 +254,11 @@ export type SourcingInvitationWhereUniqueInput = Prisma.AtLeast<{
   invitedAt?: Prisma.DateTimeFilter<"SourcingInvitation"> | Date | string
   viewedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessRevokedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
   event?: Prisma.XOR<Prisma.SourcingEventScalarRelationFilter, Prisma.SourcingEventWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
-}, "id" | "sourcingEventId_supplierId">
+}, "id" | "accessTokenHash" | "sourcingEventId_supplierId">
 
 export type SourcingInvitationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -238,6 +268,9 @@ export type SourcingInvitationOrderByWithAggregationInput = {
   invitedAt?: Prisma.SortOrder
   viewedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessTokenHash?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  accessRevokedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.SourcingInvitationCountOrderByAggregateInput
   _max?: Prisma.SourcingInvitationMaxOrderByAggregateInput
   _min?: Prisma.SourcingInvitationMinOrderByAggregateInput
@@ -254,6 +287,9 @@ export type SourcingInvitationScalarWhereWithAggregatesInput = {
   invitedAt?: Prisma.DateTimeWithAggregatesFilter<"SourcingInvitation"> | Date | string
   viewedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SourcingInvitation"> | Date | string | null
   submittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SourcingInvitation"> | Date | string | null
+  accessTokenHash?: Prisma.StringNullableWithAggregatesFilter<"SourcingInvitation"> | string | null
+  accessExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SourcingInvitation"> | Date | string | null
+  accessRevokedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SourcingInvitation"> | Date | string | null
 }
 
 export type SourcingInvitationCreateInput = {
@@ -262,6 +298,9 @@ export type SourcingInvitationCreateInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
   event: Prisma.SourcingEventCreateNestedOneWithoutInvitationsInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSourcingInvitationsInput
 }
@@ -274,6 +313,9 @@ export type SourcingInvitationUncheckedCreateInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationUpdateInput = {
@@ -282,6 +324,9 @@ export type SourcingInvitationUpdateInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   event?: Prisma.SourcingEventUpdateOneRequiredWithoutInvitationsNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingInvitationsNestedInput
 }
@@ -294,6 +339,9 @@ export type SourcingInvitationUncheckedUpdateInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationCreateManyInput = {
@@ -304,6 +352,9 @@ export type SourcingInvitationCreateManyInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationUpdateManyMutationInput = {
@@ -312,6 +363,9 @@ export type SourcingInvitationUpdateManyMutationInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationUncheckedUpdateManyInput = {
@@ -322,6 +376,9 @@ export type SourcingInvitationUncheckedUpdateManyInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationListRelationFilter = {
@@ -347,6 +404,9 @@ export type SourcingInvitationCountOrderByAggregateInput = {
   invitedAt?: Prisma.SortOrder
   viewedAt?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
+  accessTokenHash?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  accessRevokedAt?: Prisma.SortOrder
 }
 
 export type SourcingInvitationMaxOrderByAggregateInput = {
@@ -357,6 +417,9 @@ export type SourcingInvitationMaxOrderByAggregateInput = {
   invitedAt?: Prisma.SortOrder
   viewedAt?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
+  accessTokenHash?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  accessRevokedAt?: Prisma.SortOrder
 }
 
 export type SourcingInvitationMinOrderByAggregateInput = {
@@ -367,6 +430,9 @@ export type SourcingInvitationMinOrderByAggregateInput = {
   invitedAt?: Prisma.SortOrder
   viewedAt?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
+  accessTokenHash?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  accessRevokedAt?: Prisma.SortOrder
 }
 
 export type SourcingInvitationCreateNestedManyWithoutSupplierInput = {
@@ -463,6 +529,9 @@ export type SourcingInvitationCreateWithoutSupplierInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
   event: Prisma.SourcingEventCreateNestedOneWithoutInvitationsInput
 }
 
@@ -473,6 +542,9 @@ export type SourcingInvitationUncheckedCreateWithoutSupplierInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationCreateOrConnectWithoutSupplierInput = {
@@ -512,6 +584,9 @@ export type SourcingInvitationScalarWhereInput = {
   invitedAt?: Prisma.DateTimeFilter<"SourcingInvitation"> | Date | string
   viewedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessTokenHash?: Prisma.StringNullableFilter<"SourcingInvitation"> | string | null
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
+  accessRevokedAt?: Prisma.DateTimeNullableFilter<"SourcingInvitation"> | Date | string | null
 }
 
 export type SourcingInvitationCreateWithoutEventInput = {
@@ -520,6 +595,9 @@ export type SourcingInvitationCreateWithoutEventInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
   supplier: Prisma.SupplierCreateNestedOneWithoutSourcingInvitationsInput
 }
 
@@ -530,6 +608,9 @@ export type SourcingInvitationUncheckedCreateWithoutEventInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationCreateOrConnectWithoutEventInput = {
@@ -565,6 +646,9 @@ export type SourcingInvitationCreateManySupplierInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationUpdateWithoutSupplierInput = {
@@ -573,6 +657,9 @@ export type SourcingInvitationUpdateWithoutSupplierInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   event?: Prisma.SourcingEventUpdateOneRequiredWithoutInvitationsNestedInput
 }
 
@@ -583,6 +670,9 @@ export type SourcingInvitationUncheckedUpdateWithoutSupplierInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationUncheckedUpdateManyWithoutSupplierInput = {
@@ -592,6 +682,9 @@ export type SourcingInvitationUncheckedUpdateManyWithoutSupplierInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationCreateManyEventInput = {
@@ -601,6 +694,9 @@ export type SourcingInvitationCreateManyEventInput = {
   invitedAt?: Date | string
   viewedAt?: Date | string | null
   submittedAt?: Date | string | null
+  accessTokenHash?: string | null
+  accessExpiresAt?: Date | string | null
+  accessRevokedAt?: Date | string | null
 }
 
 export type SourcingInvitationUpdateWithoutEventInput = {
@@ -609,6 +705,9 @@ export type SourcingInvitationUpdateWithoutEventInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingInvitationsNestedInput
 }
 
@@ -619,6 +718,9 @@ export type SourcingInvitationUncheckedUpdateWithoutEventInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type SourcingInvitationUncheckedUpdateManyWithoutEventInput = {
@@ -628,6 +730,9 @@ export type SourcingInvitationUncheckedUpdateManyWithoutEventInput = {
   invitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   viewedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessTokenHash?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  accessRevokedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -640,6 +745,9 @@ export type SourcingInvitationSelect<ExtArgs extends runtime.Types.Extensions.In
   invitedAt?: boolean
   viewedAt?: boolean
   submittedAt?: boolean
+  accessTokenHash?: boolean
+  accessExpiresAt?: boolean
+  accessRevokedAt?: boolean
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sourcingInvitation"]>
@@ -652,6 +760,9 @@ export type SourcingInvitationSelectCreateManyAndReturn<ExtArgs extends runtime.
   invitedAt?: boolean
   viewedAt?: boolean
   submittedAt?: boolean
+  accessTokenHash?: boolean
+  accessExpiresAt?: boolean
+  accessRevokedAt?: boolean
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sourcingInvitation"]>
@@ -664,6 +775,9 @@ export type SourcingInvitationSelectUpdateManyAndReturn<ExtArgs extends runtime.
   invitedAt?: boolean
   viewedAt?: boolean
   submittedAt?: boolean
+  accessTokenHash?: boolean
+  accessExpiresAt?: boolean
+  accessRevokedAt?: boolean
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sourcingInvitation"]>
@@ -676,9 +790,12 @@ export type SourcingInvitationSelectScalar = {
   invitedAt?: boolean
   viewedAt?: boolean
   submittedAt?: boolean
+  accessTokenHash?: boolean
+  accessExpiresAt?: boolean
+  accessRevokedAt?: boolean
 }
 
-export type SourcingInvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sourcingEventId" | "supplierId" | "status" | "invitedAt" | "viewedAt" | "submittedAt", ExtArgs["result"]["sourcingInvitation"]>
+export type SourcingInvitationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sourcingEventId" | "supplierId" | "status" | "invitedAt" | "viewedAt" | "submittedAt" | "accessTokenHash" | "accessExpiresAt" | "accessRevokedAt", ExtArgs["result"]["sourcingInvitation"]>
 export type SourcingInvitationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
@@ -706,6 +823,9 @@ export type $SourcingInvitationPayload<ExtArgs extends runtime.Types.Extensions.
     invitedAt: Date
     viewedAt: Date | null
     submittedAt: Date | null
+    accessTokenHash: string | null
+    accessExpiresAt: Date | null
+    accessRevokedAt: Date | null
   }, ExtArgs["result"]["sourcingInvitation"]>
   composites: {}
 }
@@ -1138,6 +1258,9 @@ export interface SourcingInvitationFieldRefs {
   readonly invitedAt: Prisma.FieldRef<"SourcingInvitation", 'DateTime'>
   readonly viewedAt: Prisma.FieldRef<"SourcingInvitation", 'DateTime'>
   readonly submittedAt: Prisma.FieldRef<"SourcingInvitation", 'DateTime'>
+  readonly accessTokenHash: Prisma.FieldRef<"SourcingInvitation", 'String'>
+  readonly accessExpiresAt: Prisma.FieldRef<"SourcingInvitation", 'DateTime'>
+  readonly accessRevokedAt: Prisma.FieldRef<"SourcingInvitation", 'DateTime'>
 }
     
 

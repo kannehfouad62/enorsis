@@ -74,7 +74,10 @@ export const ModelName = {
   SourcingScore: 'SourcingScore',
   SourcingAward: 'SourcingAward',
   SourcingEvaluator: 'SourcingEvaluator',
-  SourcingRound: 'SourcingRound'
+  SourcingRound: 'SourcingRound',
+  SourcingQuestion: 'SourcingQuestion',
+  SourcingAttachment: 'SourcingAttachment',
+  SealedBidOpening: 'SealedBidOpening'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -466,7 +469,10 @@ export const SourcingInvitationScalarFieldEnum = {
   status: 'status',
   invitedAt: 'invitedAt',
   viewedAt: 'viewedAt',
-  submittedAt: 'submittedAt'
+  submittedAt: 'submittedAt',
+  accessTokenHash: 'accessTokenHash',
+  accessExpiresAt: 'accessExpiresAt',
+  accessRevokedAt: 'accessRevokedAt'
 } as const
 
 export type SourcingInvitationScalarFieldEnum = (typeof SourcingInvitationScalarFieldEnum)[keyof typeof SourcingInvitationScalarFieldEnum]
@@ -557,6 +563,56 @@ export const SourcingRoundScalarFieldEnum = {
 } as const
 
 export type SourcingRoundScalarFieldEnum = (typeof SourcingRoundScalarFieldEnum)[keyof typeof SourcingRoundScalarFieldEnum]
+
+
+export const SourcingQuestionScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  question: 'question',
+  answer: 'answer',
+  status: 'status',
+  askedAt: 'askedAt',
+  answeredAt: 'answeredAt',
+  answeredByUserId: 'answeredByUserId'
+} as const
+
+export type SourcingQuestionScalarFieldEnum = (typeof SourcingQuestionScalarFieldEnum)[keyof typeof SourcingQuestionScalarFieldEnum]
+
+
+export const SourcingAttachmentScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  responseId: 'responseId',
+  supplierId: 'supplierId',
+  type: 'type',
+  name: 'name',
+  blobPathname: 'blobPathname',
+  storageUrl: 'storageUrl',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
+  uploadedByLabel: 'uploadedByLabel',
+  createdAt: 'createdAt'
+} as const
+
+export type SourcingAttachmentScalarFieldEnum = (typeof SourcingAttachmentScalarFieldEnum)[keyof typeof SourcingAttachmentScalarFieldEnum]
+
+
+export const SealedBidOpeningScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  openedAt: 'openedAt',
+  openedByUserId: 'openedByUserId',
+  witnessUserIds: 'witnessUserIds',
+  openingNotes: 'openingNotes',
+  responseCount: 'responseCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SealedBidOpeningScalarFieldEnum = (typeof SealedBidOpeningScalarFieldEnum)[keyof typeof SealedBidOpeningScalarFieldEnum]
 
 
 export const SortOrder = {

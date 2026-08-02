@@ -420,7 +420,10 @@ export const ModelName = {
   SourcingScore: 'SourcingScore',
   SourcingAward: 'SourcingAward',
   SourcingEvaluator: 'SourcingEvaluator',
-  SourcingRound: 'SourcingRound'
+  SourcingRound: 'SourcingRound',
+  SourcingQuestion: 'SourcingQuestion',
+  SourcingAttachment: 'SourcingAttachment',
+  SealedBidOpening: 'SealedBidOpening'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -436,7 +439,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2216,6 +2219,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SourcingQuestion: {
+      payload: Prisma.$SourcingQuestionPayload<ExtArgs>
+      fields: Prisma.SourcingQuestionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingQuestionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingQuestionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingQuestionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingQuestionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingQuestionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingQuestionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingQuestionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingQuestionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingQuestionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        update: {
+          args: Prisma.SourcingQuestionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingQuestionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingQuestionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingQuestionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingQuestionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingQuestionPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingQuestionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingQuestion>
+        }
+        groupBy: {
+          args: Prisma.SourcingQuestionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingQuestionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingQuestionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingQuestionCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingAttachment: {
+      payload: Prisma.$SourcingAttachmentPayload<ExtArgs>
+      fields: Prisma.SourcingAttachmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingAttachmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingAttachmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingAttachmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingAttachmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingAttachmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingAttachmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingAttachmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingAttachmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingAttachmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        update: {
+          args: Prisma.SourcingAttachmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingAttachmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingAttachmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingAttachmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingAttachmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAttachmentPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingAttachmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingAttachment>
+        }
+        groupBy: {
+          args: Prisma.SourcingAttachmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingAttachmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingAttachmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingAttachmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    SealedBidOpening: {
+      payload: Prisma.$SealedBidOpeningPayload<ExtArgs>
+      fields: Prisma.SealedBidOpeningFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SealedBidOpeningFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SealedBidOpeningFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        findFirst: {
+          args: Prisma.SealedBidOpeningFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SealedBidOpeningFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        findMany: {
+          args: Prisma.SealedBidOpeningFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>[]
+        }
+        create: {
+          args: Prisma.SealedBidOpeningCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        createMany: {
+          args: Prisma.SealedBidOpeningCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SealedBidOpeningCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>[]
+        }
+        delete: {
+          args: Prisma.SealedBidOpeningDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        update: {
+          args: Prisma.SealedBidOpeningUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        deleteMany: {
+          args: Prisma.SealedBidOpeningDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SealedBidOpeningUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SealedBidOpeningUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>[]
+        }
+        upsert: {
+          args: Prisma.SealedBidOpeningUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SealedBidOpeningPayload>
+        }
+        aggregate: {
+          args: Prisma.SealedBidOpeningAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSealedBidOpening>
+        }
+        groupBy: {
+          args: Prisma.SealedBidOpeningGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SealedBidOpeningGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SealedBidOpeningCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SealedBidOpeningCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2628,7 +2853,10 @@ export const SourcingInvitationScalarFieldEnum = {
   status: 'status',
   invitedAt: 'invitedAt',
   viewedAt: 'viewedAt',
-  submittedAt: 'submittedAt'
+  submittedAt: 'submittedAt',
+  accessTokenHash: 'accessTokenHash',
+  accessExpiresAt: 'accessExpiresAt',
+  accessRevokedAt: 'accessRevokedAt'
 } as const
 
 export type SourcingInvitationScalarFieldEnum = (typeof SourcingInvitationScalarFieldEnum)[keyof typeof SourcingInvitationScalarFieldEnum]
@@ -2719,6 +2947,56 @@ export const SourcingRoundScalarFieldEnum = {
 } as const
 
 export type SourcingRoundScalarFieldEnum = (typeof SourcingRoundScalarFieldEnum)[keyof typeof SourcingRoundScalarFieldEnum]
+
+
+export const SourcingQuestionScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  question: 'question',
+  answer: 'answer',
+  status: 'status',
+  askedAt: 'askedAt',
+  answeredAt: 'answeredAt',
+  answeredByUserId: 'answeredByUserId'
+} as const
+
+export type SourcingQuestionScalarFieldEnum = (typeof SourcingQuestionScalarFieldEnum)[keyof typeof SourcingQuestionScalarFieldEnum]
+
+
+export const SourcingAttachmentScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  responseId: 'responseId',
+  supplierId: 'supplierId',
+  type: 'type',
+  name: 'name',
+  blobPathname: 'blobPathname',
+  storageUrl: 'storageUrl',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
+  uploadedByLabel: 'uploadedByLabel',
+  createdAt: 'createdAt'
+} as const
+
+export type SourcingAttachmentScalarFieldEnum = (typeof SourcingAttachmentScalarFieldEnum)[keyof typeof SourcingAttachmentScalarFieldEnum]
+
+
+export const SealedBidOpeningScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  openedAt: 'openedAt',
+  openedByUserId: 'openedByUserId',
+  witnessUserIds: 'witnessUserIds',
+  openingNotes: 'openingNotes',
+  responseCount: 'responseCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SealedBidOpeningScalarFieldEnum = (typeof SealedBidOpeningScalarFieldEnum)[keyof typeof SealedBidOpeningScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -3224,6 +3502,48 @@ export type ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
+ * Reference to a field of type 'SourcingQuestionStatus'
+ */
+export type EnumSourcingQuestionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingQuestionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingQuestionStatus[]'
+ */
+export type ListEnumSourcingQuestionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingQuestionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingAttachmentType'
+ */
+export type EnumSourcingAttachmentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingAttachmentType'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingAttachmentType[]'
+ */
+export type ListEnumSourcingAttachmentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingAttachmentType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SealedBidOpeningStatus'
+ */
+export type EnumSealedBidOpeningStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SealedBidOpeningStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SealedBidOpeningStatus[]'
+ */
+export type ListEnumSealedBidOpeningStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SealedBidOpeningStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3411,6 +3731,9 @@ export type GlobalOmitConfig = {
   sourcingAward?: Prisma.SourcingAwardOmit
   sourcingEvaluator?: Prisma.SourcingEvaluatorOmit
   sourcingRound?: Prisma.SourcingRoundOmit
+  sourcingQuestion?: Prisma.SourcingQuestionOmit
+  sourcingAttachment?: Prisma.SourcingAttachmentOmit
+  sealedBidOpening?: Prisma.SealedBidOpeningOmit
 }
 
 /* Types for Logging */

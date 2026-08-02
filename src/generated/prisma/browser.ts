@@ -137,3 +137,18 @@ export type SourcingEvaluator = Prisma.SourcingEvaluatorModel
  * 
  */
 export type SourcingRound = Prisma.SourcingRoundModel
+/**
+ * Model SourcingQuestion
+ * 
+ */
+export type SourcingQuestion = Prisma.SourcingQuestionModel
+/**
+ * Model SourcingAttachment
+ * 
+ */
+export type SourcingAttachment = Prisma.SourcingAttachmentModel
+/**
+ * Model SealedBidOpening
+ * 
+ */
+export type SealedBidOpening = Prisma.SealedBidOpeningModel

@@ -7,6 +7,24 @@ datasource db {
   provider = "postgresql"
 }
 
+enum SourcingQuestionStatus {
+  OPEN
+  ANSWERED
+  CLOSED
+}
+
+enum SourcingAttachmentType {
+  RESPONSE
+  CLARIFICATION
+  EVENT_DOCUMENT
+}
+
+enum SealedBidOpeningStatus {
+  SCHEDULED
+  OPENED
+  CANCELLED
+}
+
 enum SourcingEvaluatorStatus {
   ASSIGNED
   IN_PROGRESS
@@ -218,92 +236,92 @@ enum AiAutonomyLevel {
 }
 
 model User {
-  id            String       @id @default(cuid())
-  email         String       @unique
-  emailVerified DateTime?
-  name          String?
-  image         String?
-  passwordHash      String?
-  passwordChangedAt DateTime?
-  mustChangePassword Boolean          @default(false)
-  sessionVersion    Int              @default(1)
+  id                  String                    @id @default(cuid())
+  email               String                    @unique
+  emailVerified       DateTime?
+  name                String?
+  image               String?
+  passwordHash        String?
+  passwordChangedAt   DateTime?
+  mustChangePassword  Boolean                   @default(false)
+  sessionVersion      Int                       @default(1)
   passwordResetTokens PasswordResetToken[]
-  purchaseRequests    PurchaseRequest[]       @relation("PurchaseRequestRequester")
-  approvalDecisions  PurchaseRequestApproval[] @relation("PurchaseRequestApprover")
-  locale        String       @default("en-US")
-  timeZone      String       @default("UTC")
-  isActive      Boolean      @default(true)
-  memberships   Membership[]
-  auditEvents   AuditEvent[] @relation("AuditEventUser")
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  purchaseRequests    PurchaseRequest[]         @relation("PurchaseRequestRequester")
+  approvalDecisions   PurchaseRequestApproval[] @relation("PurchaseRequestApprover")
+  locale              String                    @default("en-US")
+  timeZone            String                    @default("UTC")
+  isActive            Boolean                   @default(true)
+  memberships         Membership[]
+  auditEvents         AuditEvent[]              @relation("AuditEventUser")
+  createdAt           DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
 
   @@index([isActive])
 }
 
 model PasswordResetToken {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   userId    String
-  tokenHash String   @unique
+  tokenHash String    @unique
   expiresAt DateTime
   usedAt    DateTime?
-  createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, expiresAt])
 }
 
 model Tenant {
-  id                    String             @id @default(cuid())
-  slug                  String             @unique
-  name                  String
-  legalName             String?
-  status                TenantStatus       @default(PROVISIONING)
-  countryCode           String?
-  defaultLocale         String             @default("en-US")
-  defaultTimeZone       String             @default("UTC")
-  currencyPolicyMode    CurrencyPolicyMode @default(USD_ONLY)
-  baseCurrencyCode      String             @default("USD")
-  localDisplayCurrency  String?
-  usdReportingEnabled   Boolean            @default(true)
-  memberships           Membership[]
-  legalEntities         LegalEntity[]
-  sites                 Site[]
-  departments           Department[]
-  exchangeRates         ExchangeRate[]
-  auditEvents           AuditEvent[]
-  aiAgents              AiAgent[]
-  purchaseRequests      PurchaseRequest[]
-  suppliers             Supplier[]
-  sourcingEvents        SourcingEvent[]
-  createdAt             DateTime           @default(now())
-  updatedAt             DateTime           @updatedAt
-  archivedAt            DateTime?
+  id                   String             @id @default(cuid())
+  slug                 String             @unique
+  name                 String
+  legalName            String?
+  status               TenantStatus       @default(PROVISIONING)
+  countryCode          String?
+  defaultLocale        String             @default("en-US")
+  defaultTimeZone      String             @default("UTC")
+  currencyPolicyMode   CurrencyPolicyMode @default(USD_ONLY)
+  baseCurrencyCode     String             @default("USD")
+  localDisplayCurrency String?
+  usdReportingEnabled  Boolean            @default(true)
+  memberships          Membership[]
+  legalEntities        LegalEntity[]
+  sites                Site[]
+  departments          Department[]
+  exchangeRates        ExchangeRate[]
+  auditEvents          AuditEvent[]
+  aiAgents             AiAgent[]
+  purchaseRequests     PurchaseRequest[]
+  suppliers            Supplier[]
+  sourcingEvents       SourcingEvent[]
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  archivedAt           DateTime?
 
   @@index([status])
   @@index([countryCode])
 }
 
 model Membership {
-  id           String           @id @default(cuid())
-  tenantId     String
-  userId       String
-  status       MembershipStatus @default(INVITED)
-  roles        PlatformRole[]
-  jobTitle     String?
-  employeeId         String?
+  id                  String           @id @default(cuid())
+  tenantId            String
+  userId              String
+  status              MembershipStatus @default(INVITED)
+  roles               PlatformRole[]
+  jobTitle            String?
+  employeeId          String?
   approvalLimitUsd    Decimal?         @db.Decimal(18, 2)
   legalEntityScopeIds String[]         @default([])
   siteScopeIds        String[]         @default([])
   departmentScopeIds  String[]         @default([])
   invitedByUserId     String?
   invitedAt           DateTime         @default(now())
-  activatedAt  DateTime?
-  lastActiveAt DateTime?
-  tenant       Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt    DateTime         @default(now())
-  updatedAt    DateTime         @updatedAt
+  activatedAt         DateTime?
+  lastActiveAt        DateTime?
+  tenant              Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user                User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
 
   @@unique([tenantId, userId])
   @@index([tenantId, status])
@@ -311,46 +329,46 @@ model Membership {
 }
 
 model LegalEntity {
-  id                   String            @id @default(cuid())
-  tenantId             String
-  name                 String
-  legalName            String
-  registrationNumber   String?
-  taxIdentificationNo  String?
-  countryCode          String
-  baseCurrencyCode     String
-  status               LegalEntityStatus @default(ACTIVE)
-  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  sites                Site[]
-  departments          Department[]
-  purchaseRequests     PurchaseRequest[]
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @updatedAt
+  id                  String            @id @default(cuid())
+  tenantId            String
+  name                String
+  legalName           String
+  registrationNumber  String?
+  taxIdentificationNo String?
+  countryCode         String
+  baseCurrencyCode    String
+  status              LegalEntityStatus @default(ACTIVE)
+  tenant              Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sites               Site[]
+  departments         Department[]
+  purchaseRequests    PurchaseRequest[]
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
   @@unique([tenantId, legalName, countryCode])
   @@index([tenantId, status])
 }
 
 model Site {
-  id             String       @id @default(cuid())
-  tenantId       String
-  legalEntityId  String?
-  code           String
-  name           String
-  countryCode    String
-  region         String?
-  city           String?
-  addressLine1   String?
-  addressLine2   String?
-  postalCode     String?
-  timeZone       String       @default("UTC")
-  status         SiteStatus   @default(ACTIVE)
-  tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  legalEntity    LegalEntity? @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
-  departments    Department[]
+  id               String            @id @default(cuid())
+  tenantId         String
+  legalEntityId    String?
+  code             String
+  name             String
+  countryCode      String
+  region           String?
+  city             String?
+  addressLine1     String?
+  addressLine2     String?
+  postalCode       String?
+  timeZone         String            @default("UTC")
+  status           SiteStatus        @default(ACTIVE)
+  tenant           Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  legalEntity      LegalEntity?      @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  departments      Department[]
   purchaseRequests PurchaseRequest[]
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
 
   @@unique([tenantId, code])
   @@index([tenantId, status])
@@ -358,22 +376,22 @@ model Site {
 }
 
 model Department {
-  id             String       @id @default(cuid())
-  tenantId       String
-  legalEntityId  String?
-  siteId         String?
-  code           String
-  name           String
-  parentId       String?
-  isActive       Boolean      @default(true)
-  tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  legalEntity    LegalEntity? @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
-  site           Site?        @relation(fields: [siteId], references: [id], onDelete: SetNull)
-  parent         Department?  @relation("DepartmentHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
-  children       Department[] @relation("DepartmentHierarchy")
+  id               String            @id @default(cuid())
+  tenantId         String
+  legalEntityId    String?
+  siteId           String?
+  code             String
+  name             String
+  parentId         String?
+  isActive         Boolean           @default(true)
+  tenant           Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  legalEntity      LegalEntity?      @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  site             Site?             @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  parent           Department?       @relation("DepartmentHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children         Department[]      @relation("DepartmentHierarchy")
   purchaseRequests PurchaseRequest[]
-  createdAt      DateTime     @default(now())
-  updatedAt      DateTime     @updatedAt
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
 
   @@unique([tenantId, code])
   @@index([tenantId, isActive])
@@ -383,44 +401,44 @@ model Department {
 }
 
 model ExchangeRate {
-  id             String             @id @default(cuid())
-  tenantId       String
-  baseCurrency   String
-  quoteCurrency  String
-  rate           Decimal            @db.Decimal(24, 12)
-  effectiveAt    DateTime
-  expiresAt      DateTime?
-  source         ExchangeRateSource
+  id              String             @id @default(cuid())
+  tenantId        String
+  baseCurrency    String
+  quoteCurrency   String
+  rate            Decimal            @db.Decimal(24, 12)
+  effectiveAt     DateTime
+  expiresAt       DateTime?
+  source          ExchangeRateSource
   sourceReference String?
-  isOfficial     Boolean            @default(false)
-  tenant         Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  createdAt      DateTime           @default(now())
+  isOfficial      Boolean            @default(false)
+  tenant          Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime           @default(now())
 
   @@unique([tenantId, baseCurrency, quoteCurrency, effectiveAt])
   @@index([tenantId, baseCurrency, quoteCurrency, effectiveAt])
 }
 
 model AuditEvent {
-  id             String         @id @default(cuid())
-  tenantId       String?
-  userId         String?
-  actorType      AuditActorType
-  actorId        String?
-  actorLabel     String?
-  action         String
-  resourceType   String
-  resourceId     String?
-  outcome        AuditOutcome   @default(SUCCESS)
-  reason         String?
-  requestId      String?
-  ipAddress      String?
-  userAgent      String?
-  before         Json?
-  after          Json?
-  metadata       Json?
-  occurredAt     DateTime       @default(now())
-  tenant         Tenant?        @relation(fields: [tenantId], references: [id], onDelete: SetNull)
-  user           User?          @relation("AuditEventUser", fields: [userId], references: [id], onDelete: SetNull)
+  id           String         @id @default(cuid())
+  tenantId     String?
+  userId       String?
+  actorType    AuditActorType
+  actorId      String?
+  actorLabel   String?
+  action       String
+  resourceType String
+  resourceId   String?
+  outcome      AuditOutcome   @default(SUCCESS)
+  reason       String?
+  requestId    String?
+  ipAddress    String?
+  userAgent    String?
+  before       Json?
+  after        Json?
+  metadata     Json?
+  occurredAt   DateTime       @default(now())
+  tenant       Tenant?        @relation(fields: [tenantId], references: [id], onDelete: SetNull)
+  user         User?          @relation("AuditEventUser", fields: [userId], references: [id], onDelete: SetNull)
 
   @@index([tenantId, occurredAt])
   @@index([tenantId, resourceType, resourceId])
@@ -452,41 +470,40 @@ model AiAgent {
   @@index([tenantId, status])
 }
 
-
 model PurchaseRequest {
-  id                 String                  @id @default(cuid())
-  tenantId           String
-  requesterId        String
-  legalEntityId      String?
-  siteId             String?
-  departmentId       String?
-  requestNumber      String
-  title              String
+  id                    String                    @id @default(cuid())
+  tenantId              String
+  requesterId           String
+  legalEntityId         String?
+  siteId                String?
+  departmentId          String?
+  requestNumber         String
+  title                 String
   businessJustification String
-  priority           PurchaseRequestPriority @default(NORMAL)
-  status             PurchaseRequestStatus   @default(DRAFT)
-  neededByDate       DateTime?
-  originalCurrency   String                  @default("USD")
-  totalAmount        Decimal                 @db.Decimal(18, 2)
-  usdEquivalent      Decimal                 @db.Decimal(18, 2)
-  exchangeRateToUsd  Decimal                 @db.Decimal(24, 12)
-  exchangeRateSource String
-  exchangeRateDate   DateTime
-  submittedAt        DateTime?
-  approvedAt         DateTime?
-  rejectedAt         DateTime?
-  cancelledAt        DateTime?
-  cancellationReason String?
-  revision           Int                     @default(1)
-  tenant             Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  requester          User                    @relation("PurchaseRequestRequester", fields: [requesterId], references: [id], onDelete: Restrict)
-  legalEntity        LegalEntity?            @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
-  site               Site?                   @relation(fields: [siteId], references: [id], onDelete: SetNull)
-  department         Department?             @relation(fields: [departmentId], references: [id], onDelete: SetNull)
-  lines              PurchaseRequestLine[]
-  approvals          PurchaseRequestApproval[]
-  createdAt          DateTime                @default(now())
-  updatedAt          DateTime                @updatedAt
+  priority              PurchaseRequestPriority   @default(NORMAL)
+  status                PurchaseRequestStatus     @default(DRAFT)
+  neededByDate          DateTime?
+  originalCurrency      String                    @default("USD")
+  totalAmount           Decimal                   @db.Decimal(18, 2)
+  usdEquivalent         Decimal                   @db.Decimal(18, 2)
+  exchangeRateToUsd     Decimal                   @db.Decimal(24, 12)
+  exchangeRateSource    String
+  exchangeRateDate      DateTime
+  submittedAt           DateTime?
+  approvedAt            DateTime?
+  rejectedAt            DateTime?
+  cancelledAt           DateTime?
+  cancellationReason    String?
+  revision              Int                       @default(1)
+  tenant                Tenant                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  requester             User                      @relation("PurchaseRequestRequester", fields: [requesterId], references: [id], onDelete: Restrict)
+  legalEntity           LegalEntity?              @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  site                  Site?                     @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  department            Department?               @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  lines                 PurchaseRequestLine[]
+  approvals             PurchaseRequestApproval[]
+  createdAt             DateTime                  @default(now())
+  updatedAt             DateTime                  @updatedAt
 
   @@unique([tenantId, requestNumber])
   @@index([tenantId, status, createdAt])
@@ -497,19 +514,19 @@ model PurchaseRequest {
 }
 
 model PurchaseRequestLine {
-  id                String          @id @default(cuid())
-  purchaseRequestId String
-  lineNumber        Int
-  description       String
-  category          String?
-  quantity          Decimal         @db.Decimal(18, 4)
-  unitOfMeasure     String
-  unitPrice         Decimal         @db.Decimal(18, 4)
-  lineTotal         Decimal         @db.Decimal(18, 2)
+  id                 String          @id @default(cuid())
+  purchaseRequestId  String
+  lineNumber         Int
+  description        String
+  category           String?
+  quantity           Decimal         @db.Decimal(18, 4)
+  unitOfMeasure      String
+  unitPrice          Decimal         @db.Decimal(18, 4)
+  lineTotal          Decimal         @db.Decimal(18, 2)
   supplierSuggestion String?
-  purchaseRequest   PurchaseRequest @relation(fields: [purchaseRequestId], references: [id], onDelete: Cascade)
-  createdAt         DateTime        @default(now())
-  updatedAt         DateTime        @updatedAt
+  purchaseRequest    PurchaseRequest @relation(fields: [purchaseRequestId], references: [id], onDelete: Cascade)
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
 
   @@unique([purchaseRequestId, lineNumber])
   @@index([purchaseRequestId])
@@ -533,35 +550,35 @@ model PurchaseRequestApproval {
   @@index([purchaseRequestId, sequence])
 }
 
-
 model Supplier {
-  id                    String                      @id @default(cuid())
-  tenantId              String
-  supplierNumber        String
-  legalName             String
-  tradingName           String?
-  countryCode           String
-  taxIdentificationNo   String?
-  website               String?
-  primaryEmail          String?
-  primaryPhone          String?
-  categories            String[]
-  status                SupplierStatus              @default(PROSPECT)
-  riskTier              SupplierRiskTier            @default(MODERATE)
-  qualificationStatus   SupplierQualificationStatus @default(NOT_STARTED)
-  diversityOwned        Boolean                     @default(false)
-  esgCommitted          Boolean                     @default(false)
-  sanctionsScreenedAt   DateTime?
-  approvedAt            DateTime?
-  suspendedAt           DateTime?
-  rejectionReason       String?
-  tenant                Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  contacts              SupplierContact[]
-  documents             SupplierDocument[]
-  sourcingInvitations   SourcingInvitation[]
-  sourcingResponses     SourcingResponse[]
-  createdAt             DateTime                    @default(now())
-  updatedAt             DateTime                    @updatedAt
+  id                  String                      @id @default(cuid())
+  tenantId            String
+  supplierNumber      String
+  legalName           String
+  tradingName         String?
+  countryCode         String
+  taxIdentificationNo String?
+  website             String?
+  primaryEmail        String?
+  primaryPhone        String?
+  categories          String[]
+  status              SupplierStatus              @default(PROSPECT)
+  riskTier            SupplierRiskTier            @default(MODERATE)
+  qualificationStatus SupplierQualificationStatus @default(NOT_STARTED)
+  diversityOwned      Boolean                     @default(false)
+  esgCommitted        Boolean                     @default(false)
+  sanctionsScreenedAt DateTime?
+  approvedAt          DateTime?
+  suspendedAt         DateTime?
+  rejectionReason     String?
+  tenant              Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  contacts            SupplierContact[]
+  documents           SupplierDocument[]
+  sourcingInvitations SourcingInvitation[]
+  sourcingResponses   SourcingResponse[]
+  createdAt           DateTime                    @default(now())
+  updatedAt           DateTime                    @updatedAt
+  sourcingQuestions   SourcingQuestion[]
 
   @@unique([tenantId, supplierNumber])
   @@unique([tenantId, legalName, countryCode])
@@ -571,74 +588,76 @@ model Supplier {
 }
 
 model SupplierContact {
-  id          String   @id @default(cuid())
-  supplierId  String
-  name        String
-  title       String?
-  email       String?
-  phone       String?
-  isPrimary   Boolean  @default(false)
-  supplier    Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         String   @id @default(cuid())
+  supplierId String
+  name       String
+  title      String?
+  email      String?
+  phone      String?
+  isPrimary  Boolean  @default(false)
+  supplier   Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@index([supplierId])
 }
 
 model SupplierDocument {
-  id             String                 @id @default(cuid())
-  supplierId     String
-  type           SupplierDocumentType
-  status         SupplierDocumentStatus @default(PENDING_VERIFICATION)
-  name           String
-  blobPathname   String?
-  storageUrl     String?
-  contentType    String?
-  sizeBytes      Int?
-  issuedAt       DateTime?
-  expiresAt      DateTime?
-  verifiedAt     DateTime?
-  verifiedBy     String?
+  id              String                 @id @default(cuid())
+  supplierId      String
+  type            SupplierDocumentType
+  status          SupplierDocumentStatus @default(PENDING_VERIFICATION)
+  name            String
+  blobPathname    String?
+  storageUrl      String?
+  contentType     String?
+  sizeBytes       Int?
+  issuedAt        DateTime?
+  expiresAt       DateTime?
+  verifiedAt      DateTime?
+  verifiedBy      String?
   rejectionReason String?
-  supplier       Supplier               @relation(fields: [supplierId], references: [id], onDelete: Cascade)
-  createdAt      DateTime               @default(now())
-  updatedAt      DateTime               @updatedAt
+  supplier        Supplier               @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
 
   @@index([supplierId, type])
   @@index([supplierId, status])
   @@index([expiresAt])
 }
 
-
 model SourcingEvent {
-  id                 String              @id @default(cuid())
-  tenantId           String
-  eventNumber        String
-  type               SourcingEventType
-  status             SourcingEventStatus @default(DRAFT)
-  title              String
-  summary            String
-  scopeOfWork        String
-  currencyCode       String              @default("USD")
-  estimatedValue     Decimal?            @db.Decimal(18, 2)
-  responseDeadline   DateTime?
-  sealedResponses    Boolean             @default(true)
-  allowMultipleRounds Boolean            @default(false)
-  currentRound       Int                 @default(1)
-  publishedAt        DateTime?
-  awardedAt          DateTime?
-  awardedSupplierId  String?
+  id                  String               @id @default(cuid())
+  tenantId            String
+  eventNumber         String
+  type                SourcingEventType
+  status              SourcingEventStatus  @default(DRAFT)
+  title               String
+  summary             String
+  scopeOfWork         String
+  currencyCode        String               @default("USD")
+  estimatedValue      Decimal?             @db.Decimal(18, 2)
+  responseDeadline    DateTime?
+  sealedResponses     Boolean              @default(true)
+  allowMultipleRounds Boolean              @default(false)
+  currentRound        Int                  @default(1)
+  publishedAt         DateTime?
+  awardedAt           DateTime?
+  awardedSupplierId   String?
   awardRecommendation String?
-  awardConfidence    Int?
-  tenant             Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  criteria           SourcingCriterion[]
-  invitations        SourcingInvitation[]
-  responses          SourcingResponse[]
-  award              SourcingAward?
-  evaluators         SourcingEvaluator[]
-  rounds             SourcingRound[]
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
+  awardConfidence     Int?
+  tenant              Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  criteria            SourcingCriterion[]
+  invitations         SourcingInvitation[]
+  responses           SourcingResponse[]
+  award               SourcingAward?
+  evaluators          SourcingEvaluator[]
+  rounds              SourcingRound[]
+  questions           SourcingQuestion[]
+  attachments         SourcingAttachment[]
+  sealedBidOpening    SealedBidOpening?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
 
   @@unique([tenantId, eventNumber])
   @@index([tenantId, status, createdAt])
@@ -668,8 +687,12 @@ model SourcingInvitation {
   invitedAt       DateTime                 @default(now())
   viewedAt        DateTime?
   submittedAt     DateTime?
-  event           SourcingEvent            @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
-  supplier        Supplier                 @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  accessTokenHash String?       @unique
+  accessExpiresAt DateTime?
+  accessRevokedAt DateTime?
+  event           SourcingEvent @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  supplier        Supplier      @relation(fields: [supplierId], references: [id], onDelete: Cascade)
 
   @@unique([sourcingEventId, supplierId])
 }
@@ -690,6 +713,7 @@ model SourcingResponse {
   event             SourcingEvent          @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
   supplier          Supplier               @relation(fields: [supplierId], references: [id], onDelete: Cascade)
   scores            SourcingScore[]
+  attachments       SourcingAttachment[]
   createdAt         DateTime               @default(now())
   updatedAt         DateTime               @updatedAt
 
@@ -712,7 +736,6 @@ model SourcingScore {
   @@unique([responseId, criterionId])
 }
 
-
 model SourcingAward {
   id                 String              @id @default(cuid())
   sourcingEventId    String              @unique
@@ -734,16 +757,15 @@ model SourcingAward {
   @@index([status])
 }
 
-
 model SourcingEvaluator {
-  id              String                  @id @default(cuid())
-  sourcingEventId String
-  userId          String
-  status          SourcingEvaluatorStatus @default(ASSIGNED)
+  id               String                  @id @default(cuid())
+  sourcingEventId  String
+  userId           String
+  status           SourcingEvaluatorStatus @default(ASSIGNED)
   assignedByUserId String
-  assignedAt      DateTime                @default(now())
-  completedAt     DateTime?
-  event           SourcingEvent           @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  assignedAt       DateTime                @default(now())
+  completedAt      DateTime?
+  event            SourcingEvent           @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
 
   @@unique([sourcingEventId, userId])
   @@index([userId, status])
@@ -767,4 +789,56 @@ model SourcingRound {
 
   @@unique([sourcingEventId, roundNumber])
   @@index([sourcingEventId, status])
+}
+
+model SourcingQuestion {
+  id               String                 @id @default(cuid())
+  sourcingEventId  String
+  supplierId       String
+  question         String
+  answer           String?
+  status           SourcingQuestionStatus @default(OPEN)
+  askedAt          DateTime               @default(now())
+  answeredAt       DateTime?
+  answeredByUserId String?
+  event            SourcingEvent          @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  supplier         Supplier               @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@index([sourcingEventId, status])
+  @@index([supplierId, status])
+}
+
+model SourcingAttachment {
+  id              String                 @id @default(cuid())
+  sourcingEventId String
+  responseId      String?
+  supplierId      String?
+  type            SourcingAttachmentType
+  name            String
+  blobPathname    String
+  storageUrl      String
+  contentType     String?
+  sizeBytes       Int?
+  uploadedByLabel String?
+  event           SourcingEvent          @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  response        SourcingResponse?      @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  createdAt       DateTime               @default(now())
+
+  @@index([sourcingEventId, type])
+  @@index([responseId])
+}
+
+model SealedBidOpening {
+  id              String                 @id @default(cuid())
+  sourcingEventId String                 @unique
+  status          SealedBidOpeningStatus @default(SCHEDULED)
+  scheduledAt     DateTime?
+  openedAt        DateTime?
+  openedByUserId  String?
+  witnessUserIds  String[]
+  openingNotes    String?
+  responseCount   Int                    @default(0)
+  event           SourcingEvent          @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
 }

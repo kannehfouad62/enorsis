@@ -299,6 +299,7 @@ export type SourcingResponseWhereInput = {
   event?: Prisma.XOR<Prisma.SourcingEventScalarRelationFilter, Prisma.SourcingEventWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   scores?: Prisma.SourcingScoreListRelationFilter
+  attachments?: Prisma.SourcingAttachmentListRelationFilter
 }
 
 export type SourcingResponseOrderByWithRelationInput = {
@@ -319,6 +320,7 @@ export type SourcingResponseOrderByWithRelationInput = {
   event?: Prisma.SourcingEventOrderByWithRelationInput
   supplier?: Prisma.SupplierOrderByWithRelationInput
   scores?: Prisma.SourcingScoreOrderByRelationAggregateInput
+  attachments?: Prisma.SourcingAttachmentOrderByRelationAggregateInput
 }
 
 export type SourcingResponseWhereUniqueInput = Prisma.AtLeast<{
@@ -343,6 +345,7 @@ export type SourcingResponseWhereUniqueInput = Prisma.AtLeast<{
   event?: Prisma.XOR<Prisma.SourcingEventScalarRelationFilter, Prisma.SourcingEventWhereInput>
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
   scores?: Prisma.SourcingScoreListRelationFilter
+  attachments?: Prisma.SourcingAttachmentListRelationFilter
 }, "id" | "sourcingEventId_supplierId_round">
 
 export type SourcingResponseOrderByWithAggregationInput = {
@@ -403,6 +406,7 @@ export type SourcingResponseCreateInput = {
   event: Prisma.SourcingEventCreateNestedOneWithoutResponsesInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSourcingResponsesInput
   scores?: Prisma.SourcingScoreCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseUncheckedCreateInput = {
@@ -421,6 +425,7 @@ export type SourcingResponseUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scores?: Prisma.SourcingScoreUncheckedCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentUncheckedCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseUpdateInput = {
@@ -439,6 +444,7 @@ export type SourcingResponseUpdateInput = {
   event?: Prisma.SourcingEventUpdateOneRequiredWithoutResponsesNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingResponsesNestedInput
   scores?: Prisma.SourcingScoreUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateInput = {
@@ -457,6 +463,7 @@ export type SourcingResponseUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scores?: Prisma.SourcingScoreUncheckedUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUncheckedUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseCreateManyInput = {
@@ -592,6 +599,11 @@ export type SourcingResponseScalarRelationFilter = {
   isNot?: Prisma.SourcingResponseWhereInput
 }
 
+export type SourcingResponseNullableScalarRelationFilter = {
+  is?: Prisma.SourcingResponseWhereInput | null
+  isNot?: Prisma.SourcingResponseWhereInput | null
+}
+
 export type SourcingResponseCreateNestedManyWithoutSupplierInput = {
   create?: Prisma.XOR<Prisma.SourcingResponseCreateWithoutSupplierInput, Prisma.SourcingResponseUncheckedCreateWithoutSupplierInput> | Prisma.SourcingResponseCreateWithoutSupplierInput[] | Prisma.SourcingResponseUncheckedCreateWithoutSupplierInput[]
   connectOrCreate?: Prisma.SourcingResponseCreateOrConnectWithoutSupplierInput | Prisma.SourcingResponseCreateOrConnectWithoutSupplierInput[]
@@ -694,6 +706,22 @@ export type SourcingResponseUpdateOneRequiredWithoutScoresNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SourcingResponseUpdateToOneWithWhereWithoutScoresInput, Prisma.SourcingResponseUpdateWithoutScoresInput>, Prisma.SourcingResponseUncheckedUpdateWithoutScoresInput>
 }
 
+export type SourcingResponseCreateNestedOneWithoutAttachmentsInput = {
+  create?: Prisma.XOR<Prisma.SourcingResponseCreateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedCreateWithoutAttachmentsInput>
+  connectOrCreate?: Prisma.SourcingResponseCreateOrConnectWithoutAttachmentsInput
+  connect?: Prisma.SourcingResponseWhereUniqueInput
+}
+
+export type SourcingResponseUpdateOneWithoutAttachmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.SourcingResponseCreateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedCreateWithoutAttachmentsInput>
+  connectOrCreate?: Prisma.SourcingResponseCreateOrConnectWithoutAttachmentsInput
+  upsert?: Prisma.SourcingResponseUpsertWithoutAttachmentsInput
+  disconnect?: Prisma.SourcingResponseWhereInput | boolean
+  delete?: Prisma.SourcingResponseWhereInput | boolean
+  connect?: Prisma.SourcingResponseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SourcingResponseUpdateToOneWithWhereWithoutAttachmentsInput, Prisma.SourcingResponseUpdateWithoutAttachmentsInput>, Prisma.SourcingResponseUncheckedUpdateWithoutAttachmentsInput>
+}
+
 export type SourcingResponseCreateWithoutSupplierInput = {
   id?: string
   round?: number
@@ -709,6 +737,7 @@ export type SourcingResponseCreateWithoutSupplierInput = {
   updatedAt?: Date | string
   event: Prisma.SourcingEventCreateNestedOneWithoutResponsesInput
   scores?: Prisma.SourcingScoreCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseUncheckedCreateWithoutSupplierInput = {
@@ -726,6 +755,7 @@ export type SourcingResponseUncheckedCreateWithoutSupplierInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scores?: Prisma.SourcingScoreUncheckedCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentUncheckedCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseCreateOrConnectWithoutSupplierInput = {
@@ -789,6 +819,7 @@ export type SourcingResponseCreateWithoutEventInput = {
   updatedAt?: Date | string
   supplier: Prisma.SupplierCreateNestedOneWithoutSourcingResponsesInput
   scores?: Prisma.SourcingScoreCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseUncheckedCreateWithoutEventInput = {
@@ -806,6 +837,7 @@ export type SourcingResponseUncheckedCreateWithoutEventInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scores?: Prisma.SourcingScoreUncheckedCreateNestedManyWithoutResponseInput
+  attachments?: Prisma.SourcingAttachmentUncheckedCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseCreateOrConnectWithoutEventInput = {
@@ -849,6 +881,7 @@ export type SourcingResponseCreateWithoutScoresInput = {
   updatedAt?: Date | string
   event: Prisma.SourcingEventCreateNestedOneWithoutResponsesInput
   supplier: Prisma.SupplierCreateNestedOneWithoutSourcingResponsesInput
+  attachments?: Prisma.SourcingAttachmentCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseUncheckedCreateWithoutScoresInput = {
@@ -866,6 +899,7 @@ export type SourcingResponseUncheckedCreateWithoutScoresInput = {
   submittedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  attachments?: Prisma.SourcingAttachmentUncheckedCreateNestedManyWithoutResponseInput
 }
 
 export type SourcingResponseCreateOrConnectWithoutScoresInput = {
@@ -899,6 +933,7 @@ export type SourcingResponseUpdateWithoutScoresInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   event?: Prisma.SourcingEventUpdateOneRequiredWithoutResponsesNestedInput
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingResponsesNestedInput
+  attachments?: Prisma.SourcingAttachmentUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateWithoutScoresInput = {
@@ -916,6 +951,95 @@ export type SourcingResponseUncheckedUpdateWithoutScoresInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  attachments?: Prisma.SourcingAttachmentUncheckedUpdateManyWithoutResponseNestedInput
+}
+
+export type SourcingResponseCreateWithoutAttachmentsInput = {
+  id?: string
+  round?: number
+  status?: $Enums.SourcingResponseStatus
+  currencyCode?: string
+  totalBid?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  deliveryDays?: number | null
+  paymentTerms?: string | null
+  technicalResponse?: string | null
+  commercialNotes?: string | null
+  submittedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  event: Prisma.SourcingEventCreateNestedOneWithoutResponsesInput
+  supplier: Prisma.SupplierCreateNestedOneWithoutSourcingResponsesInput
+  scores?: Prisma.SourcingScoreCreateNestedManyWithoutResponseInput
+}
+
+export type SourcingResponseUncheckedCreateWithoutAttachmentsInput = {
+  id?: string
+  sourcingEventId: string
+  supplierId: string
+  round?: number
+  status?: $Enums.SourcingResponseStatus
+  currencyCode?: string
+  totalBid?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  deliveryDays?: number | null
+  paymentTerms?: string | null
+  technicalResponse?: string | null
+  commercialNotes?: string | null
+  submittedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  scores?: Prisma.SourcingScoreUncheckedCreateNestedManyWithoutResponseInput
+}
+
+export type SourcingResponseCreateOrConnectWithoutAttachmentsInput = {
+  where: Prisma.SourcingResponseWhereUniqueInput
+  create: Prisma.XOR<Prisma.SourcingResponseCreateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedCreateWithoutAttachmentsInput>
+}
+
+export type SourcingResponseUpsertWithoutAttachmentsInput = {
+  update: Prisma.XOR<Prisma.SourcingResponseUpdateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedUpdateWithoutAttachmentsInput>
+  create: Prisma.XOR<Prisma.SourcingResponseCreateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedCreateWithoutAttachmentsInput>
+  where?: Prisma.SourcingResponseWhereInput
+}
+
+export type SourcingResponseUpdateToOneWithWhereWithoutAttachmentsInput = {
+  where?: Prisma.SourcingResponseWhereInput
+  data: Prisma.XOR<Prisma.SourcingResponseUpdateWithoutAttachmentsInput, Prisma.SourcingResponseUncheckedUpdateWithoutAttachmentsInput>
+}
+
+export type SourcingResponseUpdateWithoutAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  round?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumSourcingResponseStatusFieldUpdateOperationsInput | $Enums.SourcingResponseStatus
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  totalBid?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  deliveryDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  paymentTerms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  technicalResponse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commercialNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  event?: Prisma.SourcingEventUpdateOneRequiredWithoutResponsesNestedInput
+  supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingResponsesNestedInput
+  scores?: Prisma.SourcingScoreUpdateManyWithoutResponseNestedInput
+}
+
+export type SourcingResponseUncheckedUpdateWithoutAttachmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  sourcingEventId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  round?: Prisma.IntFieldUpdateOperationsInput | number
+  status?: Prisma.EnumSourcingResponseStatusFieldUpdateOperationsInput | $Enums.SourcingResponseStatus
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  totalBid?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  deliveryDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  paymentTerms?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  technicalResponse?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  commercialNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  scores?: Prisma.SourcingScoreUncheckedUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseCreateManySupplierInput = {
@@ -949,6 +1073,7 @@ export type SourcingResponseUpdateWithoutSupplierInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   event?: Prisma.SourcingEventUpdateOneRequiredWithoutResponsesNestedInput
   scores?: Prisma.SourcingScoreUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateWithoutSupplierInput = {
@@ -966,6 +1091,7 @@ export type SourcingResponseUncheckedUpdateWithoutSupplierInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scores?: Prisma.SourcingScoreUncheckedUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUncheckedUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateManyWithoutSupplierInput = {
@@ -1015,6 +1141,7 @@ export type SourcingResponseUpdateWithoutEventInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutSourcingResponsesNestedInput
   scores?: Prisma.SourcingScoreUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateWithoutEventInput = {
@@ -1032,6 +1159,7 @@ export type SourcingResponseUncheckedUpdateWithoutEventInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scores?: Prisma.SourcingScoreUncheckedUpdateManyWithoutResponseNestedInput
+  attachments?: Prisma.SourcingAttachmentUncheckedUpdateManyWithoutResponseNestedInput
 }
 
 export type SourcingResponseUncheckedUpdateManyWithoutEventInput = {
@@ -1057,10 +1185,12 @@ export type SourcingResponseUncheckedUpdateManyWithoutEventInput = {
 
 export type SourcingResponseCountOutputType = {
   scores: number
+  attachments: number
 }
 
 export type SourcingResponseCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scores?: boolean | SourcingResponseCountOutputTypeCountScoresArgs
+  attachments?: boolean | SourcingResponseCountOutputTypeCountAttachmentsArgs
 }
 
 /**
@@ -1078,6 +1208,13 @@ export type SourcingResponseCountOutputTypeDefaultArgs<ExtArgs extends runtime.T
  */
 export type SourcingResponseCountOutputTypeCountScoresArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SourcingScoreWhereInput
+}
+
+/**
+ * SourcingResponseCountOutputType without action
+ */
+export type SourcingResponseCountOutputTypeCountAttachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SourcingAttachmentWhereInput
 }
 
 
@@ -1099,6 +1236,7 @@ export type SourcingResponseSelect<ExtArgs extends runtime.Types.Extensions.Inte
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   scores?: boolean | Prisma.SourcingResponse$scoresArgs<ExtArgs>
+  attachments?: boolean | Prisma.SourcingResponse$attachmentsArgs<ExtArgs>
   _count?: boolean | Prisma.SourcingResponseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sourcingResponse"]>
 
@@ -1162,6 +1300,7 @@ export type SourcingResponseInclude<ExtArgs extends runtime.Types.Extensions.Int
   event?: boolean | Prisma.SourcingEventDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
   scores?: boolean | Prisma.SourcingResponse$scoresArgs<ExtArgs>
+  attachments?: boolean | Prisma.SourcingResponse$attachmentsArgs<ExtArgs>
   _count?: boolean | Prisma.SourcingResponseCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SourcingResponseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1179,6 +1318,7 @@ export type $SourcingResponsePayload<ExtArgs extends runtime.Types.Extensions.In
     event: Prisma.$SourcingEventPayload<ExtArgs>
     supplier: Prisma.$SupplierPayload<ExtArgs>
     scores: Prisma.$SourcingScorePayload<ExtArgs>[]
+    attachments: Prisma.$SourcingAttachmentPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1592,6 +1732,7 @@ export interface Prisma__SourcingResponseClient<T, Null = never, ExtArgs extends
   event<T extends Prisma.SourcingEventDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SourcingEventDefaultArgs<ExtArgs>>): Prisma.Prisma__SourcingEventClient<runtime.Types.Result.GetResult<Prisma.$SourcingEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   supplier<T extends Prisma.SupplierDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierDefaultArgs<ExtArgs>>): Prisma.Prisma__SupplierClient<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   scores<T extends Prisma.SourcingResponse$scoresArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SourcingResponse$scoresArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SourcingScorePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  attachments<T extends Prisma.SourcingResponse$attachmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SourcingResponse$attachmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SourcingAttachmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2057,6 +2198,30 @@ export type SourcingResponse$scoresArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.SourcingScoreScalarFieldEnum | Prisma.SourcingScoreScalarFieldEnum[]
+}
+
+/**
+ * SourcingResponse.attachments
+ */
+export type SourcingResponse$attachmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SourcingAttachment
+   */
+  select?: Prisma.SourcingAttachmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SourcingAttachment
+   */
+  omit?: Prisma.SourcingAttachmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SourcingAttachmentInclude<ExtArgs> | null
+  where?: Prisma.SourcingAttachmentWhereInput
+  orderBy?: Prisma.SourcingAttachmentOrderByWithRelationInput | Prisma.SourcingAttachmentOrderByWithRelationInput[]
+  cursor?: Prisma.SourcingAttachmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SourcingAttachmentScalarFieldEnum | Prisma.SourcingAttachmentScalarFieldEnum[]
 }
 
 /**
