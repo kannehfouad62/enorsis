@@ -20,20 +20,20 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
 import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
-  { href: "/app", label: "Command center", icon: Gauge },
-  { href: "/app/requests", label: "Purchase requests", icon: Boxes },
-  { href: "/app/sourcing", label: "Strategic sourcing", icon: Network },
-  { href: "/app/suppliers", label: "Supplier intelligence", icon: UsersRound },
-  { href: "/app/contracts", label: "Contracts", icon: FileCheck2 },
-  { href: "/app/spend", label: "Spend intelligence", icon: CircleDollarSign },
-  { href: "/app/agents", label: "AI agent workforce", icon: Bot },
-  { href: "/app/risk", label: "Risk & governance", icon: ShieldCheck },
+  { href: "/app", label: "Command center", icon: Gauge, roles: [] },
+  { href: "/app/requests", label: "Purchase requests", icon: Boxes, roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/sourcing", label: "Strategic sourcing", icon: Network, roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/suppliers", label: "Supplier intelligence", icon: UsersRound, roles: ["SUPPLIER_MANAGER", "BUYER", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/contracts", label: "Contracts", icon: FileCheck2, roles: ["LEGAL", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/spend", label: "Spend intelligence", icon: CircleDollarSign, roles: ["FINANCE", "PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/agents", label: "AI agent workforce", icon: Bot, roles: ["PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/risk", label: "Risk & governance", icon: ShieldCheck, roles: ["RISK_COMPLIANCE", "AUDITOR", "PLATFORM_AUDITOR", "TENANT_ADMIN", "TENANT_OWNER"] },
 ];
 
 interface AppShellProps {
@@ -43,12 +43,23 @@ interface AppShellProps {
     email?: string | null;
     tenantName: string;
     roles: string[];
+    mustChangePassword: boolean;
   };
 }
 
 export function AppShell({ children, user }: AppShellProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    if (
+      user.mustChangePassword &&
+      pathname !== "/app/settings/security"
+    ) {
+      router.replace("/app/settings/security");
+    }
+  }, [pathname, router, user.mustChangePassword]);
 
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-slate-950">
@@ -151,7 +162,12 @@ function SidebarContent({ pathname, user }: { pathname: string; user: AppShellPr
       <nav className="flex-1 overflow-y-auto px-4 pb-4">
         <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Workspace</p>
         <div className="space-y-1">
-          {navigation.map(({ href, label, icon: Icon }) => {
+          {navigation
+            .filter((item) =>
+              item.roles.length === 0 ||
+              item.roles.some((role) => user.roles.includes(role)),
+            )
+            .map(({ href, label, icon: Icon }) => {
             const active = href === "/app" ? pathname === href : pathname.startsWith(href);
             return (
               <Link
@@ -166,8 +182,18 @@ function SidebarContent({ pathname, user }: { pathname: string; user: AppShellPr
           })}
         </div>
         <p className="px-3 pb-2 pt-6 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Organization</p>
-        <Link href="/app/settings/organization" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
-          <Globe2 className="h-4 w-4" /> Global configuration
+        {user.roles.some((role) => ["PLATFORM_SUPER_ADMIN", "TENANT_OWNER", "TENANT_ADMIN"].includes(role)) ? (
+          <>
+            <Link href="/app/settings/organization" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
+              <Globe2 className="h-4 w-4" /> Global configuration
+            </Link>
+            <Link href="/app/settings/access" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
+              <UsersRound className="h-4 w-4" /> Access administration
+            </Link>
+          </>
+        ) : null}
+        <Link href="/app/settings/security" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
+          <ShieldCheck className="h-4 w-4" /> Account security
         </Link>
       </nav>
 

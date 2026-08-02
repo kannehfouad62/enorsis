@@ -3,7 +3,11 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { AppShell } from "@/components/app-shell/AppShell";
 
-export default async function ProductLayout({ children }: { children: React.ReactNode }) {
+export default async function ProductLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await auth();
 
   if (!session?.user) {
@@ -17,6 +21,7 @@ export default async function ProductLayout({ children }: { children: React.Reac
         email: session.user.email,
         tenantName: session.user.tenantName,
         roles: session.user.roles,
+        mustChangePassword: session.user.mustChangePassword,
       }}
     >
       {children}
