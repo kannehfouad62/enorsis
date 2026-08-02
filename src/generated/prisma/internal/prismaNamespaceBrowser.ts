@@ -77,7 +77,14 @@ export const ModelName = {
   SourcingRound: 'SourcingRound',
   SourcingQuestion: 'SourcingQuestion',
   SourcingAttachment: 'SourcingAttachment',
-  SealedBidOpening: 'SealedBidOpening'
+  SealedBidOpening: 'SealedBidOpening',
+  Contract: 'Contract',
+  ClauseTemplate: 'ClauseTemplate',
+  ContractClause: 'ContractClause',
+  ContractApproval: 'ContractApproval',
+  ContractObligation: 'ContractObligation',
+  ContractDocument: 'ContractDocument',
+  ContractRiskReview: 'ContractRiskReview'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -613,6 +620,136 @@ export const SealedBidOpeningScalarFieldEnum = {
 } as const
 
 export type SealedBidOpeningScalarFieldEnum = (typeof SealedBidOpeningScalarFieldEnum)[keyof typeof SealedBidOpeningScalarFieldEnum]
+
+
+export const ContractScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  sourcingEventId: 'sourcingEventId',
+  contractNumber: 'contractNumber',
+  title: 'title',
+  type: 'type',
+  status: 'status',
+  riskLevel: 'riskLevel',
+  currencyCode: 'currencyCode',
+  totalValue: 'totalValue',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  autoRenew: 'autoRenew',
+  renewalNoticeDays: 'renewalNoticeDays',
+  governingLaw: 'governingLaw',
+  ownerUserId: 'ownerUserId',
+  summary: 'summary',
+  approvedAt: 'approvedAt',
+  activatedAt: 'activatedAt',
+  terminatedAt: 'terminatedAt',
+  terminationReason: 'terminationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractScalarFieldEnum = (typeof ContractScalarFieldEnum)[keyof typeof ContractScalarFieldEnum]
+
+
+export const ClauseTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  category: 'category',
+  body: 'body',
+  riskLevel: 'riskLevel',
+  required: 'required',
+  version: 'version',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClauseTemplateScalarFieldEnum = (typeof ClauseTemplateScalarFieldEnum)[keyof typeof ClauseTemplateScalarFieldEnum]
+
+
+export const ContractClauseScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  clauseTemplateId: 'clauseTemplateId',
+  name: 'name',
+  category: 'category',
+  body: 'body',
+  riskLevel: 'riskLevel',
+  sequence: 'sequence',
+  negotiated: 'negotiated',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractClauseScalarFieldEnum = (typeof ContractClauseScalarFieldEnum)[keyof typeof ContractClauseScalarFieldEnum]
+
+
+export const ContractApprovalScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  approverUserId: 'approverUserId',
+  sequence: 'sequence',
+  decision: 'decision',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractApprovalScalarFieldEnum = (typeof ContractApprovalScalarFieldEnum)[keyof typeof ContractApprovalScalarFieldEnum]
+
+
+export const ContractObligationScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueDate: 'dueDate',
+  recurring: 'recurring',
+  recurrenceRule: 'recurrenceRule',
+  status: 'status',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractObligationScalarFieldEnum = (typeof ContractObligationScalarFieldEnum)[keyof typeof ContractObligationScalarFieldEnum]
+
+
+export const ContractDocumentScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  type: 'type',
+  name: 'name',
+  blobPathname: 'blobPathname',
+  storageUrl: 'storageUrl',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
+  uploadedByUserId: 'uploadedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type ContractDocumentScalarFieldEnum = (typeof ContractDocumentScalarFieldEnum)[keyof typeof ContractDocumentScalarFieldEnum]
+
+
+export const ContractRiskReviewScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  reviewerUserId: 'reviewerUserId',
+  riskLevel: 'riskLevel',
+  legalRisk: 'legalRisk',
+  commercialRisk: 'commercialRisk',
+  dataPrivacyRisk: 'dataPrivacyRisk',
+  complianceRisk: 'complianceRisk',
+  summary: 'summary',
+  reviewedAt: 'reviewedAt'
+} as const
+
+export type ContractRiskReviewScalarFieldEnum = (typeof ContractRiskReviewScalarFieldEnum)[keyof typeof ContractRiskReviewScalarFieldEnum]
 
 
 export const SortOrder = {

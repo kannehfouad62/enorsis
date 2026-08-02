@@ -152,3 +152,38 @@ export type SourcingAttachment = Prisma.SourcingAttachmentModel
  * 
  */
 export type SealedBidOpening = Prisma.SealedBidOpeningModel
+/**
+ * Model Contract
+ * 
+ */
+export type Contract = Prisma.ContractModel
+/**
+ * Model ClauseTemplate
+ * 
+ */
+export type ClauseTemplate = Prisma.ClauseTemplateModel
+/**
+ * Model ContractClause
+ * 
+ */
+export type ContractClause = Prisma.ContractClauseModel
+/**
+ * Model ContractApproval
+ * 
+ */
+export type ContractApproval = Prisma.ContractApprovalModel
+/**
+ * Model ContractObligation
+ * 
+ */
+export type ContractObligation = Prisma.ContractObligationModel
+/**
+ * Model ContractDocument
+ * 
+ */
+export type ContractDocument = Prisma.ContractDocumentModel
+/**
+ * Model ContractRiskReview
+ * 
+ */
+export type ContractRiskReview = Prisma.ContractRiskReviewModel

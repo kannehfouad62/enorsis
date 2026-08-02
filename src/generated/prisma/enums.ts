@@ -9,6 +9,86 @@
 * 🟢 You can import this file directly.
 */
 
+export const ContractStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  APPROVED: 'APPROVED',
+  ACTIVE: 'ACTIVE',
+  EXPIRED: 'EXPIRED',
+  TERMINATED: 'TERMINATED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ContractStatus = (typeof ContractStatus)[keyof typeof ContractStatus]
+
+
+export const ContractType = {
+  MASTER_SERVICE_AGREEMENT: 'MASTER_SERVICE_AGREEMENT',
+  PURCHASE_AGREEMENT: 'PURCHASE_AGREEMENT',
+  FRAMEWORK_AGREEMENT: 'FRAMEWORK_AGREEMENT',
+  STATEMENT_OF_WORK: 'STATEMENT_OF_WORK',
+  NDA: 'NDA',
+  SOFTWARE_LICENSE: 'SOFTWARE_LICENSE',
+  PROFESSIONAL_SERVICES: 'PROFESSIONAL_SERVICES',
+  OTHER: 'OTHER'
+} as const
+
+export type ContractType = (typeof ContractType)[keyof typeof ContractType]
+
+
+export const ContractRiskLevel = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type ContractRiskLevel = (typeof ContractRiskLevel)[keyof typeof ContractRiskLevel]
+
+
+export const ContractApprovalDecision = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  RETURNED: 'RETURNED'
+} as const
+
+export type ContractApprovalDecision = (typeof ContractApprovalDecision)[keyof typeof ContractApprovalDecision]
+
+
+export const ContractObligationStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  OVERDUE: 'OVERDUE',
+  WAIVED: 'WAIVED'
+} as const
+
+export type ContractObligationStatus = (typeof ContractObligationStatus)[keyof typeof ContractObligationStatus]
+
+
+export const ContractDocumentType = {
+  DRAFT: 'DRAFT',
+  EXECUTED: 'EXECUTED',
+  AMENDMENT: 'AMENDMENT',
+  EXHIBIT: 'EXHIBIT',
+  SUPPORTING: 'SUPPORTING'
+} as const
+
+export type ContractDocumentType = (typeof ContractDocumentType)[keyof typeof ContractDocumentType]
+
+
+export const ClauseRiskLevel = {
+  STANDARD: 'STANDARD',
+  REVIEW: 'REVIEW',
+  HIGH: 'HIGH',
+  PROHIBITED: 'PROHIBITED'
+} as const
+
+export type ClauseRiskLevel = (typeof ClauseRiskLevel)[keyof typeof ClauseRiskLevel]
+
+
 export const SourcingQuestionStatus = {
   OPEN: 'OPEN',
   ANSWERED: 'ANSWERED',

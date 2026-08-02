@@ -800,6 +800,125 @@ export type EnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
 }
 
+export type EnumContractTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractType | Prisma.EnumContractTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractTypeFilter<$PrismaModel> | $Enums.ContractType
+}
+
+export type EnumContractStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractStatus | Prisma.EnumContractStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractStatusFilter<$PrismaModel> | $Enums.ContractStatus
+}
+
+export type EnumContractRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractRiskLevel | Prisma.EnumContractRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel> | $Enums.ContractRiskLevel
+}
+
+export type EnumContractTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractType | Prisma.EnumContractTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractTypeWithAggregatesFilter<$PrismaModel> | $Enums.ContractType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractTypeFilter<$PrismaModel>
+}
+
+export type EnumContractStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractStatus | Prisma.EnumContractStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractStatusWithAggregatesFilter<$PrismaModel> | $Enums.ContractStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractStatusFilter<$PrismaModel>
+}
+
+export type EnumContractRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractRiskLevel | Prisma.EnumContractRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.ContractRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel>
+}
+
+export type EnumClauseRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClauseRiskLevel | Prisma.EnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel> | $Enums.ClauseRiskLevel
+}
+
+export type EnumClauseRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClauseRiskLevel | Prisma.EnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClauseRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.ClauseRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel>
+}
+
+export type EnumContractApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractApprovalDecision | Prisma.EnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel> | $Enums.ContractApprovalDecision
+}
+
+export type EnumContractApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractApprovalDecision | Prisma.EnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.ContractApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel>
+}
+
+export type EnumContractObligationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractObligationStatus | Prisma.EnumContractObligationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel> | $Enums.ContractObligationStatus
+}
+
+export type EnumContractObligationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractObligationStatus | Prisma.EnumContractObligationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractObligationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ContractObligationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel>
+}
+
+export type EnumContractDocumentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractDocumentType | Prisma.EnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel> | $Enums.ContractDocumentType
+}
+
+export type EnumContractDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractDocumentType | Prisma.EnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.ContractDocumentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1570,6 +1689,125 @@ export type NestedEnumSealedBidOpeningStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSealedBidOpeningStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumContractTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractType | Prisma.EnumContractTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractTypeFilter<$PrismaModel> | $Enums.ContractType
+}
+
+export type NestedEnumContractStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractStatus | Prisma.EnumContractStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractStatusFilter<$PrismaModel> | $Enums.ContractStatus
+}
+
+export type NestedEnumContractRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractRiskLevel | Prisma.EnumContractRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel> | $Enums.ContractRiskLevel
+}
+
+export type NestedEnumContractTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractType | Prisma.EnumContractTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractType[] | Prisma.ListEnumContractTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractTypeWithAggregatesFilter<$PrismaModel> | $Enums.ContractType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumContractStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractStatus | Prisma.EnumContractStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractStatus[] | Prisma.ListEnumContractStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractStatusWithAggregatesFilter<$PrismaModel> | $Enums.ContractStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumContractRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractRiskLevel | Prisma.EnumContractRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractRiskLevel[] | Prisma.ListEnumContractRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.ContractRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractRiskLevelFilter<$PrismaModel>
+}
+
+export type NestedEnumClauseRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClauseRiskLevel | Prisma.EnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel> | $Enums.ClauseRiskLevel
+}
+
+export type NestedEnumClauseRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClauseRiskLevel | Prisma.EnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ClauseRiskLevel[] | Prisma.ListEnumClauseRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumClauseRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.ClauseRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumClauseRiskLevelFilter<$PrismaModel>
+}
+
+export type NestedEnumContractApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractApprovalDecision | Prisma.EnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel> | $Enums.ContractApprovalDecision
+}
+
+export type NestedEnumContractApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractApprovalDecision | Prisma.EnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractApprovalDecision[] | Prisma.ListEnumContractApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.ContractApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractApprovalDecisionFilter<$PrismaModel>
+}
+
+export type NestedEnumContractObligationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractObligationStatus | Prisma.EnumContractObligationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel> | $Enums.ContractObligationStatus
+}
+
+export type NestedEnumContractObligationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractObligationStatus | Prisma.EnumContractObligationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractObligationStatus[] | Prisma.ListEnumContractObligationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractObligationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ContractObligationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractObligationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumContractDocumentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractDocumentType | Prisma.EnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel> | $Enums.ContractDocumentType
+}
+
+export type NestedEnumContractDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ContractDocumentType | Prisma.EnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ContractDocumentType[] | Prisma.ListEnumContractDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumContractDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.ContractDocumentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumContractDocumentTypeFilter<$PrismaModel>
 }
 
 
