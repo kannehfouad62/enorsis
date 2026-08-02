@@ -14,7 +14,8 @@ import {
 } from "@/core/auth/authorization";
 import {
   approvalDecisionSchema,
-  createPurchaseRequestSchema,
+  cancelRequestSchema,
+  purchaseRequestInputSchema,
 } from "./schemas";
 
 function value(formData: FormData, key: string) {
@@ -39,7 +40,34 @@ function linesFromForm(formData: FormData) {
   }));
 }
 
-export async function createPurchaseRequestAction(formData: FormData) {
+async function buildApprovalChain(tenantId: string, requesterId: string, amountUsd: number) {
+  const approvers = await prisma.membership.findMany({
+    where: {
+      tenantId,
+      status: "ACTIVE",
+      roles: { has: "APPROVER" },
+      userId: { not: requesterId },
+      approvalLimitUsd: { not: null },
+    },
+    orderBy: { approvalLimitUsd: "asc" },
+  });
+
+  const eligible = approvers.filter(
+    (membership) => Number(membership.approvalLimitUsd) >= amountUsd,
+  );
+
+  if (eligible.length === 0) return [];
+
+  const first = approvers.find(
+    (membership) => Number(membership.approvalLimitUsd) < amountUsd,
+  );
+  const chain = first ? [first, eligible[0]] : [eligible[0]];
+
+  return Array.from(new Map(chain.map((item) => [item.userId, item])).values())
+    .slice(0, 3);
+}
+
+export async function savePurchaseRequestAction(formData: FormData) {
   const user = await requireAnyRole([
     "REQUESTER",
     "BUYER",
@@ -48,7 +76,9 @@ export async function createPurchaseRequestAction(formData: FormData) {
     "TENANT_OWNER",
   ]);
 
-  const input = createPurchaseRequestSchema.parse({
+  const input = purchaseRequestInputSchema.parse({
+    purchaseRequestId: value(formData, "purchaseRequestId") || undefined,
+    intent: value(formData, "intent"),
     title: value(formData, "title"),
     businessJustification: value(formData, "businessJustification"),
     priority: value(formData, "priority"),
@@ -77,68 +107,97 @@ export async function createPurchaseRequestAction(formData: FormData) {
     0,
   );
   const usdEquivalent = totalAmount * input.exchangeRateToUsd;
-  const requestCount = await prisma.purchaseRequest.count({
-    where: { tenantId: user.tenantId },
-  });
-  const requestNumber = `PR-${new Date().getFullYear()}-${String(requestCount + 1).padStart(6, "0")}`;
+  const isSubmit = input.intent === "SUBMIT";
 
-  const approver = await prisma.membership.findFirst({
-    where: {
-      tenantId: user.tenantId,
-      status: "ACTIVE",
-      roles: { has: "APPROVER" },
-      userId: { not: user.id },
-      OR: [
-        { approvalLimitUsd: null },
-        { approvalLimitUsd: { gte: usdEquivalent } },
-      ],
-    },
-    orderBy: { approvalLimitUsd: "asc" },
-  });
-
-  const request = await prisma.$transaction(async (tx) => {
-    const created = await tx.purchaseRequest.create({
-      data: {
+  let existing = null;
+  if (input.purchaseRequestId) {
+    existing = await prisma.purchaseRequest.findFirstOrThrow({
+      where: {
+        id: input.purchaseRequestId,
         tenantId: user.tenantId,
         requesterId: user.id,
-        legalEntityId: input.legalEntityId || null,
-        siteId: input.siteId || null,
-        departmentId: input.departmentId || null,
-        requestNumber,
-        title: input.title,
-        businessJustification: input.businessJustification,
-        priority: input.priority as PurchaseRequestPriority,
-        neededByDate: input.neededByDate ? new Date(input.neededByDate) : null,
-        originalCurrency: input.originalCurrency,
-        totalAmount,
-        usdEquivalent,
-        exchangeRateToUsd: input.exchangeRateToUsd,
-        exchangeRateSource: input.exchangeRateSource,
-        exchangeRateDate: new Date(),
-        status: PurchaseRequestStatus.SUBMITTED,
-        submittedAt: new Date(),
-        lines: {
-          create: input.lines.map((line, index) => ({
-            lineNumber: index + 1,
-            description: line.description,
-            category: line.category || null,
-            quantity: line.quantity,
-            unitOfMeasure: line.unitOfMeasure,
-            unitPrice: line.unitPrice,
-            lineTotal: line.quantity * line.unitPrice,
-            supplierSuggestion: line.supplierSuggestion || null,
-          })),
-        },
-        approvals: approver
-          ? {
-              create: {
-                approverId: approver.userId,
-                sequence: 1,
-              },
-            }
-          : undefined,
+        status: { in: ["DRAFT", "REJECTED"] },
       },
     });
+  }
+
+  const requestNumber = existing
+    ? existing.requestNumber
+    : `PR-${new Date().getFullYear()}-${String(
+        (await prisma.purchaseRequest.count({ where: { tenantId: user.tenantId } })) + 1,
+      ).padStart(6, "0")}`;
+
+  const approvalChain = isSubmit
+    ? await buildApprovalChain(user.tenantId, user.id, usdEquivalent)
+    : [];
+
+  const status = isSubmit
+    ? approvalChain.length > 0
+      ? PurchaseRequestStatus.SUBMITTED
+      : PurchaseRequestStatus.UNDER_REVIEW
+    : PurchaseRequestStatus.DRAFT;
+
+  const request = await prisma.$transaction(async (tx) => {
+    if (existing) {
+      await tx.purchaseRequestLine.deleteMany({
+        where: { purchaseRequestId: existing.id },
+      });
+      await tx.purchaseRequestApproval.deleteMany({
+        where: { purchaseRequestId: existing.id },
+      });
+    }
+
+    const data = {
+      tenantId: user.tenantId,
+      requesterId: user.id,
+      legalEntityId: input.legalEntityId || null,
+      siteId: input.siteId || null,
+      departmentId: input.departmentId || null,
+      requestNumber,
+      title: input.title,
+      businessJustification: input.businessJustification,
+      priority: input.priority as PurchaseRequestPriority,
+      neededByDate: input.neededByDate ? new Date(input.neededByDate) : null,
+      originalCurrency: input.originalCurrency,
+      totalAmount,
+      usdEquivalent,
+      exchangeRateToUsd: input.exchangeRateToUsd,
+      exchangeRateSource: input.exchangeRateSource,
+      exchangeRateDate: new Date(),
+      status,
+      submittedAt: isSubmit ? new Date() : null,
+      approvedAt: null,
+      rejectedAt: null,
+      cancelledAt: null,
+      cancellationReason: null,
+      lines: {
+        create: input.lines.map((line, index) => ({
+          lineNumber: index + 1,
+          description: line.description,
+          category: line.category || null,
+          quantity: line.quantity,
+          unitOfMeasure: line.unitOfMeasure,
+          unitPrice: line.unitPrice,
+          lineTotal: line.quantity * line.unitPrice,
+          supplierSuggestion: line.supplierSuggestion || null,
+        })),
+      },
+      approvals: isSubmit && approvalChain.length
+        ? {
+            create: approvalChain.map((approver, index) => ({
+              approverId: approver.userId,
+              sequence: index + 1,
+            })),
+          }
+        : undefined,
+    };
+
+    const saved = existing
+      ? await tx.purchaseRequest.update({
+          where: { id: existing.id },
+          data: { ...data, revision: { increment: 1 } },
+        })
+      : await tx.purchaseRequest.create({ data });
 
     await tx.auditEvent.create({
       data: {
@@ -147,38 +206,23 @@ export async function createPurchaseRequestAction(formData: FormData) {
         actorType: "USER",
         actorId: user.id,
         actorLabel: user.email,
-        action: "purchase_request.submit",
+        action: isSubmit ? "purchase_request.submit" : "purchase_request.save_draft",
         resourceType: "PurchaseRequest",
-        resourceId: created.id,
-        after: {
-          requestNumber,
-          totalAmount,
-          originalCurrency: input.originalCurrency,
-          usdEquivalent,
-        },
+        resourceId: saved.id,
+        before: existing ? { status: existing.status, revision: existing.revision } : undefined,
+        after: { status, requestNumber, totalAmount, usdEquivalent },
       },
     });
 
-    return created;
+    return saved;
   });
 
-  if (!approver) {
-    await prisma.purchaseRequest.update({
-      where: { id: request.id },
-      data: { status: PurchaseRequestStatus.UNDER_REVIEW },
-    });
-  }
-
   revalidatePath("/app/requests");
+  revalidatePath(`/app/requests/${request.id}`);
 }
 
 export async function decidePurchaseRequestAction(formData: FormData) {
-  const user = await requireAnyRole([
-    "APPROVER",
-    "TENANT_ADMIN",
-    "TENANT_OWNER",
-  ]);
-
+  const user = await requireAnyRole(["APPROVER", "TENANT_ADMIN", "TENANT_OWNER"]);
   const input = approvalDecisionSchema.parse({
     purchaseRequestId: value(formData, "purchaseRequestId"),
     decision: value(formData, "decision"),
@@ -186,41 +230,52 @@ export async function decidePurchaseRequestAction(formData: FormData) {
   });
 
   const request = await prisma.purchaseRequest.findFirstOrThrow({
-    where: {
-      id: input.purchaseRequestId,
-      tenantId: user.tenantId,
-    },
-    include: {
-      approvals: true,
-    },
+    where: { id: input.purchaseRequestId, tenantId: user.tenantId },
+    include: { approvals: { orderBy: { sequence: "asc" } } },
   });
 
-  const approval = request.approvals.find(
-    (item) => item.approverId === user.id && item.decision === ApprovalDecision.PENDING,
+  const pending = request.approvals.find(
+    (item) => item.decision === ApprovalDecision.PENDING,
   );
+  const isAdmin = user.roles.some((role) => ["TENANT_ADMIN", "TENANT_OWNER"].includes(role));
 
-  if (!approval && !user.roles.some((role) => ["TENANT_ADMIN", "TENANT_OWNER"].includes(role))) {
-    throw new Error("No pending approval is assigned to this user.");
+  if (!pending || (pending.approverId !== user.id && !isAdmin)) {
+    throw new Error("This approval step is not assigned to the current user.");
   }
 
   assertApprovalAuthority(user.approvalLimitUsd, Number(request.usdEquivalent));
 
+  const laterApproval = request.approvals.find(
+    (item) => item.sequence > pending.sequence && item.decision === ApprovalDecision.PENDING,
+  );
+
   const nextStatus =
     input.decision === "APPROVED"
-      ? PurchaseRequestStatus.APPROVED
+      ? laterApproval
+        ? PurchaseRequestStatus.UNDER_REVIEW
+        : PurchaseRequestStatus.APPROVED
       : input.decision === "REJECTED"
         ? PurchaseRequestStatus.REJECTED
         : PurchaseRequestStatus.DRAFT;
 
   await prisma.$transaction(async (tx) => {
-    if (approval) {
-      await tx.purchaseRequestApproval.update({
-        where: { id: approval.id },
-        data: {
-          decision: input.decision as ApprovalDecision,
-          comments: input.comments || null,
-          decidedAt: new Date(),
+    await tx.purchaseRequestApproval.update({
+      where: { id: pending.id },
+      data: {
+        decision: input.decision as ApprovalDecision,
+        comments: input.comments || null,
+        decidedAt: new Date(),
+      },
+    });
+
+    if (input.decision !== "APPROVED") {
+      await tx.purchaseRequestApproval.updateMany({
+        where: {
+          purchaseRequestId: request.id,
+          sequence: { gt: pending.sequence },
+          decision: ApprovalDecision.PENDING,
         },
+        data: { decision: ApprovalDecision.RETURNED, decidedAt: new Date() },
       });
     }
 
@@ -243,11 +298,63 @@ export async function decidePurchaseRequestAction(formData: FormData) {
         action: `purchase_request.${input.decision.toLowerCase()}`,
         resourceType: "PurchaseRequest",
         resourceId: request.id,
-        before: { status: request.status },
+        before: { status: request.status, sequence: pending.sequence },
         after: { status: nextStatus, comments: input.comments },
       },
     });
   });
 
   revalidatePath("/app/requests");
+  revalidatePath(`/app/requests/${request.id}`);
+}
+
+export async function cancelPurchaseRequestAction(formData: FormData) {
+  const user = await requireAnyRole([
+    "REQUESTER",
+    "PROCUREMENT_MANAGER",
+    "TENANT_ADMIN",
+    "TENANT_OWNER",
+  ]);
+  const input = cancelRequestSchema.parse({
+    purchaseRequestId: value(formData, "purchaseRequestId"),
+    cancellationReason: value(formData, "cancellationReason"),
+  });
+
+  const request = await prisma.purchaseRequest.findFirstOrThrow({
+    where: { id: input.purchaseRequestId, tenantId: user.tenantId },
+  });
+
+  const isOwner = request.requesterId === user.id;
+  const isAdmin = user.roles.some((role) =>
+    ["PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"].includes(role),
+  );
+  if (!isOwner && !isAdmin) throw new Error("Cancellation is not authorized.");
+  if (request.status === "APPROVED") throw new Error("Approved requests cannot be cancelled here.");
+
+  await prisma.purchaseRequest.update({
+    where: { id: request.id },
+    data: {
+      status: PurchaseRequestStatus.CANCELLED,
+      cancelledAt: new Date(),
+      cancellationReason: input.cancellationReason,
+    },
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: user.tenantId,
+      userId: user.id,
+      actorType: "USER",
+      actorId: user.id,
+      actorLabel: user.email,
+      action: "purchase_request.cancel",
+      resourceType: "PurchaseRequest",
+      resourceId: request.id,
+      before: { status: request.status },
+      after: { status: "CANCELLED", reason: input.cancellationReason },
+    },
+  });
+
+  revalidatePath("/app/requests");
+  revalidatePath(`/app/requests/${request.id}`);
 }

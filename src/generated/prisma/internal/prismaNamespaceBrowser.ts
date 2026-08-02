@@ -298,6 +298,9 @@ export const PurchaseRequestScalarFieldEnum = {
   submittedAt: 'submittedAt',
   approvedAt: 'approvedAt',
   rejectedAt: 'rejectedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  revision: 'revision',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

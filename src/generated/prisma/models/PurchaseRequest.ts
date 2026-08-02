@@ -30,12 +30,14 @@ export type PurchaseRequestAvgAggregateOutputType = {
   totalAmount: runtime.Decimal | null
   usdEquivalent: runtime.Decimal | null
   exchangeRateToUsd: runtime.Decimal | null
+  revision: number | null
 }
 
 export type PurchaseRequestSumAggregateOutputType = {
   totalAmount: runtime.Decimal | null
   usdEquivalent: runtime.Decimal | null
   exchangeRateToUsd: runtime.Decimal | null
+  revision: number | null
 }
 
 export type PurchaseRequestMinAggregateOutputType = {
@@ -60,6 +62,9 @@ export type PurchaseRequestMinAggregateOutputType = {
   submittedAt: Date | null
   approvedAt: Date | null
   rejectedAt: Date | null
+  cancelledAt: Date | null
+  cancellationReason: string | null
+  revision: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -86,6 +91,9 @@ export type PurchaseRequestMaxAggregateOutputType = {
   submittedAt: Date | null
   approvedAt: Date | null
   rejectedAt: Date | null
+  cancelledAt: Date | null
+  cancellationReason: string | null
+  revision: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -112,6 +120,9 @@ export type PurchaseRequestCountAggregateOutputType = {
   submittedAt: number
   approvedAt: number
   rejectedAt: number
+  cancelledAt: number
+  cancellationReason: number
+  revision: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -122,12 +133,14 @@ export type PurchaseRequestAvgAggregateInputType = {
   totalAmount?: true
   usdEquivalent?: true
   exchangeRateToUsd?: true
+  revision?: true
 }
 
 export type PurchaseRequestSumAggregateInputType = {
   totalAmount?: true
   usdEquivalent?: true
   exchangeRateToUsd?: true
+  revision?: true
 }
 
 export type PurchaseRequestMinAggregateInputType = {
@@ -152,6 +165,9 @@ export type PurchaseRequestMinAggregateInputType = {
   submittedAt?: true
   approvedAt?: true
   rejectedAt?: true
+  cancelledAt?: true
+  cancellationReason?: true
+  revision?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -178,6 +194,9 @@ export type PurchaseRequestMaxAggregateInputType = {
   submittedAt?: true
   approvedAt?: true
   rejectedAt?: true
+  cancelledAt?: true
+  cancellationReason?: true
+  revision?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -204,6 +223,9 @@ export type PurchaseRequestCountAggregateInputType = {
   submittedAt?: true
   approvedAt?: true
   rejectedAt?: true
+  cancelledAt?: true
+  cancellationReason?: true
+  revision?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -317,6 +339,9 @@ export type PurchaseRequestGroupByOutputType = {
   submittedAt: Date | null
   approvedAt: Date | null
   rejectedAt: Date | null
+  cancelledAt: Date | null
+  cancellationReason: string | null
+  revision: number
   createdAt: Date
   updatedAt: Date
   _count: PurchaseRequestCountAggregateOutputType | null
@@ -366,6 +391,9 @@ export type PurchaseRequestWhereInput = {
   submittedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   rejectedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancelledAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancellationReason?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
+  revision?: Prisma.IntFilter<"PurchaseRequest"> | number
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -399,6 +427,9 @@ export type PurchaseRequestOrderByWithRelationInput = {
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   rejectedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  cancelledAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  cancellationReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  revision?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
@@ -436,6 +467,9 @@ export type PurchaseRequestWhereUniqueInput = Prisma.AtLeast<{
   submittedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   rejectedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancelledAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancellationReason?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
+  revision?: Prisma.IntFilter<"PurchaseRequest"> | number
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -469,6 +503,9 @@ export type PurchaseRequestOrderByWithAggregationInput = {
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   rejectedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  cancelledAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  cancellationReason?: Prisma.SortOrderInput | Prisma.SortOrder
+  revision?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.PurchaseRequestCountOrderByAggregateInput
@@ -503,6 +540,9 @@ export type PurchaseRequestScalarWhereWithAggregatesInput = {
   submittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PurchaseRequest"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PurchaseRequest"> | Date | string | null
   rejectedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PurchaseRequest"> | Date | string | null
+  cancelledAt?: Prisma.DateTimeNullableWithAggregatesFilter<"PurchaseRequest"> | Date | string | null
+  cancellationReason?: Prisma.StringNullableWithAggregatesFilter<"PurchaseRequest"> | string | null
+  revision?: Prisma.IntWithAggregatesFilter<"PurchaseRequest"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"PurchaseRequest"> | Date | string
 }
@@ -524,6 +564,9 @@ export type PurchaseRequestCreateInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -557,6 +600,9 @@ export type PurchaseRequestUncheckedCreateInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -580,6 +626,9 @@ export type PurchaseRequestUpdateInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -613,6 +662,9 @@ export type PurchaseRequestUncheckedUpdateInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -641,6 +693,9 @@ export type PurchaseRequestCreateManyInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -662,6 +717,9 @@ export type PurchaseRequestUpdateManyMutationInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -688,6 +746,9 @@ export type PurchaseRequestUncheckedUpdateManyInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -729,6 +790,9 @@ export type PurchaseRequestCountOrderByAggregateInput = {
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   rejectedAt?: Prisma.SortOrder
+  cancelledAt?: Prisma.SortOrder
+  cancellationReason?: Prisma.SortOrder
+  revision?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -737,6 +801,7 @@ export type PurchaseRequestAvgOrderByAggregateInput = {
   totalAmount?: Prisma.SortOrder
   usdEquivalent?: Prisma.SortOrder
   exchangeRateToUsd?: Prisma.SortOrder
+  revision?: Prisma.SortOrder
 }
 
 export type PurchaseRequestMaxOrderByAggregateInput = {
@@ -761,6 +826,9 @@ export type PurchaseRequestMaxOrderByAggregateInput = {
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   rejectedAt?: Prisma.SortOrder
+  cancelledAt?: Prisma.SortOrder
+  cancellationReason?: Prisma.SortOrder
+  revision?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -787,6 +855,9 @@ export type PurchaseRequestMinOrderByAggregateInput = {
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   rejectedAt?: Prisma.SortOrder
+  cancelledAt?: Prisma.SortOrder
+  cancellationReason?: Prisma.SortOrder
+  revision?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -795,6 +866,7 @@ export type PurchaseRequestSumOrderByAggregateInput = {
   totalAmount?: Prisma.SortOrder
   usdEquivalent?: Prisma.SortOrder
   exchangeRateToUsd?: Prisma.SortOrder
+  revision?: Prisma.SortOrder
 }
 
 export type PurchaseRequestScalarRelationFilter = {
@@ -1065,6 +1137,9 @@ export type PurchaseRequestCreateWithoutRequesterInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1096,6 +1171,9 @@ export type PurchaseRequestUncheckedCreateWithoutRequesterInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1153,6 +1231,9 @@ export type PurchaseRequestScalarWhereInput = {
   submittedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
   rejectedAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancelledAt?: Prisma.DateTimeNullableFilter<"PurchaseRequest"> | Date | string | null
+  cancellationReason?: Prisma.StringNullableFilter<"PurchaseRequest"> | string | null
+  revision?: Prisma.IntFilter<"PurchaseRequest"> | number
   createdAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"PurchaseRequest"> | Date | string
 }
@@ -1174,6 +1255,9 @@ export type PurchaseRequestCreateWithoutTenantInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   requester: Prisma.UserCreateNestedOneWithoutPurchaseRequestsInput
@@ -1205,6 +1289,9 @@ export type PurchaseRequestUncheckedCreateWithoutTenantInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1254,6 +1341,9 @@ export type PurchaseRequestCreateWithoutLegalEntityInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1285,6 +1375,9 @@ export type PurchaseRequestUncheckedCreateWithoutLegalEntityInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1334,6 +1427,9 @@ export type PurchaseRequestCreateWithoutSiteInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1365,6 +1461,9 @@ export type PurchaseRequestUncheckedCreateWithoutSiteInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1414,6 +1513,9 @@ export type PurchaseRequestCreateWithoutDepartmentInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1445,6 +1547,9 @@ export type PurchaseRequestUncheckedCreateWithoutDepartmentInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1494,6 +1599,9 @@ export type PurchaseRequestCreateWithoutLinesInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1526,6 +1634,9 @@ export type PurchaseRequestUncheckedCreateWithoutLinesInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   approvals?: Prisma.PurchaseRequestApprovalUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1564,6 +1675,9 @@ export type PurchaseRequestUpdateWithoutLinesInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -1596,6 +1710,9 @@ export type PurchaseRequestUncheckedUpdateWithoutLinesInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approvals?: Prisma.PurchaseRequestApprovalUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -1618,6 +1735,9 @@ export type PurchaseRequestCreateWithoutApprovalsInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutPurchaseRequestsInput
@@ -1650,6 +1770,9 @@ export type PurchaseRequestUncheckedCreateWithoutApprovalsInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedCreateNestedManyWithoutPurchaseRequestInput
@@ -1688,6 +1811,9 @@ export type PurchaseRequestUpdateWithoutApprovalsInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -1720,6 +1846,9 @@ export type PurchaseRequestUncheckedUpdateWithoutApprovalsInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -1746,6 +1875,9 @@ export type PurchaseRequestCreateManyRequesterInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1767,6 +1899,9 @@ export type PurchaseRequestUpdateWithoutRequesterInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -1798,6 +1933,9 @@ export type PurchaseRequestUncheckedUpdateWithoutRequesterInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -1825,6 +1963,9 @@ export type PurchaseRequestUncheckedUpdateManyWithoutRequesterInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1850,6 +1991,9 @@ export type PurchaseRequestCreateManyTenantInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1871,6 +2015,9 @@ export type PurchaseRequestUpdateWithoutTenantInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   requester?: Prisma.UserUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -1902,6 +2049,9 @@ export type PurchaseRequestUncheckedUpdateWithoutTenantInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -1929,6 +2079,9 @@ export type PurchaseRequestUncheckedUpdateManyWithoutTenantInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1954,6 +2107,9 @@ export type PurchaseRequestCreateManyLegalEntityInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1975,6 +2131,9 @@ export type PurchaseRequestUpdateWithoutLegalEntityInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -2006,6 +2165,9 @@ export type PurchaseRequestUncheckedUpdateWithoutLegalEntityInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -2033,6 +2195,9 @@ export type PurchaseRequestUncheckedUpdateManyWithoutLegalEntityInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -2058,6 +2223,9 @@ export type PurchaseRequestCreateManySiteInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -2079,6 +2247,9 @@ export type PurchaseRequestUpdateWithoutSiteInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -2110,6 +2281,9 @@ export type PurchaseRequestUncheckedUpdateWithoutSiteInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -2137,6 +2311,9 @@ export type PurchaseRequestUncheckedUpdateManyWithoutSiteInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -2162,6 +2339,9 @@ export type PurchaseRequestCreateManyDepartmentInput = {
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   rejectedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  revision?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -2183,6 +2363,9 @@ export type PurchaseRequestUpdateWithoutDepartmentInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseRequestsNestedInput
@@ -2214,6 +2397,9 @@ export type PurchaseRequestUncheckedUpdateWithoutDepartmentInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.PurchaseRequestLineUncheckedUpdateManyWithoutPurchaseRequestNestedInput
@@ -2241,6 +2427,9 @@ export type PurchaseRequestUncheckedUpdateManyWithoutDepartmentInput = {
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   rejectedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  revision?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -2307,6 +2496,9 @@ export type PurchaseRequestSelect<ExtArgs extends runtime.Types.Extensions.Inter
   submittedAt?: boolean
   approvedAt?: boolean
   rejectedAt?: boolean
+  cancelledAt?: boolean
+  cancellationReason?: boolean
+  revision?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -2341,6 +2533,9 @@ export type PurchaseRequestSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   submittedAt?: boolean
   approvedAt?: boolean
   rejectedAt?: boolean
+  cancelledAt?: boolean
+  cancellationReason?: boolean
+  revision?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -2372,6 +2567,9 @@ export type PurchaseRequestSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   submittedAt?: boolean
   approvedAt?: boolean
   rejectedAt?: boolean
+  cancelledAt?: boolean
+  cancellationReason?: boolean
+  revision?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -2403,11 +2601,14 @@ export type PurchaseRequestSelectScalar = {
   submittedAt?: boolean
   approvedAt?: boolean
   rejectedAt?: boolean
+  cancelledAt?: boolean
+  cancellationReason?: boolean
+  revision?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type PurchaseRequestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "requesterId" | "legalEntityId" | "siteId" | "departmentId" | "requestNumber" | "title" | "businessJustification" | "priority" | "status" | "neededByDate" | "originalCurrency" | "totalAmount" | "usdEquivalent" | "exchangeRateToUsd" | "exchangeRateSource" | "exchangeRateDate" | "submittedAt" | "approvedAt" | "rejectedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["purchaseRequest"]>
+export type PurchaseRequestOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "requesterId" | "legalEntityId" | "siteId" | "departmentId" | "requestNumber" | "title" | "businessJustification" | "priority" | "status" | "neededByDate" | "originalCurrency" | "totalAmount" | "usdEquivalent" | "exchangeRateToUsd" | "exchangeRateSource" | "exchangeRateDate" | "submittedAt" | "approvedAt" | "rejectedAt" | "cancelledAt" | "cancellationReason" | "revision" | "createdAt" | "updatedAt", ExtArgs["result"]["purchaseRequest"]>
 export type PurchaseRequestInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   requester?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -2466,6 +2667,9 @@ export type $PurchaseRequestPayload<ExtArgs extends runtime.Types.Extensions.Int
     submittedAt: Date | null
     approvedAt: Date | null
     rejectedAt: Date | null
+    cancelledAt: Date | null
+    cancellationReason: string | null
+    revision: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["purchaseRequest"]>
@@ -2919,6 +3123,9 @@ export interface PurchaseRequestFieldRefs {
   readonly submittedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly approvedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly rejectedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
+  readonly cancelledAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
+  readonly cancellationReason: Prisma.FieldRef<"PurchaseRequest", 'String'>
+  readonly revision: Prisma.FieldRef<"PurchaseRequest", 'Int'>
   readonly createdAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"PurchaseRequest", 'DateTime'>
 }

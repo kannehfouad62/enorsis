@@ -4,10 +4,8 @@ import {
   FilePlus2,
   ShieldCheck,
 } from "lucide-react";
-import {
-  createPurchaseRequestAction,
-  decidePurchaseRequestAction,
-} from "@/modules/purchase-requests/actions";
+import Link from "next/link";
+import { PurchaseRequestForm } from "@/components/purchase-requests/PurchaseRequestForm";
 import { getPurchaseRequestWorkspace } from "@/modules/purchase-requests/queries";
 
 const inputClass =
@@ -43,59 +41,19 @@ export default async function PurchaseRequestsPage() {
         <section className={`${cardClass} mt-6`}>
           <div className="flex items-center gap-3">
             <FilePlus2 className="h-5 w-5 text-blue-700" />
-            <h2 className="text-xl font-black">Create and submit request</h2>
+            <h2 className="text-xl font-black">Create purchase request</h2>
           </div>
-          <form action={createPurchaseRequestAction} className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            <Field label="Request title"><input className={inputClass} name="title" required /></Field>
-            <Field label="Priority">
-              <select className={inputClass} name="priority" defaultValue="NORMAL">
-                <option value="LOW">Low</option>
-                <option value="NORMAL">Normal</option>
-                <option value="HIGH">High</option>
-                <option value="CRITICAL">Critical</option>
-              </select>
-            </Field>
-            <Field label="Needed by"><input className={inputClass} name="neededByDate" type="date" /></Field>
-            <Field label="Currency"><input className={inputClass} name="originalCurrency" defaultValue={tenant.baseCurrencyCode} maxLength={3} required /></Field>
-            <Field label="Rate to USD"><input className={inputClass} name="exchangeRateToUsd" type="number" step="0.000001" defaultValue="1" required /></Field>
-            <Field label="Rate source"><input className={inputClass} name="exchangeRateSource" defaultValue="Manual approved rate" required /></Field>
-            <ScopeSelect label="Legal entity" name="legalEntityId" options={tenant.legalEntities} />
-            <ScopeSelect label="Site" name="siteId" options={tenant.sites} />
-            <ScopeSelect label="Department" name="departmentId" options={tenant.departments} />
-            <label className="text-sm font-bold text-slate-700 md:col-span-2 xl:col-span-4">
-              Business justification
-              <textarea className={`${inputClass} min-h-28`} name="businessJustification" required />
-            </label>
-
-            <div className="md:col-span-2 xl:col-span-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h3 className="font-black">Line item</h3>
-              <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-                <Field label="Description"><input className={inputClass} name="lineDescription" required /></Field>
-                <Field label="Category"><input className={inputClass} name="lineCategory" /></Field>
-                <Field label="Quantity"><input className={inputClass} name="lineQuantity" type="number" step="0.0001" defaultValue="1" required /></Field>
-                <Field label="Unit"><input className={inputClass} name="lineUnitOfMeasure" defaultValue="EA" required /></Field>
-                <Field label="Unit price"><input className={inputClass} name="lineUnitPrice" type="number" step="0.0001" required /></Field>
-                <Field label="Suggested supplier"><input className={inputClass} name="lineSupplierSuggestion" /></Field>
-              </div>
-            </div>
-
-            <div className="md:col-span-2 xl:col-span-4">
-              <button className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white hover:bg-blue-700" type="submit">
-                Submit purchase request
-              </button>
-            </div>
-          </form>
+          <PurchaseRequestForm
+            baseCurrency={tenant.baseCurrencyCode}
+            legalEntities={tenant.legalEntities}
+            sites={tenant.sites}
+            departments={tenant.departments}
+          />
         </section>
       ) : null}
 
       <div className="mt-6 space-y-5">
         {requests.map((request) => {
-          const pendingForUser = request.approvals.some(
-            (approval) =>
-              approval.approverId === session.user.id &&
-              approval.decision === "PENDING",
-          );
-
           return (
             <article key={request.id} className={cardClass}>
               <div className="flex flex-wrap items-start justify-between gap-4">
@@ -115,18 +73,7 @@ export default async function PurchaseRequestsPage() {
               </div>
 
               <p className="mt-5 text-sm leading-6 text-slate-600">{request.businessJustification}</p>
-
-              {pendingForUser ? (
-                <form action={decidePurchaseRequestAction} className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                  <input type="hidden" name="purchaseRequestId" value={request.id} />
-                  <textarea className={`${inputClass} min-h-20`} name="comments" placeholder="Decision comments" />
-                  <div className="mt-3 flex flex-wrap gap-3">
-                    <button className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="APPROVED">Approve</button>
-                    <button className="rounded-xl bg-amber-600 px-4 py-2.5 text-sm font-black text-white" name="decision" value="RETURNED">Return</button>
-                    <button className="rounded-xl bg-red-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="REJECTED">Reject</button>
-                  </div>
-                </form>
-              ) : null}
+              <Link className="mt-5 inline-flex rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white" href={`/app/requests/${request.id}`}>Open request</Link>
             </article>
           );
         })}
