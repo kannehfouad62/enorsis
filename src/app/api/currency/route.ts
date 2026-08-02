@@ -1,0 +1,3 @@
+import {NextRequest,NextResponse} from 'next/server';
+const rates:Record<string,number>={USD:1,EUR:.92,GBP:.78,CAD:1.36,AUD:1.51,NGN:1550,GHS:15.2,KES:129,ZAR:18.3,AED:3.67};
+export async function GET(request:NextRequest){const p=request.nextUrl.searchParams;const amount=Number(p.get('amount')??0);const currency=(p.get('currency')??'USD').toUpperCase();if(!Number.isFinite(amount)||!rates[currency])return NextResponse.json({error:'Invalid amount or currency'},{status:400});return NextResponse.json({base:'USD',currency,amount,converted:amount*rates[currency],rate:rates[currency],note:'Demo rate. Replace with a licensed FX data provider in production.'});}
