@@ -43,6 +43,16 @@ export const SupplierQualificationStatus = {
 export type SupplierQualificationStatus = (typeof SupplierQualificationStatus)[keyof typeof SupplierQualificationStatus]
 
 
+export const SupplierDocumentStatus = {
+  PENDING_VERIFICATION: 'PENDING_VERIFICATION',
+  VERIFIED: 'VERIFIED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type SupplierDocumentStatus = (typeof SupplierDocumentStatus)[keyof typeof SupplierDocumentStatus]
+
+
 export const SupplierDocumentType = {
   TAX: 'TAX',
   INSURANCE: 'INSURANCE',

@@ -32,6 +32,13 @@ enum SupplierQualificationStatus {
   DISQUALIFIED
 }
 
+enum SupplierDocumentStatus {
+  PENDING_VERIFICATION
+  VERIFIED
+  REJECTED
+  EXPIRED
+}
+
 enum SupplierDocumentType {
   TAX
   INSURANCE
@@ -517,19 +524,25 @@ model SupplierContact {
 }
 
 model SupplierDocument {
-  id          String               @id @default(cuid())
-  supplierId  String
-  type        SupplierDocumentType
-  name        String
-  storageUrl  String?
-  issuedAt    DateTime?
-  expiresAt   DateTime?
-  verifiedAt  DateTime?
-  verifiedBy  String?
-  supplier    Supplier             @relation(fields: [supplierId], references: [id], onDelete: Cascade)
-  createdAt   DateTime             @default(now())
-  updatedAt   DateTime             @updatedAt
+  id             String                 @id @default(cuid())
+  supplierId     String
+  type           SupplierDocumentType
+  status         SupplierDocumentStatus @default(PENDING_VERIFICATION)
+  name           String
+  blobPathname   String?
+  storageUrl     String?
+  contentType    String?
+  sizeBytes      Int?
+  issuedAt       DateTime?
+  expiresAt      DateTime?
+  verifiedAt     DateTime?
+  verifiedBy     String?
+  rejectionReason String?
+  supplier       Supplier               @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
 
   @@index([supplierId, type])
+  @@index([supplierId, status])
   @@index([expiresAt])
 }

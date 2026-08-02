@@ -20,20 +20,35 @@ export type SupplierDocumentModel = runtime.Types.Result.DefaultSelection<Prisma
 
 export type AggregateSupplierDocument = {
   _count: SupplierDocumentCountAggregateOutputType | null
+  _avg: SupplierDocumentAvgAggregateOutputType | null
+  _sum: SupplierDocumentSumAggregateOutputType | null
   _min: SupplierDocumentMinAggregateOutputType | null
   _max: SupplierDocumentMaxAggregateOutputType | null
+}
+
+export type SupplierDocumentAvgAggregateOutputType = {
+  sizeBytes: number | null
+}
+
+export type SupplierDocumentSumAggregateOutputType = {
+  sizeBytes: number | null
 }
 
 export type SupplierDocumentMinAggregateOutputType = {
   id: string | null
   supplierId: string | null
   type: $Enums.SupplierDocumentType | null
+  status: $Enums.SupplierDocumentStatus | null
   name: string | null
+  blobPathname: string | null
   storageUrl: string | null
+  contentType: string | null
+  sizeBytes: number | null
   issuedAt: Date | null
   expiresAt: Date | null
   verifiedAt: Date | null
   verifiedBy: string | null
+  rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -42,12 +57,17 @@ export type SupplierDocumentMaxAggregateOutputType = {
   id: string | null
   supplierId: string | null
   type: $Enums.SupplierDocumentType | null
+  status: $Enums.SupplierDocumentStatus | null
   name: string | null
+  blobPathname: string | null
   storageUrl: string | null
+  contentType: string | null
+  sizeBytes: number | null
   issuedAt: Date | null
   expiresAt: Date | null
   verifiedAt: Date | null
   verifiedBy: string | null
+  rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -56,28 +76,46 @@ export type SupplierDocumentCountAggregateOutputType = {
   id: number
   supplierId: number
   type: number
+  status: number
   name: number
+  blobPathname: number
   storageUrl: number
+  contentType: number
+  sizeBytes: number
   issuedAt: number
   expiresAt: number
   verifiedAt: number
   verifiedBy: number
+  rejectionReason: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
 
+export type SupplierDocumentAvgAggregateInputType = {
+  sizeBytes?: true
+}
+
+export type SupplierDocumentSumAggregateInputType = {
+  sizeBytes?: true
+}
+
 export type SupplierDocumentMinAggregateInputType = {
   id?: true
   supplierId?: true
   type?: true
+  status?: true
   name?: true
+  blobPathname?: true
   storageUrl?: true
+  contentType?: true
+  sizeBytes?: true
   issuedAt?: true
   expiresAt?: true
   verifiedAt?: true
   verifiedBy?: true
+  rejectionReason?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -86,12 +124,17 @@ export type SupplierDocumentMaxAggregateInputType = {
   id?: true
   supplierId?: true
   type?: true
+  status?: true
   name?: true
+  blobPathname?: true
   storageUrl?: true
+  contentType?: true
+  sizeBytes?: true
   issuedAt?: true
   expiresAt?: true
   verifiedAt?: true
   verifiedBy?: true
+  rejectionReason?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -100,12 +143,17 @@ export type SupplierDocumentCountAggregateInputType = {
   id?: true
   supplierId?: true
   type?: true
+  status?: true
   name?: true
+  blobPathname?: true
   storageUrl?: true
+  contentType?: true
+  sizeBytes?: true
   issuedAt?: true
   expiresAt?: true
   verifiedAt?: true
   verifiedBy?: true
+  rejectionReason?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -149,6 +197,18 @@ export type SupplierDocumentAggregateArgs<ExtArgs extends runtime.Types.Extensio
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: SupplierDocumentAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: SupplierDocumentSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: SupplierDocumentMinAggregateInputType
@@ -179,6 +239,8 @@ export type SupplierDocumentGroupByArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   _count?: SupplierDocumentCountAggregateInputType | true
+  _avg?: SupplierDocumentAvgAggregateInputType
+  _sum?: SupplierDocumentSumAggregateInputType
   _min?: SupplierDocumentMinAggregateInputType
   _max?: SupplierDocumentMaxAggregateInputType
 }
@@ -187,15 +249,22 @@ export type SupplierDocumentGroupByOutputType = {
   id: string
   supplierId: string
   type: $Enums.SupplierDocumentType
+  status: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname: string | null
   storageUrl: string | null
+  contentType: string | null
+  sizeBytes: number | null
   issuedAt: Date | null
   expiresAt: Date | null
   verifiedAt: Date | null
   verifiedBy: string | null
+  rejectionReason: string | null
   createdAt: Date
   updatedAt: Date
   _count: SupplierDocumentCountAggregateOutputType | null
+  _avg: SupplierDocumentAvgAggregateOutputType | null
+  _sum: SupplierDocumentSumAggregateOutputType | null
   _min: SupplierDocumentMinAggregateOutputType | null
   _max: SupplierDocumentMaxAggregateOutputType | null
 }
@@ -222,12 +291,17 @@ export type SupplierDocumentWhereInput = {
   id?: Prisma.StringFilter<"SupplierDocument"> | string
   supplierId?: Prisma.StringFilter<"SupplierDocument"> | string
   type?: Prisma.EnumSupplierDocumentTypeFilter<"SupplierDocument"> | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFilter<"SupplierDocument"> | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFilter<"SupplierDocument"> | string
+  blobPathname?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   storageUrl?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  contentType?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  sizeBytes?: Prisma.IntNullableFilter<"SupplierDocument"> | number | null
   issuedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedBy?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
@@ -237,12 +311,17 @@ export type SupplierDocumentOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  blobPathname?: Prisma.SortOrderInput | Prisma.SortOrder
   storageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  contentType?: Prisma.SortOrderInput | Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrderInput | Prisma.SortOrder
   issuedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedBy?: Prisma.SortOrderInput | Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   supplier?: Prisma.SupplierOrderByWithRelationInput
@@ -255,12 +334,17 @@ export type SupplierDocumentWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SupplierDocumentWhereInput | Prisma.SupplierDocumentWhereInput[]
   supplierId?: Prisma.StringFilter<"SupplierDocument"> | string
   type?: Prisma.EnumSupplierDocumentTypeFilter<"SupplierDocument"> | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFilter<"SupplierDocument"> | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFilter<"SupplierDocument"> | string
+  blobPathname?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   storageUrl?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  contentType?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  sizeBytes?: Prisma.IntNullableFilter<"SupplierDocument"> | number | null
   issuedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedBy?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
   supplier?: Prisma.XOR<Prisma.SupplierScalarRelationFilter, Prisma.SupplierWhereInput>
@@ -270,17 +354,24 @@ export type SupplierDocumentOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  blobPathname?: Prisma.SortOrderInput | Prisma.SortOrder
   storageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  contentType?: Prisma.SortOrderInput | Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrderInput | Prisma.SortOrder
   issuedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   expiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   verifiedBy?: Prisma.SortOrderInput | Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.SupplierDocumentCountOrderByAggregateInput
+  _avg?: Prisma.SupplierDocumentAvgOrderByAggregateInput
   _max?: Prisma.SupplierDocumentMaxOrderByAggregateInput
   _min?: Prisma.SupplierDocumentMinOrderByAggregateInput
+  _sum?: Prisma.SupplierDocumentSumOrderByAggregateInput
 }
 
 export type SupplierDocumentScalarWhereWithAggregatesInput = {
@@ -290,12 +381,17 @@ export type SupplierDocumentScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"SupplierDocument"> | string
   supplierId?: Prisma.StringWithAggregatesFilter<"SupplierDocument"> | string
   type?: Prisma.EnumSupplierDocumentTypeWithAggregatesFilter<"SupplierDocument"> | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusWithAggregatesFilter<"SupplierDocument"> | $Enums.SupplierDocumentStatus
   name?: Prisma.StringWithAggregatesFilter<"SupplierDocument"> | string
+  blobPathname?: Prisma.StringNullableWithAggregatesFilter<"SupplierDocument"> | string | null
   storageUrl?: Prisma.StringNullableWithAggregatesFilter<"SupplierDocument"> | string | null
+  contentType?: Prisma.StringNullableWithAggregatesFilter<"SupplierDocument"> | string | null
+  sizeBytes?: Prisma.IntNullableWithAggregatesFilter<"SupplierDocument"> | number | null
   issuedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierDocument"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierDocument"> | Date | string | null
   verifiedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierDocument"> | Date | string | null
   verifiedBy?: Prisma.StringNullableWithAggregatesFilter<"SupplierDocument"> | string | null
+  rejectionReason?: Prisma.StringNullableWithAggregatesFilter<"SupplierDocument"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SupplierDocument"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SupplierDocument"> | Date | string
 }
@@ -303,12 +399,17 @@ export type SupplierDocumentScalarWhereWithAggregatesInput = {
 export type SupplierDocumentCreateInput = {
   id?: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   supplier: Prisma.SupplierCreateNestedOneWithoutDocumentsInput
@@ -318,12 +419,17 @@ export type SupplierDocumentUncheckedCreateInput = {
   id?: string
   supplierId: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -331,12 +437,17 @@ export type SupplierDocumentUncheckedCreateInput = {
 export type SupplierDocumentUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.SupplierUpdateOneRequiredWithoutDocumentsNestedInput
@@ -346,12 +457,17 @@ export type SupplierDocumentUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -360,12 +476,17 @@ export type SupplierDocumentCreateManyInput = {
   id?: string
   supplierId: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -373,12 +494,17 @@ export type SupplierDocumentCreateManyInput = {
 export type SupplierDocumentUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -387,12 +513,17 @@ export type SupplierDocumentUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   supplierId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -411,26 +542,40 @@ export type SupplierDocumentCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  blobPathname?: Prisma.SortOrder
   storageUrl?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
   verifiedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type SupplierDocumentAvgOrderByAggregateInput = {
+  sizeBytes?: Prisma.SortOrder
 }
 
 export type SupplierDocumentMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  blobPathname?: Prisma.SortOrder
   storageUrl?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
   verifiedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -439,14 +584,23 @@ export type SupplierDocumentMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   supplierId?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  blobPathname?: Prisma.SortOrder
   storageUrl?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  sizeBytes?: Prisma.SortOrder
   issuedAt?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   verifiedAt?: Prisma.SortOrder
   verifiedBy?: Prisma.SortOrder
+  rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type SupplierDocumentSumOrderByAggregateInput = {
+  sizeBytes?: Prisma.SortOrder
 }
 
 export type SupplierDocumentCreateNestedManyWithoutSupplierInput = {
@@ -495,15 +649,32 @@ export type EnumSupplierDocumentTypeFieldUpdateOperationsInput = {
   set?: $Enums.SupplierDocumentType
 }
 
+export type EnumSupplierDocumentStatusFieldUpdateOperationsInput = {
+  set?: $Enums.SupplierDocumentStatus
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type SupplierDocumentCreateWithoutSupplierInput = {
   id?: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -511,12 +682,17 @@ export type SupplierDocumentCreateWithoutSupplierInput = {
 export type SupplierDocumentUncheckedCreateWithoutSupplierInput = {
   id?: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -554,12 +730,17 @@ export type SupplierDocumentScalarWhereInput = {
   id?: Prisma.StringFilter<"SupplierDocument"> | string
   supplierId?: Prisma.StringFilter<"SupplierDocument"> | string
   type?: Prisma.EnumSupplierDocumentTypeFilter<"SupplierDocument"> | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFilter<"SupplierDocument"> | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFilter<"SupplierDocument"> | string
+  blobPathname?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   storageUrl?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  contentType?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  sizeBytes?: Prisma.IntNullableFilter<"SupplierDocument"> | number | null
   issuedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   expiresAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedAt?: Prisma.DateTimeNullableFilter<"SupplierDocument"> | Date | string | null
   verifiedBy?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
+  rejectionReason?: Prisma.StringNullableFilter<"SupplierDocument"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierDocument"> | Date | string
 }
@@ -567,12 +748,17 @@ export type SupplierDocumentScalarWhereInput = {
 export type SupplierDocumentCreateManySupplierInput = {
   id?: string
   type: $Enums.SupplierDocumentType
+  status?: $Enums.SupplierDocumentStatus
   name: string
+  blobPathname?: string | null
   storageUrl?: string | null
+  contentType?: string | null
+  sizeBytes?: number | null
   issuedAt?: Date | string | null
   expiresAt?: Date | string | null
   verifiedAt?: Date | string | null
   verifiedBy?: string | null
+  rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -580,12 +766,17 @@ export type SupplierDocumentCreateManySupplierInput = {
 export type SupplierDocumentUpdateWithoutSupplierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -593,12 +784,17 @@ export type SupplierDocumentUpdateWithoutSupplierInput = {
 export type SupplierDocumentUncheckedUpdateWithoutSupplierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -606,12 +802,17 @@ export type SupplierDocumentUncheckedUpdateWithoutSupplierInput = {
 export type SupplierDocumentUncheckedUpdateManyWithoutSupplierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumSupplierDocumentTypeFieldUpdateOperationsInput | $Enums.SupplierDocumentType
+  status?: Prisma.EnumSupplierDocumentStatusFieldUpdateOperationsInput | $Enums.SupplierDocumentStatus
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  blobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   storageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sizeBytes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   expiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   verifiedBy?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -622,12 +823,17 @@ export type SupplierDocumentSelect<ExtArgs extends runtime.Types.Extensions.Inte
   id?: boolean
   supplierId?: boolean
   type?: boolean
+  status?: boolean
   name?: boolean
+  blobPathname?: boolean
   storageUrl?: boolean
+  contentType?: boolean
+  sizeBytes?: boolean
   issuedAt?: boolean
   expiresAt?: boolean
   verifiedAt?: boolean
   verifiedBy?: boolean
+  rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
@@ -637,12 +843,17 @@ export type SupplierDocumentSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   id?: boolean
   supplierId?: boolean
   type?: boolean
+  status?: boolean
   name?: boolean
+  blobPathname?: boolean
   storageUrl?: boolean
+  contentType?: boolean
+  sizeBytes?: boolean
   issuedAt?: boolean
   expiresAt?: boolean
   verifiedAt?: boolean
   verifiedBy?: boolean
+  rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
@@ -652,12 +863,17 @@ export type SupplierDocumentSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   id?: boolean
   supplierId?: boolean
   type?: boolean
+  status?: boolean
   name?: boolean
+  blobPathname?: boolean
   storageUrl?: boolean
+  contentType?: boolean
+  sizeBytes?: boolean
   issuedAt?: boolean
   expiresAt?: boolean
   verifiedAt?: boolean
   verifiedBy?: boolean
+  rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
@@ -667,17 +883,22 @@ export type SupplierDocumentSelectScalar = {
   id?: boolean
   supplierId?: boolean
   type?: boolean
+  status?: boolean
   name?: boolean
+  blobPathname?: boolean
   storageUrl?: boolean
+  contentType?: boolean
+  sizeBytes?: boolean
   issuedAt?: boolean
   expiresAt?: boolean
   verifiedAt?: boolean
   verifiedBy?: boolean
+  rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type SupplierDocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplierId" | "type" | "name" | "storageUrl" | "issuedAt" | "expiresAt" | "verifiedAt" | "verifiedBy" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierDocument"]>
+export type SupplierDocumentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "supplierId" | "type" | "status" | "name" | "blobPathname" | "storageUrl" | "contentType" | "sizeBytes" | "issuedAt" | "expiresAt" | "verifiedAt" | "verifiedBy" | "rejectionReason" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierDocument"]>
 export type SupplierDocumentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
 }
@@ -697,12 +918,17 @@ export type $SupplierDocumentPayload<ExtArgs extends runtime.Types.Extensions.In
     id: string
     supplierId: string
     type: $Enums.SupplierDocumentType
+    status: $Enums.SupplierDocumentStatus
     name: string
+    blobPathname: string | null
     storageUrl: string | null
+    contentType: string | null
+    sizeBytes: number | null
     issuedAt: Date | null
     expiresAt: Date | null
     verifiedAt: Date | null
     verifiedBy: string | null
+    rejectionReason: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["supplierDocument"]>
@@ -1132,12 +1358,17 @@ export interface SupplierDocumentFieldRefs {
   readonly id: Prisma.FieldRef<"SupplierDocument", 'String'>
   readonly supplierId: Prisma.FieldRef<"SupplierDocument", 'String'>
   readonly type: Prisma.FieldRef<"SupplierDocument", 'SupplierDocumentType'>
+  readonly status: Prisma.FieldRef<"SupplierDocument", 'SupplierDocumentStatus'>
   readonly name: Prisma.FieldRef<"SupplierDocument", 'String'>
+  readonly blobPathname: Prisma.FieldRef<"SupplierDocument", 'String'>
   readonly storageUrl: Prisma.FieldRef<"SupplierDocument", 'String'>
+  readonly contentType: Prisma.FieldRef<"SupplierDocument", 'String'>
+  readonly sizeBytes: Prisma.FieldRef<"SupplierDocument", 'Int'>
   readonly issuedAt: Prisma.FieldRef<"SupplierDocument", 'DateTime'>
   readonly expiresAt: Prisma.FieldRef<"SupplierDocument", 'DateTime'>
   readonly verifiedAt: Prisma.FieldRef<"SupplierDocument", 'DateTime'>
   readonly verifiedBy: Prisma.FieldRef<"SupplierDocument", 'String'>
+  readonly rejectionReason: Prisma.FieldRef<"SupplierDocument", 'String'>
   readonly createdAt: Prisma.FieldRef<"SupplierDocument", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SupplierDocument", 'DateTime'>
 }

@@ -1961,12 +1961,17 @@ export const SupplierDocumentScalarFieldEnum = {
   id: 'id',
   supplierId: 'supplierId',
   type: 'type',
+  status: 'status',
   name: 'name',
+  blobPathname: 'blobPathname',
   storageUrl: 'storageUrl',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
   issuedAt: 'issuedAt',
   expiresAt: 'expiresAt',
   verifiedAt: 'verifiedAt',
   verifiedBy: 'verifiedBy',
+  rejectionReason: 'rejectionReason',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2347,6 +2352,20 @@ export type EnumSupplierDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputT
  * Reference to a field of type 'SupplierDocumentType[]'
  */
 export type ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDocumentType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDocumentStatus'
+ */
+export type EnumSupplierDocumentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDocumentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDocumentStatus[]'
+ */
+export type ListEnumSupplierDocumentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDocumentStatus[]'>
     
 
 

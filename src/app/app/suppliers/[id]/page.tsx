@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { reviewSupplierAction } from "@/modules/suppliers/actions";
+import {
+  reviewSupplierDocumentAction,
+  uploadSupplierDocumentAction,
+} from "@/modules/suppliers/document-actions";
 import { getSupplierDetail } from "@/modules/suppliers/queries";
 
 const inputClass =
@@ -45,6 +49,85 @@ export default async function SupplierDetailPage({
                 <p className="mt-1 text-sm text-slate-500">{contact.title ?? "Supplier contact"}</p>
                 <p className="mt-2 text-sm">{contact.email ?? "No email"} · {contact.phone ?? "No phone"}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-2xl border border-slate-200 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-lg font-black">Compliance documents</h2>
+            <Link className="text-sm font-black text-blue-700" href="/app/suppliers/compliance">
+              Portfolio compliance
+            </Link>
+          </div>
+
+          {canReview ? (
+            <form action={uploadSupplierDocumentAction} className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+              <input type="hidden" name="supplierId" value={supplier.id} />
+              <label className="text-sm font-bold">Document type
+                <select className={inputClass} name="type" defaultValue="CERTIFICATION">
+                  <option value="TAX">Tax</option>
+                  <option value="INSURANCE">Insurance</option>
+                  <option value="CERTIFICATION">Certification</option>
+                  <option value="LICENSE">License</option>
+                  <option value="ESG">ESG</option>
+                  <option value="FINANCIAL">Financial</option>
+                  <option value="OTHER">Other</option>
+                </select>
+              </label>
+              <label className="text-sm font-bold">Issued date
+                <input className={inputClass} name="issuedAt" type="date" />
+              </label>
+              <label className="text-sm font-bold">Expiry date
+                <input className={inputClass} name="expiresAt" type="date" />
+              </label>
+              <label className="text-sm font-bold xl:col-span-2">Private file
+                <input className={inputClass} name="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.docx" required />
+              </label>
+              <div className="md:col-span-2 xl:col-span-5">
+                <button className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white" type="submit">
+                  Upload compliance document
+                </button>
+              </div>
+            </form>
+          ) : null}
+
+          <div className="mt-5 space-y-3">
+            {supplier.documents.map((document) => (
+              <article key={document.id} className="rounded-xl bg-slate-50 p-4">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[.14em] text-slate-400">{document.type}</p>
+                    <p className="mt-1 font-black">{document.name}</p>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Expires {document.expiresAt ? document.expiresAt.toLocaleDateString() : "not specified"}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-blue-700">
+                      {document.status.replaceAll("_", " ")}
+                    </span>
+                    {document.blobPathname ? (
+                      <a className="text-sm font-black text-blue-700" href={`/api/suppliers/documents/${document.id}`}>
+                        Download
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+
+                {canReview && document.status === "PENDING_VERIFICATION" ? (
+                  <form action={reviewSupplierDocumentAction} className="mt-4 flex flex-wrap gap-3">
+                    <input type="hidden" name="documentId" value={document.id} />
+                    <input className="min-w-64 flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm" name="rejectionReason" placeholder="Reason if rejected" />
+                    <button className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="VERIFIED">
+                      Verify
+                    </button>
+                    <button className="rounded-xl bg-red-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="REJECTED">
+                      Reject
+                    </button>
+                  </form>
+                ) : null}
+              </article>
             ))}
           </div>
         </section>

@@ -391,12 +391,17 @@ export const SupplierDocumentScalarFieldEnum = {
   id: 'id',
   supplierId: 'supplierId',
   type: 'type',
+  status: 'status',
   name: 'name',
+  blobPathname: 'blobPathname',
   storageUrl: 'storageUrl',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
   issuedAt: 'issuedAt',
   expiresAt: 'expiresAt',
   verifiedAt: 'verifiedAt',
   verifiedBy: 'verifiedBy',
+  rejectionReason: 'rejectionReason',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
