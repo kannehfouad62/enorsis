@@ -1,5 +1,6 @@
 "use server";
 
+import { hash } from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { MembershipStatus, PlatformRole } from "@/generated/prisma/enums";
@@ -39,6 +40,7 @@ export async function inviteMemberAction(formData: FormData) {
     name: value(formData, "name"),
     jobTitle: value(formData, "jobTitle"),
     employeeId: value(formData, "employeeId"),
+    temporaryPassword: value(formData, "temporaryPassword"),
     roles: values(formData, "roles"),
     approvalLimitUsd: value(formData, "approvalLimitUsd") || undefined,
     legalEntityScopeIds: values(formData, "legalEntityScopeIds"),
@@ -46,11 +48,24 @@ export async function inviteMemberAction(formData: FormData) {
     departmentScopeIds: values(formData, "departmentScopeIds"),
   });
 
+  const passwordHash = await hash(input.temporaryPassword, 12);
+
   await prisma.$transaction(async (tx) => {
     const user = await tx.user.upsert({
       where: { email: input.email },
-      update: { name: input.name },
-      create: { email: input.email, name: input.name },
+      update: {
+        name: input.name,
+        passwordHash,
+        passwordChangedAt: new Date(),
+        isActive: true,
+      },
+      create: {
+        email: input.email,
+        name: input.name,
+        passwordHash,
+        passwordChangedAt: new Date(),
+        isActive: true,
+      },
     });
 
     const membership = await tx.membership.upsert({
@@ -113,6 +128,7 @@ export async function updateMembershipAction(formData: FormData) {
     status: value(formData, "status"),
     jobTitle: value(formData, "jobTitle"),
     employeeId: value(formData, "employeeId"),
+    temporaryPassword: value(formData, "temporaryPassword"),
     roles: values(formData, "roles"),
     approvalLimitUsd: value(formData, "approvalLimitUsd") || undefined,
     legalEntityScopeIds: values(formData, "legalEntityScopeIds"),

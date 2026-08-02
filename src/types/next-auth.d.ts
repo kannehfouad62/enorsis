@@ -4,7 +4,12 @@ interface EnorsisIdentity {
   tenantId: string;
   tenantSlug: string;
   tenantName: string;
+  membershipId: string;
   roles: string[];
+  approvalLimitUsd: string | null;
+  legalEntityScopeIds: string[];
+  siteScopeIds: string[];
+  departmentScopeIds: string[];
 }
 
 declare module "next-auth" {

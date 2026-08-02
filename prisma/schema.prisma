@@ -99,6 +99,8 @@ model User {
   emailVerified DateTime?
   name          String?
   image         String?
+  passwordHash  String?
+  passwordChangedAt DateTime?
   locale        String       @default("en-US")
   timeZone      String       @default("UTC")
   isActive      Boolean      @default(true)

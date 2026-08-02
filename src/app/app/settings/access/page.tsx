@@ -33,6 +33,7 @@ export default async function AccessAdministrationPage() {
           <Field label="Email"><input className={inputClass} name="email" type="email" required /></Field>
           <Field label="Job title"><input className={inputClass} name="jobTitle" /></Field>
           <Field label="Employee ID"><input className={inputClass} name="employeeId" /></Field>
+          <Field label="Temporary password"><input className={inputClass} name="temporaryPassword" type="password" minLength={12} required /></Field>
           <Field label="Approval limit (USD)"><input className={inputClass} name="approvalLimitUsd" type="number" min="0" step="0.01" /></Field>
           <ScopeSelect name="legalEntityScopeIds" label="Legal entity scope" options={tenant.legalEntities} />
           <ScopeSelect name="siteScopeIds" label="Site scope" options={tenant.sites} />
