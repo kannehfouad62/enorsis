@@ -14,26 +14,30 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "^7.0.0",
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
+    "dotenv": "^17.4.2",
     "framer-motion": "^12.0.0",
     "lucide-react": "^0.468.0",
     "next": "^16.0.0",
+    "next-auth": "^5.0.0-beta.30",
+    "pg": "^8.22.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.15.0",
-    "zod": "^3.24.0",
-    "dotenv": "^17.2.0",
-    "next-auth": "^5.0.0-beta.30"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.10.0",
+    "@types/pg": "^8.20.3",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
-    "prisma": "^7.0.0",
+    "prisma": "^7.9.1",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.0",
-    "@tailwindcss/postcss": "^4.0.0"
+    "tsx": "^4.23.4",
+    "typescript": "^5.7.0"
   }
 }
