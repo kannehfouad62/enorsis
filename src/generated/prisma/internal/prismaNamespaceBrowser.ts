@@ -85,7 +85,9 @@ export const ModelName = {
   ContractObligation: 'ContractObligation',
   ContractDocument: 'ContractDocument',
   ContractRiskReview: 'ContractRiskReview',
-  ContractAmendment: 'ContractAmendment'
+  ContractAmendment: 'ContractAmendment',
+  AiPromptTemplate: 'AiPromptTemplate',
+  AiExecution: 'AiExecution'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -771,6 +773,55 @@ export const ContractAmendmentScalarFieldEnum = {
 } as const
 
 export type ContractAmendmentScalarFieldEnum = (typeof ContractAmendmentScalarFieldEnum)[keyof typeof ContractAmendmentScalarFieldEnum]
+
+
+export const AiPromptTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  capability: 'capability',
+  name: 'name',
+  systemPrompt: 'systemPrompt',
+  version: 'version',
+  isActive: 'isActive',
+  requiresReview: 'requiresReview',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiPromptTemplateScalarFieldEnum = (typeof AiPromptTemplateScalarFieldEnum)[keyof typeof AiPromptTemplateScalarFieldEnum]
+
+
+export const AiExecutionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  userId: 'userId',
+  capability: 'capability',
+  promptTemplateId: 'promptTemplateId',
+  promptVersion: 'promptVersion',
+  model: 'model',
+  inputText: 'inputText',
+  outputText: 'outputText',
+  status: 'status',
+  reviewStatus: 'reviewStatus',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  inputTokens: 'inputTokens',
+  outputTokens: 'outputTokens',
+  totalTokens: 'totalTokens',
+  latencyMs: 'latencyMs',
+  errorMessage: 'errorMessage',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  completedAt: 'completedAt',
+  reviewedAt: 'reviewedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiExecutionScalarFieldEnum = (typeof AiExecutionScalarFieldEnum)[keyof typeof AiExecutionScalarFieldEnum]
 
 
 export const SortOrder = {

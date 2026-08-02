@@ -9,6 +9,40 @@
 * 🟢 You can import this file directly.
 */
 
+export const AiExecutionStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type AiExecutionStatus = (typeof AiExecutionStatus)[keyof typeof AiExecutionStatus]
+
+
+export const AiReviewStatus = {
+  NOT_REQUIRED: 'NOT_REQUIRED',
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type AiReviewStatus = (typeof AiReviewStatus)[keyof typeof AiReviewStatus]
+
+
+export const AiCapability = {
+  PROCUREMENT_COPILOT: 'PROCUREMENT_COPILOT',
+  RFX_DRAFT: 'RFX_DRAFT',
+  SUPPLIER_ANALYSIS: 'SUPPLIER_ANALYSIS',
+  CONTRACT_REVIEW: 'CONTRACT_REVIEW',
+  NEGOTIATION_ADVISOR: 'NEGOTIATION_ADVISOR',
+  SPEND_ANALYSIS: 'SPEND_ANALYSIS',
+  RISK_BRIEF: 'RISK_BRIEF',
+  EXECUTIVE_BRIEF: 'EXECUTIVE_BRIEF'
+} as const
+
+export type AiCapability = (typeof AiCapability)[keyof typeof AiCapability]
+
+
 export const ContractAmendmentStatus = {
   DRAFT: 'DRAFT',
   IN_REVIEW: 'IN_REVIEW',

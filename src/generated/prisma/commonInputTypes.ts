@@ -936,6 +936,57 @@ export type EnumContractAmendmentStatusWithAggregatesFilter<$PrismaModel = never
   _max?: Prisma.NestedEnumContractAmendmentStatusFilter<$PrismaModel>
 }
 
+export type EnumAiCapabilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiCapability | Prisma.EnumAiCapabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel> | $Enums.AiCapability
+}
+
+export type EnumAiCapabilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiCapability | Prisma.EnumAiCapabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiCapabilityWithAggregatesFilter<$PrismaModel> | $Enums.AiCapability
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel>
+}
+
+export type EnumAiExecutionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiExecutionStatus | Prisma.EnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel> | $Enums.AiExecutionStatus
+}
+
+export type EnumAiReviewStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiReviewStatus | Prisma.EnumAiReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel> | $Enums.AiReviewStatus
+}
+
+export type EnumAiExecutionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiExecutionStatus | Prisma.EnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiExecutionStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiExecutionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel>
+}
+
+export type EnumAiReviewStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiReviewStatus | Prisma.EnumAiReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiReviewStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiReviewStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1842,6 +1893,57 @@ export type NestedEnumContractAmendmentStatusWithAggregatesFilter<$PrismaModel =
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumContractAmendmentStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumContractAmendmentStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumAiCapabilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiCapability | Prisma.EnumAiCapabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel> | $Enums.AiCapability
+}
+
+export type NestedEnumAiCapabilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiCapability | Prisma.EnumAiCapabilityFieldRefInput<$PrismaModel>
+  in?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiCapability[] | Prisma.ListEnumAiCapabilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiCapabilityWithAggregatesFilter<$PrismaModel> | $Enums.AiCapability
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiCapabilityFilter<$PrismaModel>
+}
+
+export type NestedEnumAiExecutionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiExecutionStatus | Prisma.EnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel> | $Enums.AiExecutionStatus
+}
+
+export type NestedEnumAiReviewStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiReviewStatus | Prisma.EnumAiReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel> | $Enums.AiReviewStatus
+}
+
+export type NestedEnumAiExecutionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiExecutionStatus | Prisma.EnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiExecutionStatus[] | Prisma.ListEnumAiExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiExecutionStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiExecutionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiExecutionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumAiReviewStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiReviewStatus | Prisma.EnumAiReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiReviewStatus[] | Prisma.ListEnumAiReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiReviewStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiReviewStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
 }
 
 

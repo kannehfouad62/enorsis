@@ -431,7 +431,9 @@ export const ModelName = {
   ContractObligation: 'ContractObligation',
   ContractDocument: 'ContractDocument',
   ContractRiskReview: 'ContractRiskReview',
-  ContractAmendment: 'ContractAmendment'
+  ContractAmendment: 'ContractAmendment',
+  AiPromptTemplate: 'AiPromptTemplate',
+  AiExecution: 'AiExecution'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -447,7 +449,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3041,6 +3043,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AiPromptTemplate: {
+      payload: Prisma.$AiPromptTemplatePayload<ExtArgs>
+      fields: Prisma.AiPromptTemplateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiPromptTemplateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiPromptTemplateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        findFirst: {
+          args: Prisma.AiPromptTemplateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiPromptTemplateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        findMany: {
+          args: Prisma.AiPromptTemplateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>[]
+        }
+        create: {
+          args: Prisma.AiPromptTemplateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        createMany: {
+          args: Prisma.AiPromptTemplateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiPromptTemplateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>[]
+        }
+        delete: {
+          args: Prisma.AiPromptTemplateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        update: {
+          args: Prisma.AiPromptTemplateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        deleteMany: {
+          args: Prisma.AiPromptTemplateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiPromptTemplateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiPromptTemplateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>[]
+        }
+        upsert: {
+          args: Prisma.AiPromptTemplateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiPromptTemplatePayload>
+        }
+        aggregate: {
+          args: Prisma.AiPromptTemplateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiPromptTemplate>
+        }
+        groupBy: {
+          args: Prisma.AiPromptTemplateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiPromptTemplateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiPromptTemplateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiPromptTemplateCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiExecution: {
+      payload: Prisma.$AiExecutionPayload<ExtArgs>
+      fields: Prisma.AiExecutionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiExecutionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiExecutionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        findFirst: {
+          args: Prisma.AiExecutionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiExecutionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        findMany: {
+          args: Prisma.AiExecutionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>[]
+        }
+        create: {
+          args: Prisma.AiExecutionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        createMany: {
+          args: Prisma.AiExecutionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiExecutionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>[]
+        }
+        delete: {
+          args: Prisma.AiExecutionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        update: {
+          args: Prisma.AiExecutionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiExecutionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiExecutionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiExecutionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiExecutionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiExecutionPayload>
+        }
+        aggregate: {
+          args: Prisma.AiExecutionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiExecution>
+        }
+        groupBy: {
+          args: Prisma.AiExecutionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiExecutionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiExecutionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiExecutionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -3749,6 +3899,55 @@ export const ContractAmendmentScalarFieldEnum = {
 export type ContractAmendmentScalarFieldEnum = (typeof ContractAmendmentScalarFieldEnum)[keyof typeof ContractAmendmentScalarFieldEnum]
 
 
+export const AiPromptTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  capability: 'capability',
+  name: 'name',
+  systemPrompt: 'systemPrompt',
+  version: 'version',
+  isActive: 'isActive',
+  requiresReview: 'requiresReview',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiPromptTemplateScalarFieldEnum = (typeof AiPromptTemplateScalarFieldEnum)[keyof typeof AiPromptTemplateScalarFieldEnum]
+
+
+export const AiExecutionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  userId: 'userId',
+  capability: 'capability',
+  promptTemplateId: 'promptTemplateId',
+  promptVersion: 'promptVersion',
+  model: 'model',
+  inputText: 'inputText',
+  outputText: 'outputText',
+  status: 'status',
+  reviewStatus: 'reviewStatus',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  inputTokens: 'inputTokens',
+  outputTokens: 'outputTokens',
+  totalTokens: 'totalTokens',
+  latencyMs: 'latencyMs',
+  errorMessage: 'errorMessage',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  completedAt: 'completedAt',
+  reviewedAt: 'reviewedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiExecutionScalarFieldEnum = (typeof AiExecutionScalarFieldEnum)[keyof typeof AiExecutionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4406,6 +4605,48 @@ export type ListEnumContractAmendmentStatusFieldRefInput<$PrismaModel> = FieldRe
 
 
 /**
+ * Reference to a field of type 'AiCapability'
+ */
+export type EnumAiCapabilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiCapability'>
+    
+
+
+/**
+ * Reference to a field of type 'AiCapability[]'
+ */
+export type ListEnumAiCapabilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiCapability[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AiExecutionStatus'
+ */
+export type EnumAiExecutionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiExecutionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AiExecutionStatus[]'
+ */
+export type ListEnumAiExecutionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiExecutionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AiReviewStatus'
+ */
+export type EnumAiReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiReviewStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AiReviewStatus[]'
+ */
+export type ListEnumAiReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiReviewStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4604,6 +4845,8 @@ export type GlobalOmitConfig = {
   contractDocument?: Prisma.ContractDocumentOmit
   contractRiskReview?: Prisma.ContractRiskReviewOmit
   contractAmendment?: Prisma.ContractAmendmentOmit
+  aiPromptTemplate?: Prisma.AiPromptTemplateOmit
+  aiExecution?: Prisma.AiExecutionOmit
 }
 
 /* Types for Logging */

@@ -192,3 +192,13 @@ export type ContractRiskReview = Prisma.ContractRiskReviewModel
  * 
  */
 export type ContractAmendment = Prisma.ContractAmendmentModel
+/**
+ * Model AiPromptTemplate
+ * 
+ */
+export type AiPromptTemplate = Prisma.AiPromptTemplateModel
+/**
+ * Model AiExecution
+ * 
+ */
+export type AiExecution = Prisma.AiExecutionModel
