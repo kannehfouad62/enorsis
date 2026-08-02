@@ -715,6 +715,40 @@ export type EnumSourcingAwardStatusWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumSourcingAwardStatusFilter<$PrismaModel>
 }
 
+export type EnumSourcingEvaluatorStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingEvaluatorStatus | Prisma.EnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel> | $Enums.SourcingEvaluatorStatus
+}
+
+export type EnumSourcingEvaluatorStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingEvaluatorStatus | Prisma.EnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingEvaluatorStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingEvaluatorStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel>
+}
+
+export type EnumSourcingRoundStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingRoundStatus | Prisma.EnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel> | $Enums.SourcingRoundStatus
+}
+
+export type EnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingRoundStatus | Prisma.EnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingRoundStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1400,6 +1434,40 @@ export type NestedEnumSourcingAwardStatusWithAggregatesFilter<$PrismaModel = nev
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSourcingAwardStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSourcingAwardStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingEvaluatorStatus | Prisma.EnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel> | $Enums.SourcingEvaluatorStatus
+}
+
+export type NestedEnumSourcingEvaluatorStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingEvaluatorStatus | Prisma.EnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingEvaluatorStatus[] | Prisma.ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingEvaluatorStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingEvaluatorStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingEvaluatorStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSourcingRoundStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingRoundStatus | Prisma.EnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel> | $Enums.SourcingRoundStatus
+}
+
+export type NestedEnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SourcingRoundStatus | Prisma.EnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SourcingRoundStatus[] | Prisma.ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSourcingRoundStatusWithAggregatesFilter<$PrismaModel> | $Enums.SourcingRoundStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSourcingRoundStatusFilter<$PrismaModel>
 }
 
 

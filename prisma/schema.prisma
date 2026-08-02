@@ -7,6 +7,20 @@ datasource db {
   provider = "postgresql"
 }
 
+enum SourcingEvaluatorStatus {
+  ASSIGNED
+  IN_PROGRESS
+  COMPLETED
+  REMOVED
+}
+
+enum SourcingRoundStatus {
+  DRAFT
+  OPEN
+  CLOSED
+  CANCELLED
+}
+
 enum SourcingAwardStatus {
   DRAFT
   RECOMMENDED
@@ -621,6 +635,8 @@ model SourcingEvent {
   invitations        SourcingInvitation[]
   responses          SourcingResponse[]
   award              SourcingAward?
+  evaluators         SourcingEvaluator[]
+  rounds             SourcingRound[]
   createdAt          DateTime            @default(now())
   updatedAt          DateTime            @updatedAt
 
@@ -716,4 +732,39 @@ model SourcingAward {
 
   @@index([supplierId])
   @@index([status])
+}
+
+
+model SourcingEvaluator {
+  id              String                  @id @default(cuid())
+  sourcingEventId String
+  userId          String
+  status          SourcingEvaluatorStatus @default(ASSIGNED)
+  assignedByUserId String
+  assignedAt      DateTime                @default(now())
+  completedAt     DateTime?
+  event           SourcingEvent           @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+
+  @@unique([sourcingEventId, userId])
+  @@index([userId, status])
+}
+
+model SourcingRound {
+  id              String              @id @default(cuid())
+  sourcingEventId String
+  roundNumber     Int
+  status          SourcingRoundStatus @default(DRAFT)
+  title           String
+  instructions    String?
+  opensAt         DateTime?
+  closesAt        DateTime?
+  openedAt        DateTime?
+  closedAt        DateTime?
+  createdByUserId String
+  event           SourcingEvent       @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@unique([sourcingEventId, roundNumber])
+  @@index([sourcingEventId, status])
 }

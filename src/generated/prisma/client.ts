@@ -151,3 +151,13 @@ export type SourcingScore = Prisma.SourcingScoreModel
  * 
  */
 export type SourcingAward = Prisma.SourcingAwardModel
+/**
+ * Model SourcingEvaluator
+ * 
+ */
+export type SourcingEvaluator = Prisma.SourcingEvaluatorModel
+/**
+ * Model SourcingRound
+ * 
+ */
+export type SourcingRound = Prisma.SourcingRoundModel

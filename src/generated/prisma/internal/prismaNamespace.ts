@@ -418,7 +418,9 @@ export const ModelName = {
   SourcingInvitation: 'SourcingInvitation',
   SourcingResponse: 'SourcingResponse',
   SourcingScore: 'SourcingScore',
-  SourcingAward: 'SourcingAward'
+  SourcingAward: 'SourcingAward',
+  SourcingEvaluator: 'SourcingEvaluator',
+  SourcingRound: 'SourcingRound'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -434,7 +436,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2066,6 +2068,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SourcingEvaluator: {
+      payload: Prisma.$SourcingEvaluatorPayload<ExtArgs>
+      fields: Prisma.SourcingEvaluatorFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingEvaluatorFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingEvaluatorFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingEvaluatorFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingEvaluatorFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingEvaluatorFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingEvaluatorCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingEvaluatorCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingEvaluatorCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingEvaluatorDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        update: {
+          args: Prisma.SourcingEvaluatorUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingEvaluatorDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingEvaluatorUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingEvaluatorUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingEvaluatorUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEvaluatorPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingEvaluatorAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingEvaluator>
+        }
+        groupBy: {
+          args: Prisma.SourcingEvaluatorGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingEvaluatorGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingEvaluatorCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingEvaluatorCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingRound: {
+      payload: Prisma.$SourcingRoundPayload<ExtArgs>
+      fields: Prisma.SourcingRoundFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingRoundFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingRoundFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingRoundFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingRoundFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingRoundFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingRoundCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingRoundCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingRoundCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingRoundDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        update: {
+          args: Prisma.SourcingRoundUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingRoundDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingRoundUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingRoundUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingRoundUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingRoundPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingRoundAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingRound>
+        }
+        groupBy: {
+          args: Prisma.SourcingRoundGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingRoundGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingRoundCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingRoundCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2537,6 +2687,38 @@ export const SourcingAwardScalarFieldEnum = {
 } as const
 
 export type SourcingAwardScalarFieldEnum = (typeof SourcingAwardScalarFieldEnum)[keyof typeof SourcingAwardScalarFieldEnum]
+
+
+export const SourcingEvaluatorScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  userId: 'userId',
+  status: 'status',
+  assignedByUserId: 'assignedByUserId',
+  assignedAt: 'assignedAt',
+  completedAt: 'completedAt'
+} as const
+
+export type SourcingEvaluatorScalarFieldEnum = (typeof SourcingEvaluatorScalarFieldEnum)[keyof typeof SourcingEvaluatorScalarFieldEnum]
+
+
+export const SourcingRoundScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  roundNumber: 'roundNumber',
+  status: 'status',
+  title: 'title',
+  instructions: 'instructions',
+  opensAt: 'opensAt',
+  closesAt: 'closesAt',
+  openedAt: 'openedAt',
+  closedAt: 'closedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingRoundScalarFieldEnum = (typeof SourcingRoundScalarFieldEnum)[keyof typeof SourcingRoundScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -3014,6 +3196,34 @@ export type ListEnumSourcingAwardStatusFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
+ * Reference to a field of type 'SourcingEvaluatorStatus'
+ */
+export type EnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEvaluatorStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingEvaluatorStatus[]'
+ */
+export type ListEnumSourcingEvaluatorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEvaluatorStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingRoundStatus'
+ */
+export type EnumSourcingRoundStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingRoundStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingRoundStatus[]'
+ */
+export type ListEnumSourcingRoundStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingRoundStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3199,6 +3409,8 @@ export type GlobalOmitConfig = {
   sourcingResponse?: Prisma.SourcingResponseOmit
   sourcingScore?: Prisma.SourcingScoreOmit
   sourcingAward?: Prisma.SourcingAwardOmit
+  sourcingEvaluator?: Prisma.SourcingEvaluatorOmit
+  sourcingRound?: Prisma.SourcingRoundOmit
 }
 
 /* Types for Logging */

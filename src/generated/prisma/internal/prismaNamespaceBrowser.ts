@@ -72,7 +72,9 @@ export const ModelName = {
   SourcingInvitation: 'SourcingInvitation',
   SourcingResponse: 'SourcingResponse',
   SourcingScore: 'SourcingScore',
-  SourcingAward: 'SourcingAward'
+  SourcingAward: 'SourcingAward',
+  SourcingEvaluator: 'SourcingEvaluator',
+  SourcingRound: 'SourcingRound'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -523,6 +525,38 @@ export const SourcingAwardScalarFieldEnum = {
 } as const
 
 export type SourcingAwardScalarFieldEnum = (typeof SourcingAwardScalarFieldEnum)[keyof typeof SourcingAwardScalarFieldEnum]
+
+
+export const SourcingEvaluatorScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  userId: 'userId',
+  status: 'status',
+  assignedByUserId: 'assignedByUserId',
+  assignedAt: 'assignedAt',
+  completedAt: 'completedAt'
+} as const
+
+export type SourcingEvaluatorScalarFieldEnum = (typeof SourcingEvaluatorScalarFieldEnum)[keyof typeof SourcingEvaluatorScalarFieldEnum]
+
+
+export const SourcingRoundScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  roundNumber: 'roundNumber',
+  status: 'status',
+  title: 'title',
+  instructions: 'instructions',
+  opensAt: 'opensAt',
+  closesAt: 'closesAt',
+  openedAt: 'openedAt',
+  closedAt: 'closedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingRoundScalarFieldEnum = (typeof SourcingRoundScalarFieldEnum)[keyof typeof SourcingRoundScalarFieldEnum]
 
 
 export const SortOrder = {

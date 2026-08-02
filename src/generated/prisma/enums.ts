@@ -9,6 +9,26 @@
 * 🟢 You can import this file directly.
 */
 
+export const SourcingEvaluatorStatus = {
+  ASSIGNED: 'ASSIGNED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  REMOVED: 'REMOVED'
+} as const
+
+export type SourcingEvaluatorStatus = (typeof SourcingEvaluatorStatus)[keyof typeof SourcingEvaluatorStatus]
+
+
+export const SourcingRoundStatus = {
+  DRAFT: 'DRAFT',
+  OPEN: 'OPEN',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SourcingRoundStatus = (typeof SourcingRoundStatus)[keyof typeof SourcingRoundStatus]
+
+
 export const SourcingAwardStatus = {
   DRAFT: 'DRAFT',
   RECOMMENDED: 'RECOMMENDED',
