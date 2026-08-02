@@ -1,3 +1,5 @@
-import {CurrencySelector} from '@/components/CurrencySelector';
-const cards=[['Open sourcing events','18'],['Active suppliers','1,284'],['Pending approvals','42'],['Savings pipeline','$2.4M']];
-export default function Page(){return <main className="shell py-12"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[.22em] text-cyan-300">Demo tenant · Northstar Global</p><h1 className="mt-2 text-4xl font-black">Procurement Command Center</h1></div><button className="rounded-xl bg-cyan-300 px-5 py-3 font-bold text-slate-950">Create purchase request</button></div><div className="mt-8 grid gap-4 md:grid-cols-4">{cards.map(([a,b])=><div key={a} className="glass rounded-2xl p-5"><span className="text-sm text-slate-400">{a}</span><b className="mt-2 block text-3xl">{b}</b></div>)}</div><div className="mt-6 grid gap-6 lg:grid-cols-2"><CurrencySelector amount={8425000}/><div className="glass rounded-2xl p-6"><h2 className="font-bold">AI Agent Activity</h2><div className="mt-4 space-y-4 text-sm text-slate-300"><p>✓ Compared 14 supplier quotations for Facilities.</p><p>✓ Flagged duplicate software subscriptions.</p><p>⚠ Supplier concentration risk increased in Region West.</p><p>→ Contract renewal recommendation awaiting approval.</p></div></div></div></main>}
+import { redirect } from "next/navigation";
+
+export default function LegacyDashboardPage() {
+  redirect("/app");
+}
