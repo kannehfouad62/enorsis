@@ -412,7 +412,12 @@ export const ModelName = {
   PurchaseRequestApproval: 'PurchaseRequestApproval',
   Supplier: 'Supplier',
   SupplierContact: 'SupplierContact',
-  SupplierDocument: 'SupplierDocument'
+  SupplierDocument: 'SupplierDocument',
+  SourcingEvent: 'SourcingEvent',
+  SourcingCriterion: 'SourcingCriterion',
+  SourcingInvitation: 'SourcingInvitation',
+  SourcingResponse: 'SourcingResponse',
+  SourcingScore: 'SourcingScore'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -428,7 +433,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1616,6 +1621,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SourcingEvent: {
+      payload: Prisma.$SourcingEventPayload<ExtArgs>
+      fields: Prisma.SourcingEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        update: {
+          args: Prisma.SourcingEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingEventPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingEvent>
+        }
+        groupBy: {
+          args: Prisma.SourcingEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingCriterion: {
+      payload: Prisma.$SourcingCriterionPayload<ExtArgs>
+      fields: Prisma.SourcingCriterionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingCriterionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingCriterionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingCriterionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingCriterionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingCriterionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingCriterionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingCriterionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingCriterionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingCriterionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        update: {
+          args: Prisma.SourcingCriterionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingCriterionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingCriterionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingCriterionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingCriterionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingCriterionPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingCriterionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingCriterion>
+        }
+        groupBy: {
+          args: Prisma.SourcingCriterionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingCriterionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingCriterionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingCriterionCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingInvitation: {
+      payload: Prisma.$SourcingInvitationPayload<ExtArgs>
+      fields: Prisma.SourcingInvitationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingInvitationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingInvitationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingInvitationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingInvitationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingInvitationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingInvitationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingInvitationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingInvitationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingInvitationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        update: {
+          args: Prisma.SourcingInvitationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingInvitationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingInvitationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingInvitationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingInvitationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingInvitationPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingInvitationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingInvitation>
+        }
+        groupBy: {
+          args: Prisma.SourcingInvitationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingInvitationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingInvitationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingInvitationCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingResponse: {
+      payload: Prisma.$SourcingResponsePayload<ExtArgs>
+      fields: Prisma.SourcingResponseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingResponseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingResponseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingResponseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingResponseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        findMany: {
+          args: Prisma.SourcingResponseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>[]
+        }
+        create: {
+          args: Prisma.SourcingResponseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        createMany: {
+          args: Prisma.SourcingResponseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingResponseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingResponseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        update: {
+          args: Prisma.SourcingResponseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingResponseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingResponseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingResponseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingResponseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingResponsePayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingResponseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingResponse>
+        }
+        groupBy: {
+          args: Prisma.SourcingResponseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingResponseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingResponseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingResponseCountAggregateOutputType> | number
+        }
+      }
+    }
+    SourcingScore: {
+      payload: Prisma.$SourcingScorePayload<ExtArgs>
+      fields: Prisma.SourcingScoreFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingScoreFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingScoreFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingScoreFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingScoreFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        findMany: {
+          args: Prisma.SourcingScoreFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>[]
+        }
+        create: {
+          args: Prisma.SourcingScoreCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        createMany: {
+          args: Prisma.SourcingScoreCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingScoreCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingScoreDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        update: {
+          args: Prisma.SourcingScoreUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingScoreDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingScoreUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingScoreUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingScoreUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingScorePayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingScoreAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingScore>
+        }
+        groupBy: {
+          args: Prisma.SourcingScoreGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingScoreGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingScoreCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingScoreCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1977,6 +2352,96 @@ export const SupplierDocumentScalarFieldEnum = {
 } as const
 
 export type SupplierDocumentScalarFieldEnum = (typeof SupplierDocumentScalarFieldEnum)[keyof typeof SupplierDocumentScalarFieldEnum]
+
+
+export const SourcingEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  eventNumber: 'eventNumber',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  summary: 'summary',
+  scopeOfWork: 'scopeOfWork',
+  currencyCode: 'currencyCode',
+  estimatedValue: 'estimatedValue',
+  responseDeadline: 'responseDeadline',
+  sealedResponses: 'sealedResponses',
+  allowMultipleRounds: 'allowMultipleRounds',
+  currentRound: 'currentRound',
+  publishedAt: 'publishedAt',
+  awardedAt: 'awardedAt',
+  awardedSupplierId: 'awardedSupplierId',
+  awardRecommendation: 'awardRecommendation',
+  awardConfidence: 'awardConfidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingEventScalarFieldEnum = (typeof SourcingEventScalarFieldEnum)[keyof typeof SourcingEventScalarFieldEnum]
+
+
+export const SourcingCriterionScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  weight: 'weight',
+  sequence: 'sequence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingCriterionScalarFieldEnum = (typeof SourcingCriterionScalarFieldEnum)[keyof typeof SourcingCriterionScalarFieldEnum]
+
+
+export const SourcingInvitationScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  status: 'status',
+  invitedAt: 'invitedAt',
+  viewedAt: 'viewedAt',
+  submittedAt: 'submittedAt'
+} as const
+
+export type SourcingInvitationScalarFieldEnum = (typeof SourcingInvitationScalarFieldEnum)[keyof typeof SourcingInvitationScalarFieldEnum]
+
+
+export const SourcingResponseScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  round: 'round',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  totalBid: 'totalBid',
+  deliveryDays: 'deliveryDays',
+  paymentTerms: 'paymentTerms',
+  technicalResponse: 'technicalResponse',
+  commercialNotes: 'commercialNotes',
+  submittedAt: 'submittedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingResponseScalarFieldEnum = (typeof SourcingResponseScalarFieldEnum)[keyof typeof SourcingResponseScalarFieldEnum]
+
+
+export const SourcingScoreScalarFieldEnum = {
+  id: 'id',
+  responseId: 'responseId',
+  criterionId: 'criterionId',
+  score: 'score',
+  weightedScore: 'weightedScore',
+  evaluatorId: 'evaluatorId',
+  rationale: 'rationale',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingScoreScalarFieldEnum = (typeof SourcingScoreScalarFieldEnum)[keyof typeof SourcingScoreScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2370,6 +2835,76 @@ export type ListEnumSupplierDocumentStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'SourcingEventType'
+ */
+export type EnumSourcingEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEventType'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingEventType[]'
+ */
+export type ListEnumSourcingEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEventType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingEventStatus'
+ */
+export type EnumSourcingEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEventStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingEventStatus[]'
+ */
+export type ListEnumSourcingEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingEventStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingCriterionType'
+ */
+export type EnumSourcingCriterionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingCriterionType'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingCriterionType[]'
+ */
+export type ListEnumSourcingCriterionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingCriterionType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingInvitationStatus'
+ */
+export type EnumSourcingInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingInvitationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingInvitationStatus[]'
+ */
+export type ListEnumSourcingInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingInvitationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingResponseStatus'
+ */
+export type EnumSourcingResponseStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingResponseStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingResponseStatus[]'
+ */
+export type ListEnumSourcingResponseStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingResponseStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2549,6 +3084,11 @@ export type GlobalOmitConfig = {
   supplier?: Prisma.SupplierOmit
   supplierContact?: Prisma.SupplierContactOmit
   supplierDocument?: Prisma.SupplierDocumentOmit
+  sourcingEvent?: Prisma.SourcingEventOmit
+  sourcingCriterion?: Prisma.SourcingCriterionOmit
+  sourcingInvitation?: Prisma.SourcingInvitationOmit
+  sourcingResponse?: Prisma.SourcingResponseOmit
+  sourcingScore?: Prisma.SourcingScoreOmit
 }
 
 /* Types for Logging */

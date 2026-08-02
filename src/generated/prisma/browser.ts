@@ -97,3 +97,28 @@ export type SupplierContact = Prisma.SupplierContactModel
  * 
  */
 export type SupplierDocument = Prisma.SupplierDocumentModel
+/**
+ * Model SourcingEvent
+ * 
+ */
+export type SourcingEvent = Prisma.SourcingEventModel
+/**
+ * Model SourcingCriterion
+ * 
+ */
+export type SourcingCriterion = Prisma.SourcingCriterionModel
+/**
+ * Model SourcingInvitation
+ * 
+ */
+export type SourcingInvitation = Prisma.SourcingInvitationModel
+/**
+ * Model SourcingResponse
+ * 
+ */
+export type SourcingResponse = Prisma.SourcingResponseModel
+/**
+ * Model SourcingScore
+ * 
+ */
+export type SourcingScore = Prisma.SourcingScoreModel

@@ -271,6 +271,7 @@ export type TenantWhereInput = {
   aiAgents?: Prisma.AiAgentListRelationFilter
   purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
   suppliers?: Prisma.SupplierListRelationFilter
+  sourcingEvents?: Prisma.SourcingEventListRelationFilter
 }
 
 export type TenantOrderByWithRelationInput = {
@@ -298,6 +299,7 @@ export type TenantOrderByWithRelationInput = {
   aiAgents?: Prisma.AiAgentOrderByRelationAggregateInput
   purchaseRequests?: Prisma.PurchaseRequestOrderByRelationAggregateInput
   suppliers?: Prisma.SupplierOrderByRelationAggregateInput
+  sourcingEvents?: Prisma.SourcingEventOrderByRelationAggregateInput
 }
 
 export type TenantWhereUniqueInput = Prisma.AtLeast<{
@@ -328,6 +330,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   aiAgents?: Prisma.AiAgentListRelationFilter
   purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
   suppliers?: Prisma.SupplierListRelationFilter
+  sourcingEvents?: Prisma.SourcingEventListRelationFilter
 }, "id" | "slug">
 
 export type TenantOrderByWithAggregationInput = {
@@ -397,6 +400,7 @@ export type TenantCreateInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateInput = {
@@ -424,6 +428,7 @@ export type TenantUncheckedCreateInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUpdateInput = {
@@ -451,6 +456,7 @@ export type TenantUpdateInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateInput = {
@@ -478,6 +484,7 @@ export type TenantUncheckedUpdateInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateManyInput = {
@@ -734,6 +741,20 @@ export type TenantUpdateOneRequiredWithoutSuppliersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutSuppliersInput, Prisma.TenantUpdateWithoutSuppliersInput>, Prisma.TenantUncheckedUpdateWithoutSuppliersInput>
 }
 
+export type TenantCreateNestedOneWithoutSourcingEventsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutSourcingEventsInput, Prisma.TenantUncheckedCreateWithoutSourcingEventsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutSourcingEventsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutSourcingEventsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutSourcingEventsInput, Prisma.TenantUncheckedCreateWithoutSourcingEventsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutSourcingEventsInput
+  upsert?: Prisma.TenantUpsertWithoutSourcingEventsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutSourcingEventsInput, Prisma.TenantUpdateWithoutSourcingEventsInput>, Prisma.TenantUncheckedUpdateWithoutSourcingEventsInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -758,6 +779,7 @@ export type TenantCreateWithoutMembershipsInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutMembershipsInput = {
@@ -784,6 +806,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutMembershipsInput = {
@@ -826,6 +849,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutMembershipsInput = {
@@ -852,6 +876,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutLegalEntitiesInput = {
@@ -878,6 +903,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
@@ -904,6 +930,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutLegalEntitiesInput = {
@@ -946,6 +973,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
@@ -972,6 +1000,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutSitesInput = {
@@ -998,6 +1027,7 @@ export type TenantCreateWithoutSitesInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutSitesInput = {
@@ -1024,6 +1054,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutSitesInput = {
@@ -1066,6 +1097,7 @@ export type TenantUpdateWithoutSitesInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutSitesInput = {
@@ -1092,6 +1124,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutDepartmentsInput = {
@@ -1118,6 +1151,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutDepartmentsInput = {
@@ -1144,6 +1178,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutDepartmentsInput = {
@@ -1186,6 +1221,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutDepartmentsInput = {
@@ -1212,6 +1248,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutExchangeRatesInput = {
@@ -1238,6 +1275,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutExchangeRatesInput = {
@@ -1264,6 +1302,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutExchangeRatesInput = {
@@ -1306,6 +1345,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
@@ -1332,6 +1372,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutAuditEventsInput = {
@@ -1358,6 +1399,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutAuditEventsInput = {
@@ -1384,6 +1426,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutAuditEventsInput = {
@@ -1426,6 +1469,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutAuditEventsInput = {
@@ -1452,6 +1496,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutAiAgentsInput = {
@@ -1478,6 +1523,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutAiAgentsInput = {
@@ -1504,6 +1550,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutAiAgentsInput = {
@@ -1546,6 +1593,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutAiAgentsInput = {
@@ -1572,6 +1620,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutPurchaseRequestsInput = {
@@ -1598,6 +1647,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
@@ -1624,6 +1674,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutPurchaseRequestsInput = {
@@ -1666,6 +1717,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
@@ -1692,6 +1744,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantCreateWithoutSuppliersInput = {
@@ -1718,6 +1771,7 @@ export type TenantCreateWithoutSuppliersInput = {
   auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
   aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
 }
 
 export type TenantUncheckedCreateWithoutSuppliersInput = {
@@ -1744,6 +1798,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
   aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
 }
 
 export type TenantCreateOrConnectWithoutSuppliersInput = {
@@ -1786,6 +1841,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
   aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
 }
 
 export type TenantUncheckedUpdateWithoutSuppliersInput = {
@@ -1812,6 +1868,131 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
   aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
   purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutSourcingEventsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutSourcingEventsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutSourcingEventsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutSourcingEventsInput, Prisma.TenantUncheckedCreateWithoutSourcingEventsInput>
+}
+
+export type TenantUpsertWithoutSourcingEventsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutSourcingEventsInput, Prisma.TenantUncheckedUpdateWithoutSourcingEventsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutSourcingEventsInput, Prisma.TenantUncheckedCreateWithoutSourcingEventsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutSourcingEventsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutSourcingEventsInput, Prisma.TenantUncheckedUpdateWithoutSourcingEventsInput>
+}
+
+export type TenantUpdateWithoutSourcingEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
 }
 
 
@@ -1829,6 +2010,7 @@ export type TenantCountOutputType = {
   aiAgents: number
   purchaseRequests: number
   suppliers: number
+  sourcingEvents: number
 }
 
 export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1841,6 +2023,7 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   aiAgents?: boolean | TenantCountOutputTypeCountAiAgentsArgs
   purchaseRequests?: boolean | TenantCountOutputTypeCountPurchaseRequestsArgs
   suppliers?: boolean | TenantCountOutputTypeCountSuppliersArgs
+  sourcingEvents?: boolean | TenantCountOutputTypeCountSourcingEventsArgs
 }
 
 /**
@@ -1916,6 +2099,13 @@ export type TenantCountOutputTypeCountSuppliersArgs<ExtArgs extends runtime.Type
   where?: Prisma.SupplierWhereInput
 }
 
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountSourcingEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SourcingEventWhereInput
+}
+
 
 export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1942,6 +2132,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   aiAgents?: boolean | Prisma.Tenant$aiAgentsArgs<ExtArgs>
   purchaseRequests?: boolean | Prisma.Tenant$purchaseRequestsArgs<ExtArgs>
   suppliers?: boolean | Prisma.Tenant$suppliersArgs<ExtArgs>
+  sourcingEvents?: boolean | Prisma.Tenant$sourcingEventsArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tenant"]>
 
@@ -2010,6 +2201,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   aiAgents?: boolean | Prisma.Tenant$aiAgentsArgs<ExtArgs>
   purchaseRequests?: boolean | Prisma.Tenant$purchaseRequestsArgs<ExtArgs>
   suppliers?: boolean | Prisma.Tenant$suppliersArgs<ExtArgs>
+  sourcingEvents?: boolean | Prisma.Tenant$sourcingEventsArgs<ExtArgs>
   _count?: boolean | Prisma.TenantCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TenantIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2027,6 +2219,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     aiAgents: Prisma.$AiAgentPayload<ExtArgs>[]
     purchaseRequests: Prisma.$PurchaseRequestPayload<ExtArgs>[]
     suppliers: Prisma.$SupplierPayload<ExtArgs>[]
+    sourcingEvents: Prisma.$SourcingEventPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2447,6 +2640,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   aiAgents<T extends Prisma.Tenant$aiAgentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   purchaseRequests<T extends Prisma.Tenant$purchaseRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$purchaseRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   suppliers<T extends Prisma.Tenant$suppliersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$suppliersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  sourcingEvents<T extends Prisma.Tenant$sourcingEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$sourcingEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SourcingEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3097,6 +3291,30 @@ export type Tenant$suppliersArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.SupplierScalarFieldEnum | Prisma.SupplierScalarFieldEnum[]
+}
+
+/**
+ * Tenant.sourcingEvents
+ */
+export type Tenant$sourcingEventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SourcingEvent
+   */
+  select?: Prisma.SourcingEventSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SourcingEvent
+   */
+  omit?: Prisma.SourcingEventOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SourcingEventInclude<ExtArgs> | null
+  where?: Prisma.SourcingEventWhereInput
+  orderBy?: Prisma.SourcingEventOrderByWithRelationInput | Prisma.SourcingEventOrderByWithRelationInput[]
+  cursor?: Prisma.SourcingEventWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SourcingEventScalarFieldEnum | Prisma.SourcingEventScalarFieldEnum[]
 }
 
 /**

@@ -9,6 +9,59 @@
 * 🟢 You can import this file directly.
 */
 
+export const SourcingEventType = {
+  RFI: 'RFI',
+  RFQ: 'RFQ',
+  RFP: 'RFP'
+} as const
+
+export type SourcingEventType = (typeof SourcingEventType)[keyof typeof SourcingEventType]
+
+
+export const SourcingEventStatus = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  OPEN: 'OPEN',
+  EVALUATION: 'EVALUATION',
+  AWARDED: 'AWARDED',
+  CANCELLED: 'CANCELLED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type SourcingEventStatus = (typeof SourcingEventStatus)[keyof typeof SourcingEventStatus]
+
+
+export const SourcingInvitationStatus = {
+  INVITED: 'INVITED',
+  VIEWED: 'VIEWED',
+  DECLINED: 'DECLINED',
+  SUBMITTED: 'SUBMITTED'
+} as const
+
+export type SourcingInvitationStatus = (typeof SourcingInvitationStatus)[keyof typeof SourcingInvitationStatus]
+
+
+export const SourcingResponseStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  WITHDRAWN: 'WITHDRAWN'
+} as const
+
+export type SourcingResponseStatus = (typeof SourcingResponseStatus)[keyof typeof SourcingResponseStatus]
+
+
+export const SourcingCriterionType = {
+  TECHNICAL: 'TECHNICAL',
+  COMMERCIAL: 'COMMERCIAL',
+  RISK: 'RISK',
+  ESG: 'ESG',
+  DELIVERY: 'DELIVERY',
+  OTHER: 'OTHER'
+} as const
+
+export type SourcingCriterionType = (typeof SourcingCriterionType)[keyof typeof SourcingCriterionType]
+
+
 export const SupplierStatus = {
   PROSPECT: 'PROSPECT',
   INVITED: 'INVITED',
