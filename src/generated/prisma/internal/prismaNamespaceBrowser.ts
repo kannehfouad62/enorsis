@@ -71,7 +71,8 @@ export const ModelName = {
   SourcingCriterion: 'SourcingCriterion',
   SourcingInvitation: 'SourcingInvitation',
   SourcingResponse: 'SourcingResponse',
-  SourcingScore: 'SourcingScore'
+  SourcingScore: 'SourcingScore',
+  SourcingAward: 'SourcingAward'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -502,6 +503,26 @@ export const SourcingScoreScalarFieldEnum = {
 } as const
 
 export type SourcingScoreScalarFieldEnum = (typeof SourcingScoreScalarFieldEnum)[keyof typeof SourcingScoreScalarFieldEnum]
+
+
+export const SourcingAwardScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  responseId: 'responseId',
+  status: 'status',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  totalWeightedScore: 'totalWeightedScore',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  decisionComments: 'decisionComments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingAwardScalarFieldEnum = (typeof SourcingAwardScalarFieldEnum)[keyof typeof SourcingAwardScalarFieldEnum]
 
 
 export const SortOrder = {

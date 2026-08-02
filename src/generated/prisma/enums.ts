@@ -9,6 +9,16 @@
 * 🟢 You can import this file directly.
 */
 
+export const SourcingAwardStatus = {
+  DRAFT: 'DRAFT',
+  RECOMMENDED: 'RECOMMENDED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type SourcingAwardStatus = (typeof SourcingAwardStatus)[keyof typeof SourcingAwardStatus]
+
+
 export const SourcingEventType = {
   RFI: 'RFI',
   RFQ: 'RFQ',

@@ -417,7 +417,8 @@ export const ModelName = {
   SourcingCriterion: 'SourcingCriterion',
   SourcingInvitation: 'SourcingInvitation',
   SourcingResponse: 'SourcingResponse',
-  SourcingScore: 'SourcingScore'
+  SourcingScore: 'SourcingScore',
+  SourcingAward: 'SourcingAward'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -433,7 +434,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1991,6 +1992,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SourcingAward: {
+      payload: Prisma.$SourcingAwardPayload<ExtArgs>
+      fields: Prisma.SourcingAwardFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SourcingAwardFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SourcingAwardFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        findFirst: {
+          args: Prisma.SourcingAwardFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SourcingAwardFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        findMany: {
+          args: Prisma.SourcingAwardFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>[]
+        }
+        create: {
+          args: Prisma.SourcingAwardCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        createMany: {
+          args: Prisma.SourcingAwardCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SourcingAwardCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>[]
+        }
+        delete: {
+          args: Prisma.SourcingAwardDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        update: {
+          args: Prisma.SourcingAwardUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        deleteMany: {
+          args: Prisma.SourcingAwardDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SourcingAwardUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SourcingAwardUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>[]
+        }
+        upsert: {
+          args: Prisma.SourcingAwardUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SourcingAwardPayload>
+        }
+        aggregate: {
+          args: Prisma.SourcingAwardAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSourcingAward>
+        }
+        groupBy: {
+          args: Prisma.SourcingAwardGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingAwardGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SourcingAwardCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SourcingAwardCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2442,6 +2517,26 @@ export const SourcingScoreScalarFieldEnum = {
 } as const
 
 export type SourcingScoreScalarFieldEnum = (typeof SourcingScoreScalarFieldEnum)[keyof typeof SourcingScoreScalarFieldEnum]
+
+
+export const SourcingAwardScalarFieldEnum = {
+  id: 'id',
+  sourcingEventId: 'sourcingEventId',
+  supplierId: 'supplierId',
+  responseId: 'responseId',
+  status: 'status',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  totalWeightedScore: 'totalWeightedScore',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  decisionComments: 'decisionComments',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SourcingAwardScalarFieldEnum = (typeof SourcingAwardScalarFieldEnum)[keyof typeof SourcingAwardScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2905,6 +3000,20 @@ export type ListEnumSourcingResponseStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'SourcingAwardStatus'
+ */
+export type EnumSourcingAwardStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingAwardStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SourcingAwardStatus[]'
+ */
+export type ListEnumSourcingAwardStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourcingAwardStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3089,6 +3198,7 @@ export type GlobalOmitConfig = {
   sourcingInvitation?: Prisma.SourcingInvitationOmit
   sourcingResponse?: Prisma.SourcingResponseOmit
   sourcingScore?: Prisma.SourcingScoreOmit
+  sourcingAward?: Prisma.SourcingAwardOmit
 }
 
 /* Types for Logging */

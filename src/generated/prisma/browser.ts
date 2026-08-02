@@ -122,3 +122,8 @@ export type SourcingResponse = Prisma.SourcingResponseModel
  * 
  */
 export type SourcingScore = Prisma.SourcingScoreModel
+/**
+ * Model SourcingAward
+ * 
+ */
+export type SourcingAward = Prisma.SourcingAwardModel

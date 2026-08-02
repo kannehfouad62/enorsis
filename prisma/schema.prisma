@@ -7,6 +7,13 @@ datasource db {
   provider = "postgresql"
 }
 
+enum SourcingAwardStatus {
+  DRAFT
+  RECOMMENDED
+  APPROVED
+  REJECTED
+}
+
 enum SourcingEventType {
   RFI
   RFQ
@@ -613,6 +620,7 @@ model SourcingEvent {
   criteria           SourcingCriterion[]
   invitations        SourcingInvitation[]
   responses          SourcingResponse[]
+  award              SourcingAward?
   createdAt          DateTime            @default(now())
   updatedAt          DateTime            @updatedAt
 
@@ -686,4 +694,26 @@ model SourcingScore {
   updatedAt     DateTime          @updatedAt
 
   @@unique([responseId, criterionId])
+}
+
+
+model SourcingAward {
+  id                 String              @id @default(cuid())
+  sourcingEventId    String              @unique
+  supplierId         String
+  responseId         String
+  status             SourcingAwardStatus @default(DRAFT)
+  recommendation     String
+  confidence         Int
+  totalWeightedScore Decimal             @db.Decimal(10, 4)
+  approvedByUserId   String?
+  approvedAt         DateTime?
+  rejectedAt         DateTime?
+  decisionComments   String?
+  event              SourcingEvent       @relation(fields: [sourcingEventId], references: [id], onDelete: Cascade)
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+
+  @@index([supplierId])
+  @@index([status])
 }
