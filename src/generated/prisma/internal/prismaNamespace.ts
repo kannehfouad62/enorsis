@@ -409,7 +409,10 @@ export const ModelName = {
   AiAgent: 'AiAgent',
   PurchaseRequest: 'PurchaseRequest',
   PurchaseRequestLine: 'PurchaseRequestLine',
-  PurchaseRequestApproval: 'PurchaseRequestApproval'
+  PurchaseRequestApproval: 'PurchaseRequestApproval',
+  Supplier: 'Supplier',
+  SupplierContact: 'SupplierContact',
+  SupplierDocument: 'SupplierDocument'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -425,7 +428,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1391,6 +1394,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Supplier: {
+      payload: Prisma.$SupplierPayload<ExtArgs>
+      fields: Prisma.SupplierFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        update: {
+          args: Prisma.SupplierUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplier>
+        }
+        groupBy: {
+          args: Prisma.SupplierGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierContact: {
+      payload: Prisma.$SupplierContactPayload<ExtArgs>
+      fields: Prisma.SupplierContactFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierContactFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierContactFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierContactFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierContactFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierContactFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierContactCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierContactCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierContactCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierContactDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        update: {
+          args: Prisma.SupplierContactUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierContactDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierContactUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierContactUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierContactUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierContactPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierContactAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierContact>
+        }
+        groupBy: {
+          args: Prisma.SupplierContactGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierContactGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierContactCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierContactCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierDocument: {
+      payload: Prisma.$SupplierDocumentPayload<ExtArgs>
+      fields: Prisma.SupplierDocumentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierDocumentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierDocumentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierDocumentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierDocumentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierDocumentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierDocumentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierDocumentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierDocumentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierDocumentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        update: {
+          args: Prisma.SupplierDocumentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierDocumentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierDocumentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierDocumentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierDocumentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDocumentPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierDocumentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierDocument>
+        }
+        groupBy: {
+          args: Prisma.SupplierDocumentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierDocumentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierDocumentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierDocumentCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1687,6 +1912,66 @@ export const PurchaseRequestApprovalScalarFieldEnum = {
 } as const
 
 export type PurchaseRequestApprovalScalarFieldEnum = (typeof PurchaseRequestApprovalScalarFieldEnum)[keyof typeof PurchaseRequestApprovalScalarFieldEnum]
+
+
+export const SupplierScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierNumber: 'supplierNumber',
+  legalName: 'legalName',
+  tradingName: 'tradingName',
+  countryCode: 'countryCode',
+  taxIdentificationNo: 'taxIdentificationNo',
+  website: 'website',
+  primaryEmail: 'primaryEmail',
+  primaryPhone: 'primaryPhone',
+  categories: 'categories',
+  status: 'status',
+  riskTier: 'riskTier',
+  qualificationStatus: 'qualificationStatus',
+  diversityOwned: 'diversityOwned',
+  esgCommitted: 'esgCommitted',
+  sanctionsScreenedAt: 'sanctionsScreenedAt',
+  approvedAt: 'approvedAt',
+  suspendedAt: 'suspendedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierScalarFieldEnum = (typeof SupplierScalarFieldEnum)[keyof typeof SupplierScalarFieldEnum]
+
+
+export const SupplierContactScalarFieldEnum = {
+  id: 'id',
+  supplierId: 'supplierId',
+  name: 'name',
+  title: 'title',
+  email: 'email',
+  phone: 'phone',
+  isPrimary: 'isPrimary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierContactScalarFieldEnum = (typeof SupplierContactScalarFieldEnum)[keyof typeof SupplierContactScalarFieldEnum]
+
+
+export const SupplierDocumentScalarFieldEnum = {
+  id: 'id',
+  supplierId: 'supplierId',
+  type: 'type',
+  name: 'name',
+  storageUrl: 'storageUrl',
+  issuedAt: 'issuedAt',
+  expiresAt: 'expiresAt',
+  verifiedAt: 'verifiedAt',
+  verifiedBy: 'verifiedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierDocumentScalarFieldEnum = (typeof SupplierDocumentScalarFieldEnum)[keyof typeof SupplierDocumentScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2010,6 +2295,62 @@ export type ListEnumApprovalDecisionFieldRefInput<$PrismaModel> = FieldRefInputT
 
 
 /**
+ * Reference to a field of type 'SupplierStatus'
+ */
+export type EnumSupplierStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierStatus[]'
+ */
+export type ListEnumSupplierStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskTier'
+ */
+export type EnumSupplierRiskTierFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskTier'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskTier[]'
+ */
+export type ListEnumSupplierRiskTierFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskTier[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierQualificationStatus'
+ */
+export type EnumSupplierQualificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierQualificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierQualificationStatus[]'
+ */
+export type ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierQualificationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDocumentType'
+ */
+export type EnumSupplierDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDocumentType'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDocumentType[]'
+ */
+export type ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDocumentType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2186,6 +2527,9 @@ export type GlobalOmitConfig = {
   purchaseRequest?: Prisma.PurchaseRequestOmit
   purchaseRequestLine?: Prisma.PurchaseRequestLineOmit
   purchaseRequestApproval?: Prisma.PurchaseRequestApprovalOmit
+  supplier?: Prisma.SupplierOmit
+  supplierContact?: Prisma.SupplierContactOmit
+  supplierDocument?: Prisma.SupplierDocumentOmit
 }
 
 /* Types for Logging */

@@ -7,6 +7,41 @@ datasource db {
   provider = "postgresql"
 }
 
+enum SupplierStatus {
+  PROSPECT
+  INVITED
+  IN_REVIEW
+  APPROVED
+  SUSPENDED
+  REJECTED
+  ARCHIVED
+}
+
+enum SupplierRiskTier {
+  LOW
+  MODERATE
+  HIGH
+  CRITICAL
+}
+
+enum SupplierQualificationStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  QUALIFIED
+  CONDITIONALLY_QUALIFIED
+  DISQUALIFIED
+}
+
+enum SupplierDocumentType {
+  TAX
+  INSURANCE
+  CERTIFICATION
+  LICENSE
+  ESG
+  FINANCIAL
+  OTHER
+}
+
 enum PurchaseRequestStatus {
   DRAFT
   SUBMITTED
@@ -173,6 +208,7 @@ model Tenant {
   auditEvents           AuditEvent[]
   aiAgents              AiAgent[]
   purchaseRequests      PurchaseRequest[]
+  suppliers             Supplier[]
   createdAt             DateTime           @default(now())
   updatedAt             DateTime           @updatedAt
   archivedAt            DateTime?
@@ -428,4 +464,72 @@ model PurchaseRequestApproval {
   @@unique([purchaseRequestId, approverId, sequence])
   @@index([approverId, decision])
   @@index([purchaseRequestId, sequence])
+}
+
+
+model Supplier {
+  id                    String                      @id @default(cuid())
+  tenantId              String
+  supplierNumber        String
+  legalName             String
+  tradingName           String?
+  countryCode           String
+  taxIdentificationNo   String?
+  website               String?
+  primaryEmail          String?
+  primaryPhone          String?
+  categories            String[]
+  status                SupplierStatus              @default(PROSPECT)
+  riskTier              SupplierRiskTier            @default(MODERATE)
+  qualificationStatus   SupplierQualificationStatus @default(NOT_STARTED)
+  diversityOwned        Boolean                     @default(false)
+  esgCommitted          Boolean                     @default(false)
+  sanctionsScreenedAt   DateTime?
+  approvedAt            DateTime?
+  suspendedAt           DateTime?
+  rejectionReason       String?
+  tenant                Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  contacts              SupplierContact[]
+  documents             SupplierDocument[]
+  createdAt             DateTime                    @default(now())
+  updatedAt             DateTime                    @updatedAt
+
+  @@unique([tenantId, supplierNumber])
+  @@unique([tenantId, legalName, countryCode])
+  @@index([tenantId, status])
+  @@index([tenantId, riskTier])
+  @@index([tenantId, qualificationStatus])
+}
+
+model SupplierContact {
+  id          String   @id @default(cuid())
+  supplierId  String
+  name        String
+  title       String?
+  email       String?
+  phone       String?
+  isPrimary   Boolean  @default(false)
+  supplier    Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([supplierId])
+}
+
+model SupplierDocument {
+  id          String               @id @default(cuid())
+  supplierId  String
+  type        SupplierDocumentType
+  name        String
+  storageUrl  String?
+  issuedAt    DateTime?
+  expiresAt   DateTime?
+  verifiedAt  DateTime?
+  verifiedBy  String?
+  supplier    Supplier             @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+
+  @@index([supplierId, type])
+  @@index([expiresAt])
 }

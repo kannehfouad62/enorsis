@@ -9,6 +9,53 @@
 * 🟢 You can import this file directly.
 */
 
+export const SupplierStatus = {
+  PROSPECT: 'PROSPECT',
+  INVITED: 'INVITED',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  SUSPENDED: 'SUSPENDED',
+  REJECTED: 'REJECTED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type SupplierStatus = (typeof SupplierStatus)[keyof typeof SupplierStatus]
+
+
+export const SupplierRiskTier = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type SupplierRiskTier = (typeof SupplierRiskTier)[keyof typeof SupplierRiskTier]
+
+
+export const SupplierQualificationStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  QUALIFIED: 'QUALIFIED',
+  CONDITIONALLY_QUALIFIED: 'CONDITIONALLY_QUALIFIED',
+  DISQUALIFIED: 'DISQUALIFIED'
+} as const
+
+export type SupplierQualificationStatus = (typeof SupplierQualificationStatus)[keyof typeof SupplierQualificationStatus]
+
+
+export const SupplierDocumentType = {
+  TAX: 'TAX',
+  INSURANCE: 'INSURANCE',
+  CERTIFICATION: 'CERTIFICATION',
+  LICENSE: 'LICENSE',
+  ESG: 'ESG',
+  FINANCIAL: 'FINANCIAL',
+  OTHER: 'OTHER'
+} as const
+
+export type SupplierDocumentType = (typeof SupplierDocumentType)[keyof typeof SupplierDocumentType]
+
+
 export const PurchaseRequestStatus = {
   DRAFT: 'DRAFT',
   SUBMITTED: 'SUBMITTED',

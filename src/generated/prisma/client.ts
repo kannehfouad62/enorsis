@@ -106,3 +106,18 @@ export type PurchaseRequestLine = Prisma.PurchaseRequestLineModel
  * 
  */
 export type PurchaseRequestApproval = Prisma.PurchaseRequestApprovalModel
+/**
+ * Model Supplier
+ * 
+ */
+export type Supplier = Prisma.SupplierModel
+/**
+ * Model SupplierContact
+ * 
+ */
+export type SupplierContact = Prisma.SupplierContactModel
+/**
+ * Model SupplierDocument
+ * 
+ */
+export type SupplierDocument = Prisma.SupplierDocumentModel

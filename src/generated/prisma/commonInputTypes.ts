@@ -501,6 +501,74 @@ export type EnumApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
 }
 
+export type EnumSupplierStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierStatus | Prisma.EnumSupplierStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel> | $Enums.SupplierStatus
+}
+
+export type EnumSupplierRiskTierFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskTier | Prisma.EnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel> | $Enums.SupplierRiskTier
+}
+
+export type EnumSupplierQualificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQualificationStatus | Prisma.EnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel> | $Enums.SupplierQualificationStatus
+}
+
+export type EnumSupplierStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierStatus | Prisma.EnumSupplierStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierRiskTierWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskTier | Prisma.EnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskTierWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskTier
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel>
+}
+
+export type EnumSupplierQualificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQualificationStatus | Prisma.EnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQualificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierQualificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierDocumentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierDocumentType | Prisma.EnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel> | $Enums.SupplierDocumentType
+}
+
+export type EnumSupplierDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierDocumentType | Prisma.EnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierDocumentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -972,6 +1040,74 @@ export type NestedEnumApprovalDecisionWithAggregatesFilter<$PrismaModel = never>
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
   _max?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierStatus | Prisma.EnumSupplierStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel> | $Enums.SupplierStatus
+}
+
+export type NestedEnumSupplierRiskTierFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskTier | Prisma.EnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel> | $Enums.SupplierRiskTier
+}
+
+export type NestedEnumSupplierQualificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQualificationStatus | Prisma.EnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel> | $Enums.SupplierQualificationStatus
+}
+
+export type NestedEnumSupplierStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierStatus | Prisma.EnumSupplierStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierStatus[] | Prisma.ListEnumSupplierStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRiskTierWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskTier | Prisma.EnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskTier[] | Prisma.ListEnumSupplierRiskTierFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskTierWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskTier
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskTierFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierQualificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQualificationStatus | Prisma.EnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQualificationStatus[] | Prisma.ListEnumSupplierQualificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQualificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierQualificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierQualificationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierDocumentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierDocumentType | Prisma.EnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel> | $Enums.SupplierDocumentType
+}
+
+export type NestedEnumSupplierDocumentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierDocumentType | Prisma.EnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierDocumentType[] | Prisma.ListEnumSupplierDocumentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierDocumentTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierDocumentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierDocumentTypeFilter<$PrismaModel>
 }
 
 

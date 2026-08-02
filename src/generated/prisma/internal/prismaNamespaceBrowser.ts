@@ -63,7 +63,10 @@ export const ModelName = {
   AiAgent: 'AiAgent',
   PurchaseRequest: 'PurchaseRequest',
   PurchaseRequestLine: 'PurchaseRequestLine',
-  PurchaseRequestApproval: 'PurchaseRequestApproval'
+  PurchaseRequestApproval: 'PurchaseRequestApproval',
+  Supplier: 'Supplier',
+  SupplierContact: 'SupplierContact',
+  SupplierDocument: 'SupplierDocument'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -339,6 +342,66 @@ export const PurchaseRequestApprovalScalarFieldEnum = {
 } as const
 
 export type PurchaseRequestApprovalScalarFieldEnum = (typeof PurchaseRequestApprovalScalarFieldEnum)[keyof typeof PurchaseRequestApprovalScalarFieldEnum]
+
+
+export const SupplierScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierNumber: 'supplierNumber',
+  legalName: 'legalName',
+  tradingName: 'tradingName',
+  countryCode: 'countryCode',
+  taxIdentificationNo: 'taxIdentificationNo',
+  website: 'website',
+  primaryEmail: 'primaryEmail',
+  primaryPhone: 'primaryPhone',
+  categories: 'categories',
+  status: 'status',
+  riskTier: 'riskTier',
+  qualificationStatus: 'qualificationStatus',
+  diversityOwned: 'diversityOwned',
+  esgCommitted: 'esgCommitted',
+  sanctionsScreenedAt: 'sanctionsScreenedAt',
+  approvedAt: 'approvedAt',
+  suspendedAt: 'suspendedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierScalarFieldEnum = (typeof SupplierScalarFieldEnum)[keyof typeof SupplierScalarFieldEnum]
+
+
+export const SupplierContactScalarFieldEnum = {
+  id: 'id',
+  supplierId: 'supplierId',
+  name: 'name',
+  title: 'title',
+  email: 'email',
+  phone: 'phone',
+  isPrimary: 'isPrimary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierContactScalarFieldEnum = (typeof SupplierContactScalarFieldEnum)[keyof typeof SupplierContactScalarFieldEnum]
+
+
+export const SupplierDocumentScalarFieldEnum = {
+  id: 'id',
+  supplierId: 'supplierId',
+  type: 'type',
+  name: 'name',
+  storageUrl: 'storageUrl',
+  issuedAt: 'issuedAt',
+  expiresAt: 'expiresAt',
+  verifiedAt: 'verifiedAt',
+  verifiedBy: 'verifiedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierDocumentScalarFieldEnum = (typeof SupplierDocumentScalarFieldEnum)[keyof typeof SupplierDocumentScalarFieldEnum]
 
 
 export const SortOrder = {
