@@ -9,6 +9,17 @@
 * 🟢 You can import this file directly.
 */
 
+export const ContractAmendmentStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  EXECUTED: 'EXECUTED'
+} as const
+
+export type ContractAmendmentStatus = (typeof ContractAmendmentStatus)[keyof typeof ContractAmendmentStatus]
+
+
 export const ContractStatus = {
   DRAFT: 'DRAFT',
   IN_REVIEW: 'IN_REVIEW',

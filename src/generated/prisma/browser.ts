@@ -187,3 +187,8 @@ export type ContractDocument = Prisma.ContractDocumentModel
  * 
  */
 export type ContractRiskReview = Prisma.ContractRiskReviewModel
+/**
+ * Model ContractAmendment
+ * 
+ */
+export type ContractAmendment = Prisma.ContractAmendmentModel

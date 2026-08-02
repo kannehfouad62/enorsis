@@ -84,7 +84,8 @@ export const ModelName = {
   ContractApproval: 'ContractApproval',
   ContractObligation: 'ContractObligation',
   ContractDocument: 'ContractDocument',
-  ContractRiskReview: 'ContractRiskReview'
+  ContractRiskReview: 'ContractRiskReview',
+  ContractAmendment: 'ContractAmendment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -750,6 +751,26 @@ export const ContractRiskReviewScalarFieldEnum = {
 } as const
 
 export type ContractRiskReviewScalarFieldEnum = (typeof ContractRiskReviewScalarFieldEnum)[keyof typeof ContractRiskReviewScalarFieldEnum]
+
+
+export const ContractAmendmentScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  amendmentNumber: 'amendmentNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  effectiveDate: 'effectiveDate',
+  valueChange: 'valueChange',
+  createdByUserId: 'createdByUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  executedAt: 'executedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractAmendmentScalarFieldEnum = (typeof ContractAmendmentScalarFieldEnum)[keyof typeof ContractAmendmentScalarFieldEnum]
 
 
 export const SortOrder = {

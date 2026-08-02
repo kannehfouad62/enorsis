@@ -430,7 +430,8 @@ export const ModelName = {
   ContractApproval: 'ContractApproval',
   ContractObligation: 'ContractObligation',
   ContractDocument: 'ContractDocument',
-  ContractRiskReview: 'ContractRiskReview'
+  ContractRiskReview: 'ContractRiskReview',
+  ContractAmendment: 'ContractAmendment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -446,7 +447,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2966,6 +2967,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ContractAmendment: {
+      payload: Prisma.$ContractAmendmentPayload<ExtArgs>
+      fields: Prisma.ContractAmendmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ContractAmendmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ContractAmendmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        findFirst: {
+          args: Prisma.ContractAmendmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ContractAmendmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        findMany: {
+          args: Prisma.ContractAmendmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>[]
+        }
+        create: {
+          args: Prisma.ContractAmendmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        createMany: {
+          args: Prisma.ContractAmendmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ContractAmendmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>[]
+        }
+        delete: {
+          args: Prisma.ContractAmendmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        update: {
+          args: Prisma.ContractAmendmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.ContractAmendmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ContractAmendmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ContractAmendmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.ContractAmendmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ContractAmendmentPayload>
+        }
+        aggregate: {
+          args: Prisma.ContractAmendmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateContractAmendment>
+        }
+        groupBy: {
+          args: Prisma.ContractAmendmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContractAmendmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ContractAmendmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ContractAmendmentCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -3654,6 +3729,26 @@ export const ContractRiskReviewScalarFieldEnum = {
 export type ContractRiskReviewScalarFieldEnum = (typeof ContractRiskReviewScalarFieldEnum)[keyof typeof ContractRiskReviewScalarFieldEnum]
 
 
+export const ContractAmendmentScalarFieldEnum = {
+  id: 'id',
+  contractId: 'contractId',
+  amendmentNumber: 'amendmentNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  effectiveDate: 'effectiveDate',
+  valueChange: 'valueChange',
+  createdByUserId: 'createdByUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  executedAt: 'executedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ContractAmendmentScalarFieldEnum = (typeof ContractAmendmentScalarFieldEnum)[keyof typeof ContractAmendmentScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4297,6 +4392,20 @@ export type ListEnumContractDocumentTypeFieldRefInput<$PrismaModel> = FieldRefIn
 
 
 /**
+ * Reference to a field of type 'ContractAmendmentStatus'
+ */
+export type EnumContractAmendmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ContractAmendmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ContractAmendmentStatus[]'
+ */
+export type ListEnumContractAmendmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ContractAmendmentStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4494,6 +4603,7 @@ export type GlobalOmitConfig = {
   contractObligation?: Prisma.ContractObligationOmit
   contractDocument?: Prisma.ContractDocumentOmit
   contractRiskReview?: Prisma.ContractRiskReviewOmit
+  contractAmendment?: Prisma.ContractAmendmentOmit
 }
 
 /* Types for Logging */

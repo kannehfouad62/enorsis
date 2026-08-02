@@ -7,6 +7,14 @@ datasource db {
   provider = "postgresql"
 }
 
+enum ContractAmendmentStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  EXECUTED
+}
+
 enum ContractStatus {
   DRAFT
   IN_REVIEW
@@ -906,37 +914,38 @@ model SealedBidOpening {
 }
 
 model Contract {
-  id                String               @id @default(cuid())
-  tenantId          String
-  supplierId        String
-  sourcingEventId   String?
-  contractNumber    String
-  title             String
-  type              ContractType
-  status            ContractStatus       @default(DRAFT)
-  riskLevel         ContractRiskLevel    @default(MODERATE)
-  currencyCode      String               @default("USD")
-  totalValue        Decimal?             @db.Decimal(18, 2)
-  startDate         DateTime?
-  endDate           DateTime?
-  autoRenew         Boolean              @default(false)
-  renewalNoticeDays Int                  @default(90)
-  governingLaw      String?
-  ownerUserId       String
-  summary           String?
-  approvedAt        DateTime?
-  activatedAt       DateTime?
-  terminatedAt      DateTime?
-  terminationReason String?
-  tenant            Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  supplier          Supplier             @relation(fields: [supplierId], references: [id], onDelete: Restrict)
-  clauses           ContractClause[]
-  approvals         ContractApproval[]
-  obligations       ContractObligation[]
-  documents         ContractDocument[]
-  riskReviews       ContractRiskReview[]
-  createdAt         DateTime             @default(now())
-  updatedAt         DateTime             @updatedAt
+  id                 String               @id @default(cuid())
+  tenantId           String
+  supplierId         String
+  sourcingEventId    String?
+  contractNumber     String
+  title              String
+  type               ContractType
+  status             ContractStatus       @default(DRAFT)
+  riskLevel          ContractRiskLevel    @default(MODERATE)
+  currencyCode       String               @default("USD")
+  totalValue         Decimal?             @db.Decimal(18, 2)
+  startDate          DateTime?
+  endDate            DateTime?
+  autoRenew          Boolean              @default(false)
+  renewalNoticeDays  Int                  @default(90)
+  governingLaw       String?
+  ownerUserId        String
+  summary            String?
+  approvedAt         DateTime?
+  activatedAt        DateTime?
+  terminatedAt       DateTime?
+  terminationReason  String?
+  tenant             Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier           Supplier             @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  clauses            ContractClause[]
+  approvals          ContractApproval[]
+  obligations        ContractObligation[]
+  documents          ContractDocument[]
+  riskReviews        ContractRiskReview[]
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  contractAmendments ContractAmendment[]
 
   @@unique([tenantId, contractNumber])
   @@index([tenantId, status, endDate])
@@ -1046,4 +1055,25 @@ model ContractRiskReview {
   contract        Contract          @relation(fields: [contractId], references: [id], onDelete: Cascade)
 
   @@index([contractId, reviewedAt])
+}
+
+model ContractAmendment {
+  id               String                  @id @default(cuid())
+  contractId       String
+  amendmentNumber  Int
+  title            String
+  description      String
+  status           ContractAmendmentStatus @default(DRAFT)
+  effectiveDate    DateTime?
+  valueChange      Decimal?                @db.Decimal(18, 2)
+  createdByUserId  String
+  approvedByUserId String?
+  approvedAt       DateTime?
+  executedAt       DateTime?
+  contract         Contract                @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  @@unique([contractId, amendmentNumber])
+  @@index([contractId, status])
 }
