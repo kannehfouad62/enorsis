@@ -7,6 +7,29 @@ datasource db {
   provider = "postgresql"
 }
 
+enum PurchaseRequestStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  CANCELLED
+}
+
+enum PurchaseRequestPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+enum ApprovalDecision {
+  PENDING
+  APPROVED
+  REJECTED
+  RETURNED
+}
+
 enum TenantStatus {
   PROVISIONING
   ACTIVE
@@ -104,6 +127,8 @@ model User {
   mustChangePassword Boolean          @default(false)
   sessionVersion    Int              @default(1)
   passwordResetTokens PasswordResetToken[]
+  purchaseRequests    PurchaseRequest[]       @relation("PurchaseRequestRequester")
+  approvalDecisions  PurchaseRequestApproval[] @relation("PurchaseRequestApprover")
   locale        String       @default("en-US")
   timeZone      String       @default("UTC")
   isActive      Boolean      @default(true)
@@ -147,6 +172,7 @@ model Tenant {
   exchangeRates         ExchangeRate[]
   auditEvents           AuditEvent[]
   aiAgents              AiAgent[]
+  purchaseRequests      PurchaseRequest[]
   createdAt             DateTime           @default(now())
   updatedAt             DateTime           @updatedAt
   archivedAt            DateTime?
@@ -194,6 +220,7 @@ model LegalEntity {
   tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   sites                Site[]
   departments          Department[]
+  purchaseRequests     PurchaseRequest[]
   createdAt            DateTime          @default(now())
   updatedAt            DateTime          @updatedAt
 
@@ -218,6 +245,7 @@ model Site {
   tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   legalEntity    LegalEntity? @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
   departments    Department[]
+  purchaseRequests PurchaseRequest[]
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
 
@@ -240,6 +268,7 @@ model Department {
   site           Site?        @relation(fields: [siteId], references: [id], onDelete: SetNull)
   parent         Department?  @relation("DepartmentHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
   children       Department[] @relation("DepartmentHierarchy")
+  purchaseRequests PurchaseRequest[]
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
 
@@ -318,4 +347,82 @@ model AiAgent {
 
   @@unique([tenantId, key])
   @@index([tenantId, status])
+}
+
+
+model PurchaseRequest {
+  id                 String                  @id @default(cuid())
+  tenantId           String
+  requesterId        String
+  legalEntityId      String?
+  siteId             String?
+  departmentId       String?
+  requestNumber      String
+  title              String
+  businessJustification String
+  priority           PurchaseRequestPriority @default(NORMAL)
+  status             PurchaseRequestStatus   @default(DRAFT)
+  neededByDate       DateTime?
+  originalCurrency   String                  @default("USD")
+  totalAmount        Decimal                 @db.Decimal(18, 2)
+  usdEquivalent      Decimal                 @db.Decimal(18, 2)
+  exchangeRateToUsd  Decimal                 @db.Decimal(24, 12)
+  exchangeRateSource String
+  exchangeRateDate   DateTime
+  submittedAt        DateTime?
+  approvedAt         DateTime?
+  rejectedAt         DateTime?
+  tenant             Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  requester          User                    @relation("PurchaseRequestRequester", fields: [requesterId], references: [id], onDelete: Restrict)
+  legalEntity        LegalEntity?            @relation(fields: [legalEntityId], references: [id], onDelete: SetNull)
+  site               Site?                   @relation(fields: [siteId], references: [id], onDelete: SetNull)
+  department         Department?             @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  lines              PurchaseRequestLine[]
+  approvals          PurchaseRequestApproval[]
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+
+  @@unique([tenantId, requestNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([requesterId, status])
+  @@index([legalEntityId])
+  @@index([siteId])
+  @@index([departmentId])
+}
+
+model PurchaseRequestLine {
+  id                String          @id @default(cuid())
+  purchaseRequestId String
+  lineNumber        Int
+  description       String
+  category          String?
+  quantity          Decimal         @db.Decimal(18, 4)
+  unitOfMeasure     String
+  unitPrice         Decimal         @db.Decimal(18, 4)
+  lineTotal         Decimal         @db.Decimal(18, 2)
+  supplierSuggestion String?
+  purchaseRequest   PurchaseRequest @relation(fields: [purchaseRequestId], references: [id], onDelete: Cascade)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@unique([purchaseRequestId, lineNumber])
+  @@index([purchaseRequestId])
+}
+
+model PurchaseRequestApproval {
+  id                String           @id @default(cuid())
+  purchaseRequestId String
+  approverId        String
+  sequence          Int
+  decision          ApprovalDecision @default(PENDING)
+  comments          String?
+  decidedAt         DateTime?
+  purchaseRequest   PurchaseRequest  @relation(fields: [purchaseRequestId], references: [id], onDelete: Cascade)
+  approver          User             @relation("PurchaseRequestApprover", fields: [approverId], references: [id], onDelete: Restrict)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@unique([purchaseRequestId, approverId, sequence])
+  @@index([approverId, decision])
+  @@index([purchaseRequestId, sequence])
 }

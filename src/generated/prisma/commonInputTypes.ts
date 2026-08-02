@@ -450,6 +450,57 @@ export type EnumAiAutonomyLevelWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumAiAutonomyLevelFilter<$PrismaModel>
 }
 
+export type EnumPurchaseRequestPriorityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestPriority | Prisma.EnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel> | $Enums.PurchaseRequestPriority
+}
+
+export type EnumPurchaseRequestStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestStatus | Prisma.EnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel> | $Enums.PurchaseRequestStatus
+}
+
+export type EnumPurchaseRequestPriorityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestPriority | Prisma.EnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestPriorityWithAggregatesFilter<$PrismaModel> | $Enums.PurchaseRequestPriority
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel>
+}
+
+export type EnumPurchaseRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestStatus | Prisma.EnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.PurchaseRequestStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel>
+}
+
+export type EnumApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApprovalDecision | Prisma.EnumApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel> | $Enums.ApprovalDecision
+}
+
+export type EnumApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApprovalDecision | Prisma.EnumApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.ApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -870,6 +921,57 @@ export type NestedEnumAiAutonomyLevelWithAggregatesFilter<$PrismaModel = never> 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAiAutonomyLevelFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAiAutonomyLevelFilter<$PrismaModel>
+}
+
+export type NestedEnumPurchaseRequestPriorityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestPriority | Prisma.EnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel> | $Enums.PurchaseRequestPriority
+}
+
+export type NestedEnumPurchaseRequestStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestStatus | Prisma.EnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel> | $Enums.PurchaseRequestStatus
+}
+
+export type NestedEnumPurchaseRequestPriorityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestPriority | Prisma.EnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestPriority[] | Prisma.ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestPriorityWithAggregatesFilter<$PrismaModel> | $Enums.PurchaseRequestPriority
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPurchaseRequestPriorityFilter<$PrismaModel>
+}
+
+export type NestedEnumPurchaseRequestStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PurchaseRequestStatus | Prisma.EnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PurchaseRequestStatus[] | Prisma.ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPurchaseRequestStatusWithAggregatesFilter<$PrismaModel> | $Enums.PurchaseRequestStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPurchaseRequestStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApprovalDecision | Prisma.EnumApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel> | $Enums.ApprovalDecision
+}
+
+export type NestedEnumApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApprovalDecision | Prisma.EnumApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApprovalDecision[] | Prisma.ListEnumApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.ApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApprovalDecisionFilter<$PrismaModel>
 }
 
 

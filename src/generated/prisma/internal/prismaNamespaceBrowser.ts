@@ -60,7 +60,10 @@ export const ModelName = {
   Department: 'Department',
   ExchangeRate: 'ExchangeRate',
   AuditEvent: 'AuditEvent',
-  AiAgent: 'AiAgent'
+  AiAgent: 'AiAgent',
+  PurchaseRequest: 'PurchaseRequest',
+  PurchaseRequestLine: 'PurchaseRequestLine',
+  PurchaseRequestApproval: 'PurchaseRequestApproval'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -271,6 +274,68 @@ export const AiAgentScalarFieldEnum = {
 } as const
 
 export type AiAgentScalarFieldEnum = (typeof AiAgentScalarFieldEnum)[keyof typeof AiAgentScalarFieldEnum]
+
+
+export const PurchaseRequestScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  requesterId: 'requesterId',
+  legalEntityId: 'legalEntityId',
+  siteId: 'siteId',
+  departmentId: 'departmentId',
+  requestNumber: 'requestNumber',
+  title: 'title',
+  businessJustification: 'businessJustification',
+  priority: 'priority',
+  status: 'status',
+  neededByDate: 'neededByDate',
+  originalCurrency: 'originalCurrency',
+  totalAmount: 'totalAmount',
+  usdEquivalent: 'usdEquivalent',
+  exchangeRateToUsd: 'exchangeRateToUsd',
+  exchangeRateSource: 'exchangeRateSource',
+  exchangeRateDate: 'exchangeRateDate',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestScalarFieldEnum = (typeof PurchaseRequestScalarFieldEnum)[keyof typeof PurchaseRequestScalarFieldEnum]
+
+
+export const PurchaseRequestLineScalarFieldEnum = {
+  id: 'id',
+  purchaseRequestId: 'purchaseRequestId',
+  lineNumber: 'lineNumber',
+  description: 'description',
+  category: 'category',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  unitPrice: 'unitPrice',
+  lineTotal: 'lineTotal',
+  supplierSuggestion: 'supplierSuggestion',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestLineScalarFieldEnum = (typeof PurchaseRequestLineScalarFieldEnum)[keyof typeof PurchaseRequestLineScalarFieldEnum]
+
+
+export const PurchaseRequestApprovalScalarFieldEnum = {
+  id: 'id',
+  purchaseRequestId: 'purchaseRequestId',
+  approverId: 'approverId',
+  sequence: 'sequence',
+  decision: 'decision',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestApprovalScalarFieldEnum = (typeof PurchaseRequestApprovalScalarFieldEnum)[keyof typeof PurchaseRequestApprovalScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -265,6 +265,7 @@ export type SiteWhereInput = {
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   legalEntity?: Prisma.XOR<Prisma.LegalEntityNullableScalarRelationFilter, Prisma.LegalEntityWhereInput> | null
   departments?: Prisma.DepartmentListRelationFilter
+  purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
 }
 
 export type SiteOrderByWithRelationInput = {
@@ -286,6 +287,7 @@ export type SiteOrderByWithRelationInput = {
   tenant?: Prisma.TenantOrderByWithRelationInput
   legalEntity?: Prisma.LegalEntityOrderByWithRelationInput
   departments?: Prisma.DepartmentOrderByRelationAggregateInput
+  purchaseRequests?: Prisma.PurchaseRequestOrderByRelationAggregateInput
 }
 
 export type SiteWhereUniqueInput = Prisma.AtLeast<{
@@ -311,6 +313,7 @@ export type SiteWhereUniqueInput = Prisma.AtLeast<{
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   legalEntity?: Prisma.XOR<Prisma.LegalEntityNullableScalarRelationFilter, Prisma.LegalEntityWhereInput> | null
   departments?: Prisma.DepartmentListRelationFilter
+  purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
 }, "id" | "tenantId_code">
 
 export type SiteOrderByWithAggregationInput = {
@@ -372,6 +375,7 @@ export type SiteCreateInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutSitesInput
   legalEntity?: Prisma.LegalEntityCreateNestedOneWithoutSitesInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutSiteInput
 }
 
 export type SiteUncheckedCreateInput = {
@@ -391,6 +395,7 @@ export type SiteUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutSiteInput
 }
 
 export type SiteUpdateInput = {
@@ -410,6 +415,7 @@ export type SiteUpdateInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSitesNestedInput
   legalEntity?: Prisma.LegalEntityUpdateOneWithoutSitesNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateInput = {
@@ -429,6 +435,7 @@ export type SiteUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteCreateManyInput = {
@@ -661,6 +668,22 @@ export type SiteUpdateOneWithoutDepartmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SiteUpdateToOneWithWhereWithoutDepartmentsInput, Prisma.SiteUpdateWithoutDepartmentsInput>, Prisma.SiteUncheckedUpdateWithoutDepartmentsInput>
 }
 
+export type SiteCreateNestedOneWithoutPurchaseRequestsInput = {
+  create?: Prisma.XOR<Prisma.SiteCreateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedCreateWithoutPurchaseRequestsInput>
+  connectOrCreate?: Prisma.SiteCreateOrConnectWithoutPurchaseRequestsInput
+  connect?: Prisma.SiteWhereUniqueInput
+}
+
+export type SiteUpdateOneWithoutPurchaseRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.SiteCreateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedCreateWithoutPurchaseRequestsInput>
+  connectOrCreate?: Prisma.SiteCreateOrConnectWithoutPurchaseRequestsInput
+  upsert?: Prisma.SiteUpsertWithoutPurchaseRequestsInput
+  disconnect?: Prisma.SiteWhereInput | boolean
+  delete?: Prisma.SiteWhereInput | boolean
+  connect?: Prisma.SiteWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SiteUpdateToOneWithWhereWithoutPurchaseRequestsInput, Prisma.SiteUpdateWithoutPurchaseRequestsInput>, Prisma.SiteUncheckedUpdateWithoutPurchaseRequestsInput>
+}
+
 export type SiteCreateWithoutTenantInput = {
   id?: string
   code: string
@@ -677,6 +700,7 @@ export type SiteCreateWithoutTenantInput = {
   updatedAt?: Date | string
   legalEntity?: Prisma.LegalEntityCreateNestedOneWithoutSitesInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutSiteInput
 }
 
 export type SiteUncheckedCreateWithoutTenantInput = {
@@ -695,6 +719,7 @@ export type SiteUncheckedCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutSiteInput
 }
 
 export type SiteCreateOrConnectWithoutTenantInput = {
@@ -760,6 +785,7 @@ export type SiteCreateWithoutLegalEntityInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutSitesInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutSiteInput
 }
 
 export type SiteUncheckedCreateWithoutLegalEntityInput = {
@@ -778,6 +804,7 @@ export type SiteUncheckedCreateWithoutLegalEntityInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutSiteInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutSiteInput
 }
 
 export type SiteCreateOrConnectWithoutLegalEntityInput = {
@@ -822,6 +849,7 @@ export type SiteCreateWithoutDepartmentsInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutSitesInput
   legalEntity?: Prisma.LegalEntityCreateNestedOneWithoutSitesInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutSiteInput
 }
 
 export type SiteUncheckedCreateWithoutDepartmentsInput = {
@@ -840,6 +868,7 @@ export type SiteUncheckedCreateWithoutDepartmentsInput = {
   status?: $Enums.SiteStatus
   createdAt?: Date | string
   updatedAt?: Date | string
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutSiteInput
 }
 
 export type SiteCreateOrConnectWithoutDepartmentsInput = {
@@ -874,6 +903,7 @@ export type SiteUpdateWithoutDepartmentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSitesNestedInput
   legalEntity?: Prisma.LegalEntityUpdateOneWithoutSitesNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateWithoutDepartmentsInput = {
@@ -892,6 +922,99 @@ export type SiteUncheckedUpdateWithoutDepartmentsInput = {
   status?: Prisma.EnumSiteStatusFieldUpdateOperationsInput | $Enums.SiteStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutSiteNestedInput
+}
+
+export type SiteCreateWithoutPurchaseRequestsInput = {
+  id?: string
+  code: string
+  name: string
+  countryCode: string
+  region?: string | null
+  city?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  postalCode?: string | null
+  timeZone?: string
+  status?: $Enums.SiteStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSitesInput
+  legalEntity?: Prisma.LegalEntityCreateNestedOneWithoutSitesInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutSiteInput
+}
+
+export type SiteUncheckedCreateWithoutPurchaseRequestsInput = {
+  id?: string
+  tenantId: string
+  legalEntityId?: string | null
+  code: string
+  name: string
+  countryCode: string
+  region?: string | null
+  city?: string | null
+  addressLine1?: string | null
+  addressLine2?: string | null
+  postalCode?: string | null
+  timeZone?: string
+  status?: $Enums.SiteStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutSiteInput
+}
+
+export type SiteCreateOrConnectWithoutPurchaseRequestsInput = {
+  where: Prisma.SiteWhereUniqueInput
+  create: Prisma.XOR<Prisma.SiteCreateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedCreateWithoutPurchaseRequestsInput>
+}
+
+export type SiteUpsertWithoutPurchaseRequestsInput = {
+  update: Prisma.XOR<Prisma.SiteUpdateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedUpdateWithoutPurchaseRequestsInput>
+  create: Prisma.XOR<Prisma.SiteCreateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedCreateWithoutPurchaseRequestsInput>
+  where?: Prisma.SiteWhereInput
+}
+
+export type SiteUpdateToOneWithWhereWithoutPurchaseRequestsInput = {
+  where?: Prisma.SiteWhereInput
+  data: Prisma.XOR<Prisma.SiteUpdateWithoutPurchaseRequestsInput, Prisma.SiteUncheckedUpdateWithoutPurchaseRequestsInput>
+}
+
+export type SiteUpdateWithoutPurchaseRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSiteStatusFieldUpdateOperationsInput | $Enums.SiteStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSitesNestedInput
+  legalEntity?: Prisma.LegalEntityUpdateOneWithoutSitesNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutSiteNestedInput
+}
+
+export type SiteUncheckedUpdateWithoutPurchaseRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  legalEntityId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  code?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  region?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine1?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  addressLine2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  postalCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  timeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSiteStatusFieldUpdateOperationsInput | $Enums.SiteStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteCreateManyTenantInput = {
@@ -927,6 +1050,7 @@ export type SiteUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   legalEntity?: Prisma.LegalEntityUpdateOneWithoutSitesNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateWithoutTenantInput = {
@@ -945,6 +1069,7 @@ export type SiteUncheckedUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateManyWithoutTenantInput = {
@@ -997,6 +1122,7 @@ export type SiteUpdateWithoutLegalEntityInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSitesNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateWithoutLegalEntityInput = {
@@ -1015,6 +1141,7 @@ export type SiteUncheckedUpdateWithoutLegalEntityInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutSiteNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutSiteNestedInput
 }
 
 export type SiteUncheckedUpdateManyWithoutLegalEntityInput = {
@@ -1041,10 +1168,12 @@ export type SiteUncheckedUpdateManyWithoutLegalEntityInput = {
 
 export type SiteCountOutputType = {
   departments: number
+  purchaseRequests: number
 }
 
 export type SiteCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   departments?: boolean | SiteCountOutputTypeCountDepartmentsArgs
+  purchaseRequests?: boolean | SiteCountOutputTypeCountPurchaseRequestsArgs
 }
 
 /**
@@ -1062,6 +1191,13 @@ export type SiteCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensi
  */
 export type SiteCountOutputTypeCountDepartmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.DepartmentWhereInput
+}
+
+/**
+ * SiteCountOutputType without action
+ */
+export type SiteCountOutputTypeCountPurchaseRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PurchaseRequestWhereInput
 }
 
 
@@ -1084,6 +1220,7 @@ export type SiteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   legalEntity?: boolean | Prisma.Site$legalEntityArgs<ExtArgs>
   departments?: boolean | Prisma.Site$departmentsArgs<ExtArgs>
+  purchaseRequests?: boolean | Prisma.Site$purchaseRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.SiteCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["site"]>
 
@@ -1150,6 +1287,7 @@ export type SiteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   legalEntity?: boolean | Prisma.Site$legalEntityArgs<ExtArgs>
   departments?: boolean | Prisma.Site$departmentsArgs<ExtArgs>
+  purchaseRequests?: boolean | Prisma.Site$purchaseRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.SiteCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SiteIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1167,6 +1305,7 @@ export type $SitePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     tenant: Prisma.$TenantPayload<ExtArgs>
     legalEntity: Prisma.$LegalEntityPayload<ExtArgs> | null
     departments: Prisma.$DepartmentPayload<ExtArgs>[]
+    purchaseRequests: Prisma.$PurchaseRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1581,6 +1720,7 @@ export interface Prisma__SiteClient<T, Null = never, ExtArgs extends runtime.Typ
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   legalEntity<T extends Prisma.Site$legalEntityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Site$legalEntityArgs<ExtArgs>>): Prisma.Prisma__LegalEntityClient<runtime.Types.Result.GetResult<Prisma.$LegalEntityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   departments<T extends Prisma.Site$departmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Site$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  purchaseRequests<T extends Prisma.Site$purchaseRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Site$purchaseRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2066,6 +2206,30 @@ export type Site$departmentsArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.DepartmentScalarFieldEnum | Prisma.DepartmentScalarFieldEnum[]
+}
+
+/**
+ * Site.purchaseRequests
+ */
+export type Site$purchaseRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PurchaseRequest
+   */
+  select?: Prisma.PurchaseRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PurchaseRequest
+   */
+  omit?: Prisma.PurchaseRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PurchaseRequestInclude<ExtArgs> | null
+  where?: Prisma.PurchaseRequestWhereInput
+  orderBy?: Prisma.PurchaseRequestOrderByWithRelationInput | Prisma.PurchaseRequestOrderByWithRelationInput[]
+  cursor?: Prisma.PurchaseRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PurchaseRequestScalarFieldEnum | Prisma.PurchaseRequestScalarFieldEnum[]
 }
 
 /**

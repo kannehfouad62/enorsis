@@ -67,3 +67,18 @@ export type AuditEvent = Prisma.AuditEventModel
  * 
  */
 export type AiAgent = Prisma.AiAgentModel
+/**
+ * Model PurchaseRequest
+ * 
+ */
+export type PurchaseRequest = Prisma.PurchaseRequestModel
+/**
+ * Model PurchaseRequestLine
+ * 
+ */
+export type PurchaseRequestLine = Prisma.PurchaseRequestLineModel
+/**
+ * Model PurchaseRequestApproval
+ * 
+ */
+export type PurchaseRequestApproval = Prisma.PurchaseRequestApprovalModel

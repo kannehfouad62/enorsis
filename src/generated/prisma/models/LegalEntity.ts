@@ -233,6 +233,7 @@ export type LegalEntityWhereInput = {
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   sites?: Prisma.SiteListRelationFilter
   departments?: Prisma.DepartmentListRelationFilter
+  purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
 }
 
 export type LegalEntityOrderByWithRelationInput = {
@@ -250,6 +251,7 @@ export type LegalEntityOrderByWithRelationInput = {
   tenant?: Prisma.TenantOrderByWithRelationInput
   sites?: Prisma.SiteOrderByRelationAggregateInput
   departments?: Prisma.DepartmentOrderByRelationAggregateInput
+  purchaseRequests?: Prisma.PurchaseRequestOrderByRelationAggregateInput
 }
 
 export type LegalEntityWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +273,7 @@ export type LegalEntityWhereUniqueInput = Prisma.AtLeast<{
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   sites?: Prisma.SiteListRelationFilter
   departments?: Prisma.DepartmentListRelationFilter
+  purchaseRequests?: Prisma.PurchaseRequestListRelationFilter
 }, "id" | "tenantId_legalName_countryCode">
 
 export type LegalEntityOrderByWithAggregationInput = {
@@ -321,6 +324,7 @@ export type LegalEntityCreateInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutLegalEntitiesInput
   sites?: Prisma.SiteCreateNestedManyWithoutLegalEntityInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityUncheckedCreateInput = {
@@ -337,6 +341,7 @@ export type LegalEntityUncheckedCreateInput = {
   updatedAt?: Date | string
   sites?: Prisma.SiteUncheckedCreateNestedManyWithoutLegalEntityInput
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityUpdateInput = {
@@ -353,6 +358,7 @@ export type LegalEntityUpdateInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutLegalEntitiesNestedInput
   sites?: Prisma.SiteUpdateManyWithoutLegalEntityNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityUncheckedUpdateInput = {
@@ -369,6 +375,7 @@ export type LegalEntityUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sites?: Prisma.SiteUncheckedUpdateManyWithoutLegalEntityNestedInput
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityCreateManyInput = {
@@ -553,6 +560,22 @@ export type LegalEntityUpdateOneWithoutDepartmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.LegalEntityUpdateToOneWithWhereWithoutDepartmentsInput, Prisma.LegalEntityUpdateWithoutDepartmentsInput>, Prisma.LegalEntityUncheckedUpdateWithoutDepartmentsInput>
 }
 
+export type LegalEntityCreateNestedOneWithoutPurchaseRequestsInput = {
+  create?: Prisma.XOR<Prisma.LegalEntityCreateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedCreateWithoutPurchaseRequestsInput>
+  connectOrCreate?: Prisma.LegalEntityCreateOrConnectWithoutPurchaseRequestsInput
+  connect?: Prisma.LegalEntityWhereUniqueInput
+}
+
+export type LegalEntityUpdateOneWithoutPurchaseRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.LegalEntityCreateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedCreateWithoutPurchaseRequestsInput>
+  connectOrCreate?: Prisma.LegalEntityCreateOrConnectWithoutPurchaseRequestsInput
+  upsert?: Prisma.LegalEntityUpsertWithoutPurchaseRequestsInput
+  disconnect?: Prisma.LegalEntityWhereInput | boolean
+  delete?: Prisma.LegalEntityWhereInput | boolean
+  connect?: Prisma.LegalEntityWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.LegalEntityUpdateToOneWithWhereWithoutPurchaseRequestsInput, Prisma.LegalEntityUpdateWithoutPurchaseRequestsInput>, Prisma.LegalEntityUncheckedUpdateWithoutPurchaseRequestsInput>
+}
+
 export type LegalEntityCreateWithoutTenantInput = {
   id?: string
   name: string
@@ -566,6 +589,7 @@ export type LegalEntityCreateWithoutTenantInput = {
   updatedAt?: Date | string
   sites?: Prisma.SiteCreateNestedManyWithoutLegalEntityInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityUncheckedCreateWithoutTenantInput = {
@@ -581,6 +605,7 @@ export type LegalEntityUncheckedCreateWithoutTenantInput = {
   updatedAt?: Date | string
   sites?: Prisma.SiteUncheckedCreateNestedManyWithoutLegalEntityInput
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityCreateOrConnectWithoutTenantInput = {
@@ -639,6 +664,7 @@ export type LegalEntityCreateWithoutSitesInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutLegalEntitiesInput
   departments?: Prisma.DepartmentCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityUncheckedCreateWithoutSitesInput = {
@@ -654,6 +680,7 @@ export type LegalEntityUncheckedCreateWithoutSitesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityCreateOrConnectWithoutSitesInput = {
@@ -685,6 +712,7 @@ export type LegalEntityUpdateWithoutSitesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutLegalEntitiesNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityUncheckedUpdateWithoutSitesInput = {
@@ -700,6 +728,7 @@ export type LegalEntityUncheckedUpdateWithoutSitesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityCreateWithoutDepartmentsInput = {
@@ -715,6 +744,7 @@ export type LegalEntityCreateWithoutDepartmentsInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutLegalEntitiesInput
   sites?: Prisma.SiteCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityUncheckedCreateWithoutDepartmentsInput = {
@@ -730,6 +760,7 @@ export type LegalEntityUncheckedCreateWithoutDepartmentsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   sites?: Prisma.SiteUncheckedCreateNestedManyWithoutLegalEntityInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutLegalEntityInput
 }
 
 export type LegalEntityCreateOrConnectWithoutDepartmentsInput = {
@@ -761,6 +792,7 @@ export type LegalEntityUpdateWithoutDepartmentsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutLegalEntitiesNestedInput
   sites?: Prisma.SiteUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityUncheckedUpdateWithoutDepartmentsInput = {
@@ -776,6 +808,87 @@ export type LegalEntityUncheckedUpdateWithoutDepartmentsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sites?: Prisma.SiteUncheckedUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutLegalEntityNestedInput
+}
+
+export type LegalEntityCreateWithoutPurchaseRequestsInput = {
+  id?: string
+  name: string
+  legalName: string
+  registrationNumber?: string | null
+  taxIdentificationNo?: string | null
+  countryCode: string
+  baseCurrencyCode: string
+  status?: $Enums.LegalEntityStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutLegalEntitiesInput
+  sites?: Prisma.SiteCreateNestedManyWithoutLegalEntityInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutLegalEntityInput
+}
+
+export type LegalEntityUncheckedCreateWithoutPurchaseRequestsInput = {
+  id?: string
+  tenantId: string
+  name: string
+  legalName: string
+  registrationNumber?: string | null
+  taxIdentificationNo?: string | null
+  countryCode: string
+  baseCurrencyCode: string
+  status?: $Enums.LegalEntityStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutLegalEntityInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutLegalEntityInput
+}
+
+export type LegalEntityCreateOrConnectWithoutPurchaseRequestsInput = {
+  where: Prisma.LegalEntityWhereUniqueInput
+  create: Prisma.XOR<Prisma.LegalEntityCreateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedCreateWithoutPurchaseRequestsInput>
+}
+
+export type LegalEntityUpsertWithoutPurchaseRequestsInput = {
+  update: Prisma.XOR<Prisma.LegalEntityUpdateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedUpdateWithoutPurchaseRequestsInput>
+  create: Prisma.XOR<Prisma.LegalEntityCreateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedCreateWithoutPurchaseRequestsInput>
+  where?: Prisma.LegalEntityWhereInput
+}
+
+export type LegalEntityUpdateToOneWithWhereWithoutPurchaseRequestsInput = {
+  where?: Prisma.LegalEntityWhereInput
+  data: Prisma.XOR<Prisma.LegalEntityUpdateWithoutPurchaseRequestsInput, Prisma.LegalEntityUncheckedUpdateWithoutPurchaseRequestsInput>
+}
+
+export type LegalEntityUpdateWithoutPurchaseRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumLegalEntityStatusFieldUpdateOperationsInput | $Enums.LegalEntityStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutLegalEntitiesNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutLegalEntityNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutLegalEntityNestedInput
+}
+
+export type LegalEntityUncheckedUpdateWithoutPurchaseRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  registrationNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumLegalEntityStatusFieldUpdateOperationsInput | $Enums.LegalEntityStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutLegalEntityNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityCreateManyTenantInput = {
@@ -804,6 +917,7 @@ export type LegalEntityUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sites?: Prisma.SiteUpdateManyWithoutLegalEntityNestedInput
   departments?: Prisma.DepartmentUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityUncheckedUpdateWithoutTenantInput = {
@@ -819,6 +933,7 @@ export type LegalEntityUncheckedUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sites?: Prisma.SiteUncheckedUpdateManyWithoutLegalEntityNestedInput
   departments?: Prisma.DepartmentUncheckedUpdateManyWithoutLegalEntityNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutLegalEntityNestedInput
 }
 
 export type LegalEntityUncheckedUpdateManyWithoutTenantInput = {
@@ -842,11 +957,13 @@ export type LegalEntityUncheckedUpdateManyWithoutTenantInput = {
 export type LegalEntityCountOutputType = {
   sites: number
   departments: number
+  purchaseRequests: number
 }
 
 export type LegalEntityCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sites?: boolean | LegalEntityCountOutputTypeCountSitesArgs
   departments?: boolean | LegalEntityCountOutputTypeCountDepartmentsArgs
+  purchaseRequests?: boolean | LegalEntityCountOutputTypeCountPurchaseRequestsArgs
 }
 
 /**
@@ -873,6 +990,13 @@ export type LegalEntityCountOutputTypeCountDepartmentsArgs<ExtArgs extends runti
   where?: Prisma.DepartmentWhereInput
 }
 
+/**
+ * LegalEntityCountOutputType without action
+ */
+export type LegalEntityCountOutputTypeCountPurchaseRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PurchaseRequestWhereInput
+}
+
 
 export type LegalEntitySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -889,6 +1013,7 @@ export type LegalEntitySelect<ExtArgs extends runtime.Types.Extensions.InternalA
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   sites?: boolean | Prisma.LegalEntity$sitesArgs<ExtArgs>
   departments?: boolean | Prisma.LegalEntity$departmentsArgs<ExtArgs>
+  purchaseRequests?: boolean | Prisma.LegalEntity$purchaseRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.LegalEntityCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["legalEntity"]>
 
@@ -941,6 +1066,7 @@ export type LegalEntityInclude<ExtArgs extends runtime.Types.Extensions.Internal
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   sites?: boolean | Prisma.LegalEntity$sitesArgs<ExtArgs>
   departments?: boolean | Prisma.LegalEntity$departmentsArgs<ExtArgs>
+  purchaseRequests?: boolean | Prisma.LegalEntity$purchaseRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.LegalEntityCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type LegalEntityIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -956,6 +1082,7 @@ export type $LegalEntityPayload<ExtArgs extends runtime.Types.Extensions.Interna
     tenant: Prisma.$TenantPayload<ExtArgs>
     sites: Prisma.$SitePayload<ExtArgs>[]
     departments: Prisma.$DepartmentPayload<ExtArgs>[]
+    purchaseRequests: Prisma.$PurchaseRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1366,6 +1493,7 @@ export interface Prisma__LegalEntityClient<T, Null = never, ExtArgs extends runt
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   sites<T extends Prisma.LegalEntity$sitesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LegalEntity$sitesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SitePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   departments<T extends Prisma.LegalEntity$departmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LegalEntity$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  purchaseRequests<T extends Prisma.LegalEntity$purchaseRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LegalEntity$purchaseRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1852,6 +1980,30 @@ export type LegalEntity$departmentsArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.DepartmentScalarFieldEnum | Prisma.DepartmentScalarFieldEnum[]
+}
+
+/**
+ * LegalEntity.purchaseRequests
+ */
+export type LegalEntity$purchaseRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PurchaseRequest
+   */
+  select?: Prisma.PurchaseRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PurchaseRequest
+   */
+  omit?: Prisma.PurchaseRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PurchaseRequestInclude<ExtArgs> | null
+  where?: Prisma.PurchaseRequestWhereInput
+  orderBy?: Prisma.PurchaseRequestOrderByWithRelationInput | Prisma.PurchaseRequestOrderByWithRelationInput[]
+  cursor?: Prisma.PurchaseRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PurchaseRequestScalarFieldEnum | Prisma.PurchaseRequestScalarFieldEnum[]
 }
 
 /**

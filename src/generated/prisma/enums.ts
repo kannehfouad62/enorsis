@@ -9,6 +9,38 @@
 * 🟢 You can import this file directly.
 */
 
+export const PurchaseRequestStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  UNDER_REVIEW: 'UNDER_REVIEW',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PurchaseRequestStatus = (typeof PurchaseRequestStatus)[keyof typeof PurchaseRequestStatus]
+
+
+export const PurchaseRequestPriority = {
+  LOW: 'LOW',
+  NORMAL: 'NORMAL',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type PurchaseRequestPriority = (typeof PurchaseRequestPriority)[keyof typeof PurchaseRequestPriority]
+
+
+export const ApprovalDecision = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  RETURNED: 'RETURNED'
+} as const
+
+export type ApprovalDecision = (typeof ApprovalDecision)[keyof typeof ApprovalDecision]
+
+
 export const TenantStatus = {
   PROVISIONING: 'PROVISIONING',
   ACTIVE: 'ACTIVE',

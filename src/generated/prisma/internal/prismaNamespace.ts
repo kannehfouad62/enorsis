@@ -406,7 +406,10 @@ export const ModelName = {
   Department: 'Department',
   ExchangeRate: 'ExchangeRate',
   AuditEvent: 'AuditEvent',
-  AiAgent: 'AiAgent'
+  AiAgent: 'AiAgent',
+  PurchaseRequest: 'PurchaseRequest',
+  PurchaseRequestLine: 'PurchaseRequestLine',
+  PurchaseRequestApproval: 'PurchaseRequestApproval'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -422,7 +425,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1166,6 +1169,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PurchaseRequest: {
+      payload: Prisma.$PurchaseRequestPayload<ExtArgs>
+      fields: Prisma.PurchaseRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PurchaseRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PurchaseRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.PurchaseRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PurchaseRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        findMany: {
+          args: Prisma.PurchaseRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>[]
+        }
+        create: {
+          args: Prisma.PurchaseRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        createMany: {
+          args: Prisma.PurchaseRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PurchaseRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.PurchaseRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        update: {
+          args: Prisma.PurchaseRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.PurchaseRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PurchaseRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PurchaseRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.PurchaseRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.PurchaseRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePurchaseRequest>
+        }
+        groupBy: {
+          args: Prisma.PurchaseRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PurchaseRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestCountAggregateOutputType> | number
+        }
+      }
+    }
+    PurchaseRequestLine: {
+      payload: Prisma.$PurchaseRequestLinePayload<ExtArgs>
+      fields: Prisma.PurchaseRequestLineFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PurchaseRequestLineFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PurchaseRequestLineFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        findFirst: {
+          args: Prisma.PurchaseRequestLineFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PurchaseRequestLineFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        findMany: {
+          args: Prisma.PurchaseRequestLineFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>[]
+        }
+        create: {
+          args: Prisma.PurchaseRequestLineCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        createMany: {
+          args: Prisma.PurchaseRequestLineCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PurchaseRequestLineCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>[]
+        }
+        delete: {
+          args: Prisma.PurchaseRequestLineDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        update: {
+          args: Prisma.PurchaseRequestLineUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        deleteMany: {
+          args: Prisma.PurchaseRequestLineDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PurchaseRequestLineUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PurchaseRequestLineUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>[]
+        }
+        upsert: {
+          args: Prisma.PurchaseRequestLineUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestLinePayload>
+        }
+        aggregate: {
+          args: Prisma.PurchaseRequestLineAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePurchaseRequestLine>
+        }
+        groupBy: {
+          args: Prisma.PurchaseRequestLineGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestLineGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PurchaseRequestLineCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestLineCountAggregateOutputType> | number
+        }
+      }
+    }
+    PurchaseRequestApproval: {
+      payload: Prisma.$PurchaseRequestApprovalPayload<ExtArgs>
+      fields: Prisma.PurchaseRequestApprovalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PurchaseRequestApprovalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PurchaseRequestApprovalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        findFirst: {
+          args: Prisma.PurchaseRequestApprovalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PurchaseRequestApprovalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        findMany: {
+          args: Prisma.PurchaseRequestApprovalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>[]
+        }
+        create: {
+          args: Prisma.PurchaseRequestApprovalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        createMany: {
+          args: Prisma.PurchaseRequestApprovalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PurchaseRequestApprovalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>[]
+        }
+        delete: {
+          args: Prisma.PurchaseRequestApprovalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        update: {
+          args: Prisma.PurchaseRequestApprovalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        deleteMany: {
+          args: Prisma.PurchaseRequestApprovalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PurchaseRequestApprovalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PurchaseRequestApprovalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>[]
+        }
+        upsert: {
+          args: Prisma.PurchaseRequestApprovalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PurchaseRequestApprovalPayload>
+        }
+        aggregate: {
+          args: Prisma.PurchaseRequestApprovalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePurchaseRequestApproval>
+        }
+        groupBy: {
+          args: Prisma.PurchaseRequestApprovalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestApprovalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PurchaseRequestApprovalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PurchaseRequestApprovalCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1397,6 +1622,68 @@ export const AiAgentScalarFieldEnum = {
 } as const
 
 export type AiAgentScalarFieldEnum = (typeof AiAgentScalarFieldEnum)[keyof typeof AiAgentScalarFieldEnum]
+
+
+export const PurchaseRequestScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  requesterId: 'requesterId',
+  legalEntityId: 'legalEntityId',
+  siteId: 'siteId',
+  departmentId: 'departmentId',
+  requestNumber: 'requestNumber',
+  title: 'title',
+  businessJustification: 'businessJustification',
+  priority: 'priority',
+  status: 'status',
+  neededByDate: 'neededByDate',
+  originalCurrency: 'originalCurrency',
+  totalAmount: 'totalAmount',
+  usdEquivalent: 'usdEquivalent',
+  exchangeRateToUsd: 'exchangeRateToUsd',
+  exchangeRateSource: 'exchangeRateSource',
+  exchangeRateDate: 'exchangeRateDate',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestScalarFieldEnum = (typeof PurchaseRequestScalarFieldEnum)[keyof typeof PurchaseRequestScalarFieldEnum]
+
+
+export const PurchaseRequestLineScalarFieldEnum = {
+  id: 'id',
+  purchaseRequestId: 'purchaseRequestId',
+  lineNumber: 'lineNumber',
+  description: 'description',
+  category: 'category',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  unitPrice: 'unitPrice',
+  lineTotal: 'lineTotal',
+  supplierSuggestion: 'supplierSuggestion',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestLineScalarFieldEnum = (typeof PurchaseRequestLineScalarFieldEnum)[keyof typeof PurchaseRequestLineScalarFieldEnum]
+
+
+export const PurchaseRequestApprovalScalarFieldEnum = {
+  id: 'id',
+  purchaseRequestId: 'purchaseRequestId',
+  approverId: 'approverId',
+  sequence: 'sequence',
+  decision: 'decision',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseRequestApprovalScalarFieldEnum = (typeof PurchaseRequestApprovalScalarFieldEnum)[keyof typeof PurchaseRequestApprovalScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1678,6 +1965,48 @@ export type ListEnumAiAutonomyLevelFieldRefInput<$PrismaModel> = FieldRefInputTy
 
 
 /**
+ * Reference to a field of type 'PurchaseRequestPriority'
+ */
+export type EnumPurchaseRequestPriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PurchaseRequestPriority'>
+    
+
+
+/**
+ * Reference to a field of type 'PurchaseRequestPriority[]'
+ */
+export type ListEnumPurchaseRequestPriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PurchaseRequestPriority[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PurchaseRequestStatus'
+ */
+export type EnumPurchaseRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PurchaseRequestStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PurchaseRequestStatus[]'
+ */
+export type ListEnumPurchaseRequestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PurchaseRequestStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApprovalDecision'
+ */
+export type EnumApprovalDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApprovalDecision'>
+    
+
+
+/**
+ * Reference to a field of type 'ApprovalDecision[]'
+ */
+export type ListEnumApprovalDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApprovalDecision[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1851,6 +2180,9 @@ export type GlobalOmitConfig = {
   exchangeRate?: Prisma.ExchangeRateOmit
   auditEvent?: Prisma.AuditEventOmit
   aiAgent?: Prisma.AiAgentOmit
+  purchaseRequest?: Prisma.PurchaseRequestOmit
+  purchaseRequestLine?: Prisma.PurchaseRequestLineOmit
+  purchaseRequestApproval?: Prisma.PurchaseRequestApprovalOmit
 }
 
 /* Types for Logging */
