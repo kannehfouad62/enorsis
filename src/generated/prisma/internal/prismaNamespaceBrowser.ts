@@ -112,7 +112,8 @@ export const ModelName = {
   WorkflowInstance: 'WorkflowInstance',
   WorkflowTask: 'WorkflowTask',
   WorkflowDelegation: 'WorkflowDelegation',
-  WorkflowEscalation: 'WorkflowEscalation'
+  WorkflowEscalation: 'WorkflowEscalation',
+  WorkflowNotification: 'WorkflowNotification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1395,6 +1396,35 @@ export const WorkflowEscalationScalarFieldEnum = {
 } as const
 
 export type WorkflowEscalationScalarFieldEnum = (typeof WorkflowEscalationScalarFieldEnum)[keyof typeof WorkflowEscalationScalarFieldEnum]
+
+
+export const WorkflowNotificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  workflowInstanceId: 'workflowInstanceId',
+  workflowTaskId: 'workflowTaskId',
+  recipientUserId: 'recipientUserId',
+  recipientEmail: 'recipientEmail',
+  type: 'type',
+  channel: 'channel',
+  status: 'status',
+  subject: 'subject',
+  message: 'message',
+  actionUrl: 'actionUrl',
+  deduplicationKey: 'deduplicationKey',
+  scheduledAt: 'scheduledAt',
+  processingStartedAt: 'processingStartedAt',
+  deliveredAt: 'deliveredAt',
+  failedAt: 'failedAt',
+  attemptCount: 'attemptCount',
+  nextAttemptAt: 'nextAttemptAt',
+  errorMessage: 'errorMessage',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowNotificationScalarFieldEnum = (typeof WorkflowNotificationScalarFieldEnum)[keyof typeof WorkflowNotificationScalarFieldEnum]
 
 
 export const SortOrder = {

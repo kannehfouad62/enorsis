@@ -1527,6 +1527,57 @@ export type EnumWorkflowEscalationStatusWithAggregatesFilter<$PrismaModel = neve
   _max?: Prisma.NestedEnumWorkflowEscalationStatusFilter<$PrismaModel>
 }
 
+export type EnumWorkflowNotificationTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationType | Prisma.EnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel> | $Enums.WorkflowNotificationType
+}
+
+export type EnumWorkflowNotificationChannelFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationChannel | Prisma.EnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel> | $Enums.WorkflowNotificationChannel
+}
+
+export type EnumWorkflowNotificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationStatus | Prisma.EnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel> | $Enums.WorkflowNotificationStatus
+}
+
+export type EnumWorkflowNotificationTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationType | Prisma.EnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationTypeWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel>
+}
+
+export type EnumWorkflowNotificationChannelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationChannel | Prisma.EnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationChannelWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationChannel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel>
+}
+
+export type EnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationStatus | Prisma.EnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -2997,6 +3048,57 @@ export type NestedEnumWorkflowEscalationStatusWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWorkflowEscalationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWorkflowEscalationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWorkflowNotificationTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationType | Prisma.EnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel> | $Enums.WorkflowNotificationType
+}
+
+export type NestedEnumWorkflowNotificationChannelFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationChannel | Prisma.EnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel> | $Enums.WorkflowNotificationChannel
+}
+
+export type NestedEnumWorkflowNotificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationStatus | Prisma.EnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel> | $Enums.WorkflowNotificationStatus
+}
+
+export type NestedEnumWorkflowNotificationTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationType | Prisma.EnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationType[] | Prisma.ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationTypeWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumWorkflowNotificationChannelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationChannel | Prisma.EnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationChannel[] | Prisma.ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationChannelWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationChannel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationChannelFilter<$PrismaModel>
+}
+
+export type NestedEnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkflowNotificationStatus | Prisma.EnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WorkflowNotificationStatus[] | Prisma.ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.WorkflowNotificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
 }
 
 

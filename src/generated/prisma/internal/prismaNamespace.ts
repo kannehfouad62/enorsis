@@ -458,7 +458,8 @@ export const ModelName = {
   WorkflowInstance: 'WorkflowInstance',
   WorkflowTask: 'WorkflowTask',
   WorkflowDelegation: 'WorkflowDelegation',
-  WorkflowEscalation: 'WorkflowEscalation'
+  WorkflowEscalation: 'WorkflowEscalation',
+  WorkflowNotification: 'WorkflowNotification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -474,7 +475,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5066,6 +5067,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    WorkflowNotification: {
+      payload: Prisma.$WorkflowNotificationPayload<ExtArgs>
+      fields: Prisma.WorkflowNotificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WorkflowNotificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WorkflowNotificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        findFirst: {
+          args: Prisma.WorkflowNotificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WorkflowNotificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        findMany: {
+          args: Prisma.WorkflowNotificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>[]
+        }
+        create: {
+          args: Prisma.WorkflowNotificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        createMany: {
+          args: Prisma.WorkflowNotificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WorkflowNotificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>[]
+        }
+        delete: {
+          args: Prisma.WorkflowNotificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        update: {
+          args: Prisma.WorkflowNotificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.WorkflowNotificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WorkflowNotificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WorkflowNotificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.WorkflowNotificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WorkflowNotificationPayload>
+        }
+        aggregate: {
+          args: Prisma.WorkflowNotificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWorkflowNotification>
+        }
+        groupBy: {
+          args: Prisma.WorkflowNotificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkflowNotificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WorkflowNotificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WorkflowNotificationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -6371,6 +6446,35 @@ export const WorkflowEscalationScalarFieldEnum = {
 export type WorkflowEscalationScalarFieldEnum = (typeof WorkflowEscalationScalarFieldEnum)[keyof typeof WorkflowEscalationScalarFieldEnum]
 
 
+export const WorkflowNotificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  workflowInstanceId: 'workflowInstanceId',
+  workflowTaskId: 'workflowTaskId',
+  recipientUserId: 'recipientUserId',
+  recipientEmail: 'recipientEmail',
+  type: 'type',
+  channel: 'channel',
+  status: 'status',
+  subject: 'subject',
+  message: 'message',
+  actionUrl: 'actionUrl',
+  deduplicationKey: 'deduplicationKey',
+  scheduledAt: 'scheduledAt',
+  processingStartedAt: 'processingStartedAt',
+  deliveredAt: 'deliveredAt',
+  failedAt: 'failedAt',
+  attemptCount: 'attemptCount',
+  nextAttemptAt: 'nextAttemptAt',
+  errorMessage: 'errorMessage',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowNotificationScalarFieldEnum = (typeof WorkflowNotificationScalarFieldEnum)[keyof typeof WorkflowNotificationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -7469,6 +7573,48 @@ export type ListEnumWorkflowEscalationStatusFieldRefInput<$PrismaModel> = FieldR
 
 
 /**
+ * Reference to a field of type 'WorkflowNotificationType'
+ */
+export type EnumWorkflowNotificationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationType'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkflowNotificationType[]'
+ */
+export type ListEnumWorkflowNotificationTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkflowNotificationChannel'
+ */
+export type EnumWorkflowNotificationChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationChannel'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkflowNotificationChannel[]'
+ */
+export type ListEnumWorkflowNotificationChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationChannel[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkflowNotificationStatus'
+ */
+export type EnumWorkflowNotificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WorkflowNotificationStatus[]'
+ */
+export type ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkflowNotificationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7694,6 +7840,7 @@ export type GlobalOmitConfig = {
   workflowTask?: Prisma.WorkflowTaskOmit
   workflowDelegation?: Prisma.WorkflowDelegationOmit
   workflowEscalation?: Prisma.WorkflowEscalationOmit
+  workflowNotification?: Prisma.WorkflowNotificationOmit
 }
 
 /* Types for Logging */

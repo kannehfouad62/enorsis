@@ -692,6 +692,39 @@ export const WorkflowDecision = {
 export type WorkflowDecision = (typeof WorkflowDecision)[keyof typeof WorkflowDecision]
 
 
+export const WorkflowNotificationChannel = {
+  IN_APP: 'IN_APP',
+  EMAIL: 'EMAIL'
+} as const
+
+export type WorkflowNotificationChannel = (typeof WorkflowNotificationChannel)[keyof typeof WorkflowNotificationChannel]
+
+
+export const WorkflowNotificationStatus = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  DELIVERED: 'DELIVERED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WorkflowNotificationStatus = (typeof WorkflowNotificationStatus)[keyof typeof WorkflowNotificationStatus]
+
+
+export const WorkflowNotificationType = {
+  TASK_ASSIGNED: 'TASK_ASSIGNED',
+  TASK_DUE_SOON: 'TASK_DUE_SOON',
+  TASK_OVERDUE: 'TASK_OVERDUE',
+  TASK_ESCALATED: 'TASK_ESCALATED',
+  WORKFLOW_COMPLETED: 'WORKFLOW_COMPLETED',
+  WORKFLOW_REJECTED: 'WORKFLOW_REJECTED',
+  DELEGATION_STARTED: 'DELEGATION_STARTED',
+  DELEGATION_ENDING: 'DELEGATION_ENDING'
+} as const
+
+export type WorkflowNotificationType = (typeof WorkflowNotificationType)[keyof typeof WorkflowNotificationType]
+
+
 export const WorkflowEscalationStatus = {
   PENDING: 'PENDING',
   SENT: 'SENT',

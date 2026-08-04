@@ -511,6 +511,30 @@ enum WorkflowDecision {
   COMPLETE
 }
 
+enum WorkflowNotificationChannel {
+  IN_APP
+  EMAIL
+}
+
+enum WorkflowNotificationStatus {
+  PENDING
+  PROCESSING
+  DELIVERED
+  FAILED
+  CANCELLED
+}
+
+enum WorkflowNotificationType {
+  TASK_ASSIGNED
+  TASK_DUE_SOON
+  TASK_OVERDUE
+  TASK_ESCALATED
+  WORKFLOW_COMPLETED
+  WORKFLOW_REJECTED
+  DELEGATION_STARTED
+  DELEGATION_ENDING
+}
+
 enum WorkflowEscalationStatus {
   PENDING
   SENT
@@ -613,42 +637,43 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                   String                  @id @default(cuid())
-  slug                 String                  @unique
-  name                 String
-  legalName            String?
-  status               TenantStatus            @default(PROVISIONING)
-  countryCode          String?
-  defaultLocale        String                  @default("en-US")
-  defaultTimeZone      String                  @default("UTC")
-  currencyPolicyMode   CurrencyPolicyMode      @default(USD_ONLY)
-  baseCurrencyCode     String                  @default("USD")
-  localDisplayCurrency String?
-  usdReportingEnabled  Boolean                 @default(true)
-  memberships          Membership[]
-  legalEntities        LegalEntity[]
-  sites                Site[]
-  departments          Department[]
-  exchangeRates        ExchangeRate[]
-  auditEvents          AuditEvent[]
-  aiAgents             AiAgent[]
-  purchaseRequests     PurchaseRequest[]
-  purchaseOrders       PurchaseOrder[]
-  receipts             ProcurementReceipt[]
-  supplierInvoices     SupplierInvoice[]
-  suppliers            Supplier[]
-  sourcingEvents       SourcingEvent[]
-  paymentBatches       PaymentBatch[]
-  integrations         IntegrationConnection[]
-  workflowDefinitions  WorkflowDefinition[]
-  workflowInstances    WorkflowInstance[]
-  workflowDelegations  WorkflowDelegation[]
-  createdAt            DateTime                @default(now())
-  updatedAt            DateTime                @updatedAt
-  archivedAt           DateTime?
-  contracts            Contract[]
-  clauseTemplates      ClauseTemplate[]
-  aiAgentTasks         AiAgentTask[]
+  id                    String                  @id @default(cuid())
+  slug                  String                  @unique
+  name                  String
+  legalName             String?
+  status                TenantStatus            @default(PROVISIONING)
+  countryCode           String?
+  defaultLocale         String                  @default("en-US")
+  defaultTimeZone       String                  @default("UTC")
+  currencyPolicyMode    CurrencyPolicyMode      @default(USD_ONLY)
+  baseCurrencyCode      String                  @default("USD")
+  localDisplayCurrency  String?
+  usdReportingEnabled   Boolean                 @default(true)
+  memberships           Membership[]
+  legalEntities         LegalEntity[]
+  sites                 Site[]
+  departments           Department[]
+  exchangeRates         ExchangeRate[]
+  auditEvents           AuditEvent[]
+  aiAgents              AiAgent[]
+  purchaseRequests      PurchaseRequest[]
+  purchaseOrders        PurchaseOrder[]
+  receipts              ProcurementReceipt[]
+  supplierInvoices      SupplierInvoice[]
+  suppliers             Supplier[]
+  sourcingEvents        SourcingEvent[]
+  paymentBatches        PaymentBatch[]
+  integrations          IntegrationConnection[]
+  workflowDefinitions   WorkflowDefinition[]
+  workflowInstances     WorkflowInstance[]
+  workflowDelegations   WorkflowDelegation[]
+  workflowNotifications WorkflowNotification[]
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  archivedAt            DateTime?
+  contracts             Contract[]
+  clauseTemplates       ClauseTemplate[]
+  aiAgentTasks          AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -2036,4 +2061,37 @@ model WorkflowEscalation {
 
   @@index([status, scheduledAt])
   @@index([workflowInstanceId, status])
+}
+
+model WorkflowNotification {
+  id                  String                      @id @default(cuid())
+  tenantId            String
+  workflowInstanceId  String?
+  workflowTaskId      String?
+  recipientUserId     String
+  recipientEmail      String?
+  type                WorkflowNotificationType
+  channel             WorkflowNotificationChannel
+  status              WorkflowNotificationStatus  @default(PENDING)
+  subject             String
+  message             String
+  actionUrl           String?
+  deduplicationKey    String
+  scheduledAt         DateTime                    @default(now())
+  processingStartedAt DateTime?
+  deliveredAt         DateTime?
+  failedAt            DateTime?
+  attemptCount        Int                         @default(0)
+  nextAttemptAt       DateTime?
+  errorMessage        String?
+  metadata            Json?
+  tenant              Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt           DateTime                    @default(now())
+  updatedAt           DateTime                    @updatedAt
+
+  @@unique([tenantId, deduplicationKey])
+  @@index([tenantId, recipientUserId, status, createdAt])
+  @@index([status, scheduledAt, nextAttemptAt])
+  @@index([workflowTaskId])
+  @@index([workflowInstanceId])
 }

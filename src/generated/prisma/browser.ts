@@ -327,3 +327,8 @@ export type WorkflowDelegation = Prisma.WorkflowDelegationModel
  * 
  */
 export type WorkflowEscalation = Prisma.WorkflowEscalationModel
+/**
+ * Model WorkflowNotification
+ * 
+ */
+export type WorkflowNotification = Prisma.WorkflowNotificationModel
