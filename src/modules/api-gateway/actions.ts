@@ -78,3 +78,80 @@ export async function revokeApiCredentialAction(formData: FormData) {
 
   revalidatePath("/app/settings/api");
 }
+
+
+export async function suspendApiClientAction(formData: FormData) {
+  const user = await requireAnyRole(["TENANT_ADMIN", "TENANT_OWNER"]);
+  const apiClientId = field(formData, "apiClientId");
+
+  const client = await prisma.apiClient.findFirstOrThrow({
+    where: { id: apiClientId, tenantId: user.tenantId },
+  });
+
+  await prisma.apiClient.update({
+    where: { id: client.id },
+    data: {
+      status: "SUSPENDED",
+      suspendedAt: new Date(),
+    },
+  });
+
+  revalidatePath("/app/settings/api");
+  revalidatePath("/app/settings/api/analytics");
+}
+
+export async function reactivateApiClientAction(formData: FormData) {
+  const user = await requireAnyRole(["TENANT_ADMIN", "TENANT_OWNER"]);
+  const apiClientId = field(formData, "apiClientId");
+
+  const client = await prisma.apiClient.findFirstOrThrow({
+    where: {
+      id: apiClientId,
+      tenantId: user.tenantId,
+      status: "SUSPENDED",
+    },
+  });
+
+  await prisma.apiClient.update({
+    where: { id: client.id },
+    data: {
+      status: "ACTIVE",
+      suspendedAt: null,
+    },
+  });
+
+  revalidatePath("/app/settings/api");
+  revalidatePath("/app/settings/api/analytics");
+}
+
+export async function revokeApiClientAction(formData: FormData) {
+  const user = await requireAnyRole(["TENANT_OWNER"]);
+  const apiClientId = field(formData, "apiClientId");
+
+  const client = await prisma.apiClient.findFirstOrThrow({
+    where: { id: apiClientId, tenantId: user.tenantId },
+  });
+
+  await prisma.$transaction([
+    prisma.apiClient.update({
+      where: { id: client.id },
+      data: {
+        status: "REVOKED",
+        revokedAt: new Date(),
+      },
+    }),
+    prisma.apiCredential.updateMany({
+      where: {
+        apiClientId: client.id,
+        status: "ACTIVE",
+      },
+      data: {
+        status: "REVOKED",
+        revokedAt: new Date(),
+      },
+    }),
+  ]);
+
+  revalidatePath("/app/settings/api");
+  revalidatePath("/app/settings/api/analytics");
+}

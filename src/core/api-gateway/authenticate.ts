@@ -1,4 +1,5 @@
 import { hashApiKey } from "./crypto";
+import { isRequestIpAllowed } from "./network";
 import { prisma } from "@/lib/prisma";
 
 export interface ApiIdentity {
@@ -47,6 +48,15 @@ export async function authenticateApiRequest(
 
   if (!credential.apiClient.allowedScopes.includes(requiredScope)) {
     throw new ApiGatewayError(403, "INSUFFICIENT_SCOPE");
+  }
+
+  if (
+    !isRequestIpAllowed(
+      request,
+      credential.apiClient.allowedIpCidrs,
+    )
+  ) {
+    throw new ApiGatewayError(403, "IP_NOT_ALLOWED");
   }
 
   await prisma.apiCredential.update({
