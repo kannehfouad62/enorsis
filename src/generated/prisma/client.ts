@@ -276,3 +276,13 @@ export type SupplierInvoiceLine = Prisma.SupplierInvoiceLineModel
  * 
  */
 export type InvoiceMatchException = Prisma.InvoiceMatchExceptionModel
+/**
+ * Model PaymentBatch
+ * 
+ */
+export type PaymentBatch = Prisma.PaymentBatchModel
+/**
+ * Model PaymentBatchItem
+ * 
+ */
+export type PaymentBatchItem = Prisma.PaymentBatchItemModel

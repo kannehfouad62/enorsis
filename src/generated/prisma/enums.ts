@@ -430,6 +430,30 @@ export const MatchExceptionType = {
 export type MatchExceptionType = (typeof MatchExceptionType)[keyof typeof MatchExceptionType]
 
 
+export const PaymentBatchStatus = {
+  DRAFT: 'DRAFT',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  APPROVED: 'APPROVED',
+  EXPORTED: 'EXPORTED',
+  PROCESSING: 'PROCESSING',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PaymentBatchStatus = (typeof PaymentBatchStatus)[keyof typeof PaymentBatchStatus]
+
+
+export const PaymentBatchItemStatus = {
+  PENDING: 'PENDING',
+  INCLUDED: 'INCLUDED',
+  REJECTED: 'REJECTED',
+  PAID: 'PAID',
+  FAILED: 'FAILED'
+} as const
+
+export type PaymentBatchItemStatus = (typeof PaymentBatchItemStatus)[keyof typeof PaymentBatchItemStatus]
+
+
 export const MatchExceptionStatus = {
   OPEN: 'OPEN',
   RESOLVED: 'RESOLVED',

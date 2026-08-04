@@ -97,7 +97,9 @@ export const ModelName = {
   ProcurementReceiptLine: 'ProcurementReceiptLine',
   SupplierInvoice: 'SupplierInvoice',
   SupplierInvoiceLine: 'SupplierInvoiceLine',
-  InvoiceMatchException: 'InvoiceMatchException'
+  InvoiceMatchException: 'InvoiceMatchException',
+  PaymentBatch: 'PaymentBatch',
+  PaymentBatchItem: 'PaymentBatchItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1058,6 +1060,53 @@ export const InvoiceMatchExceptionScalarFieldEnum = {
 } as const
 
 export type InvoiceMatchExceptionScalarFieldEnum = (typeof InvoiceMatchExceptionScalarFieldEnum)[keyof typeof InvoiceMatchExceptionScalarFieldEnum]
+
+
+export const PaymentBatchScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  batchNumber: 'batchNumber',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  invoiceCount: 'invoiceCount',
+  totalAmount: 'totalAmount',
+  totalUsdEquivalent: 'totalUsdEquivalent',
+  paymentDate: 'paymentDate',
+  description: 'description',
+  createdByUserId: 'createdByUserId',
+  submittedByUserId: 'submittedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  exportedByUserId: 'exportedByUserId',
+  completedByUserId: 'completedByUserId',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  exportedAt: 'exportedAt',
+  completedAt: 'completedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  exportReference: 'exportReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentBatchScalarFieldEnum = (typeof PaymentBatchScalarFieldEnum)[keyof typeof PaymentBatchScalarFieldEnum]
+
+
+export const PaymentBatchItemScalarFieldEnum = {
+  id: 'id',
+  paymentBatchId: 'paymentBatchId',
+  supplierInvoiceId: 'supplierInvoiceId',
+  status: 'status',
+  amount: 'amount',
+  usdEquivalent: 'usdEquivalent',
+  paymentReference: 'paymentReference',
+  failureReason: 'failureReason',
+  paidAt: 'paidAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PaymentBatchItemScalarFieldEnum = (typeof PaymentBatchItemScalarFieldEnum)[keyof typeof PaymentBatchItemScalarFieldEnum]
 
 
 export const SortOrder = {
