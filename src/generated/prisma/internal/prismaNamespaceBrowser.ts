@@ -87,7 +87,10 @@ export const ModelName = {
   ContractRiskReview: 'ContractRiskReview',
   ContractAmendment: 'ContractAmendment',
   AiPromptTemplate: 'AiPromptTemplate',
-  AiExecution: 'AiExecution'
+  AiExecution: 'AiExecution',
+  SupplierRiskAssessment: 'SupplierRiskAssessment',
+  SupplierRiskFinding: 'SupplierRiskFinding',
+  SupplierEsgAssessment: 'SupplierEsgAssessment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -822,6 +825,76 @@ export const AiExecutionScalarFieldEnum = {
 } as const
 
 export type AiExecutionScalarFieldEnum = (typeof AiExecutionScalarFieldEnum)[keyof typeof AiExecutionScalarFieldEnum]
+
+
+export const SupplierRiskAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  status: 'status',
+  financialRisk: 'financialRisk',
+  operationalRisk: 'operationalRisk',
+  complianceRisk: 'complianceRisk',
+  cyberRisk: 'cyberRisk',
+  esgRisk: 'esgRisk',
+  deliveryRisk: 'deliveryRisk',
+  qualityRisk: 'qualityRisk',
+  concentrationRisk: 'concentrationRisk',
+  inherentRiskScore: 'inherentRiskScore',
+  residualRiskScore: 'residualRiskScore',
+  rationale: 'rationale',
+  controls: 'controls',
+  reviewedByUserId: 'reviewedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRiskAssessmentScalarFieldEnum = (typeof SupplierRiskAssessmentScalarFieldEnum)[keyof typeof SupplierRiskAssessmentScalarFieldEnum]
+
+
+export const SupplierRiskFindingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  dueDate: 'dueDate',
+  ownerUserId: 'ownerUserId',
+  mitigationPlan: 'mitigationPlan',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRiskFindingScalarFieldEnum = (typeof SupplierRiskFindingScalarFieldEnum)[keyof typeof SupplierRiskFindingScalarFieldEnum]
+
+
+export const SupplierEsgAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  overallScore: 'overallScore',
+  rating: 'rating',
+  carbonDisclosure: 'carbonDisclosure',
+  scienceBasedTargets: 'scienceBasedTargets',
+  modernSlaveryPolicy: 'modernSlaveryPolicy',
+  diversityProgram: 'diversityProgram',
+  ethicsPolicy: 'ethicsPolicy',
+  evidenceSummary: 'evidenceSummary',
+  assessedByUserId: 'assessedByUserId',
+  assessedAt: 'assessedAt'
+} as const
+
+export type SupplierEsgAssessmentScalarFieldEnum = (typeof SupplierEsgAssessmentScalarFieldEnum)[keyof typeof SupplierEsgAssessmentScalarFieldEnum]
 
 
 export const SortOrder = {

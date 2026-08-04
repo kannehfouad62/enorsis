@@ -176,6 +176,41 @@ enum SourcingCriterionType {
   OTHER
 }
 
+enum SupplierRiskAssessmentStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  REJECTED
+}
+
+enum SupplierRiskFindingStatus {
+  OPEN
+  MITIGATING
+  RESOLVED
+  ACCEPTED
+}
+
+enum SupplierRiskFindingType {
+  FINANCIAL
+  OPERATIONAL
+  COMPLIANCE
+  SANCTIONS
+  CYBER
+  ESG
+  DELIVERY
+  QUALITY
+  CONCENTRATION
+  OTHER
+}
+
+enum SupplierEsgRating {
+  LEADING
+  ACCEPTABLE
+  NEEDS_IMPROVEMENT
+  HIGH_RISK
+  NOT_ASSESSED
+}
+
 enum SupplierStatus {
   PROSPECT
   INVITED
@@ -674,6 +709,9 @@ model Supplier {
   updatedAt           DateTime                    @updatedAt
   sourcingQuestions   SourcingQuestion[]
   contracts           Contract[]
+  riskAssessments     SupplierRiskAssessment[]
+  riskFindings        SupplierRiskFinding[]
+  esgAssessments      SupplierEsgAssessment[]
 
   @@unique([tenantId, supplierNumber])
   @@unique([tenantId, legalName, countryCode])
@@ -1151,4 +1189,77 @@ model AiExecution {
   @@index([tenantId, capability, createdAt])
   @@index([tenantId, reviewStatus, createdAt])
   @@index([userId, createdAt])
+}
+
+model SupplierRiskAssessment {
+  id                String                       @id @default(cuid())
+  tenantId          String
+  supplierId        String
+  status            SupplierRiskAssessmentStatus @default(IN_REVIEW)
+  financialRisk     Int
+  operationalRisk   Int
+  complianceRisk    Int
+  cyberRisk         Int
+  esgRisk           Int
+  deliveryRisk      Int
+  qualityRisk       Int
+  concentrationRisk Int
+  inherentRiskScore Int
+  residualRiskScore Int
+  rationale         String
+  controls          String?
+  reviewedByUserId  String?
+  approvedByUserId  String?
+  reviewedAt        DateTime?
+  approvedAt        DateTime?
+  supplier          Supplier                     @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                     @default(now())
+  updatedAt         DateTime                     @updatedAt
+
+  @@index([tenantId, status, createdAt])
+  @@index([supplierId, createdAt])
+}
+
+model SupplierRiskFinding {
+  id             String                    @id @default(cuid())
+  tenantId       String
+  supplierId     String
+  type           SupplierRiskFindingType
+  status         SupplierRiskFindingStatus @default(OPEN)
+  title          String
+  description    String
+  severity       Int
+  dueDate        DateTime?
+  ownerUserId    String?
+  mitigationPlan String?
+  resolvedAt     DateTime?
+  supplier       Supplier                  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt      DateTime                  @default(now())
+  updatedAt      DateTime                  @updatedAt
+
+  @@index([tenantId, status, severity])
+  @@index([supplierId, status])
+}
+
+model SupplierEsgAssessment {
+  id                  String            @id @default(cuid())
+  tenantId            String
+  supplierId          String
+  environmentalScore  Int
+  socialScore         Int
+  governanceScore     Int
+  overallScore        Int
+  rating              SupplierEsgRating @default(NOT_ASSESSED)
+  carbonDisclosure    Boolean           @default(false)
+  scienceBasedTargets Boolean           @default(false)
+  modernSlaveryPolicy Boolean           @default(false)
+  diversityProgram    Boolean           @default(false)
+  ethicsPolicy        Boolean           @default(false)
+  evidenceSummary     String?
+  assessedByUserId    String
+  assessedAt          DateTime          @default(now())
+  supplier            Supplier          @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, rating, assessedAt])
+  @@index([supplierId, assessedAt])
 }

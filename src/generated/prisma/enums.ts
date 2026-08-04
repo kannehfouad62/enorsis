@@ -244,6 +244,53 @@ export const SourcingCriterionType = {
 export type SourcingCriterionType = (typeof SourcingCriterionType)[keyof typeof SourcingCriterionType]
 
 
+export const SupplierRiskAssessmentStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type SupplierRiskAssessmentStatus = (typeof SupplierRiskAssessmentStatus)[keyof typeof SupplierRiskAssessmentStatus]
+
+
+export const SupplierRiskFindingStatus = {
+  OPEN: 'OPEN',
+  MITIGATING: 'MITIGATING',
+  RESOLVED: 'RESOLVED',
+  ACCEPTED: 'ACCEPTED'
+} as const
+
+export type SupplierRiskFindingStatus = (typeof SupplierRiskFindingStatus)[keyof typeof SupplierRiskFindingStatus]
+
+
+export const SupplierRiskFindingType = {
+  FINANCIAL: 'FINANCIAL',
+  OPERATIONAL: 'OPERATIONAL',
+  COMPLIANCE: 'COMPLIANCE',
+  SANCTIONS: 'SANCTIONS',
+  CYBER: 'CYBER',
+  ESG: 'ESG',
+  DELIVERY: 'DELIVERY',
+  QUALITY: 'QUALITY',
+  CONCENTRATION: 'CONCENTRATION',
+  OTHER: 'OTHER'
+} as const
+
+export type SupplierRiskFindingType = (typeof SupplierRiskFindingType)[keyof typeof SupplierRiskFindingType]
+
+
+export const SupplierEsgRating = {
+  LEADING: 'LEADING',
+  ACCEPTABLE: 'ACCEPTABLE',
+  NEEDS_IMPROVEMENT: 'NEEDS_IMPROVEMENT',
+  HIGH_RISK: 'HIGH_RISK',
+  NOT_ASSESSED: 'NOT_ASSESSED'
+} as const
+
+export type SupplierEsgRating = (typeof SupplierEsgRating)[keyof typeof SupplierEsgRating]
+
+
 export const SupplierStatus = {
   PROSPECT: 'PROSPECT',
   INVITED: 'INVITED',

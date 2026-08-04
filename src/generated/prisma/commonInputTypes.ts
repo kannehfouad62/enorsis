@@ -987,6 +987,74 @@ export type EnumAiReviewStatusWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
 }
 
+export type EnumSupplierRiskAssessmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskAssessmentStatus | Prisma.EnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel> | $Enums.SupplierRiskAssessmentStatus
+}
+
+export type EnumSupplierRiskAssessmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskAssessmentStatus | Prisma.EnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskAssessmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskAssessmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierRiskFindingTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingType | Prisma.EnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel> | $Enums.SupplierRiskFindingType
+}
+
+export type EnumSupplierRiskFindingStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingStatus | Prisma.EnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel> | $Enums.SupplierRiskFindingStatus
+}
+
+export type EnumSupplierRiskFindingTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingType | Prisma.EnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskFindingType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel>
+}
+
+export type EnumSupplierRiskFindingStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingStatus | Prisma.EnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskFindingStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierEsgRatingFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRating | Prisma.EnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel> | $Enums.SupplierEsgRating
+}
+
+export type EnumSupplierEsgRatingWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRating | Prisma.EnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRatingWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgRating
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -1944,6 +2012,74 @@ export type NestedEnumAiReviewStatusWithAggregatesFilter<$PrismaModel = never> =
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAiReviewStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskAssessmentStatus | Prisma.EnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel> | $Enums.SupplierRiskAssessmentStatus
+}
+
+export type NestedEnumSupplierRiskAssessmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskAssessmentStatus | Prisma.EnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskAssessmentStatus[] | Prisma.ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskAssessmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskAssessmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskAssessmentStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingType | Prisma.EnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel> | $Enums.SupplierRiskFindingType
+}
+
+export type NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingStatus | Prisma.EnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel> | $Enums.SupplierRiskFindingStatus
+}
+
+export type NestedEnumSupplierRiskFindingTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingType | Prisma.EnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingType[] | Prisma.ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskFindingType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskFindingTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRiskFindingStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRiskFindingStatus | Prisma.EnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRiskFindingStatus[] | Prisma.ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRiskFindingStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRiskFindingStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRiskFindingStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierEsgRatingFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRating | Prisma.EnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel> | $Enums.SupplierEsgRating
+}
+
+export type NestedEnumSupplierEsgRatingWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRating | Prisma.EnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRating[] | Prisma.ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRatingWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgRating
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgRatingFilter<$PrismaModel>
 }
 
 

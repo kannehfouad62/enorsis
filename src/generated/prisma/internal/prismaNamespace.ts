@@ -433,7 +433,10 @@ export const ModelName = {
   ContractRiskReview: 'ContractRiskReview',
   ContractAmendment: 'ContractAmendment',
   AiPromptTemplate: 'AiPromptTemplate',
-  AiExecution: 'AiExecution'
+  AiExecution: 'AiExecution',
+  SupplierRiskAssessment: 'SupplierRiskAssessment',
+  SupplierRiskFinding: 'SupplierRiskFinding',
+  SupplierEsgAssessment: 'SupplierEsgAssessment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -449,7 +452,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3191,6 +3194,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierRiskAssessment: {
+      payload: Prisma.$SupplierRiskAssessmentPayload<ExtArgs>
+      fields: Prisma.SupplierRiskAssessmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierRiskAssessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierRiskAssessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierRiskAssessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierRiskAssessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierRiskAssessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierRiskAssessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierRiskAssessmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierRiskAssessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierRiskAssessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        update: {
+          args: Prisma.SupplierRiskAssessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierRiskAssessmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierRiskAssessmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierRiskAssessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierRiskAssessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskAssessmentPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierRiskAssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierRiskAssessment>
+        }
+        groupBy: {
+          args: Prisma.SupplierRiskAssessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRiskAssessmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierRiskAssessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRiskAssessmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierRiskFinding: {
+      payload: Prisma.$SupplierRiskFindingPayload<ExtArgs>
+      fields: Prisma.SupplierRiskFindingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierRiskFindingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierRiskFindingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierRiskFindingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierRiskFindingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierRiskFindingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierRiskFindingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierRiskFindingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierRiskFindingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierRiskFindingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        update: {
+          args: Prisma.SupplierRiskFindingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierRiskFindingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierRiskFindingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierRiskFindingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierRiskFindingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRiskFindingPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierRiskFindingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierRiskFinding>
+        }
+        groupBy: {
+          args: Prisma.SupplierRiskFindingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRiskFindingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierRiskFindingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRiskFindingCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierEsgAssessment: {
+      payload: Prisma.$SupplierEsgAssessmentPayload<ExtArgs>
+      fields: Prisma.SupplierEsgAssessmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierEsgAssessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierEsgAssessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierEsgAssessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierEsgAssessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierEsgAssessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierEsgAssessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierEsgAssessmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierEsgAssessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierEsgAssessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        update: {
+          args: Prisma.SupplierEsgAssessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierEsgAssessmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierEsgAssessmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierEsgAssessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierEsgAssessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgAssessmentPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierEsgAssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierEsgAssessment>
+        }
+        groupBy: {
+          args: Prisma.SupplierEsgAssessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierEsgAssessmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierEsgAssessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierEsgAssessmentCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -3948,6 +4173,76 @@ export const AiExecutionScalarFieldEnum = {
 export type AiExecutionScalarFieldEnum = (typeof AiExecutionScalarFieldEnum)[keyof typeof AiExecutionScalarFieldEnum]
 
 
+export const SupplierRiskAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  status: 'status',
+  financialRisk: 'financialRisk',
+  operationalRisk: 'operationalRisk',
+  complianceRisk: 'complianceRisk',
+  cyberRisk: 'cyberRisk',
+  esgRisk: 'esgRisk',
+  deliveryRisk: 'deliveryRisk',
+  qualityRisk: 'qualityRisk',
+  concentrationRisk: 'concentrationRisk',
+  inherentRiskScore: 'inherentRiskScore',
+  residualRiskScore: 'residualRiskScore',
+  rationale: 'rationale',
+  controls: 'controls',
+  reviewedByUserId: 'reviewedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRiskAssessmentScalarFieldEnum = (typeof SupplierRiskAssessmentScalarFieldEnum)[keyof typeof SupplierRiskAssessmentScalarFieldEnum]
+
+
+export const SupplierRiskFindingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  dueDate: 'dueDate',
+  ownerUserId: 'ownerUserId',
+  mitigationPlan: 'mitigationPlan',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRiskFindingScalarFieldEnum = (typeof SupplierRiskFindingScalarFieldEnum)[keyof typeof SupplierRiskFindingScalarFieldEnum]
+
+
+export const SupplierEsgAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  overallScore: 'overallScore',
+  rating: 'rating',
+  carbonDisclosure: 'carbonDisclosure',
+  scienceBasedTargets: 'scienceBasedTargets',
+  modernSlaveryPolicy: 'modernSlaveryPolicy',
+  diversityProgram: 'diversityProgram',
+  ethicsPolicy: 'ethicsPolicy',
+  evidenceSummary: 'evidenceSummary',
+  assessedByUserId: 'assessedByUserId',
+  assessedAt: 'assessedAt'
+} as const
+
+export type SupplierEsgAssessmentScalarFieldEnum = (typeof SupplierEsgAssessmentScalarFieldEnum)[keyof typeof SupplierEsgAssessmentScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4647,6 +4942,62 @@ export type ListEnumAiReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputTyp
 
 
 /**
+ * Reference to a field of type 'SupplierRiskAssessmentStatus'
+ */
+export type EnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskAssessmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskAssessmentStatus[]'
+ */
+export type ListEnumSupplierRiskAssessmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskAssessmentStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskFindingType'
+ */
+export type EnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskFindingType'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskFindingType[]'
+ */
+export type ListEnumSupplierRiskFindingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskFindingType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskFindingStatus'
+ */
+export type EnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskFindingStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRiskFindingStatus[]'
+ */
+export type ListEnumSupplierRiskFindingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRiskFindingStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierEsgRating'
+ */
+export type EnumSupplierEsgRatingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgRating'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierEsgRating[]'
+ */
+export type ListEnumSupplierEsgRatingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgRating[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4847,6 +5198,9 @@ export type GlobalOmitConfig = {
   contractAmendment?: Prisma.ContractAmendmentOmit
   aiPromptTemplate?: Prisma.AiPromptTemplateOmit
   aiExecution?: Prisma.AiExecutionOmit
+  supplierRiskAssessment?: Prisma.SupplierRiskAssessmentOmit
+  supplierRiskFinding?: Prisma.SupplierRiskFindingOmit
+  supplierEsgAssessment?: Prisma.SupplierEsgAssessmentOmit
 }
 
 /* Types for Logging */

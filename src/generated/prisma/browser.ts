@@ -202,3 +202,18 @@ export type AiPromptTemplate = Prisma.AiPromptTemplateModel
  * 
  */
 export type AiExecution = Prisma.AiExecutionModel
+/**
+ * Model SupplierRiskAssessment
+ * 
+ */
+export type SupplierRiskAssessment = Prisma.SupplierRiskAssessmentModel
+/**
+ * Model SupplierRiskFinding
+ * 
+ */
+export type SupplierRiskFinding = Prisma.SupplierRiskFindingModel
+/**
+ * Model SupplierEsgAssessment
+ * 
+ */
+export type SupplierEsgAssessment = Prisma.SupplierEsgAssessmentModel
