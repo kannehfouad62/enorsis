@@ -763,6 +763,57 @@ export const ApiRequestOutcome = {
 export type ApiRequestOutcome = (typeof ApiRequestOutcome)[keyof typeof ApiRequestOutcome]
 
 
+export const AccessReviewStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type AccessReviewStatus = (typeof AccessReviewStatus)[keyof typeof AccessReviewStatus]
+
+
+export const AccessReviewItemStatus = {
+  PENDING: 'PENDING',
+  CERTIFIED: 'CERTIFIED',
+  REVOKE_REQUESTED: 'REVOKE_REQUESTED',
+  ROLE_CHANGE_REQUESTED: 'ROLE_CHANGE_REQUESTED',
+  EXCEPTION_APPROVED: 'EXCEPTION_APPROVED',
+  REMEDIATED: 'REMEDIATED'
+} as const
+
+export type AccessReviewItemStatus = (typeof AccessReviewItemStatus)[keyof typeof AccessReviewItemStatus]
+
+
+export const AccessReviewDecision = {
+  CERTIFY: 'CERTIFY',
+  REVOKE: 'REVOKE',
+  CHANGE_ROLE: 'CHANGE_ROLE',
+  APPROVE_EXCEPTION: 'APPROVE_EXCEPTION'
+} as const
+
+export type AccessReviewDecision = (typeof AccessReviewDecision)[keyof typeof AccessReviewDecision]
+
+
+export const SodRuleStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE'
+} as const
+
+export type SodRuleStatus = (typeof SodRuleStatus)[keyof typeof SodRuleStatus]
+
+
+export const SodViolationStatus = {
+  OPEN: 'OPEN',
+  EXCEPTION_APPROVED: 'EXCEPTION_APPROVED',
+  REMEDIATION_REQUIRED: 'REMEDIATION_REQUIRED',
+  REMEDIATED: 'REMEDIATED',
+  DISMISSED: 'DISMISSED'
+} as const
+
+export type SodViolationStatus = (typeof SodViolationStatus)[keyof typeof SodViolationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

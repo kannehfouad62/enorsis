@@ -371,3 +371,23 @@ export type ApiCredential = Prisma.ApiCredentialModel
  * 
  */
 export type ApiRequestLog = Prisma.ApiRequestLogModel
+/**
+ * Model AccessReviewCampaign
+ * 
+ */
+export type AccessReviewCampaign = Prisma.AccessReviewCampaignModel
+/**
+ * Model AccessReviewItem
+ * 
+ */
+export type AccessReviewItem = Prisma.AccessReviewItemModel
+/**
+ * Model SodRule
+ * 
+ */
+export type SodRule = Prisma.SodRuleModel
+/**
+ * Model SodViolation
+ * 
+ */
+export type SodViolation = Prisma.SodViolationModel

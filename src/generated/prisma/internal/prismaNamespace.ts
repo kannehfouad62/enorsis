@@ -462,7 +462,11 @@ export const ModelName = {
   WorkflowNotification: 'WorkflowNotification',
   ApiClient: 'ApiClient',
   ApiCredential: 'ApiCredential',
-  ApiRequestLog: 'ApiRequestLog'
+  ApiRequestLog: 'ApiRequestLog',
+  AccessReviewCampaign: 'AccessReviewCampaign',
+  AccessReviewItem: 'AccessReviewItem',
+  SodRule: 'SodRule',
+  SodViolation: 'SodViolation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -478,7 +482,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5366,6 +5370,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AccessReviewCampaign: {
+      payload: Prisma.$AccessReviewCampaignPayload<ExtArgs>
+      fields: Prisma.AccessReviewCampaignFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AccessReviewCampaignFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AccessReviewCampaignFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        findFirst: {
+          args: Prisma.AccessReviewCampaignFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AccessReviewCampaignFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        findMany: {
+          args: Prisma.AccessReviewCampaignFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>[]
+        }
+        create: {
+          args: Prisma.AccessReviewCampaignCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        createMany: {
+          args: Prisma.AccessReviewCampaignCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AccessReviewCampaignCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>[]
+        }
+        delete: {
+          args: Prisma.AccessReviewCampaignDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        update: {
+          args: Prisma.AccessReviewCampaignUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        deleteMany: {
+          args: Prisma.AccessReviewCampaignDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AccessReviewCampaignUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AccessReviewCampaignUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>[]
+        }
+        upsert: {
+          args: Prisma.AccessReviewCampaignUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewCampaignPayload>
+        }
+        aggregate: {
+          args: Prisma.AccessReviewCampaignAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAccessReviewCampaign>
+        }
+        groupBy: {
+          args: Prisma.AccessReviewCampaignGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccessReviewCampaignGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AccessReviewCampaignCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccessReviewCampaignCountAggregateOutputType> | number
+        }
+      }
+    }
+    AccessReviewItem: {
+      payload: Prisma.$AccessReviewItemPayload<ExtArgs>
+      fields: Prisma.AccessReviewItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AccessReviewItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AccessReviewItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        findFirst: {
+          args: Prisma.AccessReviewItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AccessReviewItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        findMany: {
+          args: Prisma.AccessReviewItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>[]
+        }
+        create: {
+          args: Prisma.AccessReviewItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        createMany: {
+          args: Prisma.AccessReviewItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AccessReviewItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>[]
+        }
+        delete: {
+          args: Prisma.AccessReviewItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        update: {
+          args: Prisma.AccessReviewItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.AccessReviewItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AccessReviewItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AccessReviewItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.AccessReviewItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AccessReviewItemPayload>
+        }
+        aggregate: {
+          args: Prisma.AccessReviewItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAccessReviewItem>
+        }
+        groupBy: {
+          args: Prisma.AccessReviewItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccessReviewItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AccessReviewItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AccessReviewItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    SodRule: {
+      payload: Prisma.$SodRulePayload<ExtArgs>
+      fields: Prisma.SodRuleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SodRuleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SodRuleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        findFirst: {
+          args: Prisma.SodRuleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SodRuleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        findMany: {
+          args: Prisma.SodRuleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>[]
+        }
+        create: {
+          args: Prisma.SodRuleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        createMany: {
+          args: Prisma.SodRuleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SodRuleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>[]
+        }
+        delete: {
+          args: Prisma.SodRuleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        update: {
+          args: Prisma.SodRuleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        deleteMany: {
+          args: Prisma.SodRuleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SodRuleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SodRuleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>[]
+        }
+        upsert: {
+          args: Prisma.SodRuleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodRulePayload>
+        }
+        aggregate: {
+          args: Prisma.SodRuleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSodRule>
+        }
+        groupBy: {
+          args: Prisma.SodRuleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SodRuleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SodRuleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SodRuleCountAggregateOutputType> | number
+        }
+      }
+    }
+    SodViolation: {
+      payload: Prisma.$SodViolationPayload<ExtArgs>
+      fields: Prisma.SodViolationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SodViolationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SodViolationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        findFirst: {
+          args: Prisma.SodViolationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SodViolationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        findMany: {
+          args: Prisma.SodViolationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>[]
+        }
+        create: {
+          args: Prisma.SodViolationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        createMany: {
+          args: Prisma.SodViolationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SodViolationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>[]
+        }
+        delete: {
+          args: Prisma.SodViolationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        update: {
+          args: Prisma.SodViolationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SodViolationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SodViolationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SodViolationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SodViolationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SodViolationPayload>
+        }
+        aggregate: {
+          args: Prisma.SodViolationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSodViolation>
+        }
+        groupBy: {
+          args: Prisma.SodViolationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SodViolationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SodViolationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SodViolationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -6760,6 +7060,92 @@ export const ApiRequestLogScalarFieldEnum = {
 export type ApiRequestLogScalarFieldEnum = (typeof ApiRequestLogScalarFieldEnum)[keyof typeof ApiRequestLogScalarFieldEnum]
 
 
+export const AccessReviewCampaignScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  reviewerUserId: 'reviewerUserId',
+  scopeRoles: 'scopeRoles',
+  scopeUserIds: 'scopeUserIds',
+  dueAt: 'dueAt',
+  launchedAt: 'launchedAt',
+  completedAt: 'completedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccessReviewCampaignScalarFieldEnum = (typeof AccessReviewCampaignScalarFieldEnum)[keyof typeof AccessReviewCampaignScalarFieldEnum]
+
+
+export const AccessReviewItemScalarFieldEnum = {
+  id: 'id',
+  campaignId: 'campaignId',
+  membershipId: 'membershipId',
+  userId: 'userId',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  currentRoles: 'currentRoles',
+  requestedRoles: 'requestedRoles',
+  status: 'status',
+  decision: 'decision',
+  decisionComments: 'decisionComments',
+  decidedByUserId: 'decidedByUserId',
+  decidedAt: 'decidedAt',
+  remediatedByUserId: 'remediatedByUserId',
+  remediatedAt: 'remediatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccessReviewItemScalarFieldEnum = (typeof AccessReviewItemScalarFieldEnum)[keyof typeof AccessReviewItemScalarFieldEnum]
+
+
+export const SodRuleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  conflictingRoleA: 'conflictingRoleA',
+  conflictingRoleB: 'conflictingRoleB',
+  severity: 'severity',
+  remediationGuidance: 'remediationGuidance',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SodRuleScalarFieldEnum = (typeof SodRuleScalarFieldEnum)[keyof typeof SodRuleScalarFieldEnum]
+
+
+export const SodViolationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  sodRuleId: 'sodRuleId',
+  membershipId: 'membershipId',
+  userId: 'userId',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  detectedRoles: 'detectedRoles',
+  status: 'status',
+  exceptionReason: 'exceptionReason',
+  exceptionExpiresAt: 'exceptionExpiresAt',
+  remediationNotes: 'remediationNotes',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  remediatedByUserId: 'remediatedByUserId',
+  remediatedAt: 'remediatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SodViolationScalarFieldEnum = (typeof SodViolationScalarFieldEnum)[keyof typeof SodViolationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -7942,6 +8328,76 @@ export type ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel> = FieldRefInput
 
 
 /**
+ * Reference to a field of type 'AccessReviewStatus'
+ */
+export type EnumAccessReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AccessReviewStatus[]'
+ */
+export type ListEnumAccessReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AccessReviewItemStatus'
+ */
+export type EnumAccessReviewItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewItemStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AccessReviewItemStatus[]'
+ */
+export type ListEnumAccessReviewItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewItemStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AccessReviewDecision'
+ */
+export type EnumAccessReviewDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewDecision'>
+    
+
+
+/**
+ * Reference to a field of type 'AccessReviewDecision[]'
+ */
+export type ListEnumAccessReviewDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccessReviewDecision[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SodRuleStatus'
+ */
+export type EnumSodRuleStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SodRuleStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SodRuleStatus[]'
+ */
+export type ListEnumSodRuleStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SodRuleStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SodViolationStatus'
+ */
+export type EnumSodViolationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SodViolationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SodViolationStatus[]'
+ */
+export type ListEnumSodViolationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SodViolationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -8171,6 +8627,10 @@ export type GlobalOmitConfig = {
   apiClient?: Prisma.ApiClientOmit
   apiCredential?: Prisma.ApiCredentialOmit
   apiRequestLog?: Prisma.ApiRequestLogOmit
+  accessReviewCampaign?: Prisma.AccessReviewCampaignOmit
+  accessReviewItem?: Prisma.AccessReviewItemOmit
+  sodRule?: Prisma.SodRuleOmit
+  sodViolation?: Prisma.SodViolationOmit
 }
 
 /* Types for Logging */

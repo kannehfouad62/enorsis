@@ -116,7 +116,11 @@ export const ModelName = {
   WorkflowNotification: 'WorkflowNotification',
   ApiClient: 'ApiClient',
   ApiCredential: 'ApiCredential',
-  ApiRequestLog: 'ApiRequestLog'
+  ApiRequestLog: 'ApiRequestLog',
+  AccessReviewCampaign: 'AccessReviewCampaign',
+  AccessReviewItem: 'AccessReviewItem',
+  SodRule: 'SodRule',
+  SodViolation: 'SodViolation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1488,6 +1492,92 @@ export const ApiRequestLogScalarFieldEnum = {
 } as const
 
 export type ApiRequestLogScalarFieldEnum = (typeof ApiRequestLogScalarFieldEnum)[keyof typeof ApiRequestLogScalarFieldEnum]
+
+
+export const AccessReviewCampaignScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  reviewerUserId: 'reviewerUserId',
+  scopeRoles: 'scopeRoles',
+  scopeUserIds: 'scopeUserIds',
+  dueAt: 'dueAt',
+  launchedAt: 'launchedAt',
+  completedAt: 'completedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccessReviewCampaignScalarFieldEnum = (typeof AccessReviewCampaignScalarFieldEnum)[keyof typeof AccessReviewCampaignScalarFieldEnum]
+
+
+export const AccessReviewItemScalarFieldEnum = {
+  id: 'id',
+  campaignId: 'campaignId',
+  membershipId: 'membershipId',
+  userId: 'userId',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  currentRoles: 'currentRoles',
+  requestedRoles: 'requestedRoles',
+  status: 'status',
+  decision: 'decision',
+  decisionComments: 'decisionComments',
+  decidedByUserId: 'decidedByUserId',
+  decidedAt: 'decidedAt',
+  remediatedByUserId: 'remediatedByUserId',
+  remediatedAt: 'remediatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AccessReviewItemScalarFieldEnum = (typeof AccessReviewItemScalarFieldEnum)[keyof typeof AccessReviewItemScalarFieldEnum]
+
+
+export const SodRuleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  conflictingRoleA: 'conflictingRoleA',
+  conflictingRoleB: 'conflictingRoleB',
+  severity: 'severity',
+  remediationGuidance: 'remediationGuidance',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SodRuleScalarFieldEnum = (typeof SodRuleScalarFieldEnum)[keyof typeof SodRuleScalarFieldEnum]
+
+
+export const SodViolationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  sodRuleId: 'sodRuleId',
+  membershipId: 'membershipId',
+  userId: 'userId',
+  userEmail: 'userEmail',
+  userName: 'userName',
+  detectedRoles: 'detectedRoles',
+  status: 'status',
+  exceptionReason: 'exceptionReason',
+  exceptionExpiresAt: 'exceptionExpiresAt',
+  remediationNotes: 'remediationNotes',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  remediatedByUserId: 'remediatedByUserId',
+  remediatedAt: 'remediatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SodViolationScalarFieldEnum = (typeof SodViolationScalarFieldEnum)[keyof typeof SodViolationScalarFieldEnum]
 
 
 export const SortOrder = {

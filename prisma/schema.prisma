@@ -561,6 +561,42 @@ enum ApiRequestOutcome {
   ERROR
 }
 
+enum AccessReviewStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum AccessReviewItemStatus {
+  PENDING
+  CERTIFIED
+  REVOKE_REQUESTED
+  ROLE_CHANGE_REQUESTED
+  EXCEPTION_APPROVED
+  REMEDIATED
+}
+
+enum AccessReviewDecision {
+  CERTIFY
+  REVOKE
+  CHANGE_ROLE
+  APPROVE_EXCEPTION
+}
+
+enum SodRuleStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum SodViolationStatus {
+  OPEN
+  EXCEPTION_APPROVED
+  REMEDIATION_REQUIRED
+  REMEDIATED
+  DISMISSED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -688,6 +724,9 @@ model Tenant {
   workflowDelegations   WorkflowDelegation[]
   workflowNotifications WorkflowNotification[]
   apiClients            ApiClient[]
+  accessReviewCampaigns AccessReviewCampaign[]
+  sodRules              SodRule[]
+  sodViolations         SodViolation[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   archivedAt            DateTime?
@@ -2179,4 +2218,99 @@ model ApiRequestLog {
   @@index([tenantId, createdAt])
   @@index([apiClientId, outcome, createdAt])
   @@index([requestId])
+}
+
+model AccessReviewCampaign {
+  id              String             @id @default(cuid())
+  tenantId        String
+  name            String
+  description     String?
+  status          AccessReviewStatus @default(DRAFT)
+  reviewerUserId  String
+  scopeRoles      String[]
+  scopeUserIds    String[]
+  dueAt           DateTime
+  launchedAt      DateTime?
+  completedAt     DateTime?
+  createdByUserId String
+  tenant          Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  items           AccessReviewItem[]
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  @@index([tenantId, status, dueAt])
+  @@index([reviewerUserId, status])
+}
+
+model AccessReviewItem {
+  id                 String                 @id @default(cuid())
+  campaignId         String
+  membershipId       String
+  userId             String
+  userEmail          String
+  userName           String?
+  currentRoles       String[]
+  requestedRoles     String[]
+  status             AccessReviewItemStatus @default(PENDING)
+  decision           AccessReviewDecision?
+  decisionComments   String?
+  decidedByUserId    String?
+  decidedAt          DateTime?
+  remediatedByUserId String?
+  remediatedAt       DateTime?
+  campaign           AccessReviewCampaign   @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+
+  @@unique([campaignId, membershipId])
+  @@index([campaignId, status])
+  @@index([userId, status])
+}
+
+model SodRule {
+  id                  String         @id @default(cuid())
+  tenantId            String
+  key                 String
+  name                String
+  description         String
+  status              SodRuleStatus  @default(ACTIVE)
+  conflictingRoleA    String
+  conflictingRoleB    String
+  severity            Int            @default(3)
+  remediationGuidance String?
+  createdByUserId     String
+  tenant              Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  violations          SodViolation[]
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  @@unique([tenantId, key])
+  @@index([tenantId, status, severity])
+}
+
+model SodViolation {
+  id                 String             @id @default(cuid())
+  tenantId           String
+  sodRuleId          String
+  membershipId       String
+  userId             String
+  userEmail          String
+  userName           String?
+  detectedRoles      String[]
+  status             SodViolationStatus @default(OPEN)
+  exceptionReason    String?
+  exceptionExpiresAt DateTime?
+  remediationNotes   String?
+  reviewedByUserId   String?
+  reviewedAt         DateTime?
+  remediatedByUserId String?
+  remediatedAt       DateTime?
+  tenant             Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sodRule            SodRule            @relation(fields: [sodRuleId], references: [id], onDelete: Cascade)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  @@unique([sodRuleId, membershipId])
+  @@index([tenantId, status, createdAt])
+  @@index([userId, status])
 }
