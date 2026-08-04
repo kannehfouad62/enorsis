@@ -332,3 +332,18 @@ export type WorkflowEscalation = Prisma.WorkflowEscalationModel
  * 
  */
 export type WorkflowNotification = Prisma.WorkflowNotificationModel
+/**
+ * Model ApiClient
+ * 
+ */
+export type ApiClient = Prisma.ApiClientModel
+/**
+ * Model ApiCredential
+ * 
+ */
+export type ApiCredential = Prisma.ApiCredentialModel
+/**
+ * Model ApiRequestLog
+ * 
+ */
+export type ApiRequestLog = Prisma.ApiRequestLogModel

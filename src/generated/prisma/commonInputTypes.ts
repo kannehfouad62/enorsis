@@ -1578,6 +1578,57 @@ export type EnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaModel = ne
   _max?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
 }
 
+export type EnumApiClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiClientStatus | Prisma.EnumApiClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel> | $Enums.ApiClientStatus
+}
+
+export type EnumApiClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiClientStatus | Prisma.EnumApiClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ApiClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel>
+}
+
+export type EnumApiCredentialStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiCredentialStatus | Prisma.EnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel> | $Enums.ApiCredentialStatus
+}
+
+export type EnumApiCredentialStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiCredentialStatus | Prisma.EnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiCredentialStatusWithAggregatesFilter<$PrismaModel> | $Enums.ApiCredentialStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel>
+}
+
+export type EnumApiRequestOutcomeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiRequestOutcome | Prisma.EnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel> | $Enums.ApiRequestOutcome
+}
+
+export type EnumApiRequestOutcomeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiRequestOutcome | Prisma.EnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiRequestOutcomeWithAggregatesFilter<$PrismaModel> | $Enums.ApiRequestOutcome
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -3099,6 +3150,57 @@ export type NestedEnumWorkflowNotificationStatusWithAggregatesFilter<$PrismaMode
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWorkflowNotificationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumApiClientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiClientStatus | Prisma.EnumApiClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel> | $Enums.ApiClientStatus
+}
+
+export type NestedEnumApiClientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiClientStatus | Prisma.EnumApiClientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiClientStatus[] | Prisma.ListEnumApiClientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiClientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ApiClientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiClientStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumApiCredentialStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiCredentialStatus | Prisma.EnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel> | $Enums.ApiCredentialStatus
+}
+
+export type NestedEnumApiCredentialStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiCredentialStatus | Prisma.EnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiCredentialStatus[] | Prisma.ListEnumApiCredentialStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiCredentialStatusWithAggregatesFilter<$PrismaModel> | $Enums.ApiCredentialStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiCredentialStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumApiRequestOutcomeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiRequestOutcome | Prisma.EnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel> | $Enums.ApiRequestOutcome
+}
+
+export type NestedEnumApiRequestOutcomeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ApiRequestOutcome | Prisma.EnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  in?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ApiRequestOutcome[] | Prisma.ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumApiRequestOutcomeWithAggregatesFilter<$PrismaModel> | $Enums.ApiRequestOutcome
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumApiRequestOutcomeFilter<$PrismaModel>
 }
 
 

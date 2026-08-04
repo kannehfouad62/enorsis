@@ -113,7 +113,10 @@ export const ModelName = {
   WorkflowTask: 'WorkflowTask',
   WorkflowDelegation: 'WorkflowDelegation',
   WorkflowEscalation: 'WorkflowEscalation',
-  WorkflowNotification: 'WorkflowNotification'
+  WorkflowNotification: 'WorkflowNotification',
+  ApiClient: 'ApiClient',
+  ApiCredential: 'ApiCredential',
+  ApiRequestLog: 'ApiRequestLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1425,6 +1428,66 @@ export const WorkflowNotificationScalarFieldEnum = {
 } as const
 
 export type WorkflowNotificationScalarFieldEnum = (typeof WorkflowNotificationScalarFieldEnum)[keyof typeof WorkflowNotificationScalarFieldEnum]
+
+
+export const ApiClientScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  allowedScopes: 'allowedScopes',
+  allowedIpCidrs: 'allowedIpCidrs',
+  requestsPerMinute: 'requestsPerMinute',
+  requestsPerDay: 'requestsPerDay',
+  createdByUserId: 'createdByUserId',
+  suspendedAt: 'suspendedAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApiClientScalarFieldEnum = (typeof ApiClientScalarFieldEnum)[keyof typeof ApiClientScalarFieldEnum]
+
+
+export const ApiCredentialScalarFieldEnum = {
+  id: 'id',
+  apiClientId: 'apiClientId',
+  name: 'name',
+  prefix: 'prefix',
+  secretHash: 'secretHash',
+  status: 'status',
+  expiresAt: 'expiresAt',
+  lastUsedAt: 'lastUsedAt',
+  revokedAt: 'revokedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApiCredentialScalarFieldEnum = (typeof ApiCredentialScalarFieldEnum)[keyof typeof ApiCredentialScalarFieldEnum]
+
+
+export const ApiRequestLogScalarFieldEnum = {
+  id: 'id',
+  apiClientId: 'apiClientId',
+  credentialId: 'credentialId',
+  tenantId: 'tenantId',
+  requestId: 'requestId',
+  method: 'method',
+  path: 'path',
+  scope: 'scope',
+  outcome: 'outcome',
+  statusCode: 'statusCode',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  durationMs: 'durationMs',
+  errorCode: 'errorCode',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type ApiRequestLogScalarFieldEnum = (typeof ApiRequestLogScalarFieldEnum)[keyof typeof ApiRequestLogScalarFieldEnum]
 
 
 export const SortOrder = {

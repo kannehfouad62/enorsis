@@ -542,6 +542,25 @@ enum WorkflowEscalationStatus {
   CANCELLED
 }
 
+enum ApiClientStatus {
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum ApiCredentialStatus {
+  ACTIVE
+  REVOKED
+  EXPIRED
+}
+
+enum ApiRequestOutcome {
+  ALLOWED
+  DENIED
+  RATE_LIMITED
+  ERROR
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -668,6 +687,7 @@ model Tenant {
   workflowInstances     WorkflowInstance[]
   workflowDelegations   WorkflowDelegation[]
   workflowNotifications WorkflowNotification[]
+  apiClients            ApiClient[]
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   archivedAt            DateTime?
@@ -2094,4 +2114,69 @@ model WorkflowNotification {
   @@index([status, scheduledAt, nextAttemptAt])
   @@index([workflowTaskId])
   @@index([workflowInstanceId])
+}
+
+model ApiClient {
+  id                String          @id @default(cuid())
+  tenantId          String
+  name              String
+  description       String?
+  status            ApiClientStatus @default(ACTIVE)
+  allowedScopes     String[]
+  allowedIpCidrs    String[]
+  requestsPerMinute Int             @default(60)
+  requestsPerDay    Int             @default(10000)
+  createdByUserId   String
+  suspendedAt       DateTime?
+  revokedAt         DateTime?
+  tenant            Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  credentials       ApiCredential[]
+  requestLogs       ApiRequestLog[]
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+
+  @@index([tenantId, status, createdAt])
+}
+
+model ApiCredential {
+  id              String              @id @default(cuid())
+  apiClientId     String
+  name            String
+  prefix          String
+  secretHash      String              @unique
+  status          ApiCredentialStatus @default(ACTIVE)
+  expiresAt       DateTime?
+  lastUsedAt      DateTime?
+  revokedAt       DateTime?
+  createdByUserId String
+  apiClient       ApiClient           @relation(fields: [apiClientId], references: [id], onDelete: Cascade)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@index([apiClientId, status])
+  @@index([prefix, status])
+}
+
+model ApiRequestLog {
+  id           String            @id @default(cuid())
+  apiClientId  String?
+  credentialId String?
+  tenantId     String?
+  requestId    String
+  method       String
+  path         String
+  scope        String?
+  outcome      ApiRequestOutcome
+  statusCode   Int
+  ipAddress    String?
+  userAgent    String?
+  durationMs   Int
+  errorCode    String?
+  metadata     Json?
+  apiClient    ApiClient?        @relation(fields: [apiClientId], references: [id], onDelete: SetNull)
+  createdAt    DateTime          @default(now())
+
+  @@index([tenantId, createdAt])
+  @@index([apiClientId, outcome, createdAt])
+  @@index([requestId])
 }

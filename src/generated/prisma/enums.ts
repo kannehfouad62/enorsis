@@ -735,6 +735,34 @@ export const WorkflowEscalationStatus = {
 export type WorkflowEscalationStatus = (typeof WorkflowEscalationStatus)[keyof typeof WorkflowEscalationStatus]
 
 
+export const ApiClientStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type ApiClientStatus = (typeof ApiClientStatus)[keyof typeof ApiClientStatus]
+
+
+export const ApiCredentialStatus = {
+  ACTIVE: 'ACTIVE',
+  REVOKED: 'REVOKED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type ApiCredentialStatus = (typeof ApiCredentialStatus)[keyof typeof ApiCredentialStatus]
+
+
+export const ApiRequestOutcome = {
+  ALLOWED: 'ALLOWED',
+  DENIED: 'DENIED',
+  RATE_LIMITED: 'RATE_LIMITED',
+  ERROR: 'ERROR'
+} as const
+
+export type ApiRequestOutcome = (typeof ApiRequestOutcome)[keyof typeof ApiRequestOutcome]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

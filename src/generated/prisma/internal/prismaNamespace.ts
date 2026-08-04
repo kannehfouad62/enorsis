@@ -459,7 +459,10 @@ export const ModelName = {
   WorkflowTask: 'WorkflowTask',
   WorkflowDelegation: 'WorkflowDelegation',
   WorkflowEscalation: 'WorkflowEscalation',
-  WorkflowNotification: 'WorkflowNotification'
+  WorkflowNotification: 'WorkflowNotification',
+  ApiClient: 'ApiClient',
+  ApiCredential: 'ApiCredential',
+  ApiRequestLog: 'ApiRequestLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -475,7 +478,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5141,6 +5144,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ApiClient: {
+      payload: Prisma.$ApiClientPayload<ExtArgs>
+      fields: Prisma.ApiClientFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApiClientFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApiClientFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        findFirst: {
+          args: Prisma.ApiClientFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApiClientFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        findMany: {
+          args: Prisma.ApiClientFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>[]
+        }
+        create: {
+          args: Prisma.ApiClientCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        createMany: {
+          args: Prisma.ApiClientCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApiClientCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>[]
+        }
+        delete: {
+          args: Prisma.ApiClientDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        update: {
+          args: Prisma.ApiClientUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        deleteMany: {
+          args: Prisma.ApiClientDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApiClientUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApiClientUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>[]
+        }
+        upsert: {
+          args: Prisma.ApiClientUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiClientPayload>
+        }
+        aggregate: {
+          args: Prisma.ApiClientAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApiClient>
+        }
+        groupBy: {
+          args: Prisma.ApiClientGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiClientGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApiClientCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiClientCountAggregateOutputType> | number
+        }
+      }
+    }
+    ApiCredential: {
+      payload: Prisma.$ApiCredentialPayload<ExtArgs>
+      fields: Prisma.ApiCredentialFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApiCredentialFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApiCredentialFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        findFirst: {
+          args: Prisma.ApiCredentialFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApiCredentialFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        findMany: {
+          args: Prisma.ApiCredentialFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>[]
+        }
+        create: {
+          args: Prisma.ApiCredentialCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        createMany: {
+          args: Prisma.ApiCredentialCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApiCredentialCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>[]
+        }
+        delete: {
+          args: Prisma.ApiCredentialDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        update: {
+          args: Prisma.ApiCredentialUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        deleteMany: {
+          args: Prisma.ApiCredentialDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApiCredentialUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApiCredentialUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>[]
+        }
+        upsert: {
+          args: Prisma.ApiCredentialUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiCredentialPayload>
+        }
+        aggregate: {
+          args: Prisma.ApiCredentialAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApiCredential>
+        }
+        groupBy: {
+          args: Prisma.ApiCredentialGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiCredentialGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApiCredentialCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiCredentialCountAggregateOutputType> | number
+        }
+      }
+    }
+    ApiRequestLog: {
+      payload: Prisma.$ApiRequestLogPayload<ExtArgs>
+      fields: Prisma.ApiRequestLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApiRequestLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApiRequestLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        findFirst: {
+          args: Prisma.ApiRequestLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApiRequestLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        findMany: {
+          args: Prisma.ApiRequestLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>[]
+        }
+        create: {
+          args: Prisma.ApiRequestLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        createMany: {
+          args: Prisma.ApiRequestLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApiRequestLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>[]
+        }
+        delete: {
+          args: Prisma.ApiRequestLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        update: {
+          args: Prisma.ApiRequestLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.ApiRequestLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApiRequestLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApiRequestLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>[]
+        }
+        upsert: {
+          args: Prisma.ApiRequestLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApiRequestLogPayload>
+        }
+        aggregate: {
+          args: Prisma.ApiRequestLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApiRequestLog>
+        }
+        groupBy: {
+          args: Prisma.ApiRequestLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiRequestLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApiRequestLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApiRequestLogCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -6475,6 +6700,66 @@ export const WorkflowNotificationScalarFieldEnum = {
 export type WorkflowNotificationScalarFieldEnum = (typeof WorkflowNotificationScalarFieldEnum)[keyof typeof WorkflowNotificationScalarFieldEnum]
 
 
+export const ApiClientScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  allowedScopes: 'allowedScopes',
+  allowedIpCidrs: 'allowedIpCidrs',
+  requestsPerMinute: 'requestsPerMinute',
+  requestsPerDay: 'requestsPerDay',
+  createdByUserId: 'createdByUserId',
+  suspendedAt: 'suspendedAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApiClientScalarFieldEnum = (typeof ApiClientScalarFieldEnum)[keyof typeof ApiClientScalarFieldEnum]
+
+
+export const ApiCredentialScalarFieldEnum = {
+  id: 'id',
+  apiClientId: 'apiClientId',
+  name: 'name',
+  prefix: 'prefix',
+  secretHash: 'secretHash',
+  status: 'status',
+  expiresAt: 'expiresAt',
+  lastUsedAt: 'lastUsedAt',
+  revokedAt: 'revokedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApiCredentialScalarFieldEnum = (typeof ApiCredentialScalarFieldEnum)[keyof typeof ApiCredentialScalarFieldEnum]
+
+
+export const ApiRequestLogScalarFieldEnum = {
+  id: 'id',
+  apiClientId: 'apiClientId',
+  credentialId: 'credentialId',
+  tenantId: 'tenantId',
+  requestId: 'requestId',
+  method: 'method',
+  path: 'path',
+  scope: 'scope',
+  outcome: 'outcome',
+  statusCode: 'statusCode',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  durationMs: 'durationMs',
+  errorCode: 'errorCode',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type ApiRequestLogScalarFieldEnum = (typeof ApiRequestLogScalarFieldEnum)[keyof typeof ApiRequestLogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -7615,6 +7900,48 @@ export type ListEnumWorkflowNotificationStatusFieldRefInput<$PrismaModel> = Fiel
 
 
 /**
+ * Reference to a field of type 'ApiClientStatus'
+ */
+export type EnumApiClientStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiClientStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ApiClientStatus[]'
+ */
+export type ListEnumApiClientStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiClientStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApiCredentialStatus'
+ */
+export type EnumApiCredentialStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiCredentialStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ApiCredentialStatus[]'
+ */
+export type ListEnumApiCredentialStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiCredentialStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApiRequestOutcome'
+ */
+export type EnumApiRequestOutcomeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiRequestOutcome'>
+    
+
+
+/**
+ * Reference to a field of type 'ApiRequestOutcome[]'
+ */
+export type ListEnumApiRequestOutcomeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApiRequestOutcome[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7841,6 +8168,9 @@ export type GlobalOmitConfig = {
   workflowDelegation?: Prisma.WorkflowDelegationOmit
   workflowEscalation?: Prisma.WorkflowEscalationOmit
   workflowNotification?: Prisma.WorkflowNotificationOmit
+  apiClient?: Prisma.ApiClientOmit
+  apiCredential?: Prisma.ApiCredentialOmit
+  apiRequestLog?: Prisma.ApiRequestLogOmit
 }
 
 /* Types for Logging */
