@@ -288,6 +288,9 @@ export type TenantWhereInput = {
   supplierScorecards?: Prisma.SupplierScorecardListRelationFilter
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanListRelationFilter
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionListRelationFilter
+  procurementPlans?: Prisma.ProcurementPlanListRelationFilter
+  categoryStrategies?: Prisma.CategoryStrategyListRelationFilter
+  savingsInitiatives?: Prisma.SavingsInitiativeListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -335,6 +338,9 @@ export type TenantOrderByWithRelationInput = {
   supplierScorecards?: Prisma.SupplierScorecardOrderByRelationAggregateInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanOrderByRelationAggregateInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionOrderByRelationAggregateInput
+  procurementPlans?: Prisma.ProcurementPlanOrderByRelationAggregateInput
+  categoryStrategies?: Prisma.CategoryStrategyOrderByRelationAggregateInput
+  savingsInitiatives?: Prisma.SavingsInitiativeOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -385,6 +391,9 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   supplierScorecards?: Prisma.SupplierScorecardListRelationFilter
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanListRelationFilter
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionListRelationFilter
+  procurementPlans?: Prisma.ProcurementPlanListRelationFilter
+  categoryStrategies?: Prisma.CategoryStrategyListRelationFilter
+  savingsInitiatives?: Prisma.SavingsInitiativeListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -474,6 +483,9 @@ export type TenantCreateInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -521,6 +533,9 @@ export type TenantUncheckedCreateInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -568,6 +583,9 @@ export type TenantUpdateInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -615,6 +633,9 @@ export type TenantUncheckedUpdateInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1154,6 +1175,48 @@ export type TenantUpdateOneRequiredWithoutSupplierCorrectiveActionsNestedInput =
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutSupplierCorrectiveActionsInput, Prisma.TenantUpdateWithoutSupplierCorrectiveActionsInput>, Prisma.TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput>
 }
 
+export type TenantCreateNestedOneWithoutProcurementPlansInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProcurementPlansInput, Prisma.TenantUncheckedCreateWithoutProcurementPlansInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProcurementPlansInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutProcurementPlansNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutProcurementPlansInput, Prisma.TenantUncheckedCreateWithoutProcurementPlansInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutProcurementPlansInput
+  upsert?: Prisma.TenantUpsertWithoutProcurementPlansInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutProcurementPlansInput, Prisma.TenantUpdateWithoutProcurementPlansInput>, Prisma.TenantUncheckedUpdateWithoutProcurementPlansInput>
+}
+
+export type TenantCreateNestedOneWithoutCategoryStrategiesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedCreateWithoutCategoryStrategiesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutCategoryStrategiesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedCreateWithoutCategoryStrategiesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutCategoryStrategiesInput
+  upsert?: Prisma.TenantUpsertWithoutCategoryStrategiesInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutCategoryStrategiesInput, Prisma.TenantUpdateWithoutCategoryStrategiesInput>, Prisma.TenantUncheckedUpdateWithoutCategoryStrategiesInput>
+}
+
+export type TenantCreateNestedOneWithoutSavingsInitiativesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedCreateWithoutSavingsInitiativesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutSavingsInitiativesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutSavingsInitiativesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedCreateWithoutSavingsInitiativesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutSavingsInitiativesInput
+  upsert?: Prisma.TenantUpsertWithoutSavingsInitiativesInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutSavingsInitiativesInput, Prisma.TenantUpdateWithoutSavingsInitiativesInput>, Prisma.TenantUncheckedUpdateWithoutSavingsInitiativesInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -1195,6 +1258,9 @@ export type TenantCreateWithoutMembershipsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -1241,6 +1307,9 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -1303,6 +1372,9 @@ export type TenantUpdateWithoutMembershipsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1349,6 +1421,9 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1395,6 +1470,9 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -1441,6 +1519,9 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -1503,6 +1584,9 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1549,6 +1633,9 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1595,6 +1682,9 @@ export type TenantCreateWithoutSitesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -1641,6 +1731,9 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -1703,6 +1796,9 @@ export type TenantUpdateWithoutSitesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1749,6 +1845,9 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1795,6 +1894,9 @@ export type TenantCreateWithoutDepartmentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -1841,6 +1943,9 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -1903,6 +2008,9 @@ export type TenantUpdateWithoutDepartmentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1949,6 +2057,9 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1995,6 +2106,9 @@ export type TenantCreateWithoutExchangeRatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2041,6 +2155,9 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2103,6 +2220,9 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2149,6 +2269,9 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2195,6 +2318,9 @@ export type TenantCreateWithoutAuditEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2241,6 +2367,9 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2303,6 +2432,9 @@ export type TenantUpdateWithoutAuditEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2349,6 +2481,9 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2395,6 +2530,9 @@ export type TenantCreateWithoutAiAgentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2441,6 +2579,9 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2503,6 +2644,9 @@ export type TenantUpdateWithoutAiAgentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2549,6 +2693,9 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2595,6 +2742,9 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2641,6 +2791,9 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2703,6 +2856,9 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2749,6 +2905,9 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2795,6 +2954,9 @@ export type TenantCreateWithoutSuppliersInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2841,6 +3003,9 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2903,6 +3068,9 @@ export type TenantUpdateWithoutSuppliersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2949,6 +3117,9 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2995,6 +3166,9 @@ export type TenantCreateWithoutSourcingEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3041,6 +3215,9 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3103,6 +3280,9 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3149,6 +3329,9 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3196,6 +3379,9 @@ export type TenantCreateWithoutContractsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -3242,6 +3428,9 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -3304,6 +3493,9 @@ export type TenantUpdateWithoutContractsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -3350,6 +3542,9 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -3396,6 +3591,9 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -3442,6 +3640,9 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -3504,6 +3705,9 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -3550,6 +3754,9 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -3595,6 +3802,9 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3641,6 +3851,9 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3703,6 +3916,9 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3749,6 +3965,9 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3795,6 +4014,9 @@ export type TenantCreateWithoutReceiptsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3841,6 +4063,9 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3903,6 +4128,9 @@ export type TenantUpdateWithoutReceiptsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3949,6 +4177,9 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3995,6 +4226,9 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4041,6 +4275,9 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4103,6 +4340,9 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4149,6 +4389,9 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4195,6 +4438,9 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4241,6 +4487,9 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4303,6 +4552,9 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4349,6 +4601,9 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4396,6 +4651,9 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -4442,6 +4700,9 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -4504,6 +4765,9 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -4550,6 +4814,9 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -4595,6 +4862,9 @@ export type TenantCreateWithoutIntegrationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4641,6 +4911,9 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4703,6 +4976,9 @@ export type TenantUpdateWithoutIntegrationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4749,6 +5025,9 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4795,6 +5074,9 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4841,6 +5123,9 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4903,6 +5188,9 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4949,6 +5237,9 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4995,6 +5286,9 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5041,6 +5335,9 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5103,6 +5400,9 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5149,6 +5449,9 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5195,6 +5498,9 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5241,6 +5547,9 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5303,6 +5612,9 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5349,6 +5661,9 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5395,6 +5710,9 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5441,6 +5759,9 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5503,6 +5824,9 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5549,6 +5873,9 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5595,6 +5922,9 @@ export type TenantCreateWithoutApiClientsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5641,6 +5971,9 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5703,6 +6036,9 @@ export type TenantUpdateWithoutApiClientsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5749,6 +6085,9 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5795,6 +6134,9 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5841,6 +6183,9 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5903,6 +6248,9 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5949,6 +6297,9 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5995,6 +6346,9 @@ export type TenantCreateWithoutSodRulesInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6041,6 +6395,9 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6103,6 +6460,9 @@ export type TenantUpdateWithoutSodRulesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6149,6 +6509,9 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6195,6 +6558,9 @@ export type TenantCreateWithoutSodViolationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6241,6 +6607,9 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6303,6 +6672,9 @@ export type TenantUpdateWithoutSodViolationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6349,6 +6721,9 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6395,6 +6770,9 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6441,6 +6819,9 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6503,6 +6884,9 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6549,6 +6933,9 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6595,6 +6982,9 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6641,6 +7031,9 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6703,6 +7096,9 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6749,6 +7145,9 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6795,6 +7194,9 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
   supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6841,6 +7243,9 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
   supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6903,6 +7308,9 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
   supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6949,6 +7357,645 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
   supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
   supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutProcurementPlansInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutProcurementPlansInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutProcurementPlansInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProcurementPlansInput, Prisma.TenantUncheckedCreateWithoutProcurementPlansInput>
+}
+
+export type TenantUpsertWithoutProcurementPlansInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutProcurementPlansInput, Prisma.TenantUncheckedUpdateWithoutProcurementPlansInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutProcurementPlansInput, Prisma.TenantUncheckedCreateWithoutProcurementPlansInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutProcurementPlansInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutProcurementPlansInput, Prisma.TenantUncheckedUpdateWithoutProcurementPlansInput>
+}
+
+export type TenantUpdateWithoutProcurementPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutCategoryStrategiesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutCategoryStrategiesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedCreateWithoutCategoryStrategiesInput>
+}
+
+export type TenantUpsertWithoutCategoryStrategiesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedUpdateWithoutCategoryStrategiesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedCreateWithoutCategoryStrategiesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutCategoryStrategiesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutCategoryStrategiesInput, Prisma.TenantUncheckedUpdateWithoutCategoryStrategiesInput>
+}
+
+export type TenantUpdateWithoutCategoryStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutSavingsInitiativesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutSavingsInitiativesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedCreateWithoutSavingsInitiativesInput>
+}
+
+export type TenantUpsertWithoutSavingsInitiativesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedUpdateWithoutSavingsInitiativesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedCreateWithoutSavingsInitiativesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutSavingsInitiativesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutSavingsInitiativesInput, Prisma.TenantUncheckedUpdateWithoutSavingsInitiativesInput>
+}
+
+export type TenantUpdateWithoutSavingsInitiativesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6986,6 +8033,9 @@ export type TenantCountOutputType = {
   supplierScorecards: number
   supplierDevelopmentPlans: number
   supplierCorrectiveActions: number
+  procurementPlans: number
+  categoryStrategies: number
+  savingsInitiatives: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -7018,6 +8068,9 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   supplierScorecards?: boolean | TenantCountOutputTypeCountSupplierScorecardsArgs
   supplierDevelopmentPlans?: boolean | TenantCountOutputTypeCountSupplierDevelopmentPlansArgs
   supplierCorrectiveActions?: boolean | TenantCountOutputTypeCountSupplierCorrectiveActionsArgs
+  procurementPlans?: boolean | TenantCountOutputTypeCountProcurementPlansArgs
+  categoryStrategies?: boolean | TenantCountOutputTypeCountCategoryStrategiesArgs
+  savingsInitiatives?: boolean | TenantCountOutputTypeCountSavingsInitiativesArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -7218,6 +8271,27 @@ export type TenantCountOutputTypeCountSupplierCorrectiveActionsArgs<ExtArgs exte
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountProcurementPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProcurementPlanWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountCategoryStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CategoryStrategyWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountSavingsInitiativesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SavingsInitiativeWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -7279,6 +8353,9 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   supplierScorecards?: boolean | Prisma.Tenant$supplierScorecardsArgs<ExtArgs>
   supplierDevelopmentPlans?: boolean | Prisma.Tenant$supplierDevelopmentPlansArgs<ExtArgs>
   supplierCorrectiveActions?: boolean | Prisma.Tenant$supplierCorrectiveActionsArgs<ExtArgs>
+  procurementPlans?: boolean | Prisma.Tenant$procurementPlansArgs<ExtArgs>
+  categoryStrategies?: boolean | Prisma.Tenant$categoryStrategiesArgs<ExtArgs>
+  savingsInitiatives?: boolean | Prisma.Tenant$savingsInitiativesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -7367,6 +8444,9 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   supplierScorecards?: boolean | Prisma.Tenant$supplierScorecardsArgs<ExtArgs>
   supplierDevelopmentPlans?: boolean | Prisma.Tenant$supplierDevelopmentPlansArgs<ExtArgs>
   supplierCorrectiveActions?: boolean | Prisma.Tenant$supplierCorrectiveActionsArgs<ExtArgs>
+  procurementPlans?: boolean | Prisma.Tenant$procurementPlansArgs<ExtArgs>
+  categoryStrategies?: boolean | Prisma.Tenant$categoryStrategiesArgs<ExtArgs>
+  savingsInitiatives?: boolean | Prisma.Tenant$savingsInitiativesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -7404,6 +8484,9 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     supplierScorecards: Prisma.$SupplierScorecardPayload<ExtArgs>[]
     supplierDevelopmentPlans: Prisma.$SupplierDevelopmentPlanPayload<ExtArgs>[]
     supplierCorrectiveActions: Prisma.$SupplierCorrectiveActionPayload<ExtArgs>[]
+    procurementPlans: Prisma.$ProcurementPlanPayload<ExtArgs>[]
+    categoryStrategies: Prisma.$CategoryStrategyPayload<ExtArgs>[]
+    savingsInitiatives: Prisma.$SavingsInitiativePayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -7844,6 +8927,9 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   supplierScorecards<T extends Prisma.Tenant$supplierScorecardsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$supplierScorecardsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierScorecardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   supplierDevelopmentPlans<T extends Prisma.Tenant$supplierDevelopmentPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$supplierDevelopmentPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierDevelopmentPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   supplierCorrectiveActions<T extends Prisma.Tenant$supplierCorrectiveActionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$supplierCorrectiveActionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierCorrectiveActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  procurementPlans<T extends Prisma.Tenant$procurementPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$procurementPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProcurementPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  categoryStrategies<T extends Prisma.Tenant$categoryStrategiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$categoryStrategiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CategoryStrategyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  savingsInitiatives<T extends Prisma.Tenant$savingsInitiativesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$savingsInitiativesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavingsInitiativePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -8905,6 +9991,78 @@ export type Tenant$supplierCorrectiveActionsArgs<ExtArgs extends runtime.Types.E
   take?: number
   skip?: number
   distinct?: Prisma.SupplierCorrectiveActionScalarFieldEnum | Prisma.SupplierCorrectiveActionScalarFieldEnum[]
+}
+
+/**
+ * Tenant.procurementPlans
+ */
+export type Tenant$procurementPlansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProcurementPlan
+   */
+  select?: Prisma.ProcurementPlanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProcurementPlan
+   */
+  omit?: Prisma.ProcurementPlanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProcurementPlanInclude<ExtArgs> | null
+  where?: Prisma.ProcurementPlanWhereInput
+  orderBy?: Prisma.ProcurementPlanOrderByWithRelationInput | Prisma.ProcurementPlanOrderByWithRelationInput[]
+  cursor?: Prisma.ProcurementPlanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProcurementPlanScalarFieldEnum | Prisma.ProcurementPlanScalarFieldEnum[]
+}
+
+/**
+ * Tenant.categoryStrategies
+ */
+export type Tenant$categoryStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CategoryStrategy
+   */
+  select?: Prisma.CategoryStrategySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CategoryStrategy
+   */
+  omit?: Prisma.CategoryStrategyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CategoryStrategyInclude<ExtArgs> | null
+  where?: Prisma.CategoryStrategyWhereInput
+  orderBy?: Prisma.CategoryStrategyOrderByWithRelationInput | Prisma.CategoryStrategyOrderByWithRelationInput[]
+  cursor?: Prisma.CategoryStrategyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CategoryStrategyScalarFieldEnum | Prisma.CategoryStrategyScalarFieldEnum[]
+}
+
+/**
+ * Tenant.savingsInitiatives
+ */
+export type Tenant$savingsInitiativesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SavingsInitiative
+   */
+  select?: Prisma.SavingsInitiativeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SavingsInitiative
+   */
+  omit?: Prisma.SavingsInitiativeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SavingsInitiativeInclude<ExtArgs> | null
+  where?: Prisma.SavingsInitiativeWhereInput
+  orderBy?: Prisma.SavingsInitiativeOrderByWithRelationInput | Prisma.SavingsInitiativeOrderByWithRelationInput[]
+  cursor?: Prisma.SavingsInitiativeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SavingsInitiativeScalarFieldEnum | Prisma.SavingsInitiativeScalarFieldEnum[]
 }
 
 /**

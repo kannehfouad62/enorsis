@@ -411,3 +411,23 @@ export type SupplierDevelopmentPlan = Prisma.SupplierDevelopmentPlanModel
  * 
  */
 export type SupplierCorrectiveAction = Prisma.SupplierCorrectiveActionModel
+/**
+ * Model ProcurementPlan
+ * 
+ */
+export type ProcurementPlan = Prisma.ProcurementPlanModel
+/**
+ * Model CategoryStrategy
+ * 
+ */
+export type CategoryStrategy = Prisma.CategoryStrategyModel
+/**
+ * Model SavingsInitiative
+ * 
+ */
+export type SavingsInitiative = Prisma.SavingsInitiativeModel
+/**
+ * Model SavingsMilestone
+ * 
+ */
+export type SavingsMilestone = Prisma.SavingsMilestoneModel

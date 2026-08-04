@@ -882,6 +882,61 @@ export const SupplierCorrectiveActionSeverity = {
 export type SupplierCorrectiveActionSeverity = (typeof SupplierCorrectiveActionSeverity)[keyof typeof SupplierCorrectiveActionSeverity]
 
 
+export const ProcurementPlanStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementPlanStatus = (typeof ProcurementPlanStatus)[keyof typeof ProcurementPlanStatus]
+
+
+export const CategoryStrategyStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  UNDER_REVIEW: 'UNDER_REVIEW',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CategoryStrategyStatus = (typeof CategoryStrategyStatus)[keyof typeof CategoryStrategyStatus]
+
+
+export const SavingsInitiativeStatus = {
+  IDEA: 'IDEA',
+  VALIDATED: 'VALIDATED',
+  APPROVED: 'APPROVED',
+  IN_EXECUTION: 'IN_EXECUTION',
+  REALIZED: 'REALIZED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SavingsInitiativeStatus = (typeof SavingsInitiativeStatus)[keyof typeof SavingsInitiativeStatus]
+
+
+export const SavingsInitiativeType = {
+  COST_REDUCTION: 'COST_REDUCTION',
+  COST_AVOIDANCE: 'COST_AVOIDANCE',
+  WORKING_CAPITAL: 'WORKING_CAPITAL',
+  DEMAND_REDUCTION: 'DEMAND_REDUCTION',
+  PROCESS_EFFICIENCY: 'PROCESS_EFFICIENCY',
+  RISK_AVOIDANCE: 'RISK_AVOIDANCE'
+} as const
+
+export type SavingsInitiativeType = (typeof SavingsInitiativeType)[keyof typeof SavingsInitiativeType]
+
+
+export const SavingsMilestoneStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  BLOCKED: 'BLOCKED'
+} as const
+
+export type SavingsMilestoneStatus = (typeof SavingsMilestoneStatus)[keyof typeof SavingsMilestoneStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

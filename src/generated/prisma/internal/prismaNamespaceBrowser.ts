@@ -124,7 +124,11 @@ export const ModelName = {
   SupplierScorecard: 'SupplierScorecard',
   SupplierKpiResult: 'SupplierKpiResult',
   SupplierDevelopmentPlan: 'SupplierDevelopmentPlan',
-  SupplierCorrectiveAction: 'SupplierCorrectiveAction'
+  SupplierCorrectiveAction: 'SupplierCorrectiveAction',
+  ProcurementPlan: 'ProcurementPlan',
+  CategoryStrategy: 'CategoryStrategy',
+  SavingsInitiative: 'SavingsInitiative',
+  SavingsMilestone: 'SavingsMilestone'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1690,6 +1694,108 @@ export const SupplierCorrectiveActionScalarFieldEnum = {
 } as const
 
 export type SupplierCorrectiveActionScalarFieldEnum = (typeof SupplierCorrectiveActionScalarFieldEnum)[keyof typeof SupplierCorrectiveActionScalarFieldEnum]
+
+
+export const ProcurementPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  fiscalYear: 'fiscalYear',
+  status: 'status',
+  objective: 'objective',
+  approvedBudget: 'approvedBudget',
+  committedSpend: 'committedSpend',
+  actualSpend: 'actualSpend',
+  savingsTarget: 'savingsTarget',
+  realizedSavings: 'realizedSavings',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPlanScalarFieldEnum = (typeof ProcurementPlanScalarFieldEnum)[keyof typeof ProcurementPlanScalarFieldEnum]
+
+
+export const CategoryStrategyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  procurementPlanId: 'procurementPlanId',
+  category: 'category',
+  name: 'name',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  currentSpend: 'currentSpend',
+  addressableSpend: 'addressableSpend',
+  savingsTarget: 'savingsTarget',
+  supplierCount: 'supplierCount',
+  riskSummary: 'riskSummary',
+  marketSummary: 'marketSummary',
+  strategySummary: 'strategySummary',
+  sourcingApproach: 'sourcingApproach',
+  contractApproach: 'contractApproach',
+  supplierApproach: 'supplierApproach',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryStrategyScalarFieldEnum = (typeof CategoryStrategyScalarFieldEnum)[keyof typeof CategoryStrategyScalarFieldEnum]
+
+
+export const SavingsInitiativeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  procurementPlanId: 'procurementPlanId',
+  categoryStrategyId: 'categoryStrategyId',
+  initiativeNumber: 'initiativeNumber',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  category: 'category',
+  ownerUserId: 'ownerUserId',
+  baselineAmount: 'baselineAmount',
+  targetSavings: 'targetSavings',
+  validatedSavings: 'validatedSavings',
+  realizedSavings: 'realizedSavings',
+  currencyCode: 'currencyCode',
+  confidencePercent: 'confidencePercent',
+  financeValidatedBy: 'financeValidatedBy',
+  financeValidatedAt: 'financeValidatedAt',
+  startsAt: 'startsAt',
+  targetRealizationAt: 'targetRealizationAt',
+  realizedAt: 'realizedAt',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  assumptions: 'assumptions',
+  risks: 'risks',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavingsInitiativeScalarFieldEnum = (typeof SavingsInitiativeScalarFieldEnum)[keyof typeof SavingsInitiativeScalarFieldEnum]
+
+
+export const SavingsMilestoneScalarFieldEnum = {
+  id: 'id',
+  savingsInitiativeId: 'savingsInitiativeId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  completedAt: 'completedAt',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavingsMilestoneScalarFieldEnum = (typeof SavingsMilestoneScalarFieldEnum)[keyof typeof SavingsMilestoneScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -470,7 +470,11 @@ export const ModelName = {
   SupplierScorecard: 'SupplierScorecard',
   SupplierKpiResult: 'SupplierKpiResult',
   SupplierDevelopmentPlan: 'SupplierDevelopmentPlan',
-  SupplierCorrectiveAction: 'SupplierCorrectiveAction'
+  SupplierCorrectiveAction: 'SupplierCorrectiveAction',
+  ProcurementPlan: 'ProcurementPlan',
+  CategoryStrategy: 'CategoryStrategy',
+  SavingsInitiative: 'SavingsInitiative',
+  SavingsMilestone: 'SavingsMilestone'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -486,7 +490,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5966,6 +5970,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementPlan: {
+      payload: Prisma.$ProcurementPlanPayload<ExtArgs>
+      fields: Prisma.ProcurementPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        update: {
+          args: Prisma.ProcurementPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementPlan>
+        }
+        groupBy: {
+          args: Prisma.ProcurementPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    CategoryStrategy: {
+      payload: Prisma.$CategoryStrategyPayload<ExtArgs>
+      fields: Prisma.CategoryStrategyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CategoryStrategyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CategoryStrategyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        findFirst: {
+          args: Prisma.CategoryStrategyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CategoryStrategyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        findMany: {
+          args: Prisma.CategoryStrategyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>[]
+        }
+        create: {
+          args: Prisma.CategoryStrategyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        createMany: {
+          args: Prisma.CategoryStrategyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CategoryStrategyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>[]
+        }
+        delete: {
+          args: Prisma.CategoryStrategyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        update: {
+          args: Prisma.CategoryStrategyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        deleteMany: {
+          args: Prisma.CategoryStrategyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CategoryStrategyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CategoryStrategyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>[]
+        }
+        upsert: {
+          args: Prisma.CategoryStrategyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryStrategyPayload>
+        }
+        aggregate: {
+          args: Prisma.CategoryStrategyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCategoryStrategy>
+        }
+        groupBy: {
+          args: Prisma.CategoryStrategyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryStrategyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CategoryStrategyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryStrategyCountAggregateOutputType> | number
+        }
+      }
+    }
+    SavingsInitiative: {
+      payload: Prisma.$SavingsInitiativePayload<ExtArgs>
+      fields: Prisma.SavingsInitiativeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SavingsInitiativeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SavingsInitiativeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        findFirst: {
+          args: Prisma.SavingsInitiativeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SavingsInitiativeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        findMany: {
+          args: Prisma.SavingsInitiativeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>[]
+        }
+        create: {
+          args: Prisma.SavingsInitiativeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        createMany: {
+          args: Prisma.SavingsInitiativeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SavingsInitiativeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>[]
+        }
+        delete: {
+          args: Prisma.SavingsInitiativeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        update: {
+          args: Prisma.SavingsInitiativeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        deleteMany: {
+          args: Prisma.SavingsInitiativeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SavingsInitiativeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SavingsInitiativeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>[]
+        }
+        upsert: {
+          args: Prisma.SavingsInitiativeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsInitiativePayload>
+        }
+        aggregate: {
+          args: Prisma.SavingsInitiativeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSavingsInitiative>
+        }
+        groupBy: {
+          args: Prisma.SavingsInitiativeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavingsInitiativeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SavingsInitiativeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavingsInitiativeCountAggregateOutputType> | number
+        }
+      }
+    }
+    SavingsMilestone: {
+      payload: Prisma.$SavingsMilestonePayload<ExtArgs>
+      fields: Prisma.SavingsMilestoneFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SavingsMilestoneFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SavingsMilestoneFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        findFirst: {
+          args: Prisma.SavingsMilestoneFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SavingsMilestoneFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        findMany: {
+          args: Prisma.SavingsMilestoneFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>[]
+        }
+        create: {
+          args: Prisma.SavingsMilestoneCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        createMany: {
+          args: Prisma.SavingsMilestoneCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SavingsMilestoneCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>[]
+        }
+        delete: {
+          args: Prisma.SavingsMilestoneDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        update: {
+          args: Prisma.SavingsMilestoneUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        deleteMany: {
+          args: Prisma.SavingsMilestoneDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SavingsMilestoneUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SavingsMilestoneUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>[]
+        }
+        upsert: {
+          args: Prisma.SavingsMilestoneUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavingsMilestonePayload>
+        }
+        aggregate: {
+          args: Prisma.SavingsMilestoneAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSavingsMilestone>
+        }
+        groupBy: {
+          args: Prisma.SavingsMilestoneGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavingsMilestoneGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SavingsMilestoneCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavingsMilestoneCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7554,6 +7854,108 @@ export const SupplierCorrectiveActionScalarFieldEnum = {
 export type SupplierCorrectiveActionScalarFieldEnum = (typeof SupplierCorrectiveActionScalarFieldEnum)[keyof typeof SupplierCorrectiveActionScalarFieldEnum]
 
 
+export const ProcurementPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  fiscalYear: 'fiscalYear',
+  status: 'status',
+  objective: 'objective',
+  approvedBudget: 'approvedBudget',
+  committedSpend: 'committedSpend',
+  actualSpend: 'actualSpend',
+  savingsTarget: 'savingsTarget',
+  realizedSavings: 'realizedSavings',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPlanScalarFieldEnum = (typeof ProcurementPlanScalarFieldEnum)[keyof typeof ProcurementPlanScalarFieldEnum]
+
+
+export const CategoryStrategyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  procurementPlanId: 'procurementPlanId',
+  category: 'category',
+  name: 'name',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  currentSpend: 'currentSpend',
+  addressableSpend: 'addressableSpend',
+  savingsTarget: 'savingsTarget',
+  supplierCount: 'supplierCount',
+  riskSummary: 'riskSummary',
+  marketSummary: 'marketSummary',
+  strategySummary: 'strategySummary',
+  sourcingApproach: 'sourcingApproach',
+  contractApproach: 'contractApproach',
+  supplierApproach: 'supplierApproach',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryStrategyScalarFieldEnum = (typeof CategoryStrategyScalarFieldEnum)[keyof typeof CategoryStrategyScalarFieldEnum]
+
+
+export const SavingsInitiativeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  procurementPlanId: 'procurementPlanId',
+  categoryStrategyId: 'categoryStrategyId',
+  initiativeNumber: 'initiativeNumber',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  category: 'category',
+  ownerUserId: 'ownerUserId',
+  baselineAmount: 'baselineAmount',
+  targetSavings: 'targetSavings',
+  validatedSavings: 'validatedSavings',
+  realizedSavings: 'realizedSavings',
+  currencyCode: 'currencyCode',
+  confidencePercent: 'confidencePercent',
+  financeValidatedBy: 'financeValidatedBy',
+  financeValidatedAt: 'financeValidatedAt',
+  startsAt: 'startsAt',
+  targetRealizationAt: 'targetRealizationAt',
+  realizedAt: 'realizedAt',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  assumptions: 'assumptions',
+  risks: 'risks',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavingsInitiativeScalarFieldEnum = (typeof SavingsInitiativeScalarFieldEnum)[keyof typeof SavingsInitiativeScalarFieldEnum]
+
+
+export const SavingsMilestoneScalarFieldEnum = {
+  id: 'id',
+  savingsInitiativeId: 'savingsInitiativeId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  completedAt: 'completedAt',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavingsMilestoneScalarFieldEnum = (typeof SavingsMilestoneScalarFieldEnum)[keyof typeof SavingsMilestoneScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -8890,6 +9292,76 @@ export type ListEnumSupplierCorrectiveActionStatusFieldRefInput<$PrismaModel> = 
 
 
 /**
+ * Reference to a field of type 'ProcurementPlanStatus'
+ */
+export type EnumProcurementPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPlanStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementPlanStatus[]'
+ */
+export type ListEnumProcurementPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPlanStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'CategoryStrategyStatus'
+ */
+export type EnumCategoryStrategyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryStrategyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'CategoryStrategyStatus[]'
+ */
+export type ListEnumCategoryStrategyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryStrategyStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsInitiativeType'
+ */
+export type EnumSavingsInitiativeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsInitiativeType'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsInitiativeType[]'
+ */
+export type ListEnumSavingsInitiativeTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsInitiativeType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsInitiativeStatus'
+ */
+export type EnumSavingsInitiativeStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsInitiativeStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsInitiativeStatus[]'
+ */
+export type ListEnumSavingsInitiativeStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsInitiativeStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsMilestoneStatus'
+ */
+export type EnumSavingsMilestoneStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsMilestoneStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SavingsMilestoneStatus[]'
+ */
+export type ListEnumSavingsMilestoneStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SavingsMilestoneStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -9127,6 +9599,10 @@ export type GlobalOmitConfig = {
   supplierKpiResult?: Prisma.SupplierKpiResultOmit
   supplierDevelopmentPlan?: Prisma.SupplierDevelopmentPlanOmit
   supplierCorrectiveAction?: Prisma.SupplierCorrectiveActionOmit
+  procurementPlan?: Prisma.ProcurementPlanOmit
+  categoryStrategy?: Prisma.CategoryStrategyOmit
+  savingsInitiative?: Prisma.SavingsInitiativeOmit
+  savingsMilestone?: Prisma.SavingsMilestoneOmit
 }
 
 /* Types for Logging */
