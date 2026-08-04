@@ -96,9 +96,7 @@ export async function scanSodViolationsAction() {
 
   revalidatePath("/app/settings/access-governance");
 
-// Server Actions used by <form action={...}> must not return values.
-// The dashboard refreshes automatically after revalidation.
-return;
+
 }
 
 export async function createAccessReviewCampaignAction(
