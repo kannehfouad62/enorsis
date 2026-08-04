@@ -1,0 +1,219 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  Activity,
+  Bot,
+  Boxes,
+  BriefcaseBusiness,
+  Building2,
+  ChartNoAxesCombined,
+  CircleDollarSign,
+  ClipboardCheck,
+  FileKey2,
+  FileText,
+  GitBranch,
+  Handshake,
+  KeyRound,
+  Landmark,
+  Network,
+  PackageCheck,
+  ReceiptText,
+  Scale,
+  Settings2,
+  ShieldCheck,
+  ShoppingCart,
+  Sparkles,
+  Users,
+  Workflow,
+} from "lucide-react";
+
+export interface EnterpriseModuleLink {
+  title: string;
+  description: string;
+  href: string;
+  icon: LucideIcon;
+  group:
+    | "Procurement"
+    | "Suppliers"
+    | "Governance"
+    | "Intelligence"
+    | "Platform";
+}
+
+export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Purchase Requests",
+    description: "Create, route and approve internal procurement demand.",
+    href: "/app/requests",
+    icon: ShoppingCart,
+    group: "Procurement",
+  },
+  {
+    title: "Strategic Sourcing",
+    description: "Manage RFx events, invitations, evaluation and awards.",
+    href: "/app/sourcing",
+    icon: BriefcaseBusiness,
+    group: "Procurement",
+  },
+  {
+    title: "Procure to Pay",
+    description: "Manage orders, receipts, invoices and payment operations.",
+    href: "/app/procure-to-pay",
+    icon: ReceiptText,
+    group: "Procurement",
+  },
+  {
+    title: "Contracts",
+    description: "Govern contract lifecycle, clauses, obligations and risk.",
+    href: "/app/contracts",
+    icon: FileText,
+    group: "Procurement",
+  },
+  {
+    title: "Planning & Savings",
+    description: "Manage annual plans, category strategies and realized value.",
+    href: "/app/planning",
+    icon: CircleDollarSign,
+    group: "Procurement",
+  },
+  {
+    title: "Supplier Directory",
+    description: "Manage supplier master data, contacts and qualification.",
+    href: "/app/suppliers",
+    icon: Building2,
+    group: "Suppliers",
+  },
+  {
+    title: "Supplier Compliance",
+    description: "Track supplier documents, expiry and compliance status.",
+    href: "/app/suppliers/compliance",
+    icon: ClipboardCheck,
+    group: "Suppliers",
+  },
+  {
+    title: "Supplier Performance",
+    description: "Scorecards, trends, development plans and SCAR management.",
+    href: "/app/suppliers/performance",
+    icon: ChartNoAxesCombined,
+    group: "Suppliers",
+  },
+  {
+    title: "Supplier Performance Trends",
+    description: "Compare published supplier scores and portfolio movement.",
+    href: "/app/suppliers/performance/trends",
+    icon: Activity,
+    group: "Suppliers",
+  },
+  {
+    title: "Workflow Inbox",
+    description: "Review assigned approvals and workflow decisions.",
+    href: "/app/workflows",
+    icon: Workflow,
+    group: "Governance",
+  },
+  {
+    title: "Workflow Designer",
+    description: "Configure conditional approval and process orchestration.",
+    href: "/app/settings/workflows",
+    icon: GitBranch,
+    group: "Governance",
+  },
+  {
+    title: "Workflow Automation",
+    description: "Monitor triggers, instances, delegations and escalations.",
+    href: "/app/settings/workflows/automation",
+    icon: Network,
+    group: "Governance",
+  },
+  {
+    title: "Workflow Notifications",
+    description: "Operate in-app and email workflow delivery.",
+    href: "/app/settings/workflows/notifications",
+    icon: PackageCheck,
+    group: "Governance",
+  },
+  {
+    title: "Access Governance",
+    description: "Segregation of duties and periodic access certification.",
+    href: "/app/settings/access-governance",
+    icon: ShieldCheck,
+    group: "Governance",
+  },
+  {
+    title: "Spend Intelligence",
+    description: "Analyze procurement spend, suppliers and category exposure.",
+    href: "/app/analytics/spend",
+    icon: Landmark,
+    group: "Intelligence",
+  },
+  {
+    title: "Analytics Command Center",
+    description: "Enterprise procurement analytics and performance views.",
+    href: "/app/analytics",
+    icon: Sparkles,
+    group: "Intelligence",
+  },
+  {
+    title: "AI Procurement",
+    description: "Governed AI procurement capabilities and execution.",
+    href: "/app/ai",
+    icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "Organization",
+    description: "Manage tenant structure, entities, sites and departments.",
+    href: "/app/settings/organization",
+    icon: Boxes,
+    group: "Platform",
+  },
+  {
+    title: "Access & Roles",
+    description: "Manage users, memberships and role assignments.",
+    href: "/app/settings/access",
+    icon: Users,
+    group: "Platform",
+  },
+  {
+    title: "Security",
+    description: "Review platform security and authentication controls.",
+    href: "/app/settings/security",
+    icon: FileKey2,
+    group: "Platform",
+  },
+  {
+    title: "API Gateway",
+    description: "Issue scoped API clients and review request activity.",
+    href: "/app/settings/api",
+    icon: KeyRound,
+    group: "Platform",
+  },
+  {
+    title: "API Analytics",
+    description: "Monitor API usage, latency, denials and credentials.",
+    href: "/app/settings/api/analytics",
+    icon: Scale,
+    group: "Platform",
+  },
+  {
+    title: "Integration Hub",
+    description: "Manage governed ERP and external system integrations.",
+    href: "/app/settings/integrations",
+    icon: Handshake,
+    group: "Platform",
+  },
+  {
+    title: "Platform Settings",
+    description: "Review enterprise configuration and administration.",
+    href: "/app/settings",
+    icon: Settings2,
+    group: "Platform",
+  },
+];
+
+export const enterpriseModuleGroups = [
+  "Procurement",
+  "Suppliers",
+  "Governance",
+  "Intelligence",
+  "Platform",
+] as const;

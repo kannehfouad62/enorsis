@@ -18,6 +18,7 @@ import {
   Sparkles,
   UsersRound,
   X,
+  LayoutGrid,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -27,6 +28,7 @@ import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
   { href: "/app", label: "Command center", icon: Gauge, roles: [] },
+  { href: "/app/modules", label: "Enterprise modules", icon: LayoutGrid, roles: [] },
   { href: "/app/requests", label: "Purchase requests", icon: Boxes, roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/sourcing", label: "Strategic sourcing", icon: Network, roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/suppliers", label: "Supplier intelligence", icon: UsersRound, roles: ["SUPPLIER_MANAGER", "BUYER", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
