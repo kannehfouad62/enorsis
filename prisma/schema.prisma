@@ -597,6 +597,56 @@ enum SodViolationStatus {
   DISMISSED
 }
 
+enum SupplierScorecardStatus {
+  DRAFT
+  IN_REVIEW
+  PUBLISHED
+  SUPERSEDED
+}
+
+enum SupplierPerformanceRating {
+  EXCEPTIONAL
+  STRONG
+  ACCEPTABLE
+  NEEDS_IMPROVEMENT
+  CRITICAL
+}
+
+enum SupplierKpiCategory {
+  DELIVERY
+  QUALITY
+  COST
+  SERVICE
+  INNOVATION
+  ESG
+  RISK
+  COMPLIANCE
+}
+
+enum SupplierDevelopmentPlanStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum SupplierCorrectiveActionStatus {
+  OPEN
+  SUPPLIER_RESPONSE_REQUIRED
+  UNDER_REVIEW
+  IMPLEMENTATION
+  VERIFICATION
+  CLOSED
+  REJECTED
+}
+
+enum SupplierCorrectiveActionSeverity {
+  LOW
+  MODERATE
+  HIGH
+  CRITICAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -692,47 +742,50 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                    String                  @id @default(cuid())
-  slug                  String                  @unique
-  name                  String
-  legalName             String?
-  status                TenantStatus            @default(PROVISIONING)
-  countryCode           String?
-  defaultLocale         String                  @default("en-US")
-  defaultTimeZone       String                  @default("UTC")
-  currencyPolicyMode    CurrencyPolicyMode      @default(USD_ONLY)
-  baseCurrencyCode      String                  @default("USD")
-  localDisplayCurrency  String?
-  usdReportingEnabled   Boolean                 @default(true)
-  memberships           Membership[]
-  legalEntities         LegalEntity[]
-  sites                 Site[]
-  departments           Department[]
-  exchangeRates         ExchangeRate[]
-  auditEvents           AuditEvent[]
-  aiAgents              AiAgent[]
-  purchaseRequests      PurchaseRequest[]
-  purchaseOrders        PurchaseOrder[]
-  receipts              ProcurementReceipt[]
-  supplierInvoices      SupplierInvoice[]
-  suppliers             Supplier[]
-  sourcingEvents        SourcingEvent[]
-  paymentBatches        PaymentBatch[]
-  integrations          IntegrationConnection[]
-  workflowDefinitions   WorkflowDefinition[]
-  workflowInstances     WorkflowInstance[]
-  workflowDelegations   WorkflowDelegation[]
-  workflowNotifications WorkflowNotification[]
-  apiClients            ApiClient[]
-  accessReviewCampaigns AccessReviewCampaign[]
-  sodRules              SodRule[]
-  sodViolations         SodViolation[]
-  createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @updatedAt
-  archivedAt            DateTime?
-  contracts             Contract[]
-  clauseTemplates       ClauseTemplate[]
-  aiAgentTasks          AiAgentTask[]
+  id                        String                     @id @default(cuid())
+  slug                      String                     @unique
+  name                      String
+  legalName                 String?
+  status                    TenantStatus               @default(PROVISIONING)
+  countryCode               String?
+  defaultLocale             String                     @default("en-US")
+  defaultTimeZone           String                     @default("UTC")
+  currencyPolicyMode        CurrencyPolicyMode         @default(USD_ONLY)
+  baseCurrencyCode          String                     @default("USD")
+  localDisplayCurrency      String?
+  usdReportingEnabled       Boolean                    @default(true)
+  memberships               Membership[]
+  legalEntities             LegalEntity[]
+  sites                     Site[]
+  departments               Department[]
+  exchangeRates             ExchangeRate[]
+  auditEvents               AuditEvent[]
+  aiAgents                  AiAgent[]
+  purchaseRequests          PurchaseRequest[]
+  purchaseOrders            PurchaseOrder[]
+  receipts                  ProcurementReceipt[]
+  supplierInvoices          SupplierInvoice[]
+  suppliers                 Supplier[]
+  sourcingEvents            SourcingEvent[]
+  paymentBatches            PaymentBatch[]
+  integrations              IntegrationConnection[]
+  workflowDefinitions       WorkflowDefinition[]
+  workflowInstances         WorkflowInstance[]
+  workflowDelegations       WorkflowDelegation[]
+  workflowNotifications     WorkflowNotification[]
+  apiClients                ApiClient[]
+  accessReviewCampaigns     AccessReviewCampaign[]
+  sodRules                  SodRule[]
+  sodViolations             SodViolation[]
+  supplierScorecards        SupplierScorecard[]
+  supplierDevelopmentPlans  SupplierDevelopmentPlan[]
+  supplierCorrectiveActions SupplierCorrectiveAction[]
+  createdAt                 DateTime                   @default(now())
+  updatedAt                 DateTime                   @updatedAt
+  archivedAt                DateTime?
+  contracts                 Contract[]
+  clauseTemplates           ClauseTemplate[]
+  aiAgentTasks              AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -1023,6 +1076,9 @@ model Supplier {
   esgAssessments      SupplierEsgAssessment[]
   purchaseOrders      PurchaseOrder[]
   supplierInvoices    SupplierInvoice[]
+  scorecards          SupplierScorecard[]
+  developmentPlans    SupplierDevelopmentPlan[]
+  correctiveActions   SupplierCorrectiveAction[]
 
   @@unique([tenantId, supplierNumber])
   @@unique([tenantId, legalName, countryCode])
@@ -2313,4 +2369,122 @@ model SodViolation {
   @@unique([sodRuleId, membershipId])
   @@index([tenantId, status, createdAt])
   @@index([userId, status])
+}
+
+model SupplierScorecard {
+  id                String                    @id @default(cuid())
+  tenantId          String
+  supplierId        String
+  periodStart       DateTime
+  periodEnd         DateTime
+  status            SupplierScorecardStatus   @default(DRAFT)
+  rating            SupplierPerformanceRating
+  overallScore      Decimal                   @db.Decimal(8, 2)
+  deliveryScore     Decimal                   @db.Decimal(8, 2)
+  qualityScore      Decimal                   @db.Decimal(8, 2)
+  costScore         Decimal                   @db.Decimal(8, 2)
+  serviceScore      Decimal                   @db.Decimal(8, 2)
+  innovationScore   Decimal                   @db.Decimal(8, 2)
+  esgScore          Decimal                   @db.Decimal(8, 2)
+  riskScore         Decimal                   @db.Decimal(8, 2)
+  complianceScore   Decimal                   @db.Decimal(8, 2)
+  executiveSummary  String?
+  strengths         String?
+  concerns          String?
+  createdByUserId   String
+  reviewedByUserId  String?
+  publishedByUserId String?
+  reviewedAt        DateTime?
+  publishedAt       DateTime?
+  tenant            Tenant                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier          Supplier                  @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  kpis              SupplierKpiResult[]
+  createdAt         DateTime                  @default(now())
+  updatedAt         DateTime                  @updatedAt
+
+  @@unique([supplierId, periodStart, periodEnd])
+  @@index([tenantId, status, periodEnd])
+  @@index([supplierId, periodEnd])
+}
+
+model SupplierKpiResult {
+  id          String              @id @default(cuid())
+  scorecardId String
+  category    SupplierKpiCategory
+  key         String
+  name        String
+  description String?
+  targetValue Decimal?            @db.Decimal(18, 4)
+  actualValue Decimal?            @db.Decimal(18, 4)
+  unit        String?
+  weight      Decimal             @db.Decimal(8, 2)
+  score       Decimal             @db.Decimal(8, 2)
+  dataSource  String?
+  evidence    Json?
+  scorecard   SupplierScorecard   @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@unique([scorecardId, key])
+  @@index([scorecardId, category])
+}
+
+model SupplierDevelopmentPlan {
+  id                 String                        @id @default(cuid())
+  tenantId           String
+  supplierId         String
+  title              String
+  objective          String
+  status             SupplierDevelopmentPlanStatus @default(DRAFT)
+  ownerUserId        String
+  supplierOwnerName  String?
+  startsAt           DateTime
+  targetCompletionAt DateTime
+  completedAt        DateTime?
+  successMeasures    String
+  actions            Json
+  progressPercent    Int                           @default(0)
+  reviewCadence      String?
+  tenant             Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier           Supplier                      @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt          DateTime                      @default(now())
+  updatedAt          DateTime                      @updatedAt
+
+  @@index([tenantId, status, targetCompletionAt])
+  @@index([supplierId, status])
+}
+
+model SupplierCorrectiveAction {
+  id                   String                           @id @default(cuid())
+  tenantId             String
+  supplierId           String
+  scarNumber           String
+  title                String
+  description          String
+  severity             SupplierCorrectiveActionSeverity
+  status               SupplierCorrectiveActionStatus   @default(OPEN)
+  sourceType           String?
+  sourceId             String?
+  ownerUserId          String
+  supplierContactName  String?
+  supplierContactEmail String?
+  containmentAction    String?
+  rootCause            String?
+  correctiveActionPlan String?
+  preventiveAction     String?
+  dueAt                DateTime
+  supplierRespondedAt  DateTime?
+  implementationAt     DateTime?
+  verificationNotes    String?
+  verifiedByUserId     String?
+  verifiedAt           DateTime?
+  closedAt             DateTime?
+  tenant               Tenant                           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier             Supplier                         @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                         @default(now())
+  updatedAt            DateTime                         @updatedAt
+
+  @@unique([tenantId, scarNumber])
+  @@index([tenantId, status, dueAt])
+  @@index([supplierId, status])
 }

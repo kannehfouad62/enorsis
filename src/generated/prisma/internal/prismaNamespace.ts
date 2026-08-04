@@ -466,7 +466,11 @@ export const ModelName = {
   AccessReviewCampaign: 'AccessReviewCampaign',
   AccessReviewItem: 'AccessReviewItem',
   SodRule: 'SodRule',
-  SodViolation: 'SodViolation'
+  SodViolation: 'SodViolation',
+  SupplierScorecard: 'SupplierScorecard',
+  SupplierKpiResult: 'SupplierKpiResult',
+  SupplierDevelopmentPlan: 'SupplierDevelopmentPlan',
+  SupplierCorrectiveAction: 'SupplierCorrectiveAction'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -482,7 +486,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -5666,6 +5670,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierScorecard: {
+      payload: Prisma.$SupplierScorecardPayload<ExtArgs>
+      fields: Prisma.SupplierScorecardFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierScorecardFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierScorecardFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierScorecardFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierScorecardFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierScorecardFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierScorecardCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierScorecardCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierScorecardCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierScorecardDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        update: {
+          args: Prisma.SupplierScorecardUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierScorecardDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierScorecardUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierScorecardUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierScorecardUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierScorecardPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierScorecardAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierScorecard>
+        }
+        groupBy: {
+          args: Prisma.SupplierScorecardGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierScorecardGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierScorecardCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierScorecardCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierKpiResult: {
+      payload: Prisma.$SupplierKpiResultPayload<ExtArgs>
+      fields: Prisma.SupplierKpiResultFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierKpiResultFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierKpiResultFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierKpiResultFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierKpiResultFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierKpiResultFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierKpiResultCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierKpiResultCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierKpiResultCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierKpiResultDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        update: {
+          args: Prisma.SupplierKpiResultUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierKpiResultDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierKpiResultUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierKpiResultUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierKpiResultUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierKpiResultPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierKpiResultAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierKpiResult>
+        }
+        groupBy: {
+          args: Prisma.SupplierKpiResultGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierKpiResultGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierKpiResultCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierKpiResultCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierDevelopmentPlan: {
+      payload: Prisma.$SupplierDevelopmentPlanPayload<ExtArgs>
+      fields: Prisma.SupplierDevelopmentPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierDevelopmentPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierDevelopmentPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierDevelopmentPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierDevelopmentPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierDevelopmentPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierDevelopmentPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierDevelopmentPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierDevelopmentPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierDevelopmentPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        update: {
+          args: Prisma.SupplierDevelopmentPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierDevelopmentPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierDevelopmentPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierDevelopmentPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierDevelopmentPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierDevelopmentPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierDevelopmentPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierDevelopmentPlan>
+        }
+        groupBy: {
+          args: Prisma.SupplierDevelopmentPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierDevelopmentPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierDevelopmentPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierDevelopmentPlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierCorrectiveAction: {
+      payload: Prisma.$SupplierCorrectiveActionPayload<ExtArgs>
+      fields: Prisma.SupplierCorrectiveActionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierCorrectiveActionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierCorrectiveActionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierCorrectiveActionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierCorrectiveActionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierCorrectiveActionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierCorrectiveActionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierCorrectiveActionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierCorrectiveActionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierCorrectiveActionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        update: {
+          args: Prisma.SupplierCorrectiveActionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierCorrectiveActionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierCorrectiveActionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierCorrectiveActionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierCorrectiveActionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCorrectiveActionPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierCorrectiveActionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierCorrectiveAction>
+        }
+        groupBy: {
+          args: Prisma.SupplierCorrectiveActionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCorrectiveActionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierCorrectiveActionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCorrectiveActionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7146,6 +7446,114 @@ export const SodViolationScalarFieldEnum = {
 export type SodViolationScalarFieldEnum = (typeof SodViolationScalarFieldEnum)[keyof typeof SodViolationScalarFieldEnum]
 
 
+export const SupplierScorecardScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  status: 'status',
+  rating: 'rating',
+  overallScore: 'overallScore',
+  deliveryScore: 'deliveryScore',
+  qualityScore: 'qualityScore',
+  costScore: 'costScore',
+  serviceScore: 'serviceScore',
+  innovationScore: 'innovationScore',
+  esgScore: 'esgScore',
+  riskScore: 'riskScore',
+  complianceScore: 'complianceScore',
+  executiveSummary: 'executiveSummary',
+  strengths: 'strengths',
+  concerns: 'concerns',
+  createdByUserId: 'createdByUserId',
+  reviewedByUserId: 'reviewedByUserId',
+  publishedByUserId: 'publishedByUserId',
+  reviewedAt: 'reviewedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierScorecardScalarFieldEnum = (typeof SupplierScorecardScalarFieldEnum)[keyof typeof SupplierScorecardScalarFieldEnum]
+
+
+export const SupplierKpiResultScalarFieldEnum = {
+  id: 'id',
+  scorecardId: 'scorecardId',
+  category: 'category',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  targetValue: 'targetValue',
+  actualValue: 'actualValue',
+  unit: 'unit',
+  weight: 'weight',
+  score: 'score',
+  dataSource: 'dataSource',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierKpiResultScalarFieldEnum = (typeof SupplierKpiResultScalarFieldEnum)[keyof typeof SupplierKpiResultScalarFieldEnum]
+
+
+export const SupplierDevelopmentPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  objective: 'objective',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  supplierOwnerName: 'supplierOwnerName',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  successMeasures: 'successMeasures',
+  actions: 'actions',
+  progressPercent: 'progressPercent',
+  reviewCadence: 'reviewCadence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierDevelopmentPlanScalarFieldEnum = (typeof SupplierDevelopmentPlanScalarFieldEnum)[keyof typeof SupplierDevelopmentPlanScalarFieldEnum]
+
+
+export const SupplierCorrectiveActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  scarNumber: 'scarNumber',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  status: 'status',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  ownerUserId: 'ownerUserId',
+  supplierContactName: 'supplierContactName',
+  supplierContactEmail: 'supplierContactEmail',
+  containmentAction: 'containmentAction',
+  rootCause: 'rootCause',
+  correctiveActionPlan: 'correctiveActionPlan',
+  preventiveAction: 'preventiveAction',
+  dueAt: 'dueAt',
+  supplierRespondedAt: 'supplierRespondedAt',
+  implementationAt: 'implementationAt',
+  verificationNotes: 'verificationNotes',
+  verifiedByUserId: 'verifiedByUserId',
+  verifiedAt: 'verifiedAt',
+  closedAt: 'closedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCorrectiveActionScalarFieldEnum = (typeof SupplierCorrectiveActionScalarFieldEnum)[keyof typeof SupplierCorrectiveActionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -8398,6 +8806,90 @@ export type ListEnumSodViolationStatusFieldRefInput<$PrismaModel> = FieldRefInpu
 
 
 /**
+ * Reference to a field of type 'SupplierScorecardStatus'
+ */
+export type EnumSupplierScorecardStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierScorecardStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierScorecardStatus[]'
+ */
+export type ListEnumSupplierScorecardStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierScorecardStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPerformanceRating'
+ */
+export type EnumSupplierPerformanceRatingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPerformanceRating'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPerformanceRating[]'
+ */
+export type ListEnumSupplierPerformanceRatingFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPerformanceRating[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierKpiCategory'
+ */
+export type EnumSupplierKpiCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierKpiCategory'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierKpiCategory[]'
+ */
+export type ListEnumSupplierKpiCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierKpiCategory[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDevelopmentPlanStatus'
+ */
+export type EnumSupplierDevelopmentPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDevelopmentPlanStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierDevelopmentPlanStatus[]'
+ */
+export type ListEnumSupplierDevelopmentPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierDevelopmentPlanStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierCorrectiveActionSeverity'
+ */
+export type EnumSupplierCorrectiveActionSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierCorrectiveActionSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierCorrectiveActionSeverity[]'
+ */
+export type ListEnumSupplierCorrectiveActionSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierCorrectiveActionSeverity[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierCorrectiveActionStatus'
+ */
+export type EnumSupplierCorrectiveActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierCorrectiveActionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierCorrectiveActionStatus[]'
+ */
+export type ListEnumSupplierCorrectiveActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierCorrectiveActionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -8631,6 +9123,10 @@ export type GlobalOmitConfig = {
   accessReviewItem?: Prisma.AccessReviewItemOmit
   sodRule?: Prisma.SodRuleOmit
   sodViolation?: Prisma.SodViolationOmit
+  supplierScorecard?: Prisma.SupplierScorecardOmit
+  supplierKpiResult?: Prisma.SupplierKpiResultOmit
+  supplierDevelopmentPlan?: Prisma.SupplierDevelopmentPlanOmit
+  supplierCorrectiveAction?: Prisma.SupplierCorrectiveActionOmit
 }
 
 /* Types for Logging */

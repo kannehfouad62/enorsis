@@ -391,3 +391,23 @@ export type SodRule = Prisma.SodRuleModel
  * 
  */
 export type SodViolation = Prisma.SodViolationModel
+/**
+ * Model SupplierScorecard
+ * 
+ */
+export type SupplierScorecard = Prisma.SupplierScorecardModel
+/**
+ * Model SupplierKpiResult
+ * 
+ */
+export type SupplierKpiResult = Prisma.SupplierKpiResultModel
+/**
+ * Model SupplierDevelopmentPlan
+ * 
+ */
+export type SupplierDevelopmentPlan = Prisma.SupplierDevelopmentPlanModel
+/**
+ * Model SupplierCorrectiveAction
+ * 
+ */
+export type SupplierCorrectiveAction = Prisma.SupplierCorrectiveActionModel

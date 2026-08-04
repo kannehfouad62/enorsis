@@ -120,7 +120,11 @@ export const ModelName = {
   AccessReviewCampaign: 'AccessReviewCampaign',
   AccessReviewItem: 'AccessReviewItem',
   SodRule: 'SodRule',
-  SodViolation: 'SodViolation'
+  SodViolation: 'SodViolation',
+  SupplierScorecard: 'SupplierScorecard',
+  SupplierKpiResult: 'SupplierKpiResult',
+  SupplierDevelopmentPlan: 'SupplierDevelopmentPlan',
+  SupplierCorrectiveAction: 'SupplierCorrectiveAction'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1578,6 +1582,114 @@ export const SodViolationScalarFieldEnum = {
 } as const
 
 export type SodViolationScalarFieldEnum = (typeof SodViolationScalarFieldEnum)[keyof typeof SodViolationScalarFieldEnum]
+
+
+export const SupplierScorecardScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  status: 'status',
+  rating: 'rating',
+  overallScore: 'overallScore',
+  deliveryScore: 'deliveryScore',
+  qualityScore: 'qualityScore',
+  costScore: 'costScore',
+  serviceScore: 'serviceScore',
+  innovationScore: 'innovationScore',
+  esgScore: 'esgScore',
+  riskScore: 'riskScore',
+  complianceScore: 'complianceScore',
+  executiveSummary: 'executiveSummary',
+  strengths: 'strengths',
+  concerns: 'concerns',
+  createdByUserId: 'createdByUserId',
+  reviewedByUserId: 'reviewedByUserId',
+  publishedByUserId: 'publishedByUserId',
+  reviewedAt: 'reviewedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierScorecardScalarFieldEnum = (typeof SupplierScorecardScalarFieldEnum)[keyof typeof SupplierScorecardScalarFieldEnum]
+
+
+export const SupplierKpiResultScalarFieldEnum = {
+  id: 'id',
+  scorecardId: 'scorecardId',
+  category: 'category',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  targetValue: 'targetValue',
+  actualValue: 'actualValue',
+  unit: 'unit',
+  weight: 'weight',
+  score: 'score',
+  dataSource: 'dataSource',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierKpiResultScalarFieldEnum = (typeof SupplierKpiResultScalarFieldEnum)[keyof typeof SupplierKpiResultScalarFieldEnum]
+
+
+export const SupplierDevelopmentPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  objective: 'objective',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  supplierOwnerName: 'supplierOwnerName',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  successMeasures: 'successMeasures',
+  actions: 'actions',
+  progressPercent: 'progressPercent',
+  reviewCadence: 'reviewCadence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierDevelopmentPlanScalarFieldEnum = (typeof SupplierDevelopmentPlanScalarFieldEnum)[keyof typeof SupplierDevelopmentPlanScalarFieldEnum]
+
+
+export const SupplierCorrectiveActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  scarNumber: 'scarNumber',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  status: 'status',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  ownerUserId: 'ownerUserId',
+  supplierContactName: 'supplierContactName',
+  supplierContactEmail: 'supplierContactEmail',
+  containmentAction: 'containmentAction',
+  rootCause: 'rootCause',
+  correctiveActionPlan: 'correctiveActionPlan',
+  preventiveAction: 'preventiveAction',
+  dueAt: 'dueAt',
+  supplierRespondedAt: 'supplierRespondedAt',
+  implementationAt: 'implementationAt',
+  verificationNotes: 'verificationNotes',
+  verifiedByUserId: 'verifiedByUserId',
+  verifiedAt: 'verifiedAt',
+  closedAt: 'closedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCorrectiveActionScalarFieldEnum = (typeof SupplierCorrectiveActionScalarFieldEnum)[keyof typeof SupplierCorrectiveActionScalarFieldEnum]
 
 
 export const SortOrder = {

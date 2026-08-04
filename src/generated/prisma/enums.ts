@@ -814,6 +814,74 @@ export const SodViolationStatus = {
 export type SodViolationStatus = (typeof SodViolationStatus)[keyof typeof SodViolationStatus]
 
 
+export const SupplierScorecardStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  PUBLISHED: 'PUBLISHED',
+  SUPERSEDED: 'SUPERSEDED'
+} as const
+
+export type SupplierScorecardStatus = (typeof SupplierScorecardStatus)[keyof typeof SupplierScorecardStatus]
+
+
+export const SupplierPerformanceRating = {
+  EXCEPTIONAL: 'EXCEPTIONAL',
+  STRONG: 'STRONG',
+  ACCEPTABLE: 'ACCEPTABLE',
+  NEEDS_IMPROVEMENT: 'NEEDS_IMPROVEMENT',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type SupplierPerformanceRating = (typeof SupplierPerformanceRating)[keyof typeof SupplierPerformanceRating]
+
+
+export const SupplierKpiCategory = {
+  DELIVERY: 'DELIVERY',
+  QUALITY: 'QUALITY',
+  COST: 'COST',
+  SERVICE: 'SERVICE',
+  INNOVATION: 'INNOVATION',
+  ESG: 'ESG',
+  RISK: 'RISK',
+  COMPLIANCE: 'COMPLIANCE'
+} as const
+
+export type SupplierKpiCategory = (typeof SupplierKpiCategory)[keyof typeof SupplierKpiCategory]
+
+
+export const SupplierDevelopmentPlanStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SupplierDevelopmentPlanStatus = (typeof SupplierDevelopmentPlanStatus)[keyof typeof SupplierDevelopmentPlanStatus]
+
+
+export const SupplierCorrectiveActionStatus = {
+  OPEN: 'OPEN',
+  SUPPLIER_RESPONSE_REQUIRED: 'SUPPLIER_RESPONSE_REQUIRED',
+  UNDER_REVIEW: 'UNDER_REVIEW',
+  IMPLEMENTATION: 'IMPLEMENTATION',
+  VERIFICATION: 'VERIFICATION',
+  CLOSED: 'CLOSED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type SupplierCorrectiveActionStatus = (typeof SupplierCorrectiveActionStatus)[keyof typeof SupplierCorrectiveActionStatus]
+
+
+export const SupplierCorrectiveActionSeverity = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type SupplierCorrectiveActionSeverity = (typeof SupplierCorrectiveActionSeverity)[keyof typeof SupplierCorrectiveActionSeverity]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
