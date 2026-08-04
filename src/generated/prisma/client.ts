@@ -321,3 +321,33 @@ export type IntegrationJob = Prisma.IntegrationJobModel
  * 
  */
 export type IntegrationEvent = Prisma.IntegrationEventModel
+/**
+ * Model WorkflowDefinition
+ * 
+ */
+export type WorkflowDefinition = Prisma.WorkflowDefinitionModel
+/**
+ * Model WorkflowStep
+ * 
+ */
+export type WorkflowStep = Prisma.WorkflowStepModel
+/**
+ * Model WorkflowInstance
+ * 
+ */
+export type WorkflowInstance = Prisma.WorkflowInstanceModel
+/**
+ * Model WorkflowTask
+ * 
+ */
+export type WorkflowTask = Prisma.WorkflowTaskModel
+/**
+ * Model WorkflowDelegation
+ * 
+ */
+export type WorkflowDelegation = Prisma.WorkflowDelegationModel
+/**
+ * Model WorkflowEscalation
+ * 
+ */
+export type WorkflowEscalation = Prisma.WorkflowEscalationModel

@@ -623,6 +623,85 @@ export const IntegrationEventStatus = {
 export type IntegrationEventStatus = (typeof IntegrationEventStatus)[keyof typeof IntegrationEventStatus]
 
 
+export const WorkflowDefinitionStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  RETIRED: 'RETIRED'
+} as const
+
+export type WorkflowDefinitionStatus = (typeof WorkflowDefinitionStatus)[keyof typeof WorkflowDefinitionStatus]
+
+
+export const WorkflowStepType = {
+  APPROVAL: 'APPROVAL',
+  REVIEW: 'REVIEW',
+  NOTIFICATION: 'NOTIFICATION',
+  SYSTEM_TASK: 'SYSTEM_TASK',
+  AI_REVIEW: 'AI_REVIEW'
+} as const
+
+export type WorkflowStepType = (typeof WorkflowStepType)[keyof typeof WorkflowStepType]
+
+
+export const WorkflowRoutingMode = {
+  SEQUENTIAL: 'SEQUENTIAL',
+  PARALLEL: 'PARALLEL',
+  ANY_ONE: 'ANY_ONE'
+} as const
+
+export type WorkflowRoutingMode = (typeof WorkflowRoutingMode)[keyof typeof WorkflowRoutingMode]
+
+
+export const WorkflowInstanceStatus = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  WAITING: 'WAITING',
+  COMPLETED: 'COMPLETED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED',
+  FAILED: 'FAILED'
+} as const
+
+export type WorkflowInstanceStatus = (typeof WorkflowInstanceStatus)[keyof typeof WorkflowInstanceStatus]
+
+
+export const WorkflowTaskStatus = {
+  PENDING: 'PENDING',
+  AVAILABLE: 'AVAILABLE',
+  IN_PROGRESS: 'IN_PROGRESS',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  RETURNED: 'RETURNED',
+  SKIPPED: 'SKIPPED',
+  ESCALATED: 'ESCALATED',
+  CANCELLED: 'CANCELLED',
+  FAILED: 'FAILED'
+} as const
+
+export type WorkflowTaskStatus = (typeof WorkflowTaskStatus)[keyof typeof WorkflowTaskStatus]
+
+
+export const WorkflowDecision = {
+  APPROVE: 'APPROVE',
+  REJECT: 'REJECT',
+  RETURN: 'RETURN',
+  COMPLETE: 'COMPLETE'
+} as const
+
+export type WorkflowDecision = (typeof WorkflowDecision)[keyof typeof WorkflowDecision]
+
+
+export const WorkflowEscalationStatus = {
+  PENDING: 'PENDING',
+  SENT: 'SENT',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WorkflowEscalationStatus = (typeof WorkflowEscalationStatus)[keyof typeof WorkflowEscalationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

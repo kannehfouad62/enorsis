@@ -106,7 +106,13 @@ export const ModelName = {
   IntegrationConnection: 'IntegrationConnection',
   IntegrationMapping: 'IntegrationMapping',
   IntegrationJob: 'IntegrationJob',
-  IntegrationEvent: 'IntegrationEvent'
+  IntegrationEvent: 'IntegrationEvent',
+  WorkflowDefinition: 'WorkflowDefinition',
+  WorkflowStep: 'WorkflowStep',
+  WorkflowInstance: 'WorkflowInstance',
+  WorkflowTask: 'WorkflowTask',
+  WorkflowDelegation: 'WorkflowDelegation',
+  WorkflowEscalation: 'WorkflowEscalation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1265,6 +1271,130 @@ export const IntegrationEventScalarFieldEnum = {
 } as const
 
 export type IntegrationEventScalarFieldEnum = (typeof IntegrationEventScalarFieldEnum)[keyof typeof IntegrationEventScalarFieldEnum]
+
+
+export const WorkflowDefinitionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  resourceType: 'resourceType',
+  status: 'status',
+  version: 'version',
+  triggerEvent: 'triggerEvent',
+  conditionExpression: 'conditionExpression',
+  createdByUserId: 'createdByUserId',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowDefinitionScalarFieldEnum = (typeof WorkflowDefinitionScalarFieldEnum)[keyof typeof WorkflowDefinitionScalarFieldEnum]
+
+
+export const WorkflowStepScalarFieldEnum = {
+  id: 'id',
+  workflowDefinitionId: 'workflowDefinitionId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  sequence: 'sequence',
+  routingMode: 'routingMode',
+  conditionExpression: 'conditionExpression',
+  assigneeRoles: 'assigneeRoles',
+  assigneeUserIds: 'assigneeUserIds',
+  dueInHours: 'dueInHours',
+  escalationAfterHours: 'escalationAfterHours',
+  escalationRoles: 'escalationRoles',
+  allowDelegation: 'allowDelegation',
+  requiresComment: 'requiresComment',
+  configuration: 'configuration',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowStepScalarFieldEnum = (typeof WorkflowStepScalarFieldEnum)[keyof typeof WorkflowStepScalarFieldEnum]
+
+
+export const WorkflowInstanceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  workflowDefinitionId: 'workflowDefinitionId',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  status: 'status',
+  currentSequence: 'currentSequence',
+  context: 'context',
+  startedByUserId: 'startedByUserId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  cancelledAt: 'cancelledAt',
+  failureReason: 'failureReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowInstanceScalarFieldEnum = (typeof WorkflowInstanceScalarFieldEnum)[keyof typeof WorkflowInstanceScalarFieldEnum]
+
+
+export const WorkflowTaskScalarFieldEnum = {
+  id: 'id',
+  workflowInstanceId: 'workflowInstanceId',
+  workflowStepId: 'workflowStepId',
+  status: 'status',
+  assigneeUserId: 'assigneeUserId',
+  assigneeRole: 'assigneeRole',
+  delegatedFromUserId: 'delegatedFromUserId',
+  availableAt: 'availableAt',
+  dueAt: 'dueAt',
+  startedAt: 'startedAt',
+  decidedAt: 'decidedAt',
+  decision: 'decision',
+  comments: 'comments',
+  completedByUserId: 'completedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowTaskScalarFieldEnum = (typeof WorkflowTaskScalarFieldEnum)[keyof typeof WorkflowTaskScalarFieldEnum]
+
+
+export const WorkflowDelegationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  delegatorUserId: 'delegatorUserId',
+  delegateUserId: 'delegateUserId',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  reason: 'reason',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowDelegationScalarFieldEnum = (typeof WorkflowDelegationScalarFieldEnum)[keyof typeof WorkflowDelegationScalarFieldEnum]
+
+
+export const WorkflowEscalationScalarFieldEnum = {
+  id: 'id',
+  workflowInstanceId: 'workflowInstanceId',
+  workflowTaskId: 'workflowTaskId',
+  status: 'status',
+  escalationLevel: 'escalationLevel',
+  targetRoles: 'targetRoles',
+  targetUserIds: 'targetUserIds',
+  reason: 'reason',
+  scheduledAt: 'scheduledAt',
+  sentAt: 'sentAt',
+  acknowledgedAt: 'acknowledgedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkflowEscalationScalarFieldEnum = (typeof WorkflowEscalationScalarFieldEnum)[keyof typeof WorkflowEscalationScalarFieldEnum]
 
 
 export const SortOrder = {
