@@ -142,7 +142,13 @@ export const ModelName = {
   ProcurementCatalog: 'ProcurementCatalog',
   ProcurementCatalogItem: 'ProcurementCatalogItem',
   GuidedCart: 'GuidedCart',
-  GuidedCartItem: 'GuidedCartItem'
+  GuidedCartItem: 'GuidedCartItem',
+  InventoryLocation: 'InventoryLocation',
+  InventoryItem: 'InventoryItem',
+  InventoryBalance: 'InventoryBalance',
+  InventoryTransaction: 'InventoryTransaction',
+  CycleCount: 'CycleCount',
+  CycleCountLine: 'CycleCountLine'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2121,6 +2127,125 @@ export const GuidedCartItemScalarFieldEnum = {
 } as const
 
 export type GuidedCartItemScalarFieldEnum = (typeof GuidedCartItemScalarFieldEnum)[keyof typeof GuidedCartItemScalarFieldEnum]
+
+
+export const InventoryLocationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  siteId: 'siteId',
+  address: 'address',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryLocationScalarFieldEnum = (typeof InventoryLocationScalarFieldEnum)[keyof typeof InventoryLocationScalarFieldEnum]
+
+
+export const InventoryItemScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  sku: 'sku',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  catalogItemId: 'catalogItemId',
+  manufacturer: 'manufacturer',
+  manufacturerPartNo: 'manufacturerPartNo',
+  preferredSupplierId: 'preferredSupplierId',
+  standardCost: 'standardCost',
+  reorderPoint: 'reorderPoint',
+  reorderQuantity: 'reorderQuantity',
+  safetyStock: 'safetyStock',
+  leadTimeDays: 'leadTimeDays',
+  lotControlled: 'lotControlled',
+  serialControlled: 'serialControlled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryItemScalarFieldEnum = (typeof InventoryItemScalarFieldEnum)[keyof typeof InventoryItemScalarFieldEnum]
+
+
+export const InventoryBalanceScalarFieldEnum = {
+  id: 'id',
+  inventoryItemId: 'inventoryItemId',
+  inventoryLocationId: 'inventoryLocationId',
+  quantityOnHand: 'quantityOnHand',
+  quantityReserved: 'quantityReserved',
+  quantityAvailable: 'quantityAvailable',
+  averageUnitCost: 'averageUnitCost',
+  lastCountedAt: 'lastCountedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryBalanceScalarFieldEnum = (typeof InventoryBalanceScalarFieldEnum)[keyof typeof InventoryBalanceScalarFieldEnum]
+
+
+export const InventoryTransactionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  inventoryLocationId: 'inventoryLocationId',
+  destinationLocationId: 'destinationLocationId',
+  type: 'type',
+  quantity: 'quantity',
+  unitCost: 'unitCost',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  reason: 'reason',
+  lotNumber: 'lotNumber',
+  serialNumber: 'serialNumber',
+  performedByUserId: 'performedByUserId',
+  performedAt: 'performedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type InventoryTransactionScalarFieldEnum = (typeof InventoryTransactionScalarFieldEnum)[keyof typeof InventoryTransactionScalarFieldEnum]
+
+
+export const CycleCountScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryLocationId: 'inventoryLocationId',
+  countNumber: 'countNumber',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CycleCountScalarFieldEnum = (typeof CycleCountScalarFieldEnum)[keyof typeof CycleCountScalarFieldEnum]
+
+
+export const CycleCountLineScalarFieldEnum = {
+  id: 'id',
+  cycleCountId: 'cycleCountId',
+  inventoryItemId: 'inventoryItemId',
+  expectedQuantity: 'expectedQuantity',
+  countedQuantity: 'countedQuantity',
+  varianceQuantity: 'varianceQuantity',
+  varianceValue: 'varianceValue',
+  comments: 'comments',
+  countedByUserId: 'countedByUserId',
+  countedAt: 'countedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CycleCountLineScalarFieldEnum = (typeof CycleCountLineScalarFieldEnum)[keyof typeof CycleCountLineScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -501,3 +501,33 @@ export type GuidedCart = Prisma.GuidedCartModel
  * 
  */
 export type GuidedCartItem = Prisma.GuidedCartItemModel
+/**
+ * Model InventoryLocation
+ * 
+ */
+export type InventoryLocation = Prisma.InventoryLocationModel
+/**
+ * Model InventoryItem
+ * 
+ */
+export type InventoryItem = Prisma.InventoryItemModel
+/**
+ * Model InventoryBalance
+ * 
+ */
+export type InventoryBalance = Prisma.InventoryBalanceModel
+/**
+ * Model InventoryTransaction
+ * 
+ */
+export type InventoryTransaction = Prisma.InventoryTransactionModel
+/**
+ * Model CycleCount
+ * 
+ */
+export type CycleCount = Prisma.CycleCountModel
+/**
+ * Model CycleCountLine
+ * 
+ */
+export type CycleCountLine = Prisma.CycleCountLineModel

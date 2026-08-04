@@ -1129,6 +1129,47 @@ export const GuidedCartStatus = {
 export type GuidedCartStatus = (typeof GuidedCartStatus)[keyof typeof GuidedCartStatus]
 
 
+export const InventoryLocationStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE'
+} as const
+
+export type InventoryLocationStatus = (typeof InventoryLocationStatus)[keyof typeof InventoryLocationStatus]
+
+
+export const InventoryItemStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  OBSOLETE: 'OBSOLETE'
+} as const
+
+export type InventoryItemStatus = (typeof InventoryItemStatus)[keyof typeof InventoryItemStatus]
+
+
+export const InventoryTransactionType = {
+  RECEIPT: 'RECEIPT',
+  ISSUE: 'ISSUE',
+  TRANSFER_IN: 'TRANSFER_IN',
+  TRANSFER_OUT: 'TRANSFER_OUT',
+  ADJUSTMENT_IN: 'ADJUSTMENT_IN',
+  ADJUSTMENT_OUT: 'ADJUSTMENT_OUT',
+  RETURN_TO_STOCK: 'RETURN_TO_STOCK',
+  RETURN_TO_SUPPLIER: 'RETURN_TO_SUPPLIER'
+} as const
+
+export type InventoryTransactionType = (typeof InventoryTransactionType)[keyof typeof InventoryTransactionType]
+
+
+export const CycleCountStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CycleCountStatus = (typeof CycleCountStatus)[keyof typeof CycleCountStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

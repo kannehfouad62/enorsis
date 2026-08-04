@@ -28,6 +28,7 @@ import {
   Sparkles,
   Users,
   Workflow,
+  Warehouse,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -44,6 +45,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Inventory & Materials",
+    description: "Stock locations, balances, movements and cycle counts.",
+    href: "/app/inventory",
+    icon: Warehouse,
+    group: "Procurement",
+  },
   {
     title: "Catalog & Guided Buying",
     description: "Preferred catalogs, shopping carts and policy-aligned buying.",
