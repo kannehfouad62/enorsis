@@ -22,6 +22,7 @@ import {
   Scale,
   Settings2,
   ShieldCheck,
+  ShieldAlert,
   ShoppingCart,
   Sparkles,
   Users,
@@ -131,6 +132,13 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Operate in-app and email workflow delivery.",
     href: "/app/settings/workflows/notifications",
     icon: PackageCheck,
+    group: "Governance",
+  },
+  {
+    title: "Risk & Resilience",
+    description: "Disruptions, exposure, continuity plans and recovery.",
+    href: "/app/resilience",
+    icon: ShieldAlert,
     group: "Governance",
   },
   {

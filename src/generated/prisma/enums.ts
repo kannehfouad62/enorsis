@@ -1026,6 +1026,69 @@ export const ProcurementRemediationStatus = {
 export type ProcurementRemediationStatus = (typeof ProcurementRemediationStatus)[keyof typeof ProcurementRemediationStatus]
 
 
+export const SupplyRiskEventStatus = {
+  OPEN: 'OPEN',
+  MONITORING: 'MONITORING',
+  CONTAINED: 'CONTAINED',
+  RECOVERING: 'RECOVERING',
+  CLOSED: 'CLOSED',
+  DISMISSED: 'DISMISSED'
+} as const
+
+export type SupplyRiskEventStatus = (typeof SupplyRiskEventStatus)[keyof typeof SupplyRiskEventStatus]
+
+
+export const SupplyRiskEventType = {
+  SUPPLIER_FAILURE: 'SUPPLIER_FAILURE',
+  LOGISTICS_DISRUPTION: 'LOGISTICS_DISRUPTION',
+  GEOPOLITICAL: 'GEOPOLITICAL',
+  CYBER: 'CYBER',
+  QUALITY: 'QUALITY',
+  FINANCIAL: 'FINANCIAL',
+  NATURAL_HAZARD: 'NATURAL_HAZARD',
+  REGULATORY: 'REGULATORY',
+  LABOR: 'LABOR',
+  CAPACITY: 'CAPACITY',
+  OTHER: 'OTHER'
+} as const
+
+export type SupplyRiskEventType = (typeof SupplyRiskEventType)[keyof typeof SupplyRiskEventType]
+
+
+export const SupplyRiskSeverity = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type SupplyRiskSeverity = (typeof SupplyRiskSeverity)[keyof typeof SupplyRiskSeverity]
+
+
+export const SupplyExposureType = {
+  SUPPLIER: 'SUPPLIER',
+  CATEGORY: 'CATEGORY',
+  COUNTRY: 'COUNTRY',
+  SITE: 'SITE',
+  CONTRACT: 'CONTRACT',
+  PURCHASE_ORDER: 'PURCHASE_ORDER'
+} as const
+
+export type SupplyExposureType = (typeof SupplyExposureType)[keyof typeof SupplyExposureType]
+
+
+export const ResiliencePlanStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  TESTED: 'TESTED',
+  ACTIVATED: 'ACTIVATED',
+  COMPLETED: 'COMPLETED',
+  RETIRED: 'RETIRED'
+} as const
+
+export type ResiliencePlanStatus = (typeof ResiliencePlanStatus)[keyof typeof ResiliencePlanStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

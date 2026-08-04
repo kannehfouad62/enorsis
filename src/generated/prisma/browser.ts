@@ -442,3 +442,18 @@ export type ProcurementComplianceTest = Prisma.ProcurementComplianceTestModel
  * 
  */
 export type ProcurementRemediation = Prisma.ProcurementRemediationModel
+/**
+ * Model SupplyRiskEvent
+ * 
+ */
+export type SupplyRiskEvent = Prisma.SupplyRiskEventModel
+/**
+ * Model SupplyRiskExposure
+ * 
+ */
+export type SupplyRiskExposure = Prisma.SupplyRiskExposureModel
+/**
+ * Model ResiliencePlan
+ * 
+ */
+export type ResiliencePlan = Prisma.ResiliencePlanModel

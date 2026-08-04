@@ -135,7 +135,10 @@ export const ModelName = {
   ProcurementPolicy: 'ProcurementPolicy',
   ProcurementPolicyRule: 'ProcurementPolicyRule',
   ProcurementComplianceTest: 'ProcurementComplianceTest',
-  ProcurementRemediation: 'ProcurementRemediation'
+  ProcurementRemediation: 'ProcurementRemediation',
+  SupplyRiskEvent: 'SupplyRiskEvent',
+  SupplyRiskExposure: 'SupplyRiskExposure',
+  ResiliencePlan: 'ResiliencePlan'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1952,6 +1955,81 @@ export const ProcurementRemediationScalarFieldEnum = {
 } as const
 
 export type ProcurementRemediationScalarFieldEnum = (typeof ProcurementRemediationScalarFieldEnum)[keyof typeof ProcurementRemediationScalarFieldEnum]
+
+
+export const SupplyRiskEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  eventNumber: 'eventNumber',
+  title: 'title',
+  description: 'description',
+  type: 'type',
+  severity: 'severity',
+  status: 'status',
+  countryCode: 'countryCode',
+  region: 'region',
+  detectedAt: 'detectedAt',
+  expectedResolutionAt: 'expectedResolutionAt',
+  resolvedAt: 'resolvedAt',
+  probabilityPercent: 'probabilityPercent',
+  financialImpact: 'financialImpact',
+  operationalImpact: 'operationalImpact',
+  overallRiskScore: 'overallRiskScore',
+  ownerUserId: 'ownerUserId',
+  executiveSummary: 'executiveSummary',
+  containmentSummary: 'containmentSummary',
+  recoverySummary: 'recoverySummary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplyRiskEventScalarFieldEnum = (typeof SupplyRiskEventScalarFieldEnum)[keyof typeof SupplyRiskEventScalarFieldEnum]
+
+
+export const SupplyRiskExposureScalarFieldEnum = {
+  id: 'id',
+  supplyRiskEventId: 'supplyRiskEventId',
+  type: 'type',
+  referenceId: 'referenceId',
+  referenceLabel: 'referenceLabel',
+  criticality: 'criticality',
+  spendAtRisk: 'spendAtRisk',
+  daysOfSupply: 'daysOfSupply',
+  alternateSourceCount: 'alternateSourceCount',
+  dependencyPercent: 'dependencyPercent',
+  impactSummary: 'impactSummary',
+  mitigationSummary: 'mitigationSummary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplyRiskExposureScalarFieldEnum = (typeof SupplyRiskExposureScalarFieldEnum)[keyof typeof SupplyRiskExposureScalarFieldEnum]
+
+
+export const ResiliencePlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplyRiskEventId: 'supplyRiskEventId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  activationCriteria: 'activationCriteria',
+  recoveryObjective: 'recoveryObjective',
+  recoveryTimeHours: 'recoveryTimeHours',
+  minimumServicePercent: 'minimumServicePercent',
+  alternateSuppliers: 'alternateSuppliers',
+  alternateSites: 'alternateSites',
+  inventoryStrategy: 'inventoryStrategy',
+  logisticsStrategy: 'logisticsStrategy',
+  communicationsPlan: 'communicationsPlan',
+  activatedAt: 'activatedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResiliencePlanScalarFieldEnum = (typeof ResiliencePlanScalarFieldEnum)[keyof typeof ResiliencePlanScalarFieldEnum]
 
 
 export const SortOrder = {

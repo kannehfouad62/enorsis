@@ -752,6 +752,54 @@ enum ProcurementRemediationStatus {
   CANCELLED
 }
 
+enum SupplyRiskEventStatus {
+  OPEN
+  MONITORING
+  CONTAINED
+  RECOVERING
+  CLOSED
+  DISMISSED
+}
+
+enum SupplyRiskEventType {
+  SUPPLIER_FAILURE
+  LOGISTICS_DISRUPTION
+  GEOPOLITICAL
+  CYBER
+  QUALITY
+  FINANCIAL
+  NATURAL_HAZARD
+  REGULATORY
+  LABOR
+  CAPACITY
+  OTHER
+}
+
+enum SupplyRiskSeverity {
+  LOW
+  MODERATE
+  HIGH
+  CRITICAL
+}
+
+enum SupplyExposureType {
+  SUPPLIER
+  CATEGORY
+  COUNTRY
+  SITE
+  CONTRACT
+  PURCHASE_ORDER
+}
+
+enum ResiliencePlanStatus {
+  DRAFT
+  ACTIVE
+  TESTED
+  ACTIVATED
+  COMPLETED
+  RETIRED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -892,6 +940,8 @@ model Tenant {
   procurementPolicies        ProcurementPolicy[]
   procurementComplianceTests ProcurementComplianceTest[]
   procurementRemediations    ProcurementRemediation[]
+  supplyRiskEvents           SupplyRiskEvent[]
+  resiliencePlans            ResiliencePlan[]
   createdAt                  DateTime                    @default(now())
   updatedAt                  DateTime                    @updatedAt
   archivedAt                 DateTime?
@@ -2874,4 +2924,83 @@ model ProcurementRemediation {
 
   @@index([tenantId, status, dueAt])
   @@index([complianceTestId, status])
+}
+
+model SupplyRiskEvent {
+  id                   String                @id @default(cuid())
+  tenantId             String
+  eventNumber          String
+  title                String
+  description          String
+  type                 SupplyRiskEventType
+  severity             SupplyRiskSeverity
+  status               SupplyRiskEventStatus @default(OPEN)
+  countryCode          String?
+  region               String?
+  detectedAt           DateTime
+  expectedResolutionAt DateTime?
+  resolvedAt           DateTime?
+  probabilityPercent   Int                   @default(50)
+  financialImpact      Decimal?              @db.Decimal(18, 2)
+  operationalImpact    Int                   @default(3)
+  overallRiskScore     Decimal               @db.Decimal(10, 2)
+  ownerUserId          String
+  executiveSummary     String?
+  containmentSummary   String?
+  recoverySummary      String?
+  tenant               Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  exposures            SupplyRiskExposure[]
+  resiliencePlans      ResiliencePlan[]
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+
+  @@unique([tenantId, eventNumber])
+  @@index([tenantId, status, severity, detectedAt])
+}
+
+model SupplyRiskExposure {
+  id                   String             @id @default(cuid())
+  supplyRiskEventId    String
+  type                 SupplyExposureType
+  referenceId          String?
+  referenceLabel       String
+  criticality          Int                @default(3)
+  spendAtRisk          Decimal?           @db.Decimal(18, 2)
+  daysOfSupply         Int?
+  alternateSourceCount Int                @default(0)
+  dependencyPercent    Int                @default(0)
+  impactSummary        String?
+  mitigationSummary    String?
+  event                SupplyRiskEvent    @relation(fields: [supplyRiskEventId], references: [id], onDelete: Cascade)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  @@index([supplyRiskEventId, type, criticality])
+}
+
+model ResiliencePlan {
+  id                    String               @id @default(cuid())
+  tenantId              String
+  supplyRiskEventId     String?
+  name                  String
+  description           String
+  status                ResiliencePlanStatus @default(DRAFT)
+  ownerUserId           String
+  activationCriteria    String
+  recoveryObjective     String
+  recoveryTimeHours     Int?
+  minimumServicePercent Int                  @default(50)
+  alternateSuppliers    String[]
+  alternateSites        String[]
+  inventoryStrategy     String?
+  logisticsStrategy     String?
+  communicationsPlan    String?
+  activatedAt           DateTime?
+  completedAt           DateTime?
+  tenant                Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  event                 SupplyRiskEvent?     @relation(fields: [supplyRiskEventId], references: [id], onDelete: SetNull)
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+
+  @@index([tenantId, status, createdAt])
 }

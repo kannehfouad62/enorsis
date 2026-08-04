@@ -2037,6 +2037,91 @@ export type EnumProcurementRemediationStatusWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumProcurementRemediationStatusFilter<$PrismaModel>
 }
 
+export type EnumSupplyRiskEventTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventType | Prisma.EnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel> | $Enums.SupplyRiskEventType
+}
+
+export type EnumSupplyRiskSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskSeverity | Prisma.EnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel> | $Enums.SupplyRiskSeverity
+}
+
+export type EnumSupplyRiskEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventStatus | Prisma.EnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel> | $Enums.SupplyRiskEventStatus
+}
+
+export type EnumSupplyRiskEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventType | Prisma.EnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskEventType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel>
+}
+
+export type EnumSupplyRiskSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskSeverity | Prisma.EnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskSeverityWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel>
+}
+
+export type EnumSupplyRiskEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventStatus | Prisma.EnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplyExposureTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyExposureType | Prisma.EnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel> | $Enums.SupplyExposureType
+}
+
+export type EnumSupplyExposureTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyExposureType | Prisma.EnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyExposureTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplyExposureType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel>
+}
+
+export type EnumResiliencePlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResiliencePlanStatus | Prisma.EnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel> | $Enums.ResiliencePlanStatus
+}
+
+export type EnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResiliencePlanStatus | Prisma.EnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.ResiliencePlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -4017,6 +4102,91 @@ export type NestedEnumProcurementRemediationStatusWithAggregatesFilter<$PrismaMo
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumProcurementRemediationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumProcurementRemediationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplyRiskEventTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventType | Prisma.EnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel> | $Enums.SupplyRiskEventType
+}
+
+export type NestedEnumSupplyRiskSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskSeverity | Prisma.EnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel> | $Enums.SupplyRiskSeverity
+}
+
+export type NestedEnumSupplyRiskEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventStatus | Prisma.EnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel> | $Enums.SupplyRiskEventStatus
+}
+
+export type NestedEnumSupplyRiskEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventType | Prisma.EnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventType[] | Prisma.ListEnumSupplyRiskEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskEventType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskEventTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplyRiskSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskSeverity | Prisma.EnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskSeverity[] | Prisma.ListEnumSupplyRiskSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskSeverityWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplyRiskEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyRiskEventStatus | Prisma.EnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyRiskEventStatus[] | Prisma.ListEnumSupplyRiskEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyRiskEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplyRiskEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyRiskEventStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplyExposureTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyExposureType | Prisma.EnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel> | $Enums.SupplyExposureType
+}
+
+export type NestedEnumSupplyExposureTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplyExposureType | Prisma.EnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplyExposureType[] | Prisma.ListEnumSupplyExposureTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplyExposureTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplyExposureType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplyExposureTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumResiliencePlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResiliencePlanStatus | Prisma.EnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel> | $Enums.ResiliencePlanStatus
+}
+
+export type NestedEnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResiliencePlanStatus | Prisma.EnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResiliencePlanStatus[] | Prisma.ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.ResiliencePlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
 }
 
 
