@@ -128,7 +128,10 @@ export const ModelName = {
   ProcurementPlan: 'ProcurementPlan',
   CategoryStrategy: 'CategoryStrategy',
   SavingsInitiative: 'SavingsInitiative',
-  SavingsMilestone: 'SavingsMilestone'
+  SavingsMilestone: 'SavingsMilestone',
+  ProcurementReview: 'ProcurementReview',
+  ProcurementReviewMetric: 'ProcurementReviewMetric',
+  ProcurementReviewAction: 'ProcurementReviewAction'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1796,6 +1799,71 @@ export const SavingsMilestoneScalarFieldEnum = {
 } as const
 
 export type SavingsMilestoneScalarFieldEnum = (typeof SavingsMilestoneScalarFieldEnum)[keyof typeof SavingsMilestoneScalarFieldEnum]
+
+
+export const ProcurementReviewScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  title: 'title',
+  type: 'type',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  meetingAt: 'meetingAt',
+  preparedByUserId: 'preparedByUserId',
+  chairUserId: 'chairUserId',
+  executiveSummary: 'executiveSummary',
+  accomplishments: 'accomplishments',
+  decisionsRequired: 'decisionsRequired',
+  keyRisks: 'keyRisks',
+  nextPeriodPriorities: 'nextPeriodPriorities',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewScalarFieldEnum = (typeof ProcurementReviewScalarFieldEnum)[keyof typeof ProcurementReviewScalarFieldEnum]
+
+
+export const ProcurementReviewMetricScalarFieldEnum = {
+  id: 'id',
+  procurementReviewId: 'procurementReviewId',
+  key: 'key',
+  name: 'name',
+  category: 'category',
+  value: 'value',
+  target: 'target',
+  unit: 'unit',
+  status: 'status',
+  commentary: 'commentary',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewMetricScalarFieldEnum = (typeof ProcurementReviewMetricScalarFieldEnum)[keyof typeof ProcurementReviewMetricScalarFieldEnum]
+
+
+export const ProcurementReviewActionScalarFieldEnum = {
+  id: 'id',
+  procurementReviewId: 'procurementReviewId',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  status: 'status',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewActionScalarFieldEnum = (typeof ProcurementReviewActionScalarFieldEnum)[keyof typeof ProcurementReviewActionScalarFieldEnum]
 
 
 export const SortOrder = {

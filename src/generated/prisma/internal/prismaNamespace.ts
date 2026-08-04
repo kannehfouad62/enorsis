@@ -474,7 +474,10 @@ export const ModelName = {
   ProcurementPlan: 'ProcurementPlan',
   CategoryStrategy: 'CategoryStrategy',
   SavingsInitiative: 'SavingsInitiative',
-  SavingsMilestone: 'SavingsMilestone'
+  SavingsMilestone: 'SavingsMilestone',
+  ProcurementReview: 'ProcurementReview',
+  ProcurementReviewMetric: 'ProcurementReviewMetric',
+  ProcurementReviewAction: 'ProcurementReviewAction'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -490,7 +493,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -6266,6 +6269,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementReview: {
+      payload: Prisma.$ProcurementReviewPayload<ExtArgs>
+      fields: Prisma.ProcurementReviewFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementReviewFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementReviewFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementReviewFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementReviewFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementReviewFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementReviewCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementReviewCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementReviewCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementReviewDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        update: {
+          args: Prisma.ProcurementReviewUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementReviewDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementReviewUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementReviewUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementReviewUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementReviewAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementReview>
+        }
+        groupBy: {
+          args: Prisma.ProcurementReviewGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementReviewCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementReviewMetric: {
+      payload: Prisma.$ProcurementReviewMetricPayload<ExtArgs>
+      fields: Prisma.ProcurementReviewMetricFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementReviewMetricFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementReviewMetricFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementReviewMetricFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementReviewMetricFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementReviewMetricFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementReviewMetricCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementReviewMetricCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementReviewMetricCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementReviewMetricDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        update: {
+          args: Prisma.ProcurementReviewMetricUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementReviewMetricDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementReviewMetricUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementReviewMetricUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementReviewMetricUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewMetricPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementReviewMetricAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementReviewMetric>
+        }
+        groupBy: {
+          args: Prisma.ProcurementReviewMetricGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewMetricGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementReviewMetricCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewMetricCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementReviewAction: {
+      payload: Prisma.$ProcurementReviewActionPayload<ExtArgs>
+      fields: Prisma.ProcurementReviewActionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementReviewActionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementReviewActionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementReviewActionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementReviewActionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementReviewActionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementReviewActionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementReviewActionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementReviewActionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementReviewActionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        update: {
+          args: Prisma.ProcurementReviewActionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementReviewActionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementReviewActionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementReviewActionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementReviewActionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementReviewActionPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementReviewActionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementReviewAction>
+        }
+        groupBy: {
+          args: Prisma.ProcurementReviewActionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewActionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementReviewActionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementReviewActionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -7956,6 +8181,71 @@ export const SavingsMilestoneScalarFieldEnum = {
 export type SavingsMilestoneScalarFieldEnum = (typeof SavingsMilestoneScalarFieldEnum)[keyof typeof SavingsMilestoneScalarFieldEnum]
 
 
+export const ProcurementReviewScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  title: 'title',
+  type: 'type',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  meetingAt: 'meetingAt',
+  preparedByUserId: 'preparedByUserId',
+  chairUserId: 'chairUserId',
+  executiveSummary: 'executiveSummary',
+  accomplishments: 'accomplishments',
+  decisionsRequired: 'decisionsRequired',
+  keyRisks: 'keyRisks',
+  nextPeriodPriorities: 'nextPeriodPriorities',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewScalarFieldEnum = (typeof ProcurementReviewScalarFieldEnum)[keyof typeof ProcurementReviewScalarFieldEnum]
+
+
+export const ProcurementReviewMetricScalarFieldEnum = {
+  id: 'id',
+  procurementReviewId: 'procurementReviewId',
+  key: 'key',
+  name: 'name',
+  category: 'category',
+  value: 'value',
+  target: 'target',
+  unit: 'unit',
+  status: 'status',
+  commentary: 'commentary',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewMetricScalarFieldEnum = (typeof ProcurementReviewMetricScalarFieldEnum)[keyof typeof ProcurementReviewMetricScalarFieldEnum]
+
+
+export const ProcurementReviewActionScalarFieldEnum = {
+  id: 'id',
+  procurementReviewId: 'procurementReviewId',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  status: 'status',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReviewActionScalarFieldEnum = (typeof ProcurementReviewActionScalarFieldEnum)[keyof typeof ProcurementReviewActionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -9362,6 +9652,62 @@ export type ListEnumSavingsMilestoneStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'ProcurementReviewType'
+ */
+export type EnumProcurementReviewTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewType[]'
+ */
+export type ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewStatus'
+ */
+export type EnumProcurementReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewStatus[]'
+ */
+export type ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewMetricStatus'
+ */
+export type EnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewMetricStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewMetricStatus[]'
+ */
+export type ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewMetricStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewActionStatus'
+ */
+export type EnumProcurementReviewActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewActionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementReviewActionStatus[]'
+ */
+export type ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementReviewActionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -9603,6 +9949,9 @@ export type GlobalOmitConfig = {
   categoryStrategy?: Prisma.CategoryStrategyOmit
   savingsInitiative?: Prisma.SavingsInitiativeOmit
   savingsMilestone?: Prisma.SavingsMilestoneOmit
+  procurementReview?: Prisma.ProcurementReviewOmit
+  procurementReviewMetric?: Prisma.ProcurementReviewMetricOmit
+  procurementReviewAction?: Prisma.ProcurementReviewActionOmit
 }
 
 /* Types for Logging */

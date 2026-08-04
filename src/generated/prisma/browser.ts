@@ -407,3 +407,18 @@ export type SavingsInitiative = Prisma.SavingsInitiativeModel
  * 
  */
 export type SavingsMilestone = Prisma.SavingsMilestoneModel
+/**
+ * Model ProcurementReview
+ * 
+ */
+export type ProcurementReview = Prisma.ProcurementReviewModel
+/**
+ * Model ProcurementReviewMetric
+ * 
+ */
+export type ProcurementReviewMetric = Prisma.ProcurementReviewMetricModel
+/**
+ * Model ProcurementReviewAction
+ * 
+ */
+export type ProcurementReviewAction = Prisma.ProcurementReviewActionModel

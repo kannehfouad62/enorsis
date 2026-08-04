@@ -937,6 +937,49 @@ export const SavingsMilestoneStatus = {
 export type SavingsMilestoneStatus = (typeof SavingsMilestoneStatus)[keyof typeof SavingsMilestoneStatus]
 
 
+export const ProcurementReviewStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  PUBLISHED: 'PUBLISHED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementReviewStatus = (typeof ProcurementReviewStatus)[keyof typeof ProcurementReviewStatus]
+
+
+export const ProcurementReviewType = {
+  WEEKLY_OPERATING_REVIEW: 'WEEKLY_OPERATING_REVIEW',
+  MONTHLY_BUSINESS_REVIEW: 'MONTHLY_BUSINESS_REVIEW',
+  QUARTERLY_BUSINESS_REVIEW: 'QUARTERLY_BUSINESS_REVIEW',
+  EXECUTIVE_COMMITTEE: 'EXECUTIVE_COMMITTEE',
+  BOARD_PACK: 'BOARD_PACK'
+} as const
+
+export type ProcurementReviewType = (typeof ProcurementReviewType)[keyof typeof ProcurementReviewType]
+
+
+export const ProcurementReviewActionStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementReviewActionStatus = (typeof ProcurementReviewActionStatus)[keyof typeof ProcurementReviewActionStatus]
+
+
+export const ProcurementReviewMetricStatus = {
+  ON_TRACK: 'ON_TRACK',
+  AT_RISK: 'AT_RISK',
+  OFF_TRACK: 'OFF_TRACK',
+  NOT_AVAILABLE: 'NOT_AVAILABLE'
+} as const
+
+export type ProcurementReviewMetricStatus = (typeof ProcurementReviewMetricStatus)[keyof typeof ProcurementReviewMetricStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

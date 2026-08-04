@@ -16,6 +16,7 @@ import {
   Landmark,
   Network,
   PackageCheck,
+  Presentation,
   ReceiptText,
   Scale,
   Settings2,
@@ -137,6 +138,13 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     href: "/app/settings/access-governance",
     icon: ShieldCheck,
     group: "Governance",
+  },
+  {
+    title: "Executive Reviews",
+    description: "Operating reviews, KPI packs, decisions and action tracking.",
+    href: "/app/reviews",
+    icon: Presentation,
+    group: "Intelligence",
   },
   {
     title: "Spend Intelligence",

@@ -1901,6 +1901,74 @@ export type EnumSavingsMilestoneStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumSavingsMilestoneStatusFilter<$PrismaModel>
 }
 
+export type EnumProcurementReviewTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewType | Prisma.EnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel> | $Enums.ProcurementReviewType
+}
+
+export type EnumProcurementReviewStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewStatus | Prisma.EnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel> | $Enums.ProcurementReviewStatus
+}
+
+export type EnumProcurementReviewTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewType | Prisma.EnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel>
+}
+
+export type EnumProcurementReviewStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewStatus | Prisma.EnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel>
+}
+
+export type EnumProcurementReviewMetricStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewMetricStatus | Prisma.EnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel> | $Enums.ProcurementReviewMetricStatus
+}
+
+export type EnumProcurementReviewMetricStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewMetricStatus | Prisma.EnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewMetricStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewMetricStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel>
+}
+
+export type EnumProcurementReviewActionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewActionStatus | Prisma.EnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel> | $Enums.ProcurementReviewActionStatus
+}
+
+export type EnumProcurementReviewActionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewActionStatus | Prisma.EnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewActionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewActionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -3745,6 +3813,74 @@ export type NestedEnumSavingsMilestoneStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSavingsMilestoneStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSavingsMilestoneStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementReviewTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewType | Prisma.EnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel> | $Enums.ProcurementReviewType
+}
+
+export type NestedEnumProcurementReviewStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewStatus | Prisma.EnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel> | $Enums.ProcurementReviewStatus
+}
+
+export type NestedEnumProcurementReviewTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewType | Prisma.EnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewType[] | Prisma.ListEnumProcurementReviewTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementReviewStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewStatus | Prisma.EnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewStatus[] | Prisma.ListEnumProcurementReviewStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewMetricStatus | Prisma.EnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel> | $Enums.ProcurementReviewMetricStatus
+}
+
+export type NestedEnumProcurementReviewMetricStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewMetricStatus | Prisma.EnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewMetricStatus[] | Prisma.ListEnumProcurementReviewMetricStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewMetricStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewMetricStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewMetricStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementReviewActionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewActionStatus | Prisma.EnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel> | $Enums.ProcurementReviewActionStatus
+}
+
+export type NestedEnumProcurementReviewActionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementReviewActionStatus | Prisma.EnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementReviewActionStatus[] | Prisma.ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementReviewActionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementReviewActionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementReviewActionStatusFilter<$PrismaModel>
 }
 
 
