@@ -99,7 +99,10 @@ export const ModelName = {
   SupplierInvoiceLine: 'SupplierInvoiceLine',
   InvoiceMatchException: 'InvoiceMatchException',
   PaymentBatch: 'PaymentBatch',
-  PaymentBatchItem: 'PaymentBatchItem'
+  PaymentBatchItem: 'PaymentBatchItem',
+  AiAgentTask: 'AiAgentTask',
+  AiAgentTaskApproval: 'AiAgentTaskApproval',
+  AiAgentTaskAttempt: 'AiAgentTaskAttempt'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1107,6 +1110,69 @@ export const PaymentBatchItemScalarFieldEnum = {
 } as const
 
 export type PaymentBatchItemScalarFieldEnum = (typeof PaymentBatchItemScalarFieldEnum)[keyof typeof PaymentBatchItemScalarFieldEnum]
+
+
+export const AiAgentTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  agentId: 'agentId',
+  requestedByUserId: 'requestedByUserId',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  instruction: 'instruction',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  priority: 'priority',
+  requiresApproval: 'requiresApproval',
+  policySnapshot: 'policySnapshot',
+  contextSnapshot: 'contextSnapshot',
+  output: 'output',
+  confidence: 'confidence',
+  executionCount: 'executionCount',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  failureReason: 'failureReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiAgentTaskScalarFieldEnum = (typeof AiAgentTaskScalarFieldEnum)[keyof typeof AiAgentTaskScalarFieldEnum]
+
+
+export const AiAgentTaskApprovalScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  approverUserId: 'approverUserId',
+  sequence: 'sequence',
+  decision: 'decision',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiAgentTaskApprovalScalarFieldEnum = (typeof AiAgentTaskApprovalScalarFieldEnum)[keyof typeof AiAgentTaskApprovalScalarFieldEnum]
+
+
+export const AiAgentTaskAttemptScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  aiExecutionId: 'aiExecutionId',
+  attemptNumber: 'attemptNumber',
+  model: 'model',
+  status: 'status',
+  inputSnapshot: 'inputSnapshot',
+  outputSnapshot: 'outputSnapshot',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage'
+} as const
+
+export type AiAgentTaskAttemptScalarFieldEnum = (typeof AiAgentTaskAttemptScalarFieldEnum)[keyof typeof AiAgentTaskAttemptScalarFieldEnum]
 
 
 export const SortOrder = {

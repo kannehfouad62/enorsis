@@ -429,6 +429,36 @@ enum AuditOutcome {
   PARTIAL
 }
 
+enum AiAgentTaskStatus {
+  DRAFT
+  QUEUED
+  WAITING_APPROVAL
+  APPROVED
+  RUNNING
+  COMPLETED
+  FAILED
+  REJECTED
+  CANCELLED
+}
+
+enum AiAgentTaskType {
+  SUPPLIER_DUE_DILIGENCE
+  RFX_DRAFT
+  NEGOTIATION_PLAN
+  CONTRACT_REVIEW
+  SPEND_OPPORTUNITY
+  RISK_MONITORING
+  EXECUTIVE_BRIEF
+  INVOICE_EXCEPTION_ANALYSIS
+}
+
+enum AiAgentApprovalDecision {
+  PENDING
+  APPROVED
+  REJECTED
+  RETURNED
+}
+
 enum AiAgentStatus {
   DRAFT
   ACTIVE
@@ -511,6 +541,7 @@ model Tenant {
   archivedAt           DateTime?
   contracts            Contract[]
   clauseTemplates      ClauseTemplate[]
+  aiAgentTasks         AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -677,6 +708,7 @@ model AiAgent {
   riskTier              Int             @default(1)
   configuration         Json?
   tenant                Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tasks                 AiAgentTask[]
   createdAt             DateTime        @default(now())
   updatedAt             DateTime        @updatedAt
 
@@ -1588,4 +1620,76 @@ model PaymentBatchItem {
   @@unique([paymentBatchId, supplierInvoiceId])
   @@index([supplierInvoiceId])
   @@index([paymentBatchId, status])
+}
+
+model AiAgentTask {
+  id                String                @id @default(cuid())
+  tenantId          String
+  agentId           String
+  requestedByUserId String
+  type              AiAgentTaskType
+  status            AiAgentTaskStatus     @default(DRAFT)
+  title             String
+  instruction       String
+  resourceType      String?
+  resourceId        String?
+  priority          Int                   @default(50)
+  requiresApproval  Boolean               @default(true)
+  policySnapshot    Json?
+  contextSnapshot   Json?
+  output            String?
+  confidence        Int?
+  executionCount    Int                   @default(0)
+  approvedByUserId  String?
+  approvedAt        DateTime?
+  startedAt         DateTime?
+  completedAt       DateTime?
+  failedAt          DateTime?
+  failureReason     String?
+  tenant            Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  agent             AiAgent               @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  approvals         AiAgentTaskApproval[]
+  attempts          AiAgentTaskAttempt[]
+  createdAt         DateTime              @default(now())
+  updatedAt         DateTime              @updatedAt
+
+  @@index([tenantId, status, priority, createdAt])
+  @@index([agentId, status])
+  @@index([resourceType, resourceId])
+}
+
+model AiAgentTaskApproval {
+  id             String                  @id @default(cuid())
+  taskId         String
+  approverUserId String
+  sequence       Int
+  decision       AiAgentApprovalDecision @default(PENDING)
+  comments       String?
+  decidedAt      DateTime?
+  task           AiAgentTask             @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  createdAt      DateTime                @default(now())
+  updatedAt      DateTime                @updatedAt
+
+  @@unique([taskId, approverUserId, sequence])
+  @@index([approverUserId, decision])
+  @@index([taskId, sequence])
+}
+
+model AiAgentTaskAttempt {
+  id             String      @id @default(cuid())
+  taskId         String
+  aiExecutionId  String?
+  attemptNumber  Int
+  model          String?
+  status         String
+  inputSnapshot  Json?
+  outputSnapshot Json?
+  startedAt      DateTime    @default(now())
+  completedAt    DateTime?
+  errorMessage   String?
+  task           AiAgentTask @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@unique([taskId, attemptNumber])
+  @@index([taskId, startedAt])
+  @@index([aiExecutionId])
 }

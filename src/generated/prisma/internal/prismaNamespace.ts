@@ -445,7 +445,10 @@ export const ModelName = {
   SupplierInvoiceLine: 'SupplierInvoiceLine',
   InvoiceMatchException: 'InvoiceMatchException',
   PaymentBatch: 'PaymentBatch',
-  PaymentBatchItem: 'PaymentBatchItem'
+  PaymentBatchItem: 'PaymentBatchItem',
+  AiAgentTask: 'AiAgentTask',
+  AiAgentTaskApproval: 'AiAgentTaskApproval',
+  AiAgentTaskAttempt: 'AiAgentTaskAttempt'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -461,7 +464,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -4091,6 +4094,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AiAgentTask: {
+      payload: Prisma.$AiAgentTaskPayload<ExtArgs>
+      fields: Prisma.AiAgentTaskFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiAgentTaskFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiAgentTaskFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        findFirst: {
+          args: Prisma.AiAgentTaskFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiAgentTaskFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        findMany: {
+          args: Prisma.AiAgentTaskFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>[]
+        }
+        create: {
+          args: Prisma.AiAgentTaskCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        createMany: {
+          args: Prisma.AiAgentTaskCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiAgentTaskCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>[]
+        }
+        delete: {
+          args: Prisma.AiAgentTaskDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        update: {
+          args: Prisma.AiAgentTaskUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiAgentTaskDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiAgentTaskUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiAgentTaskUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiAgentTaskUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskPayload>
+        }
+        aggregate: {
+          args: Prisma.AiAgentTaskAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiAgentTask>
+        }
+        groupBy: {
+          args: Prisma.AiAgentTaskGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiAgentTaskCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiAgentTaskApproval: {
+      payload: Prisma.$AiAgentTaskApprovalPayload<ExtArgs>
+      fields: Prisma.AiAgentTaskApprovalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiAgentTaskApprovalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiAgentTaskApprovalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        findFirst: {
+          args: Prisma.AiAgentTaskApprovalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiAgentTaskApprovalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        findMany: {
+          args: Prisma.AiAgentTaskApprovalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>[]
+        }
+        create: {
+          args: Prisma.AiAgentTaskApprovalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        createMany: {
+          args: Prisma.AiAgentTaskApprovalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiAgentTaskApprovalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>[]
+        }
+        delete: {
+          args: Prisma.AiAgentTaskApprovalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        update: {
+          args: Prisma.AiAgentTaskApprovalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiAgentTaskApprovalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiAgentTaskApprovalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiAgentTaskApprovalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiAgentTaskApprovalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskApprovalPayload>
+        }
+        aggregate: {
+          args: Prisma.AiAgentTaskApprovalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiAgentTaskApproval>
+        }
+        groupBy: {
+          args: Prisma.AiAgentTaskApprovalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskApprovalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiAgentTaskApprovalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskApprovalCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiAgentTaskAttempt: {
+      payload: Prisma.$AiAgentTaskAttemptPayload<ExtArgs>
+      fields: Prisma.AiAgentTaskAttemptFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiAgentTaskAttemptFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiAgentTaskAttemptFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        findFirst: {
+          args: Prisma.AiAgentTaskAttemptFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiAgentTaskAttemptFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        findMany: {
+          args: Prisma.AiAgentTaskAttemptFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>[]
+        }
+        create: {
+          args: Prisma.AiAgentTaskAttemptCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        createMany: {
+          args: Prisma.AiAgentTaskAttemptCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiAgentTaskAttemptCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>[]
+        }
+        delete: {
+          args: Prisma.AiAgentTaskAttemptDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        update: {
+          args: Prisma.AiAgentTaskAttemptUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiAgentTaskAttemptDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiAgentTaskAttemptUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiAgentTaskAttemptUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiAgentTaskAttemptUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiAgentTaskAttemptPayload>
+        }
+        aggregate: {
+          args: Prisma.AiAgentTaskAttemptAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiAgentTaskAttempt>
+        }
+        groupBy: {
+          args: Prisma.AiAgentTaskAttemptGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskAttemptGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiAgentTaskAttemptCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiAgentTaskAttemptCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -5121,6 +5346,69 @@ export const PaymentBatchItemScalarFieldEnum = {
 export type PaymentBatchItemScalarFieldEnum = (typeof PaymentBatchItemScalarFieldEnum)[keyof typeof PaymentBatchItemScalarFieldEnum]
 
 
+export const AiAgentTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  agentId: 'agentId',
+  requestedByUserId: 'requestedByUserId',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  instruction: 'instruction',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  priority: 'priority',
+  requiresApproval: 'requiresApproval',
+  policySnapshot: 'policySnapshot',
+  contextSnapshot: 'contextSnapshot',
+  output: 'output',
+  confidence: 'confidence',
+  executionCount: 'executionCount',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  failureReason: 'failureReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiAgentTaskScalarFieldEnum = (typeof AiAgentTaskScalarFieldEnum)[keyof typeof AiAgentTaskScalarFieldEnum]
+
+
+export const AiAgentTaskApprovalScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  approverUserId: 'approverUserId',
+  sequence: 'sequence',
+  decision: 'decision',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiAgentTaskApprovalScalarFieldEnum = (typeof AiAgentTaskApprovalScalarFieldEnum)[keyof typeof AiAgentTaskApprovalScalarFieldEnum]
+
+
+export const AiAgentTaskAttemptScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  aiExecutionId: 'aiExecutionId',
+  attemptNumber: 'attemptNumber',
+  model: 'model',
+  status: 'status',
+  inputSnapshot: 'inputSnapshot',
+  outputSnapshot: 'outputSnapshot',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage'
+} as const
+
+export type AiAgentTaskAttemptScalarFieldEnum = (typeof AiAgentTaskAttemptScalarFieldEnum)[keyof typeof AiAgentTaskAttemptScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -6002,6 +6290,48 @@ export type ListEnumPaymentBatchItemStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'AiAgentTaskType'
+ */
+export type EnumAiAgentTaskTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentTaskType'>
+    
+
+
+/**
+ * Reference to a field of type 'AiAgentTaskType[]'
+ */
+export type ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentTaskType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AiAgentTaskStatus'
+ */
+export type EnumAiAgentTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentTaskStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AiAgentTaskStatus[]'
+ */
+export type ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentTaskStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AiAgentApprovalDecision'
+ */
+export type EnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentApprovalDecision'>
+    
+
+
+/**
+ * Reference to a field of type 'AiAgentApprovalDecision[]'
+ */
+export type ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiAgentApprovalDecision[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -6214,6 +6544,9 @@ export type GlobalOmitConfig = {
   invoiceMatchException?: Prisma.InvoiceMatchExceptionOmit
   paymentBatch?: Prisma.PaymentBatchOmit
   paymentBatchItem?: Prisma.PaymentBatchItemOmit
+  aiAgentTask?: Prisma.AiAgentTaskOmit
+  aiAgentTaskApproval?: Prisma.AiAgentTaskApprovalOmit
+  aiAgentTaskAttempt?: Prisma.AiAgentTaskAttemptOmit
 }
 
 /* Types for Logging */

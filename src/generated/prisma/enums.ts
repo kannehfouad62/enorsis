@@ -583,6 +583,45 @@ export const AuditOutcome = {
 export type AuditOutcome = (typeof AuditOutcome)[keyof typeof AuditOutcome]
 
 
+export const AiAgentTaskStatus = {
+  DRAFT: 'DRAFT',
+  QUEUED: 'QUEUED',
+  WAITING_APPROVAL: 'WAITING_APPROVAL',
+  APPROVED: 'APPROVED',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type AiAgentTaskStatus = (typeof AiAgentTaskStatus)[keyof typeof AiAgentTaskStatus]
+
+
+export const AiAgentTaskType = {
+  SUPPLIER_DUE_DILIGENCE: 'SUPPLIER_DUE_DILIGENCE',
+  RFX_DRAFT: 'RFX_DRAFT',
+  NEGOTIATION_PLAN: 'NEGOTIATION_PLAN',
+  CONTRACT_REVIEW: 'CONTRACT_REVIEW',
+  SPEND_OPPORTUNITY: 'SPEND_OPPORTUNITY',
+  RISK_MONITORING: 'RISK_MONITORING',
+  EXECUTIVE_BRIEF: 'EXECUTIVE_BRIEF',
+  INVOICE_EXCEPTION_ANALYSIS: 'INVOICE_EXCEPTION_ANALYSIS'
+} as const
+
+export type AiAgentTaskType = (typeof AiAgentTaskType)[keyof typeof AiAgentTaskType]
+
+
+export const AiAgentApprovalDecision = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  RETURNED: 'RETURNED'
+} as const
+
+export type AiAgentApprovalDecision = (typeof AiAgentApprovalDecision)[keyof typeof AiAgentApprovalDecision]
+
+
 export const AiAgentStatus = {
   DRAFT: 'DRAFT',
   ACTIVE: 'ACTIVE',

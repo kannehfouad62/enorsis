@@ -262,3 +262,18 @@ export type PaymentBatch = Prisma.PaymentBatchModel
  * 
  */
 export type PaymentBatchItem = Prisma.PaymentBatchItemModel
+/**
+ * Model AiAgentTask
+ * 
+ */
+export type AiAgentTask = Prisma.AiAgentTaskModel
+/**
+ * Model AiAgentTaskApproval
+ * 
+ */
+export type AiAgentTaskApproval = Prisma.AiAgentTaskApprovalModel
+/**
+ * Model AiAgentTaskAttempt
+ * 
+ */
+export type AiAgentTaskAttempt = Prisma.AiAgentTaskAttemptModel

@@ -1208,6 +1208,57 @@ export type EnumPaymentBatchItemStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumPaymentBatchItemStatusFilter<$PrismaModel>
 }
 
+export type EnumAiAgentTaskTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskType | Prisma.EnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel> | $Enums.AiAgentTaskType
+}
+
+export type EnumAiAgentTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskStatus | Prisma.EnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel> | $Enums.AiAgentTaskStatus
+}
+
+export type EnumAiAgentTaskTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskType | Prisma.EnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentTaskType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel>
+}
+
+export type EnumAiAgentTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskStatus | Prisma.EnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel>
+}
+
+export type EnumAiAgentApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentApprovalDecision | Prisma.EnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel> | $Enums.AiAgentApprovalDecision
+}
+
+export type EnumAiAgentApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentApprovalDecision | Prisma.EnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -2386,6 +2437,57 @@ export type NestedEnumPaymentBatchItemStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPaymentBatchItemStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPaymentBatchItemStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumAiAgentTaskTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskType | Prisma.EnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel> | $Enums.AiAgentTaskType
+}
+
+export type NestedEnumAiAgentTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskStatus | Prisma.EnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel> | $Enums.AiAgentTaskStatus
+}
+
+export type NestedEnumAiAgentTaskTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskType | Prisma.EnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskType[] | Prisma.ListEnumAiAgentTaskTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentTaskType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentTaskTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumAiAgentTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentTaskStatus | Prisma.EnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentTaskStatus[] | Prisma.ListEnumAiAgentTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentTaskStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentApprovalDecision | Prisma.EnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel> | $Enums.AiAgentApprovalDecision
+}
+
+export type NestedEnumAiAgentApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiAgentApprovalDecision | Prisma.EnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiAgentApprovalDecision[] | Prisma.ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiAgentApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.AiAgentApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiAgentApprovalDecisionFilter<$PrismaModel>
 }
 
 

@@ -301,6 +301,7 @@ export type AiAgentWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"AiAgent"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AiAgent"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  tasks?: Prisma.AiAgentTaskListRelationFilter
 }
 
 export type AiAgentOrderByWithRelationInput = {
@@ -322,6 +323,7 @@ export type AiAgentOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
+  tasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
 }
 
 export type AiAgentWhereUniqueInput = Prisma.AtLeast<{
@@ -347,6 +349,7 @@ export type AiAgentWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"AiAgent"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"AiAgent"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  tasks?: Prisma.AiAgentTaskListRelationFilter
 }, "id" | "tenantId_key">
 
 export type AiAgentOrderByWithAggregationInput = {
@@ -415,6 +418,7 @@ export type AiAgentCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutAiAgentsInput
+  tasks?: Prisma.AiAgentTaskCreateNestedManyWithoutAgentInput
 }
 
 export type AiAgentUncheckedCreateInput = {
@@ -435,6 +439,7 @@ export type AiAgentUncheckedCreateInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
+  tasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutAgentInput
 }
 
 export type AiAgentUpdateInput = {
@@ -455,6 +460,7 @@ export type AiAgentUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutAiAgentsNestedInput
+  tasks?: Prisma.AiAgentTaskUpdateManyWithoutAgentNestedInput
 }
 
 export type AiAgentUncheckedUpdateInput = {
@@ -475,6 +481,7 @@ export type AiAgentUncheckedUpdateInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutAgentNestedInput
 }
 
 export type AiAgentCreateManyInput = {
@@ -613,6 +620,11 @@ export type AiAgentSumOrderByAggregateInput = {
   riskTier?: Prisma.SortOrder
 }
 
+export type AiAgentScalarRelationFilter = {
+  is?: Prisma.AiAgentWhereInput
+  isNot?: Prisma.AiAgentWhereInput
+}
+
 export type AiAgentCreateNestedManyWithoutTenantInput = {
   create?: Prisma.XOR<Prisma.AiAgentCreateWithoutTenantInput, Prisma.AiAgentUncheckedCreateWithoutTenantInput> | Prisma.AiAgentCreateWithoutTenantInput[] | Prisma.AiAgentUncheckedCreateWithoutTenantInput[]
   connectOrCreate?: Prisma.AiAgentCreateOrConnectWithoutTenantInput | Prisma.AiAgentCreateOrConnectWithoutTenantInput[]
@@ -681,6 +693,20 @@ export type AiAgentUpdaterestrictedActionsInput = {
   push?: string | string[]
 }
 
+export type AiAgentCreateNestedOneWithoutTasksInput = {
+  create?: Prisma.XOR<Prisma.AiAgentCreateWithoutTasksInput, Prisma.AiAgentUncheckedCreateWithoutTasksInput>
+  connectOrCreate?: Prisma.AiAgentCreateOrConnectWithoutTasksInput
+  connect?: Prisma.AiAgentWhereUniqueInput
+}
+
+export type AiAgentUpdateOneRequiredWithoutTasksNestedInput = {
+  create?: Prisma.XOR<Prisma.AiAgentCreateWithoutTasksInput, Prisma.AiAgentUncheckedCreateWithoutTasksInput>
+  connectOrCreate?: Prisma.AiAgentCreateOrConnectWithoutTasksInput
+  upsert?: Prisma.AiAgentUpsertWithoutTasksInput
+  connect?: Prisma.AiAgentWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AiAgentUpdateToOneWithWhereWithoutTasksInput, Prisma.AiAgentUpdateWithoutTasksInput>, Prisma.AiAgentUncheckedUpdateWithoutTasksInput>
+}
+
 export type AiAgentCreateWithoutTenantInput = {
   id?: string
   key: string
@@ -698,6 +724,7 @@ export type AiAgentCreateWithoutTenantInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
+  tasks?: Prisma.AiAgentTaskCreateNestedManyWithoutAgentInput
 }
 
 export type AiAgentUncheckedCreateWithoutTenantInput = {
@@ -717,6 +744,7 @@ export type AiAgentUncheckedCreateWithoutTenantInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
+  tasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutAgentInput
 }
 
 export type AiAgentCreateOrConnectWithoutTenantInput = {
@@ -768,6 +796,102 @@ export type AiAgentScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"AiAgent"> | Date | string
 }
 
+export type AiAgentCreateWithoutTasksInput = {
+  id?: string
+  key: string
+  name: string
+  description?: string | null
+  status?: $Enums.AiAgentStatus
+  autonomyLevel?: $Enums.AiAutonomyLevel
+  modelProvider?: string | null
+  modelName?: string | null
+  systemInstructions?: string | null
+  allowedCapabilities?: Prisma.AiAgentCreateallowedCapabilitiesInput | string[]
+  restrictedActions?: Prisma.AiAgentCreaterestrictedActionsInput | string[]
+  humanApprovalRequired?: boolean
+  riskTier?: number
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutAiAgentsInput
+}
+
+export type AiAgentUncheckedCreateWithoutTasksInput = {
+  id?: string
+  tenantId: string
+  key: string
+  name: string
+  description?: string | null
+  status?: $Enums.AiAgentStatus
+  autonomyLevel?: $Enums.AiAutonomyLevel
+  modelProvider?: string | null
+  modelName?: string | null
+  systemInstructions?: string | null
+  allowedCapabilities?: Prisma.AiAgentCreateallowedCapabilitiesInput | string[]
+  restrictedActions?: Prisma.AiAgentCreaterestrictedActionsInput | string[]
+  humanApprovalRequired?: boolean
+  riskTier?: number
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type AiAgentCreateOrConnectWithoutTasksInput = {
+  where: Prisma.AiAgentWhereUniqueInput
+  create: Prisma.XOR<Prisma.AiAgentCreateWithoutTasksInput, Prisma.AiAgentUncheckedCreateWithoutTasksInput>
+}
+
+export type AiAgentUpsertWithoutTasksInput = {
+  update: Prisma.XOR<Prisma.AiAgentUpdateWithoutTasksInput, Prisma.AiAgentUncheckedUpdateWithoutTasksInput>
+  create: Prisma.XOR<Prisma.AiAgentCreateWithoutTasksInput, Prisma.AiAgentUncheckedCreateWithoutTasksInput>
+  where?: Prisma.AiAgentWhereInput
+}
+
+export type AiAgentUpdateToOneWithWhereWithoutTasksInput = {
+  where?: Prisma.AiAgentWhereInput
+  data: Prisma.XOR<Prisma.AiAgentUpdateWithoutTasksInput, Prisma.AiAgentUncheckedUpdateWithoutTasksInput>
+}
+
+export type AiAgentUpdateWithoutTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAiAgentStatusFieldUpdateOperationsInput | $Enums.AiAgentStatus
+  autonomyLevel?: Prisma.EnumAiAutonomyLevelFieldUpdateOperationsInput | $Enums.AiAutonomyLevel
+  modelProvider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  systemInstructions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowedCapabilities?: Prisma.AiAgentUpdateallowedCapabilitiesInput | string[]
+  restrictedActions?: Prisma.AiAgentUpdaterestrictedActionsInput | string[]
+  humanApprovalRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  riskTier?: Prisma.IntFieldUpdateOperationsInput | number
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutAiAgentsNestedInput
+}
+
+export type AiAgentUncheckedUpdateWithoutTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  key?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumAiAgentStatusFieldUpdateOperationsInput | $Enums.AiAgentStatus
+  autonomyLevel?: Prisma.EnumAiAutonomyLevelFieldUpdateOperationsInput | $Enums.AiAutonomyLevel
+  modelProvider?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  systemInstructions?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowedCapabilities?: Prisma.AiAgentUpdateallowedCapabilitiesInput | string[]
+  restrictedActions?: Prisma.AiAgentUpdaterestrictedActionsInput | string[]
+  humanApprovalRequired?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  riskTier?: Prisma.IntFieldUpdateOperationsInput | number
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type AiAgentCreateManyTenantInput = {
   id?: string
   key: string
@@ -804,6 +928,7 @@ export type AiAgentUpdateWithoutTenantInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.AiAgentTaskUpdateManyWithoutAgentNestedInput
 }
 
 export type AiAgentUncheckedUpdateWithoutTenantInput = {
@@ -823,6 +948,7 @@ export type AiAgentUncheckedUpdateWithoutTenantInput = {
   configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutAgentNestedInput
 }
 
 export type AiAgentUncheckedUpdateManyWithoutTenantInput = {
@@ -845,6 +971,35 @@ export type AiAgentUncheckedUpdateManyWithoutTenantInput = {
 }
 
 
+/**
+ * Count Type AiAgentCountOutputType
+ */
+
+export type AiAgentCountOutputType = {
+  tasks: number
+}
+
+export type AiAgentCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  tasks?: boolean | AiAgentCountOutputTypeCountTasksArgs
+}
+
+/**
+ * AiAgentCountOutputType without action
+ */
+export type AiAgentCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AiAgentCountOutputType
+   */
+  select?: Prisma.AiAgentCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AiAgentCountOutputType without action
+ */
+export type AiAgentCountOutputTypeCountTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AiAgentTaskWhereInput
+}
+
 
 export type AiAgentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -865,6 +1020,8 @@ export type AiAgentSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.AiAgent$tasksArgs<ExtArgs>
+  _count?: boolean | Prisma.AiAgentCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["aiAgent"]>
 
 export type AiAgentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -932,6 +1089,8 @@ export type AiAgentSelectScalar = {
 export type AiAgentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "key" | "name" | "description" | "status" | "autonomyLevel" | "modelProvider" | "modelName" | "systemInstructions" | "allowedCapabilities" | "restrictedActions" | "humanApprovalRequired" | "riskTier" | "configuration" | "createdAt" | "updatedAt", ExtArgs["result"]["aiAgent"]>
 export type AiAgentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.AiAgent$tasksArgs<ExtArgs>
+  _count?: boolean | Prisma.AiAgentCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AiAgentIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -944,6 +1103,7 @@ export type $AiAgentPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   name: "AiAgent"
   objects: {
     tenant: Prisma.$TenantPayload<ExtArgs>
+    tasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1358,6 +1518,7 @@ readonly fields: AiAgentFieldRefs;
 export interface Prisma__AiAgentClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  tasks<T extends Prisma.AiAgent$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiAgent$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1802,6 +1963,30 @@ export type AiAgentDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many AiAgents to delete.
    */
   limit?: number
+}
+
+/**
+ * AiAgent.tasks
+ */
+export type AiAgent$tasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AiAgentTask
+   */
+  select?: Prisma.AiAgentTaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AiAgentTask
+   */
+  omit?: Prisma.AiAgentTaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AiAgentTaskInclude<ExtArgs> | null
+  where?: Prisma.AiAgentTaskWhereInput
+  orderBy?: Prisma.AiAgentTaskOrderByWithRelationInput | Prisma.AiAgentTaskOrderByWithRelationInput[]
+  cursor?: Prisma.AiAgentTaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AiAgentTaskScalarFieldEnum | Prisma.AiAgentTaskScalarFieldEnum[]
 }
 
 /**
