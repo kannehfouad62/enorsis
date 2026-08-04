@@ -1228,6 +1228,41 @@ export const ServiceTimeEntryStatus = {
 export type ServiceTimeEntryStatus = (typeof ServiceTimeEntryStatus)[keyof typeof ServiceTimeEntryStatus]
 
 
+export const DemandPlanStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  LOCKED: 'LOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type DemandPlanStatus = (typeof DemandPlanStatus)[keyof typeof DemandPlanStatus]
+
+
+export const DemandForecastMethod = {
+  MANUAL: 'MANUAL',
+  MOVING_AVERAGE: 'MOVING_AVERAGE',
+  WEIGHTED_AVERAGE: 'WEIGHTED_AVERAGE',
+  SEASONAL: 'SEASONAL',
+  CONSUMPTION_BASED: 'CONSUMPTION_BASED',
+  IMPORTED: 'IMPORTED'
+} as const
+
+export type DemandForecastMethod = (typeof DemandForecastMethod)[keyof typeof DemandForecastMethod]
+
+
+export const ReplenishmentRecommendationStatus = {
+  PROPOSED: 'PROPOSED',
+  REVIEWED: 'REVIEWED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CONVERTED: 'CONVERTED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type ReplenishmentRecommendationStatus = (typeof ReplenishmentRecommendationStatus)[keyof typeof ReplenishmentRecommendationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

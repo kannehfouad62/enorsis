@@ -7,6 +7,7 @@ import {
   BriefcaseBusiness,
   Building2,
   ChartNoAxesCombined,
+  ChartSpline,
   CircleDollarSign,
   ClipboardCheck,
   FileKey2,
@@ -46,6 +47,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Demand Planning & Replenishment",
+    description: "Forecast demand and generate governed replenishment proposals.",
+    href: "/app/demand-planning",
+    icon: ChartSpline,
+    group: "Procurement",
+  },
   {
     title: "Services & Workforce",
     description: "Statements of work, external workers, time and milestones.",

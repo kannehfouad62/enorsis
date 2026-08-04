@@ -364,6 +364,8 @@ export type InventoryItemWhereInput = {
   balances?: Prisma.InventoryBalanceListRelationFilter
   transactions?: Prisma.InventoryTransactionListRelationFilter
   countLines?: Prisma.CycleCountLineListRelationFilter
+  demandForecasts?: Prisma.DemandForecastListRelationFilter
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationListRelationFilter
 }
 
 export type InventoryItemOrderByWithRelationInput = {
@@ -392,6 +394,8 @@ export type InventoryItemOrderByWithRelationInput = {
   balances?: Prisma.InventoryBalanceOrderByRelationAggregateInput
   transactions?: Prisma.InventoryTransactionOrderByRelationAggregateInput
   countLines?: Prisma.CycleCountLineOrderByRelationAggregateInput
+  demandForecasts?: Prisma.DemandForecastOrderByRelationAggregateInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationOrderByRelationAggregateInput
 }
 
 export type InventoryItemWhereUniqueInput = Prisma.AtLeast<{
@@ -424,6 +428,8 @@ export type InventoryItemWhereUniqueInput = Prisma.AtLeast<{
   balances?: Prisma.InventoryBalanceListRelationFilter
   transactions?: Prisma.InventoryTransactionListRelationFilter
   countLines?: Prisma.CycleCountLineListRelationFilter
+  demandForecasts?: Prisma.DemandForecastListRelationFilter
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationListRelationFilter
 }, "id" | "tenantId_sku">
 
 export type InventoryItemOrderByWithAggregationInput = {
@@ -507,6 +513,8 @@ export type InventoryItemCreateInput = {
   balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateInput = {
@@ -534,6 +542,8 @@ export type InventoryItemUncheckedCreateInput = {
   balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUpdateInput = {
@@ -561,6 +571,8 @@ export type InventoryItemUpdateInput = {
   balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateInput = {
@@ -588,6 +600,8 @@ export type InventoryItemUncheckedUpdateInput = {
   balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateManyInput = {
@@ -857,6 +871,34 @@ export type InventoryItemUpdateOneRequiredWithoutCountLinesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.InventoryItemUpdateToOneWithWhereWithoutCountLinesInput, Prisma.InventoryItemUpdateWithoutCountLinesInput>, Prisma.InventoryItemUncheckedUpdateWithoutCountLinesInput>
 }
 
+export type InventoryItemCreateNestedOneWithoutDemandForecastsInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedCreateWithoutDemandForecastsInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutDemandForecastsInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+}
+
+export type InventoryItemUpdateOneRequiredWithoutDemandForecastsNestedInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedCreateWithoutDemandForecastsInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutDemandForecastsInput
+  upsert?: Prisma.InventoryItemUpsertWithoutDemandForecastsInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.InventoryItemUpdateToOneWithWhereWithoutDemandForecastsInput, Prisma.InventoryItemUpdateWithoutDemandForecastsInput>, Prisma.InventoryItemUncheckedUpdateWithoutDemandForecastsInput>
+}
+
+export type InventoryItemCreateNestedOneWithoutReplenishmentRecommendationsInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedCreateWithoutReplenishmentRecommendationsInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutReplenishmentRecommendationsInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+}
+
+export type InventoryItemUpdateOneRequiredWithoutReplenishmentRecommendationsNestedInput = {
+  create?: Prisma.XOR<Prisma.InventoryItemCreateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedCreateWithoutReplenishmentRecommendationsInput>
+  connectOrCreate?: Prisma.InventoryItemCreateOrConnectWithoutReplenishmentRecommendationsInput
+  upsert?: Prisma.InventoryItemUpsertWithoutReplenishmentRecommendationsInput
+  connect?: Prisma.InventoryItemWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.InventoryItemUpdateToOneWithWhereWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUpdateWithoutReplenishmentRecommendationsInput>, Prisma.InventoryItemUncheckedUpdateWithoutReplenishmentRecommendationsInput>
+}
+
 export type InventoryItemCreateWithoutTenantInput = {
   id?: string
   sku: string
@@ -881,6 +923,8 @@ export type InventoryItemCreateWithoutTenantInput = {
   balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutTenantInput = {
@@ -907,6 +951,8 @@ export type InventoryItemUncheckedCreateWithoutTenantInput = {
   balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutTenantInput = {
@@ -986,6 +1032,8 @@ export type InventoryItemCreateWithoutBalancesInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutInventoryItemsInput
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutBalancesInput = {
@@ -1012,6 +1060,8 @@ export type InventoryItemUncheckedCreateWithoutBalancesInput = {
   updatedAt?: Date | string
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutBalancesInput = {
@@ -1054,6 +1104,8 @@ export type InventoryItemUpdateWithoutBalancesInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutInventoryItemsNestedInput
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutBalancesInput = {
@@ -1080,6 +1132,8 @@ export type InventoryItemUncheckedUpdateWithoutBalancesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateWithoutTransactionsInput = {
@@ -1106,6 +1160,8 @@ export type InventoryItemCreateWithoutTransactionsInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutInventoryItemsInput
   balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutTransactionsInput = {
@@ -1132,6 +1188,8 @@ export type InventoryItemUncheckedCreateWithoutTransactionsInput = {
   updatedAt?: Date | string
   balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
   countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutTransactionsInput = {
@@ -1174,6 +1232,8 @@ export type InventoryItemUpdateWithoutTransactionsInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutInventoryItemsNestedInput
   balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutTransactionsInput = {
@@ -1200,6 +1260,8 @@ export type InventoryItemUncheckedUpdateWithoutTransactionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateWithoutCountLinesInput = {
@@ -1226,6 +1288,8 @@ export type InventoryItemCreateWithoutCountLinesInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutInventoryItemsInput
   balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemUncheckedCreateWithoutCountLinesInput = {
@@ -1252,6 +1316,8 @@ export type InventoryItemUncheckedCreateWithoutCountLinesInput = {
   updatedAt?: Date | string
   balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
   transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
 }
 
 export type InventoryItemCreateOrConnectWithoutCountLinesInput = {
@@ -1294,6 +1360,8 @@ export type InventoryItemUpdateWithoutCountLinesInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutInventoryItemsNestedInput
   balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutCountLinesInput = {
@@ -1320,6 +1388,264 @@ export type InventoryItemUncheckedUpdateWithoutCountLinesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemCreateWithoutDemandForecastsInput = {
+  id?: string
+  sku: string
+  name: string
+  description?: string | null
+  category: string
+  unitOfMeasure: string
+  status?: $Enums.InventoryItemStatus
+  catalogItemId?: string | null
+  manufacturer?: string | null
+  manufacturerPartNo?: string | null
+  preferredSupplierId?: string | null
+  standardCost?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: number | null
+  lotControlled?: boolean
+  serialControlled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutInventoryItemsInput
+  balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
+  transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
+  countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemUncheckedCreateWithoutDemandForecastsInput = {
+  id?: string
+  tenantId: string
+  sku: string
+  name: string
+  description?: string | null
+  category: string
+  unitOfMeasure: string
+  status?: $Enums.InventoryItemStatus
+  catalogItemId?: string | null
+  manufacturer?: string | null
+  manufacturerPartNo?: string | null
+  preferredSupplierId?: string | null
+  standardCost?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: number | null
+  lotControlled?: boolean
+  serialControlled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
+  transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
+  countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemCreateOrConnectWithoutDemandForecastsInput = {
+  where: Prisma.InventoryItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedCreateWithoutDemandForecastsInput>
+}
+
+export type InventoryItemUpsertWithoutDemandForecastsInput = {
+  update: Prisma.XOR<Prisma.InventoryItemUpdateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedUpdateWithoutDemandForecastsInput>
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedCreateWithoutDemandForecastsInput>
+  where?: Prisma.InventoryItemWhereInput
+}
+
+export type InventoryItemUpdateToOneWithWhereWithoutDemandForecastsInput = {
+  where?: Prisma.InventoryItemWhereInput
+  data: Prisma.XOR<Prisma.InventoryItemUpdateWithoutDemandForecastsInput, Prisma.InventoryItemUncheckedUpdateWithoutDemandForecastsInput>
+}
+
+export type InventoryItemUpdateWithoutDemandForecastsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumInventoryItemStatusFieldUpdateOperationsInput | $Enums.InventoryItemStatus
+  catalogItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerPartNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredSupplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  standardCost?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lotControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  serialControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutInventoryItemsNestedInput
+  balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
+  transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
+  countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemUncheckedUpdateWithoutDemandForecastsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumInventoryItemStatusFieldUpdateOperationsInput | $Enums.InventoryItemStatus
+  catalogItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerPartNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredSupplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  standardCost?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lotControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  serialControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
+  transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
+  countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemCreateWithoutReplenishmentRecommendationsInput = {
+  id?: string
+  sku: string
+  name: string
+  description?: string | null
+  category: string
+  unitOfMeasure: string
+  status?: $Enums.InventoryItemStatus
+  catalogItemId?: string | null
+  manufacturer?: string | null
+  manufacturerPartNo?: string | null
+  preferredSupplierId?: string | null
+  standardCost?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: number | null
+  lotControlled?: boolean
+  serialControlled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutInventoryItemsInput
+  balances?: Prisma.InventoryBalanceCreateNestedManyWithoutItemInput
+  transactions?: Prisma.InventoryTransactionCreateNestedManyWithoutItemInput
+  countLines?: Prisma.CycleCountLineCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemUncheckedCreateWithoutReplenishmentRecommendationsInput = {
+  id?: string
+  tenantId: string
+  sku: string
+  name: string
+  description?: string | null
+  category: string
+  unitOfMeasure: string
+  status?: $Enums.InventoryItemStatus
+  catalogItemId?: string | null
+  manufacturer?: string | null
+  manufacturerPartNo?: string | null
+  preferredSupplierId?: string | null
+  standardCost?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: number | null
+  lotControlled?: boolean
+  serialControlled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  balances?: Prisma.InventoryBalanceUncheckedCreateNestedManyWithoutItemInput
+  transactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutItemInput
+  countLines?: Prisma.CycleCountLineUncheckedCreateNestedManyWithoutItemInput
+  demandForecasts?: Prisma.DemandForecastUncheckedCreateNestedManyWithoutInventoryItemInput
+}
+
+export type InventoryItemCreateOrConnectWithoutReplenishmentRecommendationsInput = {
+  where: Prisma.InventoryItemWhereUniqueInput
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedCreateWithoutReplenishmentRecommendationsInput>
+}
+
+export type InventoryItemUpsertWithoutReplenishmentRecommendationsInput = {
+  update: Prisma.XOR<Prisma.InventoryItemUpdateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedUpdateWithoutReplenishmentRecommendationsInput>
+  create: Prisma.XOR<Prisma.InventoryItemCreateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedCreateWithoutReplenishmentRecommendationsInput>
+  where?: Prisma.InventoryItemWhereInput
+}
+
+export type InventoryItemUpdateToOneWithWhereWithoutReplenishmentRecommendationsInput = {
+  where?: Prisma.InventoryItemWhereInput
+  data: Prisma.XOR<Prisma.InventoryItemUpdateWithoutReplenishmentRecommendationsInput, Prisma.InventoryItemUncheckedUpdateWithoutReplenishmentRecommendationsInput>
+}
+
+export type InventoryItemUpdateWithoutReplenishmentRecommendationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumInventoryItemStatusFieldUpdateOperationsInput | $Enums.InventoryItemStatus
+  catalogItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerPartNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredSupplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  standardCost?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lotControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  serialControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutInventoryItemsNestedInput
+  balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
+  transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
+  countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+}
+
+export type InventoryItemUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  unitOfMeasure?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumInventoryItemStatusFieldUpdateOperationsInput | $Enums.InventoryItemStatus
+  catalogItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturerPartNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferredSupplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  standardCost?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  reorderPoint?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  reorderQuantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  safetyStock?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lotControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  serialControlled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
+  transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
+  countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemCreateManyTenantInput = {
@@ -1369,6 +1695,8 @@ export type InventoryItemUpdateWithoutTenantInput = {
   balances?: Prisma.InventoryBalanceUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateWithoutTenantInput = {
@@ -1395,6 +1723,8 @@ export type InventoryItemUncheckedUpdateWithoutTenantInput = {
   balances?: Prisma.InventoryBalanceUncheckedUpdateManyWithoutItemNestedInput
   transactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutItemNestedInput
   countLines?: Prisma.CycleCountLineUncheckedUpdateManyWithoutItemNestedInput
+  demandForecasts?: Prisma.DemandForecastUncheckedUpdateManyWithoutInventoryItemNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutInventoryItemNestedInput
 }
 
 export type InventoryItemUncheckedUpdateManyWithoutTenantInput = {
@@ -1429,12 +1759,16 @@ export type InventoryItemCountOutputType = {
   balances: number
   transactions: number
   countLines: number
+  demandForecasts: number
+  replenishmentRecommendations: number
 }
 
 export type InventoryItemCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   balances?: boolean | InventoryItemCountOutputTypeCountBalancesArgs
   transactions?: boolean | InventoryItemCountOutputTypeCountTransactionsArgs
   countLines?: boolean | InventoryItemCountOutputTypeCountCountLinesArgs
+  demandForecasts?: boolean | InventoryItemCountOutputTypeCountDemandForecastsArgs
+  replenishmentRecommendations?: boolean | InventoryItemCountOutputTypeCountReplenishmentRecommendationsArgs
 }
 
 /**
@@ -1468,6 +1802,20 @@ export type InventoryItemCountOutputTypeCountCountLinesArgs<ExtArgs extends runt
   where?: Prisma.CycleCountLineWhereInput
 }
 
+/**
+ * InventoryItemCountOutputType without action
+ */
+export type InventoryItemCountOutputTypeCountDemandForecastsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DemandForecastWhereInput
+}
+
+/**
+ * InventoryItemCountOutputType without action
+ */
+export type InventoryItemCountOutputTypeCountReplenishmentRecommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ReplenishmentRecommendationWhereInput
+}
+
 
 export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1495,6 +1843,8 @@ export type InventoryItemSelect<ExtArgs extends runtime.Types.Extensions.Interna
   balances?: boolean | Prisma.InventoryItem$balancesArgs<ExtArgs>
   transactions?: boolean | Prisma.InventoryItem$transactionsArgs<ExtArgs>
   countLines?: boolean | Prisma.InventoryItem$countLinesArgs<ExtArgs>
+  demandForecasts?: boolean | Prisma.InventoryItem$demandForecastsArgs<ExtArgs>
+  replenishmentRecommendations?: boolean | Prisma.InventoryItem$replenishmentRecommendationsArgs<ExtArgs>
   _count?: boolean | Prisma.InventoryItemCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["inventoryItem"]>
 
@@ -1578,6 +1928,8 @@ export type InventoryItemInclude<ExtArgs extends runtime.Types.Extensions.Intern
   balances?: boolean | Prisma.InventoryItem$balancesArgs<ExtArgs>
   transactions?: boolean | Prisma.InventoryItem$transactionsArgs<ExtArgs>
   countLines?: boolean | Prisma.InventoryItem$countLinesArgs<ExtArgs>
+  demandForecasts?: boolean | Prisma.InventoryItem$demandForecastsArgs<ExtArgs>
+  replenishmentRecommendations?: boolean | Prisma.InventoryItem$replenishmentRecommendationsArgs<ExtArgs>
   _count?: boolean | Prisma.InventoryItemCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type InventoryItemIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1594,6 +1946,8 @@ export type $InventoryItemPayload<ExtArgs extends runtime.Types.Extensions.Inter
     balances: Prisma.$InventoryBalancePayload<ExtArgs>[]
     transactions: Prisma.$InventoryTransactionPayload<ExtArgs>[]
     countLines: Prisma.$CycleCountLinePayload<ExtArgs>[]
+    demandForecasts: Prisma.$DemandForecastPayload<ExtArgs>[]
+    replenishmentRecommendations: Prisma.$ReplenishmentRecommendationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2015,6 +2369,8 @@ export interface Prisma__InventoryItemClient<T, Null = never, ExtArgs extends ru
   balances<T extends Prisma.InventoryItem$balancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$balancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryBalancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   transactions<T extends Prisma.InventoryItem$transactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   countLines<T extends Prisma.InventoryItem$countLinesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$countLinesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CycleCountLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  demandForecasts<T extends Prisma.InventoryItem$demandForecastsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$demandForecastsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DemandForecastPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  replenishmentRecommendations<T extends Prisma.InventoryItem$replenishmentRecommendationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InventoryItem$replenishmentRecommendationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReplenishmentRecommendationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2535,6 +2891,54 @@ export type InventoryItem$countLinesArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.CycleCountLineScalarFieldEnum | Prisma.CycleCountLineScalarFieldEnum[]
+}
+
+/**
+ * InventoryItem.demandForecasts
+ */
+export type InventoryItem$demandForecastsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the DemandForecast
+   */
+  select?: Prisma.DemandForecastSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the DemandForecast
+   */
+  omit?: Prisma.DemandForecastOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DemandForecastInclude<ExtArgs> | null
+  where?: Prisma.DemandForecastWhereInput
+  orderBy?: Prisma.DemandForecastOrderByWithRelationInput | Prisma.DemandForecastOrderByWithRelationInput[]
+  cursor?: Prisma.DemandForecastWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DemandForecastScalarFieldEnum | Prisma.DemandForecastScalarFieldEnum[]
+}
+
+/**
+ * InventoryItem.replenishmentRecommendations
+ */
+export type InventoryItem$replenishmentRecommendationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ReplenishmentRecommendation
+   */
+  select?: Prisma.ReplenishmentRecommendationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ReplenishmentRecommendation
+   */
+  omit?: Prisma.ReplenishmentRecommendationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ReplenishmentRecommendationInclude<ExtArgs> | null
+  where?: Prisma.ReplenishmentRecommendationWhereInput
+  orderBy?: Prisma.ReplenishmentRecommendationOrderByWithRelationInput | Prisma.ReplenishmentRecommendationOrderByWithRelationInput[]
+  cursor?: Prisma.ReplenishmentRecommendationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ReplenishmentRecommendationScalarFieldEnum | Prisma.ReplenishmentRecommendationScalarFieldEnum[]
 }
 
 /**

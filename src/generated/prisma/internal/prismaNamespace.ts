@@ -498,7 +498,10 @@ export const ModelName = {
   StatementOfWork: 'StatementOfWork',
   ServiceMilestone: 'ServiceMilestone',
   ServiceWorker: 'ServiceWorker',
-  ServiceTimeEntry: 'ServiceTimeEntry'
+  ServiceTimeEntry: 'ServiceTimeEntry',
+  DemandPlan: 'DemandPlan',
+  DemandForecast: 'DemandForecast',
+  ReplenishmentRecommendation: 'ReplenishmentRecommendation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -514,7 +517,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -8066,6 +8069,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    DemandPlan: {
+      payload: Prisma.$DemandPlanPayload<ExtArgs>
+      fields: Prisma.DemandPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DemandPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DemandPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.DemandPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DemandPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        findMany: {
+          args: Prisma.DemandPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>[]
+        }
+        create: {
+          args: Prisma.DemandPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        createMany: {
+          args: Prisma.DemandPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DemandPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.DemandPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        update: {
+          args: Prisma.DemandPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.DemandPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DemandPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DemandPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.DemandPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.DemandPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDemandPlan>
+        }
+        groupBy: {
+          args: Prisma.DemandPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DemandPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DemandPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DemandPlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    DemandForecast: {
+      payload: Prisma.$DemandForecastPayload<ExtArgs>
+      fields: Prisma.DemandForecastFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DemandForecastFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DemandForecastFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        findFirst: {
+          args: Prisma.DemandForecastFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DemandForecastFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        findMany: {
+          args: Prisma.DemandForecastFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>[]
+        }
+        create: {
+          args: Prisma.DemandForecastCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        createMany: {
+          args: Prisma.DemandForecastCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DemandForecastCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>[]
+        }
+        delete: {
+          args: Prisma.DemandForecastDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        update: {
+          args: Prisma.DemandForecastUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        deleteMany: {
+          args: Prisma.DemandForecastDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DemandForecastUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DemandForecastUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>[]
+        }
+        upsert: {
+          args: Prisma.DemandForecastUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DemandForecastPayload>
+        }
+        aggregate: {
+          args: Prisma.DemandForecastAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDemandForecast>
+        }
+        groupBy: {
+          args: Prisma.DemandForecastGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DemandForecastGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DemandForecastCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DemandForecastCountAggregateOutputType> | number
+        }
+      }
+    }
+    ReplenishmentRecommendation: {
+      payload: Prisma.$ReplenishmentRecommendationPayload<ExtArgs>
+      fields: Prisma.ReplenishmentRecommendationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReplenishmentRecommendationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReplenishmentRecommendationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        findFirst: {
+          args: Prisma.ReplenishmentRecommendationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReplenishmentRecommendationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        findMany: {
+          args: Prisma.ReplenishmentRecommendationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>[]
+        }
+        create: {
+          args: Prisma.ReplenishmentRecommendationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        createMany: {
+          args: Prisma.ReplenishmentRecommendationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ReplenishmentRecommendationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>[]
+        }
+        delete: {
+          args: Prisma.ReplenishmentRecommendationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        update: {
+          args: Prisma.ReplenishmentRecommendationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReplenishmentRecommendationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReplenishmentRecommendationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReplenishmentRecommendationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>[]
+        }
+        upsert: {
+          args: Prisma.ReplenishmentRecommendationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentRecommendationPayload>
+        }
+        aggregate: {
+          args: Prisma.ReplenishmentRecommendationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReplenishmentRecommendation>
+        }
+        groupBy: {
+          args: Prisma.ReplenishmentRecommendationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReplenishmentRecommendationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReplenishmentRecommendationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReplenishmentRecommendationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -10280,6 +10505,73 @@ export const ServiceTimeEntryScalarFieldEnum = {
 export type ServiceTimeEntryScalarFieldEnum = (typeof ServiceTimeEntryScalarFieldEnum)[keyof typeof ServiceTimeEntryScalarFieldEnum]
 
 
+export const DemandPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  planningHorizonDays: 'planningHorizonDays',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  lockedAt: 'lockedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DemandPlanScalarFieldEnum = (typeof DemandPlanScalarFieldEnum)[keyof typeof DemandPlanScalarFieldEnum]
+
+
+export const DemandForecastScalarFieldEnum = {
+  id: 'id',
+  demandPlanId: 'demandPlanId',
+  inventoryItemId: 'inventoryItemId',
+  method: 'method',
+  forecastQuantity: 'forecastQuantity',
+  historicalConsumption: 'historicalConsumption',
+  committedDemand: 'committedDemand',
+  safetyStockDemand: 'safetyStockDemand',
+  confidencePercent: 'confidencePercent',
+  assumptions: 'assumptions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DemandForecastScalarFieldEnum = (typeof DemandForecastScalarFieldEnum)[keyof typeof DemandForecastScalarFieldEnum]
+
+
+export const ReplenishmentRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  demandPlanId: 'demandPlanId',
+  inventoryItemId: 'inventoryItemId',
+  status: 'status',
+  currentAvailable: 'currentAvailable',
+  forecastDemand: 'forecastDemand',
+  safetyStock: 'safetyStock',
+  recommendedQuantity: 'recommendedQuantity',
+  recommendedOrderDate: 'recommendedOrderDate',
+  expectedDeliveryDate: 'expectedDeliveryDate',
+  estimatedUnitCost: 'estimatedUnitCost',
+  estimatedTotalCost: 'estimatedTotalCost',
+  preferredSupplierId: 'preferredSupplierId',
+  purchaseRequestId: 'purchaseRequestId',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReplenishmentRecommendationScalarFieldEnum = (typeof ReplenishmentRecommendationScalarFieldEnum)[keyof typeof ReplenishmentRecommendationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -12050,6 +12342,48 @@ export type ListEnumServiceTimeEntryStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'DemandPlanStatus'
+ */
+export type EnumDemandPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DemandPlanStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'DemandPlanStatus[]'
+ */
+export type ListEnumDemandPlanStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DemandPlanStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DemandForecastMethod'
+ */
+export type EnumDemandForecastMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DemandForecastMethod'>
+    
+
+
+/**
+ * Reference to a field of type 'DemandForecastMethod[]'
+ */
+export type ListEnumDemandForecastMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DemandForecastMethod[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ReplenishmentRecommendationStatus'
+ */
+export type EnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReplenishmentRecommendationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ReplenishmentRecommendationStatus[]'
+ */
+export type ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReplenishmentRecommendationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -12315,6 +12649,9 @@ export type GlobalOmitConfig = {
   serviceMilestone?: Prisma.ServiceMilestoneOmit
   serviceWorker?: Prisma.ServiceWorkerOmit
   serviceTimeEntry?: Prisma.ServiceTimeEntryOmit
+  demandPlan?: Prisma.DemandPlanOmit
+  demandForecast?: Prisma.DemandForecastOmit
+  replenishmentRecommendation?: Prisma.ReplenishmentRecommendationOmit
 }
 
 /* Types for Logging */

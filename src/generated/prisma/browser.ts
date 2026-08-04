@@ -527,3 +527,18 @@ export type ServiceWorker = Prisma.ServiceWorkerModel
  * 
  */
 export type ServiceTimeEntry = Prisma.ServiceTimeEntryModel
+/**
+ * Model DemandPlan
+ * 
+ */
+export type DemandPlan = Prisma.DemandPlanModel
+/**
+ * Model DemandForecast
+ * 
+ */
+export type DemandForecast = Prisma.DemandForecastModel
+/**
+ * Model ReplenishmentRecommendation
+ * 
+ */
+export type ReplenishmentRecommendation = Prisma.ReplenishmentRecommendationModel

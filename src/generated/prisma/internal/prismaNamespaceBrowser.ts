@@ -152,7 +152,10 @@ export const ModelName = {
   StatementOfWork: 'StatementOfWork',
   ServiceMilestone: 'ServiceMilestone',
   ServiceWorker: 'ServiceWorker',
-  ServiceTimeEntry: 'ServiceTimeEntry'
+  ServiceTimeEntry: 'ServiceTimeEntry',
+  DemandPlan: 'DemandPlan',
+  DemandForecast: 'DemandForecast',
+  ReplenishmentRecommendation: 'ReplenishmentRecommendation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2344,6 +2347,73 @@ export const ServiceTimeEntryScalarFieldEnum = {
 } as const
 
 export type ServiceTimeEntryScalarFieldEnum = (typeof ServiceTimeEntryScalarFieldEnum)[keyof typeof ServiceTimeEntryScalarFieldEnum]
+
+
+export const DemandPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  planningHorizonDays: 'planningHorizonDays',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  lockedAt: 'lockedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DemandPlanScalarFieldEnum = (typeof DemandPlanScalarFieldEnum)[keyof typeof DemandPlanScalarFieldEnum]
+
+
+export const DemandForecastScalarFieldEnum = {
+  id: 'id',
+  demandPlanId: 'demandPlanId',
+  inventoryItemId: 'inventoryItemId',
+  method: 'method',
+  forecastQuantity: 'forecastQuantity',
+  historicalConsumption: 'historicalConsumption',
+  committedDemand: 'committedDemand',
+  safetyStockDemand: 'safetyStockDemand',
+  confidencePercent: 'confidencePercent',
+  assumptions: 'assumptions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DemandForecastScalarFieldEnum = (typeof DemandForecastScalarFieldEnum)[keyof typeof DemandForecastScalarFieldEnum]
+
+
+export const ReplenishmentRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  demandPlanId: 'demandPlanId',
+  inventoryItemId: 'inventoryItemId',
+  status: 'status',
+  currentAvailable: 'currentAvailable',
+  forecastDemand: 'forecastDemand',
+  safetyStock: 'safetyStock',
+  recommendedQuantity: 'recommendedQuantity',
+  recommendedOrderDate: 'recommendedOrderDate',
+  expectedDeliveryDate: 'expectedDeliveryDate',
+  estimatedUnitCost: 'estimatedUnitCost',
+  estimatedTotalCost: 'estimatedTotalCost',
+  preferredSupplierId: 'preferredSupplierId',
+  purchaseRequestId: 'purchaseRequestId',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReplenishmentRecommendationScalarFieldEnum = (typeof ReplenishmentRecommendationScalarFieldEnum)[keyof typeof ReplenishmentRecommendationScalarFieldEnum]
 
 
 export const SortOrder = {

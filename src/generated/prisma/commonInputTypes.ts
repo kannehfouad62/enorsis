@@ -2343,6 +2343,57 @@ export type EnumServiceTimeEntryStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumServiceTimeEntryStatusFilter<$PrismaModel>
 }
 
+export type EnumDemandPlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandPlanStatus | Prisma.EnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel> | $Enums.DemandPlanStatus
+}
+
+export type EnumDemandPlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandPlanStatus | Prisma.EnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandPlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.DemandPlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel>
+}
+
+export type EnumDemandForecastMethodFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandForecastMethod | Prisma.EnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel> | $Enums.DemandForecastMethod
+}
+
+export type EnumDemandForecastMethodWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandForecastMethod | Prisma.EnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandForecastMethodWithAggregatesFilter<$PrismaModel> | $Enums.DemandForecastMethod
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel>
+}
+
+export type EnumReplenishmentRecommendationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentRecommendationStatus | Prisma.EnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel> | $Enums.ReplenishmentRecommendationStatus
+}
+
+export type EnumReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentRecommendationStatus | Prisma.EnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ReplenishmentRecommendationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -4629,6 +4680,57 @@ export type NestedEnumServiceTimeEntryStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumServiceTimeEntryStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumServiceTimeEntryStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumDemandPlanStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandPlanStatus | Prisma.EnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel> | $Enums.DemandPlanStatus
+}
+
+export type NestedEnumDemandPlanStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandPlanStatus | Prisma.EnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandPlanStatus[] | Prisma.ListEnumDemandPlanStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandPlanStatusWithAggregatesFilter<$PrismaModel> | $Enums.DemandPlanStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDemandPlanStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumDemandForecastMethodFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandForecastMethod | Prisma.EnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel> | $Enums.DemandForecastMethod
+}
+
+export type NestedEnumDemandForecastMethodWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DemandForecastMethod | Prisma.EnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DemandForecastMethod[] | Prisma.ListEnumDemandForecastMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDemandForecastMethodWithAggregatesFilter<$PrismaModel> | $Enums.DemandForecastMethod
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDemandForecastMethodFilter<$PrismaModel>
+}
+
+export type NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentRecommendationStatus | Prisma.EnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel> | $Enums.ReplenishmentRecommendationStatus
+}
+
+export type NestedEnumReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentRecommendationStatus | Prisma.EnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentRecommendationStatus[] | Prisma.ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ReplenishmentRecommendationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReplenishmentRecommendationStatusFilter<$PrismaModel>
 }
 
 
