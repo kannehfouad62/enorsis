@@ -718,6 +718,40 @@ enum ProcurementReviewMetricStatus {
   NOT_AVAILABLE
 }
 
+enum ProcurementPolicyStatus {
+  DRAFT
+  ACTIVE
+  RETIRED
+}
+
+enum ProcurementPolicyRuleType {
+  APPROVAL_LIMIT
+  COMPETITIVE_BIDDING
+  CONTRACT_REQUIRED
+  PREFERRED_SUPPLIER
+  DOCUMENT_REQUIRED
+  SEGREGATION_OF_DUTIES
+  SPEND_THRESHOLD
+  COUNTRY_RESTRICTION
+  CATEGORY_RESTRICTION
+  CUSTOM
+}
+
+enum ProcurementComplianceTestStatus {
+  DRAFT
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum ProcurementRemediationStatus {
+  OPEN
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -813,54 +847,57 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                        String                     @id @default(cuid())
-  slug                      String                     @unique
-  name                      String
-  legalName                 String?
-  status                    TenantStatus               @default(PROVISIONING)
-  countryCode               String?
-  defaultLocale             String                     @default("en-US")
-  defaultTimeZone           String                     @default("UTC")
-  currencyPolicyMode        CurrencyPolicyMode         @default(USD_ONLY)
-  baseCurrencyCode          String                     @default("USD")
-  localDisplayCurrency      String?
-  usdReportingEnabled       Boolean                    @default(true)
-  memberships               Membership[]
-  legalEntities             LegalEntity[]
-  sites                     Site[]
-  departments               Department[]
-  exchangeRates             ExchangeRate[]
-  auditEvents               AuditEvent[]
-  aiAgents                  AiAgent[]
-  purchaseRequests          PurchaseRequest[]
-  purchaseOrders            PurchaseOrder[]
-  receipts                  ProcurementReceipt[]
-  supplierInvoices          SupplierInvoice[]
-  suppliers                 Supplier[]
-  sourcingEvents            SourcingEvent[]
-  paymentBatches            PaymentBatch[]
-  integrations              IntegrationConnection[]
-  workflowDefinitions       WorkflowDefinition[]
-  workflowInstances         WorkflowInstance[]
-  workflowDelegations       WorkflowDelegation[]
-  workflowNotifications     WorkflowNotification[]
-  apiClients                ApiClient[]
-  accessReviewCampaigns     AccessReviewCampaign[]
-  sodRules                  SodRule[]
-  sodViolations             SodViolation[]
-  supplierScorecards        SupplierScorecard[]
-  supplierDevelopmentPlans  SupplierDevelopmentPlan[]
-  supplierCorrectiveActions SupplierCorrectiveAction[]
-  procurementPlans          ProcurementPlan[]
-  categoryStrategies        CategoryStrategy[]
-  savingsInitiatives        SavingsInitiative[]
-  procurementReviews        ProcurementReview[]
-  createdAt                 DateTime                   @default(now())
-  updatedAt                 DateTime                   @updatedAt
-  archivedAt                DateTime?
-  contracts                 Contract[]
-  clauseTemplates           ClauseTemplate[]
-  aiAgentTasks              AiAgentTask[]
+  id                         String                      @id @default(cuid())
+  slug                       String                      @unique
+  name                       String
+  legalName                  String?
+  status                     TenantStatus                @default(PROVISIONING)
+  countryCode                String?
+  defaultLocale              String                      @default("en-US")
+  defaultTimeZone            String                      @default("UTC")
+  currencyPolicyMode         CurrencyPolicyMode          @default(USD_ONLY)
+  baseCurrencyCode           String                      @default("USD")
+  localDisplayCurrency       String?
+  usdReportingEnabled        Boolean                     @default(true)
+  memberships                Membership[]
+  legalEntities              LegalEntity[]
+  sites                      Site[]
+  departments                Department[]
+  exchangeRates              ExchangeRate[]
+  auditEvents                AuditEvent[]
+  aiAgents                   AiAgent[]
+  purchaseRequests           PurchaseRequest[]
+  purchaseOrders             PurchaseOrder[]
+  receipts                   ProcurementReceipt[]
+  supplierInvoices           SupplierInvoice[]
+  suppliers                  Supplier[]
+  sourcingEvents             SourcingEvent[]
+  paymentBatches             PaymentBatch[]
+  integrations               IntegrationConnection[]
+  workflowDefinitions        WorkflowDefinition[]
+  workflowInstances          WorkflowInstance[]
+  workflowDelegations        WorkflowDelegation[]
+  workflowNotifications      WorkflowNotification[]
+  apiClients                 ApiClient[]
+  accessReviewCampaigns      AccessReviewCampaign[]
+  sodRules                   SodRule[]
+  sodViolations              SodViolation[]
+  supplierScorecards         SupplierScorecard[]
+  supplierDevelopmentPlans   SupplierDevelopmentPlan[]
+  supplierCorrectiveActions  SupplierCorrectiveAction[]
+  procurementPlans           ProcurementPlan[]
+  categoryStrategies         CategoryStrategy[]
+  savingsInitiatives         SavingsInitiative[]
+  procurementReviews         ProcurementReview[]
+  procurementPolicies        ProcurementPolicy[]
+  procurementComplianceTests ProcurementComplianceTest[]
+  procurementRemediations    ProcurementRemediation[]
+  createdAt                  DateTime                    @default(now())
+  updatedAt                  DateTime                    @updatedAt
+  archivedAt                 DateTime?
+  contracts                  Contract[]
+  clauseTemplates            ClauseTemplate[]
+  aiAgentTasks               AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -2747,4 +2784,94 @@ model ProcurementReviewAction {
 
   @@index([procurementReviewId, status, dueAt])
   @@index([ownerUserId, status, dueAt])
+}
+
+model ProcurementPolicy {
+  id               String                  @id @default(cuid())
+  tenantId         String
+  code             String
+  title            String
+  description      String
+  status           ProcurementPolicyStatus @default(DRAFT)
+  version          Int                     @default(1)
+  effectiveAt      DateTime?
+  expiresAt        DateTime?
+  ownerUserId      String
+  approvedByUserId String?
+  approvedAt       DateTime?
+  tenant           Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rules            ProcurementPolicyRule[]
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  @@unique([tenantId, code, version])
+  @@index([tenantId, status, effectiveAt])
+}
+
+model ProcurementPolicyRule {
+  id                  String                    @id @default(cuid())
+  procurementPolicyId String
+  key                 String
+  name                String
+  description         String?
+  type                ProcurementPolicyRuleType
+  isBlocking          Boolean                   @default(false)
+  severity            Int                       @default(3)
+  resourceType        String?
+  requiredEvidence    String[]
+  remediationGuidance String?
+  policy              ProcurementPolicy         @relation(fields: [procurementPolicyId], references: [id], onDelete: Cascade)
+  createdAt           DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
+
+  @@unique([procurementPolicyId, key])
+  @@index([procurementPolicyId, type, severity])
+}
+
+model ProcurementComplianceTest {
+  id                String                          @id @default(cuid())
+  tenantId          String
+  name              String
+  description       String?
+  status            ProcurementComplianceTestStatus @default(DRAFT)
+  periodStart       DateTime
+  periodEnd         DateTime
+  ownerUserId       String
+  sampleSize        Int                             @default(0)
+  compliantCount    Int                             @default(0)
+  nonCompliantCount Int                             @default(0)
+  exceptionCount    Int                             @default(0)
+  methodology       String
+  conclusion        String?
+  completedAt       DateTime?
+  tenant            Tenant                          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  remediations      ProcurementRemediation[]
+  createdAt         DateTime                        @default(now())
+  updatedAt         DateTime                        @updatedAt
+
+  @@index([tenantId, status, periodEnd])
+}
+
+model ProcurementRemediation {
+  id                 String                       @id @default(cuid())
+  tenantId           String
+  complianceTestId   String?
+  title              String
+  description        String
+  status             ProcurementRemediationStatus @default(OPEN)
+  severity           Int                          @default(3)
+  ownerUserId        String
+  dueAt              DateTime
+  blocker            String?
+  completionEvidence String?
+  completedAt        DateTime?
+  sourceType         String?
+  sourceId           String?
+  tenant             Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  complianceTest     ProcurementComplianceTest?   @relation(fields: [complianceTestId], references: [id], onDelete: SetNull)
+  createdAt          DateTime                     @default(now())
+  updatedAt          DateTime                     @updatedAt
+
+  @@index([tenantId, status, dueAt])
+  @@index([complianceTestId, status])
 }

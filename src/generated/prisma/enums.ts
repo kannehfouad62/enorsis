@@ -980,6 +980,52 @@ export const ProcurementReviewMetricStatus = {
 export type ProcurementReviewMetricStatus = (typeof ProcurementReviewMetricStatus)[keyof typeof ProcurementReviewMetricStatus]
 
 
+export const ProcurementPolicyStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  RETIRED: 'RETIRED'
+} as const
+
+export type ProcurementPolicyStatus = (typeof ProcurementPolicyStatus)[keyof typeof ProcurementPolicyStatus]
+
+
+export const ProcurementPolicyRuleType = {
+  APPROVAL_LIMIT: 'APPROVAL_LIMIT',
+  COMPETITIVE_BIDDING: 'COMPETITIVE_BIDDING',
+  CONTRACT_REQUIRED: 'CONTRACT_REQUIRED',
+  PREFERRED_SUPPLIER: 'PREFERRED_SUPPLIER',
+  DOCUMENT_REQUIRED: 'DOCUMENT_REQUIRED',
+  SEGREGATION_OF_DUTIES: 'SEGREGATION_OF_DUTIES',
+  SPEND_THRESHOLD: 'SPEND_THRESHOLD',
+  COUNTRY_RESTRICTION: 'COUNTRY_RESTRICTION',
+  CATEGORY_RESTRICTION: 'CATEGORY_RESTRICTION',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type ProcurementPolicyRuleType = (typeof ProcurementPolicyRuleType)[keyof typeof ProcurementPolicyRuleType]
+
+
+export const ProcurementComplianceTestStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementComplianceTestStatus = (typeof ProcurementComplianceTestStatus)[keyof typeof ProcurementComplianceTestStatus]
+
+
+export const ProcurementRemediationStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementRemediationStatus = (typeof ProcurementRemediationStatus)[keyof typeof ProcurementRemediationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

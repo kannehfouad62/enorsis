@@ -446,3 +446,23 @@ export type ProcurementReviewMetric = Prisma.ProcurementReviewMetricModel
  * 
  */
 export type ProcurementReviewAction = Prisma.ProcurementReviewActionModel
+/**
+ * Model ProcurementPolicy
+ * 
+ */
+export type ProcurementPolicy = Prisma.ProcurementPolicyModel
+/**
+ * Model ProcurementPolicyRule
+ * 
+ */
+export type ProcurementPolicyRule = Prisma.ProcurementPolicyRuleModel
+/**
+ * Model ProcurementComplianceTest
+ * 
+ */
+export type ProcurementComplianceTest = Prisma.ProcurementComplianceTestModel
+/**
+ * Model ProcurementRemediation
+ * 
+ */
+export type ProcurementRemediation = Prisma.ProcurementRemediationModel

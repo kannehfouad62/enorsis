@@ -131,7 +131,11 @@ export const ModelName = {
   SavingsMilestone: 'SavingsMilestone',
   ProcurementReview: 'ProcurementReview',
   ProcurementReviewMetric: 'ProcurementReviewMetric',
-  ProcurementReviewAction: 'ProcurementReviewAction'
+  ProcurementReviewAction: 'ProcurementReviewAction',
+  ProcurementPolicy: 'ProcurementPolicy',
+  ProcurementPolicyRule: 'ProcurementPolicyRule',
+  ProcurementComplianceTest: 'ProcurementComplianceTest',
+  ProcurementRemediation: 'ProcurementRemediation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1864,6 +1868,90 @@ export const ProcurementReviewActionScalarFieldEnum = {
 } as const
 
 export type ProcurementReviewActionScalarFieldEnum = (typeof ProcurementReviewActionScalarFieldEnum)[keyof typeof ProcurementReviewActionScalarFieldEnum]
+
+
+export const ProcurementPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  code: 'code',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  version: 'version',
+  effectiveAt: 'effectiveAt',
+  expiresAt: 'expiresAt',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPolicyScalarFieldEnum = (typeof ProcurementPolicyScalarFieldEnum)[keyof typeof ProcurementPolicyScalarFieldEnum]
+
+
+export const ProcurementPolicyRuleScalarFieldEnum = {
+  id: 'id',
+  procurementPolicyId: 'procurementPolicyId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  isBlocking: 'isBlocking',
+  severity: 'severity',
+  resourceType: 'resourceType',
+  requiredEvidence: 'requiredEvidence',
+  remediationGuidance: 'remediationGuidance',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPolicyRuleScalarFieldEnum = (typeof ProcurementPolicyRuleScalarFieldEnum)[keyof typeof ProcurementPolicyRuleScalarFieldEnum]
+
+
+export const ProcurementComplianceTestScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  ownerUserId: 'ownerUserId',
+  sampleSize: 'sampleSize',
+  compliantCount: 'compliantCount',
+  nonCompliantCount: 'nonCompliantCount',
+  exceptionCount: 'exceptionCount',
+  methodology: 'methodology',
+  conclusion: 'conclusion',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementComplianceTestScalarFieldEnum = (typeof ProcurementComplianceTestScalarFieldEnum)[keyof typeof ProcurementComplianceTestScalarFieldEnum]
+
+
+export const ProcurementRemediationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  complianceTestId: 'complianceTestId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementRemediationScalarFieldEnum = (typeof ProcurementRemediationScalarFieldEnum)[keyof typeof ProcurementRemediationScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -477,7 +477,11 @@ export const ModelName = {
   SavingsMilestone: 'SavingsMilestone',
   ProcurementReview: 'ProcurementReview',
   ProcurementReviewMetric: 'ProcurementReviewMetric',
-  ProcurementReviewAction: 'ProcurementReviewAction'
+  ProcurementReviewAction: 'ProcurementReviewAction',
+  ProcurementPolicy: 'ProcurementPolicy',
+  ProcurementPolicyRule: 'ProcurementPolicyRule',
+  ProcurementComplianceTest: 'ProcurementComplianceTest',
+  ProcurementRemediation: 'ProcurementRemediation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -493,7 +497,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -6491,6 +6495,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementPolicy: {
+      payload: Prisma.$ProcurementPolicyPayload<ExtArgs>
+      fields: Prisma.ProcurementPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        update: {
+          args: Prisma.ProcurementPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementPolicy>
+        }
+        groupBy: {
+          args: Prisma.ProcurementPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementPolicyRule: {
+      payload: Prisma.$ProcurementPolicyRulePayload<ExtArgs>
+      fields: Prisma.ProcurementPolicyRuleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementPolicyRuleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementPolicyRuleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementPolicyRuleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementPolicyRuleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementPolicyRuleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementPolicyRuleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementPolicyRuleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementPolicyRuleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementPolicyRuleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        update: {
+          args: Prisma.ProcurementPolicyRuleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementPolicyRuleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementPolicyRuleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementPolicyRuleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementPolicyRuleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementPolicyRulePayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementPolicyRuleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementPolicyRule>
+        }
+        groupBy: {
+          args: Prisma.ProcurementPolicyRuleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPolicyRuleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementPolicyRuleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementPolicyRuleCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementComplianceTest: {
+      payload: Prisma.$ProcurementComplianceTestPayload<ExtArgs>
+      fields: Prisma.ProcurementComplianceTestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementComplianceTestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementComplianceTestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementComplianceTestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementComplianceTestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementComplianceTestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementComplianceTestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementComplianceTestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementComplianceTestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementComplianceTestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        update: {
+          args: Prisma.ProcurementComplianceTestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementComplianceTestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementComplianceTestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementComplianceTestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementComplianceTestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementComplianceTestPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementComplianceTestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementComplianceTest>
+        }
+        groupBy: {
+          args: Prisma.ProcurementComplianceTestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementComplianceTestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementComplianceTestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementComplianceTestCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementRemediation: {
+      payload: Prisma.$ProcurementRemediationPayload<ExtArgs>
+      fields: Prisma.ProcurementRemediationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementRemediationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementRemediationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementRemediationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementRemediationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementRemediationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementRemediationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementRemediationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementRemediationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementRemediationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        update: {
+          args: Prisma.ProcurementRemediationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementRemediationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementRemediationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementRemediationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementRemediationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementRemediationPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementRemediationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementRemediation>
+        }
+        groupBy: {
+          args: Prisma.ProcurementRemediationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementRemediationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementRemediationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementRemediationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -8246,6 +8546,90 @@ export const ProcurementReviewActionScalarFieldEnum = {
 export type ProcurementReviewActionScalarFieldEnum = (typeof ProcurementReviewActionScalarFieldEnum)[keyof typeof ProcurementReviewActionScalarFieldEnum]
 
 
+export const ProcurementPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  code: 'code',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  version: 'version',
+  effectiveAt: 'effectiveAt',
+  expiresAt: 'expiresAt',
+  ownerUserId: 'ownerUserId',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPolicyScalarFieldEnum = (typeof ProcurementPolicyScalarFieldEnum)[keyof typeof ProcurementPolicyScalarFieldEnum]
+
+
+export const ProcurementPolicyRuleScalarFieldEnum = {
+  id: 'id',
+  procurementPolicyId: 'procurementPolicyId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  isBlocking: 'isBlocking',
+  severity: 'severity',
+  resourceType: 'resourceType',
+  requiredEvidence: 'requiredEvidence',
+  remediationGuidance: 'remediationGuidance',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementPolicyRuleScalarFieldEnum = (typeof ProcurementPolicyRuleScalarFieldEnum)[keyof typeof ProcurementPolicyRuleScalarFieldEnum]
+
+
+export const ProcurementComplianceTestScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  ownerUserId: 'ownerUserId',
+  sampleSize: 'sampleSize',
+  compliantCount: 'compliantCount',
+  nonCompliantCount: 'nonCompliantCount',
+  exceptionCount: 'exceptionCount',
+  methodology: 'methodology',
+  conclusion: 'conclusion',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementComplianceTestScalarFieldEnum = (typeof ProcurementComplianceTestScalarFieldEnum)[keyof typeof ProcurementComplianceTestScalarFieldEnum]
+
+
+export const ProcurementRemediationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  complianceTestId: 'complianceTestId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementRemediationScalarFieldEnum = (typeof ProcurementRemediationScalarFieldEnum)[keyof typeof ProcurementRemediationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -9708,6 +10092,62 @@ export type ListEnumProcurementReviewActionStatusFieldRefInput<$PrismaModel> = F
 
 
 /**
+ * Reference to a field of type 'ProcurementPolicyStatus'
+ */
+export type EnumProcurementPolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPolicyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementPolicyStatus[]'
+ */
+export type ListEnumProcurementPolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPolicyStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementPolicyRuleType'
+ */
+export type EnumProcurementPolicyRuleTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPolicyRuleType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementPolicyRuleType[]'
+ */
+export type ListEnumProcurementPolicyRuleTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementPolicyRuleType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementComplianceTestStatus'
+ */
+export type EnumProcurementComplianceTestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementComplianceTestStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementComplianceTestStatus[]'
+ */
+export type ListEnumProcurementComplianceTestStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementComplianceTestStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementRemediationStatus'
+ */
+export type EnumProcurementRemediationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementRemediationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementRemediationStatus[]'
+ */
+export type ListEnumProcurementRemediationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementRemediationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -9952,6 +10392,10 @@ export type GlobalOmitConfig = {
   procurementReview?: Prisma.ProcurementReviewOmit
   procurementReviewMetric?: Prisma.ProcurementReviewMetricOmit
   procurementReviewAction?: Prisma.ProcurementReviewActionOmit
+  procurementPolicy?: Prisma.ProcurementPolicyOmit
+  procurementPolicyRule?: Prisma.ProcurementPolicyRuleOmit
+  procurementComplianceTest?: Prisma.ProcurementComplianceTestOmit
+  procurementRemediation?: Prisma.ProcurementRemediationOmit
 }
 
 /* Types for Logging */
