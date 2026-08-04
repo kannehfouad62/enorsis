@@ -13,6 +13,7 @@ export type EnorsisRole =
   | "REQUESTER"
   | "APPROVER"
   | "FINANCE"
+  | "ACCOUNTS_PAYABLE"
   | "LEGAL"
   | "RISK_COMPLIANCE"
   | "SUPPLIER_MANAGER"

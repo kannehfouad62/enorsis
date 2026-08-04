@@ -241,3 +241,38 @@ export type SupplierRiskFinding = Prisma.SupplierRiskFindingModel
  * 
  */
 export type SupplierEsgAssessment = Prisma.SupplierEsgAssessmentModel
+/**
+ * Model PurchaseOrder
+ * 
+ */
+export type PurchaseOrder = Prisma.PurchaseOrderModel
+/**
+ * Model PurchaseOrderLine
+ * 
+ */
+export type PurchaseOrderLine = Prisma.PurchaseOrderLineModel
+/**
+ * Model ProcurementReceipt
+ * 
+ */
+export type ProcurementReceipt = Prisma.ProcurementReceiptModel
+/**
+ * Model ProcurementReceiptLine
+ * 
+ */
+export type ProcurementReceiptLine = Prisma.ProcurementReceiptLineModel
+/**
+ * Model SupplierInvoice
+ * 
+ */
+export type SupplierInvoice = Prisma.SupplierInvoiceModel
+/**
+ * Model SupplierInvoiceLine
+ * 
+ */
+export type SupplierInvoiceLine = Prisma.SupplierInvoiceLineModel
+/**
+ * Model InvoiceMatchException
+ * 
+ */
+export type InvoiceMatchException = Prisma.InvoiceMatchExceptionModel

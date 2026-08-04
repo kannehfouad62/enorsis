@@ -360,6 +360,85 @@ export const PurchaseRequestStatus = {
 export type PurchaseRequestStatus = (typeof PurchaseRequestStatus)[keyof typeof PurchaseRequestStatus]
 
 
+export const PurchaseOrderStatus = {
+  DRAFT: 'DRAFT',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
+  APPROVED: 'APPROVED',
+  ISSUED: 'ISSUED',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  RECEIVED: 'RECEIVED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PurchaseOrderStatus = (typeof PurchaseOrderStatus)[keyof typeof PurchaseOrderStatus]
+
+
+export const ReceiptType = {
+  GOODS: 'GOODS',
+  SERVICE: 'SERVICE'
+} as const
+
+export type ReceiptType = (typeof ReceiptType)[keyof typeof ReceiptType]
+
+
+export const ReceiptStatus = {
+  DRAFT: 'DRAFT',
+  POSTED: 'POSTED',
+  REVERSED: 'REVERSED'
+} as const
+
+export type ReceiptStatus = (typeof ReceiptStatus)[keyof typeof ReceiptStatus]
+
+
+export const SupplierInvoiceStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  MATCHING: 'MATCHING',
+  EXCEPTION: 'EXCEPTION',
+  APPROVED: 'APPROVED',
+  PAYMENT_READY: 'PAYMENT_READY',
+  PAID: 'PAID',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SupplierInvoiceStatus = (typeof SupplierInvoiceStatus)[keyof typeof SupplierInvoiceStatus]
+
+
+export const InvoiceMatchStatus = {
+  NOT_MATCHED: 'NOT_MATCHED',
+  MATCHED: 'MATCHED',
+  EXCEPTION: 'EXCEPTION',
+  OVERRIDDEN: 'OVERRIDDEN'
+} as const
+
+export type InvoiceMatchStatus = (typeof InvoiceMatchStatus)[keyof typeof InvoiceMatchStatus]
+
+
+export const MatchExceptionType = {
+  QUANTITY: 'QUANTITY',
+  PRICE: 'PRICE',
+  TAX: 'TAX',
+  CURRENCY: 'CURRENCY',
+  MISSING_RECEIPT: 'MISSING_RECEIPT',
+  MISSING_PURCHASE_ORDER: 'MISSING_PURCHASE_ORDER',
+  DUPLICATE_INVOICE: 'DUPLICATE_INVOICE',
+  OTHER: 'OTHER'
+} as const
+
+export type MatchExceptionType = (typeof MatchExceptionType)[keyof typeof MatchExceptionType]
+
+
+export const MatchExceptionStatus = {
+  OPEN: 'OPEN',
+  RESOLVED: 'RESOLVED',
+  OVERRIDDEN: 'OVERRIDDEN'
+} as const
+
+export type MatchExceptionStatus = (typeof MatchExceptionStatus)[keyof typeof MatchExceptionStatus]
+
+
 export const PurchaseRequestPriority = {
   LOW: 'LOW',
   NORMAL: 'NORMAL',
@@ -412,6 +491,7 @@ export const PlatformRole = {
   REQUESTER: 'REQUESTER',
   APPROVER: 'APPROVER',
   FINANCE: 'FINANCE',
+  ACCOUNTS_PAYABLE: 'ACCOUNTS_PAYABLE',
   LEGAL: 'LEGAL',
   RISK_COMPLIANCE: 'RISK_COMPLIANCE',
   SUPPLIER_MANAGER: 'SUPPLIER_MANAGER',

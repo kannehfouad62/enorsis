@@ -90,7 +90,14 @@ export const ModelName = {
   AiExecution: 'AiExecution',
   SupplierRiskAssessment: 'SupplierRiskAssessment',
   SupplierRiskFinding: 'SupplierRiskFinding',
-  SupplierEsgAssessment: 'SupplierEsgAssessment'
+  SupplierEsgAssessment: 'SupplierEsgAssessment',
+  PurchaseOrder: 'PurchaseOrder',
+  PurchaseOrderLine: 'PurchaseOrderLine',
+  ProcurementReceipt: 'ProcurementReceipt',
+  ProcurementReceiptLine: 'ProcurementReceiptLine',
+  SupplierInvoice: 'SupplierInvoice',
+  SupplierInvoiceLine: 'SupplierInvoiceLine',
+  InvoiceMatchException: 'InvoiceMatchException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -895,6 +902,162 @@ export const SupplierEsgAssessmentScalarFieldEnum = {
 } as const
 
 export type SupplierEsgAssessmentScalarFieldEnum = (typeof SupplierEsgAssessmentScalarFieldEnum)[keyof typeof SupplierEsgAssessmentScalarFieldEnum]
+
+
+export const PurchaseOrderScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  purchaseRequestId: 'purchaseRequestId',
+  contractId: 'contractId',
+  purchaseOrderNumber: 'purchaseOrderNumber',
+  status: 'status',
+  title: 'title',
+  currencyCode: 'currencyCode',
+  subtotal: 'subtotal',
+  taxAmount: 'taxAmount',
+  totalAmount: 'totalAmount',
+  usdEquivalent: 'usdEquivalent',
+  exchangeRateToUsd: 'exchangeRateToUsd',
+  exchangeRateSource: 'exchangeRateSource',
+  exchangeRateDate: 'exchangeRateDate',
+  paymentTerms: 'paymentTerms',
+  deliveryAddress: 'deliveryAddress',
+  requestedDeliveryDate: 'requestedDeliveryDate',
+  buyerUserId: 'buyerUserId',
+  approvedAt: 'approvedAt',
+  issuedAt: 'issuedAt',
+  closedAt: 'closedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderScalarFieldEnum = (typeof PurchaseOrderScalarFieldEnum)[keyof typeof PurchaseOrderScalarFieldEnum]
+
+
+export const PurchaseOrderLineScalarFieldEnum = {
+  id: 'id',
+  purchaseOrderId: 'purchaseOrderId',
+  lineNumber: 'lineNumber',
+  description: 'description',
+  category: 'category',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  unitPrice: 'unitPrice',
+  taxAmount: 'taxAmount',
+  lineTotal: 'lineTotal',
+  receivedQuantity: 'receivedQuantity',
+  invoicedQuantity: 'invoicedQuantity',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderLineScalarFieldEnum = (typeof PurchaseOrderLineScalarFieldEnum)[keyof typeof PurchaseOrderLineScalarFieldEnum]
+
+
+export const ProcurementReceiptScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  purchaseOrderId: 'purchaseOrderId',
+  receiptNumber: 'receiptNumber',
+  type: 'type',
+  status: 'status',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  deliveryReference: 'deliveryReference',
+  notes: 'notes',
+  postedAt: 'postedAt',
+  reversedAt: 'reversedAt',
+  reversalReason: 'reversalReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReceiptScalarFieldEnum = (typeof ProcurementReceiptScalarFieldEnum)[keyof typeof ProcurementReceiptScalarFieldEnum]
+
+
+export const ProcurementReceiptLineScalarFieldEnum = {
+  id: 'id',
+  receiptId: 'receiptId',
+  purchaseOrderLineId: 'purchaseOrderLineId',
+  quantityReceived: 'quantityReceived',
+  quantityAccepted: 'quantityAccepted',
+  quantityRejected: 'quantityRejected',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementReceiptLineScalarFieldEnum = (typeof ProcurementReceiptLineScalarFieldEnum)[keyof typeof ProcurementReceiptLineScalarFieldEnum]
+
+
+export const SupplierInvoiceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  purchaseOrderId: 'purchaseOrderId',
+  invoiceNumber: 'invoiceNumber',
+  status: 'status',
+  matchStatus: 'matchStatus',
+  invoiceDate: 'invoiceDate',
+  dueDate: 'dueDate',
+  currencyCode: 'currencyCode',
+  subtotal: 'subtotal',
+  taxAmount: 'taxAmount',
+  totalAmount: 'totalAmount',
+  usdEquivalent: 'usdEquivalent',
+  exchangeRateToUsd: 'exchangeRateToUsd',
+  exchangeRateSource: 'exchangeRateSource',
+  exchangeRateDate: 'exchangeRateDate',
+  paymentReference: 'paymentReference',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  paymentReadyAt: 'paymentReadyAt',
+  paidAt: 'paidAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierInvoiceScalarFieldEnum = (typeof SupplierInvoiceScalarFieldEnum)[keyof typeof SupplierInvoiceScalarFieldEnum]
+
+
+export const SupplierInvoiceLineScalarFieldEnum = {
+  id: 'id',
+  supplierInvoiceId: 'supplierInvoiceId',
+  purchaseOrderLineId: 'purchaseOrderLineId',
+  lineNumber: 'lineNumber',
+  description: 'description',
+  quantity: 'quantity',
+  unitPrice: 'unitPrice',
+  taxAmount: 'taxAmount',
+  lineTotal: 'lineTotal',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierInvoiceLineScalarFieldEnum = (typeof SupplierInvoiceLineScalarFieldEnum)[keyof typeof SupplierInvoiceLineScalarFieldEnum]
+
+
+export const InvoiceMatchExceptionScalarFieldEnum = {
+  id: 'id',
+  supplierInvoiceId: 'supplierInvoiceId',
+  type: 'type',
+  status: 'status',
+  severity: 'severity',
+  description: 'description',
+  expectedValue: 'expectedValue',
+  actualValue: 'actualValue',
+  variance: 'variance',
+  resolvedByUserId: 'resolvedByUserId',
+  resolutionNotes: 'resolutionNotes',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InvoiceMatchExceptionScalarFieldEnum = (typeof InvoiceMatchExceptionScalarFieldEnum)[keyof typeof InvoiceMatchExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

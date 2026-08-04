@@ -1,0 +1,2 @@
+-- AlterEnum
+ALTER TYPE "PlatformRole" ADD VALUE 'ACCOUNTS_PAYABLE';

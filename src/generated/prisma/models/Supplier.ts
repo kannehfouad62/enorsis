@@ -324,6 +324,8 @@ export type SupplierWhereInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentListRelationFilter
   riskFindings?: Prisma.SupplierRiskFindingListRelationFilter
   esgAssessments?: Prisma.SupplierEsgAssessmentListRelationFilter
+  purchaseOrders?: Prisma.PurchaseOrderListRelationFilter
+  supplierInvoices?: Prisma.SupplierInvoiceListRelationFilter
 }
 
 export type SupplierOrderByWithRelationInput = {
@@ -359,6 +361,8 @@ export type SupplierOrderByWithRelationInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentOrderByRelationAggregateInput
   riskFindings?: Prisma.SupplierRiskFindingOrderByRelationAggregateInput
   esgAssessments?: Prisma.SupplierEsgAssessmentOrderByRelationAggregateInput
+  purchaseOrders?: Prisma.PurchaseOrderOrderByRelationAggregateInput
+  supplierInvoices?: Prisma.SupplierInvoiceOrderByRelationAggregateInput
 }
 
 export type SupplierWhereUniqueInput = Prisma.AtLeast<{
@@ -399,6 +403,8 @@ export type SupplierWhereUniqueInput = Prisma.AtLeast<{
   riskAssessments?: Prisma.SupplierRiskAssessmentListRelationFilter
   riskFindings?: Prisma.SupplierRiskFindingListRelationFilter
   esgAssessments?: Prisma.SupplierEsgAssessmentListRelationFilter
+  purchaseOrders?: Prisma.PurchaseOrderListRelationFilter
+  supplierInvoices?: Prisma.SupplierInvoiceListRelationFilter
 }, "id" | "tenantId_supplierNumber" | "tenantId_legalName_countryCode">
 
 export type SupplierOrderByWithAggregationInput = {
@@ -489,6 +495,8 @@ export type SupplierCreateInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateInput = {
@@ -523,6 +531,8 @@ export type SupplierUncheckedCreateInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUpdateInput = {
@@ -557,6 +567,8 @@ export type SupplierUpdateInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateInput = {
@@ -591,6 +603,8 @@ export type SupplierUncheckedUpdateInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateManyInput = {
@@ -955,6 +969,34 @@ export type SupplierUpdateOneRequiredWithoutEsgAssessmentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutEsgAssessmentsInput, Prisma.SupplierUpdateWithoutEsgAssessmentsInput>, Prisma.SupplierUncheckedUpdateWithoutEsgAssessmentsInput>
 }
 
+export type SupplierCreateNestedOneWithoutPurchaseOrdersInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedCreateWithoutPurchaseOrdersInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPurchaseOrdersInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutPurchaseOrdersNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedCreateWithoutPurchaseOrdersInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPurchaseOrdersInput
+  upsert?: Prisma.SupplierUpsertWithoutPurchaseOrdersInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutPurchaseOrdersInput, Prisma.SupplierUpdateWithoutPurchaseOrdersInput>, Prisma.SupplierUncheckedUpdateWithoutPurchaseOrdersInput>
+}
+
+export type SupplierCreateNestedOneWithoutSupplierInvoicesInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedCreateWithoutSupplierInvoicesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutSupplierInvoicesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutSupplierInvoicesNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedCreateWithoutSupplierInvoicesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutSupplierInvoicesInput
+  upsert?: Prisma.SupplierUpsertWithoutSupplierInvoicesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutSupplierInvoicesInput, Prisma.SupplierUpdateWithoutSupplierInvoicesInput>, Prisma.SupplierUncheckedUpdateWithoutSupplierInvoicesInput>
+}
+
 export type SupplierCreateWithoutTenantInput = {
   id?: string
   supplierNumber: string
@@ -986,6 +1028,8 @@ export type SupplierCreateWithoutTenantInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutTenantInput = {
@@ -1019,6 +1063,8 @@ export type SupplierUncheckedCreateWithoutTenantInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutTenantInput = {
@@ -1106,6 +1152,8 @@ export type SupplierCreateWithoutContactsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutContactsInput = {
@@ -1139,6 +1187,8 @@ export type SupplierUncheckedCreateWithoutContactsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutContactsInput = {
@@ -1188,6 +1238,8 @@ export type SupplierUpdateWithoutContactsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutContactsInput = {
@@ -1221,6 +1273,8 @@ export type SupplierUncheckedUpdateWithoutContactsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutDocumentsInput = {
@@ -1254,6 +1308,8 @@ export type SupplierCreateWithoutDocumentsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutDocumentsInput = {
@@ -1287,6 +1343,8 @@ export type SupplierUncheckedCreateWithoutDocumentsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutDocumentsInput = {
@@ -1336,6 +1394,8 @@ export type SupplierUpdateWithoutDocumentsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutDocumentsInput = {
@@ -1369,6 +1429,8 @@ export type SupplierUncheckedUpdateWithoutDocumentsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutSourcingInvitationsInput = {
@@ -1402,6 +1464,8 @@ export type SupplierCreateWithoutSourcingInvitationsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutSourcingInvitationsInput = {
@@ -1435,6 +1499,8 @@ export type SupplierUncheckedCreateWithoutSourcingInvitationsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutSourcingInvitationsInput = {
@@ -1484,6 +1550,8 @@ export type SupplierUpdateWithoutSourcingInvitationsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutSourcingInvitationsInput = {
@@ -1517,6 +1585,8 @@ export type SupplierUncheckedUpdateWithoutSourcingInvitationsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutSourcingResponsesInput = {
@@ -1550,6 +1620,8 @@ export type SupplierCreateWithoutSourcingResponsesInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutSourcingResponsesInput = {
@@ -1583,6 +1655,8 @@ export type SupplierUncheckedCreateWithoutSourcingResponsesInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutSourcingResponsesInput = {
@@ -1632,6 +1706,8 @@ export type SupplierUpdateWithoutSourcingResponsesInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutSourcingResponsesInput = {
@@ -1665,6 +1741,8 @@ export type SupplierUncheckedUpdateWithoutSourcingResponsesInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutSourcingQuestionsInput = {
@@ -1698,6 +1776,8 @@ export type SupplierCreateWithoutSourcingQuestionsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutSourcingQuestionsInput = {
@@ -1731,6 +1811,8 @@ export type SupplierUncheckedCreateWithoutSourcingQuestionsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutSourcingQuestionsInput = {
@@ -1780,6 +1862,8 @@ export type SupplierUpdateWithoutSourcingQuestionsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutSourcingQuestionsInput = {
@@ -1813,6 +1897,8 @@ export type SupplierUncheckedUpdateWithoutSourcingQuestionsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutContractsInput = {
@@ -1846,6 +1932,8 @@ export type SupplierCreateWithoutContractsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutContractsInput = {
@@ -1879,6 +1967,8 @@ export type SupplierUncheckedCreateWithoutContractsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutContractsInput = {
@@ -1928,6 +2018,8 @@ export type SupplierUpdateWithoutContractsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutContractsInput = {
@@ -1961,6 +2053,8 @@ export type SupplierUncheckedUpdateWithoutContractsInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutRiskAssessmentsInput = {
@@ -1994,6 +2088,8 @@ export type SupplierCreateWithoutRiskAssessmentsInput = {
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutRiskAssessmentsInput = {
@@ -2027,6 +2123,8 @@ export type SupplierUncheckedCreateWithoutRiskAssessmentsInput = {
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutRiskAssessmentsInput = {
@@ -2076,6 +2174,8 @@ export type SupplierUpdateWithoutRiskAssessmentsInput = {
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutRiskAssessmentsInput = {
@@ -2109,6 +2209,8 @@ export type SupplierUncheckedUpdateWithoutRiskAssessmentsInput = {
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutRiskFindingsInput = {
@@ -2142,6 +2244,8 @@ export type SupplierCreateWithoutRiskFindingsInput = {
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutRiskFindingsInput = {
@@ -2175,6 +2279,8 @@ export type SupplierUncheckedCreateWithoutRiskFindingsInput = {
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutRiskFindingsInput = {
@@ -2224,6 +2330,8 @@ export type SupplierUpdateWithoutRiskFindingsInput = {
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutRiskFindingsInput = {
@@ -2257,6 +2365,8 @@ export type SupplierUncheckedUpdateWithoutRiskFindingsInput = {
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateWithoutEsgAssessmentsInput = {
@@ -2290,6 +2400,8 @@ export type SupplierCreateWithoutEsgAssessmentsInput = {
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierUncheckedCreateWithoutEsgAssessmentsInput = {
@@ -2323,6 +2435,8 @@ export type SupplierUncheckedCreateWithoutEsgAssessmentsInput = {
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
 }
 
 export type SupplierCreateOrConnectWithoutEsgAssessmentsInput = {
@@ -2372,6 +2486,8 @@ export type SupplierUpdateWithoutEsgAssessmentsInput = {
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutEsgAssessmentsInput = {
@@ -2405,6 +2521,320 @@ export type SupplierUncheckedUpdateWithoutEsgAssessmentsInput = {
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutPurchaseOrdersInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutPurchaseOrdersInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutPurchaseOrdersInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedCreateWithoutPurchaseOrdersInput>
+}
+
+export type SupplierUpsertWithoutPurchaseOrdersInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedUpdateWithoutPurchaseOrdersInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedCreateWithoutPurchaseOrdersInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutPurchaseOrdersInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutPurchaseOrdersInput, Prisma.SupplierUncheckedUpdateWithoutPurchaseOrdersInput>
+}
+
+export type SupplierUpdateWithoutPurchaseOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutPurchaseOrdersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutSupplierInvoicesInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutSupplierInvoicesInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutSupplierInvoicesInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedCreateWithoutSupplierInvoicesInput>
+}
+
+export type SupplierUpsertWithoutSupplierInvoicesInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedUpdateWithoutSupplierInvoicesInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedCreateWithoutSupplierInvoicesInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutSupplierInvoicesInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutSupplierInvoicesInput, Prisma.SupplierUncheckedUpdateWithoutSupplierInvoicesInput>
+}
+
+export type SupplierUpdateWithoutSupplierInvoicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutSupplierInvoicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierCreateManyTenantInput = {
@@ -2462,6 +2892,8 @@ export type SupplierUpdateWithoutTenantInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateWithoutTenantInput = {
@@ -2495,6 +2927,8 @@ export type SupplierUncheckedUpdateWithoutTenantInput = {
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
   esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
 }
 
 export type SupplierUncheckedUpdateManyWithoutTenantInput = {
@@ -2536,6 +2970,8 @@ export type SupplierCountOutputType = {
   riskAssessments: number
   riskFindings: number
   esgAssessments: number
+  purchaseOrders: number
+  supplierInvoices: number
 }
 
 export type SupplierCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2548,6 +2984,8 @@ export type SupplierCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   riskAssessments?: boolean | SupplierCountOutputTypeCountRiskAssessmentsArgs
   riskFindings?: boolean | SupplierCountOutputTypeCountRiskFindingsArgs
   esgAssessments?: boolean | SupplierCountOutputTypeCountEsgAssessmentsArgs
+  purchaseOrders?: boolean | SupplierCountOutputTypeCountPurchaseOrdersArgs
+  supplierInvoices?: boolean | SupplierCountOutputTypeCountSupplierInvoicesArgs
 }
 
 /**
@@ -2623,6 +3061,20 @@ export type SupplierCountOutputTypeCountEsgAssessmentsArgs<ExtArgs extends runti
   where?: Prisma.SupplierEsgAssessmentWhereInput
 }
 
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountPurchaseOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PurchaseOrderWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountSupplierInvoicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierInvoiceWhereInput
+}
+
 
 export type SupplierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2657,6 +3109,8 @@ export type SupplierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   riskAssessments?: boolean | Prisma.Supplier$riskAssessmentsArgs<ExtArgs>
   riskFindings?: boolean | Prisma.Supplier$riskFindingsArgs<ExtArgs>
   esgAssessments?: boolean | Prisma.Supplier$esgAssessmentsArgs<ExtArgs>
+  purchaseOrders?: boolean | Prisma.Supplier$purchaseOrdersArgs<ExtArgs>
+  supplierInvoices?: boolean | Prisma.Supplier$supplierInvoicesArgs<ExtArgs>
   _count?: boolean | Prisma.SupplierCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["supplier"]>
 
@@ -2749,6 +3203,8 @@ export type SupplierInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   riskAssessments?: boolean | Prisma.Supplier$riskAssessmentsArgs<ExtArgs>
   riskFindings?: boolean | Prisma.Supplier$riskFindingsArgs<ExtArgs>
   esgAssessments?: boolean | Prisma.Supplier$esgAssessmentsArgs<ExtArgs>
+  purchaseOrders?: boolean | Prisma.Supplier$purchaseOrdersArgs<ExtArgs>
+  supplierInvoices?: boolean | Prisma.Supplier$supplierInvoicesArgs<ExtArgs>
   _count?: boolean | Prisma.SupplierCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SupplierIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2771,6 +3227,8 @@ export type $SupplierPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     riskAssessments: Prisma.$SupplierRiskAssessmentPayload<ExtArgs>[]
     riskFindings: Prisma.$SupplierRiskFindingPayload<ExtArgs>[]
     esgAssessments: Prisma.$SupplierEsgAssessmentPayload<ExtArgs>[]
+    purchaseOrders: Prisma.$PurchaseOrderPayload<ExtArgs>[]
+    supplierInvoices: Prisma.$SupplierInvoicePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3199,6 +3657,8 @@ export interface Prisma__SupplierClient<T, Null = never, ExtArgs extends runtime
   riskAssessments<T extends Prisma.Supplier$riskAssessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$riskAssessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierRiskAssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   riskFindings<T extends Prisma.Supplier$riskFindingsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$riskFindingsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierRiskFindingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   esgAssessments<T extends Prisma.Supplier$esgAssessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$esgAssessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierEsgAssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  purchaseOrders<T extends Prisma.Supplier$purchaseOrdersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$purchaseOrdersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  supplierInvoices<T extends Prisma.Supplier$supplierInvoicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$supplierInvoicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierInvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3864,6 +4324,54 @@ export type Supplier$esgAssessmentsArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.SupplierEsgAssessmentScalarFieldEnum | Prisma.SupplierEsgAssessmentScalarFieldEnum[]
+}
+
+/**
+ * Supplier.purchaseOrders
+ */
+export type Supplier$purchaseOrdersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PurchaseOrder
+   */
+  select?: Prisma.PurchaseOrderSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PurchaseOrder
+   */
+  omit?: Prisma.PurchaseOrderOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PurchaseOrderInclude<ExtArgs> | null
+  where?: Prisma.PurchaseOrderWhereInput
+  orderBy?: Prisma.PurchaseOrderOrderByWithRelationInput | Prisma.PurchaseOrderOrderByWithRelationInput[]
+  cursor?: Prisma.PurchaseOrderWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PurchaseOrderScalarFieldEnum | Prisma.PurchaseOrderScalarFieldEnum[]
+}
+
+/**
+ * Supplier.supplierInvoices
+ */
+export type Supplier$supplierInvoicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierInvoice
+   */
+  select?: Prisma.SupplierInvoiceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierInvoice
+   */
+  omit?: Prisma.SupplierInvoiceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierInvoiceInclude<ExtArgs> | null
+  where?: Prisma.SupplierInvoiceWhereInput
+  orderBy?: Prisma.SupplierInvoiceOrderByWithRelationInput | Prisma.SupplierInvoiceOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierInvoiceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierInvoiceScalarFieldEnum | Prisma.SupplierInvoiceScalarFieldEnum[]
 }
 
 /**
