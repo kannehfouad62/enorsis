@@ -24,6 +24,7 @@ import {
   ShieldCheck,
   ShieldAlert,
   ShoppingCart,
+  Store,
   Sparkles,
   Users,
   Workflow,
@@ -43,6 +44,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Catalog & Guided Buying",
+    description: "Preferred catalogs, shopping carts and policy-aligned buying.",
+    href: "/app/buying",
+    icon: Store,
+    group: "Procurement",
+  },
   {
     title: "Purchase Requests",
     description: "Create, route and approve internal procurement demand.",

@@ -2122,6 +2122,74 @@ export type EnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel = never> =
   _max?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
 }
 
+export type EnumProcurementCatalogTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogType | Prisma.EnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel> | $Enums.ProcurementCatalogType
+}
+
+export type EnumProcurementCatalogStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogStatus | Prisma.EnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel> | $Enums.ProcurementCatalogStatus
+}
+
+export type EnumProcurementCatalogTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogType | Prisma.EnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementCatalogType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel>
+}
+
+export type EnumProcurementCatalogStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogStatus | Prisma.EnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementCatalogStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel>
+}
+
+export type EnumCatalogItemStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.CatalogItemStatus | Prisma.EnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel> | $Enums.CatalogItemStatus
+}
+
+export type EnumCatalogItemStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CatalogItemStatus | Prisma.EnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCatalogItemStatusWithAggregatesFilter<$PrismaModel> | $Enums.CatalogItemStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel>
+}
+
+export type EnumGuidedCartStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GuidedCartStatus | Prisma.EnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel> | $Enums.GuidedCartStatus
+}
+
+export type EnumGuidedCartStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GuidedCartStatus | Prisma.EnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGuidedCartStatusWithAggregatesFilter<$PrismaModel> | $Enums.GuidedCartStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -4187,6 +4255,74 @@ export type NestedEnumResiliencePlanStatusWithAggregatesFilter<$PrismaModel = ne
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumResiliencePlanStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementCatalogTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogType | Prisma.EnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel> | $Enums.ProcurementCatalogType
+}
+
+export type NestedEnumProcurementCatalogStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogStatus | Prisma.EnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel> | $Enums.ProcurementCatalogStatus
+}
+
+export type NestedEnumProcurementCatalogTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogType | Prisma.EnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogType[] | Prisma.ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementCatalogType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementCatalogTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementCatalogStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementCatalogStatus | Prisma.EnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementCatalogStatus[] | Prisma.ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementCatalogStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementCatalogStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementCatalogStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumCatalogItemStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.CatalogItemStatus | Prisma.EnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel> | $Enums.CatalogItemStatus
+}
+
+export type NestedEnumCatalogItemStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CatalogItemStatus | Prisma.EnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CatalogItemStatus[] | Prisma.ListEnumCatalogItemStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCatalogItemStatusWithAggregatesFilter<$PrismaModel> | $Enums.CatalogItemStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCatalogItemStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumGuidedCartStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GuidedCartStatus | Prisma.EnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel> | $Enums.GuidedCartStatus
+}
+
+export type NestedEnumGuidedCartStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GuidedCartStatus | Prisma.EnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GuidedCartStatus[] | Prisma.ListEnumGuidedCartStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGuidedCartStatusWithAggregatesFilter<$PrismaModel> | $Enums.GuidedCartStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGuidedCartStatusFilter<$PrismaModel>
 }
 
 

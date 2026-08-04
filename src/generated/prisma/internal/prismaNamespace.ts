@@ -484,7 +484,11 @@ export const ModelName = {
   ProcurementRemediation: 'ProcurementRemediation',
   SupplyRiskEvent: 'SupplyRiskEvent',
   SupplyRiskExposure: 'SupplyRiskExposure',
-  ResiliencePlan: 'ResiliencePlan'
+  ResiliencePlan: 'ResiliencePlan',
+  ProcurementCatalog: 'ProcurementCatalog',
+  ProcurementCatalogItem: 'ProcurementCatalogItem',
+  GuidedCart: 'GuidedCart',
+  GuidedCartItem: 'GuidedCartItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -500,7 +504,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -7016,6 +7020,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementCatalog: {
+      payload: Prisma.$ProcurementCatalogPayload<ExtArgs>
+      fields: Prisma.ProcurementCatalogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementCatalogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementCatalogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementCatalogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementCatalogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementCatalogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementCatalogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementCatalogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementCatalogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementCatalogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        update: {
+          args: Prisma.ProcurementCatalogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementCatalogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementCatalogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementCatalogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementCatalogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementCatalogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementCatalog>
+        }
+        groupBy: {
+          args: Prisma.ProcurementCatalogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementCatalogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementCatalogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementCatalogCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementCatalogItem: {
+      payload: Prisma.$ProcurementCatalogItemPayload<ExtArgs>
+      fields: Prisma.ProcurementCatalogItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementCatalogItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementCatalogItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementCatalogItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementCatalogItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementCatalogItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementCatalogItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementCatalogItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementCatalogItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementCatalogItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        update: {
+          args: Prisma.ProcurementCatalogItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementCatalogItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementCatalogItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementCatalogItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementCatalogItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementCatalogItemPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementCatalogItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementCatalogItem>
+        }
+        groupBy: {
+          args: Prisma.ProcurementCatalogItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementCatalogItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementCatalogItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementCatalogItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    GuidedCart: {
+      payload: Prisma.$GuidedCartPayload<ExtArgs>
+      fields: Prisma.GuidedCartFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GuidedCartFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GuidedCartFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        findFirst: {
+          args: Prisma.GuidedCartFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GuidedCartFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        findMany: {
+          args: Prisma.GuidedCartFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>[]
+        }
+        create: {
+          args: Prisma.GuidedCartCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        createMany: {
+          args: Prisma.GuidedCartCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GuidedCartCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>[]
+        }
+        delete: {
+          args: Prisma.GuidedCartDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        update: {
+          args: Prisma.GuidedCartUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        deleteMany: {
+          args: Prisma.GuidedCartDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GuidedCartUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GuidedCartUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>[]
+        }
+        upsert: {
+          args: Prisma.GuidedCartUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartPayload>
+        }
+        aggregate: {
+          args: Prisma.GuidedCartAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGuidedCart>
+        }
+        groupBy: {
+          args: Prisma.GuidedCartGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GuidedCartGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GuidedCartCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GuidedCartCountAggregateOutputType> | number
+        }
+      }
+    }
+    GuidedCartItem: {
+      payload: Prisma.$GuidedCartItemPayload<ExtArgs>
+      fields: Prisma.GuidedCartItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GuidedCartItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GuidedCartItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        findFirst: {
+          args: Prisma.GuidedCartItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GuidedCartItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        findMany: {
+          args: Prisma.GuidedCartItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>[]
+        }
+        create: {
+          args: Prisma.GuidedCartItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        createMany: {
+          args: Prisma.GuidedCartItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GuidedCartItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>[]
+        }
+        delete: {
+          args: Prisma.GuidedCartItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        update: {
+          args: Prisma.GuidedCartItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.GuidedCartItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GuidedCartItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GuidedCartItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.GuidedCartItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GuidedCartItemPayload>
+        }
+        aggregate: {
+          args: Prisma.GuidedCartItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGuidedCartItem>
+        }
+        groupBy: {
+          args: Prisma.GuidedCartItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GuidedCartItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GuidedCartItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GuidedCartItemCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -8930,6 +9230,93 @@ export const ResiliencePlanScalarFieldEnum = {
 export type ResiliencePlanScalarFieldEnum = (typeof ResiliencePlanScalarFieldEnum)[keyof typeof ResiliencePlanScalarFieldEnum]
 
 
+export const ProcurementCatalogScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  validFrom: 'validFrom',
+  validUntil: 'validUntil',
+  contractReference: 'contractReference',
+  punchoutUrl: 'punchoutUrl',
+  ownerUserId: 'ownerUserId',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementCatalogScalarFieldEnum = (typeof ProcurementCatalogScalarFieldEnum)[keyof typeof ProcurementCatalogScalarFieldEnum]
+
+
+export const ProcurementCatalogItemScalarFieldEnum = {
+  id: 'id',
+  procurementCatalogId: 'procurementCatalogId',
+  sku: 'sku',
+  supplierSku: 'supplierSku',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  status: 'status',
+  unitOfMeasure: 'unitOfMeasure',
+  unitPrice: 'unitPrice',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  leadTimeDays: 'leadTimeDays',
+  manufacturer: 'manufacturer',
+  manufacturerPartNo: 'manufacturerPartNo',
+  preferred: 'preferred',
+  environmentallyPreferred: 'environmentallyPreferred',
+  diversityQualified: 'diversityQualified',
+  imageUrl: 'imageUrl',
+  specifications: 'specifications',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementCatalogItemScalarFieldEnum = (typeof ProcurementCatalogItemScalarFieldEnum)[keyof typeof ProcurementCatalogItemScalarFieldEnum]
+
+
+export const GuidedCartScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  requesterUserId: 'requesterUserId',
+  name: 'name',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  totalAmount: 'totalAmount',
+  businessPurpose: 'businessPurpose',
+  deliveryLocation: 'deliveryLocation',
+  neededBy: 'neededBy',
+  purchaseRequestId: 'purchaseRequestId',
+  submittedAt: 'submittedAt',
+  convertedAt: 'convertedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GuidedCartScalarFieldEnum = (typeof GuidedCartScalarFieldEnum)[keyof typeof GuidedCartScalarFieldEnum]
+
+
+export const GuidedCartItemScalarFieldEnum = {
+  id: 'id',
+  guidedCartId: 'guidedCartId',
+  catalogItemId: 'catalogItemId',
+  quantity: 'quantity',
+  unitPrice: 'unitPrice',
+  lineTotal: 'lineTotal',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GuidedCartItemScalarFieldEnum = (typeof GuidedCartItemScalarFieldEnum)[keyof typeof GuidedCartItemScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -10518,6 +10905,62 @@ export type ListEnumResiliencePlanStatusFieldRefInput<$PrismaModel> = FieldRefIn
 
 
 /**
+ * Reference to a field of type 'ProcurementCatalogType'
+ */
+export type EnumProcurementCatalogTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementCatalogType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementCatalogType[]'
+ */
+export type ListEnumProcurementCatalogTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementCatalogType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementCatalogStatus'
+ */
+export type EnumProcurementCatalogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementCatalogStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementCatalogStatus[]'
+ */
+export type ListEnumProcurementCatalogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementCatalogStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'CatalogItemStatus'
+ */
+export type EnumCatalogItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CatalogItemStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'CatalogItemStatus[]'
+ */
+export type ListEnumCatalogItemStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CatalogItemStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GuidedCartStatus'
+ */
+export type EnumGuidedCartStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GuidedCartStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GuidedCartStatus[]'
+ */
+export type ListEnumGuidedCartStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GuidedCartStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -10769,6 +11212,10 @@ export type GlobalOmitConfig = {
   supplyRiskEvent?: Prisma.SupplyRiskEventOmit
   supplyRiskExposure?: Prisma.SupplyRiskExposureOmit
   resiliencePlan?: Prisma.ResiliencePlanOmit
+  procurementCatalog?: Prisma.ProcurementCatalogOmit
+  procurementCatalogItem?: Prisma.ProcurementCatalogItemOmit
+  guidedCart?: Prisma.GuidedCartOmit
+  guidedCartItem?: Prisma.GuidedCartItemOmit
 }
 
 /* Types for Logging */

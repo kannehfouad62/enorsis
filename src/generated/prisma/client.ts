@@ -481,3 +481,23 @@ export type SupplyRiskExposure = Prisma.SupplyRiskExposureModel
  * 
  */
 export type ResiliencePlan = Prisma.ResiliencePlanModel
+/**
+ * Model ProcurementCatalog
+ * 
+ */
+export type ProcurementCatalog = Prisma.ProcurementCatalogModel
+/**
+ * Model ProcurementCatalogItem
+ * 
+ */
+export type ProcurementCatalogItem = Prisma.ProcurementCatalogItemModel
+/**
+ * Model GuidedCart
+ * 
+ */
+export type GuidedCart = Prisma.GuidedCartModel
+/**
+ * Model GuidedCartItem
+ * 
+ */
+export type GuidedCartItem = Prisma.GuidedCartItemModel

@@ -138,7 +138,11 @@ export const ModelName = {
   ProcurementRemediation: 'ProcurementRemediation',
   SupplyRiskEvent: 'SupplyRiskEvent',
   SupplyRiskExposure: 'SupplyRiskExposure',
-  ResiliencePlan: 'ResiliencePlan'
+  ResiliencePlan: 'ResiliencePlan',
+  ProcurementCatalog: 'ProcurementCatalog',
+  ProcurementCatalogItem: 'ProcurementCatalogItem',
+  GuidedCart: 'GuidedCart',
+  GuidedCartItem: 'GuidedCartItem'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2030,6 +2034,93 @@ export const ResiliencePlanScalarFieldEnum = {
 } as const
 
 export type ResiliencePlanScalarFieldEnum = (typeof ResiliencePlanScalarFieldEnum)[keyof typeof ResiliencePlanScalarFieldEnum]
+
+
+export const ProcurementCatalogScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  name: 'name',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  validFrom: 'validFrom',
+  validUntil: 'validUntil',
+  contractReference: 'contractReference',
+  punchoutUrl: 'punchoutUrl',
+  ownerUserId: 'ownerUserId',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementCatalogScalarFieldEnum = (typeof ProcurementCatalogScalarFieldEnum)[keyof typeof ProcurementCatalogScalarFieldEnum]
+
+
+export const ProcurementCatalogItemScalarFieldEnum = {
+  id: 'id',
+  procurementCatalogId: 'procurementCatalogId',
+  sku: 'sku',
+  supplierSku: 'supplierSku',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  status: 'status',
+  unitOfMeasure: 'unitOfMeasure',
+  unitPrice: 'unitPrice',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  leadTimeDays: 'leadTimeDays',
+  manufacturer: 'manufacturer',
+  manufacturerPartNo: 'manufacturerPartNo',
+  preferred: 'preferred',
+  environmentallyPreferred: 'environmentallyPreferred',
+  diversityQualified: 'diversityQualified',
+  imageUrl: 'imageUrl',
+  specifications: 'specifications',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementCatalogItemScalarFieldEnum = (typeof ProcurementCatalogItemScalarFieldEnum)[keyof typeof ProcurementCatalogItemScalarFieldEnum]
+
+
+export const GuidedCartScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  requesterUserId: 'requesterUserId',
+  name: 'name',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  totalAmount: 'totalAmount',
+  businessPurpose: 'businessPurpose',
+  deliveryLocation: 'deliveryLocation',
+  neededBy: 'neededBy',
+  purchaseRequestId: 'purchaseRequestId',
+  submittedAt: 'submittedAt',
+  convertedAt: 'convertedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GuidedCartScalarFieldEnum = (typeof GuidedCartScalarFieldEnum)[keyof typeof GuidedCartScalarFieldEnum]
+
+
+export const GuidedCartItemScalarFieldEnum = {
+  id: 'id',
+  guidedCartId: 'guidedCartId',
+  catalogItemId: 'catalogItemId',
+  quantity: 'quantity',
+  unitPrice: 'unitPrice',
+  lineTotal: 'lineTotal',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GuidedCartItemScalarFieldEnum = (typeof GuidedCartItemScalarFieldEnum)[keyof typeof GuidedCartItemScalarFieldEnum]
 
 
 export const SortOrder = {

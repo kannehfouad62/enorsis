@@ -1089,6 +1089,46 @@ export const ResiliencePlanStatus = {
 export type ResiliencePlanStatus = (typeof ResiliencePlanStatus)[keyof typeof ResiliencePlanStatus]
 
 
+export const ProcurementCatalogStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  EXPIRED: 'EXPIRED',
+  RETIRED: 'RETIRED'
+} as const
+
+export type ProcurementCatalogStatus = (typeof ProcurementCatalogStatus)[keyof typeof ProcurementCatalogStatus]
+
+
+export const ProcurementCatalogType = {
+  INTERNAL: 'INTERNAL',
+  SUPPLIER: 'SUPPLIER',
+  CONTRACT: 'CONTRACT',
+  PUNCHOUT: 'PUNCHOUT'
+} as const
+
+export type ProcurementCatalogType = (typeof ProcurementCatalogType)[keyof typeof ProcurementCatalogType]
+
+
+export const CatalogItemStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE',
+  DISCONTINUED: 'DISCONTINUED'
+} as const
+
+export type CatalogItemStatus = (typeof CatalogItemStatus)[keyof typeof CatalogItemStatus]
+
+
+export const GuidedCartStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  CONVERTED: 'CONVERTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type GuidedCartStatus = (typeof GuidedCartStatus)[keyof typeof GuidedCartStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

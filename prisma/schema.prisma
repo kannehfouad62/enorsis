@@ -800,6 +800,34 @@ enum ResiliencePlanStatus {
   RETIRED
 }
 
+enum ProcurementCatalogStatus {
+  DRAFT
+  ACTIVE
+  SUSPENDED
+  EXPIRED
+  RETIRED
+}
+
+enum ProcurementCatalogType {
+  INTERNAL
+  SUPPLIER
+  CONTRACT
+  PUNCHOUT
+}
+
+enum CatalogItemStatus {
+  ACTIVE
+  INACTIVE
+  DISCONTINUED
+}
+
+enum GuidedCartStatus {
+  DRAFT
+  SUBMITTED
+  CONVERTED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -942,6 +970,8 @@ model Tenant {
   procurementRemediations    ProcurementRemediation[]
   supplyRiskEvents           SupplyRiskEvent[]
   resiliencePlans            ResiliencePlan[]
+  procurementCatalogs        ProcurementCatalog[]
+  guidedCarts                GuidedCart[]
   createdAt                  DateTime                    @default(now())
   updatedAt                  DateTime                    @updatedAt
   archivedAt                 DateTime?
@@ -1241,6 +1271,8 @@ model Supplier {
   scorecards          SupplierScorecard[]
   developmentPlans    SupplierDevelopmentPlan[]
   correctiveActions   SupplierCorrectiveAction[]
+
+  procurementCatalogs ProcurementCatalog[]
 
   @@unique([tenantId, supplierNumber])
   @@unique([tenantId, legalName, countryCode])
@@ -3003,4 +3035,98 @@ model ResiliencePlan {
   updatedAt             DateTime             @updatedAt
 
   @@index([tenantId, status, createdAt])
+}
+
+model ProcurementCatalog {
+  id                String                   @id @default(cuid())
+  tenantId          String
+  supplierId        String?
+  name              String
+  description       String?
+  type              ProcurementCatalogType
+  status            ProcurementCatalogStatus @default(DRAFT)
+  currencyCode      String                   @default("USD")
+  validFrom         DateTime?
+  validUntil        DateTime?
+  contractReference String?
+  punchoutUrl       String?
+  ownerUserId       String
+  activatedByUserId String?
+  activatedAt       DateTime?
+  tenant            Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier          Supplier?                @relation(fields: [supplierId], references: [id], onDelete: SetNull)
+  items             ProcurementCatalogItem[]
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, status, type])
+}
+
+model ProcurementCatalogItem {
+  id                       String             @id @default(cuid())
+  procurementCatalogId     String
+  sku                      String
+  supplierSku              String?
+  name                     String
+  description              String?
+  category                 String
+  status                   CatalogItemStatus  @default(ACTIVE)
+  unitOfMeasure            String
+  unitPrice                Decimal            @db.Decimal(18, 4)
+  minimumQuantity          Decimal            @default(1) @db.Decimal(18, 4)
+  maximumQuantity          Decimal?           @db.Decimal(18, 4)
+  leadTimeDays             Int?
+  manufacturer             String?
+  manufacturerPartNo       String?
+  preferred                Boolean            @default(false)
+  environmentallyPreferred Boolean            @default(false)
+  diversityQualified       Boolean            @default(false)
+  imageUrl                 String?
+  specifications           Json?
+  catalog                  ProcurementCatalog @relation(fields: [procurementCatalogId], references: [id], onDelete: Cascade)
+  cartItems                GuidedCartItem[]
+  createdAt                DateTime           @default(now())
+  updatedAt                DateTime           @updatedAt
+
+  @@unique([procurementCatalogId, sku])
+  @@index([procurementCatalogId, status, category])
+}
+
+model GuidedCart {
+  id                String           @id @default(cuid())
+  tenantId          String
+  requesterUserId   String
+  name              String?
+  status            GuidedCartStatus @default(DRAFT)
+  currencyCode      String           @default("USD")
+  totalAmount       Decimal          @default(0) @db.Decimal(18, 2)
+  businessPurpose   String?
+  deliveryLocation  String?
+  neededBy          DateTime?
+  purchaseRequestId String?
+  submittedAt       DateTime?
+  convertedAt       DateTime?
+  tenant            Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  items             GuidedCartItem[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([tenantId, requesterUserId, status])
+}
+
+model GuidedCartItem {
+  id            String                 @id @default(cuid())
+  guidedCartId  String
+  catalogItemId String
+  quantity      Decimal                @db.Decimal(18, 4)
+  unitPrice     Decimal                @db.Decimal(18, 4)
+  lineTotal     Decimal                @db.Decimal(18, 2)
+  notes         String?
+  cart          GuidedCart             @relation(fields: [guidedCartId], references: [id], onDelete: Cascade)
+  catalogItem   ProcurementCatalogItem @relation(fields: [catalogItemId], references: [id], onDelete: Restrict)
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+
+  @@unique([guidedCartId, catalogItemId])
 }
