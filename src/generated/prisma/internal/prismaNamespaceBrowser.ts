@@ -148,7 +148,11 @@ export const ModelName = {
   InventoryBalance: 'InventoryBalance',
   InventoryTransaction: 'InventoryTransaction',
   CycleCount: 'CycleCount',
-  CycleCountLine: 'CycleCountLine'
+  CycleCountLine: 'CycleCountLine',
+  StatementOfWork: 'StatementOfWork',
+  ServiceMilestone: 'ServiceMilestone',
+  ServiceWorker: 'ServiceWorker',
+  ServiceTimeEntry: 'ServiceTimeEntry'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2246,6 +2250,100 @@ export const CycleCountLineScalarFieldEnum = {
 } as const
 
 export type CycleCountLineScalarFieldEnum = (typeof CycleCountLineScalarFieldEnum)[keyof typeof CycleCountLineScalarFieldEnum]
+
+
+export const StatementOfWorkScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  sowNumber: 'sowNumber',
+  title: 'title',
+  description: 'description',
+  engagementType: 'engagementType',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  notToExceedAmount: 'notToExceedAmount',
+  committedAmount: 'committedAmount',
+  approvedAmount: 'approvedAmount',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  businessOwnerUserId: 'businessOwnerUserId',
+  procurementOwnerUserId: 'procurementOwnerUserId',
+  scopeOfWork: 'scopeOfWork',
+  deliverables: 'deliverables',
+  acceptanceCriteria: 'acceptanceCriteria',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  activatedAt: 'activatedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StatementOfWorkScalarFieldEnum = (typeof StatementOfWorkScalarFieldEnum)[keyof typeof StatementOfWorkScalarFieldEnum]
+
+
+export const ServiceMilestoneScalarFieldEnum = {
+  id: 'id',
+  statementOfWorkId: 'statementOfWorkId',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  dueAt: 'dueAt',
+  amount: 'amount',
+  submittedAt: 'submittedAt',
+  acceptedAt: 'acceptedAt',
+  acceptedByUserId: 'acceptedByUserId',
+  acceptanceNotes: 'acceptanceNotes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceMilestoneScalarFieldEnum = (typeof ServiceMilestoneScalarFieldEnum)[keyof typeof ServiceMilestoneScalarFieldEnum]
+
+
+export const ServiceWorkerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  statementOfWorkId: 'statementOfWorkId',
+  workerReference: 'workerReference',
+  fullName: 'fullName',
+  email: 'email',
+  roleTitle: 'roleTitle',
+  status: 'status',
+  startsAt: 'startsAt',
+  endsAt: 'endsAt',
+  hourlyRate: 'hourlyRate',
+  dailyRate: 'dailyRate',
+  maximumHours: 'maximumHours',
+  managerUserId: 'managerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceWorkerScalarFieldEnum = (typeof ServiceWorkerScalarFieldEnum)[keyof typeof ServiceWorkerScalarFieldEnum]
+
+
+export const ServiceTimeEntryScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  statementOfWorkId: 'statementOfWorkId',
+  serviceWorkerId: 'serviceWorkerId',
+  workDate: 'workDate',
+  hours: 'hours',
+  rate: 'rate',
+  amount: 'amount',
+  description: 'description',
+  status: 'status',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  approvedByUserId: 'approvedByUserId',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServiceTimeEntryScalarFieldEnum = (typeof ServiceTimeEntryScalarFieldEnum)[keyof typeof ServiceTimeEntryScalarFieldEnum]
 
 
 export const SortOrder = {

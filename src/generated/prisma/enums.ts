@@ -1170,6 +1170,64 @@ export const CycleCountStatus = {
 export type CycleCountStatus = (typeof CycleCountStatus)[keyof typeof CycleCountStatus]
 
 
+export const StatementOfWorkStatus = {
+  DRAFT: 'DRAFT',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  ACTIVE: 'ACTIVE',
+  COMPLETED: 'COMPLETED',
+  TERMINATED: 'TERMINATED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type StatementOfWorkStatus = (typeof StatementOfWorkStatus)[keyof typeof StatementOfWorkStatus]
+
+
+export const ServiceEngagementType = {
+  FIXED_FEE: 'FIXED_FEE',
+  TIME_AND_MATERIALS: 'TIME_AND_MATERIALS',
+  RETAINER: 'RETAINER',
+  MILESTONE_BASED: 'MILESTONE_BASED',
+  CONTINGENT_LABOR: 'CONTINGENT_LABOR'
+} as const
+
+export type ServiceEngagementType = (typeof ServiceEngagementType)[keyof typeof ServiceEngagementType]
+
+
+export const ServiceMilestoneStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SUBMITTED: 'SUBMITTED',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED',
+  PAID: 'PAID'
+} as const
+
+export type ServiceMilestoneStatus = (typeof ServiceMilestoneStatus)[keyof typeof ServiceMilestoneStatus]
+
+
+export const ServiceWorkerStatus = {
+  PLANNED: 'PLANNED',
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  COMPLETED: 'COMPLETED',
+  TERMINATED: 'TERMINATED'
+} as const
+
+export type ServiceWorkerStatus = (typeof ServiceWorkerStatus)[keyof typeof ServiceWorkerStatus]
+
+
+export const ServiceTimeEntryStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  INVOICED: 'INVOICED'
+} as const
+
+export type ServiceTimeEntryStatus = (typeof ServiceTimeEntryStatus)[keyof typeof ServiceTimeEntryStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

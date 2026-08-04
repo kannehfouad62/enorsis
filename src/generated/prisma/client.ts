@@ -531,3 +531,23 @@ export type CycleCount = Prisma.CycleCountModel
  * 
  */
 export type CycleCountLine = Prisma.CycleCountLineModel
+/**
+ * Model StatementOfWork
+ * 
+ */
+export type StatementOfWork = Prisma.StatementOfWorkModel
+/**
+ * Model ServiceMilestone
+ * 
+ */
+export type ServiceMilestone = Prisma.ServiceMilestoneModel
+/**
+ * Model ServiceWorker
+ * 
+ */
+export type ServiceWorker = Prisma.ServiceWorkerModel
+/**
+ * Model ServiceTimeEntry
+ * 
+ */
+export type ServiceTimeEntry = Prisma.ServiceTimeEntryModel

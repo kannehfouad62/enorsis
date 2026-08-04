@@ -27,6 +27,7 @@ import {
   Store,
   Sparkles,
   Users,
+  UserRoundCog,
   Workflow,
   Warehouse,
 } from "lucide-react";
@@ -45,6 +46,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Services & Workforce",
+    description: "Statements of work, external workers, time and milestones.",
+    href: "/app/services",
+    icon: UserRoundCog,
+    group: "Procurement",
+  },
   {
     title: "Inventory & Materials",
     description: "Stock locations, balances, movements and cycle counts.",
