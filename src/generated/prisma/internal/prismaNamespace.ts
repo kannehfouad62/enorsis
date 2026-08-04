@@ -448,7 +448,11 @@ export const ModelName = {
   PaymentBatchItem: 'PaymentBatchItem',
   AiAgentTask: 'AiAgentTask',
   AiAgentTaskApproval: 'AiAgentTaskApproval',
-  AiAgentTaskAttempt: 'AiAgentTaskAttempt'
+  AiAgentTaskAttempt: 'AiAgentTaskAttempt',
+  IntegrationConnection: 'IntegrationConnection',
+  IntegrationMapping: 'IntegrationMapping',
+  IntegrationJob: 'IntegrationJob',
+  IntegrationEvent: 'IntegrationEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -464,7 +468,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -4316,6 +4320,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    IntegrationConnection: {
+      payload: Prisma.$IntegrationConnectionPayload<ExtArgs>
+      fields: Prisma.IntegrationConnectionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationConnectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationConnectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationConnectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationConnectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationConnectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationConnectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationConnectionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationConnectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationConnectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        update: {
+          args: Prisma.IntegrationConnectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationConnectionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationConnectionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationConnectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationConnectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationConnectionPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationConnectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationConnection>
+        }
+        groupBy: {
+          args: Prisma.IntegrationConnectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationConnectionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationConnectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationConnectionCountAggregateOutputType> | number
+        }
+      }
+    }
+    IntegrationMapping: {
+      payload: Prisma.$IntegrationMappingPayload<ExtArgs>
+      fields: Prisma.IntegrationMappingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationMappingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationMappingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationMappingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationMappingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationMappingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationMappingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationMappingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationMappingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationMappingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        update: {
+          args: Prisma.IntegrationMappingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationMappingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationMappingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationMappingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationMappingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationMappingPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationMappingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationMapping>
+        }
+        groupBy: {
+          args: Prisma.IntegrationMappingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationMappingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationMappingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationMappingCountAggregateOutputType> | number
+        }
+      }
+    }
+    IntegrationJob: {
+      payload: Prisma.$IntegrationJobPayload<ExtArgs>
+      fields: Prisma.IntegrationJobFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationJobFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationJobFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationJobFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationJobFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationJobFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationJobCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationJobCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationJobCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationJobDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        update: {
+          args: Prisma.IntegrationJobUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationJobDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationJobUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationJobUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationJobUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationJobPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationJobAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationJob>
+        }
+        groupBy: {
+          args: Prisma.IntegrationJobGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationJobGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationJobCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationJobCountAggregateOutputType> | number
+        }
+      }
+    }
+    IntegrationEvent: {
+      payload: Prisma.$IntegrationEventPayload<ExtArgs>
+      fields: Prisma.IntegrationEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.IntegrationEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.IntegrationEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        findFirst: {
+          args: Prisma.IntegrationEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.IntegrationEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        findMany: {
+          args: Prisma.IntegrationEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        create: {
+          args: Prisma.IntegrationEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        createMany: {
+          args: Prisma.IntegrationEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.IntegrationEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        delete: {
+          args: Prisma.IntegrationEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        update: {
+          args: Prisma.IntegrationEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.IntegrationEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.IntegrationEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.IntegrationEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.IntegrationEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$IntegrationEventPayload>
+        }
+        aggregate: {
+          args: Prisma.IntegrationEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIntegrationEvent>
+        }
+        groupBy: {
+          args: Prisma.IntegrationEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.IntegrationEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.IntegrationEventCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -5409,6 +5709,94 @@ export const AiAgentTaskAttemptScalarFieldEnum = {
 export type AiAgentTaskAttemptScalarFieldEnum = (typeof AiAgentTaskAttemptScalarFieldEnum)[keyof typeof AiAgentTaskAttemptScalarFieldEnum]
 
 
+export const IntegrationConnectionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  provider: 'provider',
+  direction: 'direction',
+  status: 'status',
+  baseUrl: 'baseUrl',
+  secretReference: 'secretReference',
+  webhookSecretHash: 'webhookSecretHash',
+  outboundEnabled: 'outboundEnabled',
+  inboundEnabled: 'inboundEnabled',
+  retryLimit: 'retryLimit',
+  timeoutSeconds: 'timeoutSeconds',
+  lastSuccessfulAt: 'lastSuccessfulAt',
+  lastFailedAt: 'lastFailedAt',
+  lastError: 'lastError',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const IntegrationMappingScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  key: 'key',
+  name: 'name',
+  sourceEntity: 'sourceEntity',
+  targetEntity: 'targetEntity',
+  version: 'version',
+  isActive: 'isActive',
+  fieldMappings: 'fieldMappings',
+  transforms: 'transforms',
+  validationRules: 'validationRules',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationMappingScalarFieldEnum = (typeof IntegrationMappingScalarFieldEnum)[keyof typeof IntegrationMappingScalarFieldEnum]
+
+
+export const IntegrationJobScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  mappingId: 'mappingId',
+  direction: 'direction',
+  status: 'status',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  payload: 'payload',
+  response: 'response',
+  attemptCount: 'attemptCount',
+  nextAttemptAt: 'nextAttemptAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  correlationId: 'correlationId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationJobScalarFieldEnum = (typeof IntegrationJobScalarFieldEnum)[keyof typeof IntegrationJobScalarFieldEnum]
+
+
+export const IntegrationEventScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  externalEventId: 'externalEventId',
+  eventType: 'eventType',
+  status: 'status',
+  headers: 'headers',
+  payload: 'payload',
+  signatureValid: 'signatureValid',
+  processedAt: 'processedAt',
+  rejectedReason: 'rejectedReason',
+  errorMessage: 'errorMessage',
+  correlationId: 'correlationId',
+  receivedAt: 'receivedAt'
+} as const
+
+export type IntegrationEventScalarFieldEnum = (typeof IntegrationEventScalarFieldEnum)[keyof typeof IntegrationEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -5423,6 +5811,13 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {
@@ -6332,6 +6727,76 @@ export type ListEnumAiAgentApprovalDecisionFieldRefInput<$PrismaModel> = FieldRe
 
 
 /**
+ * Reference to a field of type 'IntegrationProvider'
+ */
+export type EnumIntegrationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationProvider'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationProvider[]'
+ */
+export type ListEnumIntegrationProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationProvider[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationDirection'
+ */
+export type EnumIntegrationDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationDirection[]'
+ */
+export type ListEnumIntegrationDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationDirection[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationStatus'
+ */
+export type EnumIntegrationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationStatus[]'
+ */
+export type ListEnumIntegrationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationJobStatus'
+ */
+export type EnumIntegrationJobStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationJobStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationJobStatus[]'
+ */
+export type ListEnumIntegrationJobStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationJobStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationEventStatus'
+ */
+export type EnumIntegrationEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationEventStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationEventStatus[]'
+ */
+export type ListEnumIntegrationEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationEventStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -6547,6 +7012,10 @@ export type GlobalOmitConfig = {
   aiAgentTask?: Prisma.AiAgentTaskOmit
   aiAgentTaskApproval?: Prisma.AiAgentTaskApprovalOmit
   aiAgentTaskAttempt?: Prisma.AiAgentTaskAttemptOmit
+  integrationConnection?: Prisma.IntegrationConnectionOmit
+  integrationMapping?: Prisma.IntegrationMappingOmit
+  integrationJob?: Prisma.IntegrationJobOmit
+  integrationEvent?: Prisma.IntegrationEventOmit
 }
 
 /* Types for Logging */

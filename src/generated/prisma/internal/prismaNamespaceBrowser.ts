@@ -102,7 +102,11 @@ export const ModelName = {
   PaymentBatchItem: 'PaymentBatchItem',
   AiAgentTask: 'AiAgentTask',
   AiAgentTaskApproval: 'AiAgentTaskApproval',
-  AiAgentTaskAttempt: 'AiAgentTaskAttempt'
+  AiAgentTaskAttempt: 'AiAgentTaskAttempt',
+  IntegrationConnection: 'IntegrationConnection',
+  IntegrationMapping: 'IntegrationMapping',
+  IntegrationJob: 'IntegrationJob',
+  IntegrationEvent: 'IntegrationEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1175,6 +1179,94 @@ export const AiAgentTaskAttemptScalarFieldEnum = {
 export type AiAgentTaskAttemptScalarFieldEnum = (typeof AiAgentTaskAttemptScalarFieldEnum)[keyof typeof AiAgentTaskAttemptScalarFieldEnum]
 
 
+export const IntegrationConnectionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  provider: 'provider',
+  direction: 'direction',
+  status: 'status',
+  baseUrl: 'baseUrl',
+  secretReference: 'secretReference',
+  webhookSecretHash: 'webhookSecretHash',
+  outboundEnabled: 'outboundEnabled',
+  inboundEnabled: 'inboundEnabled',
+  retryLimit: 'retryLimit',
+  timeoutSeconds: 'timeoutSeconds',
+  lastSuccessfulAt: 'lastSuccessfulAt',
+  lastFailedAt: 'lastFailedAt',
+  lastError: 'lastError',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationConnectionScalarFieldEnum = (typeof IntegrationConnectionScalarFieldEnum)[keyof typeof IntegrationConnectionScalarFieldEnum]
+
+
+export const IntegrationMappingScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  key: 'key',
+  name: 'name',
+  sourceEntity: 'sourceEntity',
+  targetEntity: 'targetEntity',
+  version: 'version',
+  isActive: 'isActive',
+  fieldMappings: 'fieldMappings',
+  transforms: 'transforms',
+  validationRules: 'validationRules',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationMappingScalarFieldEnum = (typeof IntegrationMappingScalarFieldEnum)[keyof typeof IntegrationMappingScalarFieldEnum]
+
+
+export const IntegrationJobScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  mappingId: 'mappingId',
+  direction: 'direction',
+  status: 'status',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  payload: 'payload',
+  response: 'response',
+  attemptCount: 'attemptCount',
+  nextAttemptAt: 'nextAttemptAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  correlationId: 'correlationId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type IntegrationJobScalarFieldEnum = (typeof IntegrationJobScalarFieldEnum)[keyof typeof IntegrationJobScalarFieldEnum]
+
+
+export const IntegrationEventScalarFieldEnum = {
+  id: 'id',
+  integrationId: 'integrationId',
+  externalEventId: 'externalEventId',
+  eventType: 'eventType',
+  status: 'status',
+  headers: 'headers',
+  payload: 'payload',
+  signatureValid: 'signatureValid',
+  processedAt: 'processedAt',
+  rejectedReason: 'rejectedReason',
+  errorMessage: 'errorMessage',
+  correlationId: 'correlationId',
+  receivedAt: 'receivedAt'
+} as const
+
+export type IntegrationEventScalarFieldEnum = (typeof IntegrationEventScalarFieldEnum)[keyof typeof IntegrationEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1189,6 +1281,13 @@ export const NullableJsonNullValueInput = {
 } as const
 
 export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {

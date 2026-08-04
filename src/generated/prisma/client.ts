@@ -301,3 +301,23 @@ export type AiAgentTaskApproval = Prisma.AiAgentTaskApprovalModel
  * 
  */
 export type AiAgentTaskAttempt = Prisma.AiAgentTaskAttemptModel
+/**
+ * Model IntegrationConnection
+ * 
+ */
+export type IntegrationConnection = Prisma.IntegrationConnectionModel
+/**
+ * Model IntegrationMapping
+ * 
+ */
+export type IntegrationMapping = Prisma.IntegrationMappingModel
+/**
+ * Model IntegrationJob
+ * 
+ */
+export type IntegrationJob = Prisma.IntegrationJobModel
+/**
+ * Model IntegrationEvent
+ * 
+ */
+export type IntegrationEvent = Prisma.IntegrationEventModel

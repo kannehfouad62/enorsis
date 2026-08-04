@@ -415,6 +415,51 @@ enum SiteStatus {
   INACTIVE
 }
 
+enum IntegrationProvider {
+  SAP
+  ORACLE
+  MICROSOFT_DYNAMICS
+  NETSUITE
+  WORKDAY
+  COUPA
+  ARIBA
+  GENERIC_REST
+  GENERIC_SFTP
+  GENERIC_WEBHOOK
+  OTHER
+}
+
+enum IntegrationStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  ERROR
+  RETIRED
+}
+
+enum IntegrationDirection {
+  INBOUND
+  OUTBOUND
+  BIDIRECTIONAL
+}
+
+enum IntegrationJobStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  DEAD_LETTER
+}
+
+enum IntegrationEventStatus {
+  RECEIVED
+  VALIDATED
+  PROCESSED
+  REJECTED
+  FAILED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -510,18 +555,18 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                   String               @id @default(cuid())
-  slug                 String               @unique
+  id                   String                  @id @default(cuid())
+  slug                 String                  @unique
   name                 String
   legalName            String?
-  status               TenantStatus         @default(PROVISIONING)
+  status               TenantStatus            @default(PROVISIONING)
   countryCode          String?
-  defaultLocale        String               @default("en-US")
-  defaultTimeZone      String               @default("UTC")
-  currencyPolicyMode   CurrencyPolicyMode   @default(USD_ONLY)
-  baseCurrencyCode     String               @default("USD")
+  defaultLocale        String                  @default("en-US")
+  defaultTimeZone      String                  @default("UTC")
+  currencyPolicyMode   CurrencyPolicyMode      @default(USD_ONLY)
+  baseCurrencyCode     String                  @default("USD")
   localDisplayCurrency String?
-  usdReportingEnabled  Boolean              @default(true)
+  usdReportingEnabled  Boolean                 @default(true)
   memberships          Membership[]
   legalEntities        LegalEntity[]
   sites                Site[]
@@ -536,8 +581,9 @@ model Tenant {
   suppliers            Supplier[]
   sourcingEvents       SourcingEvent[]
   paymentBatches       PaymentBatch[]
-  createdAt            DateTime             @default(now())
-  updatedAt            DateTime             @updatedAt
+  integrations         IntegrationConnection[]
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime                @updatedAt
   archivedAt           DateTime?
   contracts            Contract[]
   clauseTemplates      ClauseTemplate[]
@@ -1692,4 +1738,101 @@ model AiAgentTaskAttempt {
   @@unique([taskId, attemptNumber])
   @@index([taskId, startedAt])
   @@index([aiExecutionId])
+}
+
+model IntegrationConnection {
+  id                String               @id @default(cuid())
+  tenantId          String
+  key               String
+  name              String
+  provider          IntegrationProvider
+  direction         IntegrationDirection
+  status            IntegrationStatus    @default(DRAFT)
+  baseUrl           String?
+  secretReference   String?
+  webhookSecretHash String?
+  outboundEnabled   Boolean              @default(false)
+  inboundEnabled    Boolean              @default(false)
+  retryLimit        Int                  @default(3)
+  timeoutSeconds    Int                  @default(30)
+  lastSuccessfulAt  DateTime?
+  lastFailedAt      DateTime?
+  lastError         String?
+  createdByUserId   String
+  tenant            Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  mappings          IntegrationMapping[]
+  jobs              IntegrationJob[]
+  events            IntegrationEvent[]
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
+
+  @@unique([tenantId, key])
+  @@index([tenantId, status, provider])
+}
+
+model IntegrationMapping {
+  id              String                @id @default(cuid())
+  integrationId   String
+  key             String
+  name            String
+  sourceEntity    String
+  targetEntity    String
+  version         Int                   @default(1)
+  isActive        Boolean               @default(true)
+  fieldMappings   Json
+  transforms      Json?
+  validationRules Json?
+  integration     IntegrationConnection @relation(fields: [integrationId], references: [id], onDelete: Cascade)
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  @@unique([integrationId, key, version])
+  @@index([integrationId, isActive])
+}
+
+model IntegrationJob {
+  id              String                @id @default(cuid())
+  integrationId   String
+  mappingId       String?
+  direction       IntegrationDirection
+  status          IntegrationJobStatus  @default(QUEUED)
+  resourceType    String?
+  resourceId      String?
+  payload         Json
+  response        Json?
+  attemptCount    Int                   @default(0)
+  nextAttemptAt   DateTime?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  errorMessage    String?
+  correlationId   String?
+  createdByUserId String?
+  integration     IntegrationConnection @relation(fields: [integrationId], references: [id], onDelete: Cascade)
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  @@index([integrationId, status, nextAttemptAt])
+  @@index([resourceType, resourceId])
+  @@index([correlationId])
+}
+
+model IntegrationEvent {
+  id              String                 @id @default(cuid())
+  integrationId   String
+  externalEventId String?
+  eventType       String
+  status          IntegrationEventStatus @default(RECEIVED)
+  headers         Json?
+  payload         Json
+  signatureValid  Boolean?
+  processedAt     DateTime?
+  rejectedReason  String?
+  errorMessage    String?
+  correlationId   String?
+  integration     IntegrationConnection  @relation(fields: [integrationId], references: [id], onDelete: Cascade)
+  receivedAt      DateTime               @default(now())
+
+  @@unique([integrationId, externalEventId])
+  @@index([integrationId, status, receivedAt])
+  @@index([correlationId])
 }

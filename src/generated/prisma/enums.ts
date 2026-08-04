@@ -563,6 +563,66 @@ export const SiteStatus = {
 export type SiteStatus = (typeof SiteStatus)[keyof typeof SiteStatus]
 
 
+export const IntegrationProvider = {
+  SAP: 'SAP',
+  ORACLE: 'ORACLE',
+  MICROSOFT_DYNAMICS: 'MICROSOFT_DYNAMICS',
+  NETSUITE: 'NETSUITE',
+  WORKDAY: 'WORKDAY',
+  COUPA: 'COUPA',
+  ARIBA: 'ARIBA',
+  GENERIC_REST: 'GENERIC_REST',
+  GENERIC_SFTP: 'GENERIC_SFTP',
+  GENERIC_WEBHOOK: 'GENERIC_WEBHOOK',
+  OTHER: 'OTHER'
+} as const
+
+export type IntegrationProvider = (typeof IntegrationProvider)[keyof typeof IntegrationProvider]
+
+
+export const IntegrationStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  ERROR: 'ERROR',
+  RETIRED: 'RETIRED'
+} as const
+
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus]
+
+
+export const IntegrationDirection = {
+  INBOUND: 'INBOUND',
+  OUTBOUND: 'OUTBOUND',
+  BIDIRECTIONAL: 'BIDIRECTIONAL'
+} as const
+
+export type IntegrationDirection = (typeof IntegrationDirection)[keyof typeof IntegrationDirection]
+
+
+export const IntegrationJobStatus = {
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type IntegrationJobStatus = (typeof IntegrationJobStatus)[keyof typeof IntegrationJobStatus]
+
+
+export const IntegrationEventStatus = {
+  RECEIVED: 'RECEIVED',
+  VALIDATED: 'VALIDATED',
+  PROCESSED: 'PROCESSED',
+  REJECTED: 'REJECTED',
+  FAILED: 'FAILED'
+} as const
+
+export type IntegrationEventStatus = (typeof IntegrationEventStatus)[keyof typeof IntegrationEventStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
