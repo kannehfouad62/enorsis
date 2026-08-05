@@ -544,7 +544,11 @@ export const ModelName = {
   EnterpriseConnectorCredential: 'EnterpriseConnectorCredential',
   EnterpriseConnectorMapping: 'EnterpriseConnectorMapping',
   EnterpriseIntegrationSyncRun: 'EnterpriseIntegrationSyncRun',
-  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint'
+  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint',
+  VaultSecret: 'VaultSecret',
+  VaultSecretVersion: 'VaultSecretVersion',
+  VaultSecretAccessPolicy: 'VaultSecretAccessPolicy',
+  VaultSecretAccessLog: 'VaultSecretAccessLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -560,7 +564,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -11516,6 +11520,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    VaultSecret: {
+      payload: Prisma.$VaultSecretPayload<ExtArgs>
+      fields: Prisma.VaultSecretFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VaultSecretFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VaultSecretFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        findFirst: {
+          args: Prisma.VaultSecretFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VaultSecretFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        findMany: {
+          args: Prisma.VaultSecretFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>[]
+        }
+        create: {
+          args: Prisma.VaultSecretCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        createMany: {
+          args: Prisma.VaultSecretCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VaultSecretCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>[]
+        }
+        delete: {
+          args: Prisma.VaultSecretDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        update: {
+          args: Prisma.VaultSecretUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        deleteMany: {
+          args: Prisma.VaultSecretDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VaultSecretUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VaultSecretUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>[]
+        }
+        upsert: {
+          args: Prisma.VaultSecretUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretPayload>
+        }
+        aggregate: {
+          args: Prisma.VaultSecretAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVaultSecret>
+        }
+        groupBy: {
+          args: Prisma.VaultSecretGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VaultSecretCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretCountAggregateOutputType> | number
+        }
+      }
+    }
+    VaultSecretVersion: {
+      payload: Prisma.$VaultSecretVersionPayload<ExtArgs>
+      fields: Prisma.VaultSecretVersionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VaultSecretVersionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VaultSecretVersionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        findFirst: {
+          args: Prisma.VaultSecretVersionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VaultSecretVersionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        findMany: {
+          args: Prisma.VaultSecretVersionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>[]
+        }
+        create: {
+          args: Prisma.VaultSecretVersionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        createMany: {
+          args: Prisma.VaultSecretVersionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VaultSecretVersionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>[]
+        }
+        delete: {
+          args: Prisma.VaultSecretVersionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        update: {
+          args: Prisma.VaultSecretVersionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        deleteMany: {
+          args: Prisma.VaultSecretVersionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VaultSecretVersionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VaultSecretVersionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>[]
+        }
+        upsert: {
+          args: Prisma.VaultSecretVersionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretVersionPayload>
+        }
+        aggregate: {
+          args: Prisma.VaultSecretVersionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVaultSecretVersion>
+        }
+        groupBy: {
+          args: Prisma.VaultSecretVersionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretVersionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VaultSecretVersionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretVersionCountAggregateOutputType> | number
+        }
+      }
+    }
+    VaultSecretAccessPolicy: {
+      payload: Prisma.$VaultSecretAccessPolicyPayload<ExtArgs>
+      fields: Prisma.VaultSecretAccessPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VaultSecretAccessPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VaultSecretAccessPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.VaultSecretAccessPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VaultSecretAccessPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.VaultSecretAccessPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.VaultSecretAccessPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.VaultSecretAccessPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VaultSecretAccessPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.VaultSecretAccessPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        update: {
+          args: Prisma.VaultSecretAccessPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.VaultSecretAccessPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VaultSecretAccessPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VaultSecretAccessPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.VaultSecretAccessPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.VaultSecretAccessPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVaultSecretAccessPolicy>
+        }
+        groupBy: {
+          args: Prisma.VaultSecretAccessPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretAccessPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VaultSecretAccessPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretAccessPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    VaultSecretAccessLog: {
+      payload: Prisma.$VaultSecretAccessLogPayload<ExtArgs>
+      fields: Prisma.VaultSecretAccessLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.VaultSecretAccessLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.VaultSecretAccessLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        findFirst: {
+          args: Prisma.VaultSecretAccessLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.VaultSecretAccessLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        findMany: {
+          args: Prisma.VaultSecretAccessLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>[]
+        }
+        create: {
+          args: Prisma.VaultSecretAccessLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        createMany: {
+          args: Prisma.VaultSecretAccessLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.VaultSecretAccessLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>[]
+        }
+        delete: {
+          args: Prisma.VaultSecretAccessLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        update: {
+          args: Prisma.VaultSecretAccessLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.VaultSecretAccessLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.VaultSecretAccessLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.VaultSecretAccessLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>[]
+        }
+        upsert: {
+          args: Prisma.VaultSecretAccessLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VaultSecretAccessLogPayload>
+        }
+        aggregate: {
+          args: Prisma.VaultSecretAccessLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVaultSecretAccessLog>
+        }
+        groupBy: {
+          args: Prisma.VaultSecretAccessLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretAccessLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.VaultSecretAccessLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VaultSecretAccessLogCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -14763,6 +15063,82 @@ export const EnterpriseWebhookEndpointScalarFieldEnum = {
 export type EnterpriseWebhookEndpointScalarFieldEnum = (typeof EnterpriseWebhookEndpointScalarFieldEnum)[keyof typeof EnterpriseWebhookEndpointScalarFieldEnum]
 
 
+export const VaultSecretScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  secretType: 'secretType',
+  status: 'status',
+  provider: 'provider',
+  environment: 'environment',
+  currentVersion: 'currentVersion',
+  expiresAt: 'expiresAt',
+  lastRotatedAt: 'lastRotatedAt',
+  lastAccessedAt: 'lastAccessedAt',
+  accessCount: 'accessCount',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VaultSecretScalarFieldEnum = (typeof VaultSecretScalarFieldEnum)[keyof typeof VaultSecretScalarFieldEnum]
+
+
+export const VaultSecretVersionScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  version: 'version',
+  ciphertext: 'ciphertext',
+  initializationVector: 'initializationVector',
+  authenticationTag: 'authenticationTag',
+  keyVersion: 'keyVersion',
+  checksum: 'checksum',
+  createdByUserId: 'createdByUserId',
+  rotatedFromVersion: 'rotatedFromVersion',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type VaultSecretVersionScalarFieldEnum = (typeof VaultSecretVersionScalarFieldEnum)[keyof typeof VaultSecretVersionScalarFieldEnum]
+
+
+export const VaultSecretAccessPolicyScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  role: 'role',
+  userId: 'userId',
+  serviceKey: 'serviceKey',
+  action: 'action',
+  active: 'active',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VaultSecretAccessPolicyScalarFieldEnum = (typeof VaultSecretAccessPolicyScalarFieldEnum)[keyof typeof VaultSecretAccessPolicyScalarFieldEnum]
+
+
+export const VaultSecretAccessLogScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  serviceKey: 'serviceKey',
+  success: 'success',
+  reason: 'reason',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  correlationId: 'correlationId',
+  secretVersion: 'secretVersion',
+  createdAt: 'createdAt'
+} as const
+
+export type VaultSecretAccessLogScalarFieldEnum = (typeof VaultSecretAccessLogScalarFieldEnum)[keyof typeof VaultSecretAccessLogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -17289,6 +17665,48 @@ export type ListEnumIntegrationSyncStatusFieldRefInput<$PrismaModel> = FieldRefI
 
 
 /**
+ * Reference to a field of type 'VaultSecretType'
+ */
+export type EnumVaultSecretTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretType'>
+    
+
+
+/**
+ * Reference to a field of type 'VaultSecretType[]'
+ */
+export type ListEnumVaultSecretTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'VaultSecretStatus'
+ */
+export type EnumVaultSecretStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'VaultSecretStatus[]'
+ */
+export type ListEnumVaultSecretStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'VaultSecretAccessAction'
+ */
+export type EnumVaultSecretAccessActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretAccessAction'>
+    
+
+
+/**
+ * Reference to a field of type 'VaultSecretAccessAction[]'
+ */
+export type ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultSecretAccessAction[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -17600,6 +18018,10 @@ export type GlobalOmitConfig = {
   enterpriseConnectorMapping?: Prisma.EnterpriseConnectorMappingOmit
   enterpriseIntegrationSyncRun?: Prisma.EnterpriseIntegrationSyncRunOmit
   enterpriseWebhookEndpoint?: Prisma.EnterpriseWebhookEndpointOmit
+  vaultSecret?: Prisma.VaultSecretOmit
+  vaultSecretVersion?: Prisma.VaultSecretVersionOmit
+  vaultSecretAccessPolicy?: Prisma.VaultSecretAccessPolicyOmit
+  vaultSecretAccessLog?: Prisma.VaultSecretAccessLogOmit
 }
 
 /* Types for Logging */

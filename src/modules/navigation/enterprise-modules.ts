@@ -369,6 +369,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Secrets Vault",
+    description: "Encrypted secrets, rotation, access policies and audit logs.",
+    href: "/app/settings/secrets",
+    icon: KeyRound,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

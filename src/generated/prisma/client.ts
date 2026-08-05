@@ -781,3 +781,23 @@ export type EnterpriseIntegrationSyncRun = Prisma.EnterpriseIntegrationSyncRunMo
  * 
  */
 export type EnterpriseWebhookEndpoint = Prisma.EnterpriseWebhookEndpointModel
+/**
+ * Model VaultSecret
+ * 
+ */
+export type VaultSecret = Prisma.VaultSecretModel
+/**
+ * Model VaultSecretVersion
+ * 
+ */
+export type VaultSecretVersion = Prisma.VaultSecretVersionModel
+/**
+ * Model VaultSecretAccessPolicy
+ * 
+ */
+export type VaultSecretAccessPolicy = Prisma.VaultSecretAccessPolicyModel
+/**
+ * Model VaultSecretAccessLog
+ * 
+ */
+export type VaultSecretAccessLog = Prisma.VaultSecretAccessLogModel

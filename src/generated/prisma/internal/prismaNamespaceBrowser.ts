@@ -198,7 +198,11 @@ export const ModelName = {
   EnterpriseConnectorCredential: 'EnterpriseConnectorCredential',
   EnterpriseConnectorMapping: 'EnterpriseConnectorMapping',
   EnterpriseIntegrationSyncRun: 'EnterpriseIntegrationSyncRun',
-  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint'
+  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint',
+  VaultSecret: 'VaultSecret',
+  VaultSecretVersion: 'VaultSecretVersion',
+  VaultSecretAccessPolicy: 'VaultSecretAccessPolicy',
+  VaultSecretAccessLog: 'VaultSecretAccessLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3423,6 +3427,82 @@ export const EnterpriseWebhookEndpointScalarFieldEnum = {
 } as const
 
 export type EnterpriseWebhookEndpointScalarFieldEnum = (typeof EnterpriseWebhookEndpointScalarFieldEnum)[keyof typeof EnterpriseWebhookEndpointScalarFieldEnum]
+
+
+export const VaultSecretScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  secretType: 'secretType',
+  status: 'status',
+  provider: 'provider',
+  environment: 'environment',
+  currentVersion: 'currentVersion',
+  expiresAt: 'expiresAt',
+  lastRotatedAt: 'lastRotatedAt',
+  lastAccessedAt: 'lastAccessedAt',
+  accessCount: 'accessCount',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VaultSecretScalarFieldEnum = (typeof VaultSecretScalarFieldEnum)[keyof typeof VaultSecretScalarFieldEnum]
+
+
+export const VaultSecretVersionScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  version: 'version',
+  ciphertext: 'ciphertext',
+  initializationVector: 'initializationVector',
+  authenticationTag: 'authenticationTag',
+  keyVersion: 'keyVersion',
+  checksum: 'checksum',
+  createdByUserId: 'createdByUserId',
+  rotatedFromVersion: 'rotatedFromVersion',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type VaultSecretVersionScalarFieldEnum = (typeof VaultSecretVersionScalarFieldEnum)[keyof typeof VaultSecretVersionScalarFieldEnum]
+
+
+export const VaultSecretAccessPolicyScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  role: 'role',
+  userId: 'userId',
+  serviceKey: 'serviceKey',
+  action: 'action',
+  active: 'active',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type VaultSecretAccessPolicyScalarFieldEnum = (typeof VaultSecretAccessPolicyScalarFieldEnum)[keyof typeof VaultSecretAccessPolicyScalarFieldEnum]
+
+
+export const VaultSecretAccessLogScalarFieldEnum = {
+  id: 'id',
+  secretId: 'secretId',
+  action: 'action',
+  actorUserId: 'actorUserId',
+  serviceKey: 'serviceKey',
+  success: 'success',
+  reason: 'reason',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  correlationId: 'correlationId',
+  secretVersion: 'secretVersion',
+  createdAt: 'createdAt'
+} as const
+
+export type VaultSecretAccessLogScalarFieldEnum = (typeof VaultSecretAccessLogScalarFieldEnum)[keyof typeof VaultSecretAccessLogScalarFieldEnum]
 
 
 export const SortOrder = {

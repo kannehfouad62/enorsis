@@ -327,6 +327,7 @@ export type TenantWhereInput = {
   platformEvents?: Prisma.PlatformEventListRelationFilter
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionListRelationFilter
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionListRelationFilter
+  vaultSecrets?: Prisma.VaultSecretListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -413,6 +414,7 @@ export type TenantOrderByWithRelationInput = {
   platformEvents?: Prisma.PlatformEventOrderByRelationAggregateInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionOrderByRelationAggregateInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionOrderByRelationAggregateInput
+  vaultSecrets?: Prisma.VaultSecretOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -502,6 +504,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   platformEvents?: Prisma.PlatformEventListRelationFilter
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionListRelationFilter
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionListRelationFilter
+  vaultSecrets?: Prisma.VaultSecretListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -630,6 +633,7 @@ export type TenantCreateInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -716,6 +720,7 @@ export type TenantUncheckedCreateInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -802,6 +807,7 @@ export type TenantUpdateInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -888,6 +894,7 @@ export type TenantUncheckedUpdateInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1979,6 +1986,22 @@ export type TenantUpdateOneRequiredWithoutEnterpriseConnectorConnectionsNestedIn
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutEnterpriseConnectorConnectionsInput, Prisma.TenantUpdateWithoutEnterpriseConnectorConnectionsInput>, Prisma.TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput>
 }
 
+export type TenantCreateNestedOneWithoutVaultSecretsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutVaultSecretsInput, Prisma.TenantUncheckedCreateWithoutVaultSecretsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutVaultSecretsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneWithoutVaultSecretsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutVaultSecretsInput, Prisma.TenantUncheckedCreateWithoutVaultSecretsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutVaultSecretsInput
+  upsert?: Prisma.TenantUpsertWithoutVaultSecretsInput
+  disconnect?: Prisma.TenantWhereInput | boolean
+  delete?: Prisma.TenantWhereInput | boolean
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutVaultSecretsInput, Prisma.TenantUpdateWithoutVaultSecretsInput>, Prisma.TenantUncheckedUpdateWithoutVaultSecretsInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -2059,6 +2082,7 @@ export type TenantCreateWithoutMembershipsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2144,6 +2168,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2245,6 +2270,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2330,6 +2356,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2415,6 +2442,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2500,6 +2528,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2601,6 +2630,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2686,6 +2716,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2771,6 +2802,7 @@ export type TenantCreateWithoutSitesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2856,6 +2888,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2957,6 +2990,7 @@ export type TenantUpdateWithoutSitesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3042,6 +3076,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3127,6 +3162,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3212,6 +3248,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3313,6 +3350,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3398,6 +3436,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3483,6 +3522,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3568,6 +3608,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3669,6 +3710,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3754,6 +3796,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3839,6 +3882,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3924,6 +3968,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4025,6 +4070,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4110,6 +4156,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4195,6 +4242,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4280,6 +4328,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4381,6 +4430,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4466,6 +4516,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4551,6 +4602,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4636,6 +4688,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4737,6 +4790,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4822,6 +4876,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4907,6 +4962,7 @@ export type TenantCreateWithoutSuppliersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4992,6 +5048,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5093,6 +5150,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5178,6 +5236,7 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5263,6 +5322,7 @@ export type TenantCreateWithoutSourcingEventsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5348,6 +5408,7 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5449,6 +5510,7 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5534,6 +5596,7 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5620,6 +5683,7 @@ export type TenantCreateWithoutContractsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -5705,6 +5769,7 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -5806,6 +5871,7 @@ export type TenantUpdateWithoutContractsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -5891,6 +5957,7 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -5976,6 +6043,7 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -6061,6 +6129,7 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -6162,6 +6231,7 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -6247,6 +6317,7 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -6331,6 +6402,7 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6416,6 +6488,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6517,6 +6590,7 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6602,6 +6676,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6687,6 +6762,7 @@ export type TenantCreateWithoutReceiptsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6772,6 +6848,7 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6873,6 +6950,7 @@ export type TenantUpdateWithoutReceiptsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6958,6 +7036,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7043,6 +7122,7 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7128,6 +7208,7 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7229,6 +7310,7 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7314,6 +7396,7 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7399,6 +7482,7 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7484,6 +7568,7 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7585,6 +7670,7 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7670,6 +7756,7 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7756,6 +7843,7 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -7841,6 +7929,7 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -7942,6 +8031,7 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -8027,6 +8117,7 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -8111,6 +8202,7 @@ export type TenantCreateWithoutIntegrationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8196,6 +8288,7 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8297,6 +8390,7 @@ export type TenantUpdateWithoutIntegrationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8382,6 +8476,7 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8467,6 +8562,7 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8552,6 +8648,7 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8653,6 +8750,7 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8738,6 +8836,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8823,6 +8922,7 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8908,6 +9008,7 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9009,6 +9110,7 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9094,6 +9196,7 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9179,6 +9282,7 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9264,6 +9368,7 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9365,6 +9470,7 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9450,6 +9556,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9535,6 +9642,7 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9620,6 +9728,7 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9721,6 +9830,7 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9806,6 +9916,7 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9891,6 +10002,7 @@ export type TenantCreateWithoutApiClientsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9976,6 +10088,7 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10077,6 +10190,7 @@ export type TenantUpdateWithoutApiClientsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10162,6 +10276,7 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10247,6 +10362,7 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10332,6 +10448,7 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10433,6 +10550,7 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10518,6 +10636,7 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10603,6 +10722,7 @@ export type TenantCreateWithoutSodRulesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10688,6 +10808,7 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10789,6 +10910,7 @@ export type TenantUpdateWithoutSodRulesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10874,6 +10996,7 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10959,6 +11082,7 @@ export type TenantCreateWithoutSodViolationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11044,6 +11168,7 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11145,6 +11270,7 @@ export type TenantUpdateWithoutSodViolationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11230,6 +11356,7 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11315,6 +11442,7 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11400,6 +11528,7 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11501,6 +11630,7 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11586,6 +11716,7 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11671,6 +11802,7 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11756,6 +11888,7 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11857,6 +11990,7 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11942,6 +12076,7 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12027,6 +12162,7 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12112,6 +12248,7 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12213,6 +12350,7 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12298,6 +12436,7 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12383,6 +12522,7 @@ export type TenantCreateWithoutProcurementPlansInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12468,6 +12608,7 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12569,6 +12710,7 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12654,6 +12796,7 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12739,6 +12882,7 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12824,6 +12968,7 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12925,6 +13070,7 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13010,6 +13156,7 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13095,6 +13242,7 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13180,6 +13328,7 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13281,6 +13430,7 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13366,6 +13516,7 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13451,6 +13602,7 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13536,6 +13688,7 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13637,6 +13790,7 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13722,6 +13876,7 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13807,6 +13962,7 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13892,6 +14048,7 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13993,6 +14150,7 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14078,6 +14236,7 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14163,6 +14322,7 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14248,6 +14408,7 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14349,6 +14510,7 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14434,6 +14596,7 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14519,6 +14682,7 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14604,6 +14768,7 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14705,6 +14870,7 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14790,6 +14956,7 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14875,6 +15042,7 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14960,6 +15128,7 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15061,6 +15230,7 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15146,6 +15316,7 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15231,6 +15402,7 @@ export type TenantCreateWithoutResiliencePlansInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15316,6 +15488,7 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15417,6 +15590,7 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15502,6 +15676,7 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15587,6 +15762,7 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15672,6 +15848,7 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15773,6 +15950,7 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15858,6 +16036,7 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15943,6 +16122,7 @@ export type TenantCreateWithoutGuidedCartsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16028,6 +16208,7 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16129,6 +16310,7 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16214,6 +16396,7 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16299,6 +16482,7 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16384,6 +16568,7 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16485,6 +16670,7 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16570,6 +16756,7 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16655,6 +16842,7 @@ export type TenantCreateWithoutInventoryItemsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16740,6 +16928,7 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16841,6 +17030,7 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16926,6 +17116,7 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17011,6 +17202,7 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17096,6 +17288,7 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17197,6 +17390,7 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17282,6 +17476,7 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17367,6 +17562,7 @@ export type TenantCreateWithoutCycleCountsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17452,6 +17648,7 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17553,6 +17750,7 @@ export type TenantUpdateWithoutCycleCountsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17638,6 +17836,7 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17723,6 +17922,7 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17808,6 +18008,7 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17909,6 +18110,7 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17994,6 +18196,7 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18079,6 +18282,7 @@ export type TenantCreateWithoutServiceWorkersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18164,6 +18368,7 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18265,6 +18470,7 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18350,6 +18556,7 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18435,6 +18642,7 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18520,6 +18728,7 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18621,6 +18830,7 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18706,6 +18916,7 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18791,6 +19002,7 @@ export type TenantCreateWithoutDemandPlansInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18876,6 +19088,7 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18977,6 +19190,7 @@ export type TenantUpdateWithoutDemandPlansInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19062,6 +19276,7 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19147,6 +19362,7 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19232,6 +19448,7 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19333,6 +19550,7 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19418,6 +19636,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19503,6 +19722,7 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19588,6 +19808,7 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19689,6 +19910,7 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19774,6 +19996,7 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19859,6 +20082,7 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19944,6 +20168,7 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20045,6 +20270,7 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20130,6 +20356,7 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20215,6 +20442,7 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20300,6 +20528,7 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20401,6 +20630,7 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20486,6 +20716,7 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20571,6 +20802,7 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20656,6 +20888,7 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20757,6 +20990,7 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20842,6 +21076,7 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20927,6 +21162,7 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21012,6 +21248,7 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21113,6 +21350,7 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21198,6 +21436,7 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21283,6 +21522,7 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21368,6 +21608,7 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21469,6 +21710,7 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21554,6 +21796,7 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21639,6 +21882,7 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21724,6 +21968,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21825,6 +22070,7 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21910,6 +22156,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21995,6 +22242,7 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22080,6 +22328,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22181,6 +22430,7 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22266,6 +22516,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22351,6 +22602,7 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22436,6 +22688,7 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22537,6 +22790,7 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22622,6 +22876,7 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22707,6 +22962,7 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22792,6 +23048,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22893,6 +23150,7 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22978,6 +23236,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23063,6 +23322,7 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23148,6 +23408,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23249,6 +23510,7 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23334,6 +23596,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23419,6 +23682,7 @@ export type TenantCreateWithoutSubscriptionsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23504,6 +23768,7 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23605,6 +23870,7 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23690,6 +23956,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23775,6 +24042,7 @@ export type TenantCreateWithoutEntitlementsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23860,6 +24128,7 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23961,6 +24230,7 @@ export type TenantUpdateWithoutEntitlementsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24046,6 +24316,7 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24131,6 +24402,7 @@ export type TenantCreateWithoutUsageCountersInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24216,6 +24488,7 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24317,6 +24590,7 @@ export type TenantUpdateWithoutUsageCountersInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24402,6 +24676,7 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24487,6 +24762,7 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24572,6 +24848,7 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24673,6 +24950,7 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24758,6 +25036,7 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24843,6 +25122,7 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24928,6 +25208,7 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25029,6 +25310,7 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25114,6 +25396,7 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25199,6 +25482,7 @@ export type TenantCreateWithoutPlatformEventsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25284,6 +25568,7 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25385,6 +25670,7 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25470,6 +25756,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25555,6 +25842,7 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25640,6 +25928,7 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25741,6 +26030,7 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25826,6 +26116,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25911,6 +26202,7 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
   platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25996,6 +26288,7 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
   platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26097,6 +26390,7 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
   platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26182,6 +26476,367 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
   platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
   platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutVaultSecretsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutVaultSecretsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutVaultSecretsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutVaultSecretsInput, Prisma.TenantUncheckedCreateWithoutVaultSecretsInput>
+}
+
+export type TenantUpsertWithoutVaultSecretsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutVaultSecretsInput, Prisma.TenantUncheckedUpdateWithoutVaultSecretsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutVaultSecretsInput, Prisma.TenantUncheckedCreateWithoutVaultSecretsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutVaultSecretsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutVaultSecretsInput, Prisma.TenantUncheckedUpdateWithoutVaultSecretsInput>
+}
+
+export type TenantUpdateWithoutVaultSecretsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26257,6 +26912,7 @@ export type TenantCountOutputType = {
   platformEvents: number
   platformEventSubscriptions: number
   enterpriseConnectorConnections: number
+  vaultSecrets: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -26327,6 +26983,7 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   platformEvents?: boolean | TenantCountOutputTypeCountPlatformEventsArgs
   platformEventSubscriptions?: boolean | TenantCountOutputTypeCountPlatformEventSubscriptionsArgs
   enterpriseConnectorConnections?: boolean | TenantCountOutputTypeCountEnterpriseConnectorConnectionsArgs
+  vaultSecrets?: boolean | TenantCountOutputTypeCountVaultSecretsArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -26793,6 +27450,13 @@ export type TenantCountOutputTypeCountEnterpriseConnectorConnectionsArgs<ExtArgs
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountVaultSecretsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VaultSecretWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -26893,6 +27557,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   platformEvents?: boolean | Prisma.Tenant$platformEventsArgs<ExtArgs>
   platformEventSubscriptions?: boolean | Prisma.Tenant$platformEventSubscriptionsArgs<ExtArgs>
   enterpriseConnectorConnections?: boolean | Prisma.Tenant$enterpriseConnectorConnectionsArgs<ExtArgs>
+  vaultSecrets?: boolean | Prisma.Tenant$vaultSecretsArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -27020,6 +27685,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   platformEvents?: boolean | Prisma.Tenant$platformEventsArgs<ExtArgs>
   platformEventSubscriptions?: boolean | Prisma.Tenant$platformEventSubscriptionsArgs<ExtArgs>
   enterpriseConnectorConnections?: boolean | Prisma.Tenant$enterpriseConnectorConnectionsArgs<ExtArgs>
+  vaultSecrets?: boolean | Prisma.Tenant$vaultSecretsArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -27096,6 +27762,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     platformEvents: Prisma.$PlatformEventPayload<ExtArgs>[]
     platformEventSubscriptions: Prisma.$PlatformEventSubscriptionPayload<ExtArgs>[]
     enterpriseConnectorConnections: Prisma.$EnterpriseConnectorConnectionPayload<ExtArgs>[]
+    vaultSecrets: Prisma.$VaultSecretPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -27575,6 +28242,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   platformEvents<T extends Prisma.Tenant$platformEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$platformEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlatformEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   platformEventSubscriptions<T extends Prisma.Tenant$platformEventSubscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$platformEventSubscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlatformEventSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   enterpriseConnectorConnections<T extends Prisma.Tenant$enterpriseConnectorConnectionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$enterpriseConnectorConnectionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseConnectorConnectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  vaultSecrets<T extends Prisma.Tenant$vaultSecretsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$vaultSecretsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VaultSecretPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -29567,6 +30235,30 @@ export type Tenant$enterpriseConnectorConnectionsArgs<ExtArgs extends runtime.Ty
   take?: number
   skip?: number
   distinct?: Prisma.EnterpriseConnectorConnectionScalarFieldEnum | Prisma.EnterpriseConnectorConnectionScalarFieldEnum[]
+}
+
+/**
+ * Tenant.vaultSecrets
+ */
+export type Tenant$vaultSecretsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VaultSecret
+   */
+  select?: Prisma.VaultSecretSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the VaultSecret
+   */
+  omit?: Prisma.VaultSecretOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VaultSecretInclude<ExtArgs> | null
+  where?: Prisma.VaultSecretWhereInput
+  orderBy?: Prisma.VaultSecretOrderByWithRelationInput | Prisma.VaultSecretOrderByWithRelationInput[]
+  cursor?: Prisma.VaultSecretWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.VaultSecretScalarFieldEnum | Prisma.VaultSecretScalarFieldEnum[]
 }
 
 /**

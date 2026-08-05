@@ -1364,6 +1364,34 @@ enum IntegrationSyncStatus {
   DEAD_LETTER
 }
 
+enum VaultSecretStatus {
+  ACTIVE
+  DISABLED
+  REVOKED
+  EXPIRED
+}
+
+enum VaultSecretType {
+  API_KEY
+  BEARER_TOKEN
+  BASIC_AUTH
+  OAUTH_CLIENT_SECRET
+  PRIVATE_KEY
+  CERTIFICATE
+  SSH_KEY
+  WEBHOOK_SECRET
+  DATABASE_CREDENTIAL
+  ENCRYPTION_KEY
+  CUSTOM
+}
+
+enum VaultSecretAccessAction {
+  READ
+  WRITE
+  ROTATE
+  REVOKE
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1536,6 +1564,7 @@ model Tenant {
   platformEvents                   PlatformEvent[]
   platformEventSubscriptions       PlatformEventSubscription[]
   enterpriseConnectorConnections   EnterpriseConnectorConnection[]
+  vaultSecrets                     VaultSecret[]
   createdAt                        DateTime                          @default(now())
   updatedAt                        DateTime                          @updatedAt
   archivedAt                       DateTime?
@@ -5061,4 +5090,91 @@ model EnterpriseWebhookEndpoint {
   @@unique([connectionId, key])
   @@unique([path])
   @@index([connectionId, active])
+}
+
+model VaultSecret {
+  id              String                    @id @default(cuid())
+  tenantId        String?
+  key             String
+  name            String
+  description     String?
+  secretType      VaultSecretType
+  status          VaultSecretStatus         @default(ACTIVE)
+  provider        String?
+  environment     String                    @default("PRODUCTION")
+  currentVersion  Int                       @default(1)
+  expiresAt       DateTime?
+  lastRotatedAt   DateTime?
+  lastAccessedAt  DateTime?
+  accessCount     Int                       @default(0)
+  createdByUserId String?
+  updatedByUserId String?
+  tenant          Tenant?                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  versions        VaultSecretVersion[]
+  accessPolicies  VaultSecretAccessPolicy[]
+  accessLogs      VaultSecretAccessLog[]
+  createdAt       DateTime                  @default(now())
+  updatedAt       DateTime                  @updatedAt
+
+  @@unique([tenantId, key])
+  @@index([tenantId, status])
+  @@index([provider, environment])
+  @@index([expiresAt])
+}
+
+model VaultSecretVersion {
+  id                   String      @id @default(cuid())
+  secretId             String
+  version              Int
+  ciphertext           String
+  initializationVector String
+  authenticationTag    String
+  keyVersion           String
+  checksum             String
+  createdByUserId      String?
+  rotatedFromVersion   Int?
+  expiresAt            DateTime?
+  secret               VaultSecret @relation(fields: [secretId], references: [id], onDelete: Cascade)
+  createdAt            DateTime    @default(now())
+
+  @@unique([secretId, version])
+  @@index([secretId, createdAt])
+}
+
+model VaultSecretAccessPolicy {
+  id         String                  @id @default(cuid())
+  secretId   String
+  role       String?
+  userId     String?
+  serviceKey String?
+  action     VaultSecretAccessAction
+  active     Boolean                 @default(true)
+  expiresAt  DateTime?
+  secret     VaultSecret             @relation(fields: [secretId], references: [id], onDelete: Cascade)
+  createdAt  DateTime                @default(now())
+  updatedAt  DateTime                @updatedAt
+
+  @@index([secretId, action, active])
+  @@index([userId, active])
+  @@index([serviceKey, active])
+}
+
+model VaultSecretAccessLog {
+  id            String                  @id @default(cuid())
+  secretId      String
+  action        VaultSecretAccessAction
+  actorUserId   String?
+  serviceKey    String?
+  success       Boolean
+  reason        String?
+  ipAddress     String?
+  userAgent     String?
+  correlationId String?
+  secretVersion Int?
+  secret        VaultSecret             @relation(fields: [secretId], references: [id], onDelete: Cascade)
+  createdAt     DateTime                @default(now())
+
+  @@index([secretId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([serviceKey, createdAt])
 }

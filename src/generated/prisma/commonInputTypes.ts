@@ -3298,6 +3298,57 @@ export type EnumIntegrationSyncStatusWithAggregatesFilter<$PrismaModel = never> 
   _max?: Prisma.NestedEnumIntegrationSyncStatusFilter<$PrismaModel>
 }
 
+export type EnumVaultSecretTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretType | Prisma.EnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel> | $Enums.VaultSecretType
+}
+
+export type EnumVaultSecretStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretStatus | Prisma.EnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel> | $Enums.VaultSecretStatus
+}
+
+export type EnumVaultSecretTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretType | Prisma.EnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretTypeWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel>
+}
+
+export type EnumVaultSecretStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretStatus | Prisma.EnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretStatusWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel>
+}
+
+export type EnumVaultSecretAccessActionFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretAccessAction | Prisma.EnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel> | $Enums.VaultSecretAccessAction
+}
+
+export type EnumVaultSecretAccessActionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretAccessAction | Prisma.EnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretAccessActionWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretAccessAction
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6539,6 +6590,57 @@ export type NestedEnumIntegrationSyncStatusWithAggregatesFilter<$PrismaModel = n
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumIntegrationSyncStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumIntegrationSyncStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumVaultSecretTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretType | Prisma.EnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel> | $Enums.VaultSecretType
+}
+
+export type NestedEnumVaultSecretStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretStatus | Prisma.EnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel> | $Enums.VaultSecretStatus
+}
+
+export type NestedEnumVaultSecretTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretType | Prisma.EnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretType[] | Prisma.ListEnumVaultSecretTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretTypeWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumVaultSecretStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretStatus | Prisma.EnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretStatus[] | Prisma.ListEnumVaultSecretStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretStatusWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumVaultSecretAccessActionFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretAccessAction | Prisma.EnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel> | $Enums.VaultSecretAccessAction
+}
+
+export type NestedEnumVaultSecretAccessActionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.VaultSecretAccessAction | Prisma.EnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  in?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.VaultSecretAccessAction[] | Prisma.ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumVaultSecretAccessActionWithAggregatesFilter<$PrismaModel> | $Enums.VaultSecretAccessAction
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumVaultSecretAccessActionFilter<$PrismaModel>
 }
 
 

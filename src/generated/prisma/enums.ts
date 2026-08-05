@@ -1851,6 +1851,43 @@ export const IntegrationSyncStatus = {
 export type IntegrationSyncStatus = (typeof IntegrationSyncStatus)[keyof typeof IntegrationSyncStatus]
 
 
+export const VaultSecretStatus = {
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED',
+  REVOKED: 'REVOKED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type VaultSecretStatus = (typeof VaultSecretStatus)[keyof typeof VaultSecretStatus]
+
+
+export const VaultSecretType = {
+  API_KEY: 'API_KEY',
+  BEARER_TOKEN: 'BEARER_TOKEN',
+  BASIC_AUTH: 'BASIC_AUTH',
+  OAUTH_CLIENT_SECRET: 'OAUTH_CLIENT_SECRET',
+  PRIVATE_KEY: 'PRIVATE_KEY',
+  CERTIFICATE: 'CERTIFICATE',
+  SSH_KEY: 'SSH_KEY',
+  WEBHOOK_SECRET: 'WEBHOOK_SECRET',
+  DATABASE_CREDENTIAL: 'DATABASE_CREDENTIAL',
+  ENCRYPTION_KEY: 'ENCRYPTION_KEY',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type VaultSecretType = (typeof VaultSecretType)[keyof typeof VaultSecretType]
+
+
+export const VaultSecretAccessAction = {
+  READ: 'READ',
+  WRITE: 'WRITE',
+  ROTATE: 'ROTATE',
+  REVOKE: 'REVOKE'
+} as const
+
+export type VaultSecretAccessAction = (typeof VaultSecretAccessAction)[keyof typeof VaultSecretAccessAction]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
