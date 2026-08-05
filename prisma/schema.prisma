@@ -926,6 +926,36 @@ enum ReplenishmentRecommendationStatus {
   EXPIRED
 }
 
+enum LogisticsShipmentStatus {
+  PLANNED
+  BOOKED
+  IN_TRANSIT
+  DELAYED
+  DELIVERED
+  CANCELLED
+}
+
+enum LogisticsTransportMode {
+  ROAD
+  AIR
+  OCEAN
+  RAIL
+  COURIER
+  MULTIMODAL
+}
+
+enum LogisticsEventType {
+  BOOKED
+  PICKED_UP
+  DEPARTED
+  ARRIVED
+  CUSTOMS_HOLD
+  DELAYED
+  OUT_FOR_DELIVERY
+  DELIVERED
+  EXCEPTION
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1079,6 +1109,8 @@ model Tenant {
   serviceTimeEntries           ServiceTimeEntry[]
   demandPlans                  DemandPlan[]
   replenishmentRecommendations ReplenishmentRecommendation[]
+  logisticsCarriers            LogisticsCarrier[]
+  logisticsShipments           LogisticsShipment[]
   createdAt                    DateTime                      @default(now())
   updatedAt                    DateTime                      @updatedAt
   archivedAt                   DateTime?
@@ -3552,4 +3584,76 @@ model ReplenishmentRecommendation {
 
   @@unique([demandPlanId, inventoryItemId])
   @@index([tenantId, status, recommendedOrderDate])
+}
+
+model LogisticsCarrier {
+  id           String              @id @default(cuid())
+  tenantId     String
+  code         String
+  name         String
+  contactName  String?
+  contactEmail String?
+  contactPhone String?
+  scacCode     String?
+  active       Boolean             @default(true)
+  tenant       Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  shipments    LogisticsShipment[]
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+
+  @@unique([tenantId, code])
+  @@index([tenantId, active, name])
+}
+
+model LogisticsShipment {
+  id                  String                   @id @default(cuid())
+  tenantId            String
+  shipmentNumber      String
+  purchaseOrderId     String?
+  supplierId          String?
+  carrierId           String?
+  mode                LogisticsTransportMode
+  status              LogisticsShipmentStatus  @default(PLANNED)
+  origin              String
+  destination         String
+  trackingNumber      String?
+  incoterm            String?
+  bookedAt            DateTime?
+  pickupAt            DateTime?
+  estimatedDeliveryAt DateTime?
+  actualDeliveryAt    DateTime?
+  freightCost         Decimal?                 @db.Decimal(18, 2)
+  currencyCode        String                   @default("USD")
+  weight              Decimal?                 @db.Decimal(18, 4)
+  weightUnit          String?
+  packageCount        Int                      @default(0)
+  delayRiskPercent    Int                      @default(0)
+  exceptionSummary    String?
+  proofOfDeliveryUrl  String?
+  ownerUserId         String
+  tenant              Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  carrier             LogisticsCarrier?        @relation(fields: [carrierId], references: [id], onDelete: SetNull)
+  events              LogisticsTrackingEvent[]
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+
+  @@unique([tenantId, shipmentNumber])
+  @@index([tenantId, status, estimatedDeliveryAt])
+  @@index([trackingNumber])
+  @@index([supplierId, status])
+}
+
+model LogisticsTrackingEvent {
+  id          String             @id @default(cuid())
+  shipmentId  String
+  type        LogisticsEventType
+  occurredAt  DateTime
+  location    String?
+  description String
+  source      String?
+  evidenceUrl String?
+  shipment    LogisticsShipment  @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+  createdAt   DateTime           @default(now())
+
+  @@index([shipmentId, occurredAt])
 }

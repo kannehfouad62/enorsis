@@ -155,7 +155,10 @@ export const ModelName = {
   ServiceTimeEntry: 'ServiceTimeEntry',
   DemandPlan: 'DemandPlan',
   DemandForecast: 'DemandForecast',
-  ReplenishmentRecommendation: 'ReplenishmentRecommendation'
+  ReplenishmentRecommendation: 'ReplenishmentRecommendation',
+  LogisticsCarrier: 'LogisticsCarrier',
+  LogisticsShipment: 'LogisticsShipment',
+  LogisticsTrackingEvent: 'LogisticsTrackingEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2414,6 +2417,71 @@ export const ReplenishmentRecommendationScalarFieldEnum = {
 } as const
 
 export type ReplenishmentRecommendationScalarFieldEnum = (typeof ReplenishmentRecommendationScalarFieldEnum)[keyof typeof ReplenishmentRecommendationScalarFieldEnum]
+
+
+export const LogisticsCarrierScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  code: 'code',
+  name: 'name',
+  contactName: 'contactName',
+  contactEmail: 'contactEmail',
+  contactPhone: 'contactPhone',
+  scacCode: 'scacCode',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LogisticsCarrierScalarFieldEnum = (typeof LogisticsCarrierScalarFieldEnum)[keyof typeof LogisticsCarrierScalarFieldEnum]
+
+
+export const LogisticsShipmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  shipmentNumber: 'shipmentNumber',
+  purchaseOrderId: 'purchaseOrderId',
+  supplierId: 'supplierId',
+  carrierId: 'carrierId',
+  mode: 'mode',
+  status: 'status',
+  origin: 'origin',
+  destination: 'destination',
+  trackingNumber: 'trackingNumber',
+  incoterm: 'incoterm',
+  bookedAt: 'bookedAt',
+  pickupAt: 'pickupAt',
+  estimatedDeliveryAt: 'estimatedDeliveryAt',
+  actualDeliveryAt: 'actualDeliveryAt',
+  freightCost: 'freightCost',
+  currencyCode: 'currencyCode',
+  weight: 'weight',
+  weightUnit: 'weightUnit',
+  packageCount: 'packageCount',
+  delayRiskPercent: 'delayRiskPercent',
+  exceptionSummary: 'exceptionSummary',
+  proofOfDeliveryUrl: 'proofOfDeliveryUrl',
+  ownerUserId: 'ownerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LogisticsShipmentScalarFieldEnum = (typeof LogisticsShipmentScalarFieldEnum)[keyof typeof LogisticsShipmentScalarFieldEnum]
+
+
+export const LogisticsTrackingEventScalarFieldEnum = {
+  id: 'id',
+  shipmentId: 'shipmentId',
+  type: 'type',
+  occurredAt: 'occurredAt',
+  location: 'location',
+  description: 'description',
+  source: 'source',
+  evidenceUrl: 'evidenceUrl',
+  createdAt: 'createdAt'
+} as const
+
+export type LogisticsTrackingEventScalarFieldEnum = (typeof LogisticsTrackingEventScalarFieldEnum)[keyof typeof LogisticsTrackingEventScalarFieldEnum]
 
 
 export const SortOrder = {

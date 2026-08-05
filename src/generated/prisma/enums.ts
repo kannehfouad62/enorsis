@@ -1263,6 +1263,45 @@ export const ReplenishmentRecommendationStatus = {
 export type ReplenishmentRecommendationStatus = (typeof ReplenishmentRecommendationStatus)[keyof typeof ReplenishmentRecommendationStatus]
 
 
+export const LogisticsShipmentStatus = {
+  PLANNED: 'PLANNED',
+  BOOKED: 'BOOKED',
+  IN_TRANSIT: 'IN_TRANSIT',
+  DELAYED: 'DELAYED',
+  DELIVERED: 'DELIVERED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type LogisticsShipmentStatus = (typeof LogisticsShipmentStatus)[keyof typeof LogisticsShipmentStatus]
+
+
+export const LogisticsTransportMode = {
+  ROAD: 'ROAD',
+  AIR: 'AIR',
+  OCEAN: 'OCEAN',
+  RAIL: 'RAIL',
+  COURIER: 'COURIER',
+  MULTIMODAL: 'MULTIMODAL'
+} as const
+
+export type LogisticsTransportMode = (typeof LogisticsTransportMode)[keyof typeof LogisticsTransportMode]
+
+
+export const LogisticsEventType = {
+  BOOKED: 'BOOKED',
+  PICKED_UP: 'PICKED_UP',
+  DEPARTED: 'DEPARTED',
+  ARRIVED: 'ARRIVED',
+  CUSTOMS_HOLD: 'CUSTOMS_HOLD',
+  DELAYED: 'DELAYED',
+  OUT_FOR_DELIVERY: 'OUT_FOR_DELIVERY',
+  DELIVERED: 'DELIVERED',
+  EXCEPTION: 'EXCEPTION'
+} as const
+
+export type LogisticsEventType = (typeof LogisticsEventType)[keyof typeof LogisticsEventType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

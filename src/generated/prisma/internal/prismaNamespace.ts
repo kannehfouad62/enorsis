@@ -501,7 +501,10 @@ export const ModelName = {
   ServiceTimeEntry: 'ServiceTimeEntry',
   DemandPlan: 'DemandPlan',
   DemandForecast: 'DemandForecast',
-  ReplenishmentRecommendation: 'ReplenishmentRecommendation'
+  ReplenishmentRecommendation: 'ReplenishmentRecommendation',
+  LogisticsCarrier: 'LogisticsCarrier',
+  LogisticsShipment: 'LogisticsShipment',
+  LogisticsTrackingEvent: 'LogisticsTrackingEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -517,7 +520,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -8291,6 +8294,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    LogisticsCarrier: {
+      payload: Prisma.$LogisticsCarrierPayload<ExtArgs>
+      fields: Prisma.LogisticsCarrierFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LogisticsCarrierFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LogisticsCarrierFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        findFirst: {
+          args: Prisma.LogisticsCarrierFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LogisticsCarrierFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        findMany: {
+          args: Prisma.LogisticsCarrierFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>[]
+        }
+        create: {
+          args: Prisma.LogisticsCarrierCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        createMany: {
+          args: Prisma.LogisticsCarrierCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LogisticsCarrierCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>[]
+        }
+        delete: {
+          args: Prisma.LogisticsCarrierDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        update: {
+          args: Prisma.LogisticsCarrierUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        deleteMany: {
+          args: Prisma.LogisticsCarrierDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LogisticsCarrierUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LogisticsCarrierUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>[]
+        }
+        upsert: {
+          args: Prisma.LogisticsCarrierUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsCarrierPayload>
+        }
+        aggregate: {
+          args: Prisma.LogisticsCarrierAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLogisticsCarrier>
+        }
+        groupBy: {
+          args: Prisma.LogisticsCarrierGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsCarrierGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LogisticsCarrierCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsCarrierCountAggregateOutputType> | number
+        }
+      }
+    }
+    LogisticsShipment: {
+      payload: Prisma.$LogisticsShipmentPayload<ExtArgs>
+      fields: Prisma.LogisticsShipmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LogisticsShipmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LogisticsShipmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        findFirst: {
+          args: Prisma.LogisticsShipmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LogisticsShipmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        findMany: {
+          args: Prisma.LogisticsShipmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>[]
+        }
+        create: {
+          args: Prisma.LogisticsShipmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        createMany: {
+          args: Prisma.LogisticsShipmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LogisticsShipmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>[]
+        }
+        delete: {
+          args: Prisma.LogisticsShipmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        update: {
+          args: Prisma.LogisticsShipmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.LogisticsShipmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LogisticsShipmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LogisticsShipmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.LogisticsShipmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsShipmentPayload>
+        }
+        aggregate: {
+          args: Prisma.LogisticsShipmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLogisticsShipment>
+        }
+        groupBy: {
+          args: Prisma.LogisticsShipmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsShipmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LogisticsShipmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsShipmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    LogisticsTrackingEvent: {
+      payload: Prisma.$LogisticsTrackingEventPayload<ExtArgs>
+      fields: Prisma.LogisticsTrackingEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LogisticsTrackingEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LogisticsTrackingEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        findFirst: {
+          args: Prisma.LogisticsTrackingEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LogisticsTrackingEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        findMany: {
+          args: Prisma.LogisticsTrackingEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>[]
+        }
+        create: {
+          args: Prisma.LogisticsTrackingEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        createMany: {
+          args: Prisma.LogisticsTrackingEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LogisticsTrackingEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>[]
+        }
+        delete: {
+          args: Prisma.LogisticsTrackingEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        update: {
+          args: Prisma.LogisticsTrackingEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.LogisticsTrackingEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LogisticsTrackingEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LogisticsTrackingEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.LogisticsTrackingEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LogisticsTrackingEventPayload>
+        }
+        aggregate: {
+          args: Prisma.LogisticsTrackingEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLogisticsTrackingEvent>
+        }
+        groupBy: {
+          args: Prisma.LogisticsTrackingEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsTrackingEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LogisticsTrackingEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LogisticsTrackingEventCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -10572,6 +10797,71 @@ export const ReplenishmentRecommendationScalarFieldEnum = {
 export type ReplenishmentRecommendationScalarFieldEnum = (typeof ReplenishmentRecommendationScalarFieldEnum)[keyof typeof ReplenishmentRecommendationScalarFieldEnum]
 
 
+export const LogisticsCarrierScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  code: 'code',
+  name: 'name',
+  contactName: 'contactName',
+  contactEmail: 'contactEmail',
+  contactPhone: 'contactPhone',
+  scacCode: 'scacCode',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LogisticsCarrierScalarFieldEnum = (typeof LogisticsCarrierScalarFieldEnum)[keyof typeof LogisticsCarrierScalarFieldEnum]
+
+
+export const LogisticsShipmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  shipmentNumber: 'shipmentNumber',
+  purchaseOrderId: 'purchaseOrderId',
+  supplierId: 'supplierId',
+  carrierId: 'carrierId',
+  mode: 'mode',
+  status: 'status',
+  origin: 'origin',
+  destination: 'destination',
+  trackingNumber: 'trackingNumber',
+  incoterm: 'incoterm',
+  bookedAt: 'bookedAt',
+  pickupAt: 'pickupAt',
+  estimatedDeliveryAt: 'estimatedDeliveryAt',
+  actualDeliveryAt: 'actualDeliveryAt',
+  freightCost: 'freightCost',
+  currencyCode: 'currencyCode',
+  weight: 'weight',
+  weightUnit: 'weightUnit',
+  packageCount: 'packageCount',
+  delayRiskPercent: 'delayRiskPercent',
+  exceptionSummary: 'exceptionSummary',
+  proofOfDeliveryUrl: 'proofOfDeliveryUrl',
+  ownerUserId: 'ownerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type LogisticsShipmentScalarFieldEnum = (typeof LogisticsShipmentScalarFieldEnum)[keyof typeof LogisticsShipmentScalarFieldEnum]
+
+
+export const LogisticsTrackingEventScalarFieldEnum = {
+  id: 'id',
+  shipmentId: 'shipmentId',
+  type: 'type',
+  occurredAt: 'occurredAt',
+  location: 'location',
+  description: 'description',
+  source: 'source',
+  evidenceUrl: 'evidenceUrl',
+  createdAt: 'createdAt'
+} as const
+
+export type LogisticsTrackingEventScalarFieldEnum = (typeof LogisticsTrackingEventScalarFieldEnum)[keyof typeof LogisticsTrackingEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -12384,6 +12674,48 @@ export type ListEnumReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
 
 
 /**
+ * Reference to a field of type 'LogisticsTransportMode'
+ */
+export type EnumLogisticsTransportModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsTransportMode'>
+    
+
+
+/**
+ * Reference to a field of type 'LogisticsTransportMode[]'
+ */
+export type ListEnumLogisticsTransportModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsTransportMode[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LogisticsShipmentStatus'
+ */
+export type EnumLogisticsShipmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsShipmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'LogisticsShipmentStatus[]'
+ */
+export type ListEnumLogisticsShipmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsShipmentStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'LogisticsEventType'
+ */
+export type EnumLogisticsEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsEventType'>
+    
+
+
+/**
+ * Reference to a field of type 'LogisticsEventType[]'
+ */
+export type ListEnumLogisticsEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LogisticsEventType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -12652,6 +12984,9 @@ export type GlobalOmitConfig = {
   demandPlan?: Prisma.DemandPlanOmit
   demandForecast?: Prisma.DemandForecastOmit
   replenishmentRecommendation?: Prisma.ReplenishmentRecommendationOmit
+  logisticsCarrier?: Prisma.LogisticsCarrierOmit
+  logisticsShipment?: Prisma.LogisticsShipmentOmit
+  logisticsTrackingEvent?: Prisma.LogisticsTrackingEventOmit
 }
 
 /* Types for Logging */

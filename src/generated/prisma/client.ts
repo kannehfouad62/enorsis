@@ -566,3 +566,18 @@ export type DemandForecast = Prisma.DemandForecastModel
  * 
  */
 export type ReplenishmentRecommendation = Prisma.ReplenishmentRecommendationModel
+/**
+ * Model LogisticsCarrier
+ * 
+ */
+export type LogisticsCarrier = Prisma.LogisticsCarrierModel
+/**
+ * Model LogisticsShipment
+ * 
+ */
+export type LogisticsShipment = Prisma.LogisticsShipmentModel
+/**
+ * Model LogisticsTrackingEvent
+ * 
+ */
+export type LogisticsTrackingEvent = Prisma.LogisticsTrackingEventModel

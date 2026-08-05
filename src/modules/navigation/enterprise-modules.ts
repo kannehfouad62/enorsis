@@ -26,6 +26,7 @@ import {
   ShieldAlert,
   ShoppingCart,
   Store,
+  Truck,
   Sparkles,
   Users,
   UserRoundCog,
@@ -47,6 +48,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Logistics & Freight",
+    description: "Carriers, shipments, tracking, freight cost and delivery risk.",
+    href: "/app/logistics",
+    icon: Truck,
+    group: "Procurement",
+  },
   {
     title: "Demand Planning & Replenishment",
     description: "Forecast demand and generate governed replenishment proposals.",
