@@ -33,6 +33,7 @@ import {
   UserRoundCog,
   Workflow,
   Warehouse,
+  Wrench,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -49,6 +50,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Assets & Equipment",
+    description: "Asset custody, warranties, maintenance and retirement.",
+    href: "/app/assets",
+    icon: Wrench,
+    group: "Procurement",
+  },
   {
     title: "Returns, Claims & Recovery",
     description: "Returns, supplier claims, warranty cases and recovery.",

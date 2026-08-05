@@ -572,3 +572,23 @@ export type SupplierClaimEvidence = Prisma.SupplierClaimEvidenceModel
  * 
  */
 export type SupplierRecovery = Prisma.SupplierRecoveryModel
+/**
+ * Model ProcurementAsset
+ * 
+ */
+export type ProcurementAsset = Prisma.ProcurementAssetModel
+/**
+ * Model AssetAssignment
+ * 
+ */
+export type AssetAssignment = Prisma.AssetAssignmentModel
+/**
+ * Model AssetMaintenancePlan
+ * 
+ */
+export type AssetMaintenancePlan = Prisma.AssetMaintenancePlanModel
+/**
+ * Model AssetMaintenanceRecord
+ * 
+ */
+export type AssetMaintenanceRecord = Prisma.AssetMaintenanceRecordModel

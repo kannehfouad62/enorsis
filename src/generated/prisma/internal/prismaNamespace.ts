@@ -507,7 +507,11 @@ export const ModelName = {
   LogisticsTrackingEvent: 'LogisticsTrackingEvent',
   SupplierClaim: 'SupplierClaim',
   SupplierClaimEvidence: 'SupplierClaimEvidence',
-  SupplierRecovery: 'SupplierRecovery'
+  SupplierRecovery: 'SupplierRecovery',
+  ProcurementAsset: 'ProcurementAsset',
+  AssetAssignment: 'AssetAssignment',
+  AssetMaintenancePlan: 'AssetMaintenancePlan',
+  AssetMaintenanceRecord: 'AssetMaintenanceRecord'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -523,7 +527,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -8741,6 +8745,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementAsset: {
+      payload: Prisma.$ProcurementAssetPayload<ExtArgs>
+      fields: Prisma.ProcurementAssetFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementAssetFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementAssetFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementAssetFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementAssetFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementAssetFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementAssetCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementAssetCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementAssetCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementAssetDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        update: {
+          args: Prisma.ProcurementAssetUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementAssetDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementAssetUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementAssetUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementAssetUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementAssetPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementAssetAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementAsset>
+        }
+        groupBy: {
+          args: Prisma.ProcurementAssetGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementAssetGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementAssetCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementAssetCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssetAssignment: {
+      payload: Prisma.$AssetAssignmentPayload<ExtArgs>
+      fields: Prisma.AssetAssignmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssetAssignmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssetAssignmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        findFirst: {
+          args: Prisma.AssetAssignmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssetAssignmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        findMany: {
+          args: Prisma.AssetAssignmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>[]
+        }
+        create: {
+          args: Prisma.AssetAssignmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        createMany: {
+          args: Prisma.AssetAssignmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssetAssignmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>[]
+        }
+        delete: {
+          args: Prisma.AssetAssignmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        update: {
+          args: Prisma.AssetAssignmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssetAssignmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssetAssignmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssetAssignmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssetAssignmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetAssignmentPayload>
+        }
+        aggregate: {
+          args: Prisma.AssetAssignmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssetAssignment>
+        }
+        groupBy: {
+          args: Prisma.AssetAssignmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetAssignmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssetAssignmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetAssignmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssetMaintenancePlan: {
+      payload: Prisma.$AssetMaintenancePlanPayload<ExtArgs>
+      fields: Prisma.AssetMaintenancePlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssetMaintenancePlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssetMaintenancePlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        findFirst: {
+          args: Prisma.AssetMaintenancePlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssetMaintenancePlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        findMany: {
+          args: Prisma.AssetMaintenancePlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>[]
+        }
+        create: {
+          args: Prisma.AssetMaintenancePlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        createMany: {
+          args: Prisma.AssetMaintenancePlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssetMaintenancePlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>[]
+        }
+        delete: {
+          args: Prisma.AssetMaintenancePlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        update: {
+          args: Prisma.AssetMaintenancePlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssetMaintenancePlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssetMaintenancePlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssetMaintenancePlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssetMaintenancePlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenancePlanPayload>
+        }
+        aggregate: {
+          args: Prisma.AssetMaintenancePlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssetMaintenancePlan>
+        }
+        groupBy: {
+          args: Prisma.AssetMaintenancePlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetMaintenancePlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssetMaintenancePlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetMaintenancePlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssetMaintenanceRecord: {
+      payload: Prisma.$AssetMaintenanceRecordPayload<ExtArgs>
+      fields: Prisma.AssetMaintenanceRecordFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssetMaintenanceRecordFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssetMaintenanceRecordFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        findFirst: {
+          args: Prisma.AssetMaintenanceRecordFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssetMaintenanceRecordFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        findMany: {
+          args: Prisma.AssetMaintenanceRecordFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>[]
+        }
+        create: {
+          args: Prisma.AssetMaintenanceRecordCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        createMany: {
+          args: Prisma.AssetMaintenanceRecordCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssetMaintenanceRecordCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>[]
+        }
+        delete: {
+          args: Prisma.AssetMaintenanceRecordDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        update: {
+          args: Prisma.AssetMaintenanceRecordUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssetMaintenanceRecordDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssetMaintenanceRecordUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssetMaintenanceRecordUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssetMaintenanceRecordUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssetMaintenanceRecordPayload>
+        }
+        aggregate: {
+          args: Prisma.AssetMaintenanceRecordAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssetMaintenanceRecord>
+        }
+        groupBy: {
+          args: Prisma.AssetMaintenanceRecordGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetMaintenanceRecordGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssetMaintenanceRecordCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssetMaintenanceRecordCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -11159,6 +11459,107 @@ export const SupplierRecoveryScalarFieldEnum = {
 export type SupplierRecoveryScalarFieldEnum = (typeof SupplierRecoveryScalarFieldEnum)[keyof typeof SupplierRecoveryScalarFieldEnum]
 
 
+export const ProcurementAssetScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  assetNumber: 'assetNumber',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  status: 'status',
+  criticality: 'criticality',
+  serialNumber: 'serialNumber',
+  manufacturer: 'manufacturer',
+  modelNumber: 'modelNumber',
+  purchaseOrderId: 'purchaseOrderId',
+  supplierId: 'supplierId',
+  inventoryItemId: 'inventoryItemId',
+  siteId: 'siteId',
+  location: 'location',
+  acquisitionDate: 'acquisitionDate',
+  inServiceDate: 'inServiceDate',
+  purchaseCost: 'purchaseCost',
+  currencyCode: 'currencyCode',
+  capitalizationDate: 'capitalizationDate',
+  usefulLifeMonths: 'usefulLifeMonths',
+  residualValue: 'residualValue',
+  warrantyStartsAt: 'warrantyStartsAt',
+  warrantyEndsAt: 'warrantyEndsAt',
+  warrantyProvider: 'warrantyProvider',
+  ownerUserId: 'ownerUserId',
+  custodianUserId: 'custodianUserId',
+  retiredAt: 'retiredAt',
+  retirementReason: 'retirementReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementAssetScalarFieldEnum = (typeof ProcurementAssetScalarFieldEnum)[keyof typeof ProcurementAssetScalarFieldEnum]
+
+
+export const AssetAssignmentScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  assignedToUserId: 'assignedToUserId',
+  assignedByUserId: 'assignedByUserId',
+  assignedAt: 'assignedAt',
+  expectedReturnAt: 'expectedReturnAt',
+  returnedAt: 'returnedAt',
+  status: 'status',
+  location: 'location',
+  conditionAtIssue: 'conditionAtIssue',
+  conditionAtReturn: 'conditionAtReturn',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetAssignmentScalarFieldEnum = (typeof AssetAssignmentScalarFieldEnum)[keyof typeof AssetAssignmentScalarFieldEnum]
+
+
+export const AssetMaintenancePlanScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  name: 'name',
+  type: 'type',
+  frequencyDays: 'frequencyDays',
+  nextDueAt: 'nextDueAt',
+  responsibleUserId: 'responsibleUserId',
+  instructions: 'instructions',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetMaintenancePlanScalarFieldEnum = (typeof AssetMaintenancePlanScalarFieldEnum)[keyof typeof AssetMaintenancePlanScalarFieldEnum]
+
+
+export const AssetMaintenanceRecordScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  maintenancePlanId: 'maintenancePlanId',
+  type: 'type',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  performedBy: 'performedBy',
+  vendorName: 'vendorName',
+  cost: 'cost',
+  currencyCode: 'currencyCode',
+  findings: 'findings',
+  workPerformed: 'workPerformed',
+  partsUsed: 'partsUsed',
+  downtimeHours: 'downtimeHours',
+  evidenceUrl: 'evidenceUrl',
+  approvedByUserId: 'approvedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetMaintenanceRecordScalarFieldEnum = (typeof AssetMaintenanceRecordScalarFieldEnum)[keyof typeof AssetMaintenanceRecordScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -13083,6 +13484,76 @@ export type ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'AssetStatus'
+ */
+export type EnumAssetStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetStatus[]'
+ */
+export type ListEnumAssetStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetCriticality'
+ */
+export type EnumAssetCriticalityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetCriticality'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetCriticality[]'
+ */
+export type ListEnumAssetCriticalityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetCriticality[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetAssignmentStatus'
+ */
+export type EnumAssetAssignmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetAssignmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetAssignmentStatus[]'
+ */
+export type ListEnumAssetAssignmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetAssignmentStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetMaintenanceType'
+ */
+export type EnumAssetMaintenanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetMaintenanceType'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetMaintenanceType[]'
+ */
+export type ListEnumAssetMaintenanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetMaintenanceType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetMaintenanceStatus'
+ */
+export type EnumAssetMaintenanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetMaintenanceStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AssetMaintenanceStatus[]'
+ */
+export type ListEnumAssetMaintenanceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AssetMaintenanceStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -13357,6 +13828,10 @@ export type GlobalOmitConfig = {
   supplierClaim?: Prisma.SupplierClaimOmit
   supplierClaimEvidence?: Prisma.SupplierClaimEvidenceOmit
   supplierRecovery?: Prisma.SupplierRecoveryOmit
+  procurementAsset?: Prisma.ProcurementAssetOmit
+  assetAssignment?: Prisma.AssetAssignmentOmit
+  assetMaintenancePlan?: Prisma.AssetMaintenancePlanOmit
+  assetMaintenanceRecord?: Prisma.AssetMaintenanceRecordOmit
 }
 
 /* Types for Logging */

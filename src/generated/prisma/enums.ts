@@ -1371,6 +1371,63 @@ export const SupplierRecoveryStatus = {
 export type SupplierRecoveryStatus = (typeof SupplierRecoveryStatus)[keyof typeof SupplierRecoveryStatus]
 
 
+export const AssetStatus = {
+  PLANNED: 'PLANNED',
+  IN_SERVICE: 'IN_SERVICE',
+  UNDER_MAINTENANCE: 'UNDER_MAINTENANCE',
+  OUT_OF_SERVICE: 'OUT_OF_SERVICE',
+  RETIRED: 'RETIRED',
+  DISPOSED: 'DISPOSED',
+  LOST: 'LOST'
+} as const
+
+export type AssetStatus = (typeof AssetStatus)[keyof typeof AssetStatus]
+
+
+export const AssetCriticality = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type AssetCriticality = (typeof AssetCriticality)[keyof typeof AssetCriticality]
+
+
+export const AssetMaintenanceType = {
+  PREVENTIVE: 'PREVENTIVE',
+  CORRECTIVE: 'CORRECTIVE',
+  INSPECTION: 'INSPECTION',
+  CALIBRATION: 'CALIBRATION',
+  WARRANTY: 'WARRANTY',
+  UPGRADE: 'UPGRADE'
+} as const
+
+export type AssetMaintenanceType = (typeof AssetMaintenanceType)[keyof typeof AssetMaintenanceType]
+
+
+export const AssetMaintenanceStatus = {
+  PLANNED: 'PLANNED',
+  SCHEDULED: 'SCHEDULED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  OVERDUE: 'OVERDUE'
+} as const
+
+export type AssetMaintenanceStatus = (typeof AssetMaintenanceStatus)[keyof typeof AssetMaintenanceStatus]
+
+
+export const AssetAssignmentStatus = {
+  ACTIVE: 'ACTIVE',
+  RETURNED: 'RETURNED',
+  TRANSFERRED: 'TRANSFERRED',
+  LOST: 'LOST'
+} as const
+
+export type AssetAssignmentStatus = (typeof AssetAssignmentStatus)[keyof typeof AssetAssignmentStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

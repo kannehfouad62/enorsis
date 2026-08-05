@@ -161,7 +161,11 @@ export const ModelName = {
   LogisticsTrackingEvent: 'LogisticsTrackingEvent',
   SupplierClaim: 'SupplierClaim',
   SupplierClaimEvidence: 'SupplierClaimEvidence',
-  SupplierRecovery: 'SupplierRecovery'
+  SupplierRecovery: 'SupplierRecovery',
+  ProcurementAsset: 'ProcurementAsset',
+  AssetAssignment: 'AssetAssignment',
+  AssetMaintenancePlan: 'AssetMaintenancePlan',
+  AssetMaintenanceRecord: 'AssetMaintenanceRecord'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2557,6 +2561,107 @@ export const SupplierRecoveryScalarFieldEnum = {
 } as const
 
 export type SupplierRecoveryScalarFieldEnum = (typeof SupplierRecoveryScalarFieldEnum)[keyof typeof SupplierRecoveryScalarFieldEnum]
+
+
+export const ProcurementAssetScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  assetNumber: 'assetNumber',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  status: 'status',
+  criticality: 'criticality',
+  serialNumber: 'serialNumber',
+  manufacturer: 'manufacturer',
+  modelNumber: 'modelNumber',
+  purchaseOrderId: 'purchaseOrderId',
+  supplierId: 'supplierId',
+  inventoryItemId: 'inventoryItemId',
+  siteId: 'siteId',
+  location: 'location',
+  acquisitionDate: 'acquisitionDate',
+  inServiceDate: 'inServiceDate',
+  purchaseCost: 'purchaseCost',
+  currencyCode: 'currencyCode',
+  capitalizationDate: 'capitalizationDate',
+  usefulLifeMonths: 'usefulLifeMonths',
+  residualValue: 'residualValue',
+  warrantyStartsAt: 'warrantyStartsAt',
+  warrantyEndsAt: 'warrantyEndsAt',
+  warrantyProvider: 'warrantyProvider',
+  ownerUserId: 'ownerUserId',
+  custodianUserId: 'custodianUserId',
+  retiredAt: 'retiredAt',
+  retirementReason: 'retirementReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementAssetScalarFieldEnum = (typeof ProcurementAssetScalarFieldEnum)[keyof typeof ProcurementAssetScalarFieldEnum]
+
+
+export const AssetAssignmentScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  assignedToUserId: 'assignedToUserId',
+  assignedByUserId: 'assignedByUserId',
+  assignedAt: 'assignedAt',
+  expectedReturnAt: 'expectedReturnAt',
+  returnedAt: 'returnedAt',
+  status: 'status',
+  location: 'location',
+  conditionAtIssue: 'conditionAtIssue',
+  conditionAtReturn: 'conditionAtReturn',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetAssignmentScalarFieldEnum = (typeof AssetAssignmentScalarFieldEnum)[keyof typeof AssetAssignmentScalarFieldEnum]
+
+
+export const AssetMaintenancePlanScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  name: 'name',
+  type: 'type',
+  frequencyDays: 'frequencyDays',
+  nextDueAt: 'nextDueAt',
+  responsibleUserId: 'responsibleUserId',
+  instructions: 'instructions',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetMaintenancePlanScalarFieldEnum = (typeof AssetMaintenancePlanScalarFieldEnum)[keyof typeof AssetMaintenancePlanScalarFieldEnum]
+
+
+export const AssetMaintenanceRecordScalarFieldEnum = {
+  id: 'id',
+  procurementAssetId: 'procurementAssetId',
+  maintenancePlanId: 'maintenancePlanId',
+  type: 'type',
+  status: 'status',
+  scheduledAt: 'scheduledAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  performedBy: 'performedBy',
+  vendorName: 'vendorName',
+  cost: 'cost',
+  currencyCode: 'currencyCode',
+  findings: 'findings',
+  workPerformed: 'workPerformed',
+  partsUsed: 'partsUsed',
+  downtimeHours: 'downtimeHours',
+  evidenceUrl: 'evidenceUrl',
+  approvedByUserId: 'approvedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssetMaintenanceRecordScalarFieldEnum = (typeof AssetMaintenanceRecordScalarFieldEnum)[keyof typeof AssetMaintenanceRecordScalarFieldEnum]
 
 
 export const SortOrder = {
