@@ -721,3 +721,18 @@ export type UsageCounter = Prisma.UsageCounterModel
  * 
  */
 export type TenantConfiguration = Prisma.TenantConfigurationModel
+/**
+ * Model PlatformJobDefinition
+ * 
+ */
+export type PlatformJobDefinition = Prisma.PlatformJobDefinitionModel
+/**
+ * Model PlatformJobExecution
+ * 
+ */
+export type PlatformJobExecution = Prisma.PlatformJobExecutionModel
+/**
+ * Model PlatformJobAttempt
+ * 
+ */
+export type PlatformJobAttempt = Prisma.PlatformJobAttemptModel

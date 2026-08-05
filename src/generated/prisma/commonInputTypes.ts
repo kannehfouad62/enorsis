@@ -3094,6 +3094,57 @@ export type EnumTenantDataResidencyWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
 }
 
+export type EnumPlatformJobStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobStatus | Prisma.EnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel> | $Enums.PlatformJobStatus
+}
+
+export type EnumPlatformJobStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobStatus | Prisma.EnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformJobExecutionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobExecutionStatus | Prisma.EnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel> | $Enums.PlatformJobExecutionStatus
+}
+
+export type EnumPlatformJobTriggerTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobTriggerType | Prisma.EnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel> | $Enums.PlatformJobTriggerType
+}
+
+export type EnumPlatformJobExecutionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobExecutionStatus | Prisma.EnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobExecutionStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobExecutionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobTriggerType | Prisma.EnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobTriggerType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6131,6 +6182,57 @@ export type NestedEnumTenantDataResidencyWithAggregatesFilter<$PrismaModel = nev
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
   _max?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformJobStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobStatus | Prisma.EnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel> | $Enums.PlatformJobStatus
+}
+
+export type NestedEnumPlatformJobStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobStatus | Prisma.EnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobStatus[] | Prisma.ListEnumPlatformJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobExecutionStatus | Prisma.EnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel> | $Enums.PlatformJobExecutionStatus
+}
+
+export type NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobTriggerType | Prisma.EnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel> | $Enums.PlatformJobTriggerType
+}
+
+export type NestedEnumPlatformJobExecutionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobExecutionStatus | Prisma.EnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobExecutionStatus[] | Prisma.ListEnumPlatformJobExecutionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobExecutionStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobExecutionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobExecutionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformJobTriggerType | Prisma.EnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformJobTriggerType[] | Prisma.ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlatformJobTriggerType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
 }
 
 

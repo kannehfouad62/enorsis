@@ -186,7 +186,10 @@ export const ModelName = {
   TenantEntitlement: 'TenantEntitlement',
   UsagePolicy: 'UsagePolicy',
   UsageCounter: 'UsageCounter',
-  TenantConfiguration: 'TenantConfiguration'
+  TenantConfiguration: 'TenantConfiguration',
+  PlatformJobDefinition: 'PlatformJobDefinition',
+  PlatformJobExecution: 'PlatformJobExecution',
+  PlatformJobAttempt: 'PlatformJobAttempt'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3154,6 +3157,77 @@ export const TenantConfigurationScalarFieldEnum = {
 } as const
 
 export type TenantConfigurationScalarFieldEnum = (typeof TenantConfigurationScalarFieldEnum)[keyof typeof TenantConfigurationScalarFieldEnum]
+
+
+export const PlatformJobDefinitionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  handlerKey: 'handlerKey',
+  scheduleExpression: 'scheduleExpression',
+  timeZone: 'timeZone',
+  maxAttempts: 'maxAttempts',
+  retryDelaySeconds: 'retryDelaySeconds',
+  timeoutSeconds: 'timeoutSeconds',
+  concurrencyKey: 'concurrencyKey',
+  tenantScoped: 'tenantScoped',
+  payloadTemplate: 'payloadTemplate',
+  lastQueuedAt: 'lastQueuedAt',
+  lastStartedAt: 'lastStartedAt',
+  lastCompletedAt: 'lastCompletedAt',
+  lastSucceededAt: 'lastSucceededAt',
+  lastFailedAt: 'lastFailedAt',
+  nextRunAt: 'nextRunAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformJobDefinitionScalarFieldEnum = (typeof PlatformJobDefinitionScalarFieldEnum)[keyof typeof PlatformJobDefinitionScalarFieldEnum]
+
+
+export const PlatformJobExecutionScalarFieldEnum = {
+  id: 'id',
+  jobDefinitionId: 'jobDefinitionId',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggerType: 'triggerType',
+  payload: 'payload',
+  result: 'result',
+  attemptCount: 'attemptCount',
+  queuedAt: 'queuedAt',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  lockedAt: 'lockedAt',
+  lockedBy: 'lockedBy',
+  errorCode: 'errorCode',
+  errorMessage: 'errorMessage',
+  correlationId: 'correlationId',
+  requestedByUserId: 'requestedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformJobExecutionScalarFieldEnum = (typeof PlatformJobExecutionScalarFieldEnum)[keyof typeof PlatformJobExecutionScalarFieldEnum]
+
+
+export const PlatformJobAttemptScalarFieldEnum = {
+  id: 'id',
+  executionId: 'executionId',
+  attemptNumber: 'attemptNumber',
+  status: 'status',
+  workerId: 'workerId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  durationMs: 'durationMs',
+  errorCode: 'errorCode',
+  errorMessage: 'errorMessage',
+  result: 'result',
+  createdAt: 'createdAt'
+} as const
+
+export type PlatformJobAttemptScalarFieldEnum = (typeof PlatformJobAttemptScalarFieldEnum)[keyof typeof PlatformJobAttemptScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -344,6 +344,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Background Job Platform",
+    description: "Schedules, retries, executions and worker operations.",
+    href: "/app/settings/jobs",
+    icon: Workflow,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

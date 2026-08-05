@@ -1715,6 +1715,37 @@ export const TenantDataResidency = {
 export type TenantDataResidency = (typeof TenantDataResidency)[keyof typeof TenantDataResidency]
 
 
+export const PlatformJobStatus = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type PlatformJobStatus = (typeof PlatformJobStatus)[keyof typeof PlatformJobStatus]
+
+
+export const PlatformJobExecutionStatus = {
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type PlatformJobExecutionStatus = (typeof PlatformJobExecutionStatus)[keyof typeof PlatformJobExecutionStatus]
+
+
+export const PlatformJobTriggerType = {
+  SCHEDULED: 'SCHEDULED',
+  MANUAL: 'MANUAL',
+  EVENT: 'EVENT',
+  RETRY: 'RETRY'
+} as const
+
+export type PlatformJobTriggerType = (typeof PlatformJobTriggerType)[keyof typeof PlatformJobTriggerType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

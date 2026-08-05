@@ -1264,6 +1264,28 @@ enum TenantDataResidency {
   CUSTOM
 }
 
+enum PlatformJobStatus {
+  ACTIVE
+  PAUSED
+  DISABLED
+}
+
+enum PlatformJobExecutionStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  DEAD_LETTER
+}
+
+enum PlatformJobTriggerType {
+  SCHEDULED
+  MANUAL
+  EVENT
+  RETRY
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1432,6 +1454,7 @@ model Tenant {
   entitlements                     TenantEntitlement[]
   usageCounters                    UsageCounter[]
   configurationProfile             TenantConfiguration?
+  platformJobExecutions            PlatformJobExecution[]
   createdAt                        DateTime                          @default(now())
   updatedAt                        DateTime                          @updatedAt
   archivedAt                       DateTime?
@@ -4672,4 +4695,82 @@ model TenantConfiguration {
   updatedAt              DateTime              @updatedAt
 
   @@index([environmentType, dataResidency])
+}
+
+model PlatformJobDefinition {
+  id                 String                 @id @default(cuid())
+  key                String                 @unique
+  name               String
+  description        String?
+  status             PlatformJobStatus      @default(ACTIVE)
+  handlerKey         String
+  scheduleExpression String?
+  timeZone           String                 @default("UTC")
+  maxAttempts        Int                    @default(3)
+  retryDelaySeconds  Int                    @default(300)
+  timeoutSeconds     Int                    @default(300)
+  concurrencyKey     String?
+  tenantScoped       Boolean                @default(false)
+  payloadTemplate    Json?
+  lastQueuedAt       DateTime?
+  lastStartedAt      DateTime?
+  lastCompletedAt    DateTime?
+  lastSucceededAt    DateTime?
+  lastFailedAt       DateTime?
+  nextRunAt          DateTime?
+  executions         PlatformJobExecution[]
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+
+  @@index([status, nextRunAt])
+  @@index([handlerKey])
+}
+
+model PlatformJobExecution {
+  id                String                     @id @default(cuid())
+  jobDefinitionId   String
+  tenantId          String?
+  status            PlatformJobExecutionStatus @default(QUEUED)
+  triggerType       PlatformJobTriggerType
+  payload           Json?
+  result            Json?
+  attemptCount      Int                        @default(0)
+  queuedAt          DateTime                   @default(now())
+  startedAt         DateTime?
+  completedAt       DateTime?
+  lockedAt          DateTime?
+  lockedBy          String?
+  errorCode         String?
+  errorMessage      String?
+  correlationId     String?
+  requestedByUserId String?
+  jobDefinition     PlatformJobDefinition      @relation(fields: [jobDefinitionId], references: [id], onDelete: Cascade)
+  tenant            Tenant?                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  attempts          PlatformJobAttempt[]
+  createdAt         DateTime                   @default(now())
+  updatedAt         DateTime                   @updatedAt
+
+  @@index([status, queuedAt])
+  @@index([jobDefinitionId, status])
+  @@index([tenantId, status])
+  @@index([correlationId])
+}
+
+model PlatformJobAttempt {
+  id            String                     @id @default(cuid())
+  executionId   String
+  attemptNumber Int
+  status        PlatformJobExecutionStatus
+  workerId      String?
+  startedAt     DateTime                   @default(now())
+  completedAt   DateTime?
+  durationMs    Int?
+  errorCode     String?
+  errorMessage  String?
+  result        Json?
+  execution     PlatformJobExecution       @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  createdAt     DateTime                   @default(now())
+
+  @@unique([executionId, attemptNumber])
+  @@index([status, startedAt])
 }
