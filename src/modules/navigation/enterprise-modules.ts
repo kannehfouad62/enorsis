@@ -328,6 +328,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Module Registry",
+    description: "Central module metadata, licensing and capability catalog.",
+    href: "/app/settings/modules",
+    icon: Boxes,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
