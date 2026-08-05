@@ -185,7 +185,8 @@ export const ModelName = {
   TenantSubscription: 'TenantSubscription',
   TenantEntitlement: 'TenantEntitlement',
   UsagePolicy: 'UsagePolicy',
-  UsageCounter: 'UsageCounter'
+  UsageCounter: 'UsageCounter',
+  TenantConfiguration: 'TenantConfiguration'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3109,6 +3110,50 @@ export const UsageCounterScalarFieldEnum = {
 } as const
 
 export type UsageCounterScalarFieldEnum = (typeof UsageCounterScalarFieldEnum)[keyof typeof UsageCounterScalarFieldEnum]
+
+
+export const TenantConfigurationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  environmentType: 'environmentType',
+  dataResidency: 'dataResidency',
+  customResidencyRegion: 'customResidencyRegion',
+  displayName: 'displayName',
+  legalName: 'legalName',
+  logoUrl: 'logoUrl',
+  primaryColor: 'primaryColor',
+  secondaryColor: 'secondaryColor',
+  customDomain: 'customDomain',
+  locale: 'locale',
+  timeZone: 'timeZone',
+  defaultCurrencyCode: 'defaultCurrencyCode',
+  fiscalYearStartMonth: 'fiscalYearStartMonth',
+  dateFormat: 'dateFormat',
+  numberFormat: 'numberFormat',
+  weekStartsOn: 'weekStartsOn',
+  requireMfa: 'requireMfa',
+  enforceSso: 'enforceSso',
+  sessionTimeoutMinutes: 'sessionTimeoutMinutes',
+  passwordMinLength: 'passwordMinLength',
+  documentRetentionDays: 'documentRetentionDays',
+  auditRetentionDays: 'auditRetentionDays',
+  emailNotifications: 'emailNotifications',
+  inAppNotifications: 'inAppNotifications',
+  dailyDigestEnabled: 'dailyDigestEnabled',
+  dailyDigestHour: 'dailyDigestHour',
+  maxUsers: 'maxUsers',
+  maxSuppliers: 'maxSuppliers',
+  maxStorageMb: 'maxStorageMb',
+  maxApiRequestsPerMonth: 'maxApiRequestsPerMonth',
+  supportTier: 'supportTier',
+  maintenanceWindow: 'maintenanceWindow',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TenantConfigurationScalarFieldEnum = (typeof TenantConfigurationScalarFieldEnum)[keyof typeof TenantConfigurationScalarFieldEnum]
 
 
 export const SortOrder = {

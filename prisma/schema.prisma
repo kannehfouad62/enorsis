@@ -1246,6 +1246,24 @@ enum UsageMetricPeriod {
   ANNUAL
 }
 
+enum TenantEnvironmentType {
+  SHARED_SAAS
+  DEDICATED_SAAS
+  MANAGED_PAAS
+  SELF_HOSTED
+}
+
+enum TenantDataResidency {
+  UNITED_STATES
+  CANADA
+  EUROPEAN_UNION
+  UNITED_KINGDOM
+  AUSTRALIA
+  SINGAPORE
+  GLOBAL
+  CUSTOM
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1413,6 +1431,7 @@ model Tenant {
   subscriptions                    TenantSubscription[]
   entitlements                     TenantEntitlement[]
   usageCounters                    UsageCounter[]
+  configurationProfile             TenantConfiguration?
   createdAt                        DateTime                          @default(now())
   updatedAt                        DateTime                          @updatedAt
   archivedAt                       DateTime?
@@ -4609,4 +4628,48 @@ model UsageCounter {
   updatedAt   DateTime          @updatedAt
 
   @@unique([tenantId, featureId, metricKey, period, periodStart])
+}
+
+model TenantConfiguration {
+  id                     String                @id @default(cuid())
+  tenantId               String                @unique
+  environmentType        TenantEnvironmentType @default(SHARED_SAAS)
+  dataResidency          TenantDataResidency   @default(UNITED_STATES)
+  customResidencyRegion  String?
+  displayName            String?
+  legalName              String?
+  logoUrl                String?
+  primaryColor           String?
+  secondaryColor         String?
+  customDomain           String?
+  locale                 String                @default("en-US")
+  timeZone               String                @default("UTC")
+  defaultCurrencyCode    String                @default("USD")
+  fiscalYearStartMonth   Int                   @default(1)
+  dateFormat             String                @default("MM/dd/yyyy")
+  numberFormat           String                @default("en-US")
+  weekStartsOn           Int                   @default(1)
+  requireMfa             Boolean               @default(false)
+  enforceSso             Boolean               @default(false)
+  sessionTimeoutMinutes  Int                   @default(480)
+  passwordMinLength      Int                   @default(12)
+  documentRetentionDays  Int                   @default(2555)
+  auditRetentionDays     Int                   @default(2555)
+  emailNotifications     Boolean               @default(true)
+  inAppNotifications     Boolean               @default(true)
+  dailyDigestEnabled     Boolean               @default(false)
+  dailyDigestHour        Int                   @default(8)
+  maxUsers               Int?
+  maxSuppliers           Int?
+  maxStorageMb           BigInt?
+  maxApiRequestsPerMonth BigInt?
+  supportTier            String                @default("STANDARD")
+  maintenanceWindow      String?
+  tenant                 Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdByUserId        String?
+  updatedByUserId        String?
+  createdAt              DateTime              @default(now())
+  updatedAt              DateTime              @updatedAt
+
+  @@index([environmentType, dataResidency])
 }

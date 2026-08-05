@@ -322,6 +322,7 @@ export type TenantWhereInput = {
   subscriptions?: Prisma.TenantSubscriptionListRelationFilter
   entitlements?: Prisma.TenantEntitlementListRelationFilter
   usageCounters?: Prisma.UsageCounterListRelationFilter
+  configurationProfile?: Prisma.XOR<Prisma.TenantConfigurationNullableScalarRelationFilter, Prisma.TenantConfigurationWhereInput> | null
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -403,6 +404,7 @@ export type TenantOrderByWithRelationInput = {
   subscriptions?: Prisma.TenantSubscriptionOrderByRelationAggregateInput
   entitlements?: Prisma.TenantEntitlementOrderByRelationAggregateInput
   usageCounters?: Prisma.UsageCounterOrderByRelationAggregateInput
+  configurationProfile?: Prisma.TenantConfigurationOrderByWithRelationInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -487,6 +489,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   subscriptions?: Prisma.TenantSubscriptionListRelationFilter
   entitlements?: Prisma.TenantEntitlementListRelationFilter
   usageCounters?: Prisma.UsageCounterListRelationFilter
+  configurationProfile?: Prisma.XOR<Prisma.TenantConfigurationNullableScalarRelationFilter, Prisma.TenantConfigurationWhereInput> | null
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -610,6 +613,7 @@ export type TenantCreateInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -691,6 +695,7 @@ export type TenantUncheckedCreateInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -772,6 +777,7 @@ export type TenantUpdateInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -853,6 +859,7 @@ export type TenantUncheckedUpdateInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -1868,6 +1875,20 @@ export type TenantUpdateOneRequiredWithoutUsageCountersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutUsageCountersInput, Prisma.TenantUpdateWithoutUsageCountersInput>, Prisma.TenantUncheckedUpdateWithoutUsageCountersInput>
 }
 
+export type TenantCreateNestedOneWithoutConfigurationProfileInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutConfigurationProfileInput, Prisma.TenantUncheckedCreateWithoutConfigurationProfileInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutConfigurationProfileInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutConfigurationProfileNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutConfigurationProfileInput, Prisma.TenantUncheckedCreateWithoutConfigurationProfileInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutConfigurationProfileInput
+  upsert?: Prisma.TenantUpsertWithoutConfigurationProfileInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutConfigurationProfileInput, Prisma.TenantUpdateWithoutConfigurationProfileInput>, Prisma.TenantUncheckedUpdateWithoutConfigurationProfileInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -1943,6 +1964,7 @@ export type TenantCreateWithoutMembershipsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2023,6 +2045,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2119,6 +2142,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2199,6 +2223,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2279,6 +2304,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2359,6 +2385,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2455,6 +2482,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2535,6 +2563,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2615,6 +2644,7 @@ export type TenantCreateWithoutSitesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2695,6 +2725,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2791,6 +2822,7 @@ export type TenantUpdateWithoutSitesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2871,6 +2903,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2951,6 +2984,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3031,6 +3065,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3127,6 +3162,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3207,6 +3243,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3287,6 +3324,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3367,6 +3405,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3463,6 +3502,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3543,6 +3583,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3623,6 +3664,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3703,6 +3745,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3799,6 +3842,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3879,6 +3923,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3959,6 +4004,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4039,6 +4085,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4135,6 +4182,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4215,6 +4263,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4295,6 +4344,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4375,6 +4425,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4471,6 +4522,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4551,6 +4603,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4631,6 +4684,7 @@ export type TenantCreateWithoutSuppliersInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4711,6 +4765,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4807,6 +4862,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4887,6 +4943,7 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4967,6 +5024,7 @@ export type TenantCreateWithoutSourcingEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5047,6 +5105,7 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5143,6 +5202,7 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5223,6 +5283,7 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5304,6 +5365,7 @@ export type TenantCreateWithoutContractsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -5384,6 +5446,7 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -5480,6 +5543,7 @@ export type TenantUpdateWithoutContractsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -5560,6 +5624,7 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -5640,6 +5705,7 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -5720,6 +5786,7 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -5816,6 +5883,7 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -5896,6 +5964,7 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -5975,6 +6044,7 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6055,6 +6125,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6151,6 +6222,7 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6231,6 +6303,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6311,6 +6384,7 @@ export type TenantCreateWithoutReceiptsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6391,6 +6465,7 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6487,6 +6562,7 @@ export type TenantUpdateWithoutReceiptsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6567,6 +6643,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6647,6 +6724,7 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6727,6 +6805,7 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6823,6 +6902,7 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6903,6 +6983,7 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6983,6 +7064,7 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7063,6 +7145,7 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7159,6 +7242,7 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7239,6 +7323,7 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7320,6 +7405,7 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -7400,6 +7486,7 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -7496,6 +7583,7 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -7576,6 +7664,7 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -7655,6 +7744,7 @@ export type TenantCreateWithoutIntegrationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7735,6 +7825,7 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7831,6 +7922,7 @@ export type TenantUpdateWithoutIntegrationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7911,6 +8003,7 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7991,6 +8084,7 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8071,6 +8165,7 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8167,6 +8262,7 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8247,6 +8343,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8327,6 +8424,7 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8407,6 +8505,7 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8503,6 +8602,7 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8583,6 +8683,7 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8663,6 +8764,7 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8743,6 +8845,7 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8839,6 +8942,7 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8919,6 +9023,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8999,6 +9104,7 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9079,6 +9185,7 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9175,6 +9282,7 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9255,6 +9363,7 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9335,6 +9444,7 @@ export type TenantCreateWithoutApiClientsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9415,6 +9525,7 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9511,6 +9622,7 @@ export type TenantUpdateWithoutApiClientsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9591,6 +9703,7 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9671,6 +9784,7 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9751,6 +9865,7 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9847,6 +9962,7 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9927,6 +10043,7 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10007,6 +10124,7 @@ export type TenantCreateWithoutSodRulesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10087,6 +10205,7 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10183,6 +10302,7 @@ export type TenantUpdateWithoutSodRulesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10263,6 +10383,7 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10343,6 +10464,7 @@ export type TenantCreateWithoutSodViolationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10423,6 +10545,7 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10519,6 +10642,7 @@ export type TenantUpdateWithoutSodViolationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10599,6 +10723,7 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10679,6 +10804,7 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10759,6 +10885,7 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10855,6 +10982,7 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10935,6 +11063,7 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11015,6 +11144,7 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11095,6 +11225,7 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11191,6 +11322,7 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11271,6 +11403,7 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11351,6 +11484,7 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11431,6 +11565,7 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11527,6 +11662,7 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11607,6 +11743,7 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11687,6 +11824,7 @@ export type TenantCreateWithoutProcurementPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11767,6 +11905,7 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11863,6 +12002,7 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11943,6 +12083,7 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12023,6 +12164,7 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12103,6 +12245,7 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12199,6 +12342,7 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12279,6 +12423,7 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12359,6 +12504,7 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12439,6 +12585,7 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12535,6 +12682,7 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12615,6 +12763,7 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12695,6 +12844,7 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12775,6 +12925,7 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12871,6 +13022,7 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12951,6 +13103,7 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13031,6 +13184,7 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13111,6 +13265,7 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13207,6 +13362,7 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13287,6 +13443,7 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13367,6 +13524,7 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13447,6 +13605,7 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13543,6 +13702,7 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13623,6 +13783,7 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13703,6 +13864,7 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13783,6 +13945,7 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13879,6 +14042,7 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13959,6 +14123,7 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14039,6 +14204,7 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14119,6 +14285,7 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14215,6 +14382,7 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14295,6 +14463,7 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14375,6 +14544,7 @@ export type TenantCreateWithoutResiliencePlansInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14455,6 +14625,7 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14551,6 +14722,7 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14631,6 +14803,7 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14711,6 +14884,7 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14791,6 +14965,7 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14887,6 +15062,7 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14967,6 +15143,7 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15047,6 +15224,7 @@ export type TenantCreateWithoutGuidedCartsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15127,6 +15305,7 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15223,6 +15402,7 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15303,6 +15483,7 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15383,6 +15564,7 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15463,6 +15645,7 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15559,6 +15742,7 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15639,6 +15823,7 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15719,6 +15904,7 @@ export type TenantCreateWithoutInventoryItemsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15799,6 +15985,7 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15895,6 +16082,7 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15975,6 +16163,7 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16055,6 +16244,7 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16135,6 +16325,7 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16231,6 +16422,7 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16311,6 +16503,7 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16391,6 +16584,7 @@ export type TenantCreateWithoutCycleCountsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16471,6 +16665,7 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16567,6 +16762,7 @@ export type TenantUpdateWithoutCycleCountsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16647,6 +16843,7 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16727,6 +16924,7 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16807,6 +17005,7 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16903,6 +17102,7 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16983,6 +17183,7 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17063,6 +17264,7 @@ export type TenantCreateWithoutServiceWorkersInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17143,6 +17345,7 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17239,6 +17442,7 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17319,6 +17523,7 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17399,6 +17604,7 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17479,6 +17685,7 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17575,6 +17782,7 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17655,6 +17863,7 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17735,6 +17944,7 @@ export type TenantCreateWithoutDemandPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17815,6 +18025,7 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17911,6 +18122,7 @@ export type TenantUpdateWithoutDemandPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17991,6 +18203,7 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18071,6 +18284,7 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18151,6 +18365,7 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18247,6 +18462,7 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18327,6 +18543,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18407,6 +18624,7 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18487,6 +18705,7 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18583,6 +18802,7 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18663,6 +18883,7 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18743,6 +18964,7 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18823,6 +19045,7 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18919,6 +19142,7 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18999,6 +19223,7 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19079,6 +19304,7 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19159,6 +19385,7 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19255,6 +19482,7 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19335,6 +19563,7 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19415,6 +19644,7 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19495,6 +19725,7 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19591,6 +19822,7 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19671,6 +19903,7 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19751,6 +19984,7 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19831,6 +20065,7 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19927,6 +20162,7 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20007,6 +20243,7 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20087,6 +20324,7 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20167,6 +20405,7 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20263,6 +20502,7 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20343,6 +20583,7 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20423,6 +20664,7 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20503,6 +20745,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20599,6 +20842,7 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20679,6 +20923,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20759,6 +21004,7 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20839,6 +21085,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20935,6 +21182,7 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21015,6 +21263,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21095,6 +21344,7 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21175,6 +21425,7 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21271,6 +21522,7 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21351,6 +21603,7 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21431,6 +21684,7 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21511,6 +21765,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21607,6 +21862,7 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21687,6 +21943,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21767,6 +22024,7 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21847,6 +22105,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21943,6 +22202,7 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22023,6 +22283,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22103,6 +22364,7 @@ export type TenantCreateWithoutSubscriptionsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22183,6 +22445,7 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22279,6 +22542,7 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22359,6 +22623,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22439,6 +22704,7 @@ export type TenantCreateWithoutEntitlementsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22519,6 +22785,7 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22615,6 +22882,7 @@ export type TenantUpdateWithoutEntitlementsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22695,6 +22963,7 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22775,6 +23044,7 @@ export type TenantCreateWithoutUsageCountersInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
   subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22855,6 +23125,7 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
   subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
   entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22951,6 +23222,7 @@ export type TenantUpdateWithoutUsageCountersInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
   subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23031,6 +23303,347 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
   subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
   entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutConfigurationProfileInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutConfigurationProfileInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutConfigurationProfileInput, Prisma.TenantUncheckedCreateWithoutConfigurationProfileInput>
+}
+
+export type TenantUpsertWithoutConfigurationProfileInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutConfigurationProfileInput, Prisma.TenantUncheckedUpdateWithoutConfigurationProfileInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutConfigurationProfileInput, Prisma.TenantUncheckedCreateWithoutConfigurationProfileInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutConfigurationProfileInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutConfigurationProfileInput, Prisma.TenantUncheckedUpdateWithoutConfigurationProfileInput>
+}
+
+export type TenantUpdateWithoutConfigurationProfileInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23701,6 +24314,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   subscriptions?: boolean | Prisma.Tenant$subscriptionsArgs<ExtArgs>
   entitlements?: boolean | Prisma.Tenant$entitlementsArgs<ExtArgs>
   usageCounters?: boolean | Prisma.Tenant$usageCountersArgs<ExtArgs>
+  configurationProfile?: boolean | Prisma.Tenant$configurationProfileArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -23823,6 +24437,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   subscriptions?: boolean | Prisma.Tenant$subscriptionsArgs<ExtArgs>
   entitlements?: boolean | Prisma.Tenant$entitlementsArgs<ExtArgs>
   usageCounters?: boolean | Prisma.Tenant$usageCountersArgs<ExtArgs>
+  configurationProfile?: boolean | Prisma.Tenant$configurationProfileArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -23894,6 +24509,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     subscriptions: Prisma.$TenantSubscriptionPayload<ExtArgs>[]
     entitlements: Prisma.$TenantEntitlementPayload<ExtArgs>[]
     usageCounters: Prisma.$UsageCounterPayload<ExtArgs>[]
+    configurationProfile: Prisma.$TenantConfigurationPayload<ExtArgs> | null
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -24368,6 +24984,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   subscriptions<T extends Prisma.Tenant$subscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TenantSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   entitlements<T extends Prisma.Tenant$entitlementsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$entitlementsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TenantEntitlementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   usageCounters<T extends Prisma.Tenant$usageCountersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$usageCountersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UsageCounterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  configurationProfile<T extends Prisma.Tenant$configurationProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$configurationProfileArgs<ExtArgs>>): Prisma.Prisma__TenantConfigurationClient<runtime.Types.Result.GetResult<Prisma.$TenantConfigurationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -26245,6 +26862,25 @@ export type Tenant$usageCountersArgs<ExtArgs extends runtime.Types.Extensions.In
   take?: number
   skip?: number
   distinct?: Prisma.UsageCounterScalarFieldEnum | Prisma.UsageCounterScalarFieldEnum[]
+}
+
+/**
+ * Tenant.configurationProfile
+ */
+export type Tenant$configurationProfileArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TenantConfiguration
+   */
+  select?: Prisma.TenantConfigurationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TenantConfiguration
+   */
+  omit?: Prisma.TenantConfigurationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TenantConfigurationInclude<ExtArgs> | null
+  where?: Prisma.TenantConfigurationWhereInput
 }
 
 /**

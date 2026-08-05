@@ -1691,6 +1691,30 @@ export const UsageMetricPeriod = {
 export type UsageMetricPeriod = (typeof UsageMetricPeriod)[keyof typeof UsageMetricPeriod]
 
 
+export const TenantEnvironmentType = {
+  SHARED_SAAS: 'SHARED_SAAS',
+  DEDICATED_SAAS: 'DEDICATED_SAAS',
+  MANAGED_PAAS: 'MANAGED_PAAS',
+  SELF_HOSTED: 'SELF_HOSTED'
+} as const
+
+export type TenantEnvironmentType = (typeof TenantEnvironmentType)[keyof typeof TenantEnvironmentType]
+
+
+export const TenantDataResidency = {
+  UNITED_STATES: 'UNITED_STATES',
+  CANADA: 'CANADA',
+  EUROPEAN_UNION: 'EUROPEAN_UNION',
+  UNITED_KINGDOM: 'UNITED_KINGDOM',
+  AUSTRALIA: 'AUSTRALIA',
+  SINGAPORE: 'SINGAPORE',
+  GLOBAL: 'GLOBAL',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type TenantDataResidency = (typeof TenantDataResidency)[keyof typeof TenantDataResidency]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

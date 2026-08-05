@@ -531,7 +531,8 @@ export const ModelName = {
   TenantSubscription: 'TenantSubscription',
   TenantEntitlement: 'TenantEntitlement',
   UsagePolicy: 'UsagePolicy',
-  UsageCounter: 'UsageCounter'
+  UsageCounter: 'UsageCounter',
+  TenantConfiguration: 'TenantConfiguration'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -547,7 +548,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -10541,6 +10542,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    TenantConfiguration: {
+      payload: Prisma.$TenantConfigurationPayload<ExtArgs>
+      fields: Prisma.TenantConfigurationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TenantConfigurationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TenantConfigurationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        findFirst: {
+          args: Prisma.TenantConfigurationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TenantConfigurationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        findMany: {
+          args: Prisma.TenantConfigurationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>[]
+        }
+        create: {
+          args: Prisma.TenantConfigurationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        createMany: {
+          args: Prisma.TenantConfigurationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TenantConfigurationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>[]
+        }
+        delete: {
+          args: Prisma.TenantConfigurationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        update: {
+          args: Prisma.TenantConfigurationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        deleteMany: {
+          args: Prisma.TenantConfigurationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TenantConfigurationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TenantConfigurationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>[]
+        }
+        upsert: {
+          args: Prisma.TenantConfigurationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TenantConfigurationPayload>
+        }
+        aggregate: {
+          args: Prisma.TenantConfigurationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTenantConfiguration>
+        }
+        groupBy: {
+          args: Prisma.TenantConfigurationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TenantConfigurationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TenantConfigurationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TenantConfigurationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -13487,6 +13562,50 @@ export const UsageCounterScalarFieldEnum = {
 export type UsageCounterScalarFieldEnum = (typeof UsageCounterScalarFieldEnum)[keyof typeof UsageCounterScalarFieldEnum]
 
 
+export const TenantConfigurationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  environmentType: 'environmentType',
+  dataResidency: 'dataResidency',
+  customResidencyRegion: 'customResidencyRegion',
+  displayName: 'displayName',
+  legalName: 'legalName',
+  logoUrl: 'logoUrl',
+  primaryColor: 'primaryColor',
+  secondaryColor: 'secondaryColor',
+  customDomain: 'customDomain',
+  locale: 'locale',
+  timeZone: 'timeZone',
+  defaultCurrencyCode: 'defaultCurrencyCode',
+  fiscalYearStartMonth: 'fiscalYearStartMonth',
+  dateFormat: 'dateFormat',
+  numberFormat: 'numberFormat',
+  weekStartsOn: 'weekStartsOn',
+  requireMfa: 'requireMfa',
+  enforceSso: 'enforceSso',
+  sessionTimeoutMinutes: 'sessionTimeoutMinutes',
+  passwordMinLength: 'passwordMinLength',
+  documentRetentionDays: 'documentRetentionDays',
+  auditRetentionDays: 'auditRetentionDays',
+  emailNotifications: 'emailNotifications',
+  inAppNotifications: 'inAppNotifications',
+  dailyDigestEnabled: 'dailyDigestEnabled',
+  dailyDigestHour: 'dailyDigestHour',
+  maxUsers: 'maxUsers',
+  maxSuppliers: 'maxSuppliers',
+  maxStorageMb: 'maxStorageMb',
+  maxApiRequestsPerMonth: 'maxApiRequestsPerMonth',
+  supportTier: 'supportTier',
+  maintenanceWindow: 'maintenanceWindow',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TenantConfigurationScalarFieldEnum = (typeof TenantConfigurationScalarFieldEnum)[keyof typeof TenantConfigurationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -15817,6 +15936,34 @@ export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'TenantEnvironmentType'
+ */
+export type EnumTenantEnvironmentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantEnvironmentType'>
+    
+
+
+/**
+ * Reference to a field of type 'TenantEnvironmentType[]'
+ */
+export type ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantEnvironmentType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TenantDataResidency'
+ */
+export type EnumTenantDataResidencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantDataResidency'>
+    
+
+
+/**
+ * Reference to a field of type 'TenantDataResidency[]'
+ */
+export type ListEnumTenantDataResidencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantDataResidency[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -16115,6 +16262,7 @@ export type GlobalOmitConfig = {
   tenantEntitlement?: Prisma.TenantEntitlementOmit
   usagePolicy?: Prisma.UsagePolicyOmit
   usageCounter?: Prisma.UsageCounterOmit
+  tenantConfiguration?: Prisma.TenantConfigurationOmit
 }
 
 /* Types for Logging */

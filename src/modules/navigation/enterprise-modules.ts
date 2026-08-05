@@ -336,6 +336,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Tenant Enterprise Configuration",
+    description: "Branding, locale, security, residency and operational limits.",
+    href: "/app/settings/configuration",
+    icon: Settings2,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

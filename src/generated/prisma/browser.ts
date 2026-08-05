@@ -692,3 +692,8 @@ export type UsagePolicy = Prisma.UsagePolicyModel
  * 
  */
 export type UsageCounter = Prisma.UsageCounterModel
+/**
+ * Model TenantConfiguration
+ * 
+ */
+export type TenantConfiguration = Prisma.TenantConfigurationModel

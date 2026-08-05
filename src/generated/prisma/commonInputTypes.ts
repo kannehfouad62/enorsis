@@ -3060,6 +3060,40 @@ export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedBigIntFilter<$PrismaModel>
 }
 
+export type EnumTenantEnvironmentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantEnvironmentType | Prisma.EnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel> | $Enums.TenantEnvironmentType
+}
+
+export type EnumTenantDataResidencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantDataResidency | Prisma.EnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel> | $Enums.TenantDataResidency
+}
+
+export type EnumTenantEnvironmentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantEnvironmentType | Prisma.EnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantEnvironmentTypeWithAggregatesFilter<$PrismaModel> | $Enums.TenantEnvironmentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel>
+}
+
+export type EnumTenantDataResidencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantDataResidency | Prisma.EnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantDataResidencyWithAggregatesFilter<$PrismaModel> | $Enums.TenantDataResidency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6063,6 +6097,40 @@ export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedBigIntFilter<$PrismaModel>
   _min?: Prisma.NestedBigIntFilter<$PrismaModel>
   _max?: Prisma.NestedBigIntFilter<$PrismaModel>
+}
+
+export type NestedEnumTenantEnvironmentTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantEnvironmentType | Prisma.EnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel> | $Enums.TenantEnvironmentType
+}
+
+export type NestedEnumTenantDataResidencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantDataResidency | Prisma.EnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel> | $Enums.TenantDataResidency
+}
+
+export type NestedEnumTenantEnvironmentTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantEnvironmentType | Prisma.EnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantEnvironmentType[] | Prisma.ListEnumTenantEnvironmentTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantEnvironmentTypeWithAggregatesFilter<$PrismaModel> | $Enums.TenantEnvironmentType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantEnvironmentTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumTenantDataResidencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantDataResidency | Prisma.EnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantDataResidency[] | Prisma.ListEnumTenantDataResidencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantDataResidencyWithAggregatesFilter<$PrismaModel> | $Enums.TenantDataResidency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantDataResidencyFilter<$PrismaModel>
 }
 
 
