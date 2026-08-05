@@ -312,6 +312,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     icon: Settings2,
     group: "Platform",
   },
+  {
+    title: "Supplier Portal & Onboarding",
+    description: "Supplier access, questionnaires, tasks and collaboration.",
+    href: "/app/supplier-portal",
+    icon: Users,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
