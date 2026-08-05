@@ -352,6 +352,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Enterprise Event Bus",
+    description: "Domain events, subscriptions, deliveries and dead letters.",
+    href: "/app/settings/events",
+    icon: Network,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

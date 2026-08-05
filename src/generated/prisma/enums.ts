@@ -1746,6 +1746,47 @@ export const PlatformJobTriggerType = {
 export type PlatformJobTriggerType = (typeof PlatformJobTriggerType)[keyof typeof PlatformJobTriggerType]
 
 
+export const PlatformEventStatus = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  DELIVERED: 'DELIVERED',
+  PARTIALLY_DELIVERED: 'PARTIALLY_DELIVERED',
+  FAILED: 'FAILED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type PlatformEventStatus = (typeof PlatformEventStatus)[keyof typeof PlatformEventStatus]
+
+
+export const PlatformEventSubscriptionStatus = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type PlatformEventSubscriptionStatus = (typeof PlatformEventSubscriptionStatus)[keyof typeof PlatformEventSubscriptionStatus]
+
+
+export const PlatformEventDeliveryStatus = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  DELIVERED: 'DELIVERED',
+  FAILED: 'FAILED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type PlatformEventDeliveryStatus = (typeof PlatformEventDeliveryStatus)[keyof typeof PlatformEventDeliveryStatus]
+
+
+export const PlatformEventDeliveryType = {
+  INTERNAL_HANDLER: 'INTERNAL_HANDLER',
+  WEBHOOK: 'WEBHOOK',
+  BACKGROUND_JOB: 'BACKGROUND_JOB'
+} as const
+
+export type PlatformEventDeliveryType = (typeof PlatformEventDeliveryType)[keyof typeof PlatformEventDeliveryType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { prisma } from "@/lib/prisma";
 import { getPlatformJobHandler } from "./registry";
+import { toJson } from "@/lib/prisma-json";
 
 export async function queuePlatformJob({
   jobKey,
@@ -34,7 +35,7 @@ export async function queuePlatformJob({
       jobDefinitionId: definition.id,
       tenantId: tenantId ?? null,
       triggerType,
-      payload,
+      payload: toJson(payload),
       requestedByUserId: requestedByUserId ?? null,
       correlationId,
     },
@@ -137,7 +138,7 @@ export async function executePlatformJob(
           status: "SUCCEEDED",
           completedAt: now,
           durationMs: Date.now() - started,
-          result,
+          result: toJson(result),
         },
       }),
       prisma.platformJobExecution.update({
@@ -145,7 +146,7 @@ export async function executePlatformJob(
         data: {
           status: "SUCCEEDED",
           completedAt: now,
-          result,
+          result: toJson(result),
           lockedAt: null,
           lockedBy: null,
         },

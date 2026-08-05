@@ -535,7 +535,10 @@ export const ModelName = {
   TenantConfiguration: 'TenantConfiguration',
   PlatformJobDefinition: 'PlatformJobDefinition',
   PlatformJobExecution: 'PlatformJobExecution',
-  PlatformJobAttempt: 'PlatformJobAttempt'
+  PlatformJobAttempt: 'PlatformJobAttempt',
+  PlatformEvent: 'PlatformEvent',
+  PlatformEventSubscription: 'PlatformEventSubscription',
+  PlatformEventDelivery: 'PlatformEventDelivery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -551,7 +554,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -10841,6 +10844,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PlatformEvent: {
+      payload: Prisma.$PlatformEventPayload<ExtArgs>
+      fields: Prisma.PlatformEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatformEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatformEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatformEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatformEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        findMany: {
+          args: Prisma.PlatformEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>[]
+        }
+        create: {
+          args: Prisma.PlatformEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        createMany: {
+          args: Prisma.PlatformEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatformEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatformEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        update: {
+          args: Prisma.PlatformEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatformEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatformEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatformEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatformEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatformEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatformEvent>
+        }
+        groupBy: {
+          args: Prisma.PlatformEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatformEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    PlatformEventSubscription: {
+      payload: Prisma.$PlatformEventSubscriptionPayload<ExtArgs>
+      fields: Prisma.PlatformEventSubscriptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatformEventSubscriptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatformEventSubscriptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatformEventSubscriptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatformEventSubscriptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        findMany: {
+          args: Prisma.PlatformEventSubscriptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>[]
+        }
+        create: {
+          args: Prisma.PlatformEventSubscriptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        createMany: {
+          args: Prisma.PlatformEventSubscriptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatformEventSubscriptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatformEventSubscriptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        update: {
+          args: Prisma.PlatformEventSubscriptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatformEventSubscriptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatformEventSubscriptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatformEventSubscriptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatformEventSubscriptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventSubscriptionPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatformEventSubscriptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatformEventSubscription>
+        }
+        groupBy: {
+          args: Prisma.PlatformEventSubscriptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventSubscriptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatformEventSubscriptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventSubscriptionCountAggregateOutputType> | number
+        }
+      }
+    }
+    PlatformEventDelivery: {
+      payload: Prisma.$PlatformEventDeliveryPayload<ExtArgs>
+      fields: Prisma.PlatformEventDeliveryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatformEventDeliveryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatformEventDeliveryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatformEventDeliveryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatformEventDeliveryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        findMany: {
+          args: Prisma.PlatformEventDeliveryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>[]
+        }
+        create: {
+          args: Prisma.PlatformEventDeliveryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        createMany: {
+          args: Prisma.PlatformEventDeliveryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatformEventDeliveryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatformEventDeliveryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        update: {
+          args: Prisma.PlatformEventDeliveryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatformEventDeliveryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatformEventDeliveryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatformEventDeliveryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatformEventDeliveryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformEventDeliveryPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatformEventDeliveryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatformEventDelivery>
+        }
+        groupBy: {
+          args: Prisma.PlatformEventDeliveryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventDeliveryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatformEventDeliveryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformEventDeliveryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -13902,6 +14127,73 @@ export const PlatformJobAttemptScalarFieldEnum = {
 export type PlatformJobAttemptScalarFieldEnum = (typeof PlatformJobAttemptScalarFieldEnum)[keyof typeof PlatformJobAttemptScalarFieldEnum]
 
 
+export const PlatformEventScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  tenantId: 'tenantId',
+  eventType: 'eventType',
+  aggregateType: 'aggregateType',
+  aggregateId: 'aggregateId',
+  sourceModule: 'sourceModule',
+  schemaVersion: 'schemaVersion',
+  status: 'status',
+  payload: 'payload',
+  metadata: 'metadata',
+  correlationId: 'correlationId',
+  causationId: 'causationId',
+  actorUserId: 'actorUserId',
+  occurredAt: 'occurredAt',
+  availableAt: 'availableAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventScalarFieldEnum = (typeof PlatformEventScalarFieldEnum)[keyof typeof PlatformEventScalarFieldEnum]
+
+
+export const PlatformEventSubscriptionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  eventTypePattern: 'eventTypePattern',
+  deliveryType: 'deliveryType',
+  handlerKey: 'handlerKey',
+  webhookUrl: 'webhookUrl',
+  backgroundJobKey: 'backgroundJobKey',
+  tenantId: 'tenantId',
+  maxAttempts: 'maxAttempts',
+  retryDelaySeconds: 'retryDelaySeconds',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventSubscriptionScalarFieldEnum = (typeof PlatformEventSubscriptionScalarFieldEnum)[keyof typeof PlatformEventSubscriptionScalarFieldEnum]
+
+
+export const PlatformEventDeliveryScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  subscriptionId: 'subscriptionId',
+  status: 'status',
+  attemptCount: 'attemptCount',
+  availableAt: 'availableAt',
+  deliveredAt: 'deliveredAt',
+  responseStatus: 'responseStatus',
+  responseBody: 'responseBody',
+  errorMessage: 'errorMessage',
+  lockedAt: 'lockedAt',
+  lockedBy: 'lockedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventDeliveryScalarFieldEnum = (typeof PlatformEventDeliveryScalarFieldEnum)[keyof typeof PlatformEventDeliveryScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -16302,6 +16594,62 @@ export type ListEnumPlatformJobTriggerTypeFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'PlatformEventStatus'
+ */
+export type EnumPlatformEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventStatus[]'
+ */
+export type ListEnumPlatformEventStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventSubscriptionStatus'
+ */
+export type EnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventSubscriptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventSubscriptionStatus[]'
+ */
+export type ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventSubscriptionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventDeliveryType'
+ */
+export type EnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventDeliveryType'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventDeliveryType[]'
+ */
+export type ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventDeliveryType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventDeliveryStatus'
+ */
+export type EnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventDeliveryStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformEventDeliveryStatus[]'
+ */
+export type ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformEventDeliveryStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -16604,6 +16952,9 @@ export type GlobalOmitConfig = {
   platformJobDefinition?: Prisma.PlatformJobDefinitionOmit
   platformJobExecution?: Prisma.PlatformJobExecutionOmit
   platformJobAttempt?: Prisma.PlatformJobAttemptOmit
+  platformEvent?: Prisma.PlatformEventOmit
+  platformEventSubscription?: Prisma.PlatformEventSubscriptionOmit
+  platformEventDelivery?: Prisma.PlatformEventDeliveryOmit
 }
 
 /* Types for Logging */

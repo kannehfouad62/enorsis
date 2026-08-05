@@ -3145,6 +3145,74 @@ export type EnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
 }
 
+export type EnumPlatformEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventStatus | Prisma.EnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel> | $Enums.PlatformEventStatus
+}
+
+export type EnumPlatformEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventStatus | Prisma.EnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformEventSubscriptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventSubscriptionStatus | Prisma.EnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel> | $Enums.PlatformEventSubscriptionStatus
+}
+
+export type EnumPlatformEventDeliveryTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryType | Prisma.EnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel> | $Enums.PlatformEventDeliveryType
+}
+
+export type EnumPlatformEventSubscriptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventSubscriptionStatus | Prisma.EnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventSubscriptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventSubscriptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformEventDeliveryTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryType | Prisma.EnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventDeliveryType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel>
+}
+
+export type EnumPlatformEventDeliveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryStatus | Prisma.EnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel> | $Enums.PlatformEventDeliveryStatus
+}
+
+export type EnumPlatformEventDeliveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryStatus | Prisma.EnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventDeliveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6233,6 +6301,74 @@ export type NestedEnumPlatformJobTriggerTypeWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPlatformJobTriggerTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformEventStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventStatus | Prisma.EnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel> | $Enums.PlatformEventStatus
+}
+
+export type NestedEnumPlatformEventStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventStatus | Prisma.EnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventStatus[] | Prisma.ListEnumPlatformEventStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventSubscriptionStatus | Prisma.EnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel> | $Enums.PlatformEventSubscriptionStatus
+}
+
+export type NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryType | Prisma.EnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel> | $Enums.PlatformEventDeliveryType
+}
+
+export type NestedEnumPlatformEventSubscriptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventSubscriptionStatus | Prisma.EnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventSubscriptionStatus[] | Prisma.ListEnumPlatformEventSubscriptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventSubscriptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventSubscriptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventSubscriptionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformEventDeliveryTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryType | Prisma.EnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryType[] | Prisma.ListEnumPlatformEventDeliveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryTypeWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventDeliveryType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventDeliveryTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryStatus | Prisma.EnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel> | $Enums.PlatformEventDeliveryStatus
+}
+
+export type NestedEnumPlatformEventDeliveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformEventDeliveryStatus | Prisma.EnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformEventDeliveryStatus[] | Prisma.ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformEventDeliveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformEventDeliveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformEventDeliveryStatusFilter<$PrismaModel>
 }
 
 

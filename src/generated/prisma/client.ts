@@ -736,3 +736,18 @@ export type PlatformJobExecution = Prisma.PlatformJobExecutionModel
  * 
  */
 export type PlatformJobAttempt = Prisma.PlatformJobAttemptModel
+/**
+ * Model PlatformEvent
+ * 
+ */
+export type PlatformEvent = Prisma.PlatformEventModel
+/**
+ * Model PlatformEventSubscription
+ * 
+ */
+export type PlatformEventSubscription = Prisma.PlatformEventSubscriptionModel
+/**
+ * Model PlatformEventDelivery
+ * 
+ */
+export type PlatformEventDelivery = Prisma.PlatformEventDeliveryModel

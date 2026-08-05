@@ -189,7 +189,10 @@ export const ModelName = {
   TenantConfiguration: 'TenantConfiguration',
   PlatformJobDefinition: 'PlatformJobDefinition',
   PlatformJobExecution: 'PlatformJobExecution',
-  PlatformJobAttempt: 'PlatformJobAttempt'
+  PlatformJobAttempt: 'PlatformJobAttempt',
+  PlatformEvent: 'PlatformEvent',
+  PlatformEventSubscription: 'PlatformEventSubscription',
+  PlatformEventDelivery: 'PlatformEventDelivery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3228,6 +3231,73 @@ export const PlatformJobAttemptScalarFieldEnum = {
 } as const
 
 export type PlatformJobAttemptScalarFieldEnum = (typeof PlatformJobAttemptScalarFieldEnum)[keyof typeof PlatformJobAttemptScalarFieldEnum]
+
+
+export const PlatformEventScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  tenantId: 'tenantId',
+  eventType: 'eventType',
+  aggregateType: 'aggregateType',
+  aggregateId: 'aggregateId',
+  sourceModule: 'sourceModule',
+  schemaVersion: 'schemaVersion',
+  status: 'status',
+  payload: 'payload',
+  metadata: 'metadata',
+  correlationId: 'correlationId',
+  causationId: 'causationId',
+  actorUserId: 'actorUserId',
+  occurredAt: 'occurredAt',
+  availableAt: 'availableAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventScalarFieldEnum = (typeof PlatformEventScalarFieldEnum)[keyof typeof PlatformEventScalarFieldEnum]
+
+
+export const PlatformEventSubscriptionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  eventTypePattern: 'eventTypePattern',
+  deliveryType: 'deliveryType',
+  handlerKey: 'handlerKey',
+  webhookUrl: 'webhookUrl',
+  backgroundJobKey: 'backgroundJobKey',
+  tenantId: 'tenantId',
+  maxAttempts: 'maxAttempts',
+  retryDelaySeconds: 'retryDelaySeconds',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventSubscriptionScalarFieldEnum = (typeof PlatformEventSubscriptionScalarFieldEnum)[keyof typeof PlatformEventSubscriptionScalarFieldEnum]
+
+
+export const PlatformEventDeliveryScalarFieldEnum = {
+  id: 'id',
+  eventId: 'eventId',
+  subscriptionId: 'subscriptionId',
+  status: 'status',
+  attemptCount: 'attemptCount',
+  availableAt: 'availableAt',
+  deliveredAt: 'deliveredAt',
+  responseStatus: 'responseStatus',
+  responseBody: 'responseBody',
+  errorMessage: 'errorMessage',
+  lockedAt: 'lockedAt',
+  lockedBy: 'lockedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformEventDeliveryScalarFieldEnum = (typeof PlatformEventDeliveryScalarFieldEnum)[keyof typeof PlatformEventDeliveryScalarFieldEnum]
 
 
 export const SortOrder = {
