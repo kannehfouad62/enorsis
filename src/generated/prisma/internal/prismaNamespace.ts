@@ -504,7 +504,10 @@ export const ModelName = {
   ReplenishmentRecommendation: 'ReplenishmentRecommendation',
   LogisticsCarrier: 'LogisticsCarrier',
   LogisticsShipment: 'LogisticsShipment',
-  LogisticsTrackingEvent: 'LogisticsTrackingEvent'
+  LogisticsTrackingEvent: 'LogisticsTrackingEvent',
+  SupplierClaim: 'SupplierClaim',
+  SupplierClaimEvidence: 'SupplierClaimEvidence',
+  SupplierRecovery: 'SupplierRecovery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -520,7 +523,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -8516,6 +8519,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierClaim: {
+      payload: Prisma.$SupplierClaimPayload<ExtArgs>
+      fields: Prisma.SupplierClaimFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierClaimFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierClaimFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierClaimFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierClaimFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierClaimFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierClaimCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierClaimCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierClaimCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierClaimDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        update: {
+          args: Prisma.SupplierClaimUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierClaimDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierClaimUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierClaimUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierClaimUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierClaimAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierClaim>
+        }
+        groupBy: {
+          args: Prisma.SupplierClaimGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierClaimCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierClaimEvidence: {
+      payload: Prisma.$SupplierClaimEvidencePayload<ExtArgs>
+      fields: Prisma.SupplierClaimEvidenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierClaimEvidenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierClaimEvidenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierClaimEvidenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierClaimEvidenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierClaimEvidenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierClaimEvidenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierClaimEvidenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierClaimEvidenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierClaimEvidenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        update: {
+          args: Prisma.SupplierClaimEvidenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierClaimEvidenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierClaimEvidenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierClaimEvidenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierClaimEvidenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierClaimEvidencePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierClaimEvidenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierClaimEvidence>
+        }
+        groupBy: {
+          args: Prisma.SupplierClaimEvidenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimEvidenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierClaimEvidenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierClaimEvidenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierRecovery: {
+      payload: Prisma.$SupplierRecoveryPayload<ExtArgs>
+      fields: Prisma.SupplierRecoveryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierRecoveryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierRecoveryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierRecoveryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierRecoveryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierRecoveryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierRecoveryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierRecoveryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierRecoveryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierRecoveryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        update: {
+          args: Prisma.SupplierRecoveryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierRecoveryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierRecoveryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierRecoveryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierRecoveryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierRecoveryPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierRecoveryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierRecovery>
+        }
+        groupBy: {
+          args: Prisma.SupplierRecoveryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRecoveryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierRecoveryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierRecoveryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -10862,6 +11087,78 @@ export const LogisticsTrackingEventScalarFieldEnum = {
 export type LogisticsTrackingEventScalarFieldEnum = (typeof LogisticsTrackingEventScalarFieldEnum)[keyof typeof LogisticsTrackingEventScalarFieldEnum]
 
 
+export const SupplierClaimScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  claimNumber: 'claimNumber',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  purchaseOrderId: 'purchaseOrderId',
+  receiptId: 'receiptId',
+  shipmentId: 'shipmentId',
+  invoiceId: 'invoiceId',
+  currencyCode: 'currencyCode',
+  claimedAmount: 'claimedAmount',
+  acceptedAmount: 'acceptedAmount',
+  settledAmount: 'settledAmount',
+  quantityAffected: 'quantityAffected',
+  unitOfMeasure: 'unitOfMeasure',
+  detectedAt: 'detectedAt',
+  submittedAt: 'submittedAt',
+  respondedAt: 'respondedAt',
+  resolvedAt: 'resolvedAt',
+  dueAt: 'dueAt',
+  ownerUserId: 'ownerUserId',
+  supplierResponse: 'supplierResponse',
+  internalAssessment: 'internalAssessment',
+  rootCause: 'rootCause',
+  correctiveAction: 'correctiveAction',
+  disposition: 'disposition',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierClaimScalarFieldEnum = (typeof SupplierClaimScalarFieldEnum)[keyof typeof SupplierClaimScalarFieldEnum]
+
+
+export const SupplierClaimEvidenceScalarFieldEnum = {
+  id: 'id',
+  supplierClaimId: 'supplierClaimId',
+  fileName: 'fileName',
+  fileUrl: 'fileUrl',
+  mimeType: 'mimeType',
+  description: 'description',
+  uploadedByUserId: 'uploadedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierClaimEvidenceScalarFieldEnum = (typeof SupplierClaimEvidenceScalarFieldEnum)[keyof typeof SupplierClaimEvidenceScalarFieldEnum]
+
+
+export const SupplierRecoveryScalarFieldEnum = {
+  id: 'id',
+  supplierClaimId: 'supplierClaimId',
+  type: 'type',
+  status: 'status',
+  referenceNumber: 'referenceNumber',
+  amount: 'amount',
+  currencyCode: 'currencyCode',
+  proposedAt: 'proposedAt',
+  agreedAt: 'agreedAt',
+  issuedAt: 'issuedAt',
+  receivedAt: 'receivedAt',
+  appliedAt: 'appliedAt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRecoveryScalarFieldEnum = (typeof SupplierRecoveryScalarFieldEnum)[keyof typeof SupplierRecoveryScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -12716,6 +13013,76 @@ export type ListEnumLogisticsEventTypeFieldRefInput<$PrismaModel> = FieldRefInpu
 
 
 /**
+ * Reference to a field of type 'SupplierClaimType'
+ */
+export type EnumSupplierClaimTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimType'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimType[]'
+ */
+export type ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimStatus'
+ */
+export type EnumSupplierClaimStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierClaimStatus[]'
+ */
+export type ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierClaimStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ReturnDisposition'
+ */
+export type EnumReturnDispositionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReturnDisposition'>
+    
+
+
+/**
+ * Reference to a field of type 'ReturnDisposition[]'
+ */
+export type ListEnumReturnDispositionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReturnDisposition[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRecoveryType'
+ */
+export type EnumSupplierRecoveryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRecoveryType'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRecoveryType[]'
+ */
+export type ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRecoveryType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRecoveryStatus'
+ */
+export type EnumSupplierRecoveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRecoveryStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierRecoveryStatus[]'
+ */
+export type ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierRecoveryStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -12987,6 +13354,9 @@ export type GlobalOmitConfig = {
   logisticsCarrier?: Prisma.LogisticsCarrierOmit
   logisticsShipment?: Prisma.LogisticsShipmentOmit
   logisticsTrackingEvent?: Prisma.LogisticsTrackingEventOmit
+  supplierClaim?: Prisma.SupplierClaimOmit
+  supplierClaimEvidence?: Prisma.SupplierClaimEvidenceOmit
+  supplierRecovery?: Prisma.SupplierRecoveryOmit
 }
 
 /* Types for Logging */

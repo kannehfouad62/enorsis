@@ -18,6 +18,7 @@ import {
   Landmark,
   Network,
   PackageCheck,
+  PackageX,
   Presentation,
   ReceiptText,
   Scale,
@@ -48,6 +49,13 @@ export interface EnterpriseModuleLink {
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
+  {
+    title: "Returns, Claims & Recovery",
+    description: "Returns, supplier claims, warranty cases and recovery.",
+    href: "/app/claims",
+    icon: PackageX,
+    group: "Procurement",
+  },
   {
     title: "Logistics & Freight",
     description: "Carriers, shipments, tracking, freight cost and delivery risk.",

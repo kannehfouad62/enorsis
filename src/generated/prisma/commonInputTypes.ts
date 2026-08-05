@@ -2445,6 +2445,91 @@ export type EnumLogisticsEventTypeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumLogisticsEventTypeFilter<$PrismaModel>
 }
 
+export type EnumSupplierClaimTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimType | Prisma.EnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel> | $Enums.SupplierClaimType
+}
+
+export type EnumSupplierClaimStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimStatus | Prisma.EnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel> | $Enums.SupplierClaimStatus
+}
+
+export type EnumReturnDispositionNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReturnDisposition | Prisma.EnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel> | $Enums.ReturnDisposition | null
+}
+
+export type EnumSupplierClaimTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimType | Prisma.EnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierClaimType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel>
+}
+
+export type EnumSupplierClaimStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimStatus | Prisma.EnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierClaimStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel>
+}
+
+export type EnumReturnDispositionNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReturnDisposition | Prisma.EnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumReturnDispositionNullableWithAggregatesFilter<$PrismaModel> | $Enums.ReturnDisposition | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel>
+}
+
+export type EnumSupplierRecoveryTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryType | Prisma.EnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel> | $Enums.SupplierRecoveryType
+}
+
+export type EnumSupplierRecoveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryStatus | Prisma.EnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel> | $Enums.SupplierRecoveryStatus
+}
+
+export type EnumSupplierRecoveryTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryType | Prisma.EnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRecoveryType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel>
+}
+
+export type EnumSupplierRecoveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryStatus | Prisma.EnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRecoveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -4833,6 +4918,91 @@ export type NestedEnumLogisticsEventTypeWithAggregatesFilter<$PrismaModel = neve
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumLogisticsEventTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumLogisticsEventTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierClaimTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimType | Prisma.EnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel> | $Enums.SupplierClaimType
+}
+
+export type NestedEnumSupplierClaimStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimStatus | Prisma.EnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel> | $Enums.SupplierClaimStatus
+}
+
+export type NestedEnumReturnDispositionNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReturnDisposition | Prisma.EnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel> | $Enums.ReturnDisposition | null
+}
+
+export type NestedEnumSupplierClaimTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimType | Prisma.EnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimType[] | Prisma.ListEnumSupplierClaimTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierClaimType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierClaimTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierClaimStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierClaimStatus | Prisma.EnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierClaimStatus[] | Prisma.ListEnumSupplierClaimStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierClaimStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierClaimStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierClaimStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumReturnDispositionNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReturnDisposition | Prisma.EnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  in?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.ReturnDisposition[] | Prisma.ListEnumReturnDispositionFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumReturnDispositionNullableWithAggregatesFilter<$PrismaModel> | $Enums.ReturnDisposition | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReturnDispositionNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRecoveryTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryType | Prisma.EnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel> | $Enums.SupplierRecoveryType
+}
+
+export type NestedEnumSupplierRecoveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryStatus | Prisma.EnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel> | $Enums.SupplierRecoveryStatus
+}
+
+export type NestedEnumSupplierRecoveryTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryType | Prisma.EnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryType[] | Prisma.ListEnumSupplierRecoveryTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryTypeWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRecoveryType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRecoveryTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierRecoveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierRecoveryStatus | Prisma.EnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierRecoveryStatus[] | Prisma.ListEnumSupplierRecoveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierRecoveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierRecoveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierRecoveryStatusFilter<$PrismaModel>
 }
 
 

@@ -1302,6 +1302,75 @@ export const LogisticsEventType = {
 export type LogisticsEventType = (typeof LogisticsEventType)[keyof typeof LogisticsEventType]
 
 
+export const SupplierClaimType = {
+  DAMAGED_GOODS: 'DAMAGED_GOODS',
+  SHORT_SHIPMENT: 'SHORT_SHIPMENT',
+  OVER_SHIPMENT: 'OVER_SHIPMENT',
+  WRONG_ITEM: 'WRONG_ITEM',
+  QUALITY_DEFECT: 'QUALITY_DEFECT',
+  WARRANTY: 'WARRANTY',
+  LATE_DELIVERY: 'LATE_DELIVERY',
+  PRICING_ERROR: 'PRICING_ERROR',
+  FREIGHT_DAMAGE: 'FREIGHT_DAMAGE',
+  OTHER: 'OTHER'
+} as const
+
+export type SupplierClaimType = (typeof SupplierClaimType)[keyof typeof SupplierClaimType]
+
+
+export const SupplierClaimStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  UNDER_REVIEW: 'UNDER_REVIEW',
+  ACCEPTED: 'ACCEPTED',
+  PARTIALLY_ACCEPTED: 'PARTIALLY_ACCEPTED',
+  REJECTED: 'REJECTED',
+  SETTLED: 'SETTLED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SupplierClaimStatus = (typeof SupplierClaimStatus)[keyof typeof SupplierClaimStatus]
+
+
+export const ReturnDisposition = {
+  RETURN_TO_SUPPLIER: 'RETURN_TO_SUPPLIER',
+  REPLACE: 'REPLACE',
+  REPAIR: 'REPAIR',
+  SCRAP: 'SCRAP',
+  USE_AS_IS: 'USE_AS_IS',
+  CREDIT_ONLY: 'CREDIT_ONLY'
+} as const
+
+export type ReturnDisposition = (typeof ReturnDisposition)[keyof typeof ReturnDisposition]
+
+
+export const SupplierRecoveryType = {
+  CREDIT_NOTE: 'CREDIT_NOTE',
+  DEBIT_MEMO: 'DEBIT_MEMO',
+  CASH_REFUND: 'CASH_REFUND',
+  REPLACEMENT: 'REPLACEMENT',
+  SERVICE_CREDIT: 'SERVICE_CREDIT',
+  PRICE_ADJUSTMENT: 'PRICE_ADJUSTMENT',
+  OTHER: 'OTHER'
+} as const
+
+export type SupplierRecoveryType = (typeof SupplierRecoveryType)[keyof typeof SupplierRecoveryType]
+
+
+export const SupplierRecoveryStatus = {
+  PROPOSED: 'PROPOSED',
+  AGREED: 'AGREED',
+  ISSUED: 'ISSUED',
+  RECEIVED: 'RECEIVED',
+  APPLIED: 'APPLIED',
+  DISPUTED: 'DISPUTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SupplierRecoveryStatus = (typeof SupplierRecoveryStatus)[keyof typeof SupplierRecoveryStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

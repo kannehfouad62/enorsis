@@ -158,7 +158,10 @@ export const ModelName = {
   ReplenishmentRecommendation: 'ReplenishmentRecommendation',
   LogisticsCarrier: 'LogisticsCarrier',
   LogisticsShipment: 'LogisticsShipment',
-  LogisticsTrackingEvent: 'LogisticsTrackingEvent'
+  LogisticsTrackingEvent: 'LogisticsTrackingEvent',
+  SupplierClaim: 'SupplierClaim',
+  SupplierClaimEvidence: 'SupplierClaimEvidence',
+  SupplierRecovery: 'SupplierRecovery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2482,6 +2485,78 @@ export const LogisticsTrackingEventScalarFieldEnum = {
 } as const
 
 export type LogisticsTrackingEventScalarFieldEnum = (typeof LogisticsTrackingEventScalarFieldEnum)[keyof typeof LogisticsTrackingEventScalarFieldEnum]
+
+
+export const SupplierClaimScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  claimNumber: 'claimNumber',
+  type: 'type',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  purchaseOrderId: 'purchaseOrderId',
+  receiptId: 'receiptId',
+  shipmentId: 'shipmentId',
+  invoiceId: 'invoiceId',
+  currencyCode: 'currencyCode',
+  claimedAmount: 'claimedAmount',
+  acceptedAmount: 'acceptedAmount',
+  settledAmount: 'settledAmount',
+  quantityAffected: 'quantityAffected',
+  unitOfMeasure: 'unitOfMeasure',
+  detectedAt: 'detectedAt',
+  submittedAt: 'submittedAt',
+  respondedAt: 'respondedAt',
+  resolvedAt: 'resolvedAt',
+  dueAt: 'dueAt',
+  ownerUserId: 'ownerUserId',
+  supplierResponse: 'supplierResponse',
+  internalAssessment: 'internalAssessment',
+  rootCause: 'rootCause',
+  correctiveAction: 'correctiveAction',
+  disposition: 'disposition',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierClaimScalarFieldEnum = (typeof SupplierClaimScalarFieldEnum)[keyof typeof SupplierClaimScalarFieldEnum]
+
+
+export const SupplierClaimEvidenceScalarFieldEnum = {
+  id: 'id',
+  supplierClaimId: 'supplierClaimId',
+  fileName: 'fileName',
+  fileUrl: 'fileUrl',
+  mimeType: 'mimeType',
+  description: 'description',
+  uploadedByUserId: 'uploadedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierClaimEvidenceScalarFieldEnum = (typeof SupplierClaimEvidenceScalarFieldEnum)[keyof typeof SupplierClaimEvidenceScalarFieldEnum]
+
+
+export const SupplierRecoveryScalarFieldEnum = {
+  id: 'id',
+  supplierClaimId: 'supplierClaimId',
+  type: 'type',
+  status: 'status',
+  referenceNumber: 'referenceNumber',
+  amount: 'amount',
+  currencyCode: 'currencyCode',
+  proposedAt: 'proposedAt',
+  agreedAt: 'agreedAt',
+  issuedAt: 'issuedAt',
+  receivedAt: 'receivedAt',
+  appliedAt: 'appliedAt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierRecoveryScalarFieldEnum = (typeof SupplierRecoveryScalarFieldEnum)[keyof typeof SupplierRecoveryScalarFieldEnum]
 
 
 export const SortOrder = {

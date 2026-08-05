@@ -557,3 +557,18 @@ export type LogisticsShipment = Prisma.LogisticsShipmentModel
  * 
  */
 export type LogisticsTrackingEvent = Prisma.LogisticsTrackingEventModel
+/**
+ * Model SupplierClaim
+ * 
+ */
+export type SupplierClaim = Prisma.SupplierClaimModel
+/**
+ * Model SupplierClaimEvidence
+ * 
+ */
+export type SupplierClaimEvidence = Prisma.SupplierClaimEvidenceModel
+/**
+ * Model SupplierRecovery
+ * 
+ */
+export type SupplierRecovery = Prisma.SupplierRecoveryModel

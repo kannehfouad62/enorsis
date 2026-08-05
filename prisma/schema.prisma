@@ -956,6 +956,60 @@ enum LogisticsEventType {
   EXCEPTION
 }
 
+enum SupplierClaimType {
+  DAMAGED_GOODS
+  SHORT_SHIPMENT
+  OVER_SHIPMENT
+  WRONG_ITEM
+  QUALITY_DEFECT
+  WARRANTY
+  LATE_DELIVERY
+  PRICING_ERROR
+  FREIGHT_DAMAGE
+  OTHER
+}
+
+enum SupplierClaimStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  ACCEPTED
+  PARTIALLY_ACCEPTED
+  REJECTED
+  SETTLED
+  CLOSED
+  CANCELLED
+}
+
+enum ReturnDisposition {
+  RETURN_TO_SUPPLIER
+  REPLACE
+  REPAIR
+  SCRAP
+  USE_AS_IS
+  CREDIT_ONLY
+}
+
+enum SupplierRecoveryType {
+  CREDIT_NOTE
+  DEBIT_MEMO
+  CASH_REFUND
+  REPLACEMENT
+  SERVICE_CREDIT
+  PRICE_ADJUSTMENT
+  OTHER
+}
+
+enum SupplierRecoveryStatus {
+  PROPOSED
+  AGREED
+  ISSUED
+  RECEIVED
+  APPLIED
+  DISPUTED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1111,6 +1165,7 @@ model Tenant {
   replenishmentRecommendations ReplenishmentRecommendation[]
   logisticsCarriers            LogisticsCarrier[]
   logisticsShipments           LogisticsShipment[]
+  supplierClaims               SupplierClaim[]
   createdAt                    DateTime                      @default(now())
   updatedAt                    DateTime                      @updatedAt
   archivedAt                   DateTime?
@@ -1398,6 +1453,7 @@ model Supplier {
   documents           SupplierDocument[]
   sourcingInvitations SourcingInvitation[]
   sourcingResponses   SourcingResponse[]
+  supplierClaims      SupplierClaim[]
   createdAt           DateTime                    @default(now())
   updatedAt           DateTime                    @updatedAt
   sourcingQuestions   SourcingQuestion[]
@@ -3656,4 +3712,81 @@ model LogisticsTrackingEvent {
   createdAt   DateTime           @default(now())
 
   @@index([shipmentId, occurredAt])
+}
+
+model SupplierClaim {
+  id                 String                  @id @default(cuid())
+  tenantId           String
+  supplierId         String
+  claimNumber        String
+  type               SupplierClaimType
+  status             SupplierClaimStatus     @default(DRAFT)
+  title              String
+  description        String
+  purchaseOrderId    String?
+  receiptId          String?
+  shipmentId         String?
+  invoiceId          String?
+  currencyCode       String                  @default("USD")
+  claimedAmount      Decimal                 @default(0) @db.Decimal(18, 2)
+  acceptedAmount     Decimal                 @default(0) @db.Decimal(18, 2)
+  settledAmount      Decimal                 @default(0) @db.Decimal(18, 2)
+  quantityAffected   Decimal?                @db.Decimal(18, 4)
+  unitOfMeasure      String?
+  detectedAt         DateTime
+  submittedAt        DateTime?
+  respondedAt        DateTime?
+  resolvedAt         DateTime?
+  dueAt              DateTime?
+  ownerUserId        String
+  supplierResponse   String?
+  internalAssessment String?
+  rootCause          String?
+  correctiveAction   String?
+  disposition        ReturnDisposition?
+  tenant             Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier           Supplier                @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  evidence           SupplierClaimEvidence[]
+  recoveries         SupplierRecovery[]
+  createdAt          DateTime                @default(now())
+  updatedAt          DateTime                @updatedAt
+
+  @@unique([tenantId, claimNumber])
+  @@index([tenantId, status, dueAt])
+  @@index([supplierId, status, detectedAt])
+}
+
+model SupplierClaimEvidence {
+  id               String        @id @default(cuid())
+  supplierClaimId  String
+  fileName         String
+  fileUrl          String
+  mimeType         String?
+  description      String?
+  uploadedByUserId String
+  claim            SupplierClaim @relation(fields: [supplierClaimId], references: [id], onDelete: Cascade)
+  createdAt        DateTime      @default(now())
+
+  @@index([supplierClaimId, createdAt])
+}
+
+model SupplierRecovery {
+  id              String                 @id @default(cuid())
+  supplierClaimId String
+  type            SupplierRecoveryType
+  status          SupplierRecoveryStatus @default(PROPOSED)
+  referenceNumber String?
+  amount          Decimal                @db.Decimal(18, 2)
+  currencyCode    String                 @default("USD")
+  proposedAt      DateTime               @default(now())
+  agreedAt        DateTime?
+  issuedAt        DateTime?
+  receivedAt      DateTime?
+  appliedAt       DateTime?
+  notes           String?
+  claim           SupplierClaim          @relation(fields: [supplierClaimId], references: [id], onDelete: Cascade)
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+
+  @@index([supplierClaimId, status])
 }
