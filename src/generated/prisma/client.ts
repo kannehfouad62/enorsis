@@ -631,3 +631,18 @@ export type ResponsibleSourcingAssessment = Prisma.ResponsibleSourcingAssessment
  * 
  */
 export type SustainabilityImprovementPlan = Prisma.SustainabilityImprovementPlanModel
+/**
+ * Model ProcurementValueInitiative
+ * 
+ */
+export type ProcurementValueInitiative = Prisma.ProcurementValueInitiativeModel
+/**
+ * Model ProcurementBenefit
+ * 
+ */
+export type ProcurementBenefit = Prisma.ProcurementBenefitModel
+/**
+ * Model ProcurementValueMilestone
+ * 
+ */
+export type ProcurementValueMilestone = Prisma.ProcurementValueMilestoneModel

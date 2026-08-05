@@ -2700,6 +2700,91 @@ export type EnumSustainabilityImprovementStatusWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
 }
 
+export type EnumProcurementValueInitiativeStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueInitiativeStatus | Prisma.EnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel> | $Enums.ProcurementValueInitiativeStatus
+}
+
+export type EnumProcurementValueInitiativeStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueInitiativeStatus | Prisma.EnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueInitiativeStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementValueInitiativeStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel>
+}
+
+export type EnumProcurementBenefitTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitType | Prisma.EnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel> | $Enums.ProcurementBenefitType
+}
+
+export type EnumProcurementBenefitFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitFrequency | Prisma.EnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel> | $Enums.ProcurementBenefitFrequency
+}
+
+export type EnumProcurementBenefitValidationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitValidationStatus | Prisma.EnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel> | $Enums.ProcurementBenefitValidationStatus
+}
+
+export type EnumProcurementBenefitTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitType | Prisma.EnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel>
+}
+
+export type EnumProcurementBenefitFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitFrequency | Prisma.EnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel>
+}
+
+export type EnumProcurementBenefitValidationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitValidationStatus | Prisma.EnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitValidationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitValidationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel>
+}
+
+export type EnumProcurementValueMilestoneStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueMilestoneStatus | Prisma.EnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel> | $Enums.ProcurementValueMilestoneStatus
+}
+
+export type EnumProcurementValueMilestoneStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueMilestoneStatus | Prisma.EnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueMilestoneStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementValueMilestoneStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -5343,6 +5428,91 @@ export type NestedEnumSustainabilityImprovementStatusWithAggregatesFilter<$Prism
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueInitiativeStatus | Prisma.EnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel> | $Enums.ProcurementValueInitiativeStatus
+}
+
+export type NestedEnumProcurementValueInitiativeStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueInitiativeStatus | Prisma.EnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueInitiativeStatus[] | Prisma.ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueInitiativeStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementValueInitiativeStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementValueInitiativeStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementBenefitTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitType | Prisma.EnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel> | $Enums.ProcurementBenefitType
+}
+
+export type NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitFrequency | Prisma.EnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel> | $Enums.ProcurementBenefitFrequency
+}
+
+export type NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitValidationStatus | Prisma.EnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel> | $Enums.ProcurementBenefitValidationStatus
+}
+
+export type NestedEnumProcurementBenefitTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitType | Prisma.EnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitType[] | Prisma.ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitTypeWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementBenefitFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitFrequency | Prisma.EnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitFrequency[] | Prisma.ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitFrequencyFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementBenefitValidationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementBenefitValidationStatus | Prisma.EnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementBenefitValidationStatus[] | Prisma.ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementBenefitValidationStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementBenefitValidationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementBenefitValidationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueMilestoneStatus | Prisma.EnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel> | $Enums.ProcurementValueMilestoneStatus
+}
+
+export type NestedEnumProcurementValueMilestoneStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ProcurementValueMilestoneStatus | Prisma.EnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ProcurementValueMilestoneStatus[] | Prisma.ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumProcurementValueMilestoneStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProcurementValueMilestoneStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
 }
 
 

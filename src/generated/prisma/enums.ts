@@ -1488,6 +1488,65 @@ export const DiversityClassification = {
 export type DiversityClassification = (typeof DiversityClassification)[keyof typeof DiversityClassification]
 
 
+export const ProcurementValueInitiativeStatus = {
+  IDEA: 'IDEA',
+  QUALIFYING: 'QUALIFYING',
+  APPROVED: 'APPROVED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  REALIZING: 'REALIZING',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementValueInitiativeStatus = (typeof ProcurementValueInitiativeStatus)[keyof typeof ProcurementValueInitiativeStatus]
+
+
+export const ProcurementBenefitType = {
+  COST_REDUCTION: 'COST_REDUCTION',
+  COST_AVOIDANCE: 'COST_AVOIDANCE',
+  WORKING_CAPITAL: 'WORKING_CAPITAL',
+  REVENUE_ENABLEMENT: 'REVENUE_ENABLEMENT',
+  RISK_REDUCTION: 'RISK_REDUCTION',
+  PRODUCTIVITY: 'PRODUCTIVITY',
+  SUSTAINABILITY: 'SUSTAINABILITY',
+  OTHER: 'OTHER'
+} as const
+
+export type ProcurementBenefitType = (typeof ProcurementBenefitType)[keyof typeof ProcurementBenefitType]
+
+
+export const ProcurementBenefitFrequency = {
+  ONE_TIME: 'ONE_TIME',
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  ANNUAL: 'ANNUAL'
+} as const
+
+export type ProcurementBenefitFrequency = (typeof ProcurementBenefitFrequency)[keyof typeof ProcurementBenefitFrequency]
+
+
+export const ProcurementBenefitValidationStatus = {
+  UNVALIDATED: 'UNVALIDATED',
+  SUBMITTED: 'SUBMITTED',
+  FINANCE_VALIDATED: 'FINANCE_VALIDATED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type ProcurementBenefitValidationStatus = (typeof ProcurementBenefitValidationStatus)[keyof typeof ProcurementBenefitValidationStatus]
+
+
+export const ProcurementValueMilestoneStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  BLOCKED: 'BLOCKED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementValueMilestoneStatus = (typeof ProcurementValueMilestoneStatus)[keyof typeof ProcurementValueMilestoneStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

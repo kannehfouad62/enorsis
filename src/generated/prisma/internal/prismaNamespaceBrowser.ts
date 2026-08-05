@@ -168,7 +168,10 @@ export const ModelName = {
   AssetMaintenanceRecord: 'AssetMaintenanceRecord',
   SupplierEsgProfile: 'SupplierEsgProfile',
   ResponsibleSourcingAssessment: 'ResponsibleSourcingAssessment',
-  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan'
+  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan',
+  ProcurementValueInitiative: 'ProcurementValueInitiative',
+  ProcurementBenefit: 'ProcurementBenefit',
+  ProcurementValueMilestone: 'ProcurementValueMilestone'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2744,6 +2747,84 @@ export const SustainabilityImprovementPlanScalarFieldEnum = {
 } as const
 
 export type SustainabilityImprovementPlanScalarFieldEnum = (typeof SustainabilityImprovementPlanScalarFieldEnum)[keyof typeof SustainabilityImprovementPlanScalarFieldEnum]
+
+
+export const ProcurementValueInitiativeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  initiativeNumber: 'initiativeNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  category: 'category',
+  supplierId: 'supplierId',
+  sourcingEventId: 'sourcingEventId',
+  contractId: 'contractId',
+  ownerUserId: 'ownerUserId',
+  financeOwnerUserId: 'financeOwnerUserId',
+  executiveSponsorUserId: 'executiveSponsorUserId',
+  currencyCode: 'currencyCode',
+  baselineAmount: 'baselineAmount',
+  targetBenefitAmount: 'targetBenefitAmount',
+  forecastBenefitAmount: 'forecastBenefitAmount',
+  realizedBenefitAmount: 'realizedBenefitAmount',
+  leakageAmount: 'leakageAmount',
+  probabilityPercent: 'probabilityPercent',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  assumptions: 'assumptions',
+  risks: 'risks',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementValueInitiativeScalarFieldEnum = (typeof ProcurementValueInitiativeScalarFieldEnum)[keyof typeof ProcurementValueInitiativeScalarFieldEnum]
+
+
+export const ProcurementBenefitScalarFieldEnum = {
+  id: 'id',
+  procurementValueInitiativeId: 'procurementValueInitiativeId',
+  type: 'type',
+  name: 'name',
+  description: 'description',
+  frequency: 'frequency',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  forecastAmount: 'forecastAmount',
+  claimedAmount: 'claimedAmount',
+  validatedAmount: 'validatedAmount',
+  realizedAmount: 'realizedAmount',
+  validationStatus: 'validationStatus',
+  methodology: 'methodology',
+  evidenceUrl: 'evidenceUrl',
+  submittedAt: 'submittedAt',
+  validatedByUserId: 'validatedByUserId',
+  validatedAt: 'validatedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementBenefitScalarFieldEnum = (typeof ProcurementBenefitScalarFieldEnum)[keyof typeof ProcurementBenefitScalarFieldEnum]
+
+
+export const ProcurementValueMilestoneScalarFieldEnum = {
+  id: 'id',
+  procurementValueInitiativeId: 'procurementValueInitiativeId',
+  name: 'name',
+  description: 'description',
+  dueAt: 'dueAt',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  completionEvidence: 'completionEvidence',
+  blocker: 'blocker',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementValueMilestoneScalarFieldEnum = (typeof ProcurementValueMilestoneScalarFieldEnum)[keyof typeof ProcurementValueMilestoneScalarFieldEnum]
 
 
 export const SortOrder = {

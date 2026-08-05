@@ -1097,6 +1097,50 @@ enum DiversityClassification {
   OTHER
 }
 
+enum ProcurementValueInitiativeStatus {
+  IDEA
+  QUALIFYING
+  APPROVED
+  IN_PROGRESS
+  REALIZING
+  COMPLETED
+  CANCELLED
+}
+
+enum ProcurementBenefitType {
+  COST_REDUCTION
+  COST_AVOIDANCE
+  WORKING_CAPITAL
+  REVENUE_ENABLEMENT
+  RISK_REDUCTION
+  PRODUCTIVITY
+  SUSTAINABILITY
+  OTHER
+}
+
+enum ProcurementBenefitFrequency {
+  ONE_TIME
+  MONTHLY
+  QUARTERLY
+  ANNUAL
+}
+
+enum ProcurementBenefitValidationStatus {
+  UNVALIDATED
+  SUBMITTED
+  FINANCE_VALIDATED
+  REJECTED
+  EXPIRED
+}
+
+enum ProcurementValueMilestoneStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  BLOCKED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1255,6 +1299,7 @@ model Tenant {
   supplierClaims               SupplierClaim[]
   procurementAssets            ProcurementAsset[]
   supplierEsgProfiles          SupplierEsgProfile[]
+  procurementValueInitiatives  ProcurementValueInitiative[]
   createdAt                    DateTime                      @default(now())
   updatedAt                    DateTime                      @updatedAt
   archivedAt                   DateTime?
@@ -4072,4 +4117,86 @@ model SustainabilityImprovementPlan {
   updatedAt            DateTime                        @updatedAt
 
   @@index([supplierEsgProfileId, status, dueAt])
+}
+
+model ProcurementValueInitiative {
+  id                     String                           @id @default(cuid())
+  tenantId               String
+  initiativeNumber       String
+  title                  String
+  description            String
+  status                 ProcurementValueInitiativeStatus @default(IDEA)
+  category               String?
+  supplierId             String?
+  sourcingEventId        String?
+  contractId             String?
+  ownerUserId            String
+  financeOwnerUserId     String?
+  executiveSponsorUserId String?
+  currencyCode           String                           @default("USD")
+  baselineAmount         Decimal                          @default(0) @db.Decimal(18, 2)
+  targetBenefitAmount    Decimal                          @default(0) @db.Decimal(18, 2)
+  forecastBenefitAmount  Decimal                          @default(0) @db.Decimal(18, 2)
+  realizedBenefitAmount  Decimal                          @default(0) @db.Decimal(18, 2)
+  leakageAmount          Decimal                          @default(0) @db.Decimal(18, 2)
+  probabilityPercent     Int                              @default(50)
+  startsAt               DateTime
+  targetCompletionAt     DateTime
+  completedAt            DateTime?
+  assumptions            String?
+  risks                  String?
+  tenant                 Tenant                           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  benefits               ProcurementBenefit[]
+  milestones             ProcurementValueMilestone[]
+  createdAt              DateTime                         @default(now())
+  updatedAt              DateTime                         @updatedAt
+
+  @@unique([tenantId, initiativeNumber])
+  @@index([tenantId, status, targetCompletionAt])
+  @@index([supplierId, status])
+}
+
+model ProcurementBenefit {
+  id                           String                             @id @default(cuid())
+  procurementValueInitiativeId String
+  type                         ProcurementBenefitType
+  name                         String
+  description                  String?
+  frequency                    ProcurementBenefitFrequency
+  periodStart                  DateTime
+  periodEnd                    DateTime?
+  forecastAmount               Decimal                            @default(0) @db.Decimal(18, 2)
+  claimedAmount                Decimal                            @default(0) @db.Decimal(18, 2)
+  validatedAmount              Decimal                            @default(0) @db.Decimal(18, 2)
+  realizedAmount               Decimal                            @default(0) @db.Decimal(18, 2)
+  validationStatus             ProcurementBenefitValidationStatus @default(UNVALIDATED)
+  methodology                  String
+  evidenceUrl                  String?
+  submittedAt                  DateTime?
+  validatedByUserId            String?
+  validatedAt                  DateTime?
+  rejectionReason              String?
+  initiative                   ProcurementValueInitiative         @relation(fields: [procurementValueInitiativeId], references: [id], onDelete: Cascade)
+  createdAt                    DateTime                           @default(now())
+  updatedAt                    DateTime                           @updatedAt
+
+  @@index([procurementValueInitiativeId, validationStatus, periodStart])
+}
+
+model ProcurementValueMilestone {
+  id                           String                          @id @default(cuid())
+  procurementValueInitiativeId String
+  name                         String
+  description                  String?
+  dueAt                        DateTime
+  status                       ProcurementValueMilestoneStatus @default(NOT_STARTED)
+  ownerUserId                  String
+  completionEvidence           String?
+  blocker                      String?
+  completedAt                  DateTime?
+  initiative                   ProcurementValueInitiative      @relation(fields: [procurementValueInitiativeId], references: [id], onDelete: Cascade)
+  createdAt                    DateTime                        @default(now())
+  updatedAt                    DateTime                        @updatedAt
+
+  @@index([procurementValueInitiativeId, status, dueAt])
 }

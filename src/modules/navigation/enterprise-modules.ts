@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import {
   Activity,
   Bot,
+  BadgeDollarSign,
   BookOpenCheck,
   Boxes,
   BriefcaseBusiness,
@@ -189,6 +190,13 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Operate in-app and email workflow delivery.",
     href: "/app/settings/workflows/notifications",
     icon: PackageCheck,
+    group: "Governance",
+  },
+  {
+    title: "Savings & Value Realization",
+    description: "Initiatives, finance-validated benefits and value leakage.",
+    href: "/app/value-realization",
+    icon: BadgeDollarSign,
     group: "Governance",
   },
   {

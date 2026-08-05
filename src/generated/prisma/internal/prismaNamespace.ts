@@ -514,7 +514,10 @@ export const ModelName = {
   AssetMaintenanceRecord: 'AssetMaintenanceRecord',
   SupplierEsgProfile: 'SupplierEsgProfile',
   ResponsibleSourcingAssessment: 'ResponsibleSourcingAssessment',
-  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan'
+  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan',
+  ProcurementValueInitiative: 'ProcurementValueInitiative',
+  ProcurementBenefit: 'ProcurementBenefit',
+  ProcurementValueMilestone: 'ProcurementValueMilestone'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -530,7 +533,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9266,6 +9269,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementValueInitiative: {
+      payload: Prisma.$ProcurementValueInitiativePayload<ExtArgs>
+      fields: Prisma.ProcurementValueInitiativeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementValueInitiativeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementValueInitiativeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementValueInitiativeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementValueInitiativeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementValueInitiativeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementValueInitiativeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementValueInitiativeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementValueInitiativeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementValueInitiativeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        update: {
+          args: Prisma.ProcurementValueInitiativeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementValueInitiativeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementValueInitiativeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementValueInitiativeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementValueInitiativeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueInitiativePayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementValueInitiativeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementValueInitiative>
+        }
+        groupBy: {
+          args: Prisma.ProcurementValueInitiativeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementValueInitiativeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementValueInitiativeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementValueInitiativeCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementBenefit: {
+      payload: Prisma.$ProcurementBenefitPayload<ExtArgs>
+      fields: Prisma.ProcurementBenefitFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementBenefitFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementBenefitFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementBenefitFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementBenefitFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementBenefitFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementBenefitCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementBenefitCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementBenefitCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementBenefitDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        update: {
+          args: Prisma.ProcurementBenefitUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementBenefitDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementBenefitUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementBenefitUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementBenefitUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementBenefitPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementBenefitAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementBenefit>
+        }
+        groupBy: {
+          args: Prisma.ProcurementBenefitGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementBenefitGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementBenefitCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementBenefitCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementValueMilestone: {
+      payload: Prisma.$ProcurementValueMilestonePayload<ExtArgs>
+      fields: Prisma.ProcurementValueMilestoneFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementValueMilestoneFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementValueMilestoneFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementValueMilestoneFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementValueMilestoneFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementValueMilestoneFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementValueMilestoneCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementValueMilestoneCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementValueMilestoneCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementValueMilestoneDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        update: {
+          args: Prisma.ProcurementValueMilestoneUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementValueMilestoneDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementValueMilestoneUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementValueMilestoneUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementValueMilestoneUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementValueMilestonePayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementValueMilestoneAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementValueMilestone>
+        }
+        groupBy: {
+          args: Prisma.ProcurementValueMilestoneGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementValueMilestoneGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementValueMilestoneCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementValueMilestoneCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -11864,6 +12089,84 @@ export const SustainabilityImprovementPlanScalarFieldEnum = {
 export type SustainabilityImprovementPlanScalarFieldEnum = (typeof SustainabilityImprovementPlanScalarFieldEnum)[keyof typeof SustainabilityImprovementPlanScalarFieldEnum]
 
 
+export const ProcurementValueInitiativeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  initiativeNumber: 'initiativeNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  category: 'category',
+  supplierId: 'supplierId',
+  sourcingEventId: 'sourcingEventId',
+  contractId: 'contractId',
+  ownerUserId: 'ownerUserId',
+  financeOwnerUserId: 'financeOwnerUserId',
+  executiveSponsorUserId: 'executiveSponsorUserId',
+  currencyCode: 'currencyCode',
+  baselineAmount: 'baselineAmount',
+  targetBenefitAmount: 'targetBenefitAmount',
+  forecastBenefitAmount: 'forecastBenefitAmount',
+  realizedBenefitAmount: 'realizedBenefitAmount',
+  leakageAmount: 'leakageAmount',
+  probabilityPercent: 'probabilityPercent',
+  startsAt: 'startsAt',
+  targetCompletionAt: 'targetCompletionAt',
+  completedAt: 'completedAt',
+  assumptions: 'assumptions',
+  risks: 'risks',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementValueInitiativeScalarFieldEnum = (typeof ProcurementValueInitiativeScalarFieldEnum)[keyof typeof ProcurementValueInitiativeScalarFieldEnum]
+
+
+export const ProcurementBenefitScalarFieldEnum = {
+  id: 'id',
+  procurementValueInitiativeId: 'procurementValueInitiativeId',
+  type: 'type',
+  name: 'name',
+  description: 'description',
+  frequency: 'frequency',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  forecastAmount: 'forecastAmount',
+  claimedAmount: 'claimedAmount',
+  validatedAmount: 'validatedAmount',
+  realizedAmount: 'realizedAmount',
+  validationStatus: 'validationStatus',
+  methodology: 'methodology',
+  evidenceUrl: 'evidenceUrl',
+  submittedAt: 'submittedAt',
+  validatedByUserId: 'validatedByUserId',
+  validatedAt: 'validatedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementBenefitScalarFieldEnum = (typeof ProcurementBenefitScalarFieldEnum)[keyof typeof ProcurementBenefitScalarFieldEnum]
+
+
+export const ProcurementValueMilestoneScalarFieldEnum = {
+  id: 'id',
+  procurementValueInitiativeId: 'procurementValueInitiativeId',
+  name: 'name',
+  description: 'description',
+  dueAt: 'dueAt',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  completionEvidence: 'completionEvidence',
+  blocker: 'blocker',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementValueMilestoneScalarFieldEnum = (typeof ProcurementValueMilestoneScalarFieldEnum)[keyof typeof ProcurementValueMilestoneScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -13928,6 +14231,76 @@ export type ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel> =
 
 
 /**
+ * Reference to a field of type 'ProcurementValueInitiativeStatus'
+ */
+export type EnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementValueInitiativeStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementValueInitiativeStatus[]'
+ */
+export type ListEnumProcurementValueInitiativeStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementValueInitiativeStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitType'
+ */
+export type EnumProcurementBenefitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitType[]'
+ */
+export type ListEnumProcurementBenefitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitFrequency'
+ */
+export type EnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitFrequency'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitFrequency[]'
+ */
+export type ListEnumProcurementBenefitFrequencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitFrequency[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitValidationStatus'
+ */
+export type EnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitValidationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementBenefitValidationStatus[]'
+ */
+export type ListEnumProcurementBenefitValidationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementBenefitValidationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementValueMilestoneStatus'
+ */
+export type EnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementValueMilestoneStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementValueMilestoneStatus[]'
+ */
+export type ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementValueMilestoneStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -14209,6 +14582,9 @@ export type GlobalOmitConfig = {
   supplierEsgProfile?: Prisma.SupplierEsgProfileOmit
   responsibleSourcingAssessment?: Prisma.ResponsibleSourcingAssessmentOmit
   sustainabilityImprovementPlan?: Prisma.SustainabilityImprovementPlanOmit
+  procurementValueInitiative?: Prisma.ProcurementValueInitiativeOmit
+  procurementBenefit?: Prisma.ProcurementBenefitOmit
+  procurementValueMilestone?: Prisma.ProcurementValueMilestoneOmit
 }
 
 /* Types for Logging */
