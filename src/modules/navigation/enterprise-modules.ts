@@ -16,6 +16,7 @@ import {
   Handshake,
   KeyRound,
   Landmark,
+  Leaf,
   Network,
   PackageCheck,
   PackageX,
@@ -188,6 +189,13 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Operate in-app and email workflow delivery.",
     href: "/app/settings/workflows/notifications",
     icon: PackageCheck,
+    group: "Governance",
+  },
+  {
+    title: "Sustainable Procurement",
+    description: "Supplier ESG, emissions, diversity and responsible sourcing.",
+    href: "/app/sustainability",
+    icon: Leaf,
     group: "Governance",
   },
   {

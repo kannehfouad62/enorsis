@@ -1428,6 +1428,66 @@ export const AssetAssignmentStatus = {
 export type AssetAssignmentStatus = (typeof AssetAssignmentStatus)[keyof typeof AssetAssignmentStatus]
 
 
+export const SupplierEsgStatus = {
+  NOT_ASSESSED: 'NOT_ASSESSED',
+  ASSESSMENT_DUE: 'ASSESSMENT_DUE',
+  ASSESSED: 'ASSESSED',
+  IMPROVEMENT_REQUIRED: 'IMPROVEMENT_REQUIRED',
+  SUSPENDED: 'SUSPENDED'
+} as const
+
+export type SupplierEsgStatus = (typeof SupplierEsgStatus)[keyof typeof SupplierEsgStatus]
+
+
+export const SupplierEsgRiskLevel = {
+  LOW: 'LOW',
+  MODERATE: 'MODERATE',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type SupplierEsgRiskLevel = (typeof SupplierEsgRiskLevel)[keyof typeof SupplierEsgRiskLevel]
+
+
+export const ResponsibleSourcingAssessmentStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SUBMITTED: 'SUBMITTED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type ResponsibleSourcingAssessmentStatus = (typeof ResponsibleSourcingAssessmentStatus)[keyof typeof ResponsibleSourcingAssessmentStatus]
+
+
+export const SustainabilityImprovementStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SustainabilityImprovementStatus = (typeof SustainabilityImprovementStatus)[keyof typeof SustainabilityImprovementStatus]
+
+
+export const DiversityClassification = {
+  NONE: 'NONE',
+  MINORITY_OWNED: 'MINORITY_OWNED',
+  WOMEN_OWNED: 'WOMEN_OWNED',
+  VETERAN_OWNED: 'VETERAN_OWNED',
+  DISABILITY_OWNED: 'DISABILITY_OWNED',
+  LGBTQ_OWNED: 'LGBTQ_OWNED',
+  SMALL_BUSINESS: 'SMALL_BUSINESS',
+  LOCAL_BUSINESS: 'LOCAL_BUSINESS',
+  SOCIAL_ENTERPRISE: 'SOCIAL_ENTERPRISE',
+  OTHER: 'OTHER'
+} as const
+
+export type DiversityClassification = (typeof DiversityClassification)[keyof typeof DiversityClassification]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

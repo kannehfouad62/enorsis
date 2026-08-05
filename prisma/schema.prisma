@@ -1052,6 +1052,51 @@ enum AssetAssignmentStatus {
   LOST
 }
 
+enum SupplierEsgStatus {
+  NOT_ASSESSED
+  ASSESSMENT_DUE
+  ASSESSED
+  IMPROVEMENT_REQUIRED
+  SUSPENDED
+}
+
+enum SupplierEsgRiskLevel {
+  LOW
+  MODERATE
+  HIGH
+  CRITICAL
+}
+
+enum ResponsibleSourcingAssessmentStatus {
+  DRAFT
+  IN_PROGRESS
+  SUBMITTED
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum SustainabilityImprovementStatus {
+  OPEN
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+  CANCELLED
+}
+
+enum DiversityClassification {
+  NONE
+  MINORITY_OWNED
+  WOMEN_OWNED
+  VETERAN_OWNED
+  DISABILITY_OWNED
+  LGBTQ_OWNED
+  SMALL_BUSINESS
+  LOCAL_BUSINESS
+  SOCIAL_ENTERPRISE
+  OTHER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1209,6 +1254,7 @@ model Tenant {
   logisticsShipments           LogisticsShipment[]
   supplierClaims               SupplierClaim[]
   procurementAssets            ProcurementAsset[]
+  supplierEsgProfiles          SupplierEsgProfile[]
   createdAt                    DateTime                      @default(now())
   updatedAt                    DateTime                      @updatedAt
   archivedAt                   DateTime?
@@ -1497,6 +1543,7 @@ model Supplier {
   sourcingInvitations SourcingInvitation[]
   sourcingResponses   SourcingResponse[]
   supplierClaims      SupplierClaim[]
+  esgProfile          SupplierEsgProfile?
   createdAt           DateTime                    @default(now())
   updatedAt           DateTime                    @updatedAt
   sourcingQuestions   SourcingQuestion[]
@@ -3941,4 +3988,88 @@ model AssetMaintenanceRecord {
   updatedAt          DateTime               @updatedAt
 
   @@index([procurementAssetId, status, scheduledAt])
+}
+
+model SupplierEsgProfile {
+  id                          String                          @id @default(cuid())
+  tenantId                    String
+  supplierId                  String                          @unique
+  status                      SupplierEsgStatus               @default(NOT_ASSESSED)
+  riskLevel                   SupplierEsgRiskLevel            @default(MODERATE)
+  environmentalScore          Decimal?                        @db.Decimal(5, 2)
+  socialScore                 Decimal?                        @db.Decimal(5, 2)
+  governanceScore             Decimal?                        @db.Decimal(5, 2)
+  overallScore                Decimal?                        @db.Decimal(5, 2)
+  scope1Emissions             Decimal?                        @db.Decimal(18, 4)
+  scope2Emissions             Decimal?                        @db.Decimal(18, 4)
+  scope3Emissions             Decimal?                        @db.Decimal(18, 4)
+  emissionsUnit               String?                         @default("tCO2e")
+  renewableEnergyPercent      Decimal?                        @db.Decimal(5, 2)
+  wasteDiversionPercent       Decimal?                        @db.Decimal(5, 2)
+  waterUse                    Decimal?                        @db.Decimal(18, 4)
+  humanRightsPolicy           Boolean                         @default(false)
+  modernSlaveryStatement      Boolean                         @default(false)
+  conflictMineralsDeclaration Boolean                         @default(false)
+  codeOfConductAccepted       Boolean                         @default(false)
+  diversityClassification     DiversityClassification         @default(NONE)
+  diversityCertificationId    String?
+  certificationExpiresAt      DateTime?
+  lastAssessedAt              DateTime?
+  nextAssessmentDueAt         DateTime?
+  ownerUserId                 String
+  tenant                      Tenant                          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier                    Supplier                        @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  assessments                 ResponsibleSourcingAssessment[]
+  improvementPlans            SustainabilityImprovementPlan[]
+  createdAt                   DateTime                        @default(now())
+  updatedAt                   DateTime                        @updatedAt
+
+  @@index([tenantId, status, riskLevel])
+  @@index([diversityClassification])
+}
+
+model ResponsibleSourcingAssessment {
+  id                   String                              @id @default(cuid())
+  supplierEsgProfileId String
+  assessmentPeriod     String
+  status               ResponsibleSourcingAssessmentStatus @default(DRAFT)
+  environmentalScore   Decimal?                            @db.Decimal(5, 2)
+  socialScore          Decimal?                            @db.Decimal(5, 2)
+  governanceScore      Decimal?                            @db.Decimal(5, 2)
+  findings             String?
+  evidence             Json?
+  assessedByUserId     String
+  submittedAt          DateTime?
+  approvedByUserId     String?
+  approvedAt           DateTime?
+  expiresAt            DateTime?
+  profile              SupplierEsgProfile                  @relation(fields: [supplierEsgProfileId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                            @default(now())
+  updatedAt            DateTime                            @updatedAt
+
+  @@unique([supplierEsgProfileId, assessmentPeriod])
+  @@index([status, expiresAt])
+}
+
+model SustainabilityImprovementPlan {
+  id                   String                          @id @default(cuid())
+  supplierEsgProfileId String
+  title                String
+  description          String
+  status               SustainabilityImprovementStatus @default(OPEN)
+  category             String
+  targetMetric         String?
+  baselineValue        Decimal?                        @db.Decimal(18, 4)
+  targetValue          Decimal?                        @db.Decimal(18, 4)
+  dueAt                DateTime
+  ownerUserId          String
+  supplierOwnerName    String?
+  blocker              String?
+  completionEvidence   String?
+  completedAt          DateTime?
+  profile              SupplierEsgProfile              @relation(fields: [supplierEsgProfileId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                        @default(now())
+  updatedAt            DateTime                        @updatedAt
+
+  @@index([supplierEsgProfileId, status, dueAt])
 }

@@ -592,3 +592,18 @@ export type AssetMaintenancePlan = Prisma.AssetMaintenancePlanModel
  * 
  */
 export type AssetMaintenanceRecord = Prisma.AssetMaintenanceRecordModel
+/**
+ * Model SupplierEsgProfile
+ * 
+ */
+export type SupplierEsgProfile = Prisma.SupplierEsgProfileModel
+/**
+ * Model ResponsibleSourcingAssessment
+ * 
+ */
+export type ResponsibleSourcingAssessment = Prisma.ResponsibleSourcingAssessmentModel
+/**
+ * Model SustainabilityImprovementPlan
+ * 
+ */
+export type SustainabilityImprovementPlan = Prisma.SustainabilityImprovementPlanModel

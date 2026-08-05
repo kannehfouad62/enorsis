@@ -2615,6 +2615,91 @@ export type EnumAssetMaintenanceStatusWithAggregatesFilter<$PrismaModel = never>
   _max?: Prisma.NestedEnumAssetMaintenanceStatusFilter<$PrismaModel>
 }
 
+export type EnumSupplierEsgStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgStatus | Prisma.EnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel> | $Enums.SupplierEsgStatus
+}
+
+export type EnumSupplierEsgRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRiskLevel | Prisma.EnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel> | $Enums.SupplierEsgRiskLevel
+}
+
+export type EnumDiversityClassificationFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiversityClassification | Prisma.EnumDiversityClassificationFieldRefInput<$PrismaModel>
+  in?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel> | $Enums.DiversityClassification
+}
+
+export type EnumSupplierEsgStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgStatus | Prisma.EnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierEsgRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRiskLevel | Prisma.EnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel>
+}
+
+export type EnumDiversityClassificationWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiversityClassification | Prisma.EnumDiversityClassificationFieldRefInput<$PrismaModel>
+  in?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiversityClassificationWithAggregatesFilter<$PrismaModel> | $Enums.DiversityClassification
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel>
+}
+
+export type EnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResponsibleSourcingAssessmentStatus | Prisma.EnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel> | $Enums.ResponsibleSourcingAssessmentStatus
+}
+
+export type EnumResponsibleSourcingAssessmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResponsibleSourcingAssessmentStatus | Prisma.EnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ResponsibleSourcingAssessmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel>
+}
+
+export type EnumSustainabilityImprovementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SustainabilityImprovementStatus | Prisma.EnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel> | $Enums.SustainabilityImprovementStatus
+}
+
+export type EnumSustainabilityImprovementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SustainabilityImprovementStatus | Prisma.EnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSustainabilityImprovementStatusWithAggregatesFilter<$PrismaModel> | $Enums.SustainabilityImprovementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -5173,6 +5258,91 @@ export type NestedEnumAssetMaintenanceStatusWithAggregatesFilter<$PrismaModel = 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAssetMaintenanceStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAssetMaintenanceStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierEsgStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgStatus | Prisma.EnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel> | $Enums.SupplierEsgStatus
+}
+
+export type NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRiskLevel | Prisma.EnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel> | $Enums.SupplierEsgRiskLevel
+}
+
+export type NestedEnumDiversityClassificationFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiversityClassification | Prisma.EnumDiversityClassificationFieldRefInput<$PrismaModel>
+  in?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel> | $Enums.DiversityClassification
+}
+
+export type NestedEnumSupplierEsgStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgStatus | Prisma.EnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgStatus[] | Prisma.ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierEsgRiskLevelWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierEsgRiskLevel | Prisma.EnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierEsgRiskLevel[] | Prisma.ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierEsgRiskLevelWithAggregatesFilter<$PrismaModel> | $Enums.SupplierEsgRiskLevel
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierEsgRiskLevelFilter<$PrismaModel>
+}
+
+export type NestedEnumDiversityClassificationWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.DiversityClassification | Prisma.EnumDiversityClassificationFieldRefInput<$PrismaModel>
+  in?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  notIn?: $Enums.DiversityClassification[] | Prisma.ListEnumDiversityClassificationFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumDiversityClassificationWithAggregatesFilter<$PrismaModel> | $Enums.DiversityClassification
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumDiversityClassificationFilter<$PrismaModel>
+}
+
+export type NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResponsibleSourcingAssessmentStatus | Prisma.EnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel> | $Enums.ResponsibleSourcingAssessmentStatus
+}
+
+export type NestedEnumResponsibleSourcingAssessmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ResponsibleSourcingAssessmentStatus | Prisma.EnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ResponsibleSourcingAssessmentStatus[] | Prisma.ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.ResponsibleSourcingAssessmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumResponsibleSourcingAssessmentStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SustainabilityImprovementStatus | Prisma.EnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel> | $Enums.SustainabilityImprovementStatus
+}
+
+export type NestedEnumSustainabilityImprovementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SustainabilityImprovementStatus | Prisma.EnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SustainabilityImprovementStatus[] | Prisma.ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSustainabilityImprovementStatusWithAggregatesFilter<$PrismaModel> | $Enums.SustainabilityImprovementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSustainabilityImprovementStatusFilter<$PrismaModel>
 }
 
 

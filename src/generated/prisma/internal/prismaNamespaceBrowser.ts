@@ -165,7 +165,10 @@ export const ModelName = {
   ProcurementAsset: 'ProcurementAsset',
   AssetAssignment: 'AssetAssignment',
   AssetMaintenancePlan: 'AssetMaintenancePlan',
-  AssetMaintenanceRecord: 'AssetMaintenanceRecord'
+  AssetMaintenanceRecord: 'AssetMaintenanceRecord',
+  SupplierEsgProfile: 'SupplierEsgProfile',
+  ResponsibleSourcingAssessment: 'ResponsibleSourcingAssessment',
+  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2662,6 +2665,85 @@ export const AssetMaintenanceRecordScalarFieldEnum = {
 } as const
 
 export type AssetMaintenanceRecordScalarFieldEnum = (typeof AssetMaintenanceRecordScalarFieldEnum)[keyof typeof AssetMaintenanceRecordScalarFieldEnum]
+
+
+export const SupplierEsgProfileScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  status: 'status',
+  riskLevel: 'riskLevel',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  overallScore: 'overallScore',
+  scope1Emissions: 'scope1Emissions',
+  scope2Emissions: 'scope2Emissions',
+  scope3Emissions: 'scope3Emissions',
+  emissionsUnit: 'emissionsUnit',
+  renewableEnergyPercent: 'renewableEnergyPercent',
+  wasteDiversionPercent: 'wasteDiversionPercent',
+  waterUse: 'waterUse',
+  humanRightsPolicy: 'humanRightsPolicy',
+  modernSlaveryStatement: 'modernSlaveryStatement',
+  conflictMineralsDeclaration: 'conflictMineralsDeclaration',
+  codeOfConductAccepted: 'codeOfConductAccepted',
+  diversityClassification: 'diversityClassification',
+  diversityCertificationId: 'diversityCertificationId',
+  certificationExpiresAt: 'certificationExpiresAt',
+  lastAssessedAt: 'lastAssessedAt',
+  nextAssessmentDueAt: 'nextAssessmentDueAt',
+  ownerUserId: 'ownerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierEsgProfileScalarFieldEnum = (typeof SupplierEsgProfileScalarFieldEnum)[keyof typeof SupplierEsgProfileScalarFieldEnum]
+
+
+export const ResponsibleSourcingAssessmentScalarFieldEnum = {
+  id: 'id',
+  supplierEsgProfileId: 'supplierEsgProfileId',
+  assessmentPeriod: 'assessmentPeriod',
+  status: 'status',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  findings: 'findings',
+  evidence: 'evidence',
+  assessedByUserId: 'assessedByUserId',
+  submittedAt: 'submittedAt',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResponsibleSourcingAssessmentScalarFieldEnum = (typeof ResponsibleSourcingAssessmentScalarFieldEnum)[keyof typeof ResponsibleSourcingAssessmentScalarFieldEnum]
+
+
+export const SustainabilityImprovementPlanScalarFieldEnum = {
+  id: 'id',
+  supplierEsgProfileId: 'supplierEsgProfileId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  category: 'category',
+  targetMetric: 'targetMetric',
+  baselineValue: 'baselineValue',
+  targetValue: 'targetValue',
+  dueAt: 'dueAt',
+  ownerUserId: 'ownerUserId',
+  supplierOwnerName: 'supplierOwnerName',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SustainabilityImprovementPlanScalarFieldEnum = (typeof SustainabilityImprovementPlanScalarFieldEnum)[keyof typeof SustainabilityImprovementPlanScalarFieldEnum]
 
 
 export const SortOrder = {

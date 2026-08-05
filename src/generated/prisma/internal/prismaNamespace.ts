@@ -511,7 +511,10 @@ export const ModelName = {
   ProcurementAsset: 'ProcurementAsset',
   AssetAssignment: 'AssetAssignment',
   AssetMaintenancePlan: 'AssetMaintenancePlan',
-  AssetMaintenanceRecord: 'AssetMaintenanceRecord'
+  AssetMaintenanceRecord: 'AssetMaintenanceRecord',
+  SupplierEsgProfile: 'SupplierEsgProfile',
+  ResponsibleSourcingAssessment: 'ResponsibleSourcingAssessment',
+  SustainabilityImprovementPlan: 'SustainabilityImprovementPlan'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -527,7 +530,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9041,6 +9044,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierEsgProfile: {
+      payload: Prisma.$SupplierEsgProfilePayload<ExtArgs>
+      fields: Prisma.SupplierEsgProfileFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierEsgProfileFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierEsgProfileFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierEsgProfileFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierEsgProfileFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierEsgProfileFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierEsgProfileCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierEsgProfileCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierEsgProfileCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierEsgProfileDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        update: {
+          args: Prisma.SupplierEsgProfileUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierEsgProfileDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierEsgProfileUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierEsgProfileUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierEsgProfileUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierEsgProfilePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierEsgProfileAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierEsgProfile>
+        }
+        groupBy: {
+          args: Prisma.SupplierEsgProfileGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierEsgProfileGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierEsgProfileCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierEsgProfileCountAggregateOutputType> | number
+        }
+      }
+    }
+    ResponsibleSourcingAssessment: {
+      payload: Prisma.$ResponsibleSourcingAssessmentPayload<ExtArgs>
+      fields: Prisma.ResponsibleSourcingAssessmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ResponsibleSourcingAssessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ResponsibleSourcingAssessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        findFirst: {
+          args: Prisma.ResponsibleSourcingAssessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ResponsibleSourcingAssessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        findMany: {
+          args: Prisma.ResponsibleSourcingAssessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>[]
+        }
+        create: {
+          args: Prisma.ResponsibleSourcingAssessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        createMany: {
+          args: Prisma.ResponsibleSourcingAssessmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ResponsibleSourcingAssessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>[]
+        }
+        delete: {
+          args: Prisma.ResponsibleSourcingAssessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        update: {
+          args: Prisma.ResponsibleSourcingAssessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.ResponsibleSourcingAssessmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ResponsibleSourcingAssessmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ResponsibleSourcingAssessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.ResponsibleSourcingAssessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ResponsibleSourcingAssessmentPayload>
+        }
+        aggregate: {
+          args: Prisma.ResponsibleSourcingAssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateResponsibleSourcingAssessment>
+        }
+        groupBy: {
+          args: Prisma.ResponsibleSourcingAssessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ResponsibleSourcingAssessmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ResponsibleSourcingAssessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ResponsibleSourcingAssessmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    SustainabilityImprovementPlan: {
+      payload: Prisma.$SustainabilityImprovementPlanPayload<ExtArgs>
+      fields: Prisma.SustainabilityImprovementPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SustainabilityImprovementPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SustainabilityImprovementPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.SustainabilityImprovementPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SustainabilityImprovementPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        findMany: {
+          args: Prisma.SustainabilityImprovementPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>[]
+        }
+        create: {
+          args: Prisma.SustainabilityImprovementPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        createMany: {
+          args: Prisma.SustainabilityImprovementPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SustainabilityImprovementPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.SustainabilityImprovementPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        update: {
+          args: Prisma.SustainabilityImprovementPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.SustainabilityImprovementPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SustainabilityImprovementPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SustainabilityImprovementPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.SustainabilityImprovementPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SustainabilityImprovementPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.SustainabilityImprovementPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSustainabilityImprovementPlan>
+        }
+        groupBy: {
+          args: Prisma.SustainabilityImprovementPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SustainabilityImprovementPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SustainabilityImprovementPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SustainabilityImprovementPlanCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -11560,6 +11785,85 @@ export const AssetMaintenanceRecordScalarFieldEnum = {
 export type AssetMaintenanceRecordScalarFieldEnum = (typeof AssetMaintenanceRecordScalarFieldEnum)[keyof typeof AssetMaintenanceRecordScalarFieldEnum]
 
 
+export const SupplierEsgProfileScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  status: 'status',
+  riskLevel: 'riskLevel',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  overallScore: 'overallScore',
+  scope1Emissions: 'scope1Emissions',
+  scope2Emissions: 'scope2Emissions',
+  scope3Emissions: 'scope3Emissions',
+  emissionsUnit: 'emissionsUnit',
+  renewableEnergyPercent: 'renewableEnergyPercent',
+  wasteDiversionPercent: 'wasteDiversionPercent',
+  waterUse: 'waterUse',
+  humanRightsPolicy: 'humanRightsPolicy',
+  modernSlaveryStatement: 'modernSlaveryStatement',
+  conflictMineralsDeclaration: 'conflictMineralsDeclaration',
+  codeOfConductAccepted: 'codeOfConductAccepted',
+  diversityClassification: 'diversityClassification',
+  diversityCertificationId: 'diversityCertificationId',
+  certificationExpiresAt: 'certificationExpiresAt',
+  lastAssessedAt: 'lastAssessedAt',
+  nextAssessmentDueAt: 'nextAssessmentDueAt',
+  ownerUserId: 'ownerUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierEsgProfileScalarFieldEnum = (typeof SupplierEsgProfileScalarFieldEnum)[keyof typeof SupplierEsgProfileScalarFieldEnum]
+
+
+export const ResponsibleSourcingAssessmentScalarFieldEnum = {
+  id: 'id',
+  supplierEsgProfileId: 'supplierEsgProfileId',
+  assessmentPeriod: 'assessmentPeriod',
+  status: 'status',
+  environmentalScore: 'environmentalScore',
+  socialScore: 'socialScore',
+  governanceScore: 'governanceScore',
+  findings: 'findings',
+  evidence: 'evidence',
+  assessedByUserId: 'assessedByUserId',
+  submittedAt: 'submittedAt',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ResponsibleSourcingAssessmentScalarFieldEnum = (typeof ResponsibleSourcingAssessmentScalarFieldEnum)[keyof typeof ResponsibleSourcingAssessmentScalarFieldEnum]
+
+
+export const SustainabilityImprovementPlanScalarFieldEnum = {
+  id: 'id',
+  supplierEsgProfileId: 'supplierEsgProfileId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  category: 'category',
+  targetMetric: 'targetMetric',
+  baselineValue: 'baselineValue',
+  targetValue: 'targetValue',
+  dueAt: 'dueAt',
+  ownerUserId: 'ownerUserId',
+  supplierOwnerName: 'supplierOwnerName',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SustainabilityImprovementPlanScalarFieldEnum = (typeof SustainabilityImprovementPlanScalarFieldEnum)[keyof typeof SustainabilityImprovementPlanScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -13554,6 +13858,76 @@ export type ListEnumAssetMaintenanceStatusFieldRefInput<$PrismaModel> = FieldRef
 
 
 /**
+ * Reference to a field of type 'SupplierEsgStatus'
+ */
+export type EnumSupplierEsgStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierEsgStatus[]'
+ */
+export type ListEnumSupplierEsgStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierEsgRiskLevel'
+ */
+export type EnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgRiskLevel'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierEsgRiskLevel[]'
+ */
+export type ListEnumSupplierEsgRiskLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierEsgRiskLevel[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DiversityClassification'
+ */
+export type EnumDiversityClassificationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DiversityClassification'>
+    
+
+
+/**
+ * Reference to a field of type 'DiversityClassification[]'
+ */
+export type ListEnumDiversityClassificationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DiversityClassification[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ResponsibleSourcingAssessmentStatus'
+ */
+export type EnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ResponsibleSourcingAssessmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ResponsibleSourcingAssessmentStatus[]'
+ */
+export type ListEnumResponsibleSourcingAssessmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ResponsibleSourcingAssessmentStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SustainabilityImprovementStatus'
+ */
+export type EnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SustainabilityImprovementStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SustainabilityImprovementStatus[]'
+ */
+export type ListEnumSustainabilityImprovementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SustainabilityImprovementStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -13832,6 +14206,9 @@ export type GlobalOmitConfig = {
   assetAssignment?: Prisma.AssetAssignmentOmit
   assetMaintenancePlan?: Prisma.AssetMaintenancePlanOmit
   assetMaintenanceRecord?: Prisma.AssetMaintenanceRecordOmit
+  supplierEsgProfile?: Prisma.SupplierEsgProfileOmit
+  responsibleSourcingAssessment?: Prisma.ResponsibleSourcingAssessmentOmit
+  sustainabilityImprovementPlan?: Prisma.SustainabilityImprovementPlanOmit
 }
 
 /* Types for Logging */
