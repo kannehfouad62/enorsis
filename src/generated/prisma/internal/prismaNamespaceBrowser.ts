@@ -173,7 +173,12 @@ export const ModelName = {
   ProcurementBenefit: 'ProcurementBenefit',
   ProcurementValueMilestone: 'ProcurementValueMilestone',
   CategoryOpportunity: 'CategoryOpportunity',
-  CategoryMarketSignal: 'CategoryMarketSignal'
+  CategoryMarketSignal: 'CategoryMarketSignal',
+  SupplierPortalInvitation: 'SupplierPortalInvitation',
+  SupplierPortalUser: 'SupplierPortalUser',
+  SupplierOnboardingQuestionnaire: 'SupplierOnboardingQuestionnaire',
+  SupplierPortalTask: 'SupplierPortalTask',
+  SupplierPortalMessage: 'SupplierPortalMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2888,6 +2893,108 @@ export const CategoryMarketSignalScalarFieldEnum = {
 } as const
 
 export type CategoryMarketSignalScalarFieldEnum = (typeof CategoryMarketSignalScalarFieldEnum)[keyof typeof CategoryMarketSignalScalarFieldEnum]
+
+
+export const SupplierPortalInvitationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  email: 'email',
+  contactName: 'contactName',
+  tokenHash: 'tokenHash',
+  status: 'status',
+  invitedByUserId: 'invitedByUserId',
+  expiresAt: 'expiresAt',
+  acceptedAt: 'acceptedAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalInvitationScalarFieldEnum = (typeof SupplierPortalInvitationScalarFieldEnum)[keyof typeof SupplierPortalInvitationScalarFieldEnum]
+
+
+export const SupplierPortalUserScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  email: 'email',
+  name: 'name',
+  jobTitle: 'jobTitle',
+  phone: 'phone',
+  status: 'status',
+  invitedAt: 'invitedAt',
+  activatedAt: 'activatedAt',
+  lastLoginAt: 'lastLoginAt',
+  suspendedAt: 'suspendedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalUserScalarFieldEnum = (typeof SupplierPortalUserScalarFieldEnum)[keyof typeof SupplierPortalUserScalarFieldEnum]
+
+
+export const SupplierOnboardingQuestionnaireScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  version: 'version',
+  questions: 'questions',
+  answers: 'answers',
+  completionPercent: 'completionPercent',
+  dueAt: 'dueAt',
+  sentAt: 'sentAt',
+  submittedAt: 'submittedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierOnboardingQuestionnaireScalarFieldEnum = (typeof SupplierOnboardingQuestionnaireScalarFieldEnum)[keyof typeof SupplierOnboardingQuestionnaireScalarFieldEnum]
+
+
+export const SupplierPortalTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  dueAt: 'dueAt',
+  buyerOwnerUserId: 'buyerOwnerUserId',
+  supplierOwnerEmail: 'supplierOwnerEmail',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalTaskScalarFieldEnum = (typeof SupplierPortalTaskScalarFieldEnum)[keyof typeof SupplierPortalTaskScalarFieldEnum]
+
+
+export const SupplierPortalMessageScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  direction: 'direction',
+  subject: 'subject',
+  body: 'body',
+  authorUserId: 'authorUserId',
+  authorEmail: 'authorEmail',
+  relatedType: 'relatedType',
+  relatedId: 'relatedId',
+  readAt: 'readAt',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierPortalMessageScalarFieldEnum = (typeof SupplierPortalMessageScalarFieldEnum)[keyof typeof SupplierPortalMessageScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -519,7 +519,12 @@ export const ModelName = {
   ProcurementBenefit: 'ProcurementBenefit',
   ProcurementValueMilestone: 'ProcurementValueMilestone',
   CategoryOpportunity: 'CategoryOpportunity',
-  CategoryMarketSignal: 'CategoryMarketSignal'
+  CategoryMarketSignal: 'CategoryMarketSignal',
+  SupplierPortalInvitation: 'SupplierPortalInvitation',
+  SupplierPortalUser: 'SupplierPortalUser',
+  SupplierOnboardingQuestionnaire: 'SupplierOnboardingQuestionnaire',
+  SupplierPortalTask: 'SupplierPortalTask',
+  SupplierPortalMessage: 'SupplierPortalMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -535,7 +540,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9641,6 +9646,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierPortalInvitation: {
+      payload: Prisma.$SupplierPortalInvitationPayload<ExtArgs>
+      fields: Prisma.SupplierPortalInvitationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierPortalInvitationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierPortalInvitationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierPortalInvitationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierPortalInvitationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierPortalInvitationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierPortalInvitationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierPortalInvitationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierPortalInvitationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierPortalInvitationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        update: {
+          args: Prisma.SupplierPortalInvitationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierPortalInvitationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierPortalInvitationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierPortalInvitationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierPortalInvitationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalInvitationPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierPortalInvitationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierPortalInvitation>
+        }
+        groupBy: {
+          args: Prisma.SupplierPortalInvitationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalInvitationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierPortalInvitationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalInvitationCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierPortalUser: {
+      payload: Prisma.$SupplierPortalUserPayload<ExtArgs>
+      fields: Prisma.SupplierPortalUserFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierPortalUserFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierPortalUserFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierPortalUserFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierPortalUserFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierPortalUserFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierPortalUserCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierPortalUserCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierPortalUserCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierPortalUserDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        update: {
+          args: Prisma.SupplierPortalUserUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierPortalUserDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierPortalUserUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierPortalUserUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierPortalUserUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalUserPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierPortalUserAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierPortalUser>
+        }
+        groupBy: {
+          args: Prisma.SupplierPortalUserGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalUserGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierPortalUserCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalUserCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierOnboardingQuestionnaire: {
+      payload: Prisma.$SupplierOnboardingQuestionnairePayload<ExtArgs>
+      fields: Prisma.SupplierOnboardingQuestionnaireFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierOnboardingQuestionnaireFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierOnboardingQuestionnaireFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierOnboardingQuestionnaireFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierOnboardingQuestionnaireFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierOnboardingQuestionnaireFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierOnboardingQuestionnaireCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierOnboardingQuestionnaireCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierOnboardingQuestionnaireCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierOnboardingQuestionnaireDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        update: {
+          args: Prisma.SupplierOnboardingQuestionnaireUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierOnboardingQuestionnaireDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierOnboardingQuestionnaireUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierOnboardingQuestionnaireUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierOnboardingQuestionnaireUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierOnboardingQuestionnairePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierOnboardingQuestionnaireAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierOnboardingQuestionnaire>
+        }
+        groupBy: {
+          args: Prisma.SupplierOnboardingQuestionnaireGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierOnboardingQuestionnaireGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierOnboardingQuestionnaireCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierOnboardingQuestionnaireCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierPortalTask: {
+      payload: Prisma.$SupplierPortalTaskPayload<ExtArgs>
+      fields: Prisma.SupplierPortalTaskFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierPortalTaskFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierPortalTaskFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierPortalTaskFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierPortalTaskFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierPortalTaskFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierPortalTaskCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierPortalTaskCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierPortalTaskCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierPortalTaskDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        update: {
+          args: Prisma.SupplierPortalTaskUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierPortalTaskDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierPortalTaskUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierPortalTaskUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierPortalTaskUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalTaskPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierPortalTaskAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierPortalTask>
+        }
+        groupBy: {
+          args: Prisma.SupplierPortalTaskGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalTaskGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierPortalTaskCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalTaskCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierPortalMessage: {
+      payload: Prisma.$SupplierPortalMessagePayload<ExtArgs>
+      fields: Prisma.SupplierPortalMessageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierPortalMessageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierPortalMessageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierPortalMessageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierPortalMessageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierPortalMessageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierPortalMessageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierPortalMessageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierPortalMessageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierPortalMessageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        update: {
+          args: Prisma.SupplierPortalMessageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierPortalMessageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierPortalMessageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierPortalMessageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierPortalMessageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierPortalMessagePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierPortalMessageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierPortalMessage>
+        }
+        groupBy: {
+          args: Prisma.SupplierPortalMessageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalMessageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierPortalMessageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierPortalMessageCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -12378,6 +12753,108 @@ export const CategoryMarketSignalScalarFieldEnum = {
 export type CategoryMarketSignalScalarFieldEnum = (typeof CategoryMarketSignalScalarFieldEnum)[keyof typeof CategoryMarketSignalScalarFieldEnum]
 
 
+export const SupplierPortalInvitationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  email: 'email',
+  contactName: 'contactName',
+  tokenHash: 'tokenHash',
+  status: 'status',
+  invitedByUserId: 'invitedByUserId',
+  expiresAt: 'expiresAt',
+  acceptedAt: 'acceptedAt',
+  revokedAt: 'revokedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalInvitationScalarFieldEnum = (typeof SupplierPortalInvitationScalarFieldEnum)[keyof typeof SupplierPortalInvitationScalarFieldEnum]
+
+
+export const SupplierPortalUserScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  email: 'email',
+  name: 'name',
+  jobTitle: 'jobTitle',
+  phone: 'phone',
+  status: 'status',
+  invitedAt: 'invitedAt',
+  activatedAt: 'activatedAt',
+  lastLoginAt: 'lastLoginAt',
+  suspendedAt: 'suspendedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalUserScalarFieldEnum = (typeof SupplierPortalUserScalarFieldEnum)[keyof typeof SupplierPortalUserScalarFieldEnum]
+
+
+export const SupplierOnboardingQuestionnaireScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  version: 'version',
+  questions: 'questions',
+  answers: 'answers',
+  completionPercent: 'completionPercent',
+  dueAt: 'dueAt',
+  sentAt: 'sentAt',
+  submittedAt: 'submittedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  approvedAt: 'approvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierOnboardingQuestionnaireScalarFieldEnum = (typeof SupplierOnboardingQuestionnaireScalarFieldEnum)[keyof typeof SupplierOnboardingQuestionnaireScalarFieldEnum]
+
+
+export const SupplierPortalTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  dueAt: 'dueAt',
+  buyerOwnerUserId: 'buyerOwnerUserId',
+  supplierOwnerEmail: 'supplierOwnerEmail',
+  blocker: 'blocker',
+  completionEvidence: 'completionEvidence',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierPortalTaskScalarFieldEnum = (typeof SupplierPortalTaskScalarFieldEnum)[keyof typeof SupplierPortalTaskScalarFieldEnum]
+
+
+export const SupplierPortalMessageScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  direction: 'direction',
+  subject: 'subject',
+  body: 'body',
+  authorUserId: 'authorUserId',
+  authorEmail: 'authorEmail',
+  relatedType: 'relatedType',
+  relatedId: 'relatedId',
+  readAt: 'readAt',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierPortalMessageScalarFieldEnum = (typeof SupplierPortalMessageScalarFieldEnum)[keyof typeof SupplierPortalMessageScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -14568,6 +15045,76 @@ export type ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel> = FieldRefI
 
 
 /**
+ * Reference to a field of type 'SupplierPortalInvitationStatus'
+ */
+export type EnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalInvitationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalInvitationStatus[]'
+ */
+export type ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalInvitationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalUserStatus'
+ */
+export type EnumSupplierPortalUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalUserStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalUserStatus[]'
+ */
+export type ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalUserStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierQuestionnaireStatus'
+ */
+export type EnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierQuestionnaireStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierQuestionnaireStatus[]'
+ */
+export type ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierQuestionnaireStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalTaskStatus'
+ */
+export type EnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalTaskStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalTaskStatus[]'
+ */
+export type ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalTaskStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalMessageDirection'
+ */
+export type EnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalMessageDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'SupplierPortalMessageDirection[]'
+ */
+export type ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SupplierPortalMessageDirection[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -14854,6 +15401,11 @@ export type GlobalOmitConfig = {
   procurementValueMilestone?: Prisma.ProcurementValueMilestoneOmit
   categoryOpportunity?: Prisma.CategoryOpportunityOmit
   categoryMarketSignal?: Prisma.CategoryMarketSignalOmit
+  supplierPortalInvitation?: Prisma.SupplierPortalInvitationOmit
+  supplierPortalUser?: Prisma.SupplierPortalUserOmit
+  supplierOnboardingQuestionnaire?: Prisma.SupplierOnboardingQuestionnaireOmit
+  supplierPortalTask?: Prisma.SupplierPortalTaskOmit
+  supplierPortalMessage?: Prisma.SupplierPortalMessageOmit
 }
 
 /* Types for Logging */

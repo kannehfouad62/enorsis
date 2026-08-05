@@ -2853,6 +2853,91 @@ export type EnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel = never> 
   _max?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
 }
 
+export type EnumSupplierPortalInvitationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalInvitationStatus | Prisma.EnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel> | $Enums.SupplierPortalInvitationStatus
+}
+
+export type EnumSupplierPortalInvitationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalInvitationStatus | Prisma.EnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalInvitationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalInvitationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierPortalUserStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalUserStatus | Prisma.EnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel> | $Enums.SupplierPortalUserStatus
+}
+
+export type EnumSupplierPortalUserStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalUserStatus | Prisma.EnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalUserStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalUserStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierQuestionnaireStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQuestionnaireStatus | Prisma.EnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel> | $Enums.SupplierQuestionnaireStatus
+}
+
+export type EnumSupplierQuestionnaireStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQuestionnaireStatus | Prisma.EnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQuestionnaireStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierQuestionnaireStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierPortalTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalTaskStatus | Prisma.EnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel> | $Enums.SupplierPortalTaskStatus
+}
+
+export type EnumSupplierPortalTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalTaskStatus | Prisma.EnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierPortalMessageDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalMessageDirection | Prisma.EnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel> | $Enums.SupplierPortalMessageDirection
+}
+
+export type EnumSupplierPortalMessageDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalMessageDirection | Prisma.EnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalMessageDirectionWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalMessageDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -5649,6 +5734,91 @@ export type NestedEnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel = n
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
   _max?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalInvitationStatus | Prisma.EnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel> | $Enums.SupplierPortalInvitationStatus
+}
+
+export type NestedEnumSupplierPortalInvitationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalInvitationStatus | Prisma.EnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalInvitationStatus[] | Prisma.ListEnumSupplierPortalInvitationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalInvitationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalInvitationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalInvitationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierPortalUserStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalUserStatus | Prisma.EnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel> | $Enums.SupplierPortalUserStatus
+}
+
+export type NestedEnumSupplierPortalUserStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalUserStatus | Prisma.EnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalUserStatus[] | Prisma.ListEnumSupplierPortalUserStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalUserStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalUserStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalUserStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQuestionnaireStatus | Prisma.EnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel> | $Enums.SupplierQuestionnaireStatus
+}
+
+export type NestedEnumSupplierQuestionnaireStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierQuestionnaireStatus | Prisma.EnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierQuestionnaireStatus[] | Prisma.ListEnumSupplierQuestionnaireStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierQuestionnaireStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierQuestionnaireStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierQuestionnaireStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalTaskStatus | Prisma.EnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel> | $Enums.SupplierPortalTaskStatus
+}
+
+export type NestedEnumSupplierPortalTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalTaskStatus | Prisma.EnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalTaskStatus[] | Prisma.ListEnumSupplierPortalTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalTaskStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalMessageDirection | Prisma.EnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel> | $Enums.SupplierPortalMessageDirection
+}
+
+export type NestedEnumSupplierPortalMessageDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierPortalMessageDirection | Prisma.EnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierPortalMessageDirection[] | Prisma.ListEnumSupplierPortalMessageDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierPortalMessageDirectionWithAggregatesFilter<$PrismaModel> | $Enums.SupplierPortalMessageDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierPortalMessageDirectionFilter<$PrismaModel>
 }
 
 

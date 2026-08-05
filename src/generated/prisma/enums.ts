@@ -1598,6 +1598,59 @@ export const MarketSignalDirection = {
 export type MarketSignalDirection = (typeof MarketSignalDirection)[keyof typeof MarketSignalDirection]
 
 
+export const SupplierPortalInvitationStatus = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  EXPIRED: 'EXPIRED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type SupplierPortalInvitationStatus = (typeof SupplierPortalInvitationStatus)[keyof typeof SupplierPortalInvitationStatus]
+
+
+export const SupplierPortalUserStatus = {
+  INVITED: 'INVITED',
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type SupplierPortalUserStatus = (typeof SupplierPortalUserStatus)[keyof typeof SupplierPortalUserStatus]
+
+
+export const SupplierQuestionnaireStatus = {
+  DRAFT: 'DRAFT',
+  SENT: 'SENT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  SUBMITTED: 'SUBMITTED',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type SupplierQuestionnaireStatus = (typeof SupplierQuestionnaireStatus)[keyof typeof SupplierQuestionnaireStatus]
+
+
+export const SupplierPortalTaskStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  BLOCKED: 'BLOCKED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type SupplierPortalTaskStatus = (typeof SupplierPortalTaskStatus)[keyof typeof SupplierPortalTaskStatus]
+
+
+export const SupplierPortalMessageDirection = {
+  BUYER_TO_SUPPLIER: 'BUYER_TO_SUPPLIER',
+  SUPPLIER_TO_BUYER: 'SUPPLIER_TO_BUYER',
+  INTERNAL: 'INTERNAL'
+} as const
+
+export type SupplierPortalMessageDirection = (typeof SupplierPortalMessageDirection)[keyof typeof SupplierPortalMessageDirection]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

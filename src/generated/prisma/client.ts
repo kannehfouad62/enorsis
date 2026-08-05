@@ -656,3 +656,28 @@ export type CategoryOpportunity = Prisma.CategoryOpportunityModel
  * 
  */
 export type CategoryMarketSignal = Prisma.CategoryMarketSignalModel
+/**
+ * Model SupplierPortalInvitation
+ * 
+ */
+export type SupplierPortalInvitation = Prisma.SupplierPortalInvitationModel
+/**
+ * Model SupplierPortalUser
+ * 
+ */
+export type SupplierPortalUser = Prisma.SupplierPortalUserModel
+/**
+ * Model SupplierOnboardingQuestionnaire
+ * 
+ */
+export type SupplierOnboardingQuestionnaire = Prisma.SupplierOnboardingQuestionnaireModel
+/**
+ * Model SupplierPortalTask
+ * 
+ */
+export type SupplierPortalTask = Prisma.SupplierPortalTaskModel
+/**
+ * Model SupplierPortalMessage
+ * 
+ */
+export type SupplierPortalMessage = Prisma.SupplierPortalMessageModel

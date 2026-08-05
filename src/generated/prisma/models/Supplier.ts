@@ -321,6 +321,11 @@ export type SupplierWhereInput = {
   sourcingResponses?: Prisma.SourcingResponseListRelationFilter
   supplierClaims?: Prisma.SupplierClaimListRelationFilter
   esgProfile?: Prisma.XOR<Prisma.SupplierEsgProfileNullableScalarRelationFilter, Prisma.SupplierEsgProfileWhereInput> | null
+  portalInvitations?: Prisma.SupplierPortalInvitationListRelationFilter
+  portalUsers?: Prisma.SupplierPortalUserListRelationFilter
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireListRelationFilter
+  portalTasks?: Prisma.SupplierPortalTaskListRelationFilter
+  portalMessages?: Prisma.SupplierPortalMessageListRelationFilter
   sourcingQuestions?: Prisma.SourcingQuestionListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   riskAssessments?: Prisma.SupplierRiskAssessmentListRelationFilter
@@ -365,6 +370,11 @@ export type SupplierOrderByWithRelationInput = {
   sourcingResponses?: Prisma.SourcingResponseOrderByRelationAggregateInput
   supplierClaims?: Prisma.SupplierClaimOrderByRelationAggregateInput
   esgProfile?: Prisma.SupplierEsgProfileOrderByWithRelationInput
+  portalInvitations?: Prisma.SupplierPortalInvitationOrderByRelationAggregateInput
+  portalUsers?: Prisma.SupplierPortalUserOrderByRelationAggregateInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireOrderByRelationAggregateInput
+  portalTasks?: Prisma.SupplierPortalTaskOrderByRelationAggregateInput
+  portalMessages?: Prisma.SupplierPortalMessageOrderByRelationAggregateInput
   sourcingQuestions?: Prisma.SourcingQuestionOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   riskAssessments?: Prisma.SupplierRiskAssessmentOrderByRelationAggregateInput
@@ -414,6 +424,11 @@ export type SupplierWhereUniqueInput = Prisma.AtLeast<{
   sourcingResponses?: Prisma.SourcingResponseListRelationFilter
   supplierClaims?: Prisma.SupplierClaimListRelationFilter
   esgProfile?: Prisma.XOR<Prisma.SupplierEsgProfileNullableScalarRelationFilter, Prisma.SupplierEsgProfileWhereInput> | null
+  portalInvitations?: Prisma.SupplierPortalInvitationListRelationFilter
+  portalUsers?: Prisma.SupplierPortalUserListRelationFilter
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireListRelationFilter
+  portalTasks?: Prisma.SupplierPortalTaskListRelationFilter
+  portalMessages?: Prisma.SupplierPortalMessageListRelationFilter
   sourcingQuestions?: Prisma.SourcingQuestionListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   riskAssessments?: Prisma.SupplierRiskAssessmentListRelationFilter
@@ -513,6 +528,11 @@ export type SupplierCreateInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -556,6 +576,11 @@ export type SupplierUncheckedCreateInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -599,6 +624,11 @@ export type SupplierUpdateInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -642,6 +672,11 @@ export type SupplierUncheckedUpdateInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1151,6 +1186,78 @@ export type SupplierUpdateOneRequiredWithoutEsgProfileNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutEsgProfileInput, Prisma.SupplierUpdateWithoutEsgProfileInput>, Prisma.SupplierUncheckedUpdateWithoutEsgProfileInput>
 }
 
+export type SupplierCreateNestedOneWithoutPortalInvitationsInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedCreateWithoutPortalInvitationsInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalInvitationsInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneWithoutPortalInvitationsNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedCreateWithoutPortalInvitationsInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalInvitationsInput
+  upsert?: Prisma.SupplierUpsertWithoutPortalInvitationsInput
+  disconnect?: Prisma.SupplierWhereInput | boolean
+  delete?: Prisma.SupplierWhereInput | boolean
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutPortalInvitationsInput, Prisma.SupplierUpdateWithoutPortalInvitationsInput>, Prisma.SupplierUncheckedUpdateWithoutPortalInvitationsInput>
+}
+
+export type SupplierCreateNestedOneWithoutPortalUsersInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalUsersInput, Prisma.SupplierUncheckedCreateWithoutPortalUsersInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalUsersInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutPortalUsersNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalUsersInput, Prisma.SupplierUncheckedCreateWithoutPortalUsersInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalUsersInput
+  upsert?: Prisma.SupplierUpsertWithoutPortalUsersInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutPortalUsersInput, Prisma.SupplierUpdateWithoutPortalUsersInput>, Prisma.SupplierUncheckedUpdateWithoutPortalUsersInput>
+}
+
+export type SupplierCreateNestedOneWithoutOnboardingQuestionnairesInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutOnboardingQuestionnairesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutOnboardingQuestionnairesNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutOnboardingQuestionnairesInput
+  upsert?: Prisma.SupplierUpsertWithoutOnboardingQuestionnairesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutOnboardingQuestionnairesInput, Prisma.SupplierUpdateWithoutOnboardingQuestionnairesInput>, Prisma.SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput>
+}
+
+export type SupplierCreateNestedOneWithoutPortalTasksInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalTasksInput, Prisma.SupplierUncheckedCreateWithoutPortalTasksInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalTasksInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutPortalTasksNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalTasksInput, Prisma.SupplierUncheckedCreateWithoutPortalTasksInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalTasksInput
+  upsert?: Prisma.SupplierUpsertWithoutPortalTasksInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutPortalTasksInput, Prisma.SupplierUpdateWithoutPortalTasksInput>, Prisma.SupplierUncheckedUpdateWithoutPortalTasksInput>
+}
+
+export type SupplierCreateNestedOneWithoutPortalMessagesInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalMessagesInput, Prisma.SupplierUncheckedCreateWithoutPortalMessagesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalMessagesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+}
+
+export type SupplierUpdateOneRequiredWithoutPortalMessagesNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierCreateWithoutPortalMessagesInput, Prisma.SupplierUncheckedCreateWithoutPortalMessagesInput>
+  connectOrCreate?: Prisma.SupplierCreateOrConnectWithoutPortalMessagesInput
+  upsert?: Prisma.SupplierUpsertWithoutPortalMessagesInput
+  connect?: Prisma.SupplierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierUpdateToOneWithWhereWithoutPortalMessagesInput, Prisma.SupplierUpdateWithoutPortalMessagesInput>, Prisma.SupplierUncheckedUpdateWithoutPortalMessagesInput>
+}
+
 export type SupplierCreateWithoutTenantInput = {
   id?: string
   supplierNumber: string
@@ -1179,6 +1286,11 @@ export type SupplierCreateWithoutTenantInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -1221,6 +1333,11 @@ export type SupplierUncheckedCreateWithoutTenantInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -1317,6 +1434,11 @@ export type SupplierCreateWithoutContactsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -1359,6 +1481,11 @@ export type SupplierUncheckedCreateWithoutContactsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -1417,6 +1544,11 @@ export type SupplierUpdateWithoutContactsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -1459,6 +1591,11 @@ export type SupplierUncheckedUpdateWithoutContactsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1501,6 +1638,11 @@ export type SupplierCreateWithoutDocumentsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -1543,6 +1685,11 @@ export type SupplierUncheckedCreateWithoutDocumentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -1601,6 +1748,11 @@ export type SupplierUpdateWithoutDocumentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -1643,6 +1795,11 @@ export type SupplierUncheckedUpdateWithoutDocumentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1685,6 +1842,11 @@ export type SupplierCreateWithoutSourcingInvitationsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -1727,6 +1889,11 @@ export type SupplierUncheckedCreateWithoutSourcingInvitationsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -1785,6 +1952,11 @@ export type SupplierUpdateWithoutSourcingInvitationsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -1827,6 +1999,11 @@ export type SupplierUncheckedUpdateWithoutSourcingInvitationsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1869,6 +2046,11 @@ export type SupplierCreateWithoutSourcingResponsesInput = {
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -1911,6 +2093,11 @@ export type SupplierUncheckedCreateWithoutSourcingResponsesInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -1969,6 +2156,11 @@ export type SupplierUpdateWithoutSourcingResponsesInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -2011,6 +2203,11 @@ export type SupplierUncheckedUpdateWithoutSourcingResponsesInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2054,6 +2251,11 @@ export type SupplierCreateWithoutSourcingQuestionsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
@@ -2096,6 +2298,11 @@ export type SupplierUncheckedCreateWithoutSourcingQuestionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
@@ -2154,6 +2361,11 @@ export type SupplierUpdateWithoutSourcingQuestionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
@@ -2196,6 +2408,11 @@ export type SupplierUncheckedUpdateWithoutSourcingQuestionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2238,6 +2455,11 @@ export type SupplierCreateWithoutContractsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
@@ -2280,6 +2502,11 @@ export type SupplierUncheckedCreateWithoutContractsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
@@ -2338,6 +2565,11 @@ export type SupplierUpdateWithoutContractsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
@@ -2380,6 +2612,11 @@ export type SupplierUncheckedUpdateWithoutContractsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2422,6 +2659,11 @@ export type SupplierCreateWithoutRiskAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
@@ -2464,6 +2706,11 @@ export type SupplierUncheckedCreateWithoutRiskAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
@@ -2522,6 +2769,11 @@ export type SupplierUpdateWithoutRiskAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
@@ -2564,6 +2816,11 @@ export type SupplierUncheckedUpdateWithoutRiskAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2606,6 +2863,11 @@ export type SupplierCreateWithoutRiskFindingsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -2648,6 +2910,11 @@ export type SupplierUncheckedCreateWithoutRiskFindingsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -2706,6 +2973,11 @@ export type SupplierUpdateWithoutRiskFindingsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -2748,6 +3020,11 @@ export type SupplierUncheckedUpdateWithoutRiskFindingsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2790,6 +3067,11 @@ export type SupplierCreateWithoutEsgAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -2832,6 +3114,11 @@ export type SupplierUncheckedCreateWithoutEsgAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -2890,6 +3177,11 @@ export type SupplierUpdateWithoutEsgAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -2932,6 +3224,11 @@ export type SupplierUncheckedUpdateWithoutEsgAssessmentsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2974,6 +3271,11 @@ export type SupplierCreateWithoutPurchaseOrdersInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3016,6 +3318,11 @@ export type SupplierUncheckedCreateWithoutPurchaseOrdersInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3074,6 +3381,11 @@ export type SupplierUpdateWithoutPurchaseOrdersInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -3116,6 +3428,11 @@ export type SupplierUncheckedUpdateWithoutPurchaseOrdersInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3158,6 +3475,11 @@ export type SupplierCreateWithoutSupplierInvoicesInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3200,6 +3522,11 @@ export type SupplierUncheckedCreateWithoutSupplierInvoicesInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3258,6 +3585,11 @@ export type SupplierUpdateWithoutSupplierInvoicesInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -3300,6 +3632,11 @@ export type SupplierUncheckedUpdateWithoutSupplierInvoicesInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3342,6 +3679,11 @@ export type SupplierCreateWithoutScorecardsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3384,6 +3726,11 @@ export type SupplierUncheckedCreateWithoutScorecardsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3442,6 +3789,11 @@ export type SupplierUpdateWithoutScorecardsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -3484,6 +3836,11 @@ export type SupplierUncheckedUpdateWithoutScorecardsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3526,6 +3883,11 @@ export type SupplierCreateWithoutDevelopmentPlansInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3568,6 +3930,11 @@ export type SupplierUncheckedCreateWithoutDevelopmentPlansInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3626,6 +3993,11 @@ export type SupplierUpdateWithoutDevelopmentPlansInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -3668,6 +4040,11 @@ export type SupplierUncheckedUpdateWithoutDevelopmentPlansInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3710,6 +4087,11 @@ export type SupplierCreateWithoutCorrectiveActionsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3752,6 +4134,11 @@ export type SupplierUncheckedCreateWithoutCorrectiveActionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3810,6 +4197,11 @@ export type SupplierUpdateWithoutCorrectiveActionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -3852,6 +4244,11 @@ export type SupplierUncheckedUpdateWithoutCorrectiveActionsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3894,6 +4291,11 @@ export type SupplierCreateWithoutProcurementCatalogsInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -3936,6 +4338,11 @@ export type SupplierUncheckedCreateWithoutProcurementCatalogsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -3994,6 +4401,11 @@ export type SupplierUpdateWithoutProcurementCatalogsInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -4036,6 +4448,11 @@ export type SupplierUncheckedUpdateWithoutProcurementCatalogsInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4078,6 +4495,11 @@ export type SupplierCreateWithoutStatementsOfWorkInput = {
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -4120,6 +4542,11 @@ export type SupplierUncheckedCreateWithoutStatementsOfWorkInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -4178,6 +4605,11 @@ export type SupplierUpdateWithoutStatementsOfWorkInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -4220,6 +4652,11 @@ export type SupplierUncheckedUpdateWithoutStatementsOfWorkInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4261,6 +4698,11 @@ export type SupplierCreateWithoutSupplierClaimsInput = {
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -4303,6 +4745,11 @@ export type SupplierUncheckedCreateWithoutSupplierClaimsInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -4361,6 +4808,11 @@ export type SupplierUpdateWithoutSupplierClaimsInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -4403,6 +4855,11 @@ export type SupplierUncheckedUpdateWithoutSupplierClaimsInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4445,6 +4902,11 @@ export type SupplierCreateWithoutEsgProfileInput = {
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
@@ -4487,6 +4949,11 @@ export type SupplierUncheckedCreateWithoutEsgProfileInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
   supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
@@ -4545,6 +5012,11 @@ export type SupplierUpdateWithoutEsgProfileInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -4587,6 +5059,1031 @@ export type SupplierUncheckedUpdateWithoutEsgProfileInput = {
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutPortalInvitationsInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutPortalInvitationsInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutPortalInvitationsInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedCreateWithoutPortalInvitationsInput>
+}
+
+export type SupplierUpsertWithoutPortalInvitationsInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedUpdateWithoutPortalInvitationsInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedCreateWithoutPortalInvitationsInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutPortalInvitationsInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalInvitationsInput, Prisma.SupplierUncheckedUpdateWithoutPortalInvitationsInput>
+}
+
+export type SupplierUpdateWithoutPortalInvitationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutPortalInvitationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutPortalUsersInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutPortalUsersInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutPortalUsersInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalUsersInput, Prisma.SupplierUncheckedCreateWithoutPortalUsersInput>
+}
+
+export type SupplierUpsertWithoutPortalUsersInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalUsersInput, Prisma.SupplierUncheckedUpdateWithoutPortalUsersInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalUsersInput, Prisma.SupplierUncheckedCreateWithoutPortalUsersInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutPortalUsersInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalUsersInput, Prisma.SupplierUncheckedUpdateWithoutPortalUsersInput>
+}
+
+export type SupplierUpdateWithoutPortalUsersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutPortalUsersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutOnboardingQuestionnairesInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutOnboardingQuestionnairesInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput>
+}
+
+export type SupplierUpsertWithoutOnboardingQuestionnairesInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutOnboardingQuestionnairesInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutOnboardingQuestionnairesInput, Prisma.SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput>
+}
+
+export type SupplierUpdateWithoutOnboardingQuestionnairesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutPortalTasksInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutPortalTasksInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutPortalTasksInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalTasksInput, Prisma.SupplierUncheckedCreateWithoutPortalTasksInput>
+}
+
+export type SupplierUpsertWithoutPortalTasksInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalTasksInput, Prisma.SupplierUncheckedUpdateWithoutPortalTasksInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalTasksInput, Prisma.SupplierUncheckedCreateWithoutPortalTasksInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutPortalTasksInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalTasksInput, Prisma.SupplierUncheckedUpdateWithoutPortalTasksInput>
+}
+
+export type SupplierUpdateWithoutPortalTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutPortalTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierCreateWithoutPortalMessagesInput = {
+  id?: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
+  contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierUncheckedCreateWithoutPortalMessagesInput = {
+  id?: string
+  tenantId: string
+  supplierNumber: string
+  legalName: string
+  tradingName?: string | null
+  countryCode: string
+  taxIdentificationNo?: string | null
+  website?: string | null
+  primaryEmail?: string | null
+  primaryPhone?: string | null
+  categories?: Prisma.SupplierCreatecategoriesInput | string[]
+  status?: $Enums.SupplierStatus
+  riskTier?: $Enums.SupplierRiskTier
+  qualificationStatus?: $Enums.SupplierQualificationStatus
+  diversityOwned?: boolean
+  esgCommitted?: boolean
+  sanctionsScreenedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  suspendedAt?: Date | string | null
+  rejectionReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
+  documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutSupplierInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedCreateNestedOneWithoutSupplierInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutSupplierInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutSupplierInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutSupplierInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutSupplierInput
+  sourcingQuestions?: Prisma.SourcingQuestionUncheckedCreateNestedManyWithoutSupplierInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutSupplierInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  riskFindings?: Prisma.SupplierRiskFindingUncheckedCreateNestedManyWithoutSupplierInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUncheckedCreateNestedManyWithoutSupplierInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutSupplierInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutSupplierInput
+  scorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutSupplierInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutSupplierInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutSupplierInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutSupplierInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutSupplierInput
+}
+
+export type SupplierCreateOrConnectWithoutPortalMessagesInput = {
+  where: Prisma.SupplierWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalMessagesInput, Prisma.SupplierUncheckedCreateWithoutPortalMessagesInput>
+}
+
+export type SupplierUpsertWithoutPortalMessagesInput = {
+  update: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalMessagesInput, Prisma.SupplierUncheckedUpdateWithoutPortalMessagesInput>
+  create: Prisma.XOR<Prisma.SupplierCreateWithoutPortalMessagesInput, Prisma.SupplierUncheckedCreateWithoutPortalMessagesInput>
+  where?: Prisma.SupplierWhereInput
+}
+
+export type SupplierUpdateToOneWithWhereWithoutPortalMessagesInput = {
+  where?: Prisma.SupplierWhereInput
+  data: Prisma.XOR<Prisma.SupplierUpdateWithoutPortalMessagesInput, Prisma.SupplierUncheckedUpdateWithoutPortalMessagesInput>
+}
+
+export type SupplierUpdateWithoutPortalMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
+  contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
+  riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
+  riskFindings?: Prisma.SupplierRiskFindingUpdateManyWithoutSupplierNestedInput
+  esgAssessments?: Prisma.SupplierEsgAssessmentUpdateManyWithoutSupplierNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutSupplierNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutSupplierNestedInput
+  scorecards?: Prisma.SupplierScorecardUpdateManyWithoutSupplierNestedInput
+  developmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutSupplierNestedInput
+  correctiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutSupplierNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutSupplierNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutSupplierNestedInput
+}
+
+export type SupplierUncheckedUpdateWithoutPortalMessagesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.StringFieldUpdateOperationsInput | string
+  tradingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  countryCode?: Prisma.StringFieldUpdateOperationsInput | string
+  taxIdentificationNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categories?: Prisma.SupplierUpdatecategoriesInput | string[]
+  status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
+  riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
+  qualificationStatus?: Prisma.EnumSupplierQualificationStatusFieldUpdateOperationsInput | $Enums.SupplierQualificationStatus
+  diversityOwned?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  esgCommitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sanctionsScreenedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  suspendedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
+  documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
+  esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4653,6 +6150,11 @@ export type SupplierUpdateWithoutTenantInput = {
   sourcingResponses?: Prisma.SourcingResponseUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUpdateManyWithoutSupplierNestedInput
@@ -4695,6 +6197,11 @@ export type SupplierUncheckedUpdateWithoutTenantInput = {
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
   supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutSupplierNestedInput
   esgProfile?: Prisma.SupplierEsgProfileUncheckedUpdateOneWithoutSupplierNestedInput
+  portalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutSupplierNestedInput
+  portalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutSupplierNestedInput
+  onboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutSupplierNestedInput
+  portalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutSupplierNestedInput
+  portalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingQuestions?: Prisma.SourcingQuestionUncheckedUpdateManyWithoutSupplierNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutSupplierNestedInput
   riskAssessments?: Prisma.SupplierRiskAssessmentUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4744,6 +6251,11 @@ export type SupplierCountOutputType = {
   sourcingInvitations: number
   sourcingResponses: number
   supplierClaims: number
+  portalInvitations: number
+  portalUsers: number
+  onboardingQuestionnaires: number
+  portalTasks: number
+  portalMessages: number
   sourcingQuestions: number
   contracts: number
   riskAssessments: number
@@ -4764,6 +6276,11 @@ export type SupplierCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensio
   sourcingInvitations?: boolean | SupplierCountOutputTypeCountSourcingInvitationsArgs
   sourcingResponses?: boolean | SupplierCountOutputTypeCountSourcingResponsesArgs
   supplierClaims?: boolean | SupplierCountOutputTypeCountSupplierClaimsArgs
+  portalInvitations?: boolean | SupplierCountOutputTypeCountPortalInvitationsArgs
+  portalUsers?: boolean | SupplierCountOutputTypeCountPortalUsersArgs
+  onboardingQuestionnaires?: boolean | SupplierCountOutputTypeCountOnboardingQuestionnairesArgs
+  portalTasks?: boolean | SupplierCountOutputTypeCountPortalTasksArgs
+  portalMessages?: boolean | SupplierCountOutputTypeCountPortalMessagesArgs
   sourcingQuestions?: boolean | SupplierCountOutputTypeCountSourcingQuestionsArgs
   contracts?: boolean | SupplierCountOutputTypeCountContractsArgs
   riskAssessments?: boolean | SupplierCountOutputTypeCountRiskAssessmentsArgs
@@ -4821,6 +6338,41 @@ export type SupplierCountOutputTypeCountSourcingResponsesArgs<ExtArgs extends ru
  */
 export type SupplierCountOutputTypeCountSupplierClaimsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.SupplierClaimWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountPortalInvitationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierPortalInvitationWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountPortalUsersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierPortalUserWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountOnboardingQuestionnairesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierOnboardingQuestionnaireWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountPortalTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierPortalTaskWhereInput
+}
+
+/**
+ * SupplierCountOutputType without action
+ */
+export type SupplierCountOutputTypeCountPortalMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierPortalMessageWhereInput
 }
 
 /**
@@ -4938,6 +6490,11 @@ export type SupplierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   sourcingResponses?: boolean | Prisma.Supplier$sourcingResponsesArgs<ExtArgs>
   supplierClaims?: boolean | Prisma.Supplier$supplierClaimsArgs<ExtArgs>
   esgProfile?: boolean | Prisma.Supplier$esgProfileArgs<ExtArgs>
+  portalInvitations?: boolean | Prisma.Supplier$portalInvitationsArgs<ExtArgs>
+  portalUsers?: boolean | Prisma.Supplier$portalUsersArgs<ExtArgs>
+  onboardingQuestionnaires?: boolean | Prisma.Supplier$onboardingQuestionnairesArgs<ExtArgs>
+  portalTasks?: boolean | Prisma.Supplier$portalTasksArgs<ExtArgs>
+  portalMessages?: boolean | Prisma.Supplier$portalMessagesArgs<ExtArgs>
   sourcingQuestions?: boolean | Prisma.Supplier$sourcingQuestionsArgs<ExtArgs>
   contracts?: boolean | Prisma.Supplier$contractsArgs<ExtArgs>
   riskAssessments?: boolean | Prisma.Supplier$riskAssessmentsArgs<ExtArgs>
@@ -5039,6 +6596,11 @@ export type SupplierInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   sourcingResponses?: boolean | Prisma.Supplier$sourcingResponsesArgs<ExtArgs>
   supplierClaims?: boolean | Prisma.Supplier$supplierClaimsArgs<ExtArgs>
   esgProfile?: boolean | Prisma.Supplier$esgProfileArgs<ExtArgs>
+  portalInvitations?: boolean | Prisma.Supplier$portalInvitationsArgs<ExtArgs>
+  portalUsers?: boolean | Prisma.Supplier$portalUsersArgs<ExtArgs>
+  onboardingQuestionnaires?: boolean | Prisma.Supplier$onboardingQuestionnairesArgs<ExtArgs>
+  portalTasks?: boolean | Prisma.Supplier$portalTasksArgs<ExtArgs>
+  portalMessages?: boolean | Prisma.Supplier$portalMessagesArgs<ExtArgs>
   sourcingQuestions?: boolean | Prisma.Supplier$sourcingQuestionsArgs<ExtArgs>
   contracts?: boolean | Prisma.Supplier$contractsArgs<ExtArgs>
   riskAssessments?: boolean | Prisma.Supplier$riskAssessmentsArgs<ExtArgs>
@@ -5070,6 +6632,11 @@ export type $SupplierPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     sourcingResponses: Prisma.$SourcingResponsePayload<ExtArgs>[]
     supplierClaims: Prisma.$SupplierClaimPayload<ExtArgs>[]
     esgProfile: Prisma.$SupplierEsgProfilePayload<ExtArgs> | null
+    portalInvitations: Prisma.$SupplierPortalInvitationPayload<ExtArgs>[]
+    portalUsers: Prisma.$SupplierPortalUserPayload<ExtArgs>[]
+    onboardingQuestionnaires: Prisma.$SupplierOnboardingQuestionnairePayload<ExtArgs>[]
+    portalTasks: Prisma.$SupplierPortalTaskPayload<ExtArgs>[]
+    portalMessages: Prisma.$SupplierPortalMessagePayload<ExtArgs>[]
     sourcingQuestions: Prisma.$SourcingQuestionPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     riskAssessments: Prisma.$SupplierRiskAssessmentPayload<ExtArgs>[]
@@ -5507,6 +7074,11 @@ export interface Prisma__SupplierClient<T, Null = never, ExtArgs extends runtime
   sourcingResponses<T extends Prisma.Supplier$sourcingResponsesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$sourcingResponsesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SourcingResponsePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   supplierClaims<T extends Prisma.Supplier$supplierClaimsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$supplierClaimsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierClaimPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   esgProfile<T extends Prisma.Supplier$esgProfileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$esgProfileArgs<ExtArgs>>): Prisma.Prisma__SupplierEsgProfileClient<runtime.Types.Result.GetResult<Prisma.$SupplierEsgProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  portalInvitations<T extends Prisma.Supplier$portalInvitationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$portalInvitationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierPortalInvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  portalUsers<T extends Prisma.Supplier$portalUsersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$portalUsersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierPortalUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  onboardingQuestionnaires<T extends Prisma.Supplier$onboardingQuestionnairesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$onboardingQuestionnairesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierOnboardingQuestionnairePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  portalTasks<T extends Prisma.Supplier$portalTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$portalTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierPortalTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  portalMessages<T extends Prisma.Supplier$portalMessagesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$portalMessagesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierPortalMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sourcingQuestions<T extends Prisma.Supplier$sourcingQuestionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$sourcingQuestionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SourcingQuestionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Supplier$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   riskAssessments<T extends Prisma.Supplier$riskAssessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Supplier$riskAssessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierRiskAssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -6107,6 +7679,126 @@ export type Supplier$esgProfileArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   include?: Prisma.SupplierEsgProfileInclude<ExtArgs> | null
   where?: Prisma.SupplierEsgProfileWhereInput
+}
+
+/**
+ * Supplier.portalInvitations
+ */
+export type Supplier$portalInvitationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierPortalInvitation
+   */
+  select?: Prisma.SupplierPortalInvitationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierPortalInvitation
+   */
+  omit?: Prisma.SupplierPortalInvitationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierPortalInvitationInclude<ExtArgs> | null
+  where?: Prisma.SupplierPortalInvitationWhereInput
+  orderBy?: Prisma.SupplierPortalInvitationOrderByWithRelationInput | Prisma.SupplierPortalInvitationOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierPortalInvitationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierPortalInvitationScalarFieldEnum | Prisma.SupplierPortalInvitationScalarFieldEnum[]
+}
+
+/**
+ * Supplier.portalUsers
+ */
+export type Supplier$portalUsersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierPortalUser
+   */
+  select?: Prisma.SupplierPortalUserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierPortalUser
+   */
+  omit?: Prisma.SupplierPortalUserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierPortalUserInclude<ExtArgs> | null
+  where?: Prisma.SupplierPortalUserWhereInput
+  orderBy?: Prisma.SupplierPortalUserOrderByWithRelationInput | Prisma.SupplierPortalUserOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierPortalUserWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierPortalUserScalarFieldEnum | Prisma.SupplierPortalUserScalarFieldEnum[]
+}
+
+/**
+ * Supplier.onboardingQuestionnaires
+ */
+export type Supplier$onboardingQuestionnairesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierOnboardingQuestionnaire
+   */
+  select?: Prisma.SupplierOnboardingQuestionnaireSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierOnboardingQuestionnaire
+   */
+  omit?: Prisma.SupplierOnboardingQuestionnaireOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierOnboardingQuestionnaireInclude<ExtArgs> | null
+  where?: Prisma.SupplierOnboardingQuestionnaireWhereInput
+  orderBy?: Prisma.SupplierOnboardingQuestionnaireOrderByWithRelationInput | Prisma.SupplierOnboardingQuestionnaireOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierOnboardingQuestionnaireWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierOnboardingQuestionnaireScalarFieldEnum | Prisma.SupplierOnboardingQuestionnaireScalarFieldEnum[]
+}
+
+/**
+ * Supplier.portalTasks
+ */
+export type Supplier$portalTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierPortalTask
+   */
+  select?: Prisma.SupplierPortalTaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierPortalTask
+   */
+  omit?: Prisma.SupplierPortalTaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierPortalTaskInclude<ExtArgs> | null
+  where?: Prisma.SupplierPortalTaskWhereInput
+  orderBy?: Prisma.SupplierPortalTaskOrderByWithRelationInput | Prisma.SupplierPortalTaskOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierPortalTaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierPortalTaskScalarFieldEnum | Prisma.SupplierPortalTaskScalarFieldEnum[]
+}
+
+/**
+ * Supplier.portalMessages
+ */
+export type Supplier$portalMessagesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierPortalMessage
+   */
+  select?: Prisma.SupplierPortalMessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierPortalMessage
+   */
+  omit?: Prisma.SupplierPortalMessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierPortalMessageInclude<ExtArgs> | null
+  where?: Prisma.SupplierPortalMessageWhereInput
+  orderBy?: Prisma.SupplierPortalMessageOrderByWithRelationInput | Prisma.SupplierPortalMessageOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierPortalMessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierPortalMessageScalarFieldEnum | Prisma.SupplierPortalMessageScalarFieldEnum[]
 }
 
 /**

@@ -1180,6 +1180,44 @@ enum MarketSignalDirection {
   NEGATIVE
 }
 
+enum SupplierPortalInvitationStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
+}
+
+enum SupplierPortalUserStatus {
+  INVITED
+  ACTIVE
+  SUSPENDED
+  REVOKED
+}
+
+enum SupplierQuestionnaireStatus {
+  DRAFT
+  SENT
+  IN_PROGRESS
+  SUBMITTED
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum SupplierPortalTaskStatus {
+  OPEN
+  IN_PROGRESS
+  BLOCKED
+  COMPLETED
+  CANCELLED
+}
+
+enum SupplierPortalMessageDirection {
+  BUYER_TO_SUPPLIER
+  SUPPLIER_TO_BUYER
+  INTERNAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1275,76 +1313,81 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                           String                        @id @default(cuid())
-  slug                         String                        @unique
-  name                         String
-  legalName                    String?
-  status                       TenantStatus                  @default(PROVISIONING)
-  countryCode                  String?
-  defaultLocale                String                        @default("en-US")
-  defaultTimeZone              String                        @default("UTC")
-  currencyPolicyMode           CurrencyPolicyMode            @default(USD_ONLY)
-  baseCurrencyCode             String                        @default("USD")
-  localDisplayCurrency         String?
-  usdReportingEnabled          Boolean                       @default(true)
-  memberships                  Membership[]
-  legalEntities                LegalEntity[]
-  sites                        Site[]
-  departments                  Department[]
-  exchangeRates                ExchangeRate[]
-  auditEvents                  AuditEvent[]
-  aiAgents                     AiAgent[]
-  purchaseRequests             PurchaseRequest[]
-  purchaseOrders               PurchaseOrder[]
-  receipts                     ProcurementReceipt[]
-  supplierInvoices             SupplierInvoice[]
-  suppliers                    Supplier[]
-  sourcingEvents               SourcingEvent[]
-  paymentBatches               PaymentBatch[]
-  integrations                 IntegrationConnection[]
-  workflowDefinitions          WorkflowDefinition[]
-  workflowInstances            WorkflowInstance[]
-  workflowDelegations          WorkflowDelegation[]
-  workflowNotifications        WorkflowNotification[]
-  apiClients                   ApiClient[]
-  accessReviewCampaigns        AccessReviewCampaign[]
-  sodRules                     SodRule[]
-  sodViolations                SodViolation[]
-  supplierScorecards           SupplierScorecard[]
-  supplierDevelopmentPlans     SupplierDevelopmentPlan[]
-  supplierCorrectiveActions    SupplierCorrectiveAction[]
-  procurementPlans             ProcurementPlan[]
-  categoryStrategies           CategoryStrategy[]
-  savingsInitiatives           SavingsInitiative[]
-  procurementReviews           ProcurementReview[]
-  procurementPolicies          ProcurementPolicy[]
-  procurementComplianceTests   ProcurementComplianceTest[]
-  procurementRemediations      ProcurementRemediation[]
-  supplyRiskEvents             SupplyRiskEvent[]
-  resiliencePlans              ResiliencePlan[]
-  procurementCatalogs          ProcurementCatalog[]
-  guidedCarts                  GuidedCart[]
-  inventoryLocations           InventoryLocation[]
-  inventoryItems               InventoryItem[]
-  inventoryTransactions        InventoryTransaction[]
-  cycleCounts                  CycleCount[]
-  statementsOfWork             StatementOfWork[]
-  serviceWorkers               ServiceWorker[]
-  serviceTimeEntries           ServiceTimeEntry[]
-  demandPlans                  DemandPlan[]
-  replenishmentRecommendations ReplenishmentRecommendation[]
-  logisticsCarriers            LogisticsCarrier[]
-  logisticsShipments           LogisticsShipment[]
-  supplierClaims               SupplierClaim[]
-  procurementAssets            ProcurementAsset[]
-  supplierEsgProfiles          SupplierEsgProfile[]
-  procurementValueInitiatives  ProcurementValueInitiative[]
-  createdAt                    DateTime                      @default(now())
-  updatedAt                    DateTime                      @updatedAt
-  archivedAt                   DateTime?
-  contracts                    Contract[]
-  clauseTemplates              ClauseTemplate[]
-  aiAgentTasks                 AiAgentTask[]
+  id                               String                            @id @default(cuid())
+  slug                             String                            @unique
+  name                             String
+  legalName                        String?
+  status                           TenantStatus                      @default(PROVISIONING)
+  countryCode                      String?
+  defaultLocale                    String                            @default("en-US")
+  defaultTimeZone                  String                            @default("UTC")
+  currencyPolicyMode               CurrencyPolicyMode                @default(USD_ONLY)
+  baseCurrencyCode                 String                            @default("USD")
+  localDisplayCurrency             String?
+  usdReportingEnabled              Boolean                           @default(true)
+  memberships                      Membership[]
+  legalEntities                    LegalEntity[]
+  sites                            Site[]
+  departments                      Department[]
+  exchangeRates                    ExchangeRate[]
+  auditEvents                      AuditEvent[]
+  aiAgents                         AiAgent[]
+  purchaseRequests                 PurchaseRequest[]
+  purchaseOrders                   PurchaseOrder[]
+  receipts                         ProcurementReceipt[]
+  supplierInvoices                 SupplierInvoice[]
+  suppliers                        Supplier[]
+  sourcingEvents                   SourcingEvent[]
+  paymentBatches                   PaymentBatch[]
+  integrations                     IntegrationConnection[]
+  workflowDefinitions              WorkflowDefinition[]
+  workflowInstances                WorkflowInstance[]
+  workflowDelegations              WorkflowDelegation[]
+  workflowNotifications            WorkflowNotification[]
+  apiClients                       ApiClient[]
+  accessReviewCampaigns            AccessReviewCampaign[]
+  sodRules                         SodRule[]
+  sodViolations                    SodViolation[]
+  supplierScorecards               SupplierScorecard[]
+  supplierDevelopmentPlans         SupplierDevelopmentPlan[]
+  supplierCorrectiveActions        SupplierCorrectiveAction[]
+  procurementPlans                 ProcurementPlan[]
+  categoryStrategies               CategoryStrategy[]
+  savingsInitiatives               SavingsInitiative[]
+  procurementReviews               ProcurementReview[]
+  procurementPolicies              ProcurementPolicy[]
+  procurementComplianceTests       ProcurementComplianceTest[]
+  procurementRemediations          ProcurementRemediation[]
+  supplyRiskEvents                 SupplyRiskEvent[]
+  resiliencePlans                  ResiliencePlan[]
+  procurementCatalogs              ProcurementCatalog[]
+  guidedCarts                      GuidedCart[]
+  inventoryLocations               InventoryLocation[]
+  inventoryItems                   InventoryItem[]
+  inventoryTransactions            InventoryTransaction[]
+  cycleCounts                      CycleCount[]
+  statementsOfWork                 StatementOfWork[]
+  serviceWorkers                   ServiceWorker[]
+  serviceTimeEntries               ServiceTimeEntry[]
+  demandPlans                      DemandPlan[]
+  replenishmentRecommendations     ReplenishmentRecommendation[]
+  logisticsCarriers                LogisticsCarrier[]
+  logisticsShipments               LogisticsShipment[]
+  supplierClaims                   SupplierClaim[]
+  procurementAssets                ProcurementAsset[]
+  supplierEsgProfiles              SupplierEsgProfile[]
+  procurementValueInitiatives      ProcurementValueInitiative[]
+  supplierPortalInvitations        SupplierPortalInvitation[]
+  supplierPortalUsers              SupplierPortalUser[]
+  supplierOnboardingQuestionnaires SupplierOnboardingQuestionnaire[]
+  supplierPortalTasks              SupplierPortalTask[]
+  supplierPortalMessages           SupplierPortalMessage[]
+  createdAt                        DateTime                          @default(now())
+  updatedAt                        DateTime                          @updatedAt
+  archivedAt                       DateTime?
+  contracts                        Contract[]
+  clauseTemplates                  ClauseTemplate[]
+  aiAgentTasks                     AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -1601,45 +1644,50 @@ model PurchaseRequestApproval {
 }
 
 model Supplier {
-  id                  String                      @id @default(cuid())
-  tenantId            String
-  supplierNumber      String
-  legalName           String
-  tradingName         String?
-  countryCode         String
-  taxIdentificationNo String?
-  website             String?
-  primaryEmail        String?
-  primaryPhone        String?
-  categories          String[]
-  status              SupplierStatus              @default(PROSPECT)
-  riskTier            SupplierRiskTier            @default(MODERATE)
-  qualificationStatus SupplierQualificationStatus @default(NOT_STARTED)
-  diversityOwned      Boolean                     @default(false)
-  esgCommitted        Boolean                     @default(false)
-  sanctionsScreenedAt DateTime?
-  approvedAt          DateTime?
-  suspendedAt         DateTime?
-  rejectionReason     String?
-  tenant              Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  contacts            SupplierContact[]
-  documents           SupplierDocument[]
-  sourcingInvitations SourcingInvitation[]
-  sourcingResponses   SourcingResponse[]
-  supplierClaims      SupplierClaim[]
-  esgProfile          SupplierEsgProfile?
-  createdAt           DateTime                    @default(now())
-  updatedAt           DateTime                    @updatedAt
-  sourcingQuestions   SourcingQuestion[]
-  contracts           Contract[]
-  riskAssessments     SupplierRiskAssessment[]
-  riskFindings        SupplierRiskFinding[]
-  esgAssessments      SupplierEsgAssessment[]
-  purchaseOrders      PurchaseOrder[]
-  supplierInvoices    SupplierInvoice[]
-  scorecards          SupplierScorecard[]
-  developmentPlans    SupplierDevelopmentPlan[]
-  correctiveActions   SupplierCorrectiveAction[]
+  id                       String                            @id @default(cuid())
+  tenantId                 String
+  supplierNumber           String
+  legalName                String
+  tradingName              String?
+  countryCode              String
+  taxIdentificationNo      String?
+  website                  String?
+  primaryEmail             String?
+  primaryPhone             String?
+  categories               String[]
+  status                   SupplierStatus                    @default(PROSPECT)
+  riskTier                 SupplierRiskTier                  @default(MODERATE)
+  qualificationStatus      SupplierQualificationStatus       @default(NOT_STARTED)
+  diversityOwned           Boolean                           @default(false)
+  esgCommitted             Boolean                           @default(false)
+  sanctionsScreenedAt      DateTime?
+  approvedAt               DateTime?
+  suspendedAt              DateTime?
+  rejectionReason          String?
+  tenant                   Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  contacts                 SupplierContact[]
+  documents                SupplierDocument[]
+  sourcingInvitations      SourcingInvitation[]
+  sourcingResponses        SourcingResponse[]
+  supplierClaims           SupplierClaim[]
+  esgProfile               SupplierEsgProfile?
+  portalInvitations        SupplierPortalInvitation[]
+  portalUsers              SupplierPortalUser[]
+  onboardingQuestionnaires SupplierOnboardingQuestionnaire[]
+  portalTasks              SupplierPortalTask[]
+  portalMessages           SupplierPortalMessage[]
+  createdAt                DateTime                          @default(now())
+  updatedAt                DateTime                          @updatedAt
+  sourcingQuestions        SourcingQuestion[]
+  contracts                Contract[]
+  riskAssessments          SupplierRiskAssessment[]
+  riskFindings             SupplierRiskFinding[]
+  esgAssessments           SupplierEsgAssessment[]
+  purchaseOrders           PurchaseOrder[]
+  supplierInvoices         SupplierInvoice[]
+  scorecards               SupplierScorecard[]
+  developmentPlans         SupplierDevelopmentPlan[]
+  correctiveActions        SupplierCorrectiveAction[]
 
   procurementCatalogs ProcurementCatalog[]
 
@@ -4301,4 +4349,118 @@ model CategoryMarketSignal {
   updatedAt          DateTime              @updatedAt
 
   @@index([categoryStrategyId, type, observedAt])
+}
+
+model SupplierPortalInvitation {
+  id              String                         @id @default(cuid())
+  tenantId        String
+  supplierId      String?
+  email           String
+  contactName     String?
+  tokenHash       String                         @unique
+  status          SupplierPortalInvitationStatus @default(PENDING)
+  invitedByUserId String
+  expiresAt       DateTime
+  acceptedAt      DateTime?
+  revokedAt       DateTime?
+  tenant          Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier        Supplier?                      @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                       @default(now())
+  updatedAt       DateTime                       @updatedAt
+
+  @@index([tenantId, status, expiresAt])
+  @@index([supplierId, status])
+  @@index([email, status])
+}
+
+model SupplierPortalUser {
+  id          String                   @id @default(cuid())
+  tenantId    String
+  supplierId  String
+  email       String
+  name        String?
+  jobTitle    String?
+  phone       String?
+  status      SupplierPortalUserStatus @default(INVITED)
+  invitedAt   DateTime                 @default(now())
+  activatedAt DateTime?
+  lastLoginAt DateTime?
+  suspendedAt DateTime?
+  tenant      Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier    Supplier                 @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt   DateTime                 @default(now())
+  updatedAt   DateTime                 @updatedAt
+
+  @@unique([tenantId, supplierId, email])
+  @@index([tenantId, status])
+  @@index([supplierId, status])
+}
+
+model SupplierOnboardingQuestionnaire {
+  id                String                      @id @default(cuid())
+  tenantId          String
+  supplierId        String
+  title             String
+  description       String?
+  status            SupplierQuestionnaireStatus @default(DRAFT)
+  version           Int                         @default(1)
+  questions         Json
+  answers           Json?
+  completionPercent Int                         @default(0)
+  dueAt             DateTime?
+  sentAt            DateTime?
+  submittedAt       DateTime?
+  reviewedByUserId  String?
+  reviewedAt        DateTime?
+  reviewNotes       String?
+  approvedAt        DateTime?
+  tenant            Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier          Supplier                    @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                    @default(now())
+  updatedAt         DateTime                    @updatedAt
+
+  @@index([tenantId, status, dueAt])
+  @@index([supplierId, status])
+}
+
+model SupplierPortalTask {
+  id                 String                   @id @default(cuid())
+  tenantId           String
+  supplierId         String
+  title              String
+  description        String?
+  status             SupplierPortalTaskStatus @default(OPEN)
+  dueAt              DateTime?
+  buyerOwnerUserId   String
+  supplierOwnerEmail String?
+  blocker            String?
+  completionEvidence String?
+  completedAt        DateTime?
+  tenant             Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier           Supplier                 @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  @@index([tenantId, status, dueAt])
+  @@index([supplierId, status])
+}
+
+model SupplierPortalMessage {
+  id           String                         @id @default(cuid())
+  tenantId     String
+  supplierId   String
+  direction    SupplierPortalMessageDirection
+  subject      String
+  body         String
+  authorUserId String?
+  authorEmail  String?
+  relatedType  String?
+  relatedId    String?
+  readAt       DateTime?
+  tenant       Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier     Supplier                       @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  createdAt    DateTime                       @default(now())
+
+  @@index([tenantId, supplierId, createdAt])
+  @@index([relatedType, relatedId])
 }
