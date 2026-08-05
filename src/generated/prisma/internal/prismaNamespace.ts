@@ -517,7 +517,9 @@ export const ModelName = {
   SustainabilityImprovementPlan: 'SustainabilityImprovementPlan',
   ProcurementValueInitiative: 'ProcurementValueInitiative',
   ProcurementBenefit: 'ProcurementBenefit',
-  ProcurementValueMilestone: 'ProcurementValueMilestone'
+  ProcurementValueMilestone: 'ProcurementValueMilestone',
+  CategoryOpportunity: 'CategoryOpportunity',
+  CategoryMarketSignal: 'CategoryMarketSignal'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -533,7 +535,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -9491,6 +9493,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CategoryOpportunity: {
+      payload: Prisma.$CategoryOpportunityPayload<ExtArgs>
+      fields: Prisma.CategoryOpportunityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CategoryOpportunityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CategoryOpportunityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        findFirst: {
+          args: Prisma.CategoryOpportunityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CategoryOpportunityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        findMany: {
+          args: Prisma.CategoryOpportunityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>[]
+        }
+        create: {
+          args: Prisma.CategoryOpportunityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        createMany: {
+          args: Prisma.CategoryOpportunityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CategoryOpportunityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>[]
+        }
+        delete: {
+          args: Prisma.CategoryOpportunityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        update: {
+          args: Prisma.CategoryOpportunityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        deleteMany: {
+          args: Prisma.CategoryOpportunityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CategoryOpportunityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CategoryOpportunityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>[]
+        }
+        upsert: {
+          args: Prisma.CategoryOpportunityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryOpportunityPayload>
+        }
+        aggregate: {
+          args: Prisma.CategoryOpportunityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCategoryOpportunity>
+        }
+        groupBy: {
+          args: Prisma.CategoryOpportunityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryOpportunityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CategoryOpportunityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryOpportunityCountAggregateOutputType> | number
+        }
+      }
+    }
+    CategoryMarketSignal: {
+      payload: Prisma.$CategoryMarketSignalPayload<ExtArgs>
+      fields: Prisma.CategoryMarketSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CategoryMarketSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CategoryMarketSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.CategoryMarketSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CategoryMarketSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        findMany: {
+          args: Prisma.CategoryMarketSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>[]
+        }
+        create: {
+          args: Prisma.CategoryMarketSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        createMany: {
+          args: Prisma.CategoryMarketSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CategoryMarketSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.CategoryMarketSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        update: {
+          args: Prisma.CategoryMarketSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.CategoryMarketSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CategoryMarketSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CategoryMarketSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.CategoryMarketSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CategoryMarketSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.CategoryMarketSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCategoryMarketSignal>
+        }
+        groupBy: {
+          args: Prisma.CategoryMarketSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryMarketSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CategoryMarketSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CategoryMarketSignalCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -11123,6 +11273,21 @@ export const CategoryStrategyScalarFieldEnum = {
   startsAt: 'startsAt',
   targetCompletionAt: 'targetCompletionAt',
   completedAt: 'completedAt',
+  categoryCode: 'categoryCode',
+  categoryName: 'categoryName',
+  title: 'title',
+  description: 'description',
+  executiveSponsorUserId: 'executiveSponsorUserId',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  currencyCode: 'currencyCode',
+  managedSpend: 'managedSpend',
+  preferredSupplierCount: 'preferredSupplierCount',
+  demandDrivers: 'demandDrivers',
+  supplyMarketSummary: 'supplyMarketSummary',
+  strategicObjectives: 'strategicObjectives',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -12165,6 +12330,52 @@ export const ProcurementValueMilestoneScalarFieldEnum = {
 } as const
 
 export type ProcurementValueMilestoneScalarFieldEnum = (typeof ProcurementValueMilestoneScalarFieldEnum)[keyof typeof ProcurementValueMilestoneScalarFieldEnum]
+
+
+export const CategoryOpportunityScalarFieldEnum = {
+  id: 'id',
+  categoryStrategyId: 'categoryStrategyId',
+  title: 'title',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  estimatedValue: 'estimatedValue',
+  probabilityPercent: 'probabilityPercent',
+  complexityScore: 'complexityScore',
+  riskScore: 'riskScore',
+  ownerUserId: 'ownerUserId',
+  targetStartAt: 'targetStartAt',
+  targetCompletionAt: 'targetCompletionAt',
+  sourcingEventId: 'sourcingEventId',
+  contractId: 'contractId',
+  valueInitiativeId: 'valueInitiativeId',
+  assumptions: 'assumptions',
+  blockers: 'blockers',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryOpportunityScalarFieldEnum = (typeof CategoryOpportunityScalarFieldEnum)[keyof typeof CategoryOpportunityScalarFieldEnum]
+
+
+export const CategoryMarketSignalScalarFieldEnum = {
+  id: 'id',
+  categoryStrategyId: 'categoryStrategyId',
+  type: 'type',
+  direction: 'direction',
+  title: 'title',
+  description: 'description',
+  source: 'source',
+  sourceUrl: 'sourceUrl',
+  confidencePercent: 'confidencePercent',
+  impactScore: 'impactScore',
+  observedAt: 'observedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryMarketSignalScalarFieldEnum = (typeof CategoryMarketSignalScalarFieldEnum)[keyof typeof CategoryMarketSignalScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -14301,6 +14512,62 @@ export type ListEnumProcurementValueMilestoneStatusFieldRefInput<$PrismaModel> =
 
 
 /**
+ * Reference to a field of type 'CategoryOpportunityType'
+ */
+export type EnumCategoryOpportunityTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryOpportunityType'>
+    
+
+
+/**
+ * Reference to a field of type 'CategoryOpportunityType[]'
+ */
+export type ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryOpportunityType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'CategoryOpportunityStatus'
+ */
+export type EnumCategoryOpportunityStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryOpportunityStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'CategoryOpportunityStatus[]'
+ */
+export type ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CategoryOpportunityStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'MarketSignalType'
+ */
+export type EnumMarketSignalTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarketSignalType'>
+    
+
+
+/**
+ * Reference to a field of type 'MarketSignalType[]'
+ */
+export type ListEnumMarketSignalTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarketSignalType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'MarketSignalDirection'
+ */
+export type EnumMarketSignalDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarketSignalDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'MarketSignalDirection[]'
+ */
+export type ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MarketSignalDirection[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -14585,6 +14852,8 @@ export type GlobalOmitConfig = {
   procurementValueInitiative?: Prisma.ProcurementValueInitiativeOmit
   procurementBenefit?: Prisma.ProcurementBenefitOmit
   procurementValueMilestone?: Prisma.ProcurementValueMilestoneOmit
+  categoryOpportunity?: Prisma.CategoryOpportunityOmit
+  categoryMarketSignal?: Prisma.CategoryMarketSignalOmit
 }
 
 /* Types for Logging */

@@ -31,6 +31,8 @@ export type CategoryStrategyAvgAggregateOutputType = {
   addressableSpend: runtime.Decimal | null
   savingsTarget: runtime.Decimal | null
   supplierCount: number | null
+  managedSpend: runtime.Decimal | null
+  preferredSupplierCount: number | null
 }
 
 export type CategoryStrategySumAggregateOutputType = {
@@ -38,6 +40,8 @@ export type CategoryStrategySumAggregateOutputType = {
   addressableSpend: runtime.Decimal | null
   savingsTarget: runtime.Decimal | null
   supplierCount: number | null
+  managedSpend: runtime.Decimal | null
+  preferredSupplierCount: number | null
 }
 
 export type CategoryStrategyMinAggregateOutputType = {
@@ -61,6 +65,21 @@ export type CategoryStrategyMinAggregateOutputType = {
   startsAt: Date | null
   targetCompletionAt: Date | null
   completedAt: Date | null
+  categoryCode: string | null
+  categoryName: string | null
+  title: string | null
+  description: string | null
+  executiveSponsorUserId: string | null
+  periodStart: Date | null
+  periodEnd: Date | null
+  currencyCode: string | null
+  managedSpend: runtime.Decimal | null
+  preferredSupplierCount: number | null
+  demandDrivers: string | null
+  supplyMarketSummary: string | null
+  strategicObjectives: string | null
+  approvedByUserId: string | null
+  approvedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -86,6 +105,21 @@ export type CategoryStrategyMaxAggregateOutputType = {
   startsAt: Date | null
   targetCompletionAt: Date | null
   completedAt: Date | null
+  categoryCode: string | null
+  categoryName: string | null
+  title: string | null
+  description: string | null
+  executiveSponsorUserId: string | null
+  periodStart: Date | null
+  periodEnd: Date | null
+  currencyCode: string | null
+  managedSpend: runtime.Decimal | null
+  preferredSupplierCount: number | null
+  demandDrivers: string | null
+  supplyMarketSummary: string | null
+  strategicObjectives: string | null
+  approvedByUserId: string | null
+  approvedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -111,6 +145,21 @@ export type CategoryStrategyCountAggregateOutputType = {
   startsAt: number
   targetCompletionAt: number
   completedAt: number
+  categoryCode: number
+  categoryName: number
+  title: number
+  description: number
+  executiveSponsorUserId: number
+  periodStart: number
+  periodEnd: number
+  currencyCode: number
+  managedSpend: number
+  preferredSupplierCount: number
+  demandDrivers: number
+  supplyMarketSummary: number
+  strategicObjectives: number
+  approvedByUserId: number
+  approvedAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -122,6 +171,8 @@ export type CategoryStrategyAvgAggregateInputType = {
   addressableSpend?: true
   savingsTarget?: true
   supplierCount?: true
+  managedSpend?: true
+  preferredSupplierCount?: true
 }
 
 export type CategoryStrategySumAggregateInputType = {
@@ -129,6 +180,8 @@ export type CategoryStrategySumAggregateInputType = {
   addressableSpend?: true
   savingsTarget?: true
   supplierCount?: true
+  managedSpend?: true
+  preferredSupplierCount?: true
 }
 
 export type CategoryStrategyMinAggregateInputType = {
@@ -152,6 +205,21 @@ export type CategoryStrategyMinAggregateInputType = {
   startsAt?: true
   targetCompletionAt?: true
   completedAt?: true
+  categoryCode?: true
+  categoryName?: true
+  title?: true
+  description?: true
+  executiveSponsorUserId?: true
+  periodStart?: true
+  periodEnd?: true
+  currencyCode?: true
+  managedSpend?: true
+  preferredSupplierCount?: true
+  demandDrivers?: true
+  supplyMarketSummary?: true
+  strategicObjectives?: true
+  approvedByUserId?: true
+  approvedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -177,6 +245,21 @@ export type CategoryStrategyMaxAggregateInputType = {
   startsAt?: true
   targetCompletionAt?: true
   completedAt?: true
+  categoryCode?: true
+  categoryName?: true
+  title?: true
+  description?: true
+  executiveSponsorUserId?: true
+  periodStart?: true
+  periodEnd?: true
+  currencyCode?: true
+  managedSpend?: true
+  preferredSupplierCount?: true
+  demandDrivers?: true
+  supplyMarketSummary?: true
+  strategicObjectives?: true
+  approvedByUserId?: true
+  approvedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -202,6 +285,21 @@ export type CategoryStrategyCountAggregateInputType = {
   startsAt?: true
   targetCompletionAt?: true
   completedAt?: true
+  categoryCode?: true
+  categoryName?: true
+  title?: true
+  description?: true
+  executiveSponsorUserId?: true
+  periodStart?: true
+  periodEnd?: true
+  currencyCode?: true
+  managedSpend?: true
+  preferredSupplierCount?: true
+  demandDrivers?: true
+  supplyMarketSummary?: true
+  strategicObjectives?: true
+  approvedByUserId?: true
+  approvedAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -314,6 +412,21 @@ export type CategoryStrategyGroupByOutputType = {
   startsAt: Date
   targetCompletionAt: Date
   completedAt: Date | null
+  categoryCode: string | null
+  categoryName: string | null
+  title: string | null
+  description: string | null
+  executiveSponsorUserId: string | null
+  periodStart: Date | null
+  periodEnd: Date | null
+  currencyCode: string
+  managedSpend: runtime.Decimal
+  preferredSupplierCount: number
+  demandDrivers: string | null
+  supplyMarketSummary: string | null
+  strategicObjectives: string | null
+  approvedByUserId: string | null
+  approvedAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: CategoryStrategyCountAggregateOutputType | null
@@ -362,8 +475,25 @@ export type CategoryStrategyWhereInput = {
   startsAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   targetCompletionAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  categoryCode?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  categoryName?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  title?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  description?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  executiveSponsorUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  periodStart?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  periodEnd?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  currencyCode?: Prisma.StringFilter<"CategoryStrategy"> | string
+  managedSpend?: Prisma.DecimalFilter<"CategoryStrategy"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFilter<"CategoryStrategy"> | number
+  demandDrivers?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  supplyMarketSummary?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  strategicObjectives?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedByUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
+  opportunities?: Prisma.CategoryOpportunityListRelationFilter
+  marketSignals?: Prisma.CategoryMarketSignalListRelationFilter
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   procurementPlan?: Prisma.XOR<Prisma.ProcurementPlanNullableScalarRelationFilter, Prisma.ProcurementPlanWhereInput> | null
   savingsInitiatives?: Prisma.SavingsInitiativeListRelationFilter
@@ -390,8 +520,25 @@ export type CategoryStrategyOrderByWithRelationInput = {
   startsAt?: Prisma.SortOrder
   targetCompletionAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  categoryCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  categoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  executiveSponsorUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodEnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  currencyCode?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
+  demandDrivers?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplyMarketSummary?: Prisma.SortOrderInput | Prisma.SortOrder
+  strategicObjectives?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  opportunities?: Prisma.CategoryOpportunityOrderByRelationAggregateInput
+  marketSignals?: Prisma.CategoryMarketSignalOrderByRelationAggregateInput
   tenant?: Prisma.TenantOrderByWithRelationInput
   procurementPlan?: Prisma.ProcurementPlanOrderByWithRelationInput
   savingsInitiatives?: Prisma.SavingsInitiativeOrderByRelationAggregateInput
@@ -422,8 +569,25 @@ export type CategoryStrategyWhereUniqueInput = Prisma.AtLeast<{
   startsAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   targetCompletionAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  categoryCode?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  categoryName?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  title?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  description?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  executiveSponsorUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  periodStart?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  periodEnd?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  currencyCode?: Prisma.StringFilter<"CategoryStrategy"> | string
+  managedSpend?: Prisma.DecimalFilter<"CategoryStrategy"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFilter<"CategoryStrategy"> | number
+  demandDrivers?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  supplyMarketSummary?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  strategicObjectives?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedByUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
+  opportunities?: Prisma.CategoryOpportunityListRelationFilter
+  marketSignals?: Prisma.CategoryMarketSignalListRelationFilter
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   procurementPlan?: Prisma.XOR<Prisma.ProcurementPlanNullableScalarRelationFilter, Prisma.ProcurementPlanWhereInput> | null
   savingsInitiatives?: Prisma.SavingsInitiativeListRelationFilter
@@ -450,6 +614,21 @@ export type CategoryStrategyOrderByWithAggregationInput = {
   startsAt?: Prisma.SortOrder
   targetCompletionAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  categoryCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  categoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  title?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  executiveSponsorUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodStart?: Prisma.SortOrderInput | Prisma.SortOrder
+  periodEnd?: Prisma.SortOrderInput | Prisma.SortOrder
+  currencyCode?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
+  demandDrivers?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplyMarketSummary?: Prisma.SortOrderInput | Prisma.SortOrder
+  strategicObjectives?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.CategoryStrategyCountOrderByAggregateInput
@@ -483,6 +662,21 @@ export type CategoryStrategyScalarWhereWithAggregatesInput = {
   startsAt?: Prisma.DateTimeWithAggregatesFilter<"CategoryStrategy"> | Date | string
   targetCompletionAt?: Prisma.DateTimeWithAggregatesFilter<"CategoryStrategy"> | Date | string
   completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"CategoryStrategy"> | Date | string | null
+  categoryCode?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  categoryName?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  title?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  description?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  executiveSponsorUserId?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  periodStart?: Prisma.DateTimeNullableWithAggregatesFilter<"CategoryStrategy"> | Date | string | null
+  periodEnd?: Prisma.DateTimeNullableWithAggregatesFilter<"CategoryStrategy"> | Date | string | null
+  currencyCode?: Prisma.StringWithAggregatesFilter<"CategoryStrategy"> | string
+  managedSpend?: Prisma.DecimalWithAggregatesFilter<"CategoryStrategy"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntWithAggregatesFilter<"CategoryStrategy"> | number
+  demandDrivers?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  supplyMarketSummary?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  strategicObjectives?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  approvedByUserId?: Prisma.StringNullableWithAggregatesFilter<"CategoryStrategy"> | string | null
+  approvedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"CategoryStrategy"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"CategoryStrategy"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"CategoryStrategy"> | Date | string
 }
@@ -506,8 +700,25 @@ export type CategoryStrategyCreateInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalCreateNestedManyWithoutStrategyInput
   tenant: Prisma.TenantCreateNestedOneWithoutCategoryStrategiesInput
   procurementPlan?: Prisma.ProcurementPlanCreateNestedOneWithoutCategoryStrategiesInput
   savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutCategoryStrategyInput
@@ -534,8 +745,25 @@ export type CategoryStrategyUncheckedCreateInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedCreateNestedManyWithoutStrategyInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutCategoryStrategyInput
 }
 
@@ -558,8 +786,25 @@ export type CategoryStrategyUpdateInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUpdateManyWithoutStrategyNestedInput
   tenant?: Prisma.TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput
   procurementPlan?: Prisma.ProcurementPlanUpdateOneWithoutCategoryStrategiesNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutCategoryStrategyNestedInput
@@ -586,8 +831,25 @@ export type CategoryStrategyUncheckedUpdateInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedUpdateManyWithoutStrategyNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutCategoryStrategyNestedInput
 }
 
@@ -612,6 +874,21 @@ export type CategoryStrategyCreateManyInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -635,6 +912,21 @@ export type CategoryStrategyUpdateManyMutationInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -660,6 +952,21 @@ export type CategoryStrategyUncheckedUpdateManyInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -700,6 +1007,21 @@ export type CategoryStrategyCountOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   targetCompletionAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
+  categoryCode?: Prisma.SortOrder
+  categoryName?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  executiveSponsorUserId?: Prisma.SortOrder
+  periodStart?: Prisma.SortOrder
+  periodEnd?: Prisma.SortOrder
+  currencyCode?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
+  demandDrivers?: Prisma.SortOrder
+  supplyMarketSummary?: Prisma.SortOrder
+  strategicObjectives?: Prisma.SortOrder
+  approvedByUserId?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -709,6 +1031,8 @@ export type CategoryStrategyAvgOrderByAggregateInput = {
   addressableSpend?: Prisma.SortOrder
   savingsTarget?: Prisma.SortOrder
   supplierCount?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
 }
 
 export type CategoryStrategyMaxOrderByAggregateInput = {
@@ -732,6 +1056,21 @@ export type CategoryStrategyMaxOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   targetCompletionAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
+  categoryCode?: Prisma.SortOrder
+  categoryName?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  executiveSponsorUserId?: Prisma.SortOrder
+  periodStart?: Prisma.SortOrder
+  periodEnd?: Prisma.SortOrder
+  currencyCode?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
+  demandDrivers?: Prisma.SortOrder
+  supplyMarketSummary?: Prisma.SortOrder
+  strategicObjectives?: Prisma.SortOrder
+  approvedByUserId?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -757,6 +1096,21 @@ export type CategoryStrategyMinOrderByAggregateInput = {
   startsAt?: Prisma.SortOrder
   targetCompletionAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
+  categoryCode?: Prisma.SortOrder
+  categoryName?: Prisma.SortOrder
+  title?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  executiveSponsorUserId?: Prisma.SortOrder
+  periodStart?: Prisma.SortOrder
+  periodEnd?: Prisma.SortOrder
+  currencyCode?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
+  demandDrivers?: Prisma.SortOrder
+  supplyMarketSummary?: Prisma.SortOrder
+  strategicObjectives?: Prisma.SortOrder
+  approvedByUserId?: Prisma.SortOrder
+  approvedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -766,11 +1120,18 @@ export type CategoryStrategySumOrderByAggregateInput = {
   addressableSpend?: Prisma.SortOrder
   savingsTarget?: Prisma.SortOrder
   supplierCount?: Prisma.SortOrder
+  managedSpend?: Prisma.SortOrder
+  preferredSupplierCount?: Prisma.SortOrder
 }
 
 export type CategoryStrategyNullableScalarRelationFilter = {
   is?: Prisma.CategoryStrategyWhereInput | null
   isNot?: Prisma.CategoryStrategyWhereInput | null
+}
+
+export type CategoryStrategyScalarRelationFilter = {
+  is?: Prisma.CategoryStrategyWhereInput
+  isNot?: Prisma.CategoryStrategyWhereInput
 }
 
 export type CategoryStrategyCreateNestedManyWithoutTenantInput = {
@@ -877,6 +1238,34 @@ export type CategoryStrategyUpdateOneWithoutSavingsInitiativesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CategoryStrategyUpdateToOneWithWhereWithoutSavingsInitiativesInput, Prisma.CategoryStrategyUpdateWithoutSavingsInitiativesInput>, Prisma.CategoryStrategyUncheckedUpdateWithoutSavingsInitiativesInput>
 }
 
+export type CategoryStrategyCreateNestedOneWithoutOpportunitiesInput = {
+  create?: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedCreateWithoutOpportunitiesInput>
+  connectOrCreate?: Prisma.CategoryStrategyCreateOrConnectWithoutOpportunitiesInput
+  connect?: Prisma.CategoryStrategyWhereUniqueInput
+}
+
+export type CategoryStrategyUpdateOneRequiredWithoutOpportunitiesNestedInput = {
+  create?: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedCreateWithoutOpportunitiesInput>
+  connectOrCreate?: Prisma.CategoryStrategyCreateOrConnectWithoutOpportunitiesInput
+  upsert?: Prisma.CategoryStrategyUpsertWithoutOpportunitiesInput
+  connect?: Prisma.CategoryStrategyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoryStrategyUpdateToOneWithWhereWithoutOpportunitiesInput, Prisma.CategoryStrategyUpdateWithoutOpportunitiesInput>, Prisma.CategoryStrategyUncheckedUpdateWithoutOpportunitiesInput>
+}
+
+export type CategoryStrategyCreateNestedOneWithoutMarketSignalsInput = {
+  create?: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedCreateWithoutMarketSignalsInput>
+  connectOrCreate?: Prisma.CategoryStrategyCreateOrConnectWithoutMarketSignalsInput
+  connect?: Prisma.CategoryStrategyWhereUniqueInput
+}
+
+export type CategoryStrategyUpdateOneRequiredWithoutMarketSignalsNestedInput = {
+  create?: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedCreateWithoutMarketSignalsInput>
+  connectOrCreate?: Prisma.CategoryStrategyCreateOrConnectWithoutMarketSignalsInput
+  upsert?: Prisma.CategoryStrategyUpsertWithoutMarketSignalsInput
+  connect?: Prisma.CategoryStrategyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CategoryStrategyUpdateToOneWithWhereWithoutMarketSignalsInput, Prisma.CategoryStrategyUpdateWithoutMarketSignalsInput>, Prisma.CategoryStrategyUncheckedUpdateWithoutMarketSignalsInput>
+}
+
 export type CategoryStrategyCreateWithoutTenantInput = {
   id?: string
   category: string
@@ -896,8 +1285,25 @@ export type CategoryStrategyCreateWithoutTenantInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalCreateNestedManyWithoutStrategyInput
   procurementPlan?: Prisma.ProcurementPlanCreateNestedOneWithoutCategoryStrategiesInput
   savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutCategoryStrategyInput
 }
@@ -922,8 +1328,25 @@ export type CategoryStrategyUncheckedCreateWithoutTenantInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedCreateNestedManyWithoutStrategyInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutCategoryStrategyInput
 }
 
@@ -977,6 +1400,21 @@ export type CategoryStrategyScalarWhereInput = {
   startsAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   targetCompletionAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  categoryCode?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  categoryName?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  title?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  description?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  executiveSponsorUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  periodStart?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  periodEnd?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
+  currencyCode?: Prisma.StringFilter<"CategoryStrategy"> | string
+  managedSpend?: Prisma.DecimalFilter<"CategoryStrategy"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFilter<"CategoryStrategy"> | number
+  demandDrivers?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  supplyMarketSummary?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  strategicObjectives?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedByUserId?: Prisma.StringNullableFilter<"CategoryStrategy"> | string | null
+  approvedAt?: Prisma.DateTimeNullableFilter<"CategoryStrategy"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"CategoryStrategy"> | Date | string
 }
@@ -1000,8 +1438,25 @@ export type CategoryStrategyCreateWithoutProcurementPlanInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalCreateNestedManyWithoutStrategyInput
   tenant: Prisma.TenantCreateNestedOneWithoutCategoryStrategiesInput
   savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutCategoryStrategyInput
 }
@@ -1026,8 +1481,25 @@ export type CategoryStrategyUncheckedCreateWithoutProcurementPlanInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedCreateNestedManyWithoutStrategyInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutCategoryStrategyInput
 }
 
@@ -1076,8 +1548,25 @@ export type CategoryStrategyCreateWithoutSavingsInitiativesInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalCreateNestedManyWithoutStrategyInput
   tenant: Prisma.TenantCreateNestedOneWithoutCategoryStrategiesInput
   procurementPlan?: Prisma.ProcurementPlanCreateNestedOneWithoutCategoryStrategiesInput
 }
@@ -1103,8 +1592,25 @@ export type CategoryStrategyUncheckedCreateWithoutSavingsInitiativesInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedCreateNestedManyWithoutStrategyInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedCreateNestedManyWithoutStrategyInput
 }
 
 export type CategoryStrategyCreateOrConnectWithoutSavingsInitiativesInput = {
@@ -1142,8 +1648,25 @@ export type CategoryStrategyUpdateWithoutSavingsInitiativesInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUpdateManyWithoutStrategyNestedInput
   tenant?: Prisma.TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput
   procurementPlan?: Prisma.ProcurementPlanUpdateOneWithoutCategoryStrategiesNestedInput
 }
@@ -1169,8 +1692,393 @@ export type CategoryStrategyUncheckedUpdateWithoutSavingsInitiativesInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedUpdateManyWithoutStrategyNestedInput
+}
+
+export type CategoryStrategyCreateWithoutOpportunitiesInput = {
+  id?: string
+  category: string
+  name: string
+  status?: $Enums.CategoryStrategyStatus
+  ownerUserId: string
+  currentSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: number
+  riskSummary?: string | null
+  marketSummary?: string | null
+  strategySummary: string
+  sourcingApproach?: string | null
+  contractApproach?: string | null
+  supplierApproach?: string | null
+  startsAt: Date | string
+  targetCompletionAt: Date | string
+  completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketSignals?: Prisma.CategoryMarketSignalCreateNestedManyWithoutStrategyInput
+  tenant: Prisma.TenantCreateNestedOneWithoutCategoryStrategiesInput
+  procurementPlan?: Prisma.ProcurementPlanCreateNestedOneWithoutCategoryStrategiesInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutCategoryStrategyInput
+}
+
+export type CategoryStrategyUncheckedCreateWithoutOpportunitiesInput = {
+  id?: string
+  tenantId: string
+  procurementPlanId?: string | null
+  category: string
+  name: string
+  status?: $Enums.CategoryStrategyStatus
+  ownerUserId: string
+  currentSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: number
+  riskSummary?: string | null
+  marketSummary?: string | null
+  strategySummary: string
+  sourcingApproach?: string | null
+  contractApproach?: string | null
+  supplierApproach?: string | null
+  startsAt: Date | string
+  targetCompletionAt: Date | string
+  completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedCreateNestedManyWithoutStrategyInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutCategoryStrategyInput
+}
+
+export type CategoryStrategyCreateOrConnectWithoutOpportunitiesInput = {
+  where: Prisma.CategoryStrategyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedCreateWithoutOpportunitiesInput>
+}
+
+export type CategoryStrategyUpsertWithoutOpportunitiesInput = {
+  update: Prisma.XOR<Prisma.CategoryStrategyUpdateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedUpdateWithoutOpportunitiesInput>
+  create: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedCreateWithoutOpportunitiesInput>
+  where?: Prisma.CategoryStrategyWhereInput
+}
+
+export type CategoryStrategyUpdateToOneWithWhereWithoutOpportunitiesInput = {
+  where?: Prisma.CategoryStrategyWhereInput
+  data: Prisma.XOR<Prisma.CategoryStrategyUpdateWithoutOpportunitiesInput, Prisma.CategoryStrategyUncheckedUpdateWithoutOpportunitiesInput>
+}
+
+export type CategoryStrategyUpdateWithoutOpportunitiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumCategoryStrategyStatusFieldUpdateOperationsInput | $Enums.CategoryStrategyStatus
+  ownerUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  currentSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  riskSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategySummary?: Prisma.StringFieldUpdateOperationsInput | string
+  sourcingApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketSignals?: Prisma.CategoryMarketSignalUpdateManyWithoutStrategyNestedInput
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput
+  procurementPlan?: Prisma.ProcurementPlanUpdateOneWithoutCategoryStrategiesNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutCategoryStrategyNestedInput
+}
+
+export type CategoryStrategyUncheckedUpdateWithoutOpportunitiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  procurementPlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumCategoryStrategyStatusFieldUpdateOperationsInput | $Enums.CategoryStrategyStatus
+  ownerUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  currentSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  riskSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategySummary?: Prisma.StringFieldUpdateOperationsInput | string
+  sourcingApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedUpdateManyWithoutStrategyNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutCategoryStrategyNestedInput
+}
+
+export type CategoryStrategyCreateWithoutMarketSignalsInput = {
+  id?: string
+  category: string
+  name: string
+  status?: $Enums.CategoryStrategyStatus
+  ownerUserId: string
+  currentSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: number
+  riskSummary?: string | null
+  marketSummary?: string | null
+  strategySummary: string
+  sourcingApproach?: string | null
+  contractApproach?: string | null
+  supplierApproach?: string | null
+  startsAt: Date | string
+  targetCompletionAt: Date | string
+  completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityCreateNestedManyWithoutStrategyInput
+  tenant: Prisma.TenantCreateNestedOneWithoutCategoryStrategiesInput
+  procurementPlan?: Prisma.ProcurementPlanCreateNestedOneWithoutCategoryStrategiesInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutCategoryStrategyInput
+}
+
+export type CategoryStrategyUncheckedCreateWithoutMarketSignalsInput = {
+  id?: string
+  tenantId: string
+  procurementPlanId?: string | null
+  category: string
+  name: string
+  status?: $Enums.CategoryStrategyStatus
+  ownerUserId: string
+  currentSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: number
+  riskSummary?: string | null
+  marketSummary?: string | null
+  strategySummary: string
+  sourcingApproach?: string | null
+  contractApproach?: string | null
+  supplierApproach?: string | null
+  startsAt: Date | string
+  targetCompletionAt: Date | string
+  completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedCreateNestedManyWithoutStrategyInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutCategoryStrategyInput
+}
+
+export type CategoryStrategyCreateOrConnectWithoutMarketSignalsInput = {
+  where: Prisma.CategoryStrategyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedCreateWithoutMarketSignalsInput>
+}
+
+export type CategoryStrategyUpsertWithoutMarketSignalsInput = {
+  update: Prisma.XOR<Prisma.CategoryStrategyUpdateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedUpdateWithoutMarketSignalsInput>
+  create: Prisma.XOR<Prisma.CategoryStrategyCreateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedCreateWithoutMarketSignalsInput>
+  where?: Prisma.CategoryStrategyWhereInput
+}
+
+export type CategoryStrategyUpdateToOneWithWhereWithoutMarketSignalsInput = {
+  where?: Prisma.CategoryStrategyWhereInput
+  data: Prisma.XOR<Prisma.CategoryStrategyUpdateWithoutMarketSignalsInput, Prisma.CategoryStrategyUncheckedUpdateWithoutMarketSignalsInput>
+}
+
+export type CategoryStrategyUpdateWithoutMarketSignalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumCategoryStrategyStatusFieldUpdateOperationsInput | $Enums.CategoryStrategyStatus
+  ownerUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  currentSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  riskSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategySummary?: Prisma.StringFieldUpdateOperationsInput | string
+  sourcingApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUpdateManyWithoutStrategyNestedInput
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput
+  procurementPlan?: Prisma.ProcurementPlanUpdateOneWithoutCategoryStrategiesNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutCategoryStrategyNestedInput
+}
+
+export type CategoryStrategyUncheckedUpdateWithoutMarketSignalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  procurementPlanId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumCategoryStrategyStatusFieldUpdateOperationsInput | $Enums.CategoryStrategyStatus
+  ownerUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  currentSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addressableSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  savingsTarget?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  supplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  riskSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategySummary?: Prisma.StringFieldUpdateOperationsInput | string
+  sourcingApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contractApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierApproach?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedUpdateManyWithoutStrategyNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutCategoryStrategyNestedInput
 }
 
 export type CategoryStrategyCreateManyTenantInput = {
@@ -1193,6 +2101,21 @@ export type CategoryStrategyCreateManyTenantInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1216,8 +2139,25 @@ export type CategoryStrategyUpdateWithoutTenantInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUpdateManyWithoutStrategyNestedInput
   procurementPlan?: Prisma.ProcurementPlanUpdateOneWithoutCategoryStrategiesNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutCategoryStrategyNestedInput
 }
@@ -1242,8 +2182,25 @@ export type CategoryStrategyUncheckedUpdateWithoutTenantInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedUpdateManyWithoutStrategyNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutCategoryStrategyNestedInput
 }
 
@@ -1267,6 +2224,21 @@ export type CategoryStrategyUncheckedUpdateManyWithoutTenantInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1291,6 +2263,21 @@ export type CategoryStrategyCreateManyProcurementPlanInput = {
   startsAt: Date | string
   targetCompletionAt: Date | string
   completedAt?: Date | string | null
+  categoryCode?: string | null
+  categoryName?: string | null
+  title?: string | null
+  description?: string | null
+  executiveSponsorUserId?: string | null
+  periodStart?: Date | string | null
+  periodEnd?: Date | string | null
+  currencyCode?: string
+  managedSpend?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: number
+  demandDrivers?: string | null
+  supplyMarketSummary?: string | null
+  strategicObjectives?: string | null
+  approvedByUserId?: string | null
+  approvedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1314,8 +2301,25 @@ export type CategoryStrategyUpdateWithoutProcurementPlanInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUpdateManyWithoutStrategyNestedInput
   tenant?: Prisma.TenantUpdateOneRequiredWithoutCategoryStrategiesNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutCategoryStrategyNestedInput
 }
@@ -1340,8 +2344,25 @@ export type CategoryStrategyUncheckedUpdateWithoutProcurementPlanInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  opportunities?: Prisma.CategoryOpportunityUncheckedUpdateManyWithoutStrategyNestedInput
+  marketSignals?: Prisma.CategoryMarketSignalUncheckedUpdateManyWithoutStrategyNestedInput
   savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutCategoryStrategyNestedInput
 }
 
@@ -1365,6 +2386,21 @@ export type CategoryStrategyUncheckedUpdateManyWithoutProcurementPlanInput = {
   startsAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   targetCompletionAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  categoryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  categoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSponsorUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  periodStart?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  periodEnd?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  managedSpend?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  preferredSupplierCount?: Prisma.IntFieldUpdateOperationsInput | number
+  demandDrivers?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplyMarketSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  strategicObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1375,10 +2411,14 @@ export type CategoryStrategyUncheckedUpdateManyWithoutProcurementPlanInput = {
  */
 
 export type CategoryStrategyCountOutputType = {
+  opportunities: number
+  marketSignals: number
   savingsInitiatives: number
 }
 
 export type CategoryStrategyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  opportunities?: boolean | CategoryStrategyCountOutputTypeCountOpportunitiesArgs
+  marketSignals?: boolean | CategoryStrategyCountOutputTypeCountMarketSignalsArgs
   savingsInitiatives?: boolean | CategoryStrategyCountOutputTypeCountSavingsInitiativesArgs
 }
 
@@ -1390,6 +2430,20 @@ export type CategoryStrategyCountOutputTypeDefaultArgs<ExtArgs extends runtime.T
    * Select specific fields to fetch from the CategoryStrategyCountOutputType
    */
   select?: Prisma.CategoryStrategyCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * CategoryStrategyCountOutputType without action
+ */
+export type CategoryStrategyCountOutputTypeCountOpportunitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CategoryOpportunityWhereInput
+}
+
+/**
+ * CategoryStrategyCountOutputType without action
+ */
+export type CategoryStrategyCountOutputTypeCountMarketSignalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CategoryMarketSignalWhereInput
 }
 
 /**
@@ -1421,8 +2475,25 @@ export type CategoryStrategySelect<ExtArgs extends runtime.Types.Extensions.Inte
   startsAt?: boolean
   targetCompletionAt?: boolean
   completedAt?: boolean
+  categoryCode?: boolean
+  categoryName?: boolean
+  title?: boolean
+  description?: boolean
+  executiveSponsorUserId?: boolean
+  periodStart?: boolean
+  periodEnd?: boolean
+  currencyCode?: boolean
+  managedSpend?: boolean
+  preferredSupplierCount?: boolean
+  demandDrivers?: boolean
+  supplyMarketSummary?: boolean
+  strategicObjectives?: boolean
+  approvedByUserId?: boolean
+  approvedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  opportunities?: boolean | Prisma.CategoryStrategy$opportunitiesArgs<ExtArgs>
+  marketSignals?: boolean | Prisma.CategoryStrategy$marketSignalsArgs<ExtArgs>
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   procurementPlan?: boolean | Prisma.CategoryStrategy$procurementPlanArgs<ExtArgs>
   savingsInitiatives?: boolean | Prisma.CategoryStrategy$savingsInitiativesArgs<ExtArgs>
@@ -1450,6 +2521,21 @@ export type CategoryStrategySelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   startsAt?: boolean
   targetCompletionAt?: boolean
   completedAt?: boolean
+  categoryCode?: boolean
+  categoryName?: boolean
+  title?: boolean
+  description?: boolean
+  executiveSponsorUserId?: boolean
+  periodStart?: boolean
+  periodEnd?: boolean
+  currencyCode?: boolean
+  managedSpend?: boolean
+  preferredSupplierCount?: boolean
+  demandDrivers?: boolean
+  supplyMarketSummary?: boolean
+  strategicObjectives?: boolean
+  approvedByUserId?: boolean
+  approvedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1477,6 +2563,21 @@ export type CategoryStrategySelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   startsAt?: boolean
   targetCompletionAt?: boolean
   completedAt?: boolean
+  categoryCode?: boolean
+  categoryName?: boolean
+  title?: boolean
+  description?: boolean
+  executiveSponsorUserId?: boolean
+  periodStart?: boolean
+  periodEnd?: boolean
+  currencyCode?: boolean
+  managedSpend?: boolean
+  preferredSupplierCount?: boolean
+  demandDrivers?: boolean
+  supplyMarketSummary?: boolean
+  strategicObjectives?: boolean
+  approvedByUserId?: boolean
+  approvedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1504,12 +2605,29 @@ export type CategoryStrategySelectScalar = {
   startsAt?: boolean
   targetCompletionAt?: boolean
   completedAt?: boolean
+  categoryCode?: boolean
+  categoryName?: boolean
+  title?: boolean
+  description?: boolean
+  executiveSponsorUserId?: boolean
+  periodStart?: boolean
+  periodEnd?: boolean
+  currencyCode?: boolean
+  managedSpend?: boolean
+  preferredSupplierCount?: boolean
+  demandDrivers?: boolean
+  supplyMarketSummary?: boolean
+  strategicObjectives?: boolean
+  approvedByUserId?: boolean
+  approvedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type CategoryStrategyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "procurementPlanId" | "category" | "name" | "status" | "ownerUserId" | "currentSpend" | "addressableSpend" | "savingsTarget" | "supplierCount" | "riskSummary" | "marketSummary" | "strategySummary" | "sourcingApproach" | "contractApproach" | "supplierApproach" | "startsAt" | "targetCompletionAt" | "completedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["categoryStrategy"]>
+export type CategoryStrategyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "procurementPlanId" | "category" | "name" | "status" | "ownerUserId" | "currentSpend" | "addressableSpend" | "savingsTarget" | "supplierCount" | "riskSummary" | "marketSummary" | "strategySummary" | "sourcingApproach" | "contractApproach" | "supplierApproach" | "startsAt" | "targetCompletionAt" | "completedAt" | "categoryCode" | "categoryName" | "title" | "description" | "executiveSponsorUserId" | "periodStart" | "periodEnd" | "currencyCode" | "managedSpend" | "preferredSupplierCount" | "demandDrivers" | "supplyMarketSummary" | "strategicObjectives" | "approvedByUserId" | "approvedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["categoryStrategy"]>
 export type CategoryStrategyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  opportunities?: boolean | Prisma.CategoryStrategy$opportunitiesArgs<ExtArgs>
+  marketSignals?: boolean | Prisma.CategoryStrategy$marketSignalsArgs<ExtArgs>
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   procurementPlan?: boolean | Prisma.CategoryStrategy$procurementPlanArgs<ExtArgs>
   savingsInitiatives?: boolean | Prisma.CategoryStrategy$savingsInitiativesArgs<ExtArgs>
@@ -1527,6 +2645,8 @@ export type CategoryStrategyIncludeUpdateManyAndReturn<ExtArgs extends runtime.T
 export type $CategoryStrategyPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "CategoryStrategy"
   objects: {
+    opportunities: Prisma.$CategoryOpportunityPayload<ExtArgs>[]
+    marketSignals: Prisma.$CategoryMarketSignalPayload<ExtArgs>[]
     tenant: Prisma.$TenantPayload<ExtArgs>
     procurementPlan: Prisma.$ProcurementPlanPayload<ExtArgs> | null
     savingsInitiatives: Prisma.$SavingsInitiativePayload<ExtArgs>[]
@@ -1552,6 +2672,21 @@ export type $CategoryStrategyPayload<ExtArgs extends runtime.Types.Extensions.In
     startsAt: Date
     targetCompletionAt: Date
     completedAt: Date | null
+    categoryCode: string | null
+    categoryName: string | null
+    title: string | null
+    description: string | null
+    executiveSponsorUserId: string | null
+    periodStart: Date | null
+    periodEnd: Date | null
+    currencyCode: string
+    managedSpend: runtime.Decimal
+    preferredSupplierCount: number
+    demandDrivers: string | null
+    supplyMarketSummary: string | null
+    strategicObjectives: string | null
+    approvedByUserId: string | null
+    approvedAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["categoryStrategy"]>
@@ -1948,6 +3083,8 @@ readonly fields: CategoryStrategyFieldRefs;
  */
 export interface Prisma__CategoryStrategyClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  opportunities<T extends Prisma.CategoryStrategy$opportunitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryStrategy$opportunitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CategoryOpportunityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  marketSignals<T extends Prisma.CategoryStrategy$marketSignalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryStrategy$marketSignalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CategoryMarketSignalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   procurementPlan<T extends Prisma.CategoryStrategy$procurementPlanArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryStrategy$procurementPlanArgs<ExtArgs>>): Prisma.Prisma__ProcurementPlanClient<runtime.Types.Result.GetResult<Prisma.$ProcurementPlanPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   savingsInitiatives<T extends Prisma.CategoryStrategy$savingsInitiativesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CategoryStrategy$savingsInitiativesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavingsInitiativePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2000,6 +3137,21 @@ export interface CategoryStrategyFieldRefs {
   readonly startsAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
   readonly targetCompletionAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
   readonly completedAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
+  readonly categoryCode: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly categoryName: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly title: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly description: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly executiveSponsorUserId: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly periodStart: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
+  readonly periodEnd: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
+  readonly currencyCode: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly managedSpend: Prisma.FieldRef<"CategoryStrategy", 'Decimal'>
+  readonly preferredSupplierCount: Prisma.FieldRef<"CategoryStrategy", 'Int'>
+  readonly demandDrivers: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly supplyMarketSummary: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly strategicObjectives: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly approvedByUserId: Prisma.FieldRef<"CategoryStrategy", 'String'>
+  readonly approvedAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"CategoryStrategy", 'DateTime'>
 }
@@ -2400,6 +3552,54 @@ export type CategoryStrategyDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many CategoryStrategies to delete.
    */
   limit?: number
+}
+
+/**
+ * CategoryStrategy.opportunities
+ */
+export type CategoryStrategy$opportunitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CategoryOpportunity
+   */
+  select?: Prisma.CategoryOpportunitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CategoryOpportunity
+   */
+  omit?: Prisma.CategoryOpportunityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CategoryOpportunityInclude<ExtArgs> | null
+  where?: Prisma.CategoryOpportunityWhereInput
+  orderBy?: Prisma.CategoryOpportunityOrderByWithRelationInput | Prisma.CategoryOpportunityOrderByWithRelationInput[]
+  cursor?: Prisma.CategoryOpportunityWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CategoryOpportunityScalarFieldEnum | Prisma.CategoryOpportunityScalarFieldEnum[]
+}
+
+/**
+ * CategoryStrategy.marketSignals
+ */
+export type CategoryStrategy$marketSignalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CategoryMarketSignal
+   */
+  select?: Prisma.CategoryMarketSignalSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CategoryMarketSignal
+   */
+  omit?: Prisma.CategoryMarketSignalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CategoryMarketSignalInclude<ExtArgs> | null
+  where?: Prisma.CategoryMarketSignalWhereInput
+  orderBy?: Prisma.CategoryMarketSignalOrderByWithRelationInput | Prisma.CategoryMarketSignalOrderByWithRelationInput[]
+  cursor?: Prisma.CategoryMarketSignalWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.CategoryMarketSignalScalarFieldEnum | Prisma.CategoryMarketSignalScalarFieldEnum[]
 }
 
 /**

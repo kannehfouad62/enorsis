@@ -9,6 +9,7 @@ import {
   Building2,
   ChartNoAxesCombined,
   ChartSpline,
+  ChartNetwork,
   CircleDollarSign,
   ClipboardCheck,
   FileKey2,
@@ -190,6 +191,13 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Operate in-app and email workflow delivery.",
     href: "/app/settings/workflows/notifications",
     icon: PackageCheck,
+    group: "Governance",
+  },
+  {
+    title: "Categories & Market Intelligence",
+    description: "Category strategies, opportunities and market signals.",
+    href: "/app/categories",
+    icon: ChartNetwork,
     group: "Governance",
   },
   {

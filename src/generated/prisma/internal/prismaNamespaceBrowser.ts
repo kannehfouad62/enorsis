@@ -171,7 +171,9 @@ export const ModelName = {
   SustainabilityImprovementPlan: 'SustainabilityImprovementPlan',
   ProcurementValueInitiative: 'ProcurementValueInitiative',
   ProcurementBenefit: 'ProcurementBenefit',
-  ProcurementValueMilestone: 'ProcurementValueMilestone'
+  ProcurementValueMilestone: 'ProcurementValueMilestone',
+  CategoryOpportunity: 'CategoryOpportunity',
+  CategoryMarketSignal: 'CategoryMarketSignal'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1783,6 +1785,21 @@ export const CategoryStrategyScalarFieldEnum = {
   startsAt: 'startsAt',
   targetCompletionAt: 'targetCompletionAt',
   completedAt: 'completedAt',
+  categoryCode: 'categoryCode',
+  categoryName: 'categoryName',
+  title: 'title',
+  description: 'description',
+  executiveSponsorUserId: 'executiveSponsorUserId',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  currencyCode: 'currencyCode',
+  managedSpend: 'managedSpend',
+  preferredSupplierCount: 'preferredSupplierCount',
+  demandDrivers: 'demandDrivers',
+  supplyMarketSummary: 'supplyMarketSummary',
+  strategicObjectives: 'strategicObjectives',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -2825,6 +2842,52 @@ export const ProcurementValueMilestoneScalarFieldEnum = {
 } as const
 
 export type ProcurementValueMilestoneScalarFieldEnum = (typeof ProcurementValueMilestoneScalarFieldEnum)[keyof typeof ProcurementValueMilestoneScalarFieldEnum]
+
+
+export const CategoryOpportunityScalarFieldEnum = {
+  id: 'id',
+  categoryStrategyId: 'categoryStrategyId',
+  title: 'title',
+  description: 'description',
+  type: 'type',
+  status: 'status',
+  estimatedValue: 'estimatedValue',
+  probabilityPercent: 'probabilityPercent',
+  complexityScore: 'complexityScore',
+  riskScore: 'riskScore',
+  ownerUserId: 'ownerUserId',
+  targetStartAt: 'targetStartAt',
+  targetCompletionAt: 'targetCompletionAt',
+  sourcingEventId: 'sourcingEventId',
+  contractId: 'contractId',
+  valueInitiativeId: 'valueInitiativeId',
+  assumptions: 'assumptions',
+  blockers: 'blockers',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryOpportunityScalarFieldEnum = (typeof CategoryOpportunityScalarFieldEnum)[keyof typeof CategoryOpportunityScalarFieldEnum]
+
+
+export const CategoryMarketSignalScalarFieldEnum = {
+  id: 'id',
+  categoryStrategyId: 'categoryStrategyId',
+  type: 'type',
+  direction: 'direction',
+  title: 'title',
+  description: 'description',
+  source: 'source',
+  sourceUrl: 'sourceUrl',
+  confidencePercent: 'confidencePercent',
+  impactScore: 'impactScore',
+  observedAt: 'observedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CategoryMarketSignalScalarFieldEnum = (typeof CategoryMarketSignalScalarFieldEnum)[keyof typeof CategoryMarketSignalScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -622,3 +622,13 @@ export type ProcurementBenefit = Prisma.ProcurementBenefitModel
  * 
  */
 export type ProcurementValueMilestone = Prisma.ProcurementValueMilestoneModel
+/**
+ * Model CategoryOpportunity
+ * 
+ */
+export type CategoryOpportunity = Prisma.CategoryOpportunityModel
+/**
+ * Model CategoryMarketSignal
+ * 
+ */
+export type CategoryMarketSignal = Prisma.CategoryMarketSignalModel

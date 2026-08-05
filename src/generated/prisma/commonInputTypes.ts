@@ -2785,6 +2785,74 @@ export type EnumProcurementValueMilestoneStatusWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
 }
 
+export type EnumCategoryOpportunityTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityType | Prisma.EnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel> | $Enums.CategoryOpportunityType
+}
+
+export type EnumCategoryOpportunityStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityStatus | Prisma.EnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel> | $Enums.CategoryOpportunityStatus
+}
+
+export type EnumCategoryOpportunityTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityType | Prisma.EnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityTypeWithAggregatesFilter<$PrismaModel> | $Enums.CategoryOpportunityType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel>
+}
+
+export type EnumCategoryOpportunityStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityStatus | Prisma.EnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityStatusWithAggregatesFilter<$PrismaModel> | $Enums.CategoryOpportunityStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel>
+}
+
+export type EnumMarketSignalTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalType | Prisma.EnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel> | $Enums.MarketSignalType
+}
+
+export type EnumMarketSignalDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalDirection | Prisma.EnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel> | $Enums.MarketSignalDirection
+}
+
+export type EnumMarketSignalTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalType | Prisma.EnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalTypeWithAggregatesFilter<$PrismaModel> | $Enums.MarketSignalType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel>
+}
+
+export type EnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalDirection | Prisma.EnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel> | $Enums.MarketSignalDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -5513,6 +5581,74 @@ export type NestedEnumProcurementValueMilestoneStatusWithAggregatesFilter<$Prism
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumProcurementValueMilestoneStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumCategoryOpportunityTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityType | Prisma.EnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel> | $Enums.CategoryOpportunityType
+}
+
+export type NestedEnumCategoryOpportunityStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityStatus | Prisma.EnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel> | $Enums.CategoryOpportunityStatus
+}
+
+export type NestedEnumCategoryOpportunityTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityType | Prisma.EnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityType[] | Prisma.ListEnumCategoryOpportunityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityTypeWithAggregatesFilter<$PrismaModel> | $Enums.CategoryOpportunityType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCategoryOpportunityTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumCategoryOpportunityStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.CategoryOpportunityStatus | Prisma.EnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.CategoryOpportunityStatus[] | Prisma.ListEnumCategoryOpportunityStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumCategoryOpportunityStatusWithAggregatesFilter<$PrismaModel> | $Enums.CategoryOpportunityStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumCategoryOpportunityStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumMarketSignalTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalType | Prisma.EnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel> | $Enums.MarketSignalType
+}
+
+export type NestedEnumMarketSignalDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalDirection | Prisma.EnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel> | $Enums.MarketSignalDirection
+}
+
+export type NestedEnumMarketSignalTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalType | Prisma.EnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalType[] | Prisma.ListEnumMarketSignalTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalTypeWithAggregatesFilter<$PrismaModel> | $Enums.MarketSignalType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarketSignalTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MarketSignalDirection | Prisma.EnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MarketSignalDirection[] | Prisma.ListEnumMarketSignalDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMarketSignalDirectionWithAggregatesFilter<$PrismaModel> | $Enums.MarketSignalDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMarketSignalDirectionFilter<$PrismaModel>
 }
 
 

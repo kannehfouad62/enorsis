@@ -1141,6 +1141,45 @@ enum ProcurementValueMilestoneStatus {
   CANCELLED
 }
 
+enum CategoryOpportunityType {
+  SOURCING
+  RENEGOTIATION
+  DEMAND_MANAGEMENT
+  SPECIFICATION_OPTIMIZATION
+  SUPPLIER_CONSOLIDATION
+  PROCESS_IMPROVEMENT
+  RISK_REDUCTION
+  SUSTAINABILITY
+  OTHER
+}
+
+enum CategoryOpportunityStatus {
+  IDENTIFIED
+  QUALIFYING
+  APPROVED
+  IN_PROGRESS
+  REALIZED
+  CANCELLED
+}
+
+enum MarketSignalType {
+  PRICE
+  CAPACITY
+  SUPPLY_RISK
+  REGULATORY
+  TECHNOLOGY
+  GEOPOLITICAL
+  SUSTAINABILITY
+  LABOR
+  OTHER
+}
+
+enum MarketSignalDirection {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -3042,31 +3081,48 @@ model ProcurementPlan {
 }
 
 model CategoryStrategy {
-  id                 String                 @id @default(cuid())
-  tenantId           String
-  procurementPlanId  String?
-  category           String
-  name               String
-  status             CategoryStrategyStatus @default(DRAFT)
-  ownerUserId        String
-  currentSpend       Decimal                @default(0) @db.Decimal(18, 2)
-  addressableSpend   Decimal                @default(0) @db.Decimal(18, 2)
-  savingsTarget      Decimal                @default(0) @db.Decimal(18, 2)
-  supplierCount      Int                    @default(0)
-  riskSummary        String?
-  marketSummary      String?
-  strategySummary    String
-  sourcingApproach   String?
-  contractApproach   String?
-  supplierApproach   String?
-  startsAt           DateTime
-  targetCompletionAt DateTime
-  completedAt        DateTime?
-  tenant             Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  procurementPlan    ProcurementPlan?       @relation(fields: [procurementPlanId], references: [id], onDelete: SetNull)
-  savingsInitiatives SavingsInitiative[]
-  createdAt          DateTime               @default(now())
-  updatedAt          DateTime               @updatedAt
+  id                     String                 @id @default(cuid())
+  tenantId               String
+  procurementPlanId      String?
+  category               String
+  name                   String
+  status                 CategoryStrategyStatus @default(DRAFT)
+  ownerUserId            String
+  currentSpend           Decimal                @default(0) @db.Decimal(18, 2)
+  addressableSpend       Decimal                @default(0) @db.Decimal(18, 2)
+  savingsTarget          Decimal                @default(0) @db.Decimal(18, 2)
+  supplierCount          Int                    @default(0)
+  riskSummary            String?
+  marketSummary          String?
+  strategySummary        String
+  sourcingApproach       String?
+  contractApproach       String?
+  supplierApproach       String?
+  startsAt               DateTime
+  targetCompletionAt     DateTime
+  completedAt            DateTime?
+  categoryCode           String?
+  categoryName           String?
+  title                  String?
+  description            String?
+  executiveSponsorUserId String?
+  periodStart            DateTime?
+  periodEnd              DateTime?
+  currencyCode           String                 @default("USD")
+  managedSpend           Decimal                @default(0) @db.Decimal(18, 2)
+  preferredSupplierCount Int                    @default(0)
+  demandDrivers          String?
+  supplyMarketSummary    String?
+  strategicObjectives    String?
+  approvedByUserId       String?
+  approvedAt             DateTime?
+  opportunities          CategoryOpportunity[]
+  marketSignals          CategoryMarketSignal[]
+  tenant                 Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  procurementPlan        ProcurementPlan?       @relation(fields: [procurementPlanId], references: [id], onDelete: SetNull)
+  savingsInitiatives     SavingsInitiative[]
+  createdAt              DateTime               @default(now())
+  updatedAt              DateTime               @updatedAt
 
   @@unique([tenantId, name])
   @@index([tenantId, status, category])
@@ -4199,4 +4255,50 @@ model ProcurementValueMilestone {
   updatedAt                    DateTime                        @updatedAt
 
   @@index([procurementValueInitiativeId, status, dueAt])
+}
+
+model CategoryOpportunity {
+  id                 String                    @id @default(cuid())
+  categoryStrategyId String
+  title              String
+  description        String
+  type               CategoryOpportunityType
+  status             CategoryOpportunityStatus @default(IDENTIFIED)
+  estimatedValue     Decimal                   @default(0) @db.Decimal(18, 2)
+  probabilityPercent Int                       @default(50)
+  complexityScore    Int                       @default(3)
+  riskScore          Int                       @default(3)
+  ownerUserId        String
+  targetStartAt      DateTime?
+  targetCompletionAt DateTime?
+  sourcingEventId    String?
+  contractId         String?
+  valueInitiativeId  String?
+  assumptions        String?
+  blockers           String?
+  strategy           CategoryStrategy          @relation(fields: [categoryStrategyId], references: [id], onDelete: Cascade)
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+
+  @@index([categoryStrategyId, status, targetCompletionAt])
+}
+
+model CategoryMarketSignal {
+  id                 String                @id @default(cuid())
+  categoryStrategyId String
+  type               MarketSignalType
+  direction          MarketSignalDirection
+  title              String
+  description        String
+  source             String?
+  sourceUrl          String?
+  confidencePercent  Int                   @default(50)
+  impactScore        Int                   @default(3)
+  observedAt         DateTime
+  expiresAt          DateTime?
+  strategy           CategoryStrategy      @relation(fields: [categoryStrategyId], references: [id], onDelete: Cascade)
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
+
+  @@index([categoryStrategyId, type, observedAt])
 }

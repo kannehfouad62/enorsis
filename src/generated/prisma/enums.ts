@@ -1547,6 +1547,57 @@ export const ProcurementValueMilestoneStatus = {
 export type ProcurementValueMilestoneStatus = (typeof ProcurementValueMilestoneStatus)[keyof typeof ProcurementValueMilestoneStatus]
 
 
+export const CategoryOpportunityType = {
+  SOURCING: 'SOURCING',
+  RENEGOTIATION: 'RENEGOTIATION',
+  DEMAND_MANAGEMENT: 'DEMAND_MANAGEMENT',
+  SPECIFICATION_OPTIMIZATION: 'SPECIFICATION_OPTIMIZATION',
+  SUPPLIER_CONSOLIDATION: 'SUPPLIER_CONSOLIDATION',
+  PROCESS_IMPROVEMENT: 'PROCESS_IMPROVEMENT',
+  RISK_REDUCTION: 'RISK_REDUCTION',
+  SUSTAINABILITY: 'SUSTAINABILITY',
+  OTHER: 'OTHER'
+} as const
+
+export type CategoryOpportunityType = (typeof CategoryOpportunityType)[keyof typeof CategoryOpportunityType]
+
+
+export const CategoryOpportunityStatus = {
+  IDENTIFIED: 'IDENTIFIED',
+  QUALIFYING: 'QUALIFYING',
+  APPROVED: 'APPROVED',
+  IN_PROGRESS: 'IN_PROGRESS',
+  REALIZED: 'REALIZED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type CategoryOpportunityStatus = (typeof CategoryOpportunityStatus)[keyof typeof CategoryOpportunityStatus]
+
+
+export const MarketSignalType = {
+  PRICE: 'PRICE',
+  CAPACITY: 'CAPACITY',
+  SUPPLY_RISK: 'SUPPLY_RISK',
+  REGULATORY: 'REGULATORY',
+  TECHNOLOGY: 'TECHNOLOGY',
+  GEOPOLITICAL: 'GEOPOLITICAL',
+  SUSTAINABILITY: 'SUSTAINABILITY',
+  LABOR: 'LABOR',
+  OTHER: 'OTHER'
+} as const
+
+export type MarketSignalType = (typeof MarketSignalType)[keyof typeof MarketSignalType]
+
+
+export const MarketSignalDirection = {
+  POSITIVE: 'POSITIVE',
+  NEUTRAL: 'NEUTRAL',
+  NEGATIVE: 'NEGATIVE'
+} as const
+
+export type MarketSignalDirection = (typeof MarketSignalDirection)[keyof typeof MarketSignalDirection]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
