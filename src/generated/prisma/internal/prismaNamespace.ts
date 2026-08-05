@@ -538,7 +538,13 @@ export const ModelName = {
   PlatformJobAttempt: 'PlatformJobAttempt',
   PlatformEvent: 'PlatformEvent',
   PlatformEventSubscription: 'PlatformEventSubscription',
-  PlatformEventDelivery: 'PlatformEventDelivery'
+  PlatformEventDelivery: 'PlatformEventDelivery',
+  EnterpriseConnectorDefinition: 'EnterpriseConnectorDefinition',
+  EnterpriseConnectorConnection: 'EnterpriseConnectorConnection',
+  EnterpriseConnectorCredential: 'EnterpriseConnectorCredential',
+  EnterpriseConnectorMapping: 'EnterpriseConnectorMapping',
+  EnterpriseIntegrationSyncRun: 'EnterpriseIntegrationSyncRun',
+  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -554,7 +560,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -11066,6 +11072,450 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnterpriseConnectorDefinition: {
+      payload: Prisma.$EnterpriseConnectorDefinitionPayload<ExtArgs>
+      fields: Prisma.EnterpriseConnectorDefinitionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseConnectorDefinitionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseConnectorDefinitionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseConnectorDefinitionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseConnectorDefinitionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseConnectorDefinitionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseConnectorDefinitionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseConnectorDefinitionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseConnectorDefinitionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseConnectorDefinitionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseConnectorDefinitionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseConnectorDefinitionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseConnectorDefinitionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseConnectorDefinitionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseConnectorDefinitionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorDefinitionPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseConnectorDefinitionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseConnectorDefinition>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseConnectorDefinitionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorDefinitionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseConnectorDefinitionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorDefinitionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseConnectorConnection: {
+      payload: Prisma.$EnterpriseConnectorConnectionPayload<ExtArgs>
+      fields: Prisma.EnterpriseConnectorConnectionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseConnectorConnectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseConnectorConnectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseConnectorConnectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseConnectorConnectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseConnectorConnectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseConnectorConnectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseConnectorConnectionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseConnectorConnectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseConnectorConnectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseConnectorConnectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseConnectorConnectionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseConnectorConnectionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseConnectorConnectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseConnectorConnectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorConnectionPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseConnectorConnectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseConnectorConnection>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseConnectorConnectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorConnectionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseConnectorConnectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorConnectionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseConnectorCredential: {
+      payload: Prisma.$EnterpriseConnectorCredentialPayload<ExtArgs>
+      fields: Prisma.EnterpriseConnectorCredentialFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseConnectorCredentialFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseConnectorCredentialFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseConnectorCredentialFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseConnectorCredentialFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseConnectorCredentialFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseConnectorCredentialCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseConnectorCredentialCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseConnectorCredentialCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseConnectorCredentialDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseConnectorCredentialUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseConnectorCredentialDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseConnectorCredentialUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseConnectorCredentialUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseConnectorCredentialUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorCredentialPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseConnectorCredentialAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseConnectorCredential>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseConnectorCredentialGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorCredentialGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseConnectorCredentialCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorCredentialCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseConnectorMapping: {
+      payload: Prisma.$EnterpriseConnectorMappingPayload<ExtArgs>
+      fields: Prisma.EnterpriseConnectorMappingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseConnectorMappingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseConnectorMappingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseConnectorMappingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseConnectorMappingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseConnectorMappingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseConnectorMappingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseConnectorMappingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseConnectorMappingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseConnectorMappingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseConnectorMappingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseConnectorMappingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseConnectorMappingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseConnectorMappingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseConnectorMappingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseConnectorMappingPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseConnectorMappingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseConnectorMapping>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseConnectorMappingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorMappingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseConnectorMappingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseConnectorMappingCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseIntegrationSyncRun: {
+      payload: Prisma.$EnterpriseIntegrationSyncRunPayload<ExtArgs>
+      fields: Prisma.EnterpriseIntegrationSyncRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseIntegrationSyncRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseIntegrationSyncRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseIntegrationSyncRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseIntegrationSyncRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseIntegrationSyncRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseIntegrationSyncRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseIntegrationSyncRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseIntegrationSyncRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseIntegrationSyncRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseIntegrationSyncRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseIntegrationSyncRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseIntegrationSyncRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseIntegrationSyncRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseIntegrationSyncRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseIntegrationSyncRunPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseIntegrationSyncRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseIntegrationSyncRun>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseIntegrationSyncRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseIntegrationSyncRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseIntegrationSyncRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseIntegrationSyncRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseWebhookEndpoint: {
+      payload: Prisma.$EnterpriseWebhookEndpointPayload<ExtArgs>
+      fields: Prisma.EnterpriseWebhookEndpointFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseWebhookEndpointFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseWebhookEndpointFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseWebhookEndpointFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseWebhookEndpointFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseWebhookEndpointFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseWebhookEndpointCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseWebhookEndpointCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseWebhookEndpointCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseWebhookEndpointDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseWebhookEndpointUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseWebhookEndpointDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseWebhookEndpointUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseWebhookEndpointUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseWebhookEndpointUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseWebhookEndpointPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseWebhookEndpointAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseWebhookEndpoint>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseWebhookEndpointGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseWebhookEndpointGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseWebhookEndpointCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseWebhookEndpointCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -14194,6 +14644,125 @@ export const PlatformEventDeliveryScalarFieldEnum = {
 export type PlatformEventDeliveryScalarFieldEnum = (typeof PlatformEventDeliveryScalarFieldEnum)[keyof typeof PlatformEventDeliveryScalarFieldEnum]
 
 
+export const EnterpriseConnectorDefinitionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  provider: 'provider',
+  connectorType: 'connectorType',
+  version: 'version',
+  active: 'active',
+  supportsInbound: 'supportsInbound',
+  supportsOutbound: 'supportsOutbound',
+  supportsWebhooks: 'supportsWebhooks',
+  supportsIncremental: 'supportsIncremental',
+  configurationSchema: 'configurationSchema',
+  capabilityMetadata: 'capabilityMetadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorDefinitionScalarFieldEnum = (typeof EnterpriseConnectorDefinitionScalarFieldEnum)[keyof typeof EnterpriseConnectorDefinitionScalarFieldEnum]
+
+
+export const EnterpriseConnectorConnectionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  connectorDefinitionId: 'connectorDefinitionId',
+  name: 'name',
+  status: 'status',
+  environment: 'environment',
+  baseUrl: 'baseUrl',
+  configuration: 'configuration',
+  healthStatus: 'healthStatus',
+  lastHealthCheckAt: 'lastHealthCheckAt',
+  lastSuccessfulSyncAt: 'lastSuccessfulSyncAt',
+  lastFailedSyncAt: 'lastFailedSyncAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorConnectionScalarFieldEnum = (typeof EnterpriseConnectorConnectionScalarFieldEnum)[keyof typeof EnterpriseConnectorConnectionScalarFieldEnum]
+
+
+export const EnterpriseConnectorCredentialScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  name: 'name',
+  credentialType: 'credentialType',
+  secretReference: 'secretReference',
+  metadata: 'metadata',
+  expiresAt: 'expiresAt',
+  rotatedAt: 'rotatedAt',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorCredentialScalarFieldEnum = (typeof EnterpriseConnectorCredentialScalarFieldEnum)[keyof typeof EnterpriseConnectorCredentialScalarFieldEnum]
+
+
+export const EnterpriseConnectorMappingScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  name: 'name',
+  sourceObject: 'sourceObject',
+  targetObject: 'targetObject',
+  direction: 'direction',
+  fieldMappings: 'fieldMappings',
+  transformationRules: 'transformationRules',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorMappingScalarFieldEnum = (typeof EnterpriseConnectorMappingScalarFieldEnum)[keyof typeof EnterpriseConnectorMappingScalarFieldEnum]
+
+
+export const EnterpriseIntegrationSyncRunScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  mappingId: 'mappingId',
+  direction: 'direction',
+  status: 'status',
+  triggerType: 'triggerType',
+  correlationId: 'correlationId',
+  cursor: 'cursor',
+  requestedByUserId: 'requestedByUserId',
+  recordsRead: 'recordsRead',
+  recordsWritten: 'recordsWritten',
+  recordsSkipped: 'recordsSkipped',
+  recordsFailed: 'recordsFailed',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseIntegrationSyncRunScalarFieldEnum = (typeof EnterpriseIntegrationSyncRunScalarFieldEnum)[keyof typeof EnterpriseIntegrationSyncRunScalarFieldEnum]
+
+
+export const EnterpriseWebhookEndpointScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  key: 'key',
+  path: 'path',
+  active: 'active',
+  signingSecretReference: 'signingSecretReference',
+  acceptedEventTypes: 'acceptedEventTypes',
+  lastReceivedAt: 'lastReceivedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseWebhookEndpointScalarFieldEnum = (typeof EnterpriseWebhookEndpointScalarFieldEnum)[keyof typeof EnterpriseWebhookEndpointScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -16650,6 +17219,76 @@ export type ListEnumPlatformEventDeliveryStatusFieldRefInput<$PrismaModel> = Fie
 
 
 /**
+ * Reference to a field of type 'EnterpriseConnectorType'
+ */
+export type EnumEnterpriseConnectorTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseConnectorType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseConnectorType[]'
+ */
+export type ListEnumEnterpriseConnectorTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseConnectorType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseConnectorStatus'
+ */
+export type EnumEnterpriseConnectorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseConnectorStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseConnectorStatus[]'
+ */
+export type ListEnumEnterpriseConnectorStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseConnectorStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseCredentialType'
+ */
+export type EnumEnterpriseCredentialTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseCredentialType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseCredentialType[]'
+ */
+export type ListEnumEnterpriseCredentialTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseCredentialType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationSyncDirection'
+ */
+export type EnumIntegrationSyncDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationSyncDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationSyncDirection[]'
+ */
+export type ListEnumIntegrationSyncDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationSyncDirection[]'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationSyncStatus'
+ */
+export type EnumIntegrationSyncStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationSyncStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'IntegrationSyncStatus[]'
+ */
+export type ListEnumIntegrationSyncStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'IntegrationSyncStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -16955,6 +17594,12 @@ export type GlobalOmitConfig = {
   platformEvent?: Prisma.PlatformEventOmit
   platformEventSubscription?: Prisma.PlatformEventSubscriptionOmit
   platformEventDelivery?: Prisma.PlatformEventDeliveryOmit
+  enterpriseConnectorDefinition?: Prisma.EnterpriseConnectorDefinitionOmit
+  enterpriseConnectorConnection?: Prisma.EnterpriseConnectorConnectionOmit
+  enterpriseConnectorCredential?: Prisma.EnterpriseConnectorCredentialOmit
+  enterpriseConnectorMapping?: Prisma.EnterpriseConnectorMappingOmit
+  enterpriseIntegrationSyncRun?: Prisma.EnterpriseIntegrationSyncRunOmit
+  enterpriseWebhookEndpoint?: Prisma.EnterpriseWebhookEndpointOmit
 }
 
 /* Types for Logging */

@@ -37,6 +37,7 @@ import {
   Workflow,
   Warehouse,
   Wrench,
+  PlugZap,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -357,6 +358,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Domain events, subscriptions, deliveries and dead letters.",
     href: "/app/settings/events",
     icon: Network,
+    group: "Platform",
+  },
+
+  {
+    title: "Integration Hub & Connector Framework",
+    description: "Connector catalog, credentials, mappings and sync operations.",
+    href: "/app/settings/integration-hub",
+    icon: PlugZap,
     group: "Platform",
   },
 

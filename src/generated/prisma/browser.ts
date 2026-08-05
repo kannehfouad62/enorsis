@@ -727,3 +727,33 @@ export type PlatformEventSubscription = Prisma.PlatformEventSubscriptionModel
  * 
  */
 export type PlatformEventDelivery = Prisma.PlatformEventDeliveryModel
+/**
+ * Model EnterpriseConnectorDefinition
+ * 
+ */
+export type EnterpriseConnectorDefinition = Prisma.EnterpriseConnectorDefinitionModel
+/**
+ * Model EnterpriseConnectorConnection
+ * 
+ */
+export type EnterpriseConnectorConnection = Prisma.EnterpriseConnectorConnectionModel
+/**
+ * Model EnterpriseConnectorCredential
+ * 
+ */
+export type EnterpriseConnectorCredential = Prisma.EnterpriseConnectorCredentialModel
+/**
+ * Model EnterpriseConnectorMapping
+ * 
+ */
+export type EnterpriseConnectorMapping = Prisma.EnterpriseConnectorMappingModel
+/**
+ * Model EnterpriseIntegrationSyncRun
+ * 
+ */
+export type EnterpriseIntegrationSyncRun = Prisma.EnterpriseIntegrationSyncRunModel
+/**
+ * Model EnterpriseWebhookEndpoint
+ * 
+ */
+export type EnterpriseWebhookEndpoint = Prisma.EnterpriseWebhookEndpointModel

@@ -1787,6 +1787,70 @@ export const PlatformEventDeliveryType = {
 export type PlatformEventDeliveryType = (typeof PlatformEventDeliveryType)[keyof typeof PlatformEventDeliveryType]
 
 
+export const EnterpriseConnectorType = {
+  REST_API: 'REST_API',
+  SOAP_API: 'SOAP_API',
+  WEBHOOK: 'WEBHOOK',
+  SFTP: 'SFTP',
+  DATABASE: 'DATABASE',
+  MESSAGE_QUEUE: 'MESSAGE_QUEUE',
+  ERP: 'ERP',
+  IDENTITY: 'IDENTITY',
+  COLLABORATION: 'COLLABORATION',
+  PAYMENT: 'PAYMENT',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type EnterpriseConnectorType = (typeof EnterpriseConnectorType)[keyof typeof EnterpriseConnectorType]
+
+
+export const EnterpriseConnectorStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  ERROR: 'ERROR',
+  DISABLED: 'DISABLED'
+} as const
+
+export type EnterpriseConnectorStatus = (typeof EnterpriseConnectorStatus)[keyof typeof EnterpriseConnectorStatus]
+
+
+export const EnterpriseCredentialType = {
+  API_KEY: 'API_KEY',
+  BEARER_TOKEN: 'BEARER_TOKEN',
+  BASIC_AUTH: 'BASIC_AUTH',
+  OAUTH2: 'OAUTH2',
+  CLIENT_CERTIFICATE: 'CLIENT_CERTIFICATE',
+  SSH_KEY: 'SSH_KEY',
+  DATABASE_CREDENTIAL: 'DATABASE_CREDENTIAL',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type EnterpriseCredentialType = (typeof EnterpriseCredentialType)[keyof typeof EnterpriseCredentialType]
+
+
+export const IntegrationSyncDirection = {
+  INBOUND: 'INBOUND',
+  OUTBOUND: 'OUTBOUND',
+  BIDIRECTIONAL: 'BIDIRECTIONAL'
+} as const
+
+export type IntegrationSyncDirection = (typeof IntegrationSyncDirection)[keyof typeof IntegrationSyncDirection]
+
+
+export const IntegrationSyncStatus = {
+  QUEUED: 'QUEUED',
+  RUNNING: 'RUNNING',
+  SUCCEEDED: 'SUCCEEDED',
+  PARTIALLY_SUCCEEDED: 'PARTIALLY_SUCCEEDED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type IntegrationSyncStatus = (typeof IntegrationSyncStatus)[keyof typeof IntegrationSyncStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

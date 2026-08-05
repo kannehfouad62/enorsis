@@ -192,7 +192,13 @@ export const ModelName = {
   PlatformJobAttempt: 'PlatformJobAttempt',
   PlatformEvent: 'PlatformEvent',
   PlatformEventSubscription: 'PlatformEventSubscription',
-  PlatformEventDelivery: 'PlatformEventDelivery'
+  PlatformEventDelivery: 'PlatformEventDelivery',
+  EnterpriseConnectorDefinition: 'EnterpriseConnectorDefinition',
+  EnterpriseConnectorConnection: 'EnterpriseConnectorConnection',
+  EnterpriseConnectorCredential: 'EnterpriseConnectorCredential',
+  EnterpriseConnectorMapping: 'EnterpriseConnectorMapping',
+  EnterpriseIntegrationSyncRun: 'EnterpriseIntegrationSyncRun',
+  EnterpriseWebhookEndpoint: 'EnterpriseWebhookEndpoint'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3298,6 +3304,125 @@ export const PlatformEventDeliveryScalarFieldEnum = {
 } as const
 
 export type PlatformEventDeliveryScalarFieldEnum = (typeof PlatformEventDeliveryScalarFieldEnum)[keyof typeof PlatformEventDeliveryScalarFieldEnum]
+
+
+export const EnterpriseConnectorDefinitionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  provider: 'provider',
+  connectorType: 'connectorType',
+  version: 'version',
+  active: 'active',
+  supportsInbound: 'supportsInbound',
+  supportsOutbound: 'supportsOutbound',
+  supportsWebhooks: 'supportsWebhooks',
+  supportsIncremental: 'supportsIncremental',
+  configurationSchema: 'configurationSchema',
+  capabilityMetadata: 'capabilityMetadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorDefinitionScalarFieldEnum = (typeof EnterpriseConnectorDefinitionScalarFieldEnum)[keyof typeof EnterpriseConnectorDefinitionScalarFieldEnum]
+
+
+export const EnterpriseConnectorConnectionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  connectorDefinitionId: 'connectorDefinitionId',
+  name: 'name',
+  status: 'status',
+  environment: 'environment',
+  baseUrl: 'baseUrl',
+  configuration: 'configuration',
+  healthStatus: 'healthStatus',
+  lastHealthCheckAt: 'lastHealthCheckAt',
+  lastSuccessfulSyncAt: 'lastSuccessfulSyncAt',
+  lastFailedSyncAt: 'lastFailedSyncAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorConnectionScalarFieldEnum = (typeof EnterpriseConnectorConnectionScalarFieldEnum)[keyof typeof EnterpriseConnectorConnectionScalarFieldEnum]
+
+
+export const EnterpriseConnectorCredentialScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  name: 'name',
+  credentialType: 'credentialType',
+  secretReference: 'secretReference',
+  metadata: 'metadata',
+  expiresAt: 'expiresAt',
+  rotatedAt: 'rotatedAt',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorCredentialScalarFieldEnum = (typeof EnterpriseConnectorCredentialScalarFieldEnum)[keyof typeof EnterpriseConnectorCredentialScalarFieldEnum]
+
+
+export const EnterpriseConnectorMappingScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  name: 'name',
+  sourceObject: 'sourceObject',
+  targetObject: 'targetObject',
+  direction: 'direction',
+  fieldMappings: 'fieldMappings',
+  transformationRules: 'transformationRules',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseConnectorMappingScalarFieldEnum = (typeof EnterpriseConnectorMappingScalarFieldEnum)[keyof typeof EnterpriseConnectorMappingScalarFieldEnum]
+
+
+export const EnterpriseIntegrationSyncRunScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  mappingId: 'mappingId',
+  direction: 'direction',
+  status: 'status',
+  triggerType: 'triggerType',
+  correlationId: 'correlationId',
+  cursor: 'cursor',
+  requestedByUserId: 'requestedByUserId',
+  recordsRead: 'recordsRead',
+  recordsWritten: 'recordsWritten',
+  recordsSkipped: 'recordsSkipped',
+  recordsFailed: 'recordsFailed',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  errorMessage: 'errorMessage',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseIntegrationSyncRunScalarFieldEnum = (typeof EnterpriseIntegrationSyncRunScalarFieldEnum)[keyof typeof EnterpriseIntegrationSyncRunScalarFieldEnum]
+
+
+export const EnterpriseWebhookEndpointScalarFieldEnum = {
+  id: 'id',
+  connectionId: 'connectionId',
+  key: 'key',
+  path: 'path',
+  active: 'active',
+  signingSecretReference: 'signingSecretReference',
+  acceptedEventTypes: 'acceptedEventTypes',
+  lastReceivedAt: 'lastReceivedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseWebhookEndpointScalarFieldEnum = (typeof EnterpriseWebhookEndpointScalarFieldEnum)[keyof typeof EnterpriseWebhookEndpointScalarFieldEnum]
 
 
 export const SortOrder = {
