@@ -1651,6 +1651,46 @@ export const SupplierPortalMessageDirection = {
 export type SupplierPortalMessageDirection = (typeof SupplierPortalMessageDirection)[keyof typeof SupplierPortalMessageDirection]
 
 
+export const CommercialEditionCode = {
+  COMMUNITY: 'COMMUNITY',
+  PROFESSIONAL: 'PROFESSIONAL',
+  ENTERPRISE_SAAS: 'ENTERPRISE_SAAS',
+  MANAGED_PAAS: 'MANAGED_PAAS'
+} as const
+
+export type CommercialEditionCode = (typeof CommercialEditionCode)[keyof typeof CommercialEditionCode]
+
+
+export const TenantSubscriptionStatus = {
+  TRIAL: 'TRIAL',
+  ACTIVE: 'ACTIVE',
+  PAST_DUE: 'PAST_DUE',
+  SUSPENDED: 'SUSPENDED',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type TenantSubscriptionStatus = (typeof TenantSubscriptionStatus)[keyof typeof TenantSubscriptionStatus]
+
+
+export const EntitlementEffect = {
+  ALLOW: 'ALLOW',
+  DENY: 'DENY'
+} as const
+
+export type EntitlementEffect = (typeof EntitlementEffect)[keyof typeof EntitlementEffect]
+
+
+export const UsageMetricPeriod = {
+  LIFETIME: 'LIFETIME',
+  DAILY: 'DAILY',
+  MONTHLY: 'MONTHLY',
+  ANNUAL: 'ANNUAL'
+} as const
+
+export type UsageMetricPeriod = (typeof UsageMetricPeriod)[keyof typeof UsageMetricPeriod]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

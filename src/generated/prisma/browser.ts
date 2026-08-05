@@ -657,3 +657,38 @@ export type SupplierPortalTask = Prisma.SupplierPortalTaskModel
  * 
  */
 export type SupplierPortalMessage = Prisma.SupplierPortalMessageModel
+/**
+ * Model CommercialEdition
+ * 
+ */
+export type CommercialEdition = Prisma.CommercialEditionModel
+/**
+ * Model PlatformFeature
+ * 
+ */
+export type PlatformFeature = Prisma.PlatformFeatureModel
+/**
+ * Model EditionFeature
+ * 
+ */
+export type EditionFeature = Prisma.EditionFeatureModel
+/**
+ * Model TenantSubscription
+ * 
+ */
+export type TenantSubscription = Prisma.TenantSubscriptionModel
+/**
+ * Model TenantEntitlement
+ * 
+ */
+export type TenantEntitlement = Prisma.TenantEntitlementModel
+/**
+ * Model UsagePolicy
+ * 
+ */
+export type UsagePolicy = Prisma.UsagePolicyModel
+/**
+ * Model UsageCounter
+ * 
+ */
+export type UsageCounter = Prisma.UsageCounterModel

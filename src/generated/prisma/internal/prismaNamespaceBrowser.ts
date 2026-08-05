@@ -178,7 +178,14 @@ export const ModelName = {
   SupplierPortalUser: 'SupplierPortalUser',
   SupplierOnboardingQuestionnaire: 'SupplierOnboardingQuestionnaire',
   SupplierPortalTask: 'SupplierPortalTask',
-  SupplierPortalMessage: 'SupplierPortalMessage'
+  SupplierPortalMessage: 'SupplierPortalMessage',
+  CommercialEdition: 'CommercialEdition',
+  PlatformFeature: 'PlatformFeature',
+  EditionFeature: 'EditionFeature',
+  TenantSubscription: 'TenantSubscription',
+  TenantEntitlement: 'TenantEntitlement',
+  UsagePolicy: 'UsagePolicy',
+  UsageCounter: 'UsageCounter'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -2995,6 +3002,113 @@ export const SupplierPortalMessageScalarFieldEnum = {
 } as const
 
 export type SupplierPortalMessageScalarFieldEnum = (typeof SupplierPortalMessageScalarFieldEnum)[keyof typeof SupplierPortalMessageScalarFieldEnum]
+
+
+export const CommercialEditionScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  name: 'name',
+  description: 'description',
+  rank: 'rank',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CommercialEditionScalarFieldEnum = (typeof CommercialEditionScalarFieldEnum)[keyof typeof CommercialEditionScalarFieldEnum]
+
+
+export const PlatformFeatureScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  groupKey: 'groupKey',
+  active: 'active',
+  managedPaaSOnly: 'managedPaaSOnly',
+  aiFeature: 'aiFeature',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformFeatureScalarFieldEnum = (typeof PlatformFeatureScalarFieldEnum)[keyof typeof PlatformFeatureScalarFieldEnum]
+
+
+export const EditionFeatureScalarFieldEnum = {
+  id: 'id',
+  editionId: 'editionId',
+  featureId: 'featureId',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EditionFeatureScalarFieldEnum = (typeof EditionFeatureScalarFieldEnum)[keyof typeof EditionFeatureScalarFieldEnum]
+
+
+export const TenantSubscriptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  editionId: 'editionId',
+  status: 'status',
+  startsAt: 'startsAt',
+  trialEndsAt: 'trialEndsAt',
+  renewsAt: 'renewsAt',
+  endsAt: 'endsAt',
+  externalCustomerId: 'externalCustomerId',
+  externalSubscriptionId: 'externalSubscriptionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TenantSubscriptionScalarFieldEnum = (typeof TenantSubscriptionScalarFieldEnum)[keyof typeof TenantSubscriptionScalarFieldEnum]
+
+
+export const TenantEntitlementScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  featureId: 'featureId',
+  effect: 'effect',
+  reason: 'reason',
+  startsAt: 'startsAt',
+  expiresAt: 'expiresAt',
+  grantedByUserId: 'grantedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TenantEntitlementScalarFieldEnum = (typeof TenantEntitlementScalarFieldEnum)[keyof typeof TenantEntitlementScalarFieldEnum]
+
+
+export const UsagePolicyScalarFieldEnum = {
+  id: 'id',
+  featureId: 'featureId',
+  editionId: 'editionId',
+  metricKey: 'metricKey',
+  period: 'period',
+  hardLimit: 'hardLimit',
+  warningLimit: 'warningLimit',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UsagePolicyScalarFieldEnum = (typeof UsagePolicyScalarFieldEnum)[keyof typeof UsagePolicyScalarFieldEnum]
+
+
+export const UsageCounterScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  featureId: 'featureId',
+  metricKey: 'metricKey',
+  period: 'period',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  value: 'value',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type UsageCounterScalarFieldEnum = (typeof UsageCounterScalarFieldEnum)[keyof typeof UsageCounterScalarFieldEnum]
 
 
 export const SortOrder = {

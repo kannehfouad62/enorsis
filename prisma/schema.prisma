@@ -1218,6 +1218,34 @@ enum SupplierPortalMessageDirection {
   INTERNAL
 }
 
+enum CommercialEditionCode {
+  COMMUNITY
+  PROFESSIONAL
+  ENTERPRISE_SAAS
+  MANAGED_PAAS
+}
+
+enum TenantSubscriptionStatus {
+  TRIAL
+  ACTIVE
+  PAST_DUE
+  SUSPENDED
+  CANCELLED
+  EXPIRED
+}
+
+enum EntitlementEffect {
+  ALLOW
+  DENY
+}
+
+enum UsageMetricPeriod {
+  LIFETIME
+  DAILY
+  MONTHLY
+  ANNUAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1382,6 +1410,9 @@ model Tenant {
   supplierOnboardingQuestionnaires SupplierOnboardingQuestionnaire[]
   supplierPortalTasks              SupplierPortalTask[]
   supplierPortalMessages           SupplierPortalMessage[]
+  subscriptions                    TenantSubscription[]
+  entitlements                     TenantEntitlement[]
+  usageCounters                    UsageCounter[]
   createdAt                        DateTime                          @default(now())
   updatedAt                        DateTime                          @updatedAt
   archivedAt                       DateTime?
@@ -4463,4 +4494,119 @@ model SupplierPortalMessage {
 
   @@index([tenantId, supplierId, createdAt])
   @@index([relatedType, relatedId])
+}
+
+model CommercialEdition {
+  id            String                @id @default(cuid())
+  code          CommercialEditionCode @unique
+  name          String
+  description   String?
+  rank          Int                   @default(0)
+  active        Boolean               @default(true)
+  features      EditionFeature[]
+  subscriptions TenantSubscription[]
+  usagePolicies UsagePolicy[]
+  createdAt     DateTime              @default(now())
+  updatedAt     DateTime              @updatedAt
+}
+
+model PlatformFeature {
+  id              String              @id @default(cuid())
+  key             String              @unique
+  name            String
+  description     String?
+  groupKey        String
+  active          Boolean             @default(true)
+  managedPaaSOnly Boolean             @default(false)
+  aiFeature       Boolean             @default(false)
+  editionFeatures EditionFeature[]
+  entitlements    TenantEntitlement[]
+  usagePolicies   UsagePolicy[]
+  usageCounters   UsageCounter[]
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@index([groupKey, active])
+}
+
+model EditionFeature {
+  id        String            @id @default(cuid())
+  editionId String
+  featureId String
+  enabled   Boolean           @default(true)
+  edition   CommercialEdition @relation(fields: [editionId], references: [id], onDelete: Cascade)
+  feature   PlatformFeature   @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  @@unique([editionId, featureId])
+}
+
+model TenantSubscription {
+  id                     String                   @id @default(cuid())
+  tenantId               String
+  editionId              String
+  status                 TenantSubscriptionStatus @default(TRIAL)
+  startsAt               DateTime                 @default(now())
+  trialEndsAt            DateTime?
+  renewsAt               DateTime?
+  endsAt                 DateTime?
+  externalCustomerId     String?
+  externalSubscriptionId String?
+  tenant                 Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  edition                CommercialEdition        @relation(fields: [editionId], references: [id], onDelete: Restrict)
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+
+  @@index([tenantId, status])
+}
+
+model TenantEntitlement {
+  id              String            @id @default(cuid())
+  tenantId        String
+  featureId       String
+  effect          EntitlementEffect @default(ALLOW)
+  reason          String?
+  startsAt        DateTime          @default(now())
+  expiresAt       DateTime?
+  grantedByUserId String?
+  tenant          Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  feature         PlatformFeature   @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@unique([tenantId, featureId])
+}
+
+model UsagePolicy {
+  id           String             @id @default(cuid())
+  featureId    String
+  editionId    String?
+  metricKey    String
+  period       UsageMetricPeriod
+  hardLimit    BigInt?
+  warningLimit BigInt?
+  feature      PlatformFeature    @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  edition      CommercialEdition? @relation(fields: [editionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  @@unique([featureId, editionId, metricKey, period])
+}
+
+model UsageCounter {
+  id          String            @id @default(cuid())
+  tenantId    String
+  featureId   String
+  metricKey   String
+  period      UsageMetricPeriod
+  periodStart DateTime
+  periodEnd   DateTime?
+  value       BigInt            @default(0)
+  tenant      Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  feature     PlatformFeature   @relation(fields: [featureId], references: [id], onDelete: Cascade)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@unique([tenantId, featureId, metricKey, period, periodStart])
 }

@@ -320,6 +320,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Licensing & Entitlements",
+    description: "Commercial editions, subscriptions and tenant feature access.",
+    href: "/app/settings/licensing",
+    icon: Users,
+    group: "Platform",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
