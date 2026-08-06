@@ -202,7 +202,11 @@ export const ModelName = {
   VaultSecret: 'VaultSecret',
   VaultSecretVersion: 'VaultSecretVersion',
   VaultSecretAccessPolicy: 'VaultSecretAccessPolicy',
-  VaultSecretAccessLog: 'VaultSecretAccessLog'
+  VaultSecretAccessLog: 'VaultSecretAccessLog',
+  EnterpriseNotificationTemplate: 'EnterpriseNotificationTemplate',
+  EnterpriseNotificationPreference: 'EnterpriseNotificationPreference',
+  EnterpriseNotification: 'EnterpriseNotification',
+  EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3503,6 +3507,95 @@ export const VaultSecretAccessLogScalarFieldEnum = {
 } as const
 
 export type VaultSecretAccessLogScalarFieldEnum = (typeof VaultSecretAccessLogScalarFieldEnum)[keyof typeof VaultSecretAccessLogScalarFieldEnum]
+
+
+export const EnterpriseNotificationTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  eventType: 'eventType',
+  channel: 'channel',
+  subjectTemplate: 'subjectTemplate',
+  bodyTemplate: 'bodyTemplate',
+  actionUrlTemplate: 'actionUrlTemplate',
+  active: 'active',
+  locale: 'locale',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationTemplateScalarFieldEnum = (typeof EnterpriseNotificationTemplateScalarFieldEnum)[keyof typeof EnterpriseNotificationTemplateScalarFieldEnum]
+
+
+export const EnterpriseNotificationPreferenceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  userId: 'userId',
+  eventType: 'eventType',
+  channel: 'channel',
+  enabled: 'enabled',
+  digestOnly: 'digestOnly',
+  quietHoursStart: 'quietHoursStart',
+  quietHoursEnd: 'quietHoursEnd',
+  locale: 'locale',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationPreferenceScalarFieldEnum = (typeof EnterpriseNotificationPreferenceScalarFieldEnum)[keyof typeof EnterpriseNotificationPreferenceScalarFieldEnum]
+
+
+export const EnterpriseNotificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  templateId: 'templateId',
+  eventId: 'eventId',
+  eventType: 'eventType',
+  recipientUserId: 'recipientUserId',
+  recipientAddress: 'recipientAddress',
+  title: 'title',
+  message: 'message',
+  actionUrl: 'actionUrl',
+  priority: 'priority',
+  status: 'status',
+  data: 'data',
+  correlationId: 'correlationId',
+  scheduledAt: 'scheduledAt',
+  processingAt: 'processingAt',
+  completedAt: 'completedAt',
+  readAt: 'readAt',
+  archivedAt: 'archivedAt',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationScalarFieldEnum = (typeof EnterpriseNotificationScalarFieldEnum)[keyof typeof EnterpriseNotificationScalarFieldEnum]
+
+
+export const EnterpriseNotificationDeliveryScalarFieldEnum = {
+  id: 'id',
+  notificationId: 'notificationId',
+  channel: 'channel',
+  status: 'status',
+  destination: 'destination',
+  provider: 'provider',
+  providerMessageId: 'providerMessageId',
+  attemptCount: 'attemptCount',
+  maxAttempts: 'maxAttempts',
+  availableAt: 'availableAt',
+  processingAt: 'processingAt',
+  deliveredAt: 'deliveredAt',
+  errorMessage: 'errorMessage',
+  responseMetadata: 'responseMetadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationDeliveryScalarFieldEnum = (typeof EnterpriseNotificationDeliveryScalarFieldEnum)[keyof typeof EnterpriseNotificationDeliveryScalarFieldEnum]
 
 
 export const SortOrder = {

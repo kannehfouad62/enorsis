@@ -1392,6 +1392,42 @@ enum VaultSecretAccessAction {
   REVOKE
 }
 
+enum EnterpriseNotificationChannel {
+  IN_APP
+  EMAIL
+  MOBILE_PUSH
+  SMS
+  MICROSOFT_TEAMS
+  SLACK
+  WEBHOOK
+}
+
+enum EnterpriseNotificationPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum EnterpriseNotificationStatus {
+  QUEUED
+  PROCESSING
+  DELIVERED
+  PARTIALLY_DELIVERED
+  FAILED
+  CANCELLED
+  DEAD_LETTER
+}
+
+enum EnterpriseNotificationDeliveryStatus {
+  PENDING
+  PROCESSING
+  DELIVERED
+  FAILED
+  SKIPPED
+  DEAD_LETTER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1487,90 +1523,93 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                               String                            @id @default(cuid())
-  slug                             String                            @unique
-  name                             String
-  legalName                        String?
-  status                           TenantStatus                      @default(PROVISIONING)
-  countryCode                      String?
-  defaultLocale                    String                            @default("en-US")
-  defaultTimeZone                  String                            @default("UTC")
-  currencyPolicyMode               CurrencyPolicyMode                @default(USD_ONLY)
-  baseCurrencyCode                 String                            @default("USD")
-  localDisplayCurrency             String?
-  usdReportingEnabled              Boolean                           @default(true)
-  memberships                      Membership[]
-  legalEntities                    LegalEntity[]
-  sites                            Site[]
-  departments                      Department[]
-  exchangeRates                    ExchangeRate[]
-  auditEvents                      AuditEvent[]
-  aiAgents                         AiAgent[]
-  purchaseRequests                 PurchaseRequest[]
-  purchaseOrders                   PurchaseOrder[]
-  receipts                         ProcurementReceipt[]
-  supplierInvoices                 SupplierInvoice[]
-  suppliers                        Supplier[]
-  sourcingEvents                   SourcingEvent[]
-  paymentBatches                   PaymentBatch[]
-  integrations                     IntegrationConnection[]
-  workflowDefinitions              WorkflowDefinition[]
-  workflowInstances                WorkflowInstance[]
-  workflowDelegations              WorkflowDelegation[]
-  workflowNotifications            WorkflowNotification[]
-  apiClients                       ApiClient[]
-  accessReviewCampaigns            AccessReviewCampaign[]
-  sodRules                         SodRule[]
-  sodViolations                    SodViolation[]
-  supplierScorecards               SupplierScorecard[]
-  supplierDevelopmentPlans         SupplierDevelopmentPlan[]
-  supplierCorrectiveActions        SupplierCorrectiveAction[]
-  procurementPlans                 ProcurementPlan[]
-  categoryStrategies               CategoryStrategy[]
-  savingsInitiatives               SavingsInitiative[]
-  procurementReviews               ProcurementReview[]
-  procurementPolicies              ProcurementPolicy[]
-  procurementComplianceTests       ProcurementComplianceTest[]
-  procurementRemediations          ProcurementRemediation[]
-  supplyRiskEvents                 SupplyRiskEvent[]
-  resiliencePlans                  ResiliencePlan[]
-  procurementCatalogs              ProcurementCatalog[]
-  guidedCarts                      GuidedCart[]
-  inventoryLocations               InventoryLocation[]
-  inventoryItems                   InventoryItem[]
-  inventoryTransactions            InventoryTransaction[]
-  cycleCounts                      CycleCount[]
-  statementsOfWork                 StatementOfWork[]
-  serviceWorkers                   ServiceWorker[]
-  serviceTimeEntries               ServiceTimeEntry[]
-  demandPlans                      DemandPlan[]
-  replenishmentRecommendations     ReplenishmentRecommendation[]
-  logisticsCarriers                LogisticsCarrier[]
-  logisticsShipments               LogisticsShipment[]
-  supplierClaims                   SupplierClaim[]
-  procurementAssets                ProcurementAsset[]
-  supplierEsgProfiles              SupplierEsgProfile[]
-  procurementValueInitiatives      ProcurementValueInitiative[]
-  supplierPortalInvitations        SupplierPortalInvitation[]
-  supplierPortalUsers              SupplierPortalUser[]
-  supplierOnboardingQuestionnaires SupplierOnboardingQuestionnaire[]
-  supplierPortalTasks              SupplierPortalTask[]
-  supplierPortalMessages           SupplierPortalMessage[]
-  subscriptions                    TenantSubscription[]
-  entitlements                     TenantEntitlement[]
-  usageCounters                    UsageCounter[]
-  configurationProfile             TenantConfiguration?
-  platformJobExecutions            PlatformJobExecution[]
-  platformEvents                   PlatformEvent[]
-  platformEventSubscriptions       PlatformEventSubscription[]
-  enterpriseConnectorConnections   EnterpriseConnectorConnection[]
-  vaultSecrets                     VaultSecret[]
-  createdAt                        DateTime                          @default(now())
-  updatedAt                        DateTime                          @updatedAt
-  archivedAt                       DateTime?
-  contracts                        Contract[]
-  clauseTemplates                  ClauseTemplate[]
-  aiAgentTasks                     AiAgentTask[]
+  id                                String                             @id @default(cuid())
+  slug                              String                             @unique
+  name                              String
+  legalName                         String?
+  status                            TenantStatus                       @default(PROVISIONING)
+  countryCode                       String?
+  defaultLocale                     String                             @default("en-US")
+  defaultTimeZone                   String                             @default("UTC")
+  currencyPolicyMode                CurrencyPolicyMode                 @default(USD_ONLY)
+  baseCurrencyCode                  String                             @default("USD")
+  localDisplayCurrency              String?
+  usdReportingEnabled               Boolean                            @default(true)
+  memberships                       Membership[]
+  legalEntities                     LegalEntity[]
+  sites                             Site[]
+  departments                       Department[]
+  exchangeRates                     ExchangeRate[]
+  auditEvents                       AuditEvent[]
+  aiAgents                          AiAgent[]
+  purchaseRequests                  PurchaseRequest[]
+  purchaseOrders                    PurchaseOrder[]
+  receipts                          ProcurementReceipt[]
+  supplierInvoices                  SupplierInvoice[]
+  suppliers                         Supplier[]
+  sourcingEvents                    SourcingEvent[]
+  paymentBatches                    PaymentBatch[]
+  integrations                      IntegrationConnection[]
+  workflowDefinitions               WorkflowDefinition[]
+  workflowInstances                 WorkflowInstance[]
+  workflowDelegations               WorkflowDelegation[]
+  workflowNotifications             WorkflowNotification[]
+  apiClients                        ApiClient[]
+  accessReviewCampaigns             AccessReviewCampaign[]
+  sodRules                          SodRule[]
+  sodViolations                     SodViolation[]
+  supplierScorecards                SupplierScorecard[]
+  supplierDevelopmentPlans          SupplierDevelopmentPlan[]
+  supplierCorrectiveActions         SupplierCorrectiveAction[]
+  procurementPlans                  ProcurementPlan[]
+  categoryStrategies                CategoryStrategy[]
+  savingsInitiatives                SavingsInitiative[]
+  procurementReviews                ProcurementReview[]
+  procurementPolicies               ProcurementPolicy[]
+  procurementComplianceTests        ProcurementComplianceTest[]
+  procurementRemediations           ProcurementRemediation[]
+  supplyRiskEvents                  SupplyRiskEvent[]
+  resiliencePlans                   ResiliencePlan[]
+  procurementCatalogs               ProcurementCatalog[]
+  guidedCarts                       GuidedCart[]
+  inventoryLocations                InventoryLocation[]
+  inventoryItems                    InventoryItem[]
+  inventoryTransactions             InventoryTransaction[]
+  cycleCounts                       CycleCount[]
+  statementsOfWork                  StatementOfWork[]
+  serviceWorkers                    ServiceWorker[]
+  serviceTimeEntries                ServiceTimeEntry[]
+  demandPlans                       DemandPlan[]
+  replenishmentRecommendations      ReplenishmentRecommendation[]
+  logisticsCarriers                 LogisticsCarrier[]
+  logisticsShipments                LogisticsShipment[]
+  supplierClaims                    SupplierClaim[]
+  procurementAssets                 ProcurementAsset[]
+  supplierEsgProfiles               SupplierEsgProfile[]
+  procurementValueInitiatives       ProcurementValueInitiative[]
+  supplierPortalInvitations         SupplierPortalInvitation[]
+  supplierPortalUsers               SupplierPortalUser[]
+  supplierOnboardingQuestionnaires  SupplierOnboardingQuestionnaire[]
+  supplierPortalTasks               SupplierPortalTask[]
+  supplierPortalMessages            SupplierPortalMessage[]
+  subscriptions                     TenantSubscription[]
+  entitlements                      TenantEntitlement[]
+  usageCounters                     UsageCounter[]
+  configurationProfile              TenantConfiguration?
+  platformJobExecutions             PlatformJobExecution[]
+  platformEvents                    PlatformEvent[]
+  platformEventSubscriptions        PlatformEventSubscription[]
+  enterpriseConnectorConnections    EnterpriseConnectorConnection[]
+  vaultSecrets                      VaultSecret[]
+  enterpriseNotificationTemplates   EnterpriseNotificationTemplate[]
+  enterpriseNotificationPreferences EnterpriseNotificationPreference[]
+  enterpriseNotifications           EnterpriseNotification[]
+  createdAt                         DateTime                           @default(now())
+  updatedAt                         DateTime                           @updatedAt
+  archivedAt                        DateTime?
+  contracts                         Contract[]
+  clauseTemplates                   ClauseTemplate[]
+  aiAgentTasks                      AiAgentTask[]
 
   @@index([status])
   @@index([countryCode])
@@ -5177,4 +5216,102 @@ model VaultSecretAccessLog {
   @@index([secretId, createdAt])
   @@index([actorUserId, createdAt])
   @@index([serviceKey, createdAt])
+}
+
+model EnterpriseNotificationTemplate {
+  id                String                        @id @default(cuid())
+  tenantId          String?
+  key               String
+  name              String
+  description       String?
+  eventType         String?
+  channel           EnterpriseNotificationChannel
+  subjectTemplate   String?
+  bodyTemplate      String
+  actionUrlTemplate String?
+  active            Boolean                       @default(true)
+  locale            String                        @default("en-US")
+  version           Int                           @default(1)
+  tenant            Tenant?                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  notifications     EnterpriseNotification[]
+  createdAt         DateTime                      @default(now())
+  updatedAt         DateTime                      @updatedAt
+
+  @@unique([tenantId, key, channel, locale, version])
+  @@index([eventType, channel, active])
+}
+
+model EnterpriseNotificationPreference {
+  id              String                        @id @default(cuid())
+  tenantId        String
+  userId          String
+  eventType       String
+  channel         EnterpriseNotificationChannel
+  enabled         Boolean                       @default(true)
+  digestOnly      Boolean                       @default(false)
+  quietHoursStart Int?
+  quietHoursEnd   Int?
+  locale          String                        @default("en-US")
+  tenant          Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                      @default(now())
+  updatedAt       DateTime                      @updatedAt
+
+  @@unique([tenantId, userId, eventType, channel])
+  @@index([userId, enabled])
+}
+
+model EnterpriseNotification {
+  id               String                           @id @default(cuid())
+  tenantId         String
+  templateId       String?
+  eventId          String?
+  eventType        String
+  recipientUserId  String?
+  recipientAddress String?
+  title            String
+  message          String
+  actionUrl        String?
+  priority         EnterpriseNotificationPriority   @default(NORMAL)
+  status           EnterpriseNotificationStatus     @default(QUEUED)
+  data             Json?
+  correlationId    String?
+  scheduledAt      DateTime                         @default(now())
+  processingAt     DateTime?
+  completedAt      DateTime?
+  readAt           DateTime?
+  archivedAt       DateTime?
+  errorMessage     String?
+  tenant           Tenant                           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  template         EnterpriseNotificationTemplate?  @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  deliveries       EnterpriseNotificationDelivery[]
+  createdAt        DateTime                         @default(now())
+  updatedAt        DateTime                         @updatedAt
+
+  @@index([tenantId, recipientUserId, readAt])
+  @@index([status, scheduledAt])
+  @@index([eventType, createdAt])
+  @@index([correlationId])
+}
+
+model EnterpriseNotificationDelivery {
+  id                String                               @id @default(cuid())
+  notificationId    String
+  channel           EnterpriseNotificationChannel
+  status            EnterpriseNotificationDeliveryStatus @default(PENDING)
+  destination       String?
+  provider          String?
+  providerMessageId String?
+  attemptCount      Int                                  @default(0)
+  maxAttempts       Int                                  @default(3)
+  availableAt       DateTime                             @default(now())
+  processingAt      DateTime?
+  deliveredAt       DateTime?
+  errorMessage      String?
+  responseMetadata  Json?
+  notification      EnterpriseNotification               @relation(fields: [notificationId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                             @default(now())
+  updatedAt         DateTime                             @updatedAt
+
+  @@index([status, availableAt])
+  @@index([notificationId, channel])
 }

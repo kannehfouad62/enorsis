@@ -801,3 +801,23 @@ export type VaultSecretAccessPolicy = Prisma.VaultSecretAccessPolicyModel
  * 
  */
 export type VaultSecretAccessLog = Prisma.VaultSecretAccessLogModel
+/**
+ * Model EnterpriseNotificationTemplate
+ * 
+ */
+export type EnterpriseNotificationTemplate = Prisma.EnterpriseNotificationTemplateModel
+/**
+ * Model EnterpriseNotificationPreference
+ * 
+ */
+export type EnterpriseNotificationPreference = Prisma.EnterpriseNotificationPreferenceModel
+/**
+ * Model EnterpriseNotification
+ * 
+ */
+export type EnterpriseNotification = Prisma.EnterpriseNotificationModel
+/**
+ * Model EnterpriseNotificationDelivery
+ * 
+ */
+export type EnterpriseNotificationDelivery = Prisma.EnterpriseNotificationDeliveryModel

@@ -38,6 +38,7 @@ import {
   Warehouse,
   Wrench,
   PlugZap,
+  Bell,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -374,6 +375,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Encrypted secrets, rotation, access policies and audit logs.",
     href: "/app/settings/secrets",
     icon: KeyRound,
+    group: "Platform",
+  },
+
+  {
+    title: "Unified Notification Center",
+    description: "Templates, preferences, channels and delivery operations.",
+    href: "/app/settings/notifications",
+    icon: Bell,
     group: "Platform",
   },
 

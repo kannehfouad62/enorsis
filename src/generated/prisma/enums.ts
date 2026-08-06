@@ -1888,6 +1888,54 @@ export const VaultSecretAccessAction = {
 export type VaultSecretAccessAction = (typeof VaultSecretAccessAction)[keyof typeof VaultSecretAccessAction]
 
 
+export const EnterpriseNotificationChannel = {
+  IN_APP: 'IN_APP',
+  EMAIL: 'EMAIL',
+  MOBILE_PUSH: 'MOBILE_PUSH',
+  SMS: 'SMS',
+  MICROSOFT_TEAMS: 'MICROSOFT_TEAMS',
+  SLACK: 'SLACK',
+  WEBHOOK: 'WEBHOOK'
+} as const
+
+export type EnterpriseNotificationChannel = (typeof EnterpriseNotificationChannel)[keyof typeof EnterpriseNotificationChannel]
+
+
+export const EnterpriseNotificationPriority = {
+  LOW: 'LOW',
+  NORMAL: 'NORMAL',
+  HIGH: 'HIGH',
+  URGENT: 'URGENT'
+} as const
+
+export type EnterpriseNotificationPriority = (typeof EnterpriseNotificationPriority)[keyof typeof EnterpriseNotificationPriority]
+
+
+export const EnterpriseNotificationStatus = {
+  QUEUED: 'QUEUED',
+  PROCESSING: 'PROCESSING',
+  DELIVERED: 'DELIVERED',
+  PARTIALLY_DELIVERED: 'PARTIALLY_DELIVERED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type EnterpriseNotificationStatus = (typeof EnterpriseNotificationStatus)[keyof typeof EnterpriseNotificationStatus]
+
+
+export const EnterpriseNotificationDeliveryStatus = {
+  PENDING: 'PENDING',
+  PROCESSING: 'PROCESSING',
+  DELIVERED: 'DELIVERED',
+  FAILED: 'FAILED',
+  SKIPPED: 'SKIPPED',
+  DEAD_LETTER: 'DEAD_LETTER'
+} as const
+
+export type EnterpriseNotificationDeliveryStatus = (typeof EnterpriseNotificationDeliveryStatus)[keyof typeof EnterpriseNotificationDeliveryStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

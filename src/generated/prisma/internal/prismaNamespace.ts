@@ -548,7 +548,11 @@ export const ModelName = {
   VaultSecret: 'VaultSecret',
   VaultSecretVersion: 'VaultSecretVersion',
   VaultSecretAccessPolicy: 'VaultSecretAccessPolicy',
-  VaultSecretAccessLog: 'VaultSecretAccessLog'
+  VaultSecretAccessLog: 'VaultSecretAccessLog',
+  EnterpriseNotificationTemplate: 'EnterpriseNotificationTemplate',
+  EnterpriseNotificationPreference: 'EnterpriseNotificationPreference',
+  EnterpriseNotification: 'EnterpriseNotification',
+  EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -564,7 +568,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -11816,6 +11820,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnterpriseNotificationTemplate: {
+      payload: Prisma.$EnterpriseNotificationTemplatePayload<ExtArgs>
+      fields: Prisma.EnterpriseNotificationTemplateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseNotificationTemplateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseNotificationTemplateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseNotificationTemplateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseNotificationTemplateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseNotificationTemplateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseNotificationTemplateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseNotificationTemplateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseNotificationTemplateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseNotificationTemplateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        update: {
+          args: Prisma.EnterpriseNotificationTemplateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseNotificationTemplateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseNotificationTemplateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseNotificationTemplateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseNotificationTemplateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationTemplatePayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseNotificationTemplateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseNotificationTemplate>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseNotificationTemplateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationTemplateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseNotificationTemplateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationTemplateCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseNotificationPreference: {
+      payload: Prisma.$EnterpriseNotificationPreferencePayload<ExtArgs>
+      fields: Prisma.EnterpriseNotificationPreferenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseNotificationPreferenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseNotificationPreferenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseNotificationPreferenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseNotificationPreferenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseNotificationPreferenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseNotificationPreferenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseNotificationPreferenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseNotificationPreferenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseNotificationPreferenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        update: {
+          args: Prisma.EnterpriseNotificationPreferenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseNotificationPreferenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseNotificationPreferenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseNotificationPreferenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseNotificationPreferenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPreferencePayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseNotificationPreferenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseNotificationPreference>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseNotificationPreferenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationPreferenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseNotificationPreferenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationPreferenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseNotification: {
+      payload: Prisma.$EnterpriseNotificationPayload<ExtArgs>
+      fields: Prisma.EnterpriseNotificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseNotificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseNotificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseNotificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseNotificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseNotificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseNotificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseNotificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseNotificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseNotificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseNotificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseNotificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseNotificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseNotificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseNotificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseNotificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseNotification>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseNotificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseNotificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseNotificationDelivery: {
+      payload: Prisma.$EnterpriseNotificationDeliveryPayload<ExtArgs>
+      fields: Prisma.EnterpriseNotificationDeliveryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseNotificationDeliveryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseNotificationDeliveryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseNotificationDeliveryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseNotificationDeliveryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseNotificationDeliveryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseNotificationDeliveryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseNotificationDeliveryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseNotificationDeliveryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseNotificationDeliveryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseNotificationDeliveryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseNotificationDeliveryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseNotificationDeliveryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseNotificationDeliveryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseNotificationDeliveryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseNotificationDeliveryPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseNotificationDeliveryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseNotificationDelivery>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseNotificationDeliveryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationDeliveryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseNotificationDeliveryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseNotificationDeliveryCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -15139,6 +15439,95 @@ export const VaultSecretAccessLogScalarFieldEnum = {
 export type VaultSecretAccessLogScalarFieldEnum = (typeof VaultSecretAccessLogScalarFieldEnum)[keyof typeof VaultSecretAccessLogScalarFieldEnum]
 
 
+export const EnterpriseNotificationTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  eventType: 'eventType',
+  channel: 'channel',
+  subjectTemplate: 'subjectTemplate',
+  bodyTemplate: 'bodyTemplate',
+  actionUrlTemplate: 'actionUrlTemplate',
+  active: 'active',
+  locale: 'locale',
+  version: 'version',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationTemplateScalarFieldEnum = (typeof EnterpriseNotificationTemplateScalarFieldEnum)[keyof typeof EnterpriseNotificationTemplateScalarFieldEnum]
+
+
+export const EnterpriseNotificationPreferenceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  userId: 'userId',
+  eventType: 'eventType',
+  channel: 'channel',
+  enabled: 'enabled',
+  digestOnly: 'digestOnly',
+  quietHoursStart: 'quietHoursStart',
+  quietHoursEnd: 'quietHoursEnd',
+  locale: 'locale',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationPreferenceScalarFieldEnum = (typeof EnterpriseNotificationPreferenceScalarFieldEnum)[keyof typeof EnterpriseNotificationPreferenceScalarFieldEnum]
+
+
+export const EnterpriseNotificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  templateId: 'templateId',
+  eventId: 'eventId',
+  eventType: 'eventType',
+  recipientUserId: 'recipientUserId',
+  recipientAddress: 'recipientAddress',
+  title: 'title',
+  message: 'message',
+  actionUrl: 'actionUrl',
+  priority: 'priority',
+  status: 'status',
+  data: 'data',
+  correlationId: 'correlationId',
+  scheduledAt: 'scheduledAt',
+  processingAt: 'processingAt',
+  completedAt: 'completedAt',
+  readAt: 'readAt',
+  archivedAt: 'archivedAt',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationScalarFieldEnum = (typeof EnterpriseNotificationScalarFieldEnum)[keyof typeof EnterpriseNotificationScalarFieldEnum]
+
+
+export const EnterpriseNotificationDeliveryScalarFieldEnum = {
+  id: 'id',
+  notificationId: 'notificationId',
+  channel: 'channel',
+  status: 'status',
+  destination: 'destination',
+  provider: 'provider',
+  providerMessageId: 'providerMessageId',
+  attemptCount: 'attemptCount',
+  maxAttempts: 'maxAttempts',
+  availableAt: 'availableAt',
+  processingAt: 'processingAt',
+  deliveredAt: 'deliveredAt',
+  errorMessage: 'errorMessage',
+  responseMetadata: 'responseMetadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseNotificationDeliveryScalarFieldEnum = (typeof EnterpriseNotificationDeliveryScalarFieldEnum)[keyof typeof EnterpriseNotificationDeliveryScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -17707,6 +18096,62 @@ export type ListEnumVaultSecretAccessActionFieldRefInput<$PrismaModel> = FieldRe
 
 
 /**
+ * Reference to a field of type 'EnterpriseNotificationChannel'
+ */
+export type EnumEnterpriseNotificationChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationChannel'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationChannel[]'
+ */
+export type ListEnumEnterpriseNotificationChannelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationChannel[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationPriority'
+ */
+export type EnumEnterpriseNotificationPriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationPriority'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationPriority[]'
+ */
+export type ListEnumEnterpriseNotificationPriorityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationPriority[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationStatus'
+ */
+export type EnumEnterpriseNotificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationStatus[]'
+ */
+export type ListEnumEnterpriseNotificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationDeliveryStatus'
+ */
+export type EnumEnterpriseNotificationDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationDeliveryStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseNotificationDeliveryStatus[]'
+ */
+export type ListEnumEnterpriseNotificationDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseNotificationDeliveryStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -18022,6 +18467,10 @@ export type GlobalOmitConfig = {
   vaultSecretVersion?: Prisma.VaultSecretVersionOmit
   vaultSecretAccessPolicy?: Prisma.VaultSecretAccessPolicyOmit
   vaultSecretAccessLog?: Prisma.VaultSecretAccessLogOmit
+  enterpriseNotificationTemplate?: Prisma.EnterpriseNotificationTemplateOmit
+  enterpriseNotificationPreference?: Prisma.EnterpriseNotificationPreferenceOmit
+  enterpriseNotification?: Prisma.EnterpriseNotificationOmit
+  enterpriseNotificationDelivery?: Prisma.EnterpriseNotificationDeliveryOmit
 }
 
 /* Types for Logging */
