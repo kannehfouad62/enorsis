@@ -212,7 +212,9 @@ export const ModelName = {
   EnterprisePolicyDefinition: 'EnterprisePolicyDefinition',
   EnterpriseTenantPolicy: 'EnterpriseTenantPolicy',
   EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
-  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag'
+  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag',
+  PlatformCertificationRun: 'PlatformCertificationRun',
+  PlatformReadinessCheck: 'PlatformReadinessCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3721,6 +3723,49 @@ export const EnterpriseTenantFeatureFlagScalarFieldEnum = {
 } as const
 
 export type EnterpriseTenantFeatureFlagScalarFieldEnum = (typeof EnterpriseTenantFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseTenantFeatureFlagScalarFieldEnum]
+
+
+export const PlatformCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  releaseVersion: 'releaseVersion',
+  environment: 'environment',
+  status: 'status',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  certifiedByUserId: 'certifiedByUserId',
+  certifiedAt: 'certifiedAt',
+  summary: 'summary',
+  releaseBlocked: 'releaseBlocked',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformCertificationRunScalarFieldEnum = (typeof PlatformCertificationRunScalarFieldEnum)[keyof typeof PlatformCertificationRunScalarFieldEnum]
+
+
+export const PlatformReadinessCheckScalarFieldEnum = {
+  id: 'id',
+  certificationRunId: 'certificationRunId',
+  key: 'key',
+  category: 'category',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  evidence: 'evidence',
+  remediation: 'remediation',
+  checkedAt: 'checkedAt',
+  durationMs: 'durationMs',
+  createdAt: 'createdAt'
+} as const
+
+export type PlatformReadinessCheckScalarFieldEnum = (typeof PlatformReadinessCheckScalarFieldEnum)[keyof typeof PlatformReadinessCheckScalarFieldEnum]
 
 
 export const SortOrder = {

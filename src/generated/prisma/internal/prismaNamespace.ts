@@ -558,7 +558,9 @@ export const ModelName = {
   EnterprisePolicyDefinition: 'EnterprisePolicyDefinition',
   EnterpriseTenantPolicy: 'EnterpriseTenantPolicy',
   EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
-  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag'
+  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag',
+  PlatformCertificationRun: 'PlatformCertificationRun',
+  PlatformReadinessCheck: 'PlatformReadinessCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -574,7 +576,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -12566,6 +12568,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PlatformCertificationRun: {
+      payload: Prisma.$PlatformCertificationRunPayload<ExtArgs>
+      fields: Prisma.PlatformCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatformCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatformCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatformCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatformCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.PlatformCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.PlatformCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.PlatformCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatformCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatformCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.PlatformCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatformCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatformCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatformCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatformCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatformCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatformCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.PlatformCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatformCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    PlatformReadinessCheck: {
+      payload: Prisma.$PlatformReadinessCheckPayload<ExtArgs>
+      fields: Prisma.PlatformReadinessCheckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatformReadinessCheckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatformReadinessCheckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatformReadinessCheckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatformReadinessCheckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        findMany: {
+          args: Prisma.PlatformReadinessCheckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>[]
+        }
+        create: {
+          args: Prisma.PlatformReadinessCheckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        createMany: {
+          args: Prisma.PlatformReadinessCheckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatformReadinessCheckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatformReadinessCheckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        update: {
+          args: Prisma.PlatformReadinessCheckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatformReadinessCheckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatformReadinessCheckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatformReadinessCheckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatformReadinessCheckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatformReadinessCheckPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatformReadinessCheckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatformReadinessCheck>
+        }
+        groupBy: {
+          args: Prisma.PlatformReadinessCheckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformReadinessCheckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatformReadinessCheckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatformReadinessCheckCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -16097,6 +16247,49 @@ export const EnterpriseTenantFeatureFlagScalarFieldEnum = {
 export type EnterpriseTenantFeatureFlagScalarFieldEnum = (typeof EnterpriseTenantFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseTenantFeatureFlagScalarFieldEnum]
 
 
+export const PlatformCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  releaseVersion: 'releaseVersion',
+  environment: 'environment',
+  status: 'status',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  certifiedByUserId: 'certifiedByUserId',
+  certifiedAt: 'certifiedAt',
+  summary: 'summary',
+  releaseBlocked: 'releaseBlocked',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PlatformCertificationRunScalarFieldEnum = (typeof PlatformCertificationRunScalarFieldEnum)[keyof typeof PlatformCertificationRunScalarFieldEnum]
+
+
+export const PlatformReadinessCheckScalarFieldEnum = {
+  id: 'id',
+  certificationRunId: 'certificationRunId',
+  key: 'key',
+  category: 'category',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  evidence: 'evidence',
+  remediation: 'remediation',
+  checkedAt: 'checkedAt',
+  durationMs: 'durationMs',
+  createdAt: 'createdAt'
+} as const
+
+export type PlatformReadinessCheckScalarFieldEnum = (typeof PlatformReadinessCheckScalarFieldEnum)[keyof typeof PlatformReadinessCheckScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -18791,6 +18984,48 @@ export type ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel> = Fie
 
 
 /**
+ * Reference to a field of type 'PlatformCertificationStatus'
+ */
+export type EnumPlatformCertificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformCertificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformCertificationStatus[]'
+ */
+export type ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformCertificationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformReadinessCheckStatus'
+ */
+export type EnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformReadinessCheckStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformReadinessCheckStatus[]'
+ */
+export type ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformReadinessCheckStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformReadinessSeverity'
+ */
+export type EnumPlatformReadinessSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformReadinessSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'PlatformReadinessSeverity[]'
+ */
+export type ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PlatformReadinessSeverity[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -19116,6 +19351,8 @@ export type GlobalOmitConfig = {
   enterpriseTenantPolicy?: Prisma.EnterpriseTenantPolicyOmit
   enterpriseFeatureFlag?: Prisma.EnterpriseFeatureFlagOmit
   enterpriseTenantFeatureFlag?: Prisma.EnterpriseTenantFeatureFlagOmit
+  platformCertificationRun?: Prisma.PlatformCertificationRunOmit
+  platformReadinessCheck?: Prisma.PlatformReadinessCheckOmit
 }
 
 /* Types for Logging */

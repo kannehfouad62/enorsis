@@ -1463,6 +1463,30 @@ enum EnterpriseFeatureFlagStatus {
   RETIRED
 }
 
+enum PlatformCertificationStatus {
+  DRAFT
+  RUNNING
+  PASSED
+  PASSED_WITH_WARNINGS
+  FAILED
+  CANCELLED
+}
+
+enum PlatformReadinessCheckStatus {
+  PASS
+  WARN
+  FAIL
+  SKIPPED
+}
+
+enum PlatformReadinessSeverity {
+  INFO
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1642,6 +1666,7 @@ model Tenant {
   enterpriseActivities              EnterpriseActivity[]
   enterprisePolicies                EnterpriseTenantPolicy[]
   enterpriseFeatureFlags            EnterpriseTenantFeatureFlag[]
+  platformCertificationRuns         PlatformCertificationRun[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5487,4 +5512,52 @@ model EnterpriseTenantFeatureFlag {
   @@unique([tenantId, featureFlagId])
   @@index([tenantId, enabled])
   @@index([startsAt, expiresAt])
+}
+
+model PlatformCertificationRun {
+  id                String                      @id @default(cuid())
+  tenantId          String?
+  name              String
+  releaseVersion    String?
+  environment       String                      @default("PRODUCTION")
+  status            PlatformCertificationStatus @default(DRAFT)
+  startedAt         DateTime?
+  completedAt       DateTime?
+  initiatedByUserId String?
+  certifiedByUserId String?
+  certifiedAt       DateTime?
+  summary           Json?
+  releaseBlocked    Boolean                     @default(true)
+  tenant            Tenant?                     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  checks            PlatformReadinessCheck[]
+  createdAt         DateTime                    @default(now())
+  updatedAt         DateTime                    @updatedAt
+
+  @@index([tenantId, createdAt])
+  @@index([status, createdAt])
+  @@index([environment, releaseVersion])
+}
+
+model PlatformReadinessCheck {
+  id                 String                       @id @default(cuid())
+  certificationRunId String
+  key                String
+  category           String
+  name               String
+  description        String?
+  status             PlatformReadinessCheckStatus
+  severity           PlatformReadinessSeverity
+  releaseBlocking    Boolean                      @default(false)
+  observedValue      String?
+  expectedValue      String?
+  evidence           Json?
+  remediation        String?
+  checkedAt          DateTime                     @default(now())
+  durationMs         Int?
+  certificationRun   PlatformCertificationRun     @relation(fields: [certificationRunId], references: [id], onDelete: Cascade)
+  createdAt          DateTime                     @default(now())
+
+  @@unique([certificationRunId, key])
+  @@index([status, severity])
+  @@index([category, status])
 }

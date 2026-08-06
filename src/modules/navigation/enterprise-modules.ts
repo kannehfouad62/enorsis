@@ -41,6 +41,7 @@ import {
   Bell,
   Clock3,
   SlidersHorizontal,
+  BadgeCheck
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -401,6 +402,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Versioned policies, tenant overrides and controlled feature flags.",
     href: "/app/settings/policies",
     icon: SlidersHorizontal,
+    group: "Platform",
+  },
+
+  {
+    title: "Platform Readiness",
+    description: "Release checks, evidence, blockers and certification history.",
+    href: "/app/settings/platform-readiness",
+    icon: BadgeCheck,
     group: "Platform",
   },
 

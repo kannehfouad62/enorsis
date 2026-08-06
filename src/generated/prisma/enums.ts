@@ -1986,6 +1986,39 @@ export const EnterpriseFeatureFlagStatus = {
 export type EnterpriseFeatureFlagStatus = (typeof EnterpriseFeatureFlagStatus)[keyof typeof EnterpriseFeatureFlagStatus]
 
 
+export const PlatformCertificationStatus = {
+  DRAFT: 'DRAFT',
+  RUNNING: 'RUNNING',
+  PASSED: 'PASSED',
+  PASSED_WITH_WARNINGS: 'PASSED_WITH_WARNINGS',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PlatformCertificationStatus = (typeof PlatformCertificationStatus)[keyof typeof PlatformCertificationStatus]
+
+
+export const PlatformReadinessCheckStatus = {
+  PASS: 'PASS',
+  WARN: 'WARN',
+  FAIL: 'FAIL',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type PlatformReadinessCheckStatus = (typeof PlatformReadinessCheckStatus)[keyof typeof PlatformReadinessCheckStatus]
+
+
+export const PlatformReadinessSeverity = {
+  INFO: 'INFO',
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type PlatformReadinessSeverity = (typeof PlatformReadinessSeverity)[keyof typeof PlatformReadinessSeverity]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

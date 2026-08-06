@@ -3502,6 +3502,57 @@ export type EnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaModel = n
   _max?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
 }
 
+export type EnumPlatformCertificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformCertificationStatus | Prisma.EnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel> | $Enums.PlatformCertificationStatus
+}
+
+export type EnumPlatformCertificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformCertificationStatus | Prisma.EnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformCertificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformCertificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformReadinessCheckStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessCheckStatus | Prisma.EnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel> | $Enums.PlatformReadinessCheckStatus
+}
+
+export type EnumPlatformReadinessSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessSeverity | Prisma.EnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel> | $Enums.PlatformReadinessSeverity
+}
+
+export type EnumPlatformReadinessCheckStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessCheckStatus | Prisma.EnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessCheckStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformReadinessCheckStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel>
+}
+
+export type EnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessSeverity | Prisma.EnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel> | $Enums.PlatformReadinessSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6947,6 +6998,57 @@ export type NestedEnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaMod
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformCertificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformCertificationStatus | Prisma.EnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel> | $Enums.PlatformCertificationStatus
+}
+
+export type NestedEnumPlatformCertificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformCertificationStatus | Prisma.EnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformCertificationStatus[] | Prisma.ListEnumPlatformCertificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformCertificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformCertificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformCertificationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessCheckStatus | Prisma.EnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel> | $Enums.PlatformReadinessCheckStatus
+}
+
+export type NestedEnumPlatformReadinessSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessSeverity | Prisma.EnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel> | $Enums.PlatformReadinessSeverity
+}
+
+export type NestedEnumPlatformReadinessCheckStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessCheckStatus | Prisma.EnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessCheckStatus[] | Prisma.ListEnumPlatformReadinessCheckStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessCheckStatusWithAggregatesFilter<$PrismaModel> | $Enums.PlatformReadinessCheckStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformReadinessCheckStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PlatformReadinessSeverity | Prisma.EnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PlatformReadinessSeverity[] | Prisma.ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel> | $Enums.PlatformReadinessSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
 }
 
 

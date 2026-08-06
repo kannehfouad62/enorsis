@@ -827,3 +827,13 @@ export type EnterpriseFeatureFlag = Prisma.EnterpriseFeatureFlagModel
  * 
  */
 export type EnterpriseTenantFeatureFlag = Prisma.EnterpriseTenantFeatureFlagModel
+/**
+ * Model PlatformCertificationRun
+ * 
+ */
+export type PlatformCertificationRun = Prisma.PlatformCertificationRunModel
+/**
+ * Model PlatformReadinessCheck
+ * 
+ */
+export type PlatformReadinessCheck = Prisma.PlatformReadinessCheckModel
