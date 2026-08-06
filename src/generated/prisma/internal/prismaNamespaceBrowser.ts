@@ -225,7 +225,10 @@ export const ModelName = {
   RequisitionApprovalDecision: 'RequisitionApprovalDecision',
   PurchaseOrderExecution: 'PurchaseOrderExecution',
   PurchaseOrderRevision: 'PurchaseOrderRevision',
-  PurchaseOrderValidation: 'PurchaseOrderValidation'
+  PurchaseOrderValidation: 'PurchaseOrderValidation',
+  GoodsReceiptSession: 'GoodsReceiptSession',
+  GoodsReceiptLine: 'GoodsReceiptLine',
+  GoodsReceiptException: 'GoodsReceiptException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4022,6 +4025,68 @@ export const PurchaseOrderValidationScalarFieldEnum = {
 } as const
 
 export type PurchaseOrderValidationScalarFieldEnum = (typeof PurchaseOrderValidationScalarFieldEnum)[keyof typeof PurchaseOrderValidationScalarFieldEnum]
+
+
+export const GoodsReceiptSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  purchaseOrderExecutionId: 'purchaseOrderExecutionId',
+  receiptNumber: 'receiptNumber',
+  status: 'status',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  deliveryReference: 'deliveryReference',
+  carrierReference: 'carrierReference',
+  locationReference: 'locationReference',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptSessionScalarFieldEnum = (typeof GoodsReceiptSessionScalarFieldEnum)[keyof typeof GoodsReceiptSessionScalarFieldEnum]
+
+
+export const GoodsReceiptLineScalarFieldEnum = {
+  id: 'id',
+  receiptSessionId: 'receiptSessionId',
+  lineReference: 'lineReference',
+  description: 'description',
+  orderedQuantity: 'orderedQuantity',
+  previouslyReceived: 'previouslyReceived',
+  receivedQuantity: 'receivedQuantity',
+  acceptedQuantity: 'acceptedQuantity',
+  rejectedQuantity: 'rejectedQuantity',
+  damagedQuantity: 'damagedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  condition: 'condition',
+  serialOrLotReference: 'serialOrLotReference',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptLineScalarFieldEnum = (typeof GoodsReceiptLineScalarFieldEnum)[keyof typeof GoodsReceiptLineScalarFieldEnum]
+
+
+export const GoodsReceiptExceptionScalarFieldEnum = {
+  id: 'id',
+  receiptSessionId: 'receiptSessionId',
+  receiptLineId: 'receiptLineId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptExceptionScalarFieldEnum = (typeof GoodsReceiptExceptionScalarFieldEnum)[keyof typeof GoodsReceiptExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

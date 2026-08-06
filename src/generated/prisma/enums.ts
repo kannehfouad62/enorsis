@@ -2160,6 +2160,53 @@ export const PurchaseOrderValidationStatus = {
 export type PurchaseOrderValidationStatus = (typeof PurchaseOrderValidationStatus)[keyof typeof PurchaseOrderValidationStatus]
 
 
+export const GoodsReceiptSessionStatus = {
+  DRAFT: 'DRAFT',
+  POSTED: 'POSTED',
+  PARTIALLY_ACCEPTED: 'PARTIALLY_ACCEPTED',
+  FULLY_ACCEPTED: 'FULLY_ACCEPTED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type GoodsReceiptSessionStatus = (typeof GoodsReceiptSessionStatus)[keyof typeof GoodsReceiptSessionStatus]
+
+
+export const GoodsReceiptLineCondition = {
+  ACCEPTED: 'ACCEPTED',
+  DAMAGED: 'DAMAGED',
+  REJECTED: 'REJECTED',
+  QUARANTINED: 'QUARANTINED'
+} as const
+
+export type GoodsReceiptLineCondition = (typeof GoodsReceiptLineCondition)[keyof typeof GoodsReceiptLineCondition]
+
+
+export const GoodsReceiptExceptionType = {
+  OVER_RECEIPT: 'OVER_RECEIPT',
+  UNDER_RECEIPT: 'UNDER_RECEIPT',
+  DAMAGED_GOODS: 'DAMAGED_GOODS',
+  REJECTED_GOODS: 'REJECTED_GOODS',
+  WRONG_ITEM: 'WRONG_ITEM',
+  QUALITY_HOLD: 'QUALITY_HOLD',
+  DELIVERY_DELAY: 'DELIVERY_DELAY',
+  OTHER: 'OTHER'
+} as const
+
+export type GoodsReceiptExceptionType = (typeof GoodsReceiptExceptionType)[keyof typeof GoodsReceiptExceptionType]
+
+
+export const GoodsReceiptExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type GoodsReceiptExceptionStatus = (typeof GoodsReceiptExceptionStatus)[keyof typeof GoodsReceiptExceptionStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

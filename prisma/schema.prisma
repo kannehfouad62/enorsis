@@ -1592,6 +1592,41 @@ enum PurchaseOrderValidationStatus {
   FAIL
 }
 
+enum GoodsReceiptSessionStatus {
+  DRAFT
+  POSTED
+  PARTIALLY_ACCEPTED
+  FULLY_ACCEPTED
+  REJECTED
+  CANCELLED
+}
+
+enum GoodsReceiptLineCondition {
+  ACCEPTED
+  DAMAGED
+  REJECTED
+  QUARANTINED
+}
+
+enum GoodsReceiptExceptionType {
+  OVER_RECEIPT
+  UNDER_RECEIPT
+  DAMAGED_GOODS
+  REJECTED_GOODS
+  WRONG_ITEM
+  QUALITY_HOLD
+  DELIVERY_DELAY
+  OTHER
+}
+
+enum GoodsReceiptExceptionStatus {
+  OPEN
+  INVESTIGATING
+  RESOLVED
+  WAIVED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1776,6 +1811,7 @@ model Tenant {
   requisitionSubmissionAssessments  RequisitionSubmissionAssessment[]
   requisitionApprovalRoutes         RequisitionApprovalRoute[]
   purchaseOrderExecutions           PurchaseOrderExecution[]
+  goodsReceiptSessions              GoodsReceiptSession[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5703,6 +5739,7 @@ model RequisitionOrderJourney {
   milestones              RequisitionOrderMilestone[]
   exceptions              RequisitionOrderException[]
   approvalRoutes          RequisitionApprovalRoute[]
+  goodsReceiptSessions    GoodsReceiptSession[]
   createdAt               DateTime                          @default(now())
   updatedAt               DateTime                          @updatedAt
 
@@ -5869,31 +5906,32 @@ model RequisitionApprovalDecision {
 }
 
 model PurchaseOrderExecution {
-  id                  String                       @id @default(cuid())
-  tenantId            String
-  journeyId           String
-  purchaseOrderId     String?
-  orderNumber         String
-  supplierId          String
-  contractId          String?
-  currencyCode        String                       @default("USD")
-  status              PurchaseOrderExecutionStatus @default(DRAFT)
-  currentRevision     Int                          @default(1)
-  totalAmount         Decimal                      @db.Decimal(18, 2)
-  taxAmount           Decimal                      @default(0) @db.Decimal(18, 2)
-  freightAmount       Decimal                      @default(0) @db.Decimal(18, 2)
-  discountAmount      Decimal                      @default(0) @db.Decimal(18, 2)
-  requestedDeliveryAt DateTime?
-  issuedAt            DateTime?
-  acknowledgedAt      DateTime?
-  createdByUserId     String?
-  updatedByUserId     String?
-  tenant              Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  journey             RequisitionOrderJourney      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
-  revisions           PurchaseOrderRevision[]
-  validations         PurchaseOrderValidation[]
-  createdAt           DateTime                     @default(now())
-  updatedAt           DateTime                     @updatedAt
+  id                   String                       @id @default(cuid())
+  tenantId             String
+  journeyId            String
+  purchaseOrderId      String?
+  orderNumber          String
+  supplierId           String
+  contractId           String?
+  currencyCode         String                       @default("USD")
+  status               PurchaseOrderExecutionStatus @default(DRAFT)
+  currentRevision      Int                          @default(1)
+  totalAmount          Decimal                      @db.Decimal(18, 2)
+  taxAmount            Decimal                      @default(0) @db.Decimal(18, 2)
+  freightAmount        Decimal                      @default(0) @db.Decimal(18, 2)
+  discountAmount       Decimal                      @default(0) @db.Decimal(18, 2)
+  requestedDeliveryAt  DateTime?
+  issuedAt             DateTime?
+  acknowledgedAt       DateTime?
+  createdByUserId      String?
+  updatedByUserId      String?
+  tenant               Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey              RequisitionOrderJourney      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  revisions            PurchaseOrderRevision[]
+  validations          PurchaseOrderValidation[]
+  goodsReceiptSessions GoodsReceiptSession[]
+  createdAt            DateTime                     @default(now())
+  updatedAt            DateTime                     @updatedAt
 
   @@unique([tenantId, orderNumber])
   @@index([tenantId, status, createdAt])
@@ -5944,4 +5982,74 @@ model PurchaseOrderValidation {
 
   @@unique([executionId, revisionNumber, key])
   @@index([executionId, revisionNumber, status])
+}
+
+model GoodsReceiptSession {
+  id                       String                    @id @default(cuid())
+  tenantId                 String
+  journeyId                String
+  purchaseOrderExecutionId String
+  receiptNumber            String
+  status                   GoodsReceiptSessionStatus @default(DRAFT)
+  receivedByUserId         String?
+  receivedAt               DateTime                  @default(now())
+  deliveryReference        String?
+  carrierReference         String?
+  locationReference        String?
+  notes                    String?
+  tenant                   Tenant                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey                  RequisitionOrderJourney   @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  purchaseOrderExecution   PurchaseOrderExecution    @relation(fields: [purchaseOrderExecutionId], references: [id], onDelete: Cascade)
+  lines                    GoodsReceiptLine[]
+  exceptions               GoodsReceiptException[]
+  createdAt                DateTime                  @default(now())
+  updatedAt                DateTime                  @updatedAt
+
+  @@unique([tenantId, receiptNumber])
+  @@index([tenantId, status, receivedAt])
+  @@index([journeyId])
+  @@index([purchaseOrderExecutionId])
+}
+
+model GoodsReceiptLine {
+  id                   String                    @id @default(cuid())
+  receiptSessionId     String
+  lineReference        String
+  description          String
+  orderedQuantity      Decimal                   @db.Decimal(18, 4)
+  previouslyReceived   Decimal                   @default(0) @db.Decimal(18, 4)
+  receivedQuantity     Decimal                   @db.Decimal(18, 4)
+  acceptedQuantity     Decimal                   @default(0) @db.Decimal(18, 4)
+  rejectedQuantity     Decimal                   @default(0) @db.Decimal(18, 4)
+  damagedQuantity      Decimal                   @default(0) @db.Decimal(18, 4)
+  unitOfMeasure        String                    @default("EA")
+  condition            GoodsReceiptLineCondition @default(ACCEPTED)
+  serialOrLotReference String?
+  notes                String?
+  receiptSession       GoodsReceiptSession       @relation(fields: [receiptSessionId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                  @default(now())
+  updatedAt            DateTime                  @updatedAt
+
+  @@index([receiptSessionId, condition])
+}
+
+model GoodsReceiptException {
+  id               String                            @id @default(cuid())
+  receiptSessionId String
+  receiptLineId    String?
+  exceptionType    GoodsReceiptExceptionType
+  status           GoodsReceiptExceptionStatus       @default(OPEN)
+  severity         RequisitionOrderExceptionSeverity @default(MEDIUM)
+  title            String
+  description      String?
+  ownerUserId      String?
+  dueAt            DateTime?
+  resolution       String?
+  resolvedAt       DateTime?
+  receiptSession   GoodsReceiptSession               @relation(fields: [receiptSessionId], references: [id], onDelete: Cascade)
+  createdAt        DateTime                          @default(now())
+  updatedAt        DateTime                          @updatedAt
+
+  @@index([receiptSessionId, status, severity])
+  @@index([status, dueAt])
 }

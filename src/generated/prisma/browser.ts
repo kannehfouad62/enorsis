@@ -892,3 +892,18 @@ export type PurchaseOrderRevision = Prisma.PurchaseOrderRevisionModel
  * 
  */
 export type PurchaseOrderValidation = Prisma.PurchaseOrderValidationModel
+/**
+ * Model GoodsReceiptSession
+ * 
+ */
+export type GoodsReceiptSession = Prisma.GoodsReceiptSessionModel
+/**
+ * Model GoodsReceiptLine
+ * 
+ */
+export type GoodsReceiptLine = Prisma.GoodsReceiptLineModel
+/**
+ * Model GoodsReceiptException
+ * 
+ */
+export type GoodsReceiptException = Prisma.GoodsReceiptExceptionModel

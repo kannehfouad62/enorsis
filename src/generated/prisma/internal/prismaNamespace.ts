@@ -571,7 +571,10 @@ export const ModelName = {
   RequisitionApprovalDecision: 'RequisitionApprovalDecision',
   PurchaseOrderExecution: 'PurchaseOrderExecution',
   PurchaseOrderRevision: 'PurchaseOrderRevision',
-  PurchaseOrderValidation: 'PurchaseOrderValidation'
+  PurchaseOrderValidation: 'PurchaseOrderValidation',
+  GoodsReceiptSession: 'GoodsReceiptSession',
+  GoodsReceiptLine: 'GoodsReceiptLine',
+  GoodsReceiptException: 'GoodsReceiptException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -587,7 +590,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -13541,6 +13544,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    GoodsReceiptSession: {
+      payload: Prisma.$GoodsReceiptSessionPayload<ExtArgs>
+      fields: Prisma.GoodsReceiptSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GoodsReceiptSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GoodsReceiptSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.GoodsReceiptSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GoodsReceiptSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        findMany: {
+          args: Prisma.GoodsReceiptSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>[]
+        }
+        create: {
+          args: Prisma.GoodsReceiptSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        createMany: {
+          args: Prisma.GoodsReceiptSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GoodsReceiptSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.GoodsReceiptSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        update: {
+          args: Prisma.GoodsReceiptSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.GoodsReceiptSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GoodsReceiptSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GoodsReceiptSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.GoodsReceiptSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.GoodsReceiptSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGoodsReceiptSession>
+        }
+        groupBy: {
+          args: Prisma.GoodsReceiptSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GoodsReceiptSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptSessionCountAggregateOutputType> | number
+        }
+      }
+    }
+    GoodsReceiptLine: {
+      payload: Prisma.$GoodsReceiptLinePayload<ExtArgs>
+      fields: Prisma.GoodsReceiptLineFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GoodsReceiptLineFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GoodsReceiptLineFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        findFirst: {
+          args: Prisma.GoodsReceiptLineFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GoodsReceiptLineFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        findMany: {
+          args: Prisma.GoodsReceiptLineFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>[]
+        }
+        create: {
+          args: Prisma.GoodsReceiptLineCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        createMany: {
+          args: Prisma.GoodsReceiptLineCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GoodsReceiptLineCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>[]
+        }
+        delete: {
+          args: Prisma.GoodsReceiptLineDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        update: {
+          args: Prisma.GoodsReceiptLineUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        deleteMany: {
+          args: Prisma.GoodsReceiptLineDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GoodsReceiptLineUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GoodsReceiptLineUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>[]
+        }
+        upsert: {
+          args: Prisma.GoodsReceiptLineUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptLinePayload>
+        }
+        aggregate: {
+          args: Prisma.GoodsReceiptLineAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGoodsReceiptLine>
+        }
+        groupBy: {
+          args: Prisma.GoodsReceiptLineGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptLineGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GoodsReceiptLineCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptLineCountAggregateOutputType> | number
+        }
+      }
+    }
+    GoodsReceiptException: {
+      payload: Prisma.$GoodsReceiptExceptionPayload<ExtArgs>
+      fields: Prisma.GoodsReceiptExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GoodsReceiptExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GoodsReceiptExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.GoodsReceiptExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GoodsReceiptExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.GoodsReceiptExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.GoodsReceiptExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.GoodsReceiptExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GoodsReceiptExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.GoodsReceiptExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        update: {
+          args: Prisma.GoodsReceiptExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.GoodsReceiptExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GoodsReceiptExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GoodsReceiptExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.GoodsReceiptExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GoodsReceiptExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.GoodsReceiptExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGoodsReceiptException>
+        }
+        groupBy: {
+          args: Prisma.GoodsReceiptExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GoodsReceiptExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GoodsReceiptExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -17360,6 +17585,68 @@ export const PurchaseOrderValidationScalarFieldEnum = {
 export type PurchaseOrderValidationScalarFieldEnum = (typeof PurchaseOrderValidationScalarFieldEnum)[keyof typeof PurchaseOrderValidationScalarFieldEnum]
 
 
+export const GoodsReceiptSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  purchaseOrderExecutionId: 'purchaseOrderExecutionId',
+  receiptNumber: 'receiptNumber',
+  status: 'status',
+  receivedByUserId: 'receivedByUserId',
+  receivedAt: 'receivedAt',
+  deliveryReference: 'deliveryReference',
+  carrierReference: 'carrierReference',
+  locationReference: 'locationReference',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptSessionScalarFieldEnum = (typeof GoodsReceiptSessionScalarFieldEnum)[keyof typeof GoodsReceiptSessionScalarFieldEnum]
+
+
+export const GoodsReceiptLineScalarFieldEnum = {
+  id: 'id',
+  receiptSessionId: 'receiptSessionId',
+  lineReference: 'lineReference',
+  description: 'description',
+  orderedQuantity: 'orderedQuantity',
+  previouslyReceived: 'previouslyReceived',
+  receivedQuantity: 'receivedQuantity',
+  acceptedQuantity: 'acceptedQuantity',
+  rejectedQuantity: 'rejectedQuantity',
+  damagedQuantity: 'damagedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  condition: 'condition',
+  serialOrLotReference: 'serialOrLotReference',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptLineScalarFieldEnum = (typeof GoodsReceiptLineScalarFieldEnum)[keyof typeof GoodsReceiptLineScalarFieldEnum]
+
+
+export const GoodsReceiptExceptionScalarFieldEnum = {
+  id: 'id',
+  receiptSessionId: 'receiptSessionId',
+  receiptLineId: 'receiptLineId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GoodsReceiptExceptionScalarFieldEnum = (typeof GoodsReceiptExceptionScalarFieldEnum)[keyof typeof GoodsReceiptExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -20264,6 +20551,62 @@ export type ListEnumPurchaseOrderValidationStatusFieldRefInput<$PrismaModel> = F
 
 
 /**
+ * Reference to a field of type 'GoodsReceiptSessionStatus'
+ */
+export type EnumGoodsReceiptSessionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptSessionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptSessionStatus[]'
+ */
+export type ListEnumGoodsReceiptSessionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptSessionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptLineCondition'
+ */
+export type EnumGoodsReceiptLineConditionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptLineCondition'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptLineCondition[]'
+ */
+export type ListEnumGoodsReceiptLineConditionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptLineCondition[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptExceptionType'
+ */
+export type EnumGoodsReceiptExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptExceptionType'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptExceptionType[]'
+ */
+export type ListEnumGoodsReceiptExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptExceptionType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptExceptionStatus'
+ */
+export type EnumGoodsReceiptExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GoodsReceiptExceptionStatus[]'
+ */
+export type ListEnumGoodsReceiptExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GoodsReceiptExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -20602,6 +20945,9 @@ export type GlobalOmitConfig = {
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionOmit
   purchaseOrderRevision?: Prisma.PurchaseOrderRevisionOmit
   purchaseOrderValidation?: Prisma.PurchaseOrderValidationOmit
+  goodsReceiptSession?: Prisma.GoodsReceiptSessionOmit
+  goodsReceiptLine?: Prisma.GoodsReceiptLineOmit
+  goodsReceiptException?: Prisma.GoodsReceiptExceptionOmit
 }
 
 /* Types for Logging */

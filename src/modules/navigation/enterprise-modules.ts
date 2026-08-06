@@ -429,6 +429,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Goods Receipt",
+    description: "Receipt posting, quantity tolerances, damage and exceptions.",
+    href: "/app/requisition-to-order/receipts",
+    icon: PackageCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
