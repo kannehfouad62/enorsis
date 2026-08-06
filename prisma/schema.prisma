@@ -1428,6 +1428,21 @@ enum EnterpriseNotificationDeliveryStatus {
   DEAD_LETTER
 }
 
+enum EnterpriseActivityVisibility {
+  TENANT
+  RESTRICTED
+  PRIVATE
+  PLATFORM
+}
+
+enum EnterpriseActivitySeverity {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+  CRITICAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1604,6 +1619,7 @@ model Tenant {
   enterpriseNotificationTemplates   EnterpriseNotificationTemplate[]
   enterpriseNotificationPreferences EnterpriseNotificationPreference[]
   enterpriseNotifications           EnterpriseNotification[]
+  enterpriseActivities              EnterpriseActivity[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5314,4 +5330,56 @@ model EnterpriseNotificationDelivery {
 
   @@index([status, availableAt])
   @@index([notificationId, channel])
+}
+
+model EnterpriseActivity {
+  id            String                         @id @default(cuid())
+  tenantId      String
+  activityType  String
+  sourceModule  String
+  title         String
+  description   String?
+  severity      EnterpriseActivitySeverity     @default(INFO)
+  visibility    EnterpriseActivityVisibility   @default(TENANT)
+  actorUserId   String?
+  actorName     String?
+  actorRole     String?
+  subjectType   String?
+  subjectId     String?
+  subjectLabel  String?
+  parentType    String?
+  parentId      String?
+  actionUrl     String?
+  eventId       String?
+  correlationId String?
+  ipAddress     String?
+  userAgent     String?
+  metadata      Json?
+  occurredAt    DateTime                       @default(now())
+  tenant        Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  accessRules   EnterpriseActivityAccessRule[]
+  createdAt     DateTime                       @default(now())
+
+  @@index([tenantId, occurredAt])
+  @@index([tenantId, activityType, occurredAt])
+  @@index([subjectType, subjectId, occurredAt])
+  @@index([actorUserId, occurredAt])
+  @@index([correlationId])
+  @@index([eventId])
+}
+
+model EnterpriseActivityAccessRule {
+  id         String             @id @default(cuid())
+  activityId String
+  userId     String?
+  role       String?
+  serviceKey String?
+  active     Boolean            @default(true)
+  expiresAt  DateTime?
+  activity   EnterpriseActivity @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  createdAt  DateTime           @default(now())
+
+  @@index([activityId, active])
+  @@index([userId, active])
+  @@index([role, active])
 }

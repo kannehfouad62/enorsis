@@ -1,0 +1,26 @@
+export type EnterpriseActivityInput = {
+  tenantId: string;
+  activityType: string;
+  sourceModule: string;
+  title: string;
+  description?: string | null;
+  severity?: "INFO" | "SUCCESS" | "WARNING" | "ERROR" | "CRITICAL";
+  visibility?: "TENANT" | "RESTRICTED" | "PRIVATE" | "PLATFORM";
+  actorUserId?: string | null;
+  actorName?: string | null;
+  actorRole?: string | null;
+  subjectType?: string | null;
+  subjectId?: string | null;
+  subjectLabel?: string | null;
+  parentType?: string | null;
+  parentId?: string | null;
+  actionUrl?: string | null;
+  eventId?: string | null;
+  correlationId?: string | null;
+  ipAddress?: string | null;
+  userAgent?: string | null;
+  metadata?: Record<string, unknown>;
+  occurredAt?: Date;
+  restrictedUserIds?: string[];
+  restrictedRoles?: string[];
+};

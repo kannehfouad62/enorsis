@@ -206,7 +206,9 @@ export const ModelName = {
   EnterpriseNotificationTemplate: 'EnterpriseNotificationTemplate',
   EnterpriseNotificationPreference: 'EnterpriseNotificationPreference',
   EnterpriseNotification: 'EnterpriseNotification',
-  EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery'
+  EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery',
+  EnterpriseActivity: 'EnterpriseActivity',
+  EnterpriseActivityAccessRule: 'EnterpriseActivityAccessRule'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3596,6 +3598,50 @@ export const EnterpriseNotificationDeliveryScalarFieldEnum = {
 } as const
 
 export type EnterpriseNotificationDeliveryScalarFieldEnum = (typeof EnterpriseNotificationDeliveryScalarFieldEnum)[keyof typeof EnterpriseNotificationDeliveryScalarFieldEnum]
+
+
+export const EnterpriseActivityScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  activityType: 'activityType',
+  sourceModule: 'sourceModule',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  visibility: 'visibility',
+  actorUserId: 'actorUserId',
+  actorName: 'actorName',
+  actorRole: 'actorRole',
+  subjectType: 'subjectType',
+  subjectId: 'subjectId',
+  subjectLabel: 'subjectLabel',
+  parentType: 'parentType',
+  parentId: 'parentId',
+  actionUrl: 'actionUrl',
+  eventId: 'eventId',
+  correlationId: 'correlationId',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  metadata: 'metadata',
+  occurredAt: 'occurredAt',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseActivityScalarFieldEnum = (typeof EnterpriseActivityScalarFieldEnum)[keyof typeof EnterpriseActivityScalarFieldEnum]
+
+
+export const EnterpriseActivityAccessRuleScalarFieldEnum = {
+  id: 'id',
+  activityId: 'activityId',
+  userId: 'userId',
+  role: 'role',
+  serviceKey: 'serviceKey',
+  active: 'active',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseActivityAccessRuleScalarFieldEnum = (typeof EnterpriseActivityAccessRuleScalarFieldEnum)[keyof typeof EnterpriseActivityAccessRuleScalarFieldEnum]
 
 
 export const SortOrder = {

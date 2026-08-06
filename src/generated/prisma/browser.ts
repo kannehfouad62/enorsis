@@ -797,3 +797,13 @@ export type EnterpriseNotification = Prisma.EnterpriseNotificationModel
  * 
  */
 export type EnterpriseNotificationDelivery = Prisma.EnterpriseNotificationDeliveryModel
+/**
+ * Model EnterpriseActivity
+ * 
+ */
+export type EnterpriseActivity = Prisma.EnterpriseActivityModel
+/**
+ * Model EnterpriseActivityAccessRule
+ * 
+ */
+export type EnterpriseActivityAccessRule = Prisma.EnterpriseActivityAccessRuleModel

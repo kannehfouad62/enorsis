@@ -3417,6 +3417,40 @@ export type EnumEnterpriseNotificationDeliveryStatusWithAggregatesFilter<$Prisma
   _max?: Prisma.NestedEnumEnterpriseNotificationDeliveryStatusFilter<$PrismaModel>
 }
 
+export type EnumEnterpriseActivitySeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivitySeverity | Prisma.EnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel> | $Enums.EnterpriseActivitySeverity
+}
+
+export type EnumEnterpriseActivityVisibilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivityVisibility | Prisma.EnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel> | $Enums.EnterpriseActivityVisibility
+}
+
+export type EnumEnterpriseActivitySeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivitySeverity | Prisma.EnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivitySeverityWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseActivitySeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivityVisibility | Prisma.EnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseActivityVisibility
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6777,6 +6811,40 @@ export type NestedEnumEnterpriseNotificationDeliveryStatusWithAggregatesFilter<$
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseNotificationDeliveryStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseNotificationDeliveryStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivitySeverity | Prisma.EnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel> | $Enums.EnterpriseActivitySeverity
+}
+
+export type NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivityVisibility | Prisma.EnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel> | $Enums.EnterpriseActivityVisibility
+}
+
+export type NestedEnumEnterpriseActivitySeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivitySeverity | Prisma.EnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivitySeverity[] | Prisma.ListEnumEnterpriseActivitySeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivitySeverityWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseActivitySeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseActivitySeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseActivityVisibility | Prisma.EnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseActivityVisibility[] | Prisma.ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseActivityVisibility
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
 }
 
 

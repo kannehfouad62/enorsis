@@ -39,6 +39,7 @@ import {
   Wrench,
   PlugZap,
   Bell,
+  Clock3,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -383,6 +384,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Templates, preferences, channels and delivery operations.",
     href: "/app/settings/notifications",
     icon: Bell,
+    group: "Platform",
+  },
+
+  {
+    title: "Universal Activity Timeline",
+    description: "Tenant-safe business activity, audit context and traceability.",
+    href: "/app/settings/activity",
+    icon: Clock3,
     group: "Platform",
   },
 

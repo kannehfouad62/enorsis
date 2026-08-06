@@ -1936,6 +1936,27 @@ export const EnterpriseNotificationDeliveryStatus = {
 export type EnterpriseNotificationDeliveryStatus = (typeof EnterpriseNotificationDeliveryStatus)[keyof typeof EnterpriseNotificationDeliveryStatus]
 
 
+export const EnterpriseActivityVisibility = {
+  TENANT: 'TENANT',
+  RESTRICTED: 'RESTRICTED',
+  PRIVATE: 'PRIVATE',
+  PLATFORM: 'PLATFORM'
+} as const
+
+export type EnterpriseActivityVisibility = (typeof EnterpriseActivityVisibility)[keyof typeof EnterpriseActivityVisibility]
+
+
+export const EnterpriseActivitySeverity = {
+  INFO: 'INFO',
+  SUCCESS: 'SUCCESS',
+  WARNING: 'WARNING',
+  ERROR: 'ERROR',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type EnterpriseActivitySeverity = (typeof EnterpriseActivitySeverity)[keyof typeof EnterpriseActivitySeverity]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
