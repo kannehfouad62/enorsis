@@ -1699,6 +1699,31 @@ enum ApPaymentHoldType {
   OTHER
 }
 
+enum ProcurementProcessCertificationStatus {
+  DRAFT
+  RUNNING
+  PASSED
+  PASSED_WITH_WARNINGS
+  FAILED
+  CERTIFIED
+  CANCELLED
+}
+
+enum ProcurementProcessCheckStatus {
+  PASS
+  WARN
+  FAIL
+  SKIPPED
+}
+
+enum ProcurementProcessCheckSeverity {
+  INFO
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1886,6 +1911,7 @@ model Tenant {
   goodsReceiptSessions              GoodsReceiptSession[]
   threeWayMatchCases                ThreeWayMatchCase[]
   apPaymentReadinessCases           ApPaymentReadinessCase[]
+  procurementProcessCertifications  ProcurementProcessCertification[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5814,6 +5840,7 @@ model RequisitionOrderJourney {
   exceptions              RequisitionOrderException[]
   approvalRoutes          RequisitionApprovalRoute[]
   goodsReceiptSessions    GoodsReceiptSession[]
+  processCertifications   ProcurementProcessCertification[]
   createdAt               DateTime                          @default(now())
   updatedAt               DateTime                          @updatedAt
 
@@ -6280,4 +6307,50 @@ model ApPaymentHold {
 
   @@index([readinessCaseId, status])
   @@index([holdType, status])
+}
+
+model ProcurementProcessCertification {
+  id                  String                                @id @default(cuid())
+  tenantId            String
+  journeyId           String
+  certificationNumber String
+  status              ProcurementProcessCertificationStatus @default(DRAFT)
+  releaseBlocked      Boolean                               @default(true)
+  summary             Json?
+  startedAt           DateTime?
+  completedAt         DateTime?
+  certifiedAt         DateTime?
+  initiatedByUserId   String?
+  certifiedByUserId   String?
+  tenant              Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey             RequisitionOrderJourney               @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  checks              ProcurementProcessCheck[]
+  createdAt           DateTime                              @default(now())
+  updatedAt           DateTime                              @updatedAt
+
+  @@unique([tenantId, certificationNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([journeyId])
+}
+
+model ProcurementProcessCheck {
+  id              String                          @id @default(cuid())
+  certificationId String
+  key             String
+  category        String
+  name            String
+  description     String?
+  status          ProcurementProcessCheckStatus
+  severity        ProcurementProcessCheckSeverity
+  releaseBlocking Boolean                         @default(false)
+  observedValue   String?
+  expectedValue   String?
+  remediation     String?
+  evidence        Json?
+  certification   ProcurementProcessCertification @relation(fields: [certificationId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                        @default(now())
+
+  @@unique([certificationId, key])
+  @@index([status, severity])
+  @@index([category, status])
 }

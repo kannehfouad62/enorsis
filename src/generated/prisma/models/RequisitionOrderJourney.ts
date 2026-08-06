@@ -407,6 +407,7 @@ export type RequisitionOrderJourneyWhereInput = {
   exceptions?: Prisma.RequisitionOrderExceptionListRelationFilter
   approvalRoutes?: Prisma.RequisitionApprovalRouteListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
+  processCertifications?: Prisma.ProcurementProcessCertificationListRelationFilter
 }
 
 export type RequisitionOrderJourneyOrderByWithRelationInput = {
@@ -444,6 +445,7 @@ export type RequisitionOrderJourneyOrderByWithRelationInput = {
   exceptions?: Prisma.RequisitionOrderExceptionOrderByRelationAggregateInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteOrderByRelationAggregateInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionOrderByRelationAggregateInput
+  processCertifications?: Prisma.ProcurementProcessCertificationOrderByRelationAggregateInput
 }
 
 export type RequisitionOrderJourneyWhereUniqueInput = Prisma.AtLeast<{
@@ -485,6 +487,7 @@ export type RequisitionOrderJourneyWhereUniqueInput = Prisma.AtLeast<{
   exceptions?: Prisma.RequisitionOrderExceptionListRelationFilter
   approvalRoutes?: Prisma.RequisitionApprovalRouteListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
+  processCertifications?: Prisma.ProcurementProcessCertificationListRelationFilter
 }, "id" | "tenantId_journeyNumber">
 
 export type RequisitionOrderJourneyOrderByWithAggregationInput = {
@@ -589,6 +592,7 @@ export type RequisitionOrderJourneyCreateInput = {
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateInput = {
@@ -625,6 +629,7 @@ export type RequisitionOrderJourneyUncheckedCreateInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUpdateInput = {
@@ -661,6 +666,7 @@ export type RequisitionOrderJourneyUpdateInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateInput = {
@@ -697,6 +703,7 @@ export type RequisitionOrderJourneyUncheckedUpdateInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateManyInput = {
@@ -1040,6 +1047,20 @@ export type RequisitionOrderJourneyUpdateOneRequiredWithoutGoodsReceiptSessionsN
   update?: Prisma.XOR<Prisma.XOR<Prisma.RequisitionOrderJourneyUpdateToOneWithWhereWithoutGoodsReceiptSessionsInput, Prisma.RequisitionOrderJourneyUpdateWithoutGoodsReceiptSessionsInput>, Prisma.RequisitionOrderJourneyUncheckedUpdateWithoutGoodsReceiptSessionsInput>
 }
 
+export type RequisitionOrderJourneyCreateNestedOneWithoutProcessCertificationsInput = {
+  create?: Prisma.XOR<Prisma.RequisitionOrderJourneyCreateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedCreateWithoutProcessCertificationsInput>
+  connectOrCreate?: Prisma.RequisitionOrderJourneyCreateOrConnectWithoutProcessCertificationsInput
+  connect?: Prisma.RequisitionOrderJourneyWhereUniqueInput
+}
+
+export type RequisitionOrderJourneyUpdateOneRequiredWithoutProcessCertificationsNestedInput = {
+  create?: Prisma.XOR<Prisma.RequisitionOrderJourneyCreateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedCreateWithoutProcessCertificationsInput>
+  connectOrCreate?: Prisma.RequisitionOrderJourneyCreateOrConnectWithoutProcessCertificationsInput
+  upsert?: Prisma.RequisitionOrderJourneyUpsertWithoutProcessCertificationsInput
+  connect?: Prisma.RequisitionOrderJourneyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.RequisitionOrderJourneyUpdateToOneWithWhereWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUpdateWithoutProcessCertificationsInput>, Prisma.RequisitionOrderJourneyUncheckedUpdateWithoutProcessCertificationsInput>
+}
+
 export type RequisitionOrderJourneyCreateWithoutTenantInput = {
   id?: string
   journeyNumber: string
@@ -1073,6 +1094,7 @@ export type RequisitionOrderJourneyCreateWithoutTenantInput = {
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutTenantInput = {
@@ -1108,6 +1130,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutTenantInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutTenantInput = {
@@ -1202,6 +1225,7 @@ export type RequisitionOrderJourneyCreateWithoutMilestonesInput = {
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutMilestonesInput = {
@@ -1237,6 +1261,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutMilestonesInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutMilestonesInput = {
@@ -1288,6 +1313,7 @@ export type RequisitionOrderJourneyUpdateWithoutMilestonesInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutMilestonesInput = {
@@ -1323,6 +1349,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutMilestonesInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateWithoutExceptionsInput = {
@@ -1358,6 +1385,7 @@ export type RequisitionOrderJourneyCreateWithoutExceptionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutExceptionsInput = {
@@ -1393,6 +1421,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutExceptionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutExceptionsInput = {
@@ -1444,6 +1473,7 @@ export type RequisitionOrderJourneyUpdateWithoutExceptionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutExceptionsInput = {
@@ -1479,6 +1509,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutExceptionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateWithoutSubmissionAssessmentsInput = {
@@ -1514,6 +1545,7 @@ export type RequisitionOrderJourneyCreateWithoutSubmissionAssessmentsInput = {
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutSubmissionAssessmentsInput = {
@@ -1549,6 +1581,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutSubmissionAssessmentsIn
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutSubmissionAssessmentsInput = {
@@ -1600,6 +1633,7 @@ export type RequisitionOrderJourneyUpdateWithoutSubmissionAssessmentsInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutSubmissionAssessmentsInput = {
@@ -1635,6 +1669,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutSubmissionAssessmentsIn
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateWithoutApprovalRoutesInput = {
@@ -1670,6 +1705,7 @@ export type RequisitionOrderJourneyCreateWithoutApprovalRoutesInput = {
   milestones?: Prisma.RequisitionOrderMilestoneCreateNestedManyWithoutJourneyInput
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutApprovalRoutesInput = {
@@ -1705,6 +1741,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutApprovalRoutesInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedCreateNestedManyWithoutJourneyInput
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutApprovalRoutesInput = {
@@ -1756,6 +1793,7 @@ export type RequisitionOrderJourneyUpdateWithoutApprovalRoutesInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUpdateManyWithoutJourneyNestedInput
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutApprovalRoutesInput = {
@@ -1791,6 +1829,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutApprovalRoutesInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedUpdateManyWithoutJourneyNestedInput
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateWithoutPurchaseOrderExecutionsInput = {
@@ -1826,6 +1865,7 @@ export type RequisitionOrderJourneyCreateWithoutPurchaseOrderExecutionsInput = {
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutPurchaseOrderExecutionsInput = {
@@ -1861,6 +1901,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutPurchaseOrderExecutions
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutPurchaseOrderExecutionsInput = {
@@ -1912,6 +1953,7 @@ export type RequisitionOrderJourneyUpdateWithoutPurchaseOrderExecutionsInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutPurchaseOrderExecutionsInput = {
@@ -1947,6 +1989,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutPurchaseOrderExecutions
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateWithoutGoodsReceiptSessionsInput = {
@@ -1982,6 +2025,7 @@ export type RequisitionOrderJourneyCreateWithoutGoodsReceiptSessionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneCreateNestedManyWithoutJourneyInput
   exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyUncheckedCreateWithoutGoodsReceiptSessionsInput = {
@@ -2017,6 +2061,7 @@ export type RequisitionOrderJourneyUncheckedCreateWithoutGoodsReceiptSessionsInp
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedCreateNestedManyWithoutJourneyInput
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutJourneyInput
 }
 
 export type RequisitionOrderJourneyCreateOrConnectWithoutGoodsReceiptSessionsInput = {
@@ -2068,6 +2113,7 @@ export type RequisitionOrderJourneyUpdateWithoutGoodsReceiptSessionsInput = {
   milestones?: Prisma.RequisitionOrderMilestoneUpdateManyWithoutJourneyNestedInput
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
@@ -2103,6 +2149,167 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutGoodsReceiptSessionsInp
   milestones?: Prisma.RequisitionOrderMilestoneUncheckedUpdateManyWithoutJourneyNestedInput
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
+}
+
+export type RequisitionOrderJourneyCreateWithoutProcessCertificationsInput = {
+  id?: string
+  journeyNumber: string
+  title: string
+  description?: string | null
+  status?: $Enums.RequisitionOrderJourneyStatus
+  requesterUserId?: string | null
+  ownerUserId?: string | null
+  purchaseRequestId?: string | null
+  purchaseOrderId?: string | null
+  primaryReceiptId?: string | null
+  supplierId?: string | null
+  currencyCode?: string
+  estimatedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  committedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  receivedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  requiredByDate?: Date | string | null
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  orderedAt?: Date | string | null
+  receivedAt?: Date | string | null
+  closedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  correlationId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutRequisitionOrderJourneysInput
+  submissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutJourneyInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutJourneyInput
+  milestones?: Prisma.RequisitionOrderMilestoneCreateNestedManyWithoutJourneyInput
+  exceptions?: Prisma.RequisitionOrderExceptionCreateNestedManyWithoutJourneyInput
+  approvalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutJourneyInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutJourneyInput
+}
+
+export type RequisitionOrderJourneyUncheckedCreateWithoutProcessCertificationsInput = {
+  id?: string
+  tenantId: string
+  journeyNumber: string
+  title: string
+  description?: string | null
+  status?: $Enums.RequisitionOrderJourneyStatus
+  requesterUserId?: string | null
+  ownerUserId?: string | null
+  purchaseRequestId?: string | null
+  purchaseOrderId?: string | null
+  primaryReceiptId?: string | null
+  supplierId?: string | null
+  currencyCode?: string
+  estimatedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  committedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  receivedAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  requiredByDate?: Date | string | null
+  submittedAt?: Date | string | null
+  approvedAt?: Date | string | null
+  orderedAt?: Date | string | null
+  receivedAt?: Date | string | null
+  closedAt?: Date | string | null
+  cancelledAt?: Date | string | null
+  cancellationReason?: string | null
+  correlationId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  submissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutJourneyInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutJourneyInput
+  milestones?: Prisma.RequisitionOrderMilestoneUncheckedCreateNestedManyWithoutJourneyInput
+  exceptions?: Prisma.RequisitionOrderExceptionUncheckedCreateNestedManyWithoutJourneyInput
+  approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutJourneyInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutJourneyInput
+}
+
+export type RequisitionOrderJourneyCreateOrConnectWithoutProcessCertificationsInput = {
+  where: Prisma.RequisitionOrderJourneyWhereUniqueInput
+  create: Prisma.XOR<Prisma.RequisitionOrderJourneyCreateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedCreateWithoutProcessCertificationsInput>
+}
+
+export type RequisitionOrderJourneyUpsertWithoutProcessCertificationsInput = {
+  update: Prisma.XOR<Prisma.RequisitionOrderJourneyUpdateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedUpdateWithoutProcessCertificationsInput>
+  create: Prisma.XOR<Prisma.RequisitionOrderJourneyCreateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedCreateWithoutProcessCertificationsInput>
+  where?: Prisma.RequisitionOrderJourneyWhereInput
+}
+
+export type RequisitionOrderJourneyUpdateToOneWithWhereWithoutProcessCertificationsInput = {
+  where?: Prisma.RequisitionOrderJourneyWhereInput
+  data: Prisma.XOR<Prisma.RequisitionOrderJourneyUpdateWithoutProcessCertificationsInput, Prisma.RequisitionOrderJourneyUncheckedUpdateWithoutProcessCertificationsInput>
+}
+
+export type RequisitionOrderJourneyUpdateWithoutProcessCertificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  journeyNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumRequisitionOrderJourneyStatusFieldUpdateOperationsInput | $Enums.RequisitionOrderJourneyStatus
+  requesterUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  purchaseRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  purchaseOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryReceiptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  estimatedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  committedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  receivedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  requiredByDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  orderedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  receivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  correlationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutRequisitionOrderJourneysNestedInput
+  submissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutJourneyNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutJourneyNestedInput
+  milestones?: Prisma.RequisitionOrderMilestoneUpdateManyWithoutJourneyNestedInput
+  exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
+  approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+}
+
+export type RequisitionOrderJourneyUncheckedUpdateWithoutProcessCertificationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  journeyNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumRequisitionOrderJourneyStatusFieldUpdateOperationsInput | $Enums.RequisitionOrderJourneyStatus
+  requesterUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  purchaseRequestId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  purchaseOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  primaryReceiptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  estimatedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  committedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  receivedAmount?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  requiredByDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  orderedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  receivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  closedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cancellationReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  correlationId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  submissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutJourneyNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutJourneyNestedInput
+  milestones?: Prisma.RequisitionOrderMilestoneUncheckedUpdateManyWithoutJourneyNestedInput
+  exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
+  approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyCreateManyTenantInput = {
@@ -2167,6 +2374,7 @@ export type RequisitionOrderJourneyUpdateWithoutTenantInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateWithoutTenantInput = {
@@ -2202,6 +2410,7 @@ export type RequisitionOrderJourneyUncheckedUpdateWithoutTenantInput = {
   exceptions?: Prisma.RequisitionOrderExceptionUncheckedUpdateManyWithoutJourneyNestedInput
   approvalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutJourneyNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyNestedInput
+  processCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutJourneyNestedInput
 }
 
 export type RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantInput = {
@@ -2245,6 +2454,7 @@ export type RequisitionOrderJourneyCountOutputType = {
   exceptions: number
   approvalRoutes: number
   goodsReceiptSessions: number
+  processCertifications: number
 }
 
 export type RequisitionOrderJourneyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2254,6 +2464,7 @@ export type RequisitionOrderJourneyCountOutputTypeSelect<ExtArgs extends runtime
   exceptions?: boolean | RequisitionOrderJourneyCountOutputTypeCountExceptionsArgs
   approvalRoutes?: boolean | RequisitionOrderJourneyCountOutputTypeCountApprovalRoutesArgs
   goodsReceiptSessions?: boolean | RequisitionOrderJourneyCountOutputTypeCountGoodsReceiptSessionsArgs
+  processCertifications?: boolean | RequisitionOrderJourneyCountOutputTypeCountProcessCertificationsArgs
 }
 
 /**
@@ -2308,6 +2519,13 @@ export type RequisitionOrderJourneyCountOutputTypeCountGoodsReceiptSessionsArgs<
   where?: Prisma.GoodsReceiptSessionWhereInput
 }
 
+/**
+ * RequisitionOrderJourneyCountOutputType without action
+ */
+export type RequisitionOrderJourneyCountOutputTypeCountProcessCertificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProcurementProcessCertificationWhereInput
+}
+
 
 export type RequisitionOrderJourneySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2344,6 +2562,7 @@ export type RequisitionOrderJourneySelect<ExtArgs extends runtime.Types.Extensio
   exceptions?: boolean | Prisma.RequisitionOrderJourney$exceptionsArgs<ExtArgs>
   approvalRoutes?: boolean | Prisma.RequisitionOrderJourney$approvalRoutesArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.RequisitionOrderJourney$goodsReceiptSessionsArgs<ExtArgs>
+  processCertifications?: boolean | Prisma.RequisitionOrderJourney$processCertificationsArgs<ExtArgs>
   _count?: boolean | Prisma.RequisitionOrderJourneyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["requisitionOrderJourney"]>
 
@@ -2448,6 +2667,7 @@ export type RequisitionOrderJourneyInclude<ExtArgs extends runtime.Types.Extensi
   exceptions?: boolean | Prisma.RequisitionOrderJourney$exceptionsArgs<ExtArgs>
   approvalRoutes?: boolean | Prisma.RequisitionOrderJourney$approvalRoutesArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.RequisitionOrderJourney$goodsReceiptSessionsArgs<ExtArgs>
+  processCertifications?: boolean | Prisma.RequisitionOrderJourney$processCertificationsArgs<ExtArgs>
   _count?: boolean | Prisma.RequisitionOrderJourneyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type RequisitionOrderJourneyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2467,6 +2687,7 @@ export type $RequisitionOrderJourneyPayload<ExtArgs extends runtime.Types.Extens
     exceptions: Prisma.$RequisitionOrderExceptionPayload<ExtArgs>[]
     approvalRoutes: Prisma.$RequisitionApprovalRoutePayload<ExtArgs>[]
     goodsReceiptSessions: Prisma.$GoodsReceiptSessionPayload<ExtArgs>[]
+    processCertifications: Prisma.$ProcurementProcessCertificationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2897,6 +3118,7 @@ export interface Prisma__RequisitionOrderJourneyClient<T, Null = never, ExtArgs 
   exceptions<T extends Prisma.RequisitionOrderJourney$exceptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RequisitionOrderJourney$exceptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequisitionOrderExceptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   approvalRoutes<T extends Prisma.RequisitionOrderJourney$approvalRoutesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RequisitionOrderJourney$approvalRoutesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequisitionApprovalRoutePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   goodsReceiptSessions<T extends Prisma.RequisitionOrderJourney$goodsReceiptSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RequisitionOrderJourney$goodsReceiptSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  processCertifications<T extends Prisma.RequisitionOrderJourney$processCertificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RequisitionOrderJourney$processCertificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProcurementProcessCertificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3495,6 +3717,30 @@ export type RequisitionOrderJourney$goodsReceiptSessionsArgs<ExtArgs extends run
   take?: number
   skip?: number
   distinct?: Prisma.GoodsReceiptSessionScalarFieldEnum | Prisma.GoodsReceiptSessionScalarFieldEnum[]
+}
+
+/**
+ * RequisitionOrderJourney.processCertifications
+ */
+export type RequisitionOrderJourney$processCertificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProcurementProcessCertification
+   */
+  select?: Prisma.ProcurementProcessCertificationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ProcurementProcessCertification
+   */
+  omit?: Prisma.ProcurementProcessCertificationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProcurementProcessCertificationInclude<ExtArgs> | null
+  where?: Prisma.ProcurementProcessCertificationWhereInput
+  orderBy?: Prisma.ProcurementProcessCertificationOrderByWithRelationInput | Prisma.ProcurementProcessCertificationOrderByWithRelationInput[]
+  cursor?: Prisma.ProcurementProcessCertificationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ProcurementProcessCertificationScalarFieldEnum | Prisma.ProcurementProcessCertificationScalarFieldEnum[]
 }
 
 /**

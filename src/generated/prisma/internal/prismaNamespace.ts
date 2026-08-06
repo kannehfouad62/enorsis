@@ -580,7 +580,9 @@ export const ModelName = {
   ThreeWayMatchException: 'ThreeWayMatchException',
   ApPaymentReadinessCase: 'ApPaymentReadinessCase',
   ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
-  ApPaymentHold: 'ApPaymentHold'
+  ApPaymentHold: 'ApPaymentHold',
+  ProcurementProcessCertification: 'ProcurementProcessCertification',
+  ProcurementProcessCheck: 'ProcurementProcessCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -596,7 +598,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -14216,6 +14218,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ProcurementProcessCertification: {
+      payload: Prisma.$ProcurementProcessCertificationPayload<ExtArgs>
+      fields: Prisma.ProcurementProcessCertificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementProcessCertificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementProcessCertificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementProcessCertificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementProcessCertificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementProcessCertificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementProcessCertificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementProcessCertificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementProcessCertificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementProcessCertificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        update: {
+          args: Prisma.ProcurementProcessCertificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementProcessCertificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementProcessCertificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementProcessCertificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementProcessCertificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCertificationPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementProcessCertificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementProcessCertification>
+        }
+        groupBy: {
+          args: Prisma.ProcurementProcessCertificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementProcessCertificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementProcessCertificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementProcessCertificationCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementProcessCheck: {
+      payload: Prisma.$ProcurementProcessCheckPayload<ExtArgs>
+      fields: Prisma.ProcurementProcessCheckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementProcessCheckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementProcessCheckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementProcessCheckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementProcessCheckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementProcessCheckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementProcessCheckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementProcessCheckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementProcessCheckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementProcessCheckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        update: {
+          args: Prisma.ProcurementProcessCheckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementProcessCheckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementProcessCheckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementProcessCheckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementProcessCheckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementProcessCheckPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementProcessCheckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementProcessCheck>
+        }
+        groupBy: {
+          args: Prisma.ProcurementProcessCheckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementProcessCheckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementProcessCheckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementProcessCheckCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -18230,6 +18380,46 @@ export const ApPaymentHoldScalarFieldEnum = {
 export type ApPaymentHoldScalarFieldEnum = (typeof ApPaymentHoldScalarFieldEnum)[keyof typeof ApPaymentHoldScalarFieldEnum]
 
 
+export const ProcurementProcessCertificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  certificationNumber: 'certificationNumber',
+  status: 'status',
+  releaseBlocked: 'releaseBlocked',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  certifiedAt: 'certifiedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  certifiedByUserId: 'certifiedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementProcessCertificationScalarFieldEnum = (typeof ProcurementProcessCertificationScalarFieldEnum)[keyof typeof ProcurementProcessCertificationScalarFieldEnum]
+
+
+export const ProcurementProcessCheckScalarFieldEnum = {
+  id: 'id',
+  certificationId: 'certificationId',
+  key: 'key',
+  category: 'category',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementProcessCheckScalarFieldEnum = (typeof ProcurementProcessCheckScalarFieldEnum)[keyof typeof ProcurementProcessCheckScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -21302,6 +21492,48 @@ export type ListEnumApPaymentHoldStatusFieldRefInput<$PrismaModel> = FieldRefInp
 
 
 /**
+ * Reference to a field of type 'ProcurementProcessCertificationStatus'
+ */
+export type EnumProcurementProcessCertificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCertificationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementProcessCertificationStatus[]'
+ */
+export type ListEnumProcurementProcessCertificationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCertificationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementProcessCheckStatus'
+ */
+export type EnumProcurementProcessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCheckStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementProcessCheckStatus[]'
+ */
+export type ListEnumProcurementProcessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCheckStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementProcessCheckSeverity'
+ */
+export type EnumProcurementProcessCheckSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCheckSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'ProcurementProcessCheckSeverity[]'
+ */
+export type ListEnumProcurementProcessCheckSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProcurementProcessCheckSeverity[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -21649,6 +21881,8 @@ export type GlobalOmitConfig = {
   apPaymentReadinessCase?: Prisma.ApPaymentReadinessCaseOmit
   apPaymentReadinessCheck?: Prisma.ApPaymentReadinessCheckOmit
   apPaymentHold?: Prisma.ApPaymentHoldOmit
+  procurementProcessCertification?: Prisma.ProcurementProcessCertificationOmit
+  procurementProcessCheck?: Prisma.ProcurementProcessCheckOmit
 }
 
 /* Types for Logging */

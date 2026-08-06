@@ -234,7 +234,9 @@ export const ModelName = {
   ThreeWayMatchException: 'ThreeWayMatchException',
   ApPaymentReadinessCase: 'ApPaymentReadinessCase',
   ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
-  ApPaymentHold: 'ApPaymentHold'
+  ApPaymentHold: 'ApPaymentHold',
+  ProcurementProcessCertification: 'ProcurementProcessCertification',
+  ProcurementProcessCheck: 'ProcurementProcessCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4226,6 +4228,46 @@ export const ApPaymentHoldScalarFieldEnum = {
 } as const
 
 export type ApPaymentHoldScalarFieldEnum = (typeof ApPaymentHoldScalarFieldEnum)[keyof typeof ApPaymentHoldScalarFieldEnum]
+
+
+export const ProcurementProcessCertificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  certificationNumber: 'certificationNumber',
+  status: 'status',
+  releaseBlocked: 'releaseBlocked',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  certifiedAt: 'certifiedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  certifiedByUserId: 'certifiedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementProcessCertificationScalarFieldEnum = (typeof ProcurementProcessCertificationScalarFieldEnum)[keyof typeof ProcurementProcessCertificationScalarFieldEnum]
+
+
+export const ProcurementProcessCheckScalarFieldEnum = {
+  id: 'id',
+  certificationId: 'certificationId',
+  key: 'key',
+  category: 'category',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  severity: 'severity',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementProcessCheckScalarFieldEnum = (typeof ProcurementProcessCheckScalarFieldEnum)[keyof typeof ProcurementProcessCheckScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -937,3 +937,13 @@ export type ApPaymentReadinessCheck = Prisma.ApPaymentReadinessCheckModel
  * 
  */
 export type ApPaymentHold = Prisma.ApPaymentHoldModel
+/**
+ * Model ProcurementProcessCertification
+ * 
+ */
+export type ProcurementProcessCertification = Prisma.ProcurementProcessCertificationModel
+/**
+ * Model ProcurementProcessCheck
+ * 
+ */
+export type ProcurementProcessCheck = Prisma.ProcurementProcessCheckModel

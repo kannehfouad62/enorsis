@@ -470,6 +470,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Procurement Certification",
+    description: "End-to-end process certification and closure controls.",
+    href: "/app/requisition-to-order/certification",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

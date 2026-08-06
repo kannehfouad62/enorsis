@@ -2303,6 +2303,40 @@ export const ApPaymentHoldType = {
 export type ApPaymentHoldType = (typeof ApPaymentHoldType)[keyof typeof ApPaymentHoldType]
 
 
+export const ProcurementProcessCertificationStatus = {
+  DRAFT: 'DRAFT',
+  RUNNING: 'RUNNING',
+  PASSED: 'PASSED',
+  PASSED_WITH_WARNINGS: 'PASSED_WITH_WARNINGS',
+  FAILED: 'FAILED',
+  CERTIFIED: 'CERTIFIED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ProcurementProcessCertificationStatus = (typeof ProcurementProcessCertificationStatus)[keyof typeof ProcurementProcessCertificationStatus]
+
+
+export const ProcurementProcessCheckStatus = {
+  PASS: 'PASS',
+  WARN: 'WARN',
+  FAIL: 'FAIL',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type ProcurementProcessCheckStatus = (typeof ProcurementProcessCheckStatus)[keyof typeof ProcurementProcessCheckStatus]
+
+
+export const ProcurementProcessCheckSeverity = {
+  INFO: 'INFO',
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type ProcurementProcessCheckSeverity = (typeof ProcurementProcessCheckSeverity)[keyof typeof ProcurementProcessCheckSeverity]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
