@@ -3553,6 +3553,74 @@ export type EnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel = nev
   _max?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
 }
 
+export type EnumRequisitionOrderJourneyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderJourneyStatus | Prisma.EnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel> | $Enums.RequisitionOrderJourneyStatus
+}
+
+export type EnumRequisitionOrderJourneyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderJourneyStatus | Prisma.EnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderJourneyStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderJourneyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel>
+}
+
+export type EnumRequisitionOrderMilestoneTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderMilestoneType | Prisma.EnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel> | $Enums.RequisitionOrderMilestoneType
+}
+
+export type EnumRequisitionOrderMilestoneTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderMilestoneType | Prisma.EnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderMilestoneTypeWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderMilestoneType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel>
+}
+
+export type EnumRequisitionOrderExceptionSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionSeverity | Prisma.EnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionSeverity
+}
+
+export type EnumRequisitionOrderExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionStatus | Prisma.EnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionStatus
+}
+
+export type EnumRequisitionOrderExceptionSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionSeverity | Prisma.EnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionSeverityWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel>
+}
+
+export type EnumRequisitionOrderExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionStatus | Prisma.EnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -7049,6 +7117,74 @@ export type NestedEnumPlatformReadinessSeverityWithAggregatesFilter<$PrismaModel
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
   _max?: Prisma.NestedEnumPlatformReadinessSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderJourneyStatus | Prisma.EnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel> | $Enums.RequisitionOrderJourneyStatus
+}
+
+export type NestedEnumRequisitionOrderJourneyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderJourneyStatus | Prisma.EnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderJourneyStatus[] | Prisma.ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderJourneyStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderJourneyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderJourneyStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderMilestoneType | Prisma.EnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel> | $Enums.RequisitionOrderMilestoneType
+}
+
+export type NestedEnumRequisitionOrderMilestoneTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderMilestoneType | Prisma.EnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderMilestoneType[] | Prisma.ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderMilestoneTypeWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderMilestoneType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderMilestoneTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionSeverity | Prisma.EnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionSeverity
+}
+
+export type NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionStatus | Prisma.EnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionStatus
+}
+
+export type NestedEnumRequisitionOrderExceptionSeverityWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionSeverity | Prisma.EnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionSeverity[] | Prisma.ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionSeverityWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionSeverity
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderExceptionSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumRequisitionOrderExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.RequisitionOrderExceptionStatus | Prisma.EnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.RequisitionOrderExceptionStatus[] | Prisma.ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumRequisitionOrderExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.RequisitionOrderExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumRequisitionOrderExceptionStatusFilter<$PrismaModel>
 }
 
 

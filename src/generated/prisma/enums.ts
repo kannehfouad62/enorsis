@@ -2019,6 +2019,61 @@ export const PlatformReadinessSeverity = {
 export type PlatformReadinessSeverity = (typeof PlatformReadinessSeverity)[keyof typeof PlatformReadinessSeverity]
 
 
+export const RequisitionOrderJourneyStatus = {
+  DRAFT: 'DRAFT',
+  REQUISITION_SUBMITTED: 'REQUISITION_SUBMITTED',
+  APPROVAL_PENDING: 'APPROVAL_PENDING',
+  APPROVED: 'APPROVED',
+  ORDER_PENDING: 'ORDER_PENDING',
+  ORDER_ISSUED: 'ORDER_ISSUED',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  RECEIVED: 'RECEIVED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED',
+  EXCEPTION: 'EXCEPTION'
+} as const
+
+export type RequisitionOrderJourneyStatus = (typeof RequisitionOrderJourneyStatus)[keyof typeof RequisitionOrderJourneyStatus]
+
+
+export const RequisitionOrderMilestoneType = {
+  REQUISITION_CREATED: 'REQUISITION_CREATED',
+  REQUISITION_SUBMITTED: 'REQUISITION_SUBMITTED',
+  APPROVAL_REQUESTED: 'APPROVAL_REQUESTED',
+  APPROVAL_COMPLETED: 'APPROVAL_COMPLETED',
+  ORDER_CREATED: 'ORDER_CREATED',
+  ORDER_ISSUED: 'ORDER_ISSUED',
+  RECEIPT_RECORDED: 'RECEIPT_RECORDED',
+  EXCEPTION_RAISED: 'EXCEPTION_RAISED',
+  EXCEPTION_RESOLVED: 'EXCEPTION_RESOLVED',
+  JOURNEY_CLOSED: 'JOURNEY_CLOSED',
+  JOURNEY_CANCELLED: 'JOURNEY_CANCELLED'
+} as const
+
+export type RequisitionOrderMilestoneType = (typeof RequisitionOrderMilestoneType)[keyof typeof RequisitionOrderMilestoneType]
+
+
+export const RequisitionOrderExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type RequisitionOrderExceptionStatus = (typeof RequisitionOrderExceptionStatus)[keyof typeof RequisitionOrderExceptionStatus]
+
+
+export const RequisitionOrderExceptionSeverity = {
+  LOW: 'LOW',
+  MEDIUM: 'MEDIUM',
+  HIGH: 'HIGH',
+  CRITICAL: 'CRITICAL'
+} as const
+
+export type RequisitionOrderExceptionSeverity = (typeof RequisitionOrderExceptionSeverity)[keyof typeof RequisitionOrderExceptionSeverity]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

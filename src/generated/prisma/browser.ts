@@ -837,3 +837,18 @@ export type PlatformCertificationRun = Prisma.PlatformCertificationRunModel
  * 
  */
 export type PlatformReadinessCheck = Prisma.PlatformReadinessCheckModel
+/**
+ * Model RequisitionOrderJourney
+ * 
+ */
+export type RequisitionOrderJourney = Prisma.RequisitionOrderJourneyModel
+/**
+ * Model RequisitionOrderMilestone
+ * 
+ */
+export type RequisitionOrderMilestone = Prisma.RequisitionOrderMilestoneModel
+/**
+ * Model RequisitionOrderException
+ * 
+ */
+export type RequisitionOrderException = Prisma.RequisitionOrderExceptionModel

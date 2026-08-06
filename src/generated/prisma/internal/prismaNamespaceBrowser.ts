@@ -214,7 +214,10 @@ export const ModelName = {
   EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
   EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag',
   PlatformCertificationRun: 'PlatformCertificationRun',
-  PlatformReadinessCheck: 'PlatformReadinessCheck'
+  PlatformReadinessCheck: 'PlatformReadinessCheck',
+  RequisitionOrderJourney: 'RequisitionOrderJourney',
+  RequisitionOrderMilestone: 'RequisitionOrderMilestone',
+  RequisitionOrderException: 'RequisitionOrderException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3766,6 +3769,77 @@ export const PlatformReadinessCheckScalarFieldEnum = {
 } as const
 
 export type PlatformReadinessCheckScalarFieldEnum = (typeof PlatformReadinessCheckScalarFieldEnum)[keyof typeof PlatformReadinessCheckScalarFieldEnum]
+
+
+export const RequisitionOrderJourneyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyNumber: 'journeyNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  requesterUserId: 'requesterUserId',
+  ownerUserId: 'ownerUserId',
+  purchaseRequestId: 'purchaseRequestId',
+  purchaseOrderId: 'purchaseOrderId',
+  primaryReceiptId: 'primaryReceiptId',
+  supplierId: 'supplierId',
+  currencyCode: 'currencyCode',
+  estimatedAmount: 'estimatedAmount',
+  committedAmount: 'committedAmount',
+  receivedAmount: 'receivedAmount',
+  requiredByDate: 'requiredByDate',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  orderedAt: 'orderedAt',
+  receivedAt: 'receivedAt',
+  closedAt: 'closedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  correlationId: 'correlationId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionOrderJourneyScalarFieldEnum = (typeof RequisitionOrderJourneyScalarFieldEnum)[keyof typeof RequisitionOrderJourneyScalarFieldEnum]
+
+
+export const RequisitionOrderMilestoneScalarFieldEnum = {
+  id: 'id',
+  journeyId: 'journeyId',
+  milestoneType: 'milestoneType',
+  title: 'title',
+  description: 'description',
+  actorUserId: 'actorUserId',
+  sourceModule: 'sourceModule',
+  sourceRecordId: 'sourceRecordId',
+  metadata: 'metadata',
+  occurredAt: 'occurredAt',
+  createdAt: 'createdAt'
+} as const
+
+export type RequisitionOrderMilestoneScalarFieldEnum = (typeof RequisitionOrderMilestoneScalarFieldEnum)[keyof typeof RequisitionOrderMilestoneScalarFieldEnum]
+
+
+export const RequisitionOrderExceptionScalarFieldEnum = {
+  id: 'id',
+  journeyId: 'journeyId',
+  code: 'code',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolvedAt: 'resolvedAt',
+  resolution: 'resolution',
+  sourceModule: 'sourceModule',
+  sourceRecordId: 'sourceRecordId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionOrderExceptionScalarFieldEnum = (typeof RequisitionOrderExceptionScalarFieldEnum)[keyof typeof RequisitionOrderExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

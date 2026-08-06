@@ -413,6 +413,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Platform",
   },
 
+  {
+    title: "Requisition-to-Order",
+    description: "Requisition, approval, order, receipt and exception journey.",
+    href: "/app/requisition-to-order",
+    icon: ShoppingCart,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

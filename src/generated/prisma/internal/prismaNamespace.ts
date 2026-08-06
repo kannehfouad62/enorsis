@@ -560,7 +560,10 @@ export const ModelName = {
   EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
   EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag',
   PlatformCertificationRun: 'PlatformCertificationRun',
-  PlatformReadinessCheck: 'PlatformReadinessCheck'
+  PlatformReadinessCheck: 'PlatformReadinessCheck',
+  RequisitionOrderJourney: 'RequisitionOrderJourney',
+  RequisitionOrderMilestone: 'RequisitionOrderMilestone',
+  RequisitionOrderException: 'RequisitionOrderException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -576,7 +579,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -12716,6 +12719,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    RequisitionOrderJourney: {
+      payload: Prisma.$RequisitionOrderJourneyPayload<ExtArgs>
+      fields: Prisma.RequisitionOrderJourneyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RequisitionOrderJourneyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RequisitionOrderJourneyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        findFirst: {
+          args: Prisma.RequisitionOrderJourneyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RequisitionOrderJourneyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        findMany: {
+          args: Prisma.RequisitionOrderJourneyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>[]
+        }
+        create: {
+          args: Prisma.RequisitionOrderJourneyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        createMany: {
+          args: Prisma.RequisitionOrderJourneyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RequisitionOrderJourneyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>[]
+        }
+        delete: {
+          args: Prisma.RequisitionOrderJourneyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        update: {
+          args: Prisma.RequisitionOrderJourneyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        deleteMany: {
+          args: Prisma.RequisitionOrderJourneyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RequisitionOrderJourneyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RequisitionOrderJourneyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>[]
+        }
+        upsert: {
+          args: Prisma.RequisitionOrderJourneyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderJourneyPayload>
+        }
+        aggregate: {
+          args: Prisma.RequisitionOrderJourneyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRequisitionOrderJourney>
+        }
+        groupBy: {
+          args: Prisma.RequisitionOrderJourneyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderJourneyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RequisitionOrderJourneyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderJourneyCountAggregateOutputType> | number
+        }
+      }
+    }
+    RequisitionOrderMilestone: {
+      payload: Prisma.$RequisitionOrderMilestonePayload<ExtArgs>
+      fields: Prisma.RequisitionOrderMilestoneFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RequisitionOrderMilestoneFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RequisitionOrderMilestoneFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        findFirst: {
+          args: Prisma.RequisitionOrderMilestoneFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RequisitionOrderMilestoneFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        findMany: {
+          args: Prisma.RequisitionOrderMilestoneFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>[]
+        }
+        create: {
+          args: Prisma.RequisitionOrderMilestoneCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        createMany: {
+          args: Prisma.RequisitionOrderMilestoneCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RequisitionOrderMilestoneCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>[]
+        }
+        delete: {
+          args: Prisma.RequisitionOrderMilestoneDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        update: {
+          args: Prisma.RequisitionOrderMilestoneUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        deleteMany: {
+          args: Prisma.RequisitionOrderMilestoneDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RequisitionOrderMilestoneUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RequisitionOrderMilestoneUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>[]
+        }
+        upsert: {
+          args: Prisma.RequisitionOrderMilestoneUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderMilestonePayload>
+        }
+        aggregate: {
+          args: Prisma.RequisitionOrderMilestoneAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRequisitionOrderMilestone>
+        }
+        groupBy: {
+          args: Prisma.RequisitionOrderMilestoneGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderMilestoneGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RequisitionOrderMilestoneCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderMilestoneCountAggregateOutputType> | number
+        }
+      }
+    }
+    RequisitionOrderException: {
+      payload: Prisma.$RequisitionOrderExceptionPayload<ExtArgs>
+      fields: Prisma.RequisitionOrderExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RequisitionOrderExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RequisitionOrderExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.RequisitionOrderExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RequisitionOrderExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.RequisitionOrderExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.RequisitionOrderExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.RequisitionOrderExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RequisitionOrderExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.RequisitionOrderExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        update: {
+          args: Prisma.RequisitionOrderExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.RequisitionOrderExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RequisitionOrderExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RequisitionOrderExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.RequisitionOrderExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RequisitionOrderExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.RequisitionOrderExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRequisitionOrderException>
+        }
+        groupBy: {
+          args: Prisma.RequisitionOrderExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RequisitionOrderExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RequisitionOrderExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -16290,6 +16515,77 @@ export const PlatformReadinessCheckScalarFieldEnum = {
 export type PlatformReadinessCheckScalarFieldEnum = (typeof PlatformReadinessCheckScalarFieldEnum)[keyof typeof PlatformReadinessCheckScalarFieldEnum]
 
 
+export const RequisitionOrderJourneyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyNumber: 'journeyNumber',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  requesterUserId: 'requesterUserId',
+  ownerUserId: 'ownerUserId',
+  purchaseRequestId: 'purchaseRequestId',
+  purchaseOrderId: 'purchaseOrderId',
+  primaryReceiptId: 'primaryReceiptId',
+  supplierId: 'supplierId',
+  currencyCode: 'currencyCode',
+  estimatedAmount: 'estimatedAmount',
+  committedAmount: 'committedAmount',
+  receivedAmount: 'receivedAmount',
+  requiredByDate: 'requiredByDate',
+  submittedAt: 'submittedAt',
+  approvedAt: 'approvedAt',
+  orderedAt: 'orderedAt',
+  receivedAt: 'receivedAt',
+  closedAt: 'closedAt',
+  cancelledAt: 'cancelledAt',
+  cancellationReason: 'cancellationReason',
+  correlationId: 'correlationId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionOrderJourneyScalarFieldEnum = (typeof RequisitionOrderJourneyScalarFieldEnum)[keyof typeof RequisitionOrderJourneyScalarFieldEnum]
+
+
+export const RequisitionOrderMilestoneScalarFieldEnum = {
+  id: 'id',
+  journeyId: 'journeyId',
+  milestoneType: 'milestoneType',
+  title: 'title',
+  description: 'description',
+  actorUserId: 'actorUserId',
+  sourceModule: 'sourceModule',
+  sourceRecordId: 'sourceRecordId',
+  metadata: 'metadata',
+  occurredAt: 'occurredAt',
+  createdAt: 'createdAt'
+} as const
+
+export type RequisitionOrderMilestoneScalarFieldEnum = (typeof RequisitionOrderMilestoneScalarFieldEnum)[keyof typeof RequisitionOrderMilestoneScalarFieldEnum]
+
+
+export const RequisitionOrderExceptionScalarFieldEnum = {
+  id: 'id',
+  journeyId: 'journeyId',
+  code: 'code',
+  title: 'title',
+  description: 'description',
+  severity: 'severity',
+  status: 'status',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolvedAt: 'resolvedAt',
+  resolution: 'resolution',
+  sourceModule: 'sourceModule',
+  sourceRecordId: 'sourceRecordId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionOrderExceptionScalarFieldEnum = (typeof RequisitionOrderExceptionScalarFieldEnum)[keyof typeof RequisitionOrderExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -19026,6 +19322,62 @@ export type ListEnumPlatformReadinessSeverityFieldRefInput<$PrismaModel> = Field
 
 
 /**
+ * Reference to a field of type 'RequisitionOrderJourneyStatus'
+ */
+export type EnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderJourneyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderJourneyStatus[]'
+ */
+export type ListEnumRequisitionOrderJourneyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderJourneyStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderMilestoneType'
+ */
+export type EnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderMilestoneType'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderMilestoneType[]'
+ */
+export type ListEnumRequisitionOrderMilestoneTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderMilestoneType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderExceptionSeverity'
+ */
+export type EnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderExceptionSeverity'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderExceptionSeverity[]'
+ */
+export type ListEnumRequisitionOrderExceptionSeverityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderExceptionSeverity[]'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderExceptionStatus'
+ */
+export type EnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'RequisitionOrderExceptionStatus[]'
+ */
+export type ListEnumRequisitionOrderExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'RequisitionOrderExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -19353,6 +19705,9 @@ export type GlobalOmitConfig = {
   enterpriseTenantFeatureFlag?: Prisma.EnterpriseTenantFeatureFlagOmit
   platformCertificationRun?: Prisma.PlatformCertificationRunOmit
   platformReadinessCheck?: Prisma.PlatformReadinessCheckOmit
+  requisitionOrderJourney?: Prisma.RequisitionOrderJourneyOmit
+  requisitionOrderMilestone?: Prisma.RequisitionOrderMilestoneOmit
+  requisitionOrderException?: Prisma.RequisitionOrderExceptionOmit
 }
 
 /* Types for Logging */
