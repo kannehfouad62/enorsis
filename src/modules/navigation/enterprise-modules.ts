@@ -462,6 +462,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Procurement Analytics",
+    description: "Executive KPIs, bottlenecks, exceptions and payment readiness.",
+    href: "/app/requisition-to-order/analytics",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
