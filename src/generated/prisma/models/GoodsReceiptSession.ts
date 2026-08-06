@@ -259,6 +259,7 @@ export type GoodsReceiptSessionWhereInput = {
   purchaseOrderExecution?: Prisma.XOR<Prisma.PurchaseOrderExecutionScalarRelationFilter, Prisma.PurchaseOrderExecutionWhereInput>
   lines?: Prisma.GoodsReceiptLineListRelationFilter
   exceptions?: Prisma.GoodsReceiptExceptionListRelationFilter
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
 }
 
 export type GoodsReceiptSessionOrderByWithRelationInput = {
@@ -281,6 +282,7 @@ export type GoodsReceiptSessionOrderByWithRelationInput = {
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionOrderByWithRelationInput
   lines?: Prisma.GoodsReceiptLineOrderByRelationAggregateInput
   exceptions?: Prisma.GoodsReceiptExceptionOrderByRelationAggregateInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseOrderByRelationAggregateInput
 }
 
 export type GoodsReceiptSessionWhereUniqueInput = Prisma.AtLeast<{
@@ -307,6 +309,7 @@ export type GoodsReceiptSessionWhereUniqueInput = Prisma.AtLeast<{
   purchaseOrderExecution?: Prisma.XOR<Prisma.PurchaseOrderExecutionScalarRelationFilter, Prisma.PurchaseOrderExecutionWhereInput>
   lines?: Prisma.GoodsReceiptLineListRelationFilter
   exceptions?: Prisma.GoodsReceiptExceptionListRelationFilter
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
 }, "id" | "tenantId_receiptNumber">
 
 export type GoodsReceiptSessionOrderByWithAggregationInput = {
@@ -366,6 +369,7 @@ export type GoodsReceiptSessionCreateInput = {
   purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateInput = {
@@ -385,6 +389,7 @@ export type GoodsReceiptSessionUncheckedCreateInput = {
   updatedAt?: Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUpdateInput = {
@@ -404,6 +409,7 @@ export type GoodsReceiptSessionUpdateInput = {
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateInput = {
@@ -423,6 +429,7 @@ export type GoodsReceiptSessionUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionCreateManyInput = {
@@ -702,6 +709,20 @@ export type GoodsReceiptSessionUpdateOneRequiredWithoutExceptionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptSessionUpdateToOneWithWhereWithoutExceptionsInput, Prisma.GoodsReceiptSessionUpdateWithoutExceptionsInput>, Prisma.GoodsReceiptSessionUncheckedUpdateWithoutExceptionsInput>
 }
 
+export type GoodsReceiptSessionCreateNestedOneWithoutThreeWayMatchCasesInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptSessionCreateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  connectOrCreate?: Prisma.GoodsReceiptSessionCreateOrConnectWithoutThreeWayMatchCasesInput
+  connect?: Prisma.GoodsReceiptSessionWhereUniqueInput
+}
+
+export type GoodsReceiptSessionUpdateOneRequiredWithoutThreeWayMatchCasesNestedInput = {
+  create?: Prisma.XOR<Prisma.GoodsReceiptSessionCreateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  connectOrCreate?: Prisma.GoodsReceiptSessionCreateOrConnectWithoutThreeWayMatchCasesInput
+  upsert?: Prisma.GoodsReceiptSessionUpsertWithoutThreeWayMatchCasesInput
+  connect?: Prisma.GoodsReceiptSessionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GoodsReceiptSessionUpdateToOneWithWhereWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUpdateWithoutThreeWayMatchCasesInput>, Prisma.GoodsReceiptSessionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+}
+
 export type GoodsReceiptSessionCreateWithoutTenantInput = {
   id?: string
   receiptNumber: string
@@ -718,6 +739,7 @@ export type GoodsReceiptSessionCreateWithoutTenantInput = {
   purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateWithoutTenantInput = {
@@ -736,6 +758,7 @@ export type GoodsReceiptSessionUncheckedCreateWithoutTenantInput = {
   updatedAt?: Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionCreateOrConnectWithoutTenantInput = {
@@ -800,6 +823,7 @@ export type GoodsReceiptSessionCreateWithoutJourneyInput = {
   purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateWithoutJourneyInput = {
@@ -818,6 +842,7 @@ export type GoodsReceiptSessionUncheckedCreateWithoutJourneyInput = {
   updatedAt?: Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionCreateOrConnectWithoutJourneyInput = {
@@ -862,6 +887,7 @@ export type GoodsReceiptSessionCreateWithoutPurchaseOrderExecutionInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutGoodsReceiptSessionsInput
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateWithoutPurchaseOrderExecutionInput = {
@@ -880,6 +906,7 @@ export type GoodsReceiptSessionUncheckedCreateWithoutPurchaseOrderExecutionInput
   updatedAt?: Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionCreateOrConnectWithoutPurchaseOrderExecutionInput = {
@@ -924,6 +951,7 @@ export type GoodsReceiptSessionCreateWithoutLinesInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutGoodsReceiptSessionsInput
   purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
   exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateWithoutLinesInput = {
@@ -942,6 +970,7 @@ export type GoodsReceiptSessionUncheckedCreateWithoutLinesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionCreateOrConnectWithoutLinesInput = {
@@ -976,6 +1005,7 @@ export type GoodsReceiptSessionUpdateWithoutLinesInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateWithoutLinesInput = {
@@ -994,6 +1024,7 @@ export type GoodsReceiptSessionUncheckedUpdateWithoutLinesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionCreateWithoutExceptionsInput = {
@@ -1012,6 +1043,7 @@ export type GoodsReceiptSessionCreateWithoutExceptionsInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutGoodsReceiptSessionsInput
   purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
   lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionUncheckedCreateWithoutExceptionsInput = {
@@ -1030,6 +1062,7 @@ export type GoodsReceiptSessionUncheckedCreateWithoutExceptionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutGoodsReceiptSessionInput
 }
 
 export type GoodsReceiptSessionCreateOrConnectWithoutExceptionsInput = {
@@ -1064,6 +1097,7 @@ export type GoodsReceiptSessionUpdateWithoutExceptionsInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateWithoutExceptionsInput = {
@@ -1082,6 +1116,99 @@ export type GoodsReceiptSessionUncheckedUpdateWithoutExceptionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
+}
+
+export type GoodsReceiptSessionCreateWithoutThreeWayMatchCasesInput = {
+  id?: string
+  receiptNumber: string
+  status?: $Enums.GoodsReceiptSessionStatus
+  receivedByUserId?: string | null
+  receivedAt?: Date | string
+  deliveryReference?: string | null
+  carrierReference?: string | null
+  locationReference?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutGoodsReceiptSessionsInput
+  journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutGoodsReceiptSessionsInput
+  purchaseOrderExecution: Prisma.PurchaseOrderExecutionCreateNestedOneWithoutGoodsReceiptSessionsInput
+  lines?: Prisma.GoodsReceiptLineCreateNestedManyWithoutReceiptSessionInput
+  exceptions?: Prisma.GoodsReceiptExceptionCreateNestedManyWithoutReceiptSessionInput
+}
+
+export type GoodsReceiptSessionUncheckedCreateWithoutThreeWayMatchCasesInput = {
+  id?: string
+  tenantId: string
+  journeyId: string
+  purchaseOrderExecutionId: string
+  receiptNumber: string
+  status?: $Enums.GoodsReceiptSessionStatus
+  receivedByUserId?: string | null
+  receivedAt?: Date | string
+  deliveryReference?: string | null
+  carrierReference?: string | null
+  locationReference?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  lines?: Prisma.GoodsReceiptLineUncheckedCreateNestedManyWithoutReceiptSessionInput
+  exceptions?: Prisma.GoodsReceiptExceptionUncheckedCreateNestedManyWithoutReceiptSessionInput
+}
+
+export type GoodsReceiptSessionCreateOrConnectWithoutThreeWayMatchCasesInput = {
+  where: Prisma.GoodsReceiptSessionWhereUniqueInput
+  create: Prisma.XOR<Prisma.GoodsReceiptSessionCreateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedCreateWithoutThreeWayMatchCasesInput>
+}
+
+export type GoodsReceiptSessionUpsertWithoutThreeWayMatchCasesInput = {
+  update: Prisma.XOR<Prisma.GoodsReceiptSessionUpdateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+  create: Prisma.XOR<Prisma.GoodsReceiptSessionCreateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  where?: Prisma.GoodsReceiptSessionWhereInput
+}
+
+export type GoodsReceiptSessionUpdateToOneWithWhereWithoutThreeWayMatchCasesInput = {
+  where?: Prisma.GoodsReceiptSessionWhereInput
+  data: Prisma.XOR<Prisma.GoodsReceiptSessionUpdateWithoutThreeWayMatchCasesInput, Prisma.GoodsReceiptSessionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+}
+
+export type GoodsReceiptSessionUpdateWithoutThreeWayMatchCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  receiptNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumGoodsReceiptSessionStatusFieldUpdateOperationsInput | $Enums.GoodsReceiptSessionStatus
+  receivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveryReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  carrierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locationReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
+  journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
+  purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
+  lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
+  exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+}
+
+export type GoodsReceiptSessionUncheckedUpdateWithoutThreeWayMatchCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  journeyId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderExecutionId?: Prisma.StringFieldUpdateOperationsInput | string
+  receiptNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumGoodsReceiptSessionStatusFieldUpdateOperationsInput | $Enums.GoodsReceiptSessionStatus
+  receivedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  receivedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deliveryReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  carrierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  locationReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionCreateManyTenantInput = {
@@ -1116,6 +1243,7 @@ export type GoodsReceiptSessionUpdateWithoutTenantInput = {
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateWithoutTenantInput = {
@@ -1134,6 +1262,7 @@ export type GoodsReceiptSessionUncheckedUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateManyWithoutTenantInput = {
@@ -1184,6 +1313,7 @@ export type GoodsReceiptSessionUpdateWithoutJourneyInput = {
   purchaseOrderExecution?: Prisma.PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateWithoutJourneyInput = {
@@ -1202,6 +1332,7 @@ export type GoodsReceiptSessionUncheckedUpdateWithoutJourneyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateManyWithoutJourneyInput = {
@@ -1252,6 +1383,7 @@ export type GoodsReceiptSessionUpdateWithoutPurchaseOrderExecutionInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutGoodsReceiptSessionsNestedInput
   lines?: Prisma.GoodsReceiptLineUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateWithoutPurchaseOrderExecutionInput = {
@@ -1270,6 +1402,7 @@ export type GoodsReceiptSessionUncheckedUpdateWithoutPurchaseOrderExecutionInput
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lines?: Prisma.GoodsReceiptLineUncheckedUpdateManyWithoutReceiptSessionNestedInput
   exceptions?: Prisma.GoodsReceiptExceptionUncheckedUpdateManyWithoutReceiptSessionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutGoodsReceiptSessionNestedInput
 }
 
 export type GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionInput = {
@@ -1296,11 +1429,13 @@ export type GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionI
 export type GoodsReceiptSessionCountOutputType = {
   lines: number
   exceptions: number
+  threeWayMatchCases: number
 }
 
 export type GoodsReceiptSessionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   lines?: boolean | GoodsReceiptSessionCountOutputTypeCountLinesArgs
   exceptions?: boolean | GoodsReceiptSessionCountOutputTypeCountExceptionsArgs
+  threeWayMatchCases?: boolean | GoodsReceiptSessionCountOutputTypeCountThreeWayMatchCasesArgs
 }
 
 /**
@@ -1327,6 +1462,13 @@ export type GoodsReceiptSessionCountOutputTypeCountExceptionsArgs<ExtArgs extend
   where?: Prisma.GoodsReceiptExceptionWhereInput
 }
 
+/**
+ * GoodsReceiptSessionCountOutputType without action
+ */
+export type GoodsReceiptSessionCountOutputTypeCountThreeWayMatchCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ThreeWayMatchCaseWhereInput
+}
+
 
 export type GoodsReceiptSessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1348,6 +1490,7 @@ export type GoodsReceiptSessionSelect<ExtArgs extends runtime.Types.Extensions.I
   purchaseOrderExecution?: boolean | Prisma.PurchaseOrderExecutionDefaultArgs<ExtArgs>
   lines?: boolean | Prisma.GoodsReceiptSession$linesArgs<ExtArgs>
   exceptions?: boolean | Prisma.GoodsReceiptSession$exceptionsArgs<ExtArgs>
+  threeWayMatchCases?: boolean | Prisma.GoodsReceiptSession$threeWayMatchCasesArgs<ExtArgs>
   _count?: boolean | Prisma.GoodsReceiptSessionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["goodsReceiptSession"]>
 
@@ -1415,6 +1558,7 @@ export type GoodsReceiptSessionInclude<ExtArgs extends runtime.Types.Extensions.
   purchaseOrderExecution?: boolean | Prisma.PurchaseOrderExecutionDefaultArgs<ExtArgs>
   lines?: boolean | Prisma.GoodsReceiptSession$linesArgs<ExtArgs>
   exceptions?: boolean | Prisma.GoodsReceiptSession$exceptionsArgs<ExtArgs>
+  threeWayMatchCases?: boolean | Prisma.GoodsReceiptSession$threeWayMatchCasesArgs<ExtArgs>
   _count?: boolean | Prisma.GoodsReceiptSessionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GoodsReceiptSessionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1436,6 +1580,7 @@ export type $GoodsReceiptSessionPayload<ExtArgs extends runtime.Types.Extensions
     purchaseOrderExecution: Prisma.$PurchaseOrderExecutionPayload<ExtArgs>
     lines: Prisma.$GoodsReceiptLinePayload<ExtArgs>[]
     exceptions: Prisma.$GoodsReceiptExceptionPayload<ExtArgs>[]
+    threeWayMatchCases: Prisma.$ThreeWayMatchCasePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1851,6 +1996,7 @@ export interface Prisma__GoodsReceiptSessionClient<T, Null = never, ExtArgs exte
   purchaseOrderExecution<T extends Prisma.PurchaseOrderExecutionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderExecutionDefaultArgs<ExtArgs>>): Prisma.Prisma__PurchaseOrderExecutionClient<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderExecutionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   lines<T extends Prisma.GoodsReceiptSession$linesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptSession$linesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptLinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   exceptions<T extends Prisma.GoodsReceiptSession$exceptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptSession$exceptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptExceptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  threeWayMatchCases<T extends Prisma.GoodsReceiptSession$threeWayMatchCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GoodsReceiptSession$threeWayMatchCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThreeWayMatchCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2340,6 +2486,30 @@ export type GoodsReceiptSession$exceptionsArgs<ExtArgs extends runtime.Types.Ext
   take?: number
   skip?: number
   distinct?: Prisma.GoodsReceiptExceptionScalarFieldEnum | Prisma.GoodsReceiptExceptionScalarFieldEnum[]
+}
+
+/**
+ * GoodsReceiptSession.threeWayMatchCases
+ */
+export type GoodsReceiptSession$threeWayMatchCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ThreeWayMatchCase
+   */
+  select?: Prisma.ThreeWayMatchCaseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ThreeWayMatchCase
+   */
+  omit?: Prisma.ThreeWayMatchCaseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ThreeWayMatchCaseInclude<ExtArgs> | null
+  where?: Prisma.ThreeWayMatchCaseWhereInput
+  orderBy?: Prisma.ThreeWayMatchCaseOrderByWithRelationInput | Prisma.ThreeWayMatchCaseOrderByWithRelationInput[]
+  cursor?: Prisma.ThreeWayMatchCaseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ThreeWayMatchCaseScalarFieldEnum | Prisma.ThreeWayMatchCaseScalarFieldEnum[]
 }
 
 /**

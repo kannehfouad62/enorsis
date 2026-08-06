@@ -907,3 +907,18 @@ export type GoodsReceiptLine = Prisma.GoodsReceiptLineModel
  * 
  */
 export type GoodsReceiptException = Prisma.GoodsReceiptExceptionModel
+/**
+ * Model ThreeWayMatchCase
+ * 
+ */
+export type ThreeWayMatchCase = Prisma.ThreeWayMatchCaseModel
+/**
+ * Model ThreeWayMatchLine
+ * 
+ */
+export type ThreeWayMatchLine = Prisma.ThreeWayMatchLineModel
+/**
+ * Model ThreeWayMatchException
+ * 
+ */
+export type ThreeWayMatchException = Prisma.ThreeWayMatchExceptionModel

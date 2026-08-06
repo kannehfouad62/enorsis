@@ -365,6 +365,7 @@ export type PurchaseOrderExecutionWhereInput = {
   revisions?: Prisma.PurchaseOrderRevisionListRelationFilter
   validations?: Prisma.PurchaseOrderValidationListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
 }
 
 export type PurchaseOrderExecutionOrderByWithRelationInput = {
@@ -394,6 +395,7 @@ export type PurchaseOrderExecutionOrderByWithRelationInput = {
   revisions?: Prisma.PurchaseOrderRevisionOrderByRelationAggregateInput
   validations?: Prisma.PurchaseOrderValidationOrderByRelationAggregateInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionOrderByRelationAggregateInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseOrderByRelationAggregateInput
 }
 
 export type PurchaseOrderExecutionWhereUniqueInput = Prisma.AtLeast<{
@@ -427,6 +429,7 @@ export type PurchaseOrderExecutionWhereUniqueInput = Prisma.AtLeast<{
   revisions?: Prisma.PurchaseOrderRevisionListRelationFilter
   validations?: Prisma.PurchaseOrderValidationListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
 }, "id" | "tenantId_orderNumber">
 
 export type PurchaseOrderExecutionOrderByWithAggregationInput = {
@@ -510,6 +513,7 @@ export type PurchaseOrderExecutionCreateInput = {
   revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateInput = {
@@ -537,6 +541,7 @@ export type PurchaseOrderExecutionUncheckedCreateInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUpdateInput = {
@@ -564,6 +569,7 @@ export type PurchaseOrderExecutionUpdateInput = {
   revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateInput = {
@@ -591,6 +597,7 @@ export type PurchaseOrderExecutionUncheckedUpdateInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionCreateManyInput = {
@@ -901,6 +908,20 @@ export type PurchaseOrderExecutionUpdateOneRequiredWithoutGoodsReceiptSessionsNe
   update?: Prisma.XOR<Prisma.XOR<Prisma.PurchaseOrderExecutionUpdateToOneWithWhereWithoutGoodsReceiptSessionsInput, Prisma.PurchaseOrderExecutionUpdateWithoutGoodsReceiptSessionsInput>, Prisma.PurchaseOrderExecutionUncheckedUpdateWithoutGoodsReceiptSessionsInput>
 }
 
+export type PurchaseOrderExecutionCreateNestedOneWithoutThreeWayMatchCasesInput = {
+  create?: Prisma.XOR<Prisma.PurchaseOrderExecutionCreateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  connectOrCreate?: Prisma.PurchaseOrderExecutionCreateOrConnectWithoutThreeWayMatchCasesInput
+  connect?: Prisma.PurchaseOrderExecutionWhereUniqueInput
+}
+
+export type PurchaseOrderExecutionUpdateOneRequiredWithoutThreeWayMatchCasesNestedInput = {
+  create?: Prisma.XOR<Prisma.PurchaseOrderExecutionCreateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  connectOrCreate?: Prisma.PurchaseOrderExecutionCreateOrConnectWithoutThreeWayMatchCasesInput
+  upsert?: Prisma.PurchaseOrderExecutionUpsertWithoutThreeWayMatchCasesInput
+  connect?: Prisma.PurchaseOrderExecutionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PurchaseOrderExecutionUpdateToOneWithWhereWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUpdateWithoutThreeWayMatchCasesInput>, Prisma.PurchaseOrderExecutionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+}
+
 export type PurchaseOrderExecutionCreateWithoutTenantInput = {
   id?: string
   purchaseOrderId?: string | null
@@ -925,6 +946,7 @@ export type PurchaseOrderExecutionCreateWithoutTenantInput = {
   revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateWithoutTenantInput = {
@@ -951,6 +973,7 @@ export type PurchaseOrderExecutionUncheckedCreateWithoutTenantInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionCreateOrConnectWithoutTenantInput = {
@@ -1030,6 +1053,7 @@ export type PurchaseOrderExecutionCreateWithoutJourneyInput = {
   revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateWithoutJourneyInput = {
@@ -1056,6 +1080,7 @@ export type PurchaseOrderExecutionUncheckedCreateWithoutJourneyInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionCreateOrConnectWithoutJourneyInput = {
@@ -1108,6 +1133,7 @@ export type PurchaseOrderExecutionCreateWithoutRevisionsInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutPurchaseOrderExecutionsInput
   validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateWithoutRevisionsInput = {
@@ -1134,6 +1160,7 @@ export type PurchaseOrderExecutionUncheckedCreateWithoutRevisionsInput = {
   updatedAt?: Date | string
   validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionCreateOrConnectWithoutRevisionsInput = {
@@ -1176,6 +1203,7 @@ export type PurchaseOrderExecutionUpdateWithoutRevisionsInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutPurchaseOrderExecutionsNestedInput
   validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateWithoutRevisionsInput = {
@@ -1202,6 +1230,7 @@ export type PurchaseOrderExecutionUncheckedUpdateWithoutRevisionsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionCreateWithoutValidationsInput = {
@@ -1228,6 +1257,7 @@ export type PurchaseOrderExecutionCreateWithoutValidationsInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutPurchaseOrderExecutionsInput
   revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateWithoutValidationsInput = {
@@ -1254,6 +1284,7 @@ export type PurchaseOrderExecutionUncheckedCreateWithoutValidationsInput = {
   updatedAt?: Date | string
   revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionCreateOrConnectWithoutValidationsInput = {
@@ -1296,6 +1327,7 @@ export type PurchaseOrderExecutionUpdateWithoutValidationsInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutPurchaseOrderExecutionsNestedInput
   revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateWithoutValidationsInput = {
@@ -1322,6 +1354,7 @@ export type PurchaseOrderExecutionUncheckedUpdateWithoutValidationsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionCreateWithoutGoodsReceiptSessionsInput = {
@@ -1348,6 +1381,7 @@ export type PurchaseOrderExecutionCreateWithoutGoodsReceiptSessionsInput = {
   journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutPurchaseOrderExecutionsInput
   revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionUncheckedCreateWithoutGoodsReceiptSessionsInput = {
@@ -1374,6 +1408,7 @@ export type PurchaseOrderExecutionUncheckedCreateWithoutGoodsReceiptSessionsInpu
   updatedAt?: Date | string
   revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
   validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
 }
 
 export type PurchaseOrderExecutionCreateOrConnectWithoutGoodsReceiptSessionsInput = {
@@ -1416,6 +1451,7 @@ export type PurchaseOrderExecutionUpdateWithoutGoodsReceiptSessionsInput = {
   journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutPurchaseOrderExecutionsNestedInput
   revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
@@ -1442,6 +1478,131 @@ export type PurchaseOrderExecutionUncheckedUpdateWithoutGoodsReceiptSessionsInpu
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+}
+
+export type PurchaseOrderExecutionCreateWithoutThreeWayMatchCasesInput = {
+  id?: string
+  purchaseOrderId?: string | null
+  orderNumber: string
+  supplierId: string
+  contractId?: string | null
+  currencyCode?: string
+  status?: $Enums.PurchaseOrderExecutionStatus
+  currentRevision?: number
+  totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  freightAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  requestedDeliveryAt?: Date | string | null
+  issuedAt?: Date | string | null
+  acknowledgedAt?: Date | string | null
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutPurchaseOrderExecutionsInput
+  journey: Prisma.RequisitionOrderJourneyCreateNestedOneWithoutPurchaseOrderExecutionsInput
+  revisions?: Prisma.PurchaseOrderRevisionCreateNestedManyWithoutExecutionInput
+  validations?: Prisma.PurchaseOrderValidationCreateNestedManyWithoutExecutionInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutPurchaseOrderExecutionInput
+}
+
+export type PurchaseOrderExecutionUncheckedCreateWithoutThreeWayMatchCasesInput = {
+  id?: string
+  tenantId: string
+  journeyId: string
+  purchaseOrderId?: string | null
+  orderNumber: string
+  supplierId: string
+  contractId?: string | null
+  currencyCode?: string
+  status?: $Enums.PurchaseOrderExecutionStatus
+  currentRevision?: number
+  totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  freightAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  requestedDeliveryAt?: Date | string | null
+  issuedAt?: Date | string | null
+  acknowledgedAt?: Date | string | null
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  revisions?: Prisma.PurchaseOrderRevisionUncheckedCreateNestedManyWithoutExecutionInput
+  validations?: Prisma.PurchaseOrderValidationUncheckedCreateNestedManyWithoutExecutionInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutPurchaseOrderExecutionInput
+}
+
+export type PurchaseOrderExecutionCreateOrConnectWithoutThreeWayMatchCasesInput = {
+  where: Prisma.PurchaseOrderExecutionWhereUniqueInput
+  create: Prisma.XOR<Prisma.PurchaseOrderExecutionCreateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedCreateWithoutThreeWayMatchCasesInput>
+}
+
+export type PurchaseOrderExecutionUpsertWithoutThreeWayMatchCasesInput = {
+  update: Prisma.XOR<Prisma.PurchaseOrderExecutionUpdateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+  create: Prisma.XOR<Prisma.PurchaseOrderExecutionCreateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedCreateWithoutThreeWayMatchCasesInput>
+  where?: Prisma.PurchaseOrderExecutionWhereInput
+}
+
+export type PurchaseOrderExecutionUpdateToOneWithWhereWithoutThreeWayMatchCasesInput = {
+  where?: Prisma.PurchaseOrderExecutionWhereInput
+  data: Prisma.XOR<Prisma.PurchaseOrderExecutionUpdateWithoutThreeWayMatchCasesInput, Prisma.PurchaseOrderExecutionUncheckedUpdateWithoutThreeWayMatchCasesInput>
+}
+
+export type PurchaseOrderExecutionUpdateWithoutThreeWayMatchCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  contractId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumPurchaseOrderExecutionStatusFieldUpdateOperationsInput | $Enums.PurchaseOrderExecutionStatus
+  currentRevision?: Prisma.IntFieldUpdateOperationsInput | number
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  freightAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  requestedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutPurchaseOrderExecutionsNestedInput
+  journey?: Prisma.RequisitionOrderJourneyUpdateOneRequiredWithoutPurchaseOrderExecutionsNestedInput
+  revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
+  validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+}
+
+export type PurchaseOrderExecutionUncheckedUpdateWithoutThreeWayMatchCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  journeyId?: Prisma.StringFieldUpdateOperationsInput | string
+  purchaseOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  orderNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  contractId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumPurchaseOrderExecutionStatusFieldUpdateOperationsInput | $Enums.PurchaseOrderExecutionStatus
+  currentRevision?: Prisma.IntFieldUpdateOperationsInput | number
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  freightAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  requestedDeliveryAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  issuedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  acknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
+  validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionCreateManyTenantInput = {
@@ -1491,6 +1652,7 @@ export type PurchaseOrderExecutionUpdateWithoutTenantInput = {
   revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateWithoutTenantInput = {
@@ -1517,6 +1679,7 @@ export type PurchaseOrderExecutionUncheckedUpdateWithoutTenantInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantInput = {
@@ -1589,6 +1752,7 @@ export type PurchaseOrderExecutionUpdateWithoutJourneyInput = {
   revisions?: Prisma.PurchaseOrderRevisionUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateWithoutJourneyInput = {
@@ -1615,6 +1779,7 @@ export type PurchaseOrderExecutionUncheckedUpdateWithoutJourneyInput = {
   revisions?: Prisma.PurchaseOrderRevisionUncheckedUpdateManyWithoutExecutionNestedInput
   validations?: Prisma.PurchaseOrderValidationUncheckedUpdateManyWithoutExecutionNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutPurchaseOrderExecutionNestedInput
 }
 
 export type PurchaseOrderExecutionUncheckedUpdateManyWithoutJourneyInput = {
@@ -1649,12 +1814,14 @@ export type PurchaseOrderExecutionCountOutputType = {
   revisions: number
   validations: number
   goodsReceiptSessions: number
+  threeWayMatchCases: number
 }
 
 export type PurchaseOrderExecutionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   revisions?: boolean | PurchaseOrderExecutionCountOutputTypeCountRevisionsArgs
   validations?: boolean | PurchaseOrderExecutionCountOutputTypeCountValidationsArgs
   goodsReceiptSessions?: boolean | PurchaseOrderExecutionCountOutputTypeCountGoodsReceiptSessionsArgs
+  threeWayMatchCases?: boolean | PurchaseOrderExecutionCountOutputTypeCountThreeWayMatchCasesArgs
 }
 
 /**
@@ -1688,6 +1855,13 @@ export type PurchaseOrderExecutionCountOutputTypeCountGoodsReceiptSessionsArgs<E
   where?: Prisma.GoodsReceiptSessionWhereInput
 }
 
+/**
+ * PurchaseOrderExecutionCountOutputType without action
+ */
+export type PurchaseOrderExecutionCountOutputTypeCountThreeWayMatchCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ThreeWayMatchCaseWhereInput
+}
+
 
 export type PurchaseOrderExecutionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1716,6 +1890,7 @@ export type PurchaseOrderExecutionSelect<ExtArgs extends runtime.Types.Extension
   revisions?: boolean | Prisma.PurchaseOrderExecution$revisionsArgs<ExtArgs>
   validations?: boolean | Prisma.PurchaseOrderExecution$validationsArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.PurchaseOrderExecution$goodsReceiptSessionsArgs<ExtArgs>
+  threeWayMatchCases?: boolean | Prisma.PurchaseOrderExecution$threeWayMatchCasesArgs<ExtArgs>
   _count?: boolean | Prisma.PurchaseOrderExecutionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["purchaseOrderExecution"]>
 
@@ -1802,6 +1977,7 @@ export type PurchaseOrderExecutionInclude<ExtArgs extends runtime.Types.Extensio
   revisions?: boolean | Prisma.PurchaseOrderExecution$revisionsArgs<ExtArgs>
   validations?: boolean | Prisma.PurchaseOrderExecution$validationsArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.PurchaseOrderExecution$goodsReceiptSessionsArgs<ExtArgs>
+  threeWayMatchCases?: boolean | Prisma.PurchaseOrderExecution$threeWayMatchCasesArgs<ExtArgs>
   _count?: boolean | Prisma.PurchaseOrderExecutionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PurchaseOrderExecutionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1821,6 +1997,7 @@ export type $PurchaseOrderExecutionPayload<ExtArgs extends runtime.Types.Extensi
     revisions: Prisma.$PurchaseOrderRevisionPayload<ExtArgs>[]
     validations: Prisma.$PurchaseOrderValidationPayload<ExtArgs>[]
     goodsReceiptSessions: Prisma.$GoodsReceiptSessionPayload<ExtArgs>[]
+    threeWayMatchCases: Prisma.$ThreeWayMatchCasePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2243,6 +2420,7 @@ export interface Prisma__PurchaseOrderExecutionClient<T, Null = never, ExtArgs e
   revisions<T extends Prisma.PurchaseOrderExecution$revisionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderExecution$revisionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderRevisionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   validations<T extends Prisma.PurchaseOrderExecution$validationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderExecution$validationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderValidationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   goodsReceiptSessions<T extends Prisma.PurchaseOrderExecution$goodsReceiptSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderExecution$goodsReceiptSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  threeWayMatchCases<T extends Prisma.PurchaseOrderExecution$threeWayMatchCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PurchaseOrderExecution$threeWayMatchCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThreeWayMatchCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2763,6 +2941,30 @@ export type PurchaseOrderExecution$goodsReceiptSessionsArgs<ExtArgs extends runt
   take?: number
   skip?: number
   distinct?: Prisma.GoodsReceiptSessionScalarFieldEnum | Prisma.GoodsReceiptSessionScalarFieldEnum[]
+}
+
+/**
+ * PurchaseOrderExecution.threeWayMatchCases
+ */
+export type PurchaseOrderExecution$threeWayMatchCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ThreeWayMatchCase
+   */
+  select?: Prisma.ThreeWayMatchCaseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ThreeWayMatchCase
+   */
+  omit?: Prisma.ThreeWayMatchCaseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ThreeWayMatchCaseInclude<ExtArgs> | null
+  where?: Prisma.ThreeWayMatchCaseWhereInput
+  orderBy?: Prisma.ThreeWayMatchCaseOrderByWithRelationInput | Prisma.ThreeWayMatchCaseOrderByWithRelationInput[]
+  cursor?: Prisma.ThreeWayMatchCaseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ThreeWayMatchCaseScalarFieldEnum | Prisma.ThreeWayMatchCaseScalarFieldEnum[]
 }
 
 /**

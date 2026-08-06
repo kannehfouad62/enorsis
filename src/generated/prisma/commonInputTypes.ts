@@ -3825,6 +3825,74 @@ export type EnumGoodsReceiptExceptionStatusWithAggregatesFilter<$PrismaModel = n
   _max?: Prisma.NestedEnumGoodsReceiptExceptionStatusFilter<$PrismaModel>
 }
 
+export type EnumThreeWayMatchStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchStatus | Prisma.EnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchStatus
+}
+
+export type EnumThreeWayMatchStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchStatus | Prisma.EnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel>
+}
+
+export type EnumThreeWayMatchLineStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchLineStatus | Prisma.EnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchLineStatus
+}
+
+export type EnumThreeWayMatchLineStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchLineStatus | Prisma.EnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchLineStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchLineStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel>
+}
+
+export type EnumThreeWayMatchExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionType | Prisma.EnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionType
+}
+
+export type EnumThreeWayMatchExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionStatus | Prisma.EnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionStatus
+}
+
+export type EnumThreeWayMatchExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionType | Prisma.EnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel>
+}
+
+export type EnumThreeWayMatchExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionStatus | Prisma.EnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -7593,6 +7661,74 @@ export type NestedEnumGoodsReceiptExceptionStatusWithAggregatesFilter<$PrismaMod
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumGoodsReceiptExceptionStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumGoodsReceiptExceptionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumThreeWayMatchStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchStatus | Prisma.EnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchStatus
+}
+
+export type NestedEnumThreeWayMatchStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchStatus | Prisma.EnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchStatus[] | Prisma.ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchLineStatus | Prisma.EnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchLineStatus
+}
+
+export type NestedEnumThreeWayMatchLineStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchLineStatus | Prisma.EnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchLineStatus[] | Prisma.ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchLineStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchLineStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchLineStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionType | Prisma.EnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionType
+}
+
+export type NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionStatus | Prisma.EnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionStatus
+}
+
+export type NestedEnumThreeWayMatchExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionType | Prisma.EnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionType[] | Prisma.ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchExceptionTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumThreeWayMatchExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ThreeWayMatchExceptionStatus | Prisma.EnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ThreeWayMatchExceptionStatus[] | Prisma.ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumThreeWayMatchExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ThreeWayMatchExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumThreeWayMatchExceptionStatusFilter<$PrismaModel>
 }
 
 

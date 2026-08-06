@@ -446,6 +446,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Three-Way Match",
+    description: "PO, receipt and supplier-invoice reconciliation.",
+    href: "/app/requisition-to-order/three-way-match",
+    icon: Scale,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

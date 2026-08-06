@@ -1627,6 +1627,45 @@ enum GoodsReceiptExceptionStatus {
   CANCELLED
 }
 
+enum ThreeWayMatchStatus {
+  DRAFT
+  MATCHED
+  MATCHED_WITH_WARNINGS
+  EXCEPTION
+  APPROVED_FOR_PAYMENT
+  REJECTED
+  CANCELLED
+}
+
+enum ThreeWayMatchLineStatus {
+  MATCHED
+  QUANTITY_VARIANCE
+  PRICE_VARIANCE
+  AMOUNT_VARIANCE
+  RECEIPT_MISSING
+  PO_MISSING
+  INVOICE_MISSING
+}
+
+enum ThreeWayMatchExceptionStatus {
+  OPEN
+  INVESTIGATING
+  RESOLVED
+  WAIVED
+  REJECTED
+}
+
+enum ThreeWayMatchExceptionType {
+  QUANTITY_VARIANCE
+  PRICE_VARIANCE
+  AMOUNT_VARIANCE
+  DUPLICATE_INVOICE
+  RECEIPT_MISSING
+  TAX_VARIANCE
+  FREIGHT_VARIANCE
+  OTHER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1812,6 +1851,7 @@ model Tenant {
   requisitionApprovalRoutes         RequisitionApprovalRoute[]
   purchaseOrderExecutions           PurchaseOrderExecution[]
   goodsReceiptSessions              GoodsReceiptSession[]
+  threeWayMatchCases                ThreeWayMatchCase[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5930,6 +5970,7 @@ model PurchaseOrderExecution {
   revisions            PurchaseOrderRevision[]
   validations          PurchaseOrderValidation[]
   goodsReceiptSessions GoodsReceiptSession[]
+  threeWayMatchCases   ThreeWayMatchCase[]
   createdAt            DateTime                     @default(now())
   updatedAt            DateTime                     @updatedAt
 
@@ -6002,6 +6043,7 @@ model GoodsReceiptSession {
   purchaseOrderExecution   PurchaseOrderExecution    @relation(fields: [purchaseOrderExecutionId], references: [id], onDelete: Cascade)
   lines                    GoodsReceiptLine[]
   exceptions               GoodsReceiptException[]
+  threeWayMatchCases       ThreeWayMatchCase[]
   createdAt                DateTime                  @default(now())
   updatedAt                DateTime                  @updatedAt
 
@@ -6051,5 +6093,85 @@ model GoodsReceiptException {
   updatedAt        DateTime                          @updatedAt
 
   @@index([receiptSessionId, status, severity])
+  @@index([status, dueAt])
+}
+
+model ThreeWayMatchCase {
+  id                       String                   @id @default(cuid())
+  tenantId                 String
+  purchaseOrderExecutionId String
+  goodsReceiptSessionId    String
+  supplierInvoiceId        String
+  matchNumber              String
+  invoiceNumber            String?
+  currencyCode             String                   @default("USD")
+  status                   ThreeWayMatchStatus      @default(DRAFT)
+  poAmount                 Decimal                  @db.Decimal(18, 2)
+  receiptAmount            Decimal                  @db.Decimal(18, 2)
+  invoiceAmount            Decimal                  @db.Decimal(18, 2)
+  amountVariance           Decimal                  @default(0) @db.Decimal(18, 2)
+  quantityTolerancePercent Decimal                  @default(0) @db.Decimal(8, 4)
+  amountTolerancePercent   Decimal                  @default(0) @db.Decimal(8, 4)
+  matchedAt                DateTime?
+  approvedForPaymentAt     DateTime?
+  approvedByUserId         String?
+  createdByUserId          String?
+  tenant                   Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  purchaseOrderExecution   PurchaseOrderExecution   @relation(fields: [purchaseOrderExecutionId], references: [id], onDelete: Cascade)
+  goodsReceiptSession      GoodsReceiptSession      @relation(fields: [goodsReceiptSessionId], references: [id], onDelete: Cascade)
+  lines                    ThreeWayMatchLine[]
+  exceptions               ThreeWayMatchException[]
+  createdAt                DateTime                 @default(now())
+  updatedAt                DateTime                 @updatedAt
+
+  @@unique([tenantId, matchNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([purchaseOrderExecutionId])
+  @@index([goodsReceiptSessionId])
+  @@index([supplierInvoiceId])
+}
+
+model ThreeWayMatchLine {
+  id                String                  @id @default(cuid())
+  matchCaseId       String
+  lineReference     String
+  description       String
+  orderedQuantity   Decimal                 @db.Decimal(18, 4)
+  receivedQuantity  Decimal                 @db.Decimal(18, 4)
+  invoicedQuantity  Decimal                 @db.Decimal(18, 4)
+  poUnitPrice       Decimal                 @db.Decimal(18, 4)
+  invoiceUnitPrice  Decimal                 @db.Decimal(18, 4)
+  poLineAmount      Decimal                 @db.Decimal(18, 2)
+  invoiceLineAmount Decimal                 @db.Decimal(18, 2)
+  quantityVariance  Decimal                 @default(0) @db.Decimal(18, 4)
+  priceVariance     Decimal                 @default(0) @db.Decimal(18, 4)
+  amountVariance    Decimal                 @default(0) @db.Decimal(18, 2)
+  status            ThreeWayMatchLineStatus
+  evidence          Json?
+  matchCase         ThreeWayMatchCase       @relation(fields: [matchCaseId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                @default(now())
+  updatedAt         DateTime                @updatedAt
+
+  @@index([matchCaseId, status])
+}
+
+model ThreeWayMatchException {
+  id            String                            @id @default(cuid())
+  matchCaseId   String
+  matchLineId   String?
+  exceptionType ThreeWayMatchExceptionType
+  status        ThreeWayMatchExceptionStatus      @default(OPEN)
+  severity      RequisitionOrderExceptionSeverity @default(MEDIUM)
+  title         String
+  description   String?
+  ownerUserId   String?
+  dueAt         DateTime?
+  resolution    String?
+  resolvedAt    DateTime?
+  matchCase     ThreeWayMatchCase                 @relation(fields: [matchCaseId], references: [id], onDelete: Cascade)
+  createdAt     DateTime                          @default(now())
+  updatedAt     DateTime                          @updatedAt
+
+  @@index([matchCaseId, status, severity])
   @@index([status, dueAt])
 }

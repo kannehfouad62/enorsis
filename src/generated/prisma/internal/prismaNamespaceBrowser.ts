@@ -228,7 +228,10 @@ export const ModelName = {
   PurchaseOrderValidation: 'PurchaseOrderValidation',
   GoodsReceiptSession: 'GoodsReceiptSession',
   GoodsReceiptLine: 'GoodsReceiptLine',
-  GoodsReceiptException: 'GoodsReceiptException'
+  GoodsReceiptException: 'GoodsReceiptException',
+  ThreeWayMatchCase: 'ThreeWayMatchCase',
+  ThreeWayMatchLine: 'ThreeWayMatchLine',
+  ThreeWayMatchException: 'ThreeWayMatchException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4087,6 +4090,77 @@ export const GoodsReceiptExceptionScalarFieldEnum = {
 } as const
 
 export type GoodsReceiptExceptionScalarFieldEnum = (typeof GoodsReceiptExceptionScalarFieldEnum)[keyof typeof GoodsReceiptExceptionScalarFieldEnum]
+
+
+export const ThreeWayMatchCaseScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  purchaseOrderExecutionId: 'purchaseOrderExecutionId',
+  goodsReceiptSessionId: 'goodsReceiptSessionId',
+  supplierInvoiceId: 'supplierInvoiceId',
+  matchNumber: 'matchNumber',
+  invoiceNumber: 'invoiceNumber',
+  currencyCode: 'currencyCode',
+  status: 'status',
+  poAmount: 'poAmount',
+  receiptAmount: 'receiptAmount',
+  invoiceAmount: 'invoiceAmount',
+  amountVariance: 'amountVariance',
+  quantityTolerancePercent: 'quantityTolerancePercent',
+  amountTolerancePercent: 'amountTolerancePercent',
+  matchedAt: 'matchedAt',
+  approvedForPaymentAt: 'approvedForPaymentAt',
+  approvedByUserId: 'approvedByUserId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchCaseScalarFieldEnum = (typeof ThreeWayMatchCaseScalarFieldEnum)[keyof typeof ThreeWayMatchCaseScalarFieldEnum]
+
+
+export const ThreeWayMatchLineScalarFieldEnum = {
+  id: 'id',
+  matchCaseId: 'matchCaseId',
+  lineReference: 'lineReference',
+  description: 'description',
+  orderedQuantity: 'orderedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  invoicedQuantity: 'invoicedQuantity',
+  poUnitPrice: 'poUnitPrice',
+  invoiceUnitPrice: 'invoiceUnitPrice',
+  poLineAmount: 'poLineAmount',
+  invoiceLineAmount: 'invoiceLineAmount',
+  quantityVariance: 'quantityVariance',
+  priceVariance: 'priceVariance',
+  amountVariance: 'amountVariance',
+  status: 'status',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchLineScalarFieldEnum = (typeof ThreeWayMatchLineScalarFieldEnum)[keyof typeof ThreeWayMatchLineScalarFieldEnum]
+
+
+export const ThreeWayMatchExceptionScalarFieldEnum = {
+  id: 'id',
+  matchCaseId: 'matchCaseId',
+  matchLineId: 'matchLineId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchExceptionScalarFieldEnum = (typeof ThreeWayMatchExceptionScalarFieldEnum)[keyof typeof ThreeWayMatchExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

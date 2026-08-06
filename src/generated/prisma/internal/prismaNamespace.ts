@@ -574,7 +574,10 @@ export const ModelName = {
   PurchaseOrderValidation: 'PurchaseOrderValidation',
   GoodsReceiptSession: 'GoodsReceiptSession',
   GoodsReceiptLine: 'GoodsReceiptLine',
-  GoodsReceiptException: 'GoodsReceiptException'
+  GoodsReceiptException: 'GoodsReceiptException',
+  ThreeWayMatchCase: 'ThreeWayMatchCase',
+  ThreeWayMatchLine: 'ThreeWayMatchLine',
+  ThreeWayMatchException: 'ThreeWayMatchException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -590,7 +593,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -13766,6 +13769,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ThreeWayMatchCase: {
+      payload: Prisma.$ThreeWayMatchCasePayload<ExtArgs>
+      fields: Prisma.ThreeWayMatchCaseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ThreeWayMatchCaseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ThreeWayMatchCaseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        findFirst: {
+          args: Prisma.ThreeWayMatchCaseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ThreeWayMatchCaseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        findMany: {
+          args: Prisma.ThreeWayMatchCaseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>[]
+        }
+        create: {
+          args: Prisma.ThreeWayMatchCaseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        createMany: {
+          args: Prisma.ThreeWayMatchCaseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ThreeWayMatchCaseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>[]
+        }
+        delete: {
+          args: Prisma.ThreeWayMatchCaseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        update: {
+          args: Prisma.ThreeWayMatchCaseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        deleteMany: {
+          args: Prisma.ThreeWayMatchCaseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ThreeWayMatchCaseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ThreeWayMatchCaseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>[]
+        }
+        upsert: {
+          args: Prisma.ThreeWayMatchCaseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchCasePayload>
+        }
+        aggregate: {
+          args: Prisma.ThreeWayMatchCaseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateThreeWayMatchCase>
+        }
+        groupBy: {
+          args: Prisma.ThreeWayMatchCaseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchCaseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ThreeWayMatchCaseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchCaseCountAggregateOutputType> | number
+        }
+      }
+    }
+    ThreeWayMatchLine: {
+      payload: Prisma.$ThreeWayMatchLinePayload<ExtArgs>
+      fields: Prisma.ThreeWayMatchLineFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ThreeWayMatchLineFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ThreeWayMatchLineFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        findFirst: {
+          args: Prisma.ThreeWayMatchLineFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ThreeWayMatchLineFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        findMany: {
+          args: Prisma.ThreeWayMatchLineFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>[]
+        }
+        create: {
+          args: Prisma.ThreeWayMatchLineCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        createMany: {
+          args: Prisma.ThreeWayMatchLineCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ThreeWayMatchLineCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>[]
+        }
+        delete: {
+          args: Prisma.ThreeWayMatchLineDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        update: {
+          args: Prisma.ThreeWayMatchLineUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        deleteMany: {
+          args: Prisma.ThreeWayMatchLineDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ThreeWayMatchLineUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ThreeWayMatchLineUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>[]
+        }
+        upsert: {
+          args: Prisma.ThreeWayMatchLineUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchLinePayload>
+        }
+        aggregate: {
+          args: Prisma.ThreeWayMatchLineAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateThreeWayMatchLine>
+        }
+        groupBy: {
+          args: Prisma.ThreeWayMatchLineGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchLineGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ThreeWayMatchLineCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchLineCountAggregateOutputType> | number
+        }
+      }
+    }
+    ThreeWayMatchException: {
+      payload: Prisma.$ThreeWayMatchExceptionPayload<ExtArgs>
+      fields: Prisma.ThreeWayMatchExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ThreeWayMatchExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ThreeWayMatchExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.ThreeWayMatchExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ThreeWayMatchExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.ThreeWayMatchExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.ThreeWayMatchExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.ThreeWayMatchExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ThreeWayMatchExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.ThreeWayMatchExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        update: {
+          args: Prisma.ThreeWayMatchExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.ThreeWayMatchExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ThreeWayMatchExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ThreeWayMatchExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.ThreeWayMatchExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThreeWayMatchExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.ThreeWayMatchExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateThreeWayMatchException>
+        }
+        groupBy: {
+          args: Prisma.ThreeWayMatchExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ThreeWayMatchExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThreeWayMatchExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -17647,6 +17872,77 @@ export const GoodsReceiptExceptionScalarFieldEnum = {
 export type GoodsReceiptExceptionScalarFieldEnum = (typeof GoodsReceiptExceptionScalarFieldEnum)[keyof typeof GoodsReceiptExceptionScalarFieldEnum]
 
 
+export const ThreeWayMatchCaseScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  purchaseOrderExecutionId: 'purchaseOrderExecutionId',
+  goodsReceiptSessionId: 'goodsReceiptSessionId',
+  supplierInvoiceId: 'supplierInvoiceId',
+  matchNumber: 'matchNumber',
+  invoiceNumber: 'invoiceNumber',
+  currencyCode: 'currencyCode',
+  status: 'status',
+  poAmount: 'poAmount',
+  receiptAmount: 'receiptAmount',
+  invoiceAmount: 'invoiceAmount',
+  amountVariance: 'amountVariance',
+  quantityTolerancePercent: 'quantityTolerancePercent',
+  amountTolerancePercent: 'amountTolerancePercent',
+  matchedAt: 'matchedAt',
+  approvedForPaymentAt: 'approvedForPaymentAt',
+  approvedByUserId: 'approvedByUserId',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchCaseScalarFieldEnum = (typeof ThreeWayMatchCaseScalarFieldEnum)[keyof typeof ThreeWayMatchCaseScalarFieldEnum]
+
+
+export const ThreeWayMatchLineScalarFieldEnum = {
+  id: 'id',
+  matchCaseId: 'matchCaseId',
+  lineReference: 'lineReference',
+  description: 'description',
+  orderedQuantity: 'orderedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  invoicedQuantity: 'invoicedQuantity',
+  poUnitPrice: 'poUnitPrice',
+  invoiceUnitPrice: 'invoiceUnitPrice',
+  poLineAmount: 'poLineAmount',
+  invoiceLineAmount: 'invoiceLineAmount',
+  quantityVariance: 'quantityVariance',
+  priceVariance: 'priceVariance',
+  amountVariance: 'amountVariance',
+  status: 'status',
+  evidence: 'evidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchLineScalarFieldEnum = (typeof ThreeWayMatchLineScalarFieldEnum)[keyof typeof ThreeWayMatchLineScalarFieldEnum]
+
+
+export const ThreeWayMatchExceptionScalarFieldEnum = {
+  id: 'id',
+  matchCaseId: 'matchCaseId',
+  matchLineId: 'matchLineId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ThreeWayMatchExceptionScalarFieldEnum = (typeof ThreeWayMatchExceptionScalarFieldEnum)[keyof typeof ThreeWayMatchExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -20607,6 +20903,62 @@ export type ListEnumGoodsReceiptExceptionStatusFieldRefInput<$PrismaModel> = Fie
 
 
 /**
+ * Reference to a field of type 'ThreeWayMatchStatus'
+ */
+export type EnumThreeWayMatchStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchStatus[]'
+ */
+export type ListEnumThreeWayMatchStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchLineStatus'
+ */
+export type EnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchLineStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchLineStatus[]'
+ */
+export type ListEnumThreeWayMatchLineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchLineStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchExceptionType'
+ */
+export type EnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchExceptionType'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchExceptionType[]'
+ */
+export type ListEnumThreeWayMatchExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchExceptionType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchExceptionStatus'
+ */
+export type EnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ThreeWayMatchExceptionStatus[]'
+ */
+export type ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ThreeWayMatchExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -20948,6 +21300,9 @@ export type GlobalOmitConfig = {
   goodsReceiptSession?: Prisma.GoodsReceiptSessionOmit
   goodsReceiptLine?: Prisma.GoodsReceiptLineOmit
   goodsReceiptException?: Prisma.GoodsReceiptExceptionOmit
+  threeWayMatchCase?: Prisma.ThreeWayMatchCaseOmit
+  threeWayMatchLine?: Prisma.ThreeWayMatchLineOmit
+  threeWayMatchException?: Prisma.ThreeWayMatchExceptionOmit
 }
 
 /* Types for Logging */

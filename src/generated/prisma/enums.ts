@@ -2207,6 +2207,57 @@ export const GoodsReceiptExceptionStatus = {
 export type GoodsReceiptExceptionStatus = (typeof GoodsReceiptExceptionStatus)[keyof typeof GoodsReceiptExceptionStatus]
 
 
+export const ThreeWayMatchStatus = {
+  DRAFT: 'DRAFT',
+  MATCHED: 'MATCHED',
+  MATCHED_WITH_WARNINGS: 'MATCHED_WITH_WARNINGS',
+  EXCEPTION: 'EXCEPTION',
+  APPROVED_FOR_PAYMENT: 'APPROVED_FOR_PAYMENT',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ThreeWayMatchStatus = (typeof ThreeWayMatchStatus)[keyof typeof ThreeWayMatchStatus]
+
+
+export const ThreeWayMatchLineStatus = {
+  MATCHED: 'MATCHED',
+  QUANTITY_VARIANCE: 'QUANTITY_VARIANCE',
+  PRICE_VARIANCE: 'PRICE_VARIANCE',
+  AMOUNT_VARIANCE: 'AMOUNT_VARIANCE',
+  RECEIPT_MISSING: 'RECEIPT_MISSING',
+  PO_MISSING: 'PO_MISSING',
+  INVOICE_MISSING: 'INVOICE_MISSING'
+} as const
+
+export type ThreeWayMatchLineStatus = (typeof ThreeWayMatchLineStatus)[keyof typeof ThreeWayMatchLineStatus]
+
+
+export const ThreeWayMatchExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type ThreeWayMatchExceptionStatus = (typeof ThreeWayMatchExceptionStatus)[keyof typeof ThreeWayMatchExceptionStatus]
+
+
+export const ThreeWayMatchExceptionType = {
+  QUANTITY_VARIANCE: 'QUANTITY_VARIANCE',
+  PRICE_VARIANCE: 'PRICE_VARIANCE',
+  AMOUNT_VARIANCE: 'AMOUNT_VARIANCE',
+  DUPLICATE_INVOICE: 'DUPLICATE_INVOICE',
+  RECEIPT_MISSING: 'RECEIPT_MISSING',
+  TAX_VARIANCE: 'TAX_VARIANCE',
+  FREIGHT_VARIANCE: 'FREIGHT_VARIANCE',
+  OTHER: 'OTHER'
+} as const
+
+export type ThreeWayMatchExceptionType = (typeof ThreeWayMatchExceptionType)[keyof typeof ThreeWayMatchExceptionType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
