@@ -43,6 +43,7 @@ import {
   SlidersHorizontal,
   BadgeCheck,
   FileCheck2,
+  
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -474,6 +475,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     title: "Procurement Certification",
     description: "End-to-end process certification and closure controls.",
     href: "/app/requisition-to-order/certification",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
+  {
+    title: "Inventory Operations",
+    description: "Movement ledger, availability, reservations and exceptions.",
+    href: "/app/inventory-operations",
     icon: BadgeCheck,
     group: "Procurement",
   },

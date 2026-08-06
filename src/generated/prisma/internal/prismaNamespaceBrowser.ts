@@ -236,7 +236,11 @@ export const ModelName = {
   ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
   ApPaymentHold: 'ApPaymentHold',
   ProcurementProcessCertification: 'ProcurementProcessCertification',
-  ProcurementProcessCheck: 'ProcurementProcessCheck'
+  ProcurementProcessCheck: 'ProcurementProcessCheck',
+  InventoryMovementLedger: 'InventoryMovementLedger',
+  InventoryAvailabilitySnapshot: 'InventoryAvailabilitySnapshot',
+  InventoryReservation: 'InventoryReservation',
+  InventoryOperationException: 'InventoryOperationException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4268,6 +4272,94 @@ export const ProcurementProcessCheckScalarFieldEnum = {
 } as const
 
 export type ProcurementProcessCheckScalarFieldEnum = (typeof ProcurementProcessCheckScalarFieldEnum)[keyof typeof ProcurementProcessCheckScalarFieldEnum]
+
+
+export const InventoryMovementLedgerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  movementNumber: 'movementNumber',
+  movementType: 'movementType',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  fromLocationId: 'fromLocationId',
+  toLocationId: 'toLocationId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  unitCost: 'unitCost',
+  currencyCode: 'currencyCode',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  serialLotReference: 'serialLotReference',
+  reason: 'reason',
+  occurredAt: 'occurredAt',
+  postedAt: 'postedAt',
+  postedByUserId: 'postedByUserId',
+  createdByUserId: 'createdByUserId',
+  reversalOfId: 'reversalOfId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryMovementLedgerScalarFieldEnum = (typeof InventoryMovementLedgerScalarFieldEnum)[keyof typeof InventoryMovementLedgerScalarFieldEnum]
+
+
+export const InventoryAvailabilitySnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  onHandQuantity: 'onHandQuantity',
+  reservedQuantity: 'reservedQuantity',
+  availableQuantity: 'availableQuantity',
+  inTransitQuantity: 'inTransitQuantity',
+  damagedQuantity: 'damagedQuantity',
+  lastMovementAt: 'lastMovementAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryAvailabilitySnapshotScalarFieldEnum = (typeof InventoryAvailabilitySnapshotScalarFieldEnum)[keyof typeof InventoryAvailabilitySnapshotScalarFieldEnum]
+
+
+export const InventoryReservationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  reservationNumber: 'reservationNumber',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  requestedQuantity: 'requestedQuantity',
+  fulfilledQuantity: 'fulfilledQuantity',
+  status: 'status',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  requiredAt: 'requiredAt',
+  expiresAt: 'expiresAt',
+  requestedByUserId: 'requestedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryReservationScalarFieldEnum = (typeof InventoryReservationScalarFieldEnum)[keyof typeof InventoryReservationScalarFieldEnum]
+
+
+export const InventoryOperationExceptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  movementLedgerId: 'movementLedgerId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryOperationExceptionScalarFieldEnum = (typeof InventoryOperationExceptionScalarFieldEnum)[keyof typeof InventoryOperationExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

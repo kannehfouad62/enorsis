@@ -2337,6 +2337,68 @@ export const ProcurementProcessCheckSeverity = {
 export type ProcurementProcessCheckSeverity = (typeof ProcurementProcessCheckSeverity)[keyof typeof ProcurementProcessCheckSeverity]
 
 
+export const InventoryMovementType = {
+  RECEIPT: 'RECEIPT',
+  ISSUE: 'ISSUE',
+  TRANSFER: 'TRANSFER',
+  ADJUSTMENT_IN: 'ADJUSTMENT_IN',
+  ADJUSTMENT_OUT: 'ADJUSTMENT_OUT',
+  RETURN: 'RETURN',
+  SCRAP: 'SCRAP',
+  CYCLE_COUNT: 'CYCLE_COUNT'
+} as const
+
+export type InventoryMovementType = (typeof InventoryMovementType)[keyof typeof InventoryMovementType]
+
+
+export const InventoryMovementStatus = {
+  DRAFT: 'DRAFT',
+  POSTED: 'POSTED',
+  CANCELLED: 'CANCELLED',
+  REVERSED: 'REVERSED'
+} as const
+
+export type InventoryMovementStatus = (typeof InventoryMovementStatus)[keyof typeof InventoryMovementStatus]
+
+
+export const InventoryReservationStatus = {
+  ACTIVE: 'ACTIVE',
+  PARTIALLY_FULFILLED: 'PARTIALLY_FULFILLED',
+  FULFILLED: 'FULFILLED',
+  RELEASED: 'RELEASED',
+  EXPIRED: 'EXPIRED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryReservationStatus = (typeof InventoryReservationStatus)[keyof typeof InventoryReservationStatus]
+
+
+export const InventoryOperationExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryOperationExceptionStatus = (typeof InventoryOperationExceptionStatus)[keyof typeof InventoryOperationExceptionStatus]
+
+
+export const InventoryOperationExceptionType = {
+  NEGATIVE_STOCK: 'NEGATIVE_STOCK',
+  INSUFFICIENT_AVAILABILITY: 'INSUFFICIENT_AVAILABILITY',
+  LOCATION_MISMATCH: 'LOCATION_MISMATCH',
+  ITEM_MISMATCH: 'ITEM_MISMATCH',
+  QUANTITY_VARIANCE: 'QUANTITY_VARIANCE',
+  SERIAL_LOT_REQUIRED: 'SERIAL_LOT_REQUIRED',
+  EXPIRED_STOCK: 'EXPIRED_STOCK',
+  DAMAGED_STOCK: 'DAMAGED_STOCK',
+  OTHER: 'OTHER'
+} as const
+
+export type InventoryOperationExceptionType = (typeof InventoryOperationExceptionType)[keyof typeof InventoryOperationExceptionType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

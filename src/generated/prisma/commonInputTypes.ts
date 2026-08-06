@@ -4012,6 +4012,91 @@ export type EnumProcurementProcessCheckSeverityWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumProcurementProcessCheckSeverityFilter<$PrismaModel>
 }
 
+export type EnumInventoryMovementTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementType | Prisma.EnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel> | $Enums.InventoryMovementType
+}
+
+export type EnumInventoryMovementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementStatus | Prisma.EnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel> | $Enums.InventoryMovementStatus
+}
+
+export type EnumInventoryMovementTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementType | Prisma.EnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryMovementType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel>
+}
+
+export type EnumInventoryMovementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementStatus | Prisma.EnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryMovementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel>
+}
+
+export type EnumInventoryReservationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryReservationStatus | Prisma.EnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel> | $Enums.InventoryReservationStatus
+}
+
+export type EnumInventoryReservationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryReservationStatus | Prisma.EnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryReservationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryReservationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel>
+}
+
+export type EnumInventoryOperationExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionType | Prisma.EnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel> | $Enums.InventoryOperationExceptionType
+}
+
+export type EnumInventoryOperationExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionStatus | Prisma.EnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel> | $Enums.InventoryOperationExceptionStatus
+}
+
+export type EnumInventoryOperationExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionType | Prisma.EnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryOperationExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel>
+}
+
+export type EnumInventoryOperationExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionStatus | Prisma.EnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryOperationExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -7967,6 +8052,91 @@ export type NestedEnumProcurementProcessCheckSeverityWithAggregatesFilter<$Prism
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumProcurementProcessCheckSeverityFilter<$PrismaModel>
   _max?: Prisma.NestedEnumProcurementProcessCheckSeverityFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryMovementTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementType | Prisma.EnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel> | $Enums.InventoryMovementType
+}
+
+export type NestedEnumInventoryMovementStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementStatus | Prisma.EnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel> | $Enums.InventoryMovementStatus
+}
+
+export type NestedEnumInventoryMovementTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementType | Prisma.EnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementType[] | Prisma.ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryMovementType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryMovementTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryMovementStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryMovementStatus | Prisma.EnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryMovementStatus[] | Prisma.ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryMovementStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryMovementStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryMovementStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryReservationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryReservationStatus | Prisma.EnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel> | $Enums.InventoryReservationStatus
+}
+
+export type NestedEnumInventoryReservationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryReservationStatus | Prisma.EnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryReservationStatus[] | Prisma.ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryReservationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryReservationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryReservationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionType | Prisma.EnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel> | $Enums.InventoryOperationExceptionType
+}
+
+export type NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionStatus | Prisma.EnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel> | $Enums.InventoryOperationExceptionStatus
+}
+
+export type NestedEnumInventoryOperationExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionType | Prisma.EnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionType[] | Prisma.ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryOperationExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryOperationExceptionTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryOperationExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryOperationExceptionStatus | Prisma.EnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryOperationExceptionStatus[] | Prisma.ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryOperationExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryOperationExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
 }
 
 

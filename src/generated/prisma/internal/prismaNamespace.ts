@@ -582,7 +582,11 @@ export const ModelName = {
   ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
   ApPaymentHold: 'ApPaymentHold',
   ProcurementProcessCertification: 'ProcurementProcessCertification',
-  ProcurementProcessCheck: 'ProcurementProcessCheck'
+  ProcurementProcessCheck: 'ProcurementProcessCheck',
+  InventoryMovementLedger: 'InventoryMovementLedger',
+  InventoryAvailabilitySnapshot: 'InventoryAvailabilitySnapshot',
+  InventoryReservation: 'InventoryReservation',
+  InventoryOperationException: 'InventoryOperationException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -598,7 +602,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -14366,6 +14370,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    InventoryMovementLedger: {
+      payload: Prisma.$InventoryMovementLedgerPayload<ExtArgs>
+      fields: Prisma.InventoryMovementLedgerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryMovementLedgerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryMovementLedgerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryMovementLedgerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryMovementLedgerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryMovementLedgerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryMovementLedgerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryMovementLedgerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryMovementLedgerCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryMovementLedgerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        update: {
+          args: Prisma.InventoryMovementLedgerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryMovementLedgerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryMovementLedgerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryMovementLedgerUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryMovementLedgerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryMovementLedgerPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryMovementLedgerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryMovementLedger>
+        }
+        groupBy: {
+          args: Prisma.InventoryMovementLedgerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryMovementLedgerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryMovementLedgerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryMovementLedgerCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryAvailabilitySnapshot: {
+      payload: Prisma.$InventoryAvailabilitySnapshotPayload<ExtArgs>
+      fields: Prisma.InventoryAvailabilitySnapshotFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryAvailabilitySnapshotFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryAvailabilitySnapshotFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryAvailabilitySnapshotFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryAvailabilitySnapshotFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryAvailabilitySnapshotFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryAvailabilitySnapshotCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryAvailabilitySnapshotCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryAvailabilitySnapshotCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryAvailabilitySnapshotDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        update: {
+          args: Prisma.InventoryAvailabilitySnapshotUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryAvailabilitySnapshotDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryAvailabilitySnapshotUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryAvailabilitySnapshotUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryAvailabilitySnapshotUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryAvailabilitySnapshotPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryAvailabilitySnapshotAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryAvailabilitySnapshot>
+        }
+        groupBy: {
+          args: Prisma.InventoryAvailabilitySnapshotGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryAvailabilitySnapshotGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryAvailabilitySnapshotCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryAvailabilitySnapshotCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryReservation: {
+      payload: Prisma.$InventoryReservationPayload<ExtArgs>
+      fields: Prisma.InventoryReservationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryReservationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryReservationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryReservationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryReservationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryReservationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryReservationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryReservationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryReservationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryReservationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        update: {
+          args: Prisma.InventoryReservationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryReservationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryReservationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryReservationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryReservationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryReservationPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryReservationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryReservation>
+        }
+        groupBy: {
+          args: Prisma.InventoryReservationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryReservationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryReservationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryReservationCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryOperationException: {
+      payload: Prisma.$InventoryOperationExceptionPayload<ExtArgs>
+      fields: Prisma.InventoryOperationExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryOperationExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryOperationExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryOperationExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryOperationExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryOperationExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryOperationExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryOperationExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryOperationExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryOperationExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        update: {
+          args: Prisma.InventoryOperationExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryOperationExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryOperationExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryOperationExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryOperationExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryOperationExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryOperationExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryOperationException>
+        }
+        groupBy: {
+          args: Prisma.InventoryOperationExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryOperationExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryOperationExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryOperationExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -18420,6 +18720,94 @@ export const ProcurementProcessCheckScalarFieldEnum = {
 export type ProcurementProcessCheckScalarFieldEnum = (typeof ProcurementProcessCheckScalarFieldEnum)[keyof typeof ProcurementProcessCheckScalarFieldEnum]
 
 
+export const InventoryMovementLedgerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  movementNumber: 'movementNumber',
+  movementType: 'movementType',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  fromLocationId: 'fromLocationId',
+  toLocationId: 'toLocationId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  unitCost: 'unitCost',
+  currencyCode: 'currencyCode',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  serialLotReference: 'serialLotReference',
+  reason: 'reason',
+  occurredAt: 'occurredAt',
+  postedAt: 'postedAt',
+  postedByUserId: 'postedByUserId',
+  createdByUserId: 'createdByUserId',
+  reversalOfId: 'reversalOfId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryMovementLedgerScalarFieldEnum = (typeof InventoryMovementLedgerScalarFieldEnum)[keyof typeof InventoryMovementLedgerScalarFieldEnum]
+
+
+export const InventoryAvailabilitySnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  onHandQuantity: 'onHandQuantity',
+  reservedQuantity: 'reservedQuantity',
+  availableQuantity: 'availableQuantity',
+  inTransitQuantity: 'inTransitQuantity',
+  damagedQuantity: 'damagedQuantity',
+  lastMovementAt: 'lastMovementAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryAvailabilitySnapshotScalarFieldEnum = (typeof InventoryAvailabilitySnapshotScalarFieldEnum)[keyof typeof InventoryAvailabilitySnapshotScalarFieldEnum]
+
+
+export const InventoryReservationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  reservationNumber: 'reservationNumber',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  requestedQuantity: 'requestedQuantity',
+  fulfilledQuantity: 'fulfilledQuantity',
+  status: 'status',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  requiredAt: 'requiredAt',
+  expiresAt: 'expiresAt',
+  requestedByUserId: 'requestedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryReservationScalarFieldEnum = (typeof InventoryReservationScalarFieldEnum)[keyof typeof InventoryReservationScalarFieldEnum]
+
+
+export const InventoryOperationExceptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  movementLedgerId: 'movementLedgerId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  dueAt: 'dueAt',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryOperationExceptionScalarFieldEnum = (typeof InventoryOperationExceptionScalarFieldEnum)[keyof typeof InventoryOperationExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -21534,6 +21922,76 @@ export type ListEnumProcurementProcessCheckSeverityFieldRefInput<$PrismaModel> =
 
 
 /**
+ * Reference to a field of type 'InventoryMovementType'
+ */
+export type EnumInventoryMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementType'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryMovementType[]'
+ */
+export type ListEnumInventoryMovementTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryMovementStatus'
+ */
+export type EnumInventoryMovementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryMovementStatus[]'
+ */
+export type ListEnumInventoryMovementStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryMovementStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryReservationStatus'
+ */
+export type EnumInventoryReservationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryReservationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryReservationStatus[]'
+ */
+export type ListEnumInventoryReservationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryReservationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryOperationExceptionType'
+ */
+export type EnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryOperationExceptionType'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryOperationExceptionType[]'
+ */
+export type ListEnumInventoryOperationExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryOperationExceptionType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryOperationExceptionStatus'
+ */
+export type EnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryOperationExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryOperationExceptionStatus[]'
+ */
+export type ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryOperationExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -21883,6 +22341,10 @@ export type GlobalOmitConfig = {
   apPaymentHold?: Prisma.ApPaymentHoldOmit
   procurementProcessCertification?: Prisma.ProcurementProcessCertificationOmit
   procurementProcessCheck?: Prisma.ProcurementProcessCheckOmit
+  inventoryMovementLedger?: Prisma.InventoryMovementLedgerOmit
+  inventoryAvailabilitySnapshot?: Prisma.InventoryAvailabilitySnapshotOmit
+  inventoryReservation?: Prisma.InventoryReservationOmit
+  inventoryOperationException?: Prisma.InventoryOperationExceptionOmit
 }
 
 /* Types for Logging */

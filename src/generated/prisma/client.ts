@@ -971,3 +971,23 @@ export type ProcurementProcessCertification = Prisma.ProcurementProcessCertifica
  * 
  */
 export type ProcurementProcessCheck = Prisma.ProcurementProcessCheckModel
+/**
+ * Model InventoryMovementLedger
+ * 
+ */
+export type InventoryMovementLedger = Prisma.InventoryMovementLedgerModel
+/**
+ * Model InventoryAvailabilitySnapshot
+ * 
+ */
+export type InventoryAvailabilitySnapshot = Prisma.InventoryAvailabilitySnapshotModel
+/**
+ * Model InventoryReservation
+ * 
+ */
+export type InventoryReservation = Prisma.InventoryReservationModel
+/**
+ * Model InventoryOperationException
+ * 
+ */
+export type InventoryOperationException = Prisma.InventoryOperationExceptionModel
