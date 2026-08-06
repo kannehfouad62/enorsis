@@ -1568,6 +1568,30 @@ enum RequisitionApprovalDecisionStatus {
   EXPIRED
 }
 
+enum PurchaseOrderExecutionStatus {
+  DRAFT
+  VALIDATION_FAILED
+  READY_TO_ISSUE
+  ISSUED
+  ACKNOWLEDGED
+  PARTIALLY_RECEIVED
+  FULLY_RECEIVED
+  CLOSED
+  CANCELLED
+}
+
+enum PurchaseOrderRevisionStatus {
+  DRAFT
+  ISSUED
+  SUPERSEDED
+}
+
+enum PurchaseOrderValidationStatus {
+  PASS
+  WARN
+  FAIL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1751,6 +1775,7 @@ model Tenant {
   requisitionOrderJourneys          RequisitionOrderJourney[]
   requisitionSubmissionAssessments  RequisitionSubmissionAssessment[]
   requisitionApprovalRoutes         RequisitionApprovalRoute[]
+  purchaseOrderExecutions           PurchaseOrderExecution[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5647,38 +5672,39 @@ model PlatformReadinessCheck {
 }
 
 model RequisitionOrderJourney {
-  id                    String                            @id @default(cuid())
-  tenantId              String
-  journeyNumber         String
-  title                 String
-  description           String?
-  status                RequisitionOrderJourneyStatus     @default(DRAFT)
-  requesterUserId       String?
-  ownerUserId           String?
-  purchaseRequestId     String?
-  purchaseOrderId       String?
-  primaryReceiptId      String?
-  supplierId            String?
-  currencyCode          String                            @default("USD")
-  estimatedAmount       Decimal?                          @db.Decimal(18, 2)
-  committedAmount       Decimal?                          @db.Decimal(18, 2)
-  receivedAmount        Decimal?                          @db.Decimal(18, 2)
-  requiredByDate        DateTime?
-  submittedAt           DateTime?
-  approvedAt            DateTime?
-  orderedAt             DateTime?
-  receivedAt            DateTime?
-  closedAt              DateTime?
-  cancelledAt           DateTime?
-  cancellationReason    String?
-  correlationId         String?
-  tenant                Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  submissionAssessments RequisitionSubmissionAssessment[]
-  milestones            RequisitionOrderMilestone[]
-  exceptions            RequisitionOrderException[]
-  approvalRoutes        RequisitionApprovalRoute[]
-  createdAt             DateTime                          @default(now())
-  updatedAt             DateTime                          @updatedAt
+  id                      String                            @id @default(cuid())
+  tenantId                String
+  journeyNumber           String
+  title                   String
+  description             String?
+  status                  RequisitionOrderJourneyStatus     @default(DRAFT)
+  requesterUserId         String?
+  ownerUserId             String?
+  purchaseRequestId       String?
+  purchaseOrderId         String?
+  primaryReceiptId        String?
+  supplierId              String?
+  currencyCode            String                            @default("USD")
+  estimatedAmount         Decimal?                          @db.Decimal(18, 2)
+  committedAmount         Decimal?                          @db.Decimal(18, 2)
+  receivedAmount          Decimal?                          @db.Decimal(18, 2)
+  requiredByDate          DateTime?
+  submittedAt             DateTime?
+  approvedAt              DateTime?
+  orderedAt               DateTime?
+  receivedAt              DateTime?
+  closedAt                DateTime?
+  cancelledAt             DateTime?
+  cancellationReason      String?
+  correlationId           String?
+  tenant                  Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  submissionAssessments   RequisitionSubmissionAssessment[]
+  purchaseOrderExecutions PurchaseOrderExecution[]
+  milestones              RequisitionOrderMilestone[]
+  exceptions              RequisitionOrderException[]
+  approvalRoutes          RequisitionApprovalRoute[]
+  createdAt               DateTime                          @default(now())
+  updatedAt               DateTime                          @updatedAt
 
   @@unique([tenantId, journeyNumber])
   @@index([tenantId, status, createdAt])
@@ -5840,4 +5866,82 @@ model RequisitionApprovalDecision {
 
   @@unique([stepId, approverUserId])
   @@index([approverUserId, status, dueAt])
+}
+
+model PurchaseOrderExecution {
+  id                  String                       @id @default(cuid())
+  tenantId            String
+  journeyId           String
+  purchaseOrderId     String?
+  orderNumber         String
+  supplierId          String
+  contractId          String?
+  currencyCode        String                       @default("USD")
+  status              PurchaseOrderExecutionStatus @default(DRAFT)
+  currentRevision     Int                          @default(1)
+  totalAmount         Decimal                      @db.Decimal(18, 2)
+  taxAmount           Decimal                      @default(0) @db.Decimal(18, 2)
+  freightAmount       Decimal                      @default(0) @db.Decimal(18, 2)
+  discountAmount      Decimal                      @default(0) @db.Decimal(18, 2)
+  requestedDeliveryAt DateTime?
+  issuedAt            DateTime?
+  acknowledgedAt      DateTime?
+  createdByUserId     String?
+  updatedByUserId     String?
+  tenant              Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey             RequisitionOrderJourney      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  revisions           PurchaseOrderRevision[]
+  validations         PurchaseOrderValidation[]
+  createdAt           DateTime                     @default(now())
+  updatedAt           DateTime                     @updatedAt
+
+  @@unique([tenantId, orderNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([journeyId])
+  @@index([purchaseOrderId])
+}
+
+model PurchaseOrderRevision {
+  id                  String                      @id @default(cuid())
+  executionId         String
+  revisionNumber      Int
+  status              PurchaseOrderRevisionStatus @default(DRAFT)
+  reason              String?
+  supplierId          String
+  contractId          String?
+  currencyCode        String
+  subtotalAmount      Decimal                     @db.Decimal(18, 2)
+  taxAmount           Decimal                     @default(0) @db.Decimal(18, 2)
+  freightAmount       Decimal                     @default(0) @db.Decimal(18, 2)
+  discountAmount      Decimal                     @default(0) @db.Decimal(18, 2)
+  totalAmount         Decimal                     @db.Decimal(18, 2)
+  requestedDeliveryAt DateTime?
+  lineSnapshot        Json
+  changeSummary       Json?
+  createdByUserId     String?
+  issuedAt            DateTime?
+  execution           PurchaseOrderExecution      @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  createdAt           DateTime                    @default(now())
+  updatedAt           DateTime                    @updatedAt
+
+  @@unique([executionId, revisionNumber])
+  @@index([executionId, status])
+}
+
+model PurchaseOrderValidation {
+  id              String                        @id @default(cuid())
+  executionId     String
+  revisionNumber  Int
+  key             String
+  name            String
+  status          PurchaseOrderValidationStatus
+  releaseBlocking Boolean                       @default(false)
+  observedValue   String?
+  expectedValue   String?
+  remediation     String?
+  execution       PurchaseOrderExecution        @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                      @default(now())
+
+  @@unique([executionId, revisionNumber, key])
+  @@index([executionId, revisionNumber, status])
 }

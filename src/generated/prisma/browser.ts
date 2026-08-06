@@ -877,3 +877,18 @@ export type RequisitionApprovalStep = Prisma.RequisitionApprovalStepModel
  * 
  */
 export type RequisitionApprovalDecision = Prisma.RequisitionApprovalDecisionModel
+/**
+ * Model PurchaseOrderExecution
+ * 
+ */
+export type PurchaseOrderExecution = Prisma.PurchaseOrderExecutionModel
+/**
+ * Model PurchaseOrderRevision
+ * 
+ */
+export type PurchaseOrderRevision = Prisma.PurchaseOrderRevisionModel
+/**
+ * Model PurchaseOrderValidation
+ * 
+ */
+export type PurchaseOrderValidation = Prisma.PurchaseOrderValidationModel

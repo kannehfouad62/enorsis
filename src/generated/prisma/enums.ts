@@ -2127,6 +2127,39 @@ export const RequisitionApprovalDecisionStatus = {
 export type RequisitionApprovalDecisionStatus = (typeof RequisitionApprovalDecisionStatus)[keyof typeof RequisitionApprovalDecisionStatus]
 
 
+export const PurchaseOrderExecutionStatus = {
+  DRAFT: 'DRAFT',
+  VALIDATION_FAILED: 'VALIDATION_FAILED',
+  READY_TO_ISSUE: 'READY_TO_ISSUE',
+  ISSUED: 'ISSUED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  PARTIALLY_RECEIVED: 'PARTIALLY_RECEIVED',
+  FULLY_RECEIVED: 'FULLY_RECEIVED',
+  CLOSED: 'CLOSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PurchaseOrderExecutionStatus = (typeof PurchaseOrderExecutionStatus)[keyof typeof PurchaseOrderExecutionStatus]
+
+
+export const PurchaseOrderRevisionStatus = {
+  DRAFT: 'DRAFT',
+  ISSUED: 'ISSUED',
+  SUPERSEDED: 'SUPERSEDED'
+} as const
+
+export type PurchaseOrderRevisionStatus = (typeof PurchaseOrderRevisionStatus)[keyof typeof PurchaseOrderRevisionStatus]
+
+
+export const PurchaseOrderValidationStatus = {
+  PASS: 'PASS',
+  WARN: 'WARN',
+  FAIL: 'FAIL'
+} as const
+
+export type PurchaseOrderValidationStatus = (typeof PurchaseOrderValidationStatus)[keyof typeof PurchaseOrderValidationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

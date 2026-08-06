@@ -222,7 +222,10 @@ export const ModelName = {
   RequisitionSubmissionCheck: 'RequisitionSubmissionCheck',
   RequisitionApprovalRoute: 'RequisitionApprovalRoute',
   RequisitionApprovalStep: 'RequisitionApprovalStep',
-  RequisitionApprovalDecision: 'RequisitionApprovalDecision'
+  RequisitionApprovalDecision: 'RequisitionApprovalDecision',
+  PurchaseOrderExecution: 'PurchaseOrderExecution',
+  PurchaseOrderRevision: 'PurchaseOrderRevision',
+  PurchaseOrderValidation: 'PurchaseOrderValidation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3949,6 +3952,76 @@ export const RequisitionApprovalDecisionScalarFieldEnum = {
 } as const
 
 export type RequisitionApprovalDecisionScalarFieldEnum = (typeof RequisitionApprovalDecisionScalarFieldEnum)[keyof typeof RequisitionApprovalDecisionScalarFieldEnum]
+
+
+export const PurchaseOrderExecutionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  purchaseOrderId: 'purchaseOrderId',
+  orderNumber: 'orderNumber',
+  supplierId: 'supplierId',
+  contractId: 'contractId',
+  currencyCode: 'currencyCode',
+  status: 'status',
+  currentRevision: 'currentRevision',
+  totalAmount: 'totalAmount',
+  taxAmount: 'taxAmount',
+  freightAmount: 'freightAmount',
+  discountAmount: 'discountAmount',
+  requestedDeliveryAt: 'requestedDeliveryAt',
+  issuedAt: 'issuedAt',
+  acknowledgedAt: 'acknowledgedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderExecutionScalarFieldEnum = (typeof PurchaseOrderExecutionScalarFieldEnum)[keyof typeof PurchaseOrderExecutionScalarFieldEnum]
+
+
+export const PurchaseOrderRevisionScalarFieldEnum = {
+  id: 'id',
+  executionId: 'executionId',
+  revisionNumber: 'revisionNumber',
+  status: 'status',
+  reason: 'reason',
+  supplierId: 'supplierId',
+  contractId: 'contractId',
+  currencyCode: 'currencyCode',
+  subtotalAmount: 'subtotalAmount',
+  taxAmount: 'taxAmount',
+  freightAmount: 'freightAmount',
+  discountAmount: 'discountAmount',
+  totalAmount: 'totalAmount',
+  requestedDeliveryAt: 'requestedDeliveryAt',
+  lineSnapshot: 'lineSnapshot',
+  changeSummary: 'changeSummary',
+  createdByUserId: 'createdByUserId',
+  issuedAt: 'issuedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PurchaseOrderRevisionScalarFieldEnum = (typeof PurchaseOrderRevisionScalarFieldEnum)[keyof typeof PurchaseOrderRevisionScalarFieldEnum]
+
+
+export const PurchaseOrderValidationScalarFieldEnum = {
+  id: 'id',
+  executionId: 'executionId',
+  revisionNumber: 'revisionNumber',
+  key: 'key',
+  name: 'name',
+  status: 'status',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  createdAt: 'createdAt'
+} as const
+
+export type PurchaseOrderValidationScalarFieldEnum = (typeof PurchaseOrderValidationScalarFieldEnum)[keyof typeof PurchaseOrderValidationScalarFieldEnum]
 
 
 export const SortOrder = {
