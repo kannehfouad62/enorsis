@@ -341,6 +341,7 @@ export type TenantWhereInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -441,6 +442,7 @@ export type TenantOrderByWithRelationInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionOrderByRelationAggregateInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionOrderByRelationAggregateInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseOrderByRelationAggregateInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -544,6 +546,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionListRelationFilter
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionListRelationFilter
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseListRelationFilter
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -686,6 +689,7 @@ export type TenantCreateInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -786,6 +790,7 @@ export type TenantUncheckedCreateInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -886,6 +891,7 @@ export type TenantUpdateInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -986,6 +992,7 @@ export type TenantUncheckedUpdateInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2279,6 +2286,20 @@ export type TenantUpdateOneRequiredWithoutThreeWayMatchCasesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutThreeWayMatchCasesInput, Prisma.TenantUpdateWithoutThreeWayMatchCasesInput>, Prisma.TenantUncheckedUpdateWithoutThreeWayMatchCasesInput>
 }
 
+export type TenantCreateNestedOneWithoutApPaymentReadinessCasesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedCreateWithoutApPaymentReadinessCasesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutApPaymentReadinessCasesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutApPaymentReadinessCasesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedCreateWithoutApPaymentReadinessCasesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutApPaymentReadinessCasesInput
+  upsert?: Prisma.TenantUpsertWithoutApPaymentReadinessCasesInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutApPaymentReadinessCasesInput, Prisma.TenantUpdateWithoutApPaymentReadinessCasesInput>, Prisma.TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -2373,6 +2394,7 @@ export type TenantCreateWithoutMembershipsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2472,6 +2494,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2587,6 +2610,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2686,6 +2710,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2785,6 +2810,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2884,6 +2910,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2999,6 +3026,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3098,6 +3126,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3197,6 +3226,7 @@ export type TenantCreateWithoutSitesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3296,6 +3326,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3411,6 +3442,7 @@ export type TenantUpdateWithoutSitesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3510,6 +3542,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3609,6 +3642,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3708,6 +3742,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3823,6 +3858,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3922,6 +3958,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4021,6 +4058,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4120,6 +4158,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4235,6 +4274,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4334,6 +4374,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4433,6 +4474,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4532,6 +4574,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4647,6 +4690,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4746,6 +4790,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4845,6 +4890,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4944,6 +4990,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5059,6 +5106,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5158,6 +5206,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5257,6 +5306,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5356,6 +5406,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5471,6 +5522,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5570,6 +5622,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5669,6 +5722,7 @@ export type TenantCreateWithoutSuppliersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5768,6 +5822,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5883,6 +5938,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5982,6 +6038,7 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6081,6 +6138,7 @@ export type TenantCreateWithoutSourcingEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6180,6 +6238,7 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6295,6 +6354,7 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6394,6 +6454,7 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6494,6 +6555,7 @@ export type TenantCreateWithoutContractsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -6593,6 +6655,7 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -6708,6 +6771,7 @@ export type TenantUpdateWithoutContractsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -6807,6 +6871,7 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -6906,6 +6971,7 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -7005,6 +7071,7 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -7120,6 +7187,7 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -7219,6 +7287,7 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -7317,6 +7386,7 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7416,6 +7486,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7531,6 +7602,7 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7630,6 +7702,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7729,6 +7802,7 @@ export type TenantCreateWithoutReceiptsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7828,6 +7902,7 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7943,6 +8018,7 @@ export type TenantUpdateWithoutReceiptsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8042,6 +8118,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8141,6 +8218,7 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8240,6 +8318,7 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8355,6 +8434,7 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8454,6 +8534,7 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8553,6 +8634,7 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8652,6 +8734,7 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8767,6 +8850,7 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8866,6 +8950,7 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8966,6 +9051,7 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -9065,6 +9151,7 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -9180,6 +9267,7 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -9279,6 +9367,7 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -9377,6 +9466,7 @@ export type TenantCreateWithoutIntegrationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9476,6 +9566,7 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9591,6 +9682,7 @@ export type TenantUpdateWithoutIntegrationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9690,6 +9782,7 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9789,6 +9882,7 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9888,6 +9982,7 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10003,6 +10098,7 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10102,6 +10198,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10201,6 +10298,7 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10300,6 +10398,7 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10415,6 +10514,7 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10514,6 +10614,7 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10613,6 +10714,7 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10712,6 +10814,7 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10827,6 +10930,7 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10926,6 +11030,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11025,6 +11130,7 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11124,6 +11230,7 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11239,6 +11346,7 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11338,6 +11446,7 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11437,6 +11546,7 @@ export type TenantCreateWithoutApiClientsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11536,6 +11646,7 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11651,6 +11762,7 @@ export type TenantUpdateWithoutApiClientsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11750,6 +11862,7 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11849,6 +11962,7 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11948,6 +12062,7 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12063,6 +12178,7 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12162,6 +12278,7 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12261,6 +12378,7 @@ export type TenantCreateWithoutSodRulesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12360,6 +12478,7 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12475,6 +12594,7 @@ export type TenantUpdateWithoutSodRulesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12574,6 +12694,7 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12673,6 +12794,7 @@ export type TenantCreateWithoutSodViolationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12772,6 +12894,7 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12887,6 +13010,7 @@ export type TenantUpdateWithoutSodViolationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12986,6 +13110,7 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13085,6 +13210,7 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13184,6 +13310,7 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13299,6 +13426,7 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13398,6 +13526,7 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13497,6 +13626,7 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13596,6 +13726,7 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13711,6 +13842,7 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13810,6 +13942,7 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13909,6 +14042,7 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14008,6 +14142,7 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14123,6 +14258,7 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14222,6 +14358,7 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14321,6 +14458,7 @@ export type TenantCreateWithoutProcurementPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14420,6 +14558,7 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14535,6 +14674,7 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14634,6 +14774,7 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14733,6 +14874,7 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14832,6 +14974,7 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14947,6 +15090,7 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15046,6 +15190,7 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15145,6 +15290,7 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15244,6 +15390,7 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15359,6 +15506,7 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15458,6 +15606,7 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15557,6 +15706,7 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15656,6 +15806,7 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15771,6 +15922,7 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15870,6 +16022,7 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15969,6 +16122,7 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16068,6 +16222,7 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16183,6 +16338,7 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16282,6 +16438,7 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16381,6 +16538,7 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16480,6 +16638,7 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16595,6 +16754,7 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16694,6 +16854,7 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16793,6 +16954,7 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16892,6 +17054,7 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17007,6 +17170,7 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17106,6 +17270,7 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17205,6 +17370,7 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17304,6 +17470,7 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17419,6 +17586,7 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17518,6 +17686,7 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17617,6 +17786,7 @@ export type TenantCreateWithoutResiliencePlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17716,6 +17886,7 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17831,6 +18002,7 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17930,6 +18102,7 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18029,6 +18202,7 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18128,6 +18302,7 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18243,6 +18418,7 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18342,6 +18518,7 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18441,6 +18618,7 @@ export type TenantCreateWithoutGuidedCartsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18540,6 +18718,7 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18655,6 +18834,7 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18754,6 +18934,7 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18853,6 +19034,7 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18952,6 +19134,7 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19067,6 +19250,7 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19166,6 +19350,7 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19265,6 +19450,7 @@ export type TenantCreateWithoutInventoryItemsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19364,6 +19550,7 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19479,6 +19666,7 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19578,6 +19766,7 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19677,6 +19866,7 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19776,6 +19966,7 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19891,6 +20082,7 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19990,6 +20182,7 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20089,6 +20282,7 @@ export type TenantCreateWithoutCycleCountsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20188,6 +20382,7 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20303,6 +20498,7 @@ export type TenantUpdateWithoutCycleCountsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20402,6 +20598,7 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20501,6 +20698,7 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20600,6 +20798,7 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20715,6 +20914,7 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20814,6 +21014,7 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20913,6 +21114,7 @@ export type TenantCreateWithoutServiceWorkersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21012,6 +21214,7 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21127,6 +21330,7 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21226,6 +21430,7 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21325,6 +21530,7 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21424,6 +21630,7 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21539,6 +21746,7 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21638,6 +21846,7 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21737,6 +21946,7 @@ export type TenantCreateWithoutDemandPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21836,6 +22046,7 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21951,6 +22162,7 @@ export type TenantUpdateWithoutDemandPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22050,6 +22262,7 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22149,6 +22362,7 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22248,6 +22462,7 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22363,6 +22578,7 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22462,6 +22678,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22561,6 +22778,7 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22660,6 +22878,7 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22775,6 +22994,7 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22874,6 +23094,7 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22973,6 +23194,7 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23072,6 +23294,7 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23187,6 +23410,7 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23286,6 +23510,7 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23385,6 +23610,7 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23484,6 +23710,7 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23599,6 +23826,7 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23698,6 +23926,7 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23797,6 +24026,7 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23896,6 +24126,7 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24011,6 +24242,7 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24110,6 +24342,7 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24209,6 +24442,7 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24308,6 +24542,7 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24423,6 +24658,7 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24522,6 +24758,7 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24621,6 +24858,7 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24720,6 +24958,7 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24835,6 +25074,7 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24934,6 +25174,7 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25033,6 +25274,7 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25132,6 +25374,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25247,6 +25490,7 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25346,6 +25590,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25445,6 +25690,7 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25544,6 +25790,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25659,6 +25906,7 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25758,6 +26006,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25857,6 +26106,7 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25956,6 +26206,7 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26071,6 +26322,7 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26170,6 +26422,7 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26269,6 +26522,7 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26368,6 +26622,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26483,6 +26738,7 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26582,6 +26838,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26681,6 +26938,7 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26780,6 +27038,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26895,6 +27154,7 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26994,6 +27254,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27093,6 +27354,7 @@ export type TenantCreateWithoutSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27192,6 +27454,7 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27307,6 +27570,7 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27406,6 +27670,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27505,6 +27770,7 @@ export type TenantCreateWithoutEntitlementsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27604,6 +27870,7 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27719,6 +27986,7 @@ export type TenantUpdateWithoutEntitlementsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27818,6 +28086,7 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27917,6 +28186,7 @@ export type TenantCreateWithoutUsageCountersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28016,6 +28286,7 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28131,6 +28402,7 @@ export type TenantUpdateWithoutUsageCountersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28230,6 +28502,7 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28329,6 +28602,7 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28428,6 +28702,7 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28543,6 +28818,7 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28642,6 +28918,7 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28741,6 +29018,7 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28840,6 +29118,7 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28955,6 +29234,7 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29054,6 +29334,7 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29153,6 +29434,7 @@ export type TenantCreateWithoutPlatformEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29252,6 +29534,7 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29367,6 +29650,7 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29466,6 +29750,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29565,6 +29850,7 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29664,6 +29950,7 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29779,6 +30066,7 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29878,6 +30166,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29977,6 +30266,7 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30076,6 +30366,7 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30191,6 +30482,7 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30290,6 +30582,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30389,6 +30682,7 @@ export type TenantCreateWithoutVaultSecretsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30488,6 +30782,7 @@ export type TenantUncheckedCreateWithoutVaultSecretsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30603,6 +30898,7 @@ export type TenantUpdateWithoutVaultSecretsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30702,6 +30998,7 @@ export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30801,6 +31098,7 @@ export type TenantCreateWithoutEnterpriseNotificationTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30900,6 +31198,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31015,6 +31314,7 @@ export type TenantUpdateWithoutEnterpriseNotificationTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31114,6 +31414,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationTemplatesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31213,6 +31514,7 @@ export type TenantCreateWithoutEnterpriseNotificationPreferencesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31312,6 +31614,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationPreferencesInput =
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31427,6 +31730,7 @@ export type TenantUpdateWithoutEnterpriseNotificationPreferencesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31526,6 +31830,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationPreferencesInput =
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31625,6 +31930,7 @@ export type TenantCreateWithoutEnterpriseNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31724,6 +32030,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31839,6 +32146,7 @@ export type TenantUpdateWithoutEnterpriseNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31938,6 +32246,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32037,6 +32346,7 @@ export type TenantCreateWithoutEnterpriseActivitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32136,6 +32446,7 @@ export type TenantUncheckedCreateWithoutEnterpriseActivitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32251,6 +32562,7 @@ export type TenantUpdateWithoutEnterpriseActivitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32350,6 +32662,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseActivitiesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32449,6 +32762,7 @@ export type TenantCreateWithoutEnterprisePoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32548,6 +32862,7 @@ export type TenantUncheckedCreateWithoutEnterprisePoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32663,6 +32978,7 @@ export type TenantUpdateWithoutEnterprisePoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32762,6 +33078,7 @@ export type TenantUncheckedUpdateWithoutEnterprisePoliciesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32861,6 +33178,7 @@ export type TenantCreateWithoutEnterpriseFeatureFlagsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32960,6 +33278,7 @@ export type TenantUncheckedCreateWithoutEnterpriseFeatureFlagsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33075,6 +33394,7 @@ export type TenantUpdateWithoutEnterpriseFeatureFlagsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33174,6 +33494,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseFeatureFlagsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33273,6 +33594,7 @@ export type TenantCreateWithoutPlatformCertificationRunsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33372,6 +33694,7 @@ export type TenantUncheckedCreateWithoutPlatformCertificationRunsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33487,6 +33810,7 @@ export type TenantUpdateWithoutPlatformCertificationRunsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33586,6 +33910,7 @@ export type TenantUncheckedUpdateWithoutPlatformCertificationRunsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33685,6 +34010,7 @@ export type TenantCreateWithoutRequisitionOrderJourneysInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33784,6 +34110,7 @@ export type TenantUncheckedCreateWithoutRequisitionOrderJourneysInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33899,6 +34226,7 @@ export type TenantUpdateWithoutRequisitionOrderJourneysInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33998,6 +34326,7 @@ export type TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34097,6 +34426,7 @@ export type TenantCreateWithoutRequisitionSubmissionAssessmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34196,6 +34526,7 @@ export type TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput = 
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34311,6 +34642,7 @@ export type TenantUpdateWithoutRequisitionSubmissionAssessmentsInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34410,6 +34742,7 @@ export type TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput = 
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34509,6 +34842,7 @@ export type TenantCreateWithoutRequisitionApprovalRoutesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34608,6 +34942,7 @@ export type TenantUncheckedCreateWithoutRequisitionApprovalRoutesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34723,6 +35058,7 @@ export type TenantUpdateWithoutRequisitionApprovalRoutesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34822,6 +35158,7 @@ export type TenantUncheckedUpdateWithoutRequisitionApprovalRoutesInput = {
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34921,6 +35258,7 @@ export type TenantCreateWithoutPurchaseOrderExecutionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35020,6 +35358,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrderExecutionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35135,6 +35474,7 @@ export type TenantUpdateWithoutPurchaseOrderExecutionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35234,6 +35574,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrderExecutionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35333,6 +35674,7 @@ export type TenantCreateWithoutGoodsReceiptSessionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35432,6 +35774,7 @@ export type TenantUncheckedCreateWithoutGoodsReceiptSessionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35547,6 +35890,7 @@ export type TenantUpdateWithoutGoodsReceiptSessionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35646,6 +35990,7 @@ export type TenantUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35745,6 +36090,7 @@ export type TenantCreateWithoutThreeWayMatchCasesInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35844,6 +36190,7 @@ export type TenantUncheckedCreateWithoutThreeWayMatchCasesInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35959,6 +36306,7 @@ export type TenantUpdateWithoutThreeWayMatchCasesInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -36058,6 +36406,423 @@ export type TenantUncheckedUpdateWithoutThreeWayMatchCasesInput = {
   requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
   purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
   goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutApPaymentReadinessCasesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutApPaymentReadinessCasesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutApPaymentReadinessCasesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedCreateWithoutApPaymentReadinessCasesInput>
+}
+
+export type TenantUpsertWithoutApPaymentReadinessCasesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedCreateWithoutApPaymentReadinessCasesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutApPaymentReadinessCasesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutApPaymentReadinessCasesInput, Prisma.TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput>
+}
+
+export type TenantUpdateWithoutApPaymentReadinessCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -36147,6 +36912,7 @@ export type TenantCountOutputType = {
   purchaseOrderExecutions: number
   goodsReceiptSessions: number
   threeWayMatchCases: number
+  apPaymentReadinessCases: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -36231,6 +36997,7 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   purchaseOrderExecutions?: boolean | TenantCountOutputTypeCountPurchaseOrderExecutionsArgs
   goodsReceiptSessions?: boolean | TenantCountOutputTypeCountGoodsReceiptSessionsArgs
   threeWayMatchCases?: boolean | TenantCountOutputTypeCountThreeWayMatchCasesArgs
+  apPaymentReadinessCases?: boolean | TenantCountOutputTypeCountApPaymentReadinessCasesArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -36795,6 +37562,13 @@ export type TenantCountOutputTypeCountThreeWayMatchCasesArgs<ExtArgs extends run
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountApPaymentReadinessCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ApPaymentReadinessCaseWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -36909,6 +37683,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   purchaseOrderExecutions?: boolean | Prisma.Tenant$purchaseOrderExecutionsArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.Tenant$goodsReceiptSessionsArgs<ExtArgs>
   threeWayMatchCases?: boolean | Prisma.Tenant$threeWayMatchCasesArgs<ExtArgs>
+  apPaymentReadinessCases?: boolean | Prisma.Tenant$apPaymentReadinessCasesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -37050,6 +37825,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   purchaseOrderExecutions?: boolean | Prisma.Tenant$purchaseOrderExecutionsArgs<ExtArgs>
   goodsReceiptSessions?: boolean | Prisma.Tenant$goodsReceiptSessionsArgs<ExtArgs>
   threeWayMatchCases?: boolean | Prisma.Tenant$threeWayMatchCasesArgs<ExtArgs>
+  apPaymentReadinessCases?: boolean | Prisma.Tenant$apPaymentReadinessCasesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -37140,6 +37916,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     purchaseOrderExecutions: Prisma.$PurchaseOrderExecutionPayload<ExtArgs>[]
     goodsReceiptSessions: Prisma.$GoodsReceiptSessionPayload<ExtArgs>[]
     threeWayMatchCases: Prisma.$ThreeWayMatchCasePayload<ExtArgs>[]
+    apPaymentReadinessCases: Prisma.$ApPaymentReadinessCasePayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -37633,6 +38410,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   purchaseOrderExecutions<T extends Prisma.Tenant$purchaseOrderExecutionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$purchaseOrderExecutionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PurchaseOrderExecutionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   goodsReceiptSessions<T extends Prisma.Tenant$goodsReceiptSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$goodsReceiptSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GoodsReceiptSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   threeWayMatchCases<T extends Prisma.Tenant$threeWayMatchCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$threeWayMatchCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThreeWayMatchCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  apPaymentReadinessCases<T extends Prisma.Tenant$apPaymentReadinessCasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$apPaymentReadinessCasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ApPaymentReadinessCasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -39961,6 +40739,30 @@ export type Tenant$threeWayMatchCasesArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.ThreeWayMatchCaseScalarFieldEnum | Prisma.ThreeWayMatchCaseScalarFieldEnum[]
+}
+
+/**
+ * Tenant.apPaymentReadinessCases
+ */
+export type Tenant$apPaymentReadinessCasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ApPaymentReadinessCase
+   */
+  select?: Prisma.ApPaymentReadinessCaseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ApPaymentReadinessCase
+   */
+  omit?: Prisma.ApPaymentReadinessCaseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ApPaymentReadinessCaseInclude<ExtArgs> | null
+  where?: Prisma.ApPaymentReadinessCaseWhereInput
+  orderBy?: Prisma.ApPaymentReadinessCaseOrderByWithRelationInput | Prisma.ApPaymentReadinessCaseOrderByWithRelationInput[]
+  cursor?: Prisma.ApPaymentReadinessCaseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ApPaymentReadinessCaseScalarFieldEnum | Prisma.ApPaymentReadinessCaseScalarFieldEnum[]
 }
 
 /**

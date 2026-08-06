@@ -231,7 +231,10 @@ export const ModelName = {
   GoodsReceiptException: 'GoodsReceiptException',
   ThreeWayMatchCase: 'ThreeWayMatchCase',
   ThreeWayMatchLine: 'ThreeWayMatchLine',
-  ThreeWayMatchException: 'ThreeWayMatchException'
+  ThreeWayMatchException: 'ThreeWayMatchException',
+  ApPaymentReadinessCase: 'ApPaymentReadinessCase',
+  ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
+  ApPaymentHold: 'ApPaymentHold'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4161,6 +4164,68 @@ export const ThreeWayMatchExceptionScalarFieldEnum = {
 } as const
 
 export type ThreeWayMatchExceptionScalarFieldEnum = (typeof ThreeWayMatchExceptionScalarFieldEnum)[keyof typeof ThreeWayMatchExceptionScalarFieldEnum]
+
+
+export const ApPaymentReadinessCaseScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  threeWayMatchCaseId: 'threeWayMatchCaseId',
+  supplierInvoiceId: 'supplierInvoiceId',
+  paymentBatchId: 'paymentBatchId',
+  readinessNumber: 'readinessNumber',
+  invoiceNumber: 'invoiceNumber',
+  supplierId: 'supplierId',
+  currencyCode: 'currencyCode',
+  invoiceAmount: 'invoiceAmount',
+  dueDate: 'dueDate',
+  discountDate: 'discountDate',
+  discountAmount: 'discountAmount',
+  status: 'status',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  batchedAt: 'batchedAt',
+  paidAt: 'paidAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApPaymentReadinessCaseScalarFieldEnum = (typeof ApPaymentReadinessCaseScalarFieldEnum)[keyof typeof ApPaymentReadinessCaseScalarFieldEnum]
+
+
+export const ApPaymentReadinessCheckScalarFieldEnum = {
+  id: 'id',
+  readinessCaseId: 'readinessCaseId',
+  key: 'key',
+  name: 'name',
+  status: 'status',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ApPaymentReadinessCheckScalarFieldEnum = (typeof ApPaymentReadinessCheckScalarFieldEnum)[keyof typeof ApPaymentReadinessCheckScalarFieldEnum]
+
+
+export const ApPaymentHoldScalarFieldEnum = {
+  id: 'id',
+  readinessCaseId: 'readinessCaseId',
+  holdType: 'holdType',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  releaseReason: 'releaseReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApPaymentHoldScalarFieldEnum = (typeof ApPaymentHoldScalarFieldEnum)[keyof typeof ApPaymentHoldScalarFieldEnum]
 
 
 export const SortOrder = {

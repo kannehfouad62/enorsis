@@ -1666,6 +1666,39 @@ enum ThreeWayMatchExceptionType {
   OTHER
 }
 
+enum ApPaymentReadinessStatus {
+  DRAFT
+  BLOCKED
+  READY
+  APPROVED
+  BATCHED
+  PAID
+  CANCELLED
+}
+
+enum ApPaymentReadinessCheckStatus {
+  PASS
+  WARN
+  FAIL
+  NOT_APPLICABLE
+}
+
+enum ApPaymentHoldStatus {
+  ACTIVE
+  RELEASED
+  CANCELLED
+}
+
+enum ApPaymentHoldType {
+  DUPLICATE_INVOICE
+  MATCH_EXCEPTION
+  TAX_REVIEW
+  BANKING_REVIEW
+  SUPPLIER_COMPLIANCE
+  MANUAL_HOLD
+  OTHER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1852,6 +1885,7 @@ model Tenant {
   purchaseOrderExecutions           PurchaseOrderExecution[]
   goodsReceiptSessions              GoodsReceiptSession[]
   threeWayMatchCases                ThreeWayMatchCase[]
+  apPaymentReadinessCases           ApPaymentReadinessCase[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -6121,6 +6155,7 @@ model ThreeWayMatchCase {
   goodsReceiptSession      GoodsReceiptSession      @relation(fields: [goodsReceiptSessionId], references: [id], onDelete: Cascade)
   lines                    ThreeWayMatchLine[]
   exceptions               ThreeWayMatchException[]
+  paymentReadinessCase     ApPaymentReadinessCase?
   createdAt                DateTime                 @default(now())
   updatedAt                DateTime                 @updatedAt
 
@@ -6174,4 +6209,75 @@ model ThreeWayMatchException {
 
   @@index([matchCaseId, status, severity])
   @@index([status, dueAt])
+}
+
+model ApPaymentReadinessCase {
+  id                  String                    @id @default(cuid())
+  tenantId            String
+  threeWayMatchCaseId String
+  supplierInvoiceId   String
+  paymentBatchId      String?
+  readinessNumber     String
+  invoiceNumber       String?
+  supplierId          String?
+  currencyCode        String                    @default("USD")
+  invoiceAmount       Decimal                   @db.Decimal(18, 2)
+  dueDate             DateTime?
+  discountDate        DateTime?
+  discountAmount      Decimal?                  @db.Decimal(18, 2)
+  status              ApPaymentReadinessStatus  @default(DRAFT)
+  approvedByUserId    String?
+  approvedAt          DateTime?
+  batchedAt           DateTime?
+  paidAt              DateTime?
+  createdByUserId     String?
+  tenant              Tenant                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  threeWayMatchCase   ThreeWayMatchCase         @relation(fields: [threeWayMatchCaseId], references: [id], onDelete: Cascade)
+  checks              ApPaymentReadinessCheck[]
+  holds               ApPaymentHold[]
+  createdAt           DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
+
+  @@unique([tenantId, readinessNumber])
+  @@unique([threeWayMatchCaseId])
+  @@index([tenantId, status, dueDate])
+  @@index([supplierInvoiceId])
+  @@index([paymentBatchId])
+}
+
+model ApPaymentReadinessCheck {
+  id              String                        @id @default(cuid())
+  readinessCaseId String
+  key             String
+  name            String
+  status          ApPaymentReadinessCheckStatus
+  releaseBlocking Boolean                       @default(false)
+  observedValue   String?
+  expectedValue   String?
+  remediation     String?
+  evidence        Json?
+  readinessCase   ApPaymentReadinessCase        @relation(fields: [readinessCaseId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                      @default(now())
+
+  @@unique([readinessCaseId, key])
+  @@index([status, releaseBlocking])
+}
+
+model ApPaymentHold {
+  id               String                 @id @default(cuid())
+  readinessCaseId  String
+  holdType         ApPaymentHoldType
+  status           ApPaymentHoldStatus    @default(ACTIVE)
+  title            String
+  description      String?
+  ownerUserId      String?
+  releasedByUserId String?
+  releasedAt       DateTime?
+  releaseReason    String?
+  readinessCase    ApPaymentReadinessCase @relation(fields: [readinessCaseId], references: [id], onDelete: Cascade)
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+
+  @@index([readinessCaseId, status])
+  @@index([holdType, status])
 }

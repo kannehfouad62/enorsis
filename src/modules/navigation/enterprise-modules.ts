@@ -454,6 +454,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Payment Readiness",
+    description: "AP controls, payment holds, approvals and batch eligibility.",
+    href: "/app/requisition-to-order/payment-readiness",
+    icon: CircleDollarSign,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

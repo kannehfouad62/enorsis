@@ -922,3 +922,18 @@ export type ThreeWayMatchLine = Prisma.ThreeWayMatchLineModel
  * 
  */
 export type ThreeWayMatchException = Prisma.ThreeWayMatchExceptionModel
+/**
+ * Model ApPaymentReadinessCase
+ * 
+ */
+export type ApPaymentReadinessCase = Prisma.ApPaymentReadinessCaseModel
+/**
+ * Model ApPaymentReadinessCheck
+ * 
+ */
+export type ApPaymentReadinessCheck = Prisma.ApPaymentReadinessCheckModel
+/**
+ * Model ApPaymentHold
+ * 
+ */
+export type ApPaymentHold = Prisma.ApPaymentHoldModel

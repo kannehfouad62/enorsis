@@ -2258,6 +2258,51 @@ export const ThreeWayMatchExceptionType = {
 export type ThreeWayMatchExceptionType = (typeof ThreeWayMatchExceptionType)[keyof typeof ThreeWayMatchExceptionType]
 
 
+export const ApPaymentReadinessStatus = {
+  DRAFT: 'DRAFT',
+  BLOCKED: 'BLOCKED',
+  READY: 'READY',
+  APPROVED: 'APPROVED',
+  BATCHED: 'BATCHED',
+  PAID: 'PAID',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ApPaymentReadinessStatus = (typeof ApPaymentReadinessStatus)[keyof typeof ApPaymentReadinessStatus]
+
+
+export const ApPaymentReadinessCheckStatus = {
+  PASS: 'PASS',
+  WARN: 'WARN',
+  FAIL: 'FAIL',
+  NOT_APPLICABLE: 'NOT_APPLICABLE'
+} as const
+
+export type ApPaymentReadinessCheckStatus = (typeof ApPaymentReadinessCheckStatus)[keyof typeof ApPaymentReadinessCheckStatus]
+
+
+export const ApPaymentHoldStatus = {
+  ACTIVE: 'ACTIVE',
+  RELEASED: 'RELEASED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ApPaymentHoldStatus = (typeof ApPaymentHoldStatus)[keyof typeof ApPaymentHoldStatus]
+
+
+export const ApPaymentHoldType = {
+  DUPLICATE_INVOICE: 'DUPLICATE_INVOICE',
+  MATCH_EXCEPTION: 'MATCH_EXCEPTION',
+  TAX_REVIEW: 'TAX_REVIEW',
+  BANKING_REVIEW: 'BANKING_REVIEW',
+  SUPPLIER_COMPLIANCE: 'SUPPLIER_COMPLIANCE',
+  MANUAL_HOLD: 'MANUAL_HOLD',
+  OTHER: 'OTHER'
+} as const
+
+export type ApPaymentHoldType = (typeof ApPaymentHoldType)[keyof typeof ApPaymentHoldType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

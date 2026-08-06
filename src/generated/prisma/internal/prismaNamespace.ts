@@ -577,7 +577,10 @@ export const ModelName = {
   GoodsReceiptException: 'GoodsReceiptException',
   ThreeWayMatchCase: 'ThreeWayMatchCase',
   ThreeWayMatchLine: 'ThreeWayMatchLine',
-  ThreeWayMatchException: 'ThreeWayMatchException'
+  ThreeWayMatchException: 'ThreeWayMatchException',
+  ApPaymentReadinessCase: 'ApPaymentReadinessCase',
+  ApPaymentReadinessCheck: 'ApPaymentReadinessCheck',
+  ApPaymentHold: 'ApPaymentHold'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -593,7 +596,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -13991,6 +13994,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ApPaymentReadinessCase: {
+      payload: Prisma.$ApPaymentReadinessCasePayload<ExtArgs>
+      fields: Prisma.ApPaymentReadinessCaseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApPaymentReadinessCaseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApPaymentReadinessCaseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        findFirst: {
+          args: Prisma.ApPaymentReadinessCaseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApPaymentReadinessCaseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        findMany: {
+          args: Prisma.ApPaymentReadinessCaseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>[]
+        }
+        create: {
+          args: Prisma.ApPaymentReadinessCaseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        createMany: {
+          args: Prisma.ApPaymentReadinessCaseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApPaymentReadinessCaseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>[]
+        }
+        delete: {
+          args: Prisma.ApPaymentReadinessCaseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        update: {
+          args: Prisma.ApPaymentReadinessCaseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        deleteMany: {
+          args: Prisma.ApPaymentReadinessCaseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApPaymentReadinessCaseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApPaymentReadinessCaseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>[]
+        }
+        upsert: {
+          args: Prisma.ApPaymentReadinessCaseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCasePayload>
+        }
+        aggregate: {
+          args: Prisma.ApPaymentReadinessCaseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApPaymentReadinessCase>
+        }
+        groupBy: {
+          args: Prisma.ApPaymentReadinessCaseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentReadinessCaseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApPaymentReadinessCaseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentReadinessCaseCountAggregateOutputType> | number
+        }
+      }
+    }
+    ApPaymentReadinessCheck: {
+      payload: Prisma.$ApPaymentReadinessCheckPayload<ExtArgs>
+      fields: Prisma.ApPaymentReadinessCheckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApPaymentReadinessCheckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApPaymentReadinessCheckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        findFirst: {
+          args: Prisma.ApPaymentReadinessCheckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApPaymentReadinessCheckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        findMany: {
+          args: Prisma.ApPaymentReadinessCheckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>[]
+        }
+        create: {
+          args: Prisma.ApPaymentReadinessCheckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        createMany: {
+          args: Prisma.ApPaymentReadinessCheckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApPaymentReadinessCheckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>[]
+        }
+        delete: {
+          args: Prisma.ApPaymentReadinessCheckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        update: {
+          args: Prisma.ApPaymentReadinessCheckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        deleteMany: {
+          args: Prisma.ApPaymentReadinessCheckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApPaymentReadinessCheckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApPaymentReadinessCheckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>[]
+        }
+        upsert: {
+          args: Prisma.ApPaymentReadinessCheckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentReadinessCheckPayload>
+        }
+        aggregate: {
+          args: Prisma.ApPaymentReadinessCheckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApPaymentReadinessCheck>
+        }
+        groupBy: {
+          args: Prisma.ApPaymentReadinessCheckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentReadinessCheckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApPaymentReadinessCheckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentReadinessCheckCountAggregateOutputType> | number
+        }
+      }
+    }
+    ApPaymentHold: {
+      payload: Prisma.$ApPaymentHoldPayload<ExtArgs>
+      fields: Prisma.ApPaymentHoldFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ApPaymentHoldFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ApPaymentHoldFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        findFirst: {
+          args: Prisma.ApPaymentHoldFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ApPaymentHoldFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        findMany: {
+          args: Prisma.ApPaymentHoldFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>[]
+        }
+        create: {
+          args: Prisma.ApPaymentHoldCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        createMany: {
+          args: Prisma.ApPaymentHoldCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ApPaymentHoldCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>[]
+        }
+        delete: {
+          args: Prisma.ApPaymentHoldDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        update: {
+          args: Prisma.ApPaymentHoldUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        deleteMany: {
+          args: Prisma.ApPaymentHoldDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ApPaymentHoldUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ApPaymentHoldUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>[]
+        }
+        upsert: {
+          args: Prisma.ApPaymentHoldUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ApPaymentHoldPayload>
+        }
+        aggregate: {
+          args: Prisma.ApPaymentHoldAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateApPaymentHold>
+        }
+        groupBy: {
+          args: Prisma.ApPaymentHoldGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentHoldGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ApPaymentHoldCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ApPaymentHoldCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -17943,6 +18168,68 @@ export const ThreeWayMatchExceptionScalarFieldEnum = {
 export type ThreeWayMatchExceptionScalarFieldEnum = (typeof ThreeWayMatchExceptionScalarFieldEnum)[keyof typeof ThreeWayMatchExceptionScalarFieldEnum]
 
 
+export const ApPaymentReadinessCaseScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  threeWayMatchCaseId: 'threeWayMatchCaseId',
+  supplierInvoiceId: 'supplierInvoiceId',
+  paymentBatchId: 'paymentBatchId',
+  readinessNumber: 'readinessNumber',
+  invoiceNumber: 'invoiceNumber',
+  supplierId: 'supplierId',
+  currencyCode: 'currencyCode',
+  invoiceAmount: 'invoiceAmount',
+  dueDate: 'dueDate',
+  discountDate: 'discountDate',
+  discountAmount: 'discountAmount',
+  status: 'status',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  batchedAt: 'batchedAt',
+  paidAt: 'paidAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApPaymentReadinessCaseScalarFieldEnum = (typeof ApPaymentReadinessCaseScalarFieldEnum)[keyof typeof ApPaymentReadinessCaseScalarFieldEnum]
+
+
+export const ApPaymentReadinessCheckScalarFieldEnum = {
+  id: 'id',
+  readinessCaseId: 'readinessCaseId',
+  key: 'key',
+  name: 'name',
+  status: 'status',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ApPaymentReadinessCheckScalarFieldEnum = (typeof ApPaymentReadinessCheckScalarFieldEnum)[keyof typeof ApPaymentReadinessCheckScalarFieldEnum]
+
+
+export const ApPaymentHoldScalarFieldEnum = {
+  id: 'id',
+  readinessCaseId: 'readinessCaseId',
+  holdType: 'holdType',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  releaseReason: 'releaseReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ApPaymentHoldScalarFieldEnum = (typeof ApPaymentHoldScalarFieldEnum)[keyof typeof ApPaymentHoldScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -20959,6 +21246,62 @@ export type ListEnumThreeWayMatchExceptionStatusFieldRefInput<$PrismaModel> = Fi
 
 
 /**
+ * Reference to a field of type 'ApPaymentReadinessStatus'
+ */
+export type EnumApPaymentReadinessStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentReadinessStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentReadinessStatus[]'
+ */
+export type ListEnumApPaymentReadinessStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentReadinessStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentReadinessCheckStatus'
+ */
+export type EnumApPaymentReadinessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentReadinessCheckStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentReadinessCheckStatus[]'
+ */
+export type ListEnumApPaymentReadinessCheckStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentReadinessCheckStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentHoldType'
+ */
+export type EnumApPaymentHoldTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentHoldType'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentHoldType[]'
+ */
+export type ListEnumApPaymentHoldTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentHoldType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentHoldStatus'
+ */
+export type EnumApPaymentHoldStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentHoldStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ApPaymentHoldStatus[]'
+ */
+export type ListEnumApPaymentHoldStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ApPaymentHoldStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -21303,6 +21646,9 @@ export type GlobalOmitConfig = {
   threeWayMatchCase?: Prisma.ThreeWayMatchCaseOmit
   threeWayMatchLine?: Prisma.ThreeWayMatchLineOmit
   threeWayMatchException?: Prisma.ThreeWayMatchExceptionOmit
+  apPaymentReadinessCase?: Prisma.ApPaymentReadinessCaseOmit
+  apPaymentReadinessCheck?: Prisma.ApPaymentReadinessCheckOmit
+  apPaymentHold?: Prisma.ApPaymentHoldOmit
 }
 
 /* Types for Logging */
