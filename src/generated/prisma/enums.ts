@@ -2095,6 +2095,38 @@ export const RequisitionSubmissionCheckStatus = {
 export type RequisitionSubmissionCheckStatus = (typeof RequisitionSubmissionCheckStatus)[keyof typeof RequisitionSubmissionCheckStatus]
 
 
+export const RequisitionApprovalRouteStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CANCELLED: 'CANCELLED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type RequisitionApprovalRouteStatus = (typeof RequisitionApprovalRouteStatus)[keyof typeof RequisitionApprovalRouteStatus]
+
+
+export const RequisitionApprovalStepMode = {
+  SEQUENTIAL: 'SEQUENTIAL',
+  PARALLEL: 'PARALLEL'
+} as const
+
+export type RequisitionApprovalStepMode = (typeof RequisitionApprovalStepMode)[keyof typeof RequisitionApprovalStepMode]
+
+
+export const RequisitionApprovalDecisionStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  DELEGATED: 'DELEGATED',
+  SKIPPED: 'SKIPPED',
+  EXPIRED: 'EXPIRED'
+} as const
+
+export type RequisitionApprovalDecisionStatus = (typeof RequisitionApprovalDecisionStatus)[keyof typeof RequisitionApprovalDecisionStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

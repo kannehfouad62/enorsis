@@ -16,6 +16,25 @@ export async function getRequisitionToOrderWorkspace() {
       exceptions: {
         orderBy: { createdAt: "desc" },
       },
+      approvalRoutes: {
+        include: {
+          steps: {
+            include: {
+              decisions: {
+                orderBy: {
+                  createdAt: "asc",
+                },
+              },
+            },
+            orderBy: {
+              sequence: "asc",
+            },
+          },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      },
     },
     orderBy: { createdAt: "desc" },
     take: 200,

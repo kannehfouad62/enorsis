@@ -1545,6 +1545,29 @@ enum RequisitionSubmissionCheckStatus {
   NOT_APPLICABLE
 }
 
+enum RequisitionApprovalRouteStatus {
+  DRAFT
+  ACTIVE
+  APPROVED
+  REJECTED
+  CANCELLED
+  EXPIRED
+}
+
+enum RequisitionApprovalStepMode {
+  SEQUENTIAL
+  PARALLEL
+}
+
+enum RequisitionApprovalDecisionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  DELEGATED
+  SKIPPED
+  EXPIRED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1727,6 +1750,7 @@ model Tenant {
   platformCertificationRuns         PlatformCertificationRun[]
   requisitionOrderJourneys          RequisitionOrderJourney[]
   requisitionSubmissionAssessments  RequisitionSubmissionAssessment[]
+  requisitionApprovalRoutes         RequisitionApprovalRoute[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5652,6 +5676,7 @@ model RequisitionOrderJourney {
   submissionAssessments RequisitionSubmissionAssessment[]
   milestones            RequisitionOrderMilestone[]
   exceptions            RequisitionOrderException[]
+  approvalRoutes        RequisitionApprovalRoute[]
   createdAt             DateTime                          @default(now())
   updatedAt             DateTime                          @updatedAt
 
@@ -5751,4 +5776,68 @@ model RequisitionSubmissionCheck {
 
   @@unique([assessmentId, key])
   @@index([status, releaseBlocking])
+}
+
+model RequisitionApprovalRoute {
+  id                String                         @id @default(cuid())
+  tenantId          String
+  journeyId         String
+  assessmentId      String?
+  name              String
+  status            RequisitionApprovalRouteStatus @default(DRAFT)
+  currentSequence   Int                            @default(1)
+  amount            Decimal?                       @db.Decimal(18, 2)
+  currencyCode      String                         @default("USD")
+  initiatedByUserId String?
+  initiatedAt       DateTime?
+  completedAt       DateTime?
+  rejectedAt        DateTime?
+  rejectionReason   String?
+  correlationId     String?
+  tenant            Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey           RequisitionOrderJourney        @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  steps             RequisitionApprovalStep[]
+  createdAt         DateTime                       @default(now())
+  updatedAt         DateTime                       @updatedAt
+
+  @@index([tenantId, status, createdAt])
+  @@index([journeyId, status])
+}
+
+model RequisitionApprovalStep {
+  id                String                        @id @default(cuid())
+  routeId           String
+  sequence          Int
+  name              String
+  mode              RequisitionApprovalStepMode   @default(SEQUENTIAL)
+  requiredApprovals Int                           @default(1)
+  approvalRole      String?
+  approvalUserId    String?
+  amountThreshold   Decimal?                      @db.Decimal(18, 2)
+  dueAt             DateTime?
+  completedAt       DateTime?
+  route             RequisitionApprovalRoute      @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  decisions         RequisitionApprovalDecision[]
+  createdAt         DateTime                      @default(now())
+  updatedAt         DateTime                      @updatedAt
+
+  @@unique([routeId, sequence, name])
+  @@index([routeId, sequence])
+}
+
+model RequisitionApprovalDecision {
+  id                  String                            @id @default(cuid())
+  stepId              String
+  approverUserId      String
+  delegatedFromUserId String?
+  status              RequisitionApprovalDecisionStatus @default(PENDING)
+  comments            String?
+  decidedAt           DateTime?
+  dueAt               DateTime?
+  step                RequisitionApprovalStep           @relation(fields: [stepId], references: [id], onDelete: Cascade)
+  createdAt           DateTime                          @default(now())
+  updatedAt           DateTime                          @updatedAt
+
+  @@unique([stepId, approverUserId])
+  @@index([approverUserId, status, dueAt])
 }

@@ -4,6 +4,7 @@ import {
   transitionJourneyAction,
 } from "@/modules/requisition-to-order/actions";
 import { getRequisitionToOrderWorkspace } from "@/modules/requisition-to-order/queries";
+import { ApprovalPanel } from "./approval-panel";
 
 const input =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
@@ -110,7 +111,17 @@ export default async function RequisitionToOrderPage() {
                 </button>
               </form>
 
-              <div className="mt-5 border-t border-slate-200 pt-4">
+              <ApprovalPanel
+                journeyId={journey.id}
+                currencyCode={journey.currencyCode}
+                estimatedAmount={journey.estimatedAmount?.toString() ?? null}
+                routes={journey.approvalRoutes}
+              />
+
+              
+
+              
+<div className="mt-5 border-t border-slate-200 pt-4">
                 <p className="text-xs font-black uppercase text-slate-500">
                   Recent milestones
                 </p>

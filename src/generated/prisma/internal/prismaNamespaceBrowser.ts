@@ -219,7 +219,10 @@ export const ModelName = {
   RequisitionOrderMilestone: 'RequisitionOrderMilestone',
   RequisitionOrderException: 'RequisitionOrderException',
   RequisitionSubmissionAssessment: 'RequisitionSubmissionAssessment',
-  RequisitionSubmissionCheck: 'RequisitionSubmissionCheck'
+  RequisitionSubmissionCheck: 'RequisitionSubmissionCheck',
+  RequisitionApprovalRoute: 'RequisitionApprovalRoute',
+  RequisitionApprovalStep: 'RequisitionApprovalStep',
+  RequisitionApprovalDecision: 'RequisitionApprovalDecision'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3888,6 +3891,64 @@ export const RequisitionSubmissionCheckScalarFieldEnum = {
 } as const
 
 export type RequisitionSubmissionCheckScalarFieldEnum = (typeof RequisitionSubmissionCheckScalarFieldEnum)[keyof typeof RequisitionSubmissionCheckScalarFieldEnum]
+
+
+export const RequisitionApprovalRouteScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  assessmentId: 'assessmentId',
+  name: 'name',
+  status: 'status',
+  currentSequence: 'currentSequence',
+  amount: 'amount',
+  currencyCode: 'currencyCode',
+  initiatedByUserId: 'initiatedByUserId',
+  initiatedAt: 'initiatedAt',
+  completedAt: 'completedAt',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  correlationId: 'correlationId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionApprovalRouteScalarFieldEnum = (typeof RequisitionApprovalRouteScalarFieldEnum)[keyof typeof RequisitionApprovalRouteScalarFieldEnum]
+
+
+export const RequisitionApprovalStepScalarFieldEnum = {
+  id: 'id',
+  routeId: 'routeId',
+  sequence: 'sequence',
+  name: 'name',
+  mode: 'mode',
+  requiredApprovals: 'requiredApprovals',
+  approvalRole: 'approvalRole',
+  approvalUserId: 'approvalUserId',
+  amountThreshold: 'amountThreshold',
+  dueAt: 'dueAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionApprovalStepScalarFieldEnum = (typeof RequisitionApprovalStepScalarFieldEnum)[keyof typeof RequisitionApprovalStepScalarFieldEnum]
+
+
+export const RequisitionApprovalDecisionScalarFieldEnum = {
+  id: 'id',
+  stepId: 'stepId',
+  approverUserId: 'approverUserId',
+  delegatedFromUserId: 'delegatedFromUserId',
+  status: 'status',
+  comments: 'comments',
+  decidedAt: 'decidedAt',
+  dueAt: 'dueAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionApprovalDecisionScalarFieldEnum = (typeof RequisitionApprovalDecisionScalarFieldEnum)[keyof typeof RequisitionApprovalDecisionScalarFieldEnum]
 
 
 export const SortOrder = {

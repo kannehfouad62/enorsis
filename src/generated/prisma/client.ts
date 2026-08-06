@@ -886,3 +886,18 @@ export type RequisitionSubmissionAssessment = Prisma.RequisitionSubmissionAssess
  * 
  */
 export type RequisitionSubmissionCheck = Prisma.RequisitionSubmissionCheckModel
+/**
+ * Model RequisitionApprovalRoute
+ * 
+ */
+export type RequisitionApprovalRoute = Prisma.RequisitionApprovalRouteModel
+/**
+ * Model RequisitionApprovalStep
+ * 
+ */
+export type RequisitionApprovalStep = Prisma.RequisitionApprovalStepModel
+/**
+ * Model RequisitionApprovalDecision
+ * 
+ */
+export type RequisitionApprovalDecision = Prisma.RequisitionApprovalDecisionModel
