@@ -1957,6 +1957,35 @@ export const EnterpriseActivitySeverity = {
 export type EnterpriseActivitySeverity = (typeof EnterpriseActivitySeverity)[keyof typeof EnterpriseActivitySeverity]
 
 
+export const EnterprisePolicyStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  RETIRED: 'RETIRED'
+} as const
+
+export type EnterprisePolicyStatus = (typeof EnterprisePolicyStatus)[keyof typeof EnterprisePolicyStatus]
+
+
+export const EnterprisePolicyValueType = {
+  BOOLEAN: 'BOOLEAN',
+  STRING: 'STRING',
+  NUMBER: 'NUMBER',
+  JSON: 'JSON'
+} as const
+
+export type EnterprisePolicyValueType = (typeof EnterprisePolicyValueType)[keyof typeof EnterprisePolicyValueType]
+
+
+export const EnterpriseFeatureFlagStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  RETIRED: 'RETIRED'
+} as const
+
+export type EnterpriseFeatureFlagStatus = (typeof EnterpriseFeatureFlagStatus)[keyof typeof EnterpriseFeatureFlagStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

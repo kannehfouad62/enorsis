@@ -40,6 +40,7 @@ import {
   PlugZap,
   Bell,
   Clock3,
+  SlidersHorizontal,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -392,6 +393,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Tenant-safe business activity, audit context and traceability.",
     href: "/app/settings/activity",
     icon: Clock3,
+    group: "Platform",
+  },
+
+  {
+    title: "Enterprise Policy Framework",
+    description: "Versioned policies, tenant overrides and controlled feature flags.",
+    href: "/app/settings/policies",
+    icon: SlidersHorizontal,
     group: "Platform",
   },
 

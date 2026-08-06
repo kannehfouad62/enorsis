@@ -554,7 +554,11 @@ export const ModelName = {
   EnterpriseNotification: 'EnterpriseNotification',
   EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery',
   EnterpriseActivity: 'EnterpriseActivity',
-  EnterpriseActivityAccessRule: 'EnterpriseActivityAccessRule'
+  EnterpriseActivityAccessRule: 'EnterpriseActivityAccessRule',
+  EnterprisePolicyDefinition: 'EnterprisePolicyDefinition',
+  EnterpriseTenantPolicy: 'EnterpriseTenantPolicy',
+  EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
+  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -570,7 +574,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -12266,6 +12270,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnterprisePolicyDefinition: {
+      payload: Prisma.$EnterprisePolicyDefinitionPayload<ExtArgs>
+      fields: Prisma.EnterprisePolicyDefinitionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterprisePolicyDefinitionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterprisePolicyDefinitionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterprisePolicyDefinitionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterprisePolicyDefinitionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        findMany: {
+          args: Prisma.EnterprisePolicyDefinitionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>[]
+        }
+        create: {
+          args: Prisma.EnterprisePolicyDefinitionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        createMany: {
+          args: Prisma.EnterprisePolicyDefinitionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterprisePolicyDefinitionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterprisePolicyDefinitionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        update: {
+          args: Prisma.EnterprisePolicyDefinitionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterprisePolicyDefinitionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterprisePolicyDefinitionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterprisePolicyDefinitionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterprisePolicyDefinitionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePolicyDefinitionPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterprisePolicyDefinitionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterprisePolicyDefinition>
+        }
+        groupBy: {
+          args: Prisma.EnterprisePolicyDefinitionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePolicyDefinitionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterprisePolicyDefinitionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePolicyDefinitionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseTenantPolicy: {
+      payload: Prisma.$EnterpriseTenantPolicyPayload<ExtArgs>
+      fields: Prisma.EnterpriseTenantPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseTenantPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseTenantPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseTenantPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseTenantPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseTenantPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseTenantPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseTenantPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseTenantPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseTenantPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseTenantPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseTenantPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseTenantPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseTenantPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseTenantPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseTenantPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseTenantPolicy>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseTenantPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseTenantPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseTenantPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseTenantPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseFeatureFlag: {
+      payload: Prisma.$EnterpriseFeatureFlagPayload<ExtArgs>
+      fields: Prisma.EnterpriseFeatureFlagFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseFeatureFlagFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseFeatureFlagFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseFeatureFlagFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseFeatureFlagFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseFeatureFlagFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseFeatureFlagCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseFeatureFlagCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseFeatureFlagCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseFeatureFlagDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseFeatureFlagUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseFeatureFlagDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseFeatureFlagUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseFeatureFlagUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseFeatureFlagUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseFeatureFlagPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseFeatureFlagAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseFeatureFlag>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseFeatureFlagGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseFeatureFlagGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseFeatureFlagCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseFeatureFlagCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseTenantFeatureFlag: {
+      payload: Prisma.$EnterpriseTenantFeatureFlagPayload<ExtArgs>
+      fields: Prisma.EnterpriseTenantFeatureFlagFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseTenantFeatureFlagFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseTenantFeatureFlagFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseTenantFeatureFlagFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseTenantFeatureFlagFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseTenantFeatureFlagFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseTenantFeatureFlagCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseTenantFeatureFlagCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseTenantFeatureFlagCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseTenantFeatureFlagDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseTenantFeatureFlagUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseTenantFeatureFlagDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseTenantFeatureFlagUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseTenantFeatureFlagUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseTenantFeatureFlagUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseTenantFeatureFlagPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseTenantFeatureFlagAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseTenantFeatureFlag>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseTenantFeatureFlagGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseTenantFeatureFlagGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseTenantFeatureFlagCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseTenantFeatureFlagCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -15722,6 +16022,81 @@ export const EnterpriseActivityAccessRuleScalarFieldEnum = {
 export type EnterpriseActivityAccessRuleScalarFieldEnum = (typeof EnterpriseActivityAccessRuleScalarFieldEnum)[keyof typeof EnterpriseActivityAccessRuleScalarFieldEnum]
 
 
+export const EnterprisePolicyDefinitionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  moduleKey: 'moduleKey',
+  valueType: 'valueType',
+  defaultValue: 'defaultValue',
+  validationSchema: 'validationSchema',
+  status: 'status',
+  version: 'version',
+  managedByPlatform: 'managedByPlatform',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterprisePolicyDefinitionScalarFieldEnum = (typeof EnterprisePolicyDefinitionScalarFieldEnum)[keyof typeof EnterprisePolicyDefinitionScalarFieldEnum]
+
+
+export const EnterpriseTenantPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyDefinitionId: 'policyDefinitionId',
+  value: 'value',
+  active: 'active',
+  effectiveFrom: 'effectiveFrom',
+  effectiveUntil: 'effectiveUntil',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseTenantPolicyScalarFieldEnum = (typeof EnterpriseTenantPolicyScalarFieldEnum)[keyof typeof EnterpriseTenantPolicyScalarFieldEnum]
+
+
+export const EnterpriseFeatureFlagScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  moduleKey: 'moduleKey',
+  status: 'status',
+  defaultEnabled: 'defaultEnabled',
+  rolloutPercentage: 'rolloutPercentage',
+  managedPaaSOnly: 'managedPaaSOnly',
+  requiresFeatureKey: 'requiresFeatureKey',
+  rules: 'rules',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseFeatureFlagScalarFieldEnum = (typeof EnterpriseFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseFeatureFlagScalarFieldEnum]
+
+
+export const EnterpriseTenantFeatureFlagScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  featureFlagId: 'featureFlagId',
+  enabled: 'enabled',
+  reason: 'reason',
+  startsAt: 'startsAt',
+  expiresAt: 'expiresAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseTenantFeatureFlagScalarFieldEnum = (typeof EnterpriseTenantFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseTenantFeatureFlagScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -18374,6 +18749,48 @@ export type ListEnumEnterpriseActivityVisibilityFieldRefInput<$PrismaModel> = Fi
 
 
 /**
+ * Reference to a field of type 'EnterprisePolicyValueType'
+ */
+export type EnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterprisePolicyValueType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterprisePolicyValueType[]'
+ */
+export type ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterprisePolicyValueType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterprisePolicyStatus'
+ */
+export type EnumEnterprisePolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterprisePolicyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterprisePolicyStatus[]'
+ */
+export type ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterprisePolicyStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseFeatureFlagStatus'
+ */
+export type EnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseFeatureFlagStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseFeatureFlagStatus[]'
+ */
+export type ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseFeatureFlagStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -18695,6 +19112,10 @@ export type GlobalOmitConfig = {
   enterpriseNotificationDelivery?: Prisma.EnterpriseNotificationDeliveryOmit
   enterpriseActivity?: Prisma.EnterpriseActivityOmit
   enterpriseActivityAccessRule?: Prisma.EnterpriseActivityAccessRuleOmit
+  enterprisePolicyDefinition?: Prisma.EnterprisePolicyDefinitionOmit
+  enterpriseTenantPolicy?: Prisma.EnterpriseTenantPolicyOmit
+  enterpriseFeatureFlag?: Prisma.EnterpriseFeatureFlagOmit
+  enterpriseTenantFeatureFlag?: Prisma.EnterpriseTenantFeatureFlagOmit
 }
 
 /* Types for Logging */

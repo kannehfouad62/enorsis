@@ -1443,6 +1443,26 @@ enum EnterpriseActivitySeverity {
   CRITICAL
 }
 
+enum EnterprisePolicyStatus {
+  DRAFT
+  ACTIVE
+  RETIRED
+}
+
+enum EnterprisePolicyValueType {
+  BOOLEAN
+  STRING
+  NUMBER
+  JSON
+}
+
+enum EnterpriseFeatureFlagStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  RETIRED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1620,6 +1640,8 @@ model Tenant {
   enterpriseNotificationPreferences EnterpriseNotificationPreference[]
   enterpriseNotifications           EnterpriseNotification[]
   enterpriseActivities              EnterpriseActivity[]
+  enterprisePolicies                EnterpriseTenantPolicy[]
+  enterpriseFeatureFlags            EnterpriseTenantFeatureFlag[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5382,4 +5404,87 @@ model EnterpriseActivityAccessRule {
   @@index([activityId, active])
   @@index([userId, active])
   @@index([role, active])
+}
+
+model EnterprisePolicyDefinition {
+  id                String                    @id @default(cuid())
+  key               String                    @unique
+  name              String
+  description       String?
+  category          String
+  moduleKey         String?
+  valueType         EnterprisePolicyValueType
+  defaultValue      Json
+  validationSchema  Json?
+  status            EnterprisePolicyStatus    @default(DRAFT)
+  version           Int                       @default(1)
+  managedByPlatform Boolean                   @default(false)
+  tenantOverrides   EnterpriseTenantPolicy[]
+  createdAt         DateTime                  @default(now())
+  updatedAt         DateTime                  @updatedAt
+
+  @@index([category, status])
+  @@index([moduleKey, status])
+}
+
+model EnterpriseTenantPolicy {
+  id                 String                     @id @default(cuid())
+  tenantId           String
+  policyDefinitionId String
+  value              Json
+  active             Boolean                    @default(true)
+  effectiveFrom      DateTime                   @default(now())
+  effectiveUntil     DateTime?
+  reason             String?
+  approvedByUserId   String?
+  approvedAt         DateTime?
+  createdByUserId    String?
+  updatedByUserId    String?
+  tenant             Tenant                     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  policyDefinition   EnterprisePolicyDefinition @relation(fields: [policyDefinitionId], references: [id], onDelete: Cascade)
+  createdAt          DateTime                   @default(now())
+  updatedAt          DateTime                   @updatedAt
+
+  @@unique([tenantId, policyDefinitionId])
+  @@index([tenantId, active])
+  @@index([effectiveFrom, effectiveUntil])
+}
+
+model EnterpriseFeatureFlag {
+  id                 String                        @id @default(cuid())
+  key                String                        @unique
+  name               String
+  description        String?
+  moduleKey          String?
+  status             EnterpriseFeatureFlagStatus   @default(DRAFT)
+  defaultEnabled     Boolean                       @default(false)
+  rolloutPercentage  Int                           @default(0)
+  managedPaaSOnly    Boolean                       @default(false)
+  requiresFeatureKey String?
+  rules              Json?
+  tenantOverrides    EnterpriseTenantFeatureFlag[]
+  createdAt          DateTime                      @default(now())
+  updatedAt          DateTime                      @updatedAt
+
+  @@index([moduleKey, status])
+  @@index([managedPaaSOnly, status])
+}
+
+model EnterpriseTenantFeatureFlag {
+  id              String                @id @default(cuid())
+  tenantId        String
+  featureFlagId   String
+  enabled         Boolean
+  reason          String?
+  startsAt        DateTime              @default(now())
+  expiresAt       DateTime?
+  createdByUserId String?
+  tenant          Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  featureFlag     EnterpriseFeatureFlag @relation(fields: [featureFlagId], references: [id], onDelete: Cascade)
+  createdAt       DateTime              @default(now())
+  updatedAt       DateTime              @updatedAt
+
+  @@unique([tenantId, featureFlagId])
+  @@index([tenantId, enabled])
+  @@index([startsAt, expiresAt])
 }

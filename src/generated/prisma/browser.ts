@@ -807,3 +807,23 @@ export type EnterpriseActivity = Prisma.EnterpriseActivityModel
  * 
  */
 export type EnterpriseActivityAccessRule = Prisma.EnterpriseActivityAccessRuleModel
+/**
+ * Model EnterprisePolicyDefinition
+ * 
+ */
+export type EnterprisePolicyDefinition = Prisma.EnterprisePolicyDefinitionModel
+/**
+ * Model EnterpriseTenantPolicy
+ * 
+ */
+export type EnterpriseTenantPolicy = Prisma.EnterpriseTenantPolicyModel
+/**
+ * Model EnterpriseFeatureFlag
+ * 
+ */
+export type EnterpriseFeatureFlag = Prisma.EnterpriseFeatureFlagModel
+/**
+ * Model EnterpriseTenantFeatureFlag
+ * 
+ */
+export type EnterpriseTenantFeatureFlag = Prisma.EnterpriseTenantFeatureFlagModel

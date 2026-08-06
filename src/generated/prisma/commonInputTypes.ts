@@ -3451,6 +3451,57 @@ export type EnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
 }
 
+export type EnumEnterprisePolicyValueTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyValueType | Prisma.EnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel> | $Enums.EnterprisePolicyValueType
+}
+
+export type EnumEnterprisePolicyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyStatus | Prisma.EnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel> | $Enums.EnterprisePolicyStatus
+}
+
+export type EnumEnterprisePolicyValueTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyValueType | Prisma.EnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyValueTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterprisePolicyValueType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel>
+}
+
+export type EnumEnterprisePolicyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyStatus | Prisma.EnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterprisePolicyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseFeatureFlagStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseFeatureFlagStatus | Prisma.EnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel> | $Enums.EnterpriseFeatureFlagStatus
+}
+
+export type EnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseFeatureFlagStatus | Prisma.EnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseFeatureFlagStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -6845,6 +6896,57 @@ export type NestedEnumEnterpriseActivityVisibilityWithAggregatesFilter<$PrismaMo
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseActivityVisibilityFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyValueType | Prisma.EnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel> | $Enums.EnterprisePolicyValueType
+}
+
+export type NestedEnumEnterprisePolicyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyStatus | Prisma.EnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel> | $Enums.EnterprisePolicyStatus
+}
+
+export type NestedEnumEnterprisePolicyValueTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyValueType | Prisma.EnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyValueType[] | Prisma.ListEnumEnterprisePolicyValueTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyValueTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterprisePolicyValueType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterprisePolicyValueTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterprisePolicyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterprisePolicyStatus | Prisma.EnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterprisePolicyStatus[] | Prisma.ListEnumEnterprisePolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterprisePolicyStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterprisePolicyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterprisePolicyStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseFeatureFlagStatus | Prisma.EnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel> | $Enums.EnterpriseFeatureFlagStatus
+}
+
+export type NestedEnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseFeatureFlagStatus | Prisma.EnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseFeatureFlagStatus[] | Prisma.ListEnumEnterpriseFeatureFlagStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseFeatureFlagStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseFeatureFlagStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseFeatureFlagStatusFilter<$PrismaModel>
 }
 
 

@@ -208,7 +208,11 @@ export const ModelName = {
   EnterpriseNotification: 'EnterpriseNotification',
   EnterpriseNotificationDelivery: 'EnterpriseNotificationDelivery',
   EnterpriseActivity: 'EnterpriseActivity',
-  EnterpriseActivityAccessRule: 'EnterpriseActivityAccessRule'
+  EnterpriseActivityAccessRule: 'EnterpriseActivityAccessRule',
+  EnterprisePolicyDefinition: 'EnterprisePolicyDefinition',
+  EnterpriseTenantPolicy: 'EnterpriseTenantPolicy',
+  EnterpriseFeatureFlag: 'EnterpriseFeatureFlag',
+  EnterpriseTenantFeatureFlag: 'EnterpriseTenantFeatureFlag'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3642,6 +3646,81 @@ export const EnterpriseActivityAccessRuleScalarFieldEnum = {
 } as const
 
 export type EnterpriseActivityAccessRuleScalarFieldEnum = (typeof EnterpriseActivityAccessRuleScalarFieldEnum)[keyof typeof EnterpriseActivityAccessRuleScalarFieldEnum]
+
+
+export const EnterprisePolicyDefinitionScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  moduleKey: 'moduleKey',
+  valueType: 'valueType',
+  defaultValue: 'defaultValue',
+  validationSchema: 'validationSchema',
+  status: 'status',
+  version: 'version',
+  managedByPlatform: 'managedByPlatform',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterprisePolicyDefinitionScalarFieldEnum = (typeof EnterprisePolicyDefinitionScalarFieldEnum)[keyof typeof EnterprisePolicyDefinitionScalarFieldEnum]
+
+
+export const EnterpriseTenantPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyDefinitionId: 'policyDefinitionId',
+  value: 'value',
+  active: 'active',
+  effectiveFrom: 'effectiveFrom',
+  effectiveUntil: 'effectiveUntil',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseTenantPolicyScalarFieldEnum = (typeof EnterpriseTenantPolicyScalarFieldEnum)[keyof typeof EnterpriseTenantPolicyScalarFieldEnum]
+
+
+export const EnterpriseFeatureFlagScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  name: 'name',
+  description: 'description',
+  moduleKey: 'moduleKey',
+  status: 'status',
+  defaultEnabled: 'defaultEnabled',
+  rolloutPercentage: 'rolloutPercentage',
+  managedPaaSOnly: 'managedPaaSOnly',
+  requiresFeatureKey: 'requiresFeatureKey',
+  rules: 'rules',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseFeatureFlagScalarFieldEnum = (typeof EnterpriseFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseFeatureFlagScalarFieldEnum]
+
+
+export const EnterpriseTenantFeatureFlagScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  featureFlagId: 'featureFlagId',
+  enabled: 'enabled',
+  reason: 'reason',
+  startsAt: 'startsAt',
+  expiresAt: 'expiresAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseTenantFeatureFlagScalarFieldEnum = (typeof EnterpriseTenantFeatureFlagScalarFieldEnum)[keyof typeof EnterpriseTenantFeatureFlagScalarFieldEnum]
 
 
 export const SortOrder = {
