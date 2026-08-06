@@ -2074,6 +2074,27 @@ export const RequisitionOrderExceptionSeverity = {
 export type RequisitionOrderExceptionSeverity = (typeof RequisitionOrderExceptionSeverity)[keyof typeof RequisitionOrderExceptionSeverity]
 
 
+export const RequisitionSubmissionAssessmentStatus = {
+  DRAFT: 'DRAFT',
+  READY: 'READY',
+  BLOCKED: 'BLOCKED',
+  SUBMITTED: 'SUBMITTED',
+  SUPERSEDED: 'SUPERSEDED'
+} as const
+
+export type RequisitionSubmissionAssessmentStatus = (typeof RequisitionSubmissionAssessmentStatus)[keyof typeof RequisitionSubmissionAssessmentStatus]
+
+
+export const RequisitionSubmissionCheckStatus = {
+  PASS: 'PASS',
+  WARN: 'WARN',
+  FAIL: 'FAIL',
+  NOT_APPLICABLE: 'NOT_APPLICABLE'
+} as const
+
+export type RequisitionSubmissionCheckStatus = (typeof RequisitionSubmissionCheckStatus)[keyof typeof RequisitionSubmissionCheckStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

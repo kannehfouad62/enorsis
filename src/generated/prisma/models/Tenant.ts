@@ -336,6 +336,7 @@ export type TenantWhereInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagListRelationFilter
   platformCertificationRuns?: Prisma.PlatformCertificationRunListRelationFilter
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyListRelationFilter
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -431,6 +432,7 @@ export type TenantOrderByWithRelationInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagOrderByRelationAggregateInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunOrderByRelationAggregateInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyOrderByRelationAggregateInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -529,6 +531,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagListRelationFilter
   platformCertificationRuns?: Prisma.PlatformCertificationRunListRelationFilter
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyListRelationFilter
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -666,6 +669,7 @@ export type TenantCreateInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -761,6 +765,7 @@ export type TenantUncheckedCreateInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -856,6 +861,7 @@ export type TenantUpdateInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -951,6 +957,7 @@ export type TenantUncheckedUpdateInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2174,6 +2181,20 @@ export type TenantUpdateOneRequiredWithoutRequisitionOrderJourneysNestedInput = 
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutRequisitionOrderJourneysInput, Prisma.TenantUpdateWithoutRequisitionOrderJourneysInput>, Prisma.TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput>
 }
 
+export type TenantCreateNestedOneWithoutRequisitionSubmissionAssessmentsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutRequisitionSubmissionAssessmentsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutRequisitionSubmissionAssessmentsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutRequisitionSubmissionAssessmentsInput
+  upsert?: Prisma.TenantUpsertWithoutRequisitionSubmissionAssessmentsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUpdateWithoutRequisitionSubmissionAssessmentsInput>, Prisma.TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -2263,6 +2284,7 @@ export type TenantCreateWithoutMembershipsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2357,6 +2379,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2467,6 +2490,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2561,6 +2585,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2655,6 +2680,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2749,6 +2775,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2859,6 +2886,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2953,6 +2981,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3047,6 +3076,7 @@ export type TenantCreateWithoutSitesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3141,6 +3171,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3251,6 +3282,7 @@ export type TenantUpdateWithoutSitesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3345,6 +3377,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3439,6 +3472,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3533,6 +3567,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3643,6 +3678,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3737,6 +3773,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3831,6 +3868,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3925,6 +3963,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4035,6 +4074,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4129,6 +4169,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4223,6 +4264,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4317,6 +4359,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4427,6 +4470,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4521,6 +4565,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4615,6 +4660,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4709,6 +4755,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4819,6 +4866,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4913,6 +4961,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5007,6 +5056,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5101,6 +5151,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5211,6 +5262,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5305,6 +5357,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5399,6 +5452,7 @@ export type TenantCreateWithoutSuppliersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5493,6 +5547,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5603,6 +5658,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5697,6 +5753,7 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5791,6 +5848,7 @@ export type TenantCreateWithoutSourcingEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5885,6 +5943,7 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5995,6 +6054,7 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6089,6 +6149,7 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6184,6 +6245,7 @@ export type TenantCreateWithoutContractsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -6278,6 +6340,7 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -6388,6 +6451,7 @@ export type TenantUpdateWithoutContractsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -6482,6 +6546,7 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -6576,6 +6641,7 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -6670,6 +6736,7 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -6780,6 +6847,7 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -6874,6 +6942,7 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -6967,6 +7036,7 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7061,6 +7131,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7171,6 +7242,7 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7265,6 +7337,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7359,6 +7432,7 @@ export type TenantCreateWithoutReceiptsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7453,6 +7527,7 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7563,6 +7638,7 @@ export type TenantUpdateWithoutReceiptsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7657,6 +7733,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7751,6 +7828,7 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7845,6 +7923,7 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7955,6 +8034,7 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8049,6 +8129,7 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8143,6 +8224,7 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8237,6 +8319,7 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8347,6 +8430,7 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8441,6 +8525,7 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8536,6 +8621,7 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -8630,6 +8716,7 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -8740,6 +8827,7 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -8834,6 +8922,7 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -8927,6 +9016,7 @@ export type TenantCreateWithoutIntegrationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9021,6 +9111,7 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9131,6 +9222,7 @@ export type TenantUpdateWithoutIntegrationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9225,6 +9317,7 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9319,6 +9412,7 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9413,6 +9507,7 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9523,6 +9618,7 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9617,6 +9713,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9711,6 +9808,7 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9805,6 +9903,7 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9915,6 +10014,7 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10009,6 +10109,7 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10103,6 +10204,7 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10197,6 +10299,7 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10307,6 +10410,7 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10401,6 +10505,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10495,6 +10600,7 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10589,6 +10695,7 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10699,6 +10806,7 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10793,6 +10901,7 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10887,6 +10996,7 @@ export type TenantCreateWithoutApiClientsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10981,6 +11091,7 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11091,6 +11202,7 @@ export type TenantUpdateWithoutApiClientsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11185,6 +11297,7 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11279,6 +11392,7 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11373,6 +11487,7 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11483,6 +11598,7 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11577,6 +11693,7 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11671,6 +11788,7 @@ export type TenantCreateWithoutSodRulesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11765,6 +11883,7 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11875,6 +11994,7 @@ export type TenantUpdateWithoutSodRulesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11969,6 +12089,7 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12063,6 +12184,7 @@ export type TenantCreateWithoutSodViolationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12157,6 +12279,7 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12267,6 +12390,7 @@ export type TenantUpdateWithoutSodViolationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12361,6 +12485,7 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12455,6 +12580,7 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12549,6 +12675,7 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12659,6 +12786,7 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12753,6 +12881,7 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12847,6 +12976,7 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12941,6 +13071,7 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13051,6 +13182,7 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13145,6 +13277,7 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13239,6 +13372,7 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13333,6 +13467,7 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13443,6 +13578,7 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13537,6 +13673,7 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13631,6 +13768,7 @@ export type TenantCreateWithoutProcurementPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13725,6 +13863,7 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13835,6 +13974,7 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13929,6 +14069,7 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14023,6 +14164,7 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14117,6 +14259,7 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14227,6 +14370,7 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14321,6 +14465,7 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14415,6 +14560,7 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14509,6 +14655,7 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14619,6 +14766,7 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14713,6 +14861,7 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14807,6 +14956,7 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14901,6 +15051,7 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15011,6 +15162,7 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15105,6 +15257,7 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15199,6 +15352,7 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15293,6 +15447,7 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15403,6 +15558,7 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15497,6 +15653,7 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15591,6 +15748,7 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15685,6 +15843,7 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15795,6 +15954,7 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15889,6 +16049,7 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15983,6 +16144,7 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16077,6 +16239,7 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16187,6 +16350,7 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16281,6 +16445,7 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16375,6 +16540,7 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16469,6 +16635,7 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16579,6 +16746,7 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16673,6 +16841,7 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16767,6 +16936,7 @@ export type TenantCreateWithoutResiliencePlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16861,6 +17031,7 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16971,6 +17142,7 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17065,6 +17237,7 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17159,6 +17332,7 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17253,6 +17427,7 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17363,6 +17538,7 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17457,6 +17633,7 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17551,6 +17728,7 @@ export type TenantCreateWithoutGuidedCartsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17645,6 +17823,7 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17755,6 +17934,7 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17849,6 +18029,7 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17943,6 +18124,7 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18037,6 +18219,7 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18147,6 +18330,7 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18241,6 +18425,7 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18335,6 +18520,7 @@ export type TenantCreateWithoutInventoryItemsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18429,6 +18615,7 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18539,6 +18726,7 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18633,6 +18821,7 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18727,6 +18916,7 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18821,6 +19011,7 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18931,6 +19122,7 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19025,6 +19217,7 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19119,6 +19312,7 @@ export type TenantCreateWithoutCycleCountsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19213,6 +19407,7 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19323,6 +19518,7 @@ export type TenantUpdateWithoutCycleCountsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19417,6 +19613,7 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19511,6 +19708,7 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19605,6 +19803,7 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19715,6 +19914,7 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19809,6 +20009,7 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19903,6 +20104,7 @@ export type TenantCreateWithoutServiceWorkersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19997,6 +20199,7 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20107,6 +20310,7 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20201,6 +20405,7 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20295,6 +20500,7 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20389,6 +20595,7 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20499,6 +20706,7 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20593,6 +20801,7 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20687,6 +20896,7 @@ export type TenantCreateWithoutDemandPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20781,6 +20991,7 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20891,6 +21102,7 @@ export type TenantUpdateWithoutDemandPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20985,6 +21197,7 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21079,6 +21292,7 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21173,6 +21387,7 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21283,6 +21498,7 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21377,6 +21593,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21471,6 +21688,7 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21565,6 +21783,7 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21675,6 +21894,7 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21769,6 +21989,7 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21863,6 +22084,7 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21957,6 +22179,7 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22067,6 +22290,7 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22161,6 +22385,7 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22255,6 +22480,7 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22349,6 +22575,7 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22459,6 +22686,7 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22553,6 +22781,7 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22647,6 +22876,7 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22741,6 +22971,7 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22851,6 +23082,7 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22945,6 +23177,7 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23039,6 +23272,7 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23133,6 +23367,7 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23243,6 +23478,7 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23337,6 +23573,7 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23431,6 +23668,7 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23525,6 +23763,7 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23635,6 +23874,7 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23729,6 +23969,7 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23823,6 +24064,7 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23917,6 +24159,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24027,6 +24270,7 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24121,6 +24365,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24215,6 +24460,7 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24309,6 +24555,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24419,6 +24666,7 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24513,6 +24761,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24607,6 +24856,7 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24701,6 +24951,7 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24811,6 +25062,7 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24905,6 +25157,7 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24999,6 +25252,7 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25093,6 +25347,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25203,6 +25458,7 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25297,6 +25553,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25391,6 +25648,7 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25485,6 +25743,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25595,6 +25854,7 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25689,6 +25949,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25783,6 +26044,7 @@ export type TenantCreateWithoutSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25877,6 +26139,7 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25987,6 +26250,7 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26081,6 +26345,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26175,6 +26440,7 @@ export type TenantCreateWithoutEntitlementsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26269,6 +26535,7 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26379,6 +26646,7 @@ export type TenantUpdateWithoutEntitlementsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26473,6 +26741,7 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26567,6 +26836,7 @@ export type TenantCreateWithoutUsageCountersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26661,6 +26931,7 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26771,6 +27042,7 @@ export type TenantUpdateWithoutUsageCountersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26865,6 +27137,7 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26959,6 +27232,7 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27053,6 +27327,7 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27163,6 +27438,7 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27257,6 +27533,7 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27351,6 +27628,7 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27445,6 +27723,7 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27555,6 +27834,7 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27649,6 +27929,7 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27743,6 +28024,7 @@ export type TenantCreateWithoutPlatformEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27837,6 +28119,7 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27947,6 +28230,7 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28041,6 +28325,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28135,6 +28420,7 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28229,6 +28515,7 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28339,6 +28626,7 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28433,6 +28721,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28527,6 +28816,7 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28621,6 +28911,7 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28731,6 +29022,7 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28825,6 +29117,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28919,6 +29212,7 @@ export type TenantCreateWithoutVaultSecretsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29013,6 +29307,7 @@ export type TenantUncheckedCreateWithoutVaultSecretsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29123,6 +29418,7 @@ export type TenantUpdateWithoutVaultSecretsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29217,6 +29513,7 @@ export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29311,6 +29608,7 @@ export type TenantCreateWithoutEnterpriseNotificationTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29405,6 +29703,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29515,6 +29814,7 @@ export type TenantUpdateWithoutEnterpriseNotificationTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29609,6 +29909,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationTemplatesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29703,6 +30004,7 @@ export type TenantCreateWithoutEnterpriseNotificationPreferencesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29797,6 +30099,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationPreferencesInput =
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29907,6 +30210,7 @@ export type TenantUpdateWithoutEnterpriseNotificationPreferencesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30001,6 +30305,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationPreferencesInput =
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30095,6 +30400,7 @@ export type TenantCreateWithoutEnterpriseNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30189,6 +30495,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30299,6 +30606,7 @@ export type TenantUpdateWithoutEnterpriseNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30393,6 +30701,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationsInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30487,6 +30796,7 @@ export type TenantCreateWithoutEnterpriseActivitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30581,6 +30891,7 @@ export type TenantUncheckedCreateWithoutEnterpriseActivitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30691,6 +31002,7 @@ export type TenantUpdateWithoutEnterpriseActivitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30785,6 +31097,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseActivitiesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30879,6 +31192,7 @@ export type TenantCreateWithoutEnterprisePoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30973,6 +31287,7 @@ export type TenantUncheckedCreateWithoutEnterprisePoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31083,6 +31398,7 @@ export type TenantUpdateWithoutEnterprisePoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31177,6 +31493,7 @@ export type TenantUncheckedUpdateWithoutEnterprisePoliciesInput = {
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31271,6 +31588,7 @@ export type TenantCreateWithoutEnterpriseFeatureFlagsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31365,6 +31683,7 @@ export type TenantUncheckedCreateWithoutEnterpriseFeatureFlagsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31475,6 +31794,7 @@ export type TenantUpdateWithoutEnterpriseFeatureFlagsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31569,6 +31889,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseFeatureFlagsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31663,6 +31984,7 @@ export type TenantCreateWithoutPlatformCertificationRunsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31757,6 +32079,7 @@ export type TenantUncheckedCreateWithoutPlatformCertificationRunsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31867,6 +32190,7 @@ export type TenantUpdateWithoutPlatformCertificationRunsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31961,6 +32285,7 @@ export type TenantUncheckedUpdateWithoutPlatformCertificationRunsInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32055,6 +32380,7 @@ export type TenantCreateWithoutRequisitionOrderJourneysInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32149,6 +32475,7 @@ export type TenantUncheckedCreateWithoutRequisitionOrderJourneysInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32259,6 +32586,7 @@ export type TenantUpdateWithoutRequisitionOrderJourneysInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32353,6 +32681,403 @@ export type TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput = {
   enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
   enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
   platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutRequisitionSubmissionAssessmentsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutRequisitionSubmissionAssessmentsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput>
+}
+
+export type TenantUpsertWithoutRequisitionSubmissionAssessmentsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutRequisitionSubmissionAssessmentsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutRequisitionSubmissionAssessmentsInput, Prisma.TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput>
+}
+
+export type TenantUpdateWithoutRequisitionSubmissionAssessmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32437,6 +33162,7 @@ export type TenantCountOutputType = {
   enterpriseFeatureFlags: number
   platformCertificationRuns: number
   requisitionOrderJourneys: number
+  requisitionSubmissionAssessments: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -32516,6 +33242,7 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   enterpriseFeatureFlags?: boolean | TenantCountOutputTypeCountEnterpriseFeatureFlagsArgs
   platformCertificationRuns?: boolean | TenantCountOutputTypeCountPlatformCertificationRunsArgs
   requisitionOrderJourneys?: boolean | TenantCountOutputTypeCountRequisitionOrderJourneysArgs
+  requisitionSubmissionAssessments?: boolean | TenantCountOutputTypeCountRequisitionSubmissionAssessmentsArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -33045,6 +33772,13 @@ export type TenantCountOutputTypeCountRequisitionOrderJourneysArgs<ExtArgs exten
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountRequisitionSubmissionAssessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.RequisitionSubmissionAssessmentWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -33154,6 +33888,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   enterpriseFeatureFlags?: boolean | Prisma.Tenant$enterpriseFeatureFlagsArgs<ExtArgs>
   platformCertificationRuns?: boolean | Prisma.Tenant$platformCertificationRunsArgs<ExtArgs>
   requisitionOrderJourneys?: boolean | Prisma.Tenant$requisitionOrderJourneysArgs<ExtArgs>
+  requisitionSubmissionAssessments?: boolean | Prisma.Tenant$requisitionSubmissionAssessmentsArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -33290,6 +34025,7 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   enterpriseFeatureFlags?: boolean | Prisma.Tenant$enterpriseFeatureFlagsArgs<ExtArgs>
   platformCertificationRuns?: boolean | Prisma.Tenant$platformCertificationRunsArgs<ExtArgs>
   requisitionOrderJourneys?: boolean | Prisma.Tenant$requisitionOrderJourneysArgs<ExtArgs>
+  requisitionSubmissionAssessments?: boolean | Prisma.Tenant$requisitionSubmissionAssessmentsArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -33375,6 +34111,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     enterpriseFeatureFlags: Prisma.$EnterpriseTenantFeatureFlagPayload<ExtArgs>[]
     platformCertificationRuns: Prisma.$PlatformCertificationRunPayload<ExtArgs>[]
     requisitionOrderJourneys: Prisma.$RequisitionOrderJourneyPayload<ExtArgs>[]
+    requisitionSubmissionAssessments: Prisma.$RequisitionSubmissionAssessmentPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -33863,6 +34600,7 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   enterpriseFeatureFlags<T extends Prisma.Tenant$enterpriseFeatureFlagsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$enterpriseFeatureFlagsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseTenantFeatureFlagPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   platformCertificationRuns<T extends Prisma.Tenant$platformCertificationRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$platformCertificationRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PlatformCertificationRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   requisitionOrderJourneys<T extends Prisma.Tenant$requisitionOrderJourneysArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$requisitionOrderJourneysArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequisitionOrderJourneyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  requisitionSubmissionAssessments<T extends Prisma.Tenant$requisitionSubmissionAssessmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$requisitionSubmissionAssessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RequisitionSubmissionAssessmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -36071,6 +36809,30 @@ export type Tenant$requisitionOrderJourneysArgs<ExtArgs extends runtime.Types.Ex
   take?: number
   skip?: number
   distinct?: Prisma.RequisitionOrderJourneyScalarFieldEnum | Prisma.RequisitionOrderJourneyScalarFieldEnum[]
+}
+
+/**
+ * Tenant.requisitionSubmissionAssessments
+ */
+export type Tenant$requisitionSubmissionAssessmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RequisitionSubmissionAssessment
+   */
+  select?: Prisma.RequisitionSubmissionAssessmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RequisitionSubmissionAssessment
+   */
+  omit?: Prisma.RequisitionSubmissionAssessmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RequisitionSubmissionAssessmentInclude<ExtArgs> | null
+  where?: Prisma.RequisitionSubmissionAssessmentWhereInput
+  orderBy?: Prisma.RequisitionSubmissionAssessmentOrderByWithRelationInput | Prisma.RequisitionSubmissionAssessmentOrderByWithRelationInput[]
+  cursor?: Prisma.RequisitionSubmissionAssessmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.RequisitionSubmissionAssessmentScalarFieldEnum | Prisma.RequisitionSubmissionAssessmentScalarFieldEnum[]
 }
 
 /**

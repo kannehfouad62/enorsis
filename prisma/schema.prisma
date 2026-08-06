@@ -1530,6 +1530,21 @@ enum RequisitionOrderExceptionSeverity {
   CRITICAL
 }
 
+enum RequisitionSubmissionAssessmentStatus {
+  DRAFT
+  READY
+  BLOCKED
+  SUBMITTED
+  SUPERSEDED
+}
+
+enum RequisitionSubmissionCheckStatus {
+  PASS
+  WARN
+  FAIL
+  NOT_APPLICABLE
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -1711,6 +1726,7 @@ model Tenant {
   enterpriseFeatureFlags            EnterpriseTenantFeatureFlag[]
   platformCertificationRuns         PlatformCertificationRun[]
   requisitionOrderJourneys          RequisitionOrderJourney[]
+  requisitionSubmissionAssessments  RequisitionSubmissionAssessment[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -5607,36 +5623,37 @@ model PlatformReadinessCheck {
 }
 
 model RequisitionOrderJourney {
-  id                 String                        @id @default(cuid())
-  tenantId           String
-  journeyNumber      String
-  title              String
-  description        String?
-  status             RequisitionOrderJourneyStatus @default(DRAFT)
-  requesterUserId    String?
-  ownerUserId        String?
-  purchaseRequestId  String?
-  purchaseOrderId    String?
-  primaryReceiptId   String?
-  supplierId         String?
-  currencyCode       String                        @default("USD")
-  estimatedAmount    Decimal?                      @db.Decimal(18, 2)
-  committedAmount    Decimal?                      @db.Decimal(18, 2)
-  receivedAmount     Decimal?                      @db.Decimal(18, 2)
-  requiredByDate     DateTime?
-  submittedAt        DateTime?
-  approvedAt         DateTime?
-  orderedAt          DateTime?
-  receivedAt         DateTime?
-  closedAt           DateTime?
-  cancelledAt        DateTime?
-  cancellationReason String?
-  correlationId      String?
-  tenant             Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  milestones         RequisitionOrderMilestone[]
-  exceptions         RequisitionOrderException[]
-  createdAt          DateTime                      @default(now())
-  updatedAt          DateTime                      @updatedAt
+  id                    String                            @id @default(cuid())
+  tenantId              String
+  journeyNumber         String
+  title                 String
+  description           String?
+  status                RequisitionOrderJourneyStatus     @default(DRAFT)
+  requesterUserId       String?
+  ownerUserId           String?
+  purchaseRequestId     String?
+  purchaseOrderId       String?
+  primaryReceiptId      String?
+  supplierId            String?
+  currencyCode          String                            @default("USD")
+  estimatedAmount       Decimal?                          @db.Decimal(18, 2)
+  committedAmount       Decimal?                          @db.Decimal(18, 2)
+  receivedAmount        Decimal?                          @db.Decimal(18, 2)
+  requiredByDate        DateTime?
+  submittedAt           DateTime?
+  approvedAt            DateTime?
+  orderedAt             DateTime?
+  receivedAt            DateTime?
+  closedAt              DateTime?
+  cancelledAt           DateTime?
+  cancellationReason    String?
+  correlationId         String?
+  tenant                Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  submissionAssessments RequisitionSubmissionAssessment[]
+  milestones            RequisitionOrderMilestone[]
+  exceptions            RequisitionOrderException[]
+  createdAt             DateTime                          @default(now())
+  updatedAt             DateTime                          @updatedAt
 
   @@unique([tenantId, journeyNumber])
   @@index([tenantId, status, createdAt])
@@ -5683,4 +5700,55 @@ model RequisitionOrderException {
 
   @@index([journeyId, status, severity])
   @@index([status, dueAt])
+}
+
+model RequisitionSubmissionAssessment {
+  id                    String                                @id @default(cuid())
+  tenantId              String
+  journeyId             String
+  purchaseRequestId     String
+  status                RequisitionSubmissionAssessmentStatus @default(DRAFT)
+  requestTitle          String?
+  requestNumber         String?
+  currencyCode          String                                @default("USD")
+  declaredLineCount     Int                                   @default(0)
+  declaredTotalAmount   Decimal?                              @db.Decimal(18, 2)
+  businessJustification String?
+  budgetReference       String?
+  costCenterReference   String?
+  requiredByDate        DateTime?
+  supplierRequired      Boolean                               @default(false)
+  supplierId            String?
+  validationSummary     Json?
+  assessedByUserId      String?
+  assessedAt            DateTime?
+  submittedByUserId     String?
+  submittedAt           DateTime?
+  tenant                Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  journey               RequisitionOrderJourney               @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  checks                RequisitionSubmissionCheck[]
+  createdAt             DateTime                              @default(now())
+  updatedAt             DateTime                              @updatedAt
+
+  @@unique([journeyId, purchaseRequestId])
+  @@index([tenantId, status, createdAt])
+  @@index([purchaseRequestId])
+}
+
+model RequisitionSubmissionCheck {
+  id              String                           @id @default(cuid())
+  assessmentId    String
+  key             String
+  name            String
+  status          RequisitionSubmissionCheckStatus
+  releaseBlocking Boolean                          @default(false)
+  observedValue   String?
+  expectedValue   String?
+  remediation     String?
+  assessment      RequisitionSubmissionAssessment  @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                         @default(now())
+  updatedAt       DateTime                         @updatedAt
+
+  @@unique([assessmentId, key])
+  @@index([status, releaseBlocking])
 }

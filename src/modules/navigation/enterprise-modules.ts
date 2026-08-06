@@ -421,6 +421,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Purchase Request Integration",
+    description: "Submission readiness, request evidence and governed handoff to approval.",
+    href: "/app/requisition-to-order/purchase-request",
+    icon: ClipboardCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

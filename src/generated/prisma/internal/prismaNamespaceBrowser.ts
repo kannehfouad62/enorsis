@@ -217,7 +217,9 @@ export const ModelName = {
   PlatformReadinessCheck: 'PlatformReadinessCheck',
   RequisitionOrderJourney: 'RequisitionOrderJourney',
   RequisitionOrderMilestone: 'RequisitionOrderMilestone',
-  RequisitionOrderException: 'RequisitionOrderException'
+  RequisitionOrderException: 'RequisitionOrderException',
+  RequisitionSubmissionAssessment: 'RequisitionSubmissionAssessment',
+  RequisitionSubmissionCheck: 'RequisitionSubmissionCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -3840,6 +3842,52 @@ export const RequisitionOrderExceptionScalarFieldEnum = {
 } as const
 
 export type RequisitionOrderExceptionScalarFieldEnum = (typeof RequisitionOrderExceptionScalarFieldEnum)[keyof typeof RequisitionOrderExceptionScalarFieldEnum]
+
+
+export const RequisitionSubmissionAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  journeyId: 'journeyId',
+  purchaseRequestId: 'purchaseRequestId',
+  status: 'status',
+  requestTitle: 'requestTitle',
+  requestNumber: 'requestNumber',
+  currencyCode: 'currencyCode',
+  declaredLineCount: 'declaredLineCount',
+  declaredTotalAmount: 'declaredTotalAmount',
+  businessJustification: 'businessJustification',
+  budgetReference: 'budgetReference',
+  costCenterReference: 'costCenterReference',
+  requiredByDate: 'requiredByDate',
+  supplierRequired: 'supplierRequired',
+  supplierId: 'supplierId',
+  validationSummary: 'validationSummary',
+  assessedByUserId: 'assessedByUserId',
+  assessedAt: 'assessedAt',
+  submittedByUserId: 'submittedByUserId',
+  submittedAt: 'submittedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionSubmissionAssessmentScalarFieldEnum = (typeof RequisitionSubmissionAssessmentScalarFieldEnum)[keyof typeof RequisitionSubmissionAssessmentScalarFieldEnum]
+
+
+export const RequisitionSubmissionCheckScalarFieldEnum = {
+  id: 'id',
+  assessmentId: 'assessmentId',
+  key: 'key',
+  name: 'name',
+  status: 'status',
+  releaseBlocking: 'releaseBlocking',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  remediation: 'remediation',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RequisitionSubmissionCheckScalarFieldEnum = (typeof RequisitionSubmissionCheckScalarFieldEnum)[keyof typeof RequisitionSubmissionCheckScalarFieldEnum]
 
 
 export const SortOrder = {

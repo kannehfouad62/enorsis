@@ -852,3 +852,13 @@ export type RequisitionOrderMilestone = Prisma.RequisitionOrderMilestoneModel
  * 
  */
 export type RequisitionOrderException = Prisma.RequisitionOrderExceptionModel
+/**
+ * Model RequisitionSubmissionAssessment
+ * 
+ */
+export type RequisitionSubmissionAssessment = Prisma.RequisitionSubmissionAssessmentModel
+/**
+ * Model RequisitionSubmissionCheck
+ * 
+ */
+export type RequisitionSubmissionCheck = Prisma.RequisitionSubmissionCheckModel
