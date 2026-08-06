@@ -41,7 +41,8 @@ import {
   Bell,
   Clock3,
   SlidersHorizontal,
-  BadgeCheck
+  BadgeCheck,
+  FileCheck2,
 } from "lucide-react";
 
 export interface EnterpriseModuleLink {
@@ -434,6 +435,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Receipt posting, quantity tolerances, damage and exceptions.",
     href: "/app/requisition-to-order/receipts",
     icon: PackageCheck,
+    group: "Procurement",
+  },
+
+  {
+    title: "Purchase Order Execution",
+    description: "PO generation, validation, issue, acknowledgment and revisions.",
+    href: "/app/requisition-to-order/purchase-orders",
+    icon: FileCheck2,
     group: "Procurement",
   },
 
