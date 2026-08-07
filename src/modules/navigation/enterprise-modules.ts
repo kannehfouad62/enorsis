@@ -567,6 +567,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Procurement Intelligence",
+    description: "Spend, approvals, contracts, savings and procurement health.",
+    href: "/app/executive/procurement-intelligence",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
