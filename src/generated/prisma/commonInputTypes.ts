@@ -4658,6 +4658,74 @@ export type EnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
 }
 
+export type EnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightRunStatus | Prisma.EnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightRunStatus
+}
+
+export type EnumGovernedExecutiveInsightRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightRunStatus | Prisma.EnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel>
+}
+
+export type EnumGovernedExecutiveInsightTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightType | Prisma.EnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightType
+}
+
+export type EnumGovernedExecutiveInsightStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightStatus | Prisma.EnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightStatus
+}
+
+export type EnumGovernedExecutiveInsightTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightType | Prisma.EnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightTypeWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel>
+}
+
+export type EnumGovernedExecutiveInsightStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightStatus | Prisma.EnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel>
+}
+
+export type EnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightFeedbackType | Prisma.EnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightFeedbackType
+}
+
+export type EnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightFeedbackType | Prisma.EnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightFeedbackType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9259,6 +9327,74 @@ export type NestedEnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaMo
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightRunStatus | Prisma.EnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightRunStatus
+}
+
+export type NestedEnumGovernedExecutiveInsightRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightRunStatus | Prisma.EnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightRunStatus[] | Prisma.ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightRunStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightType | Prisma.EnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightType
+}
+
+export type NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightStatus | Prisma.EnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightStatus
+}
+
+export type NestedEnumGovernedExecutiveInsightTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightType | Prisma.EnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightType[] | Prisma.ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightTypeWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveInsightStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightStatus | Prisma.EnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightStatus[] | Prisma.ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightFeedbackType | Prisma.EnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightFeedbackType
+}
+
+export type NestedEnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveInsightFeedbackType | Prisma.EnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveInsightFeedbackType[] | Prisma.ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveInsightFeedbackType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
 }
 
 

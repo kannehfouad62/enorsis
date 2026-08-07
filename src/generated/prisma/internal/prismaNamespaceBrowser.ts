@@ -268,7 +268,11 @@ export const ModelName = {
   EnterpriseAnalyticsMetricDefinition: 'EnterpriseAnalyticsMetricDefinition',
   EnterpriseAnalyticsMetricSnapshot: 'EnterpriseAnalyticsMetricSnapshot',
   EnterpriseAnalyticsAggregationRun: 'EnterpriseAnalyticsAggregationRun',
-  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure'
+  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure',
+  GovernedExecutiveInsightRun: 'GovernedExecutiveInsightRun',
+  GovernedExecutiveInsight: 'GovernedExecutiveInsight',
+  GovernedExecutiveInsightEvidence: 'GovernedExecutiveInsightEvidence',
+  GovernedExecutiveInsightFeedback: 'GovernedExecutiveInsightFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5005,6 +5009,87 @@ export const EnterpriseAnalyticsAggregationFailureScalarFieldEnum = {
 } as const
 
 export type EnterpriseAnalyticsAggregationFailureScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  runNumber: 'runNumber',
+  status: 'status',
+  engineVersion: 'engineVersion',
+  scope: 'scope',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  insightCount: 'insightCount',
+  warningCount: 'warningCount',
+  failureCount: 'failureCount',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GovernedExecutiveInsightRunScalarFieldEnum = (typeof GovernedExecutiveInsightRunScalarFieldEnum)[keyof typeof GovernedExecutiveInsightRunScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightRunId: 'insightRunId',
+  insightKey: 'insightKey',
+  type: 'type',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  executiveSummary: 'executiveSummary',
+  explanation: 'explanation',
+  recommendation: 'recommendation',
+  confidenceScore: 'confidenceScore',
+  domain: 'domain',
+  category: 'category',
+  sourceModule: 'sourceModule',
+  calculationVersion: 'calculationVersion',
+  requiresHumanReview: 'requiresHumanReview',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  dismissedByUserId: 'dismissedByUserId',
+  dismissedAt: 'dismissedAt',
+  dismissalReason: 'dismissalReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GovernedExecutiveInsightScalarFieldEnum = (typeof GovernedExecutiveInsightScalarFieldEnum)[keyof typeof GovernedExecutiveInsightScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightEvidenceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightId: 'insightId',
+  metricKey: 'metricKey',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  label: 'label',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightEvidenceScalarFieldEnum = (typeof GovernedExecutiveInsightEvidenceScalarFieldEnum)[keyof typeof GovernedExecutiveInsightEvidenceScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightFeedbackScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightId: 'insightId',
+  userId: 'userId',
+  feedbackType: 'feedbackType',
+  comment: 'comment',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightFeedbackScalarFieldEnum = (typeof GovernedExecutiveInsightFeedbackScalarFieldEnum)[keyof typeof GovernedExecutiveInsightFeedbackScalarFieldEnum]
 
 
 export const SortOrder = {

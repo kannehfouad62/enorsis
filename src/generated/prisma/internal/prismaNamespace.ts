@@ -614,7 +614,11 @@ export const ModelName = {
   EnterpriseAnalyticsMetricDefinition: 'EnterpriseAnalyticsMetricDefinition',
   EnterpriseAnalyticsMetricSnapshot: 'EnterpriseAnalyticsMetricSnapshot',
   EnterpriseAnalyticsAggregationRun: 'EnterpriseAnalyticsAggregationRun',
-  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure'
+  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure',
+  GovernedExecutiveInsightRun: 'GovernedExecutiveInsightRun',
+  GovernedExecutiveInsight: 'GovernedExecutiveInsight',
+  GovernedExecutiveInsightEvidence: 'GovernedExecutiveInsightEvidence',
+  GovernedExecutiveInsightFeedback: 'GovernedExecutiveInsightFeedback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -630,7 +634,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -16766,6 +16770,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    GovernedExecutiveInsightRun: {
+      payload: Prisma.$GovernedExecutiveInsightRunPayload<ExtArgs>
+      fields: Prisma.GovernedExecutiveInsightRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GovernedExecutiveInsightRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GovernedExecutiveInsightRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        findFirst: {
+          args: Prisma.GovernedExecutiveInsightRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GovernedExecutiveInsightRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        findMany: {
+          args: Prisma.GovernedExecutiveInsightRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>[]
+        }
+        create: {
+          args: Prisma.GovernedExecutiveInsightRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        createMany: {
+          args: Prisma.GovernedExecutiveInsightRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>[]
+        }
+        delete: {
+          args: Prisma.GovernedExecutiveInsightRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        update: {
+          args: Prisma.GovernedExecutiveInsightRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.GovernedExecutiveInsightRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GovernedExecutiveInsightRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.GovernedExecutiveInsightRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightRunPayload>
+        }
+        aggregate: {
+          args: Prisma.GovernedExecutiveInsightRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGovernedExecutiveInsightRun>
+        }
+        groupBy: {
+          args: Prisma.GovernedExecutiveInsightRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GovernedExecutiveInsightRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    GovernedExecutiveInsight: {
+      payload: Prisma.$GovernedExecutiveInsightPayload<ExtArgs>
+      fields: Prisma.GovernedExecutiveInsightFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GovernedExecutiveInsightFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GovernedExecutiveInsightFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        findFirst: {
+          args: Prisma.GovernedExecutiveInsightFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GovernedExecutiveInsightFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        findMany: {
+          args: Prisma.GovernedExecutiveInsightFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>[]
+        }
+        create: {
+          args: Prisma.GovernedExecutiveInsightCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        createMany: {
+          args: Prisma.GovernedExecutiveInsightCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>[]
+        }
+        delete: {
+          args: Prisma.GovernedExecutiveInsightDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        update: {
+          args: Prisma.GovernedExecutiveInsightUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        deleteMany: {
+          args: Prisma.GovernedExecutiveInsightDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GovernedExecutiveInsightUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>[]
+        }
+        upsert: {
+          args: Prisma.GovernedExecutiveInsightUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightPayload>
+        }
+        aggregate: {
+          args: Prisma.GovernedExecutiveInsightAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGovernedExecutiveInsight>
+        }
+        groupBy: {
+          args: Prisma.GovernedExecutiveInsightGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GovernedExecutiveInsightCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightCountAggregateOutputType> | number
+        }
+      }
+    }
+    GovernedExecutiveInsightEvidence: {
+      payload: Prisma.$GovernedExecutiveInsightEvidencePayload<ExtArgs>
+      fields: Prisma.GovernedExecutiveInsightEvidenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GovernedExecutiveInsightEvidenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GovernedExecutiveInsightEvidenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        findFirst: {
+          args: Prisma.GovernedExecutiveInsightEvidenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GovernedExecutiveInsightEvidenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        findMany: {
+          args: Prisma.GovernedExecutiveInsightEvidenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>[]
+        }
+        create: {
+          args: Prisma.GovernedExecutiveInsightEvidenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        createMany: {
+          args: Prisma.GovernedExecutiveInsightEvidenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightEvidenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>[]
+        }
+        delete: {
+          args: Prisma.GovernedExecutiveInsightEvidenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        update: {
+          args: Prisma.GovernedExecutiveInsightEvidenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        deleteMany: {
+          args: Prisma.GovernedExecutiveInsightEvidenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GovernedExecutiveInsightEvidenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightEvidenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>[]
+        }
+        upsert: {
+          args: Prisma.GovernedExecutiveInsightEvidenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightEvidencePayload>
+        }
+        aggregate: {
+          args: Prisma.GovernedExecutiveInsightEvidenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGovernedExecutiveInsightEvidence>
+        }
+        groupBy: {
+          args: Prisma.GovernedExecutiveInsightEvidenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightEvidenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GovernedExecutiveInsightEvidenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightEvidenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    GovernedExecutiveInsightFeedback: {
+      payload: Prisma.$GovernedExecutiveInsightFeedbackPayload<ExtArgs>
+      fields: Prisma.GovernedExecutiveInsightFeedbackFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GovernedExecutiveInsightFeedbackFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GovernedExecutiveInsightFeedbackFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        findFirst: {
+          args: Prisma.GovernedExecutiveInsightFeedbackFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GovernedExecutiveInsightFeedbackFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        findMany: {
+          args: Prisma.GovernedExecutiveInsightFeedbackFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>[]
+        }
+        create: {
+          args: Prisma.GovernedExecutiveInsightFeedbackCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        createMany: {
+          args: Prisma.GovernedExecutiveInsightFeedbackCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightFeedbackCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>[]
+        }
+        delete: {
+          args: Prisma.GovernedExecutiveInsightFeedbackDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        update: {
+          args: Prisma.GovernedExecutiveInsightFeedbackUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        deleteMany: {
+          args: Prisma.GovernedExecutiveInsightFeedbackDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GovernedExecutiveInsightFeedbackUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GovernedExecutiveInsightFeedbackUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>[]
+        }
+        upsert: {
+          args: Prisma.GovernedExecutiveInsightFeedbackUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernedExecutiveInsightFeedbackPayload>
+        }
+        aggregate: {
+          args: Prisma.GovernedExecutiveInsightFeedbackAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGovernedExecutiveInsightFeedback>
+        }
+        groupBy: {
+          args: Prisma.GovernedExecutiveInsightFeedbackGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightFeedbackGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GovernedExecutiveInsightFeedbackCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernedExecutiveInsightFeedbackCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -21525,6 +21825,87 @@ export const EnterpriseAnalyticsAggregationFailureScalarFieldEnum = {
 export type EnterpriseAnalyticsAggregationFailureScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum]
 
 
+export const GovernedExecutiveInsightRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  runNumber: 'runNumber',
+  status: 'status',
+  engineVersion: 'engineVersion',
+  scope: 'scope',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  insightCount: 'insightCount',
+  warningCount: 'warningCount',
+  failureCount: 'failureCount',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GovernedExecutiveInsightRunScalarFieldEnum = (typeof GovernedExecutiveInsightRunScalarFieldEnum)[keyof typeof GovernedExecutiveInsightRunScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightRunId: 'insightRunId',
+  insightKey: 'insightKey',
+  type: 'type',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  executiveSummary: 'executiveSummary',
+  explanation: 'explanation',
+  recommendation: 'recommendation',
+  confidenceScore: 'confidenceScore',
+  domain: 'domain',
+  category: 'category',
+  sourceModule: 'sourceModule',
+  calculationVersion: 'calculationVersion',
+  requiresHumanReview: 'requiresHumanReview',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  dismissedByUserId: 'dismissedByUserId',
+  dismissedAt: 'dismissedAt',
+  dismissalReason: 'dismissalReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GovernedExecutiveInsightScalarFieldEnum = (typeof GovernedExecutiveInsightScalarFieldEnum)[keyof typeof GovernedExecutiveInsightScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightEvidenceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightId: 'insightId',
+  metricKey: 'metricKey',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  label: 'label',
+  observedValue: 'observedValue',
+  expectedValue: 'expectedValue',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightEvidenceScalarFieldEnum = (typeof GovernedExecutiveInsightEvidenceScalarFieldEnum)[keyof typeof GovernedExecutiveInsightEvidenceScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightFeedbackScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightId: 'insightId',
+  userId: 'userId',
+  feedbackType: 'feedbackType',
+  comment: 'comment',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightFeedbackScalarFieldEnum = (typeof GovernedExecutiveInsightFeedbackScalarFieldEnum)[keyof typeof GovernedExecutiveInsightFeedbackScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -25171,6 +25552,62 @@ export type ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel> = Fi
 
 
 /**
+ * Reference to a field of type 'GovernedExecutiveInsightRunStatus'
+ */
+export type EnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightRunStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightRunStatus[]'
+ */
+export type ListEnumGovernedExecutiveInsightRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightRunStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightType'
+ */
+export type EnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightType'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightType[]'
+ */
+export type ListEnumGovernedExecutiveInsightTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightStatus'
+ */
+export type EnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightStatus[]'
+ */
+export type ListEnumGovernedExecutiveInsightStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightFeedbackType'
+ */
+export type EnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightFeedbackType'>
+    
+
+
+/**
+ * Reference to a field of type 'GovernedExecutiveInsightFeedbackType[]'
+ */
+export type ListEnumGovernedExecutiveInsightFeedbackTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GovernedExecutiveInsightFeedbackType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -25552,6 +25989,10 @@ export type GlobalOmitConfig = {
   enterpriseAnalyticsMetricSnapshot?: Prisma.EnterpriseAnalyticsMetricSnapshotOmit
   enterpriseAnalyticsAggregationRun?: Prisma.EnterpriseAnalyticsAggregationRunOmit
   enterpriseAnalyticsAggregationFailure?: Prisma.EnterpriseAnalyticsAggregationFailureOmit
+  governedExecutiveInsightRun?: Prisma.GovernedExecutiveInsightRunOmit
+  governedExecutiveInsight?: Prisma.GovernedExecutiveInsightOmit
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceOmit
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackOmit
 }
 
 /* Types for Logging */

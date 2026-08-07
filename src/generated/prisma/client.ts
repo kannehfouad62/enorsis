@@ -1131,3 +1131,23 @@ export type EnterpriseAnalyticsAggregationRun = Prisma.EnterpriseAnalyticsAggreg
  * 
  */
 export type EnterpriseAnalyticsAggregationFailure = Prisma.EnterpriseAnalyticsAggregationFailureModel
+/**
+ * Model GovernedExecutiveInsightRun
+ * 
+ */
+export type GovernedExecutiveInsightRun = Prisma.GovernedExecutiveInsightRunModel
+/**
+ * Model GovernedExecutiveInsight
+ * 
+ */
+export type GovernedExecutiveInsight = Prisma.GovernedExecutiveInsightModel
+/**
+ * Model GovernedExecutiveInsightEvidence
+ * 
+ */
+export type GovernedExecutiveInsightEvidence = Prisma.GovernedExecutiveInsightEvidenceModel
+/**
+ * Model GovernedExecutiveInsightFeedback
+ * 
+ */
+export type GovernedExecutiveInsightFeedback = Prisma.GovernedExecutiveInsightFeedbackModel

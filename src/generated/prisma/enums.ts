@@ -2788,6 +2788,50 @@ export const EnterpriseAnalyticsRunStatus = {
 export type EnterpriseAnalyticsRunStatus = (typeof EnterpriseAnalyticsRunStatus)[keyof typeof EnterpriseAnalyticsRunStatus]
 
 
+export const GovernedExecutiveInsightType = {
+  RISK: 'RISK',
+  OPPORTUNITY: 'OPPORTUNITY',
+  PERFORMANCE: 'PERFORMANCE',
+  ANOMALY: 'ANOMALY',
+  GOVERNANCE: 'GOVERNANCE',
+  FORECAST: 'FORECAST'
+} as const
+
+export type GovernedExecutiveInsightType = (typeof GovernedExecutiveInsightType)[keyof typeof GovernedExecutiveInsightType]
+
+
+export const GovernedExecutiveInsightStatus = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  DISMISSED: 'DISMISSED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type GovernedExecutiveInsightStatus = (typeof GovernedExecutiveInsightStatus)[keyof typeof GovernedExecutiveInsightStatus]
+
+
+export const GovernedExecutiveInsightRunStatus = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  COMPLETED_WITH_WARNINGS: 'COMPLETED_WITH_WARNINGS',
+  FAILED: 'FAILED'
+} as const
+
+export type GovernedExecutiveInsightRunStatus = (typeof GovernedExecutiveInsightRunStatus)[keyof typeof GovernedExecutiveInsightRunStatus]
+
+
+export const GovernedExecutiveInsightFeedbackType = {
+  USEFUL: 'USEFUL',
+  NOT_USEFUL: 'NOT_USEFUL',
+  INCORRECT: 'INCORRECT',
+  NEEDS_CONTEXT: 'NEEDS_CONTEXT'
+} as const
+
+export type GovernedExecutiveInsightFeedbackType = (typeof GovernedExecutiveInsightFeedbackType)[keyof typeof GovernedExecutiveInsightFeedbackType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

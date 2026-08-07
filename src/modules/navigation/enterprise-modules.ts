@@ -575,6 +575,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Governed Executive AI",
+    description: "Explainable executive insights, evidence and confidence scoring.",
+    href: "/app/executive/ai-intelligence",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
