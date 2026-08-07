@@ -2173,6 +2173,38 @@ enum ExecutiveBoardReportScheduleRunStatus {
   SKIPPED
 }
 
+enum ExecutiveBoardRecipientGroupType {
+  BOARD
+  AUDIT_COMMITTEE
+  RISK_COMMITTEE
+  PROCUREMENT_COMMITTEE
+  FINANCE_COMMITTEE
+  EXECUTIVE_LEADERSHIP
+  CUSTOM
+}
+
+enum ExecutiveBoardRecipientStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum ExecutiveBoardDistributionStatus {
+  PENDING
+  SENT
+  PARTIALLY_SENT
+  FAILED
+  CANCELLED
+}
+
+enum ExecutiveBoardDeliveryStatus {
+  PENDING
+  SENT
+  DELIVERED
+  OPENED
+  FAILED
+  REVOKED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2403,6 +2435,11 @@ model Tenant {
   executiveBoardPackExports                   ExecutiveBoardPackExport[]
   executiveBoardReportSchedules               ExecutiveBoardReportSchedule[]
   executiveBoardReportScheduleRuns            ExecutiveBoardReportScheduleRun[]
+  executiveBoardRecipientGroups               ExecutiveBoardRecipientGroup[]
+  executiveBoardRecipients                    ExecutiveBoardRecipient[]
+  executiveBoardDistributions                 ExecutiveBoardDistribution[]
+  executiveBoardDeliveries                    ExecutiveBoardDelivery[]
+  executiveBoardDeliveryAccessEvents          ExecutiveBoardDeliveryAccessEvent[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -7905,6 +7942,7 @@ model ExecutiveBoardPack {
   tenant             Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   definition         ExecutiveBoardPackDefinition @relation(fields: [definitionId], references: [id], onDelete: Restrict)
   exports            ExecutiveBoardPackExport[]
+  distributions      ExecutiveBoardDistribution[]
   createdAt          DateTime                     @default(now())
   updatedAt          DateTime                     @updatedAt
 
@@ -7978,4 +8016,106 @@ model ExecutiveBoardReportScheduleRun {
 
   @@unique([scheduleId, scheduledFor])
   @@index([tenantId, status, scheduledFor])
+}
+
+model ExecutiveBoardRecipientGroup {
+  id              String                           @id @default(cuid())
+  tenantId        String
+  name            String
+  groupType       ExecutiveBoardRecipientGroupType
+  description     String?
+  active          Boolean                          @default(true)
+  createdByUserId String
+  tenant          Tenant                           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  members         ExecutiveBoardRecipient[]
+  distributions   ExecutiveBoardDistribution[]
+  createdAt       DateTime                         @default(now())
+  updatedAt       DateTime                         @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, groupType, active])
+}
+
+model ExecutiveBoardRecipient {
+  id           String                        @id @default(cuid())
+  tenantId     String
+  groupId      String
+  name         String
+  email        String
+  title        String?
+  organization String?
+  status       ExecutiveBoardRecipientStatus @default(ACTIVE)
+  userId       String?
+  tenant       Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  group        ExecutiveBoardRecipientGroup  @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  deliveries   ExecutiveBoardDelivery[]
+  createdAt    DateTime                      @default(now())
+  updatedAt    DateTime                      @updatedAt
+
+  @@unique([groupId, email])
+  @@index([tenantId, status])
+  @@index([email])
+}
+
+model ExecutiveBoardDistribution {
+  id                 String                           @id @default(cuid())
+  tenantId           String
+  boardPackId        String
+  recipientGroupId   String
+  distributionNumber String
+  status             ExecutiveBoardDistributionStatus @default(PENDING)
+  subject            String
+  message            String?
+  initiatedByUserId  String
+  initiatedAt        DateTime                         @default(now())
+  completedAt        DateTime?
+  tenant             Tenant                           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  boardPack          ExecutiveBoardPack               @relation(fields: [boardPackId], references: [id], onDelete: Cascade)
+  recipientGroup     ExecutiveBoardRecipientGroup     @relation(fields: [recipientGroupId], references: [id], onDelete: Restrict)
+  deliveries         ExecutiveBoardDelivery[]
+  createdAt          DateTime                         @default(now())
+  updatedAt          DateTime                         @updatedAt
+
+  @@unique([tenantId, distributionNumber])
+  @@index([tenantId, status, initiatedAt])
+  @@index([boardPackId, initiatedAt])
+}
+
+model ExecutiveBoardDelivery {
+  id              String                              @id @default(cuid())
+  tenantId        String
+  distributionId  String
+  recipientId     String
+  status          ExecutiveBoardDeliveryStatus        @default(PENDING)
+  accessTokenHash String
+  sentAt          DateTime?
+  deliveredAt     DateTime?
+  openedAt        DateTime?
+  revokedAt       DateTime?
+  failureReason   String?
+  tenant          Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  distribution    ExecutiveBoardDistribution          @relation(fields: [distributionId], references: [id], onDelete: Cascade)
+  recipient       ExecutiveBoardRecipient             @relation(fields: [recipientId], references: [id], onDelete: Cascade)
+  accessEvents    ExecutiveBoardDeliveryAccessEvent[]
+  createdAt       DateTime                            @default(now())
+  updatedAt       DateTime                            @updatedAt
+
+  @@unique([distributionId, recipientId])
+  @@index([tenantId, status, createdAt])
+  @@index([recipientId, createdAt])
+}
+
+model ExecutiveBoardDeliveryAccessEvent {
+  id         String                 @id @default(cuid())
+  tenantId   String
+  deliveryId String
+  eventType  String
+  ipAddress  String?
+  userAgent  String?
+  occurredAt DateTime               @default(now())
+  tenant     Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  delivery   ExecutiveBoardDelivery @relation(fields: [deliveryId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, occurredAt])
+  @@index([deliveryId, occurredAt])
 }

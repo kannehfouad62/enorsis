@@ -628,7 +628,12 @@ export const ModelName = {
   ExecutiveBoardPack: 'ExecutiveBoardPack',
   ExecutiveBoardPackExport: 'ExecutiveBoardPackExport',
   ExecutiveBoardReportSchedule: 'ExecutiveBoardReportSchedule',
-  ExecutiveBoardReportScheduleRun: 'ExecutiveBoardReportScheduleRun'
+  ExecutiveBoardReportScheduleRun: 'ExecutiveBoardReportScheduleRun',
+  ExecutiveBoardRecipientGroup: 'ExecutiveBoardRecipientGroup',
+  ExecutiveBoardRecipient: 'ExecutiveBoardRecipient',
+  ExecutiveBoardDistribution: 'ExecutiveBoardDistribution',
+  ExecutiveBoardDelivery: 'ExecutiveBoardDelivery',
+  ExecutiveBoardDeliveryAccessEvent: 'ExecutiveBoardDeliveryAccessEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +649,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -17816,6 +17821,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ExecutiveBoardRecipientGroup: {
+      payload: Prisma.$ExecutiveBoardRecipientGroupPayload<ExtArgs>
+      fields: Prisma.ExecutiveBoardRecipientGroupFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExecutiveBoardRecipientGroupFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExecutiveBoardRecipientGroupFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        findFirst: {
+          args: Prisma.ExecutiveBoardRecipientGroupFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExecutiveBoardRecipientGroupFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        findMany: {
+          args: Prisma.ExecutiveBoardRecipientGroupFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>[]
+        }
+        create: {
+          args: Prisma.ExecutiveBoardRecipientGroupCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        createMany: {
+          args: Prisma.ExecutiveBoardRecipientGroupCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ExecutiveBoardRecipientGroupCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>[]
+        }
+        delete: {
+          args: Prisma.ExecutiveBoardRecipientGroupDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        update: {
+          args: Prisma.ExecutiveBoardRecipientGroupUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExecutiveBoardRecipientGroupDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExecutiveBoardRecipientGroupUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ExecutiveBoardRecipientGroupUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>[]
+        }
+        upsert: {
+          args: Prisma.ExecutiveBoardRecipientGroupUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientGroupPayload>
+        }
+        aggregate: {
+          args: Prisma.ExecutiveBoardRecipientGroupAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecutiveBoardRecipientGroup>
+        }
+        groupBy: {
+          args: Prisma.ExecutiveBoardRecipientGroupGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardRecipientGroupGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExecutiveBoardRecipientGroupCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardRecipientGroupCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExecutiveBoardRecipient: {
+      payload: Prisma.$ExecutiveBoardRecipientPayload<ExtArgs>
+      fields: Prisma.ExecutiveBoardRecipientFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExecutiveBoardRecipientFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExecutiveBoardRecipientFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        findFirst: {
+          args: Prisma.ExecutiveBoardRecipientFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExecutiveBoardRecipientFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        findMany: {
+          args: Prisma.ExecutiveBoardRecipientFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>[]
+        }
+        create: {
+          args: Prisma.ExecutiveBoardRecipientCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        createMany: {
+          args: Prisma.ExecutiveBoardRecipientCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ExecutiveBoardRecipientCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>[]
+        }
+        delete: {
+          args: Prisma.ExecutiveBoardRecipientDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        update: {
+          args: Prisma.ExecutiveBoardRecipientUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExecutiveBoardRecipientDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExecutiveBoardRecipientUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ExecutiveBoardRecipientUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>[]
+        }
+        upsert: {
+          args: Prisma.ExecutiveBoardRecipientUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardRecipientPayload>
+        }
+        aggregate: {
+          args: Prisma.ExecutiveBoardRecipientAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecutiveBoardRecipient>
+        }
+        groupBy: {
+          args: Prisma.ExecutiveBoardRecipientGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardRecipientGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExecutiveBoardRecipientCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardRecipientCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExecutiveBoardDistribution: {
+      payload: Prisma.$ExecutiveBoardDistributionPayload<ExtArgs>
+      fields: Prisma.ExecutiveBoardDistributionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExecutiveBoardDistributionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExecutiveBoardDistributionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        findFirst: {
+          args: Prisma.ExecutiveBoardDistributionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExecutiveBoardDistributionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        findMany: {
+          args: Prisma.ExecutiveBoardDistributionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>[]
+        }
+        create: {
+          args: Prisma.ExecutiveBoardDistributionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        createMany: {
+          args: Prisma.ExecutiveBoardDistributionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ExecutiveBoardDistributionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>[]
+        }
+        delete: {
+          args: Prisma.ExecutiveBoardDistributionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        update: {
+          args: Prisma.ExecutiveBoardDistributionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExecutiveBoardDistributionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExecutiveBoardDistributionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ExecutiveBoardDistributionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>[]
+        }
+        upsert: {
+          args: Prisma.ExecutiveBoardDistributionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDistributionPayload>
+        }
+        aggregate: {
+          args: Prisma.ExecutiveBoardDistributionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecutiveBoardDistribution>
+        }
+        groupBy: {
+          args: Prisma.ExecutiveBoardDistributionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDistributionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExecutiveBoardDistributionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDistributionCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExecutiveBoardDelivery: {
+      payload: Prisma.$ExecutiveBoardDeliveryPayload<ExtArgs>
+      fields: Prisma.ExecutiveBoardDeliveryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExecutiveBoardDeliveryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExecutiveBoardDeliveryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        findFirst: {
+          args: Prisma.ExecutiveBoardDeliveryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExecutiveBoardDeliveryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        findMany: {
+          args: Prisma.ExecutiveBoardDeliveryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>[]
+        }
+        create: {
+          args: Prisma.ExecutiveBoardDeliveryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        createMany: {
+          args: Prisma.ExecutiveBoardDeliveryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ExecutiveBoardDeliveryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>[]
+        }
+        delete: {
+          args: Prisma.ExecutiveBoardDeliveryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        update: {
+          args: Prisma.ExecutiveBoardDeliveryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExecutiveBoardDeliveryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExecutiveBoardDeliveryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ExecutiveBoardDeliveryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>[]
+        }
+        upsert: {
+          args: Prisma.ExecutiveBoardDeliveryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryPayload>
+        }
+        aggregate: {
+          args: Prisma.ExecutiveBoardDeliveryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecutiveBoardDelivery>
+        }
+        groupBy: {
+          args: Prisma.ExecutiveBoardDeliveryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDeliveryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExecutiveBoardDeliveryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDeliveryCountAggregateOutputType> | number
+        }
+      }
+    }
+    ExecutiveBoardDeliveryAccessEvent: {
+      payload: Prisma.$ExecutiveBoardDeliveryAccessEventPayload<ExtArgs>
+      fields: Prisma.ExecutiveBoardDeliveryAccessEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        findFirst: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        findMany: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>[]
+        }
+        create: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        createMany: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>[]
+        }
+        delete: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        update: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ExecutiveBoardDeliveryAccessEventPayload>
+        }
+        aggregate: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecutiveBoardDeliveryAccessEvent>
+        }
+        groupBy: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDeliveryAccessEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ExecutiveBoardDeliveryAccessEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ExecutiveBoardDeliveryAccessEventCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -22850,6 +23225,89 @@ export const ExecutiveBoardReportScheduleRunScalarFieldEnum = {
 export type ExecutiveBoardReportScheduleRunScalarFieldEnum = (typeof ExecutiveBoardReportScheduleRunScalarFieldEnum)[keyof typeof ExecutiveBoardReportScheduleRunScalarFieldEnum]
 
 
+export const ExecutiveBoardRecipientGroupScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  groupType: 'groupType',
+  description: 'description',
+  active: 'active',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardRecipientGroupScalarFieldEnum = (typeof ExecutiveBoardRecipientGroupScalarFieldEnum)[keyof typeof ExecutiveBoardRecipientGroupScalarFieldEnum]
+
+
+export const ExecutiveBoardRecipientScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  groupId: 'groupId',
+  name: 'name',
+  email: 'email',
+  title: 'title',
+  organization: 'organization',
+  status: 'status',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardRecipientScalarFieldEnum = (typeof ExecutiveBoardRecipientScalarFieldEnum)[keyof typeof ExecutiveBoardRecipientScalarFieldEnum]
+
+
+export const ExecutiveBoardDistributionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  boardPackId: 'boardPackId',
+  recipientGroupId: 'recipientGroupId',
+  distributionNumber: 'distributionNumber',
+  status: 'status',
+  subject: 'subject',
+  message: 'message',
+  initiatedByUserId: 'initiatedByUserId',
+  initiatedAt: 'initiatedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardDistributionScalarFieldEnum = (typeof ExecutiveBoardDistributionScalarFieldEnum)[keyof typeof ExecutiveBoardDistributionScalarFieldEnum]
+
+
+export const ExecutiveBoardDeliveryScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  distributionId: 'distributionId',
+  recipientId: 'recipientId',
+  status: 'status',
+  accessTokenHash: 'accessTokenHash',
+  sentAt: 'sentAt',
+  deliveredAt: 'deliveredAt',
+  openedAt: 'openedAt',
+  revokedAt: 'revokedAt',
+  failureReason: 'failureReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardDeliveryScalarFieldEnum = (typeof ExecutiveBoardDeliveryScalarFieldEnum)[keyof typeof ExecutiveBoardDeliveryScalarFieldEnum]
+
+
+export const ExecutiveBoardDeliveryAccessEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  deliveryId: 'deliveryId',
+  eventType: 'eventType',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  occurredAt: 'occurredAt'
+} as const
+
+export type ExecutiveBoardDeliveryAccessEventScalarFieldEnum = (typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum)[keyof typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -26706,6 +27164,62 @@ export type ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaMo
 
 
 /**
+ * Reference to a field of type 'ExecutiveBoardRecipientGroupType'
+ */
+export type EnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardRecipientGroupType'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardRecipientGroupType[]'
+ */
+export type ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardRecipientGroupType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardRecipientStatus'
+ */
+export type EnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardRecipientStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardRecipientStatus[]'
+ */
+export type ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardRecipientStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardDistributionStatus'
+ */
+export type EnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardDistributionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardDistributionStatus[]'
+ */
+export type ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardDistributionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardDeliveryStatus'
+ */
+export type EnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardDeliveryStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ExecutiveBoardDeliveryStatus[]'
+ */
+export type ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExecutiveBoardDeliveryStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -27101,6 +27615,11 @@ export type GlobalOmitConfig = {
   executiveBoardPackExport?: Prisma.ExecutiveBoardPackExportOmit
   executiveBoardReportSchedule?: Prisma.ExecutiveBoardReportScheduleOmit
   executiveBoardReportScheduleRun?: Prisma.ExecutiveBoardReportScheduleRunOmit
+  executiveBoardRecipientGroup?: Prisma.ExecutiveBoardRecipientGroupOmit
+  executiveBoardRecipient?: Prisma.ExecutiveBoardRecipientOmit
+  executiveBoardDistribution?: Prisma.ExecutiveBoardDistributionOmit
+  executiveBoardDelivery?: Prisma.ExecutiveBoardDeliveryOmit
+  executiveBoardDeliveryAccessEvent?: Prisma.ExecutiveBoardDeliveryAccessEventOmit
 }
 
 /* Types for Logging */

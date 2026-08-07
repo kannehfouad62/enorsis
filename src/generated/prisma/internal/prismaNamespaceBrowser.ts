@@ -282,7 +282,12 @@ export const ModelName = {
   ExecutiveBoardPack: 'ExecutiveBoardPack',
   ExecutiveBoardPackExport: 'ExecutiveBoardPackExport',
   ExecutiveBoardReportSchedule: 'ExecutiveBoardReportSchedule',
-  ExecutiveBoardReportScheduleRun: 'ExecutiveBoardReportScheduleRun'
+  ExecutiveBoardReportScheduleRun: 'ExecutiveBoardReportScheduleRun',
+  ExecutiveBoardRecipientGroup: 'ExecutiveBoardRecipientGroup',
+  ExecutiveBoardRecipient: 'ExecutiveBoardRecipient',
+  ExecutiveBoardDistribution: 'ExecutiveBoardDistribution',
+  ExecutiveBoardDelivery: 'ExecutiveBoardDelivery',
+  ExecutiveBoardDeliveryAccessEvent: 'ExecutiveBoardDeliveryAccessEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5294,6 +5299,89 @@ export const ExecutiveBoardReportScheduleRunScalarFieldEnum = {
 } as const
 
 export type ExecutiveBoardReportScheduleRunScalarFieldEnum = (typeof ExecutiveBoardReportScheduleRunScalarFieldEnum)[keyof typeof ExecutiveBoardReportScheduleRunScalarFieldEnum]
+
+
+export const ExecutiveBoardRecipientGroupScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  name: 'name',
+  groupType: 'groupType',
+  description: 'description',
+  active: 'active',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardRecipientGroupScalarFieldEnum = (typeof ExecutiveBoardRecipientGroupScalarFieldEnum)[keyof typeof ExecutiveBoardRecipientGroupScalarFieldEnum]
+
+
+export const ExecutiveBoardRecipientScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  groupId: 'groupId',
+  name: 'name',
+  email: 'email',
+  title: 'title',
+  organization: 'organization',
+  status: 'status',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardRecipientScalarFieldEnum = (typeof ExecutiveBoardRecipientScalarFieldEnum)[keyof typeof ExecutiveBoardRecipientScalarFieldEnum]
+
+
+export const ExecutiveBoardDistributionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  boardPackId: 'boardPackId',
+  recipientGroupId: 'recipientGroupId',
+  distributionNumber: 'distributionNumber',
+  status: 'status',
+  subject: 'subject',
+  message: 'message',
+  initiatedByUserId: 'initiatedByUserId',
+  initiatedAt: 'initiatedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardDistributionScalarFieldEnum = (typeof ExecutiveBoardDistributionScalarFieldEnum)[keyof typeof ExecutiveBoardDistributionScalarFieldEnum]
+
+
+export const ExecutiveBoardDeliveryScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  distributionId: 'distributionId',
+  recipientId: 'recipientId',
+  status: 'status',
+  accessTokenHash: 'accessTokenHash',
+  sentAt: 'sentAt',
+  deliveredAt: 'deliveredAt',
+  openedAt: 'openedAt',
+  revokedAt: 'revokedAt',
+  failureReason: 'failureReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardDeliveryScalarFieldEnum = (typeof ExecutiveBoardDeliveryScalarFieldEnum)[keyof typeof ExecutiveBoardDeliveryScalarFieldEnum]
+
+
+export const ExecutiveBoardDeliveryAccessEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  deliveryId: 'deliveryId',
+  eventType: 'eventType',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  occurredAt: 'occurredAt'
+} as const
+
+export type ExecutiveBoardDeliveryAccessEventScalarFieldEnum = (typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum)[keyof typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum]
 
 
 export const SortOrder = {

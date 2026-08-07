@@ -623,6 +623,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Board Distribution",
+    description: "Secure board recipients, committee groups and delivery audit.",
+    href: "/app/executive/board-distribution",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

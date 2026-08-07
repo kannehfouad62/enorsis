@@ -2945,6 +2945,50 @@ export const ExecutiveBoardReportScheduleRunStatus = {
 export type ExecutiveBoardReportScheduleRunStatus = (typeof ExecutiveBoardReportScheduleRunStatus)[keyof typeof ExecutiveBoardReportScheduleRunStatus]
 
 
+export const ExecutiveBoardRecipientGroupType = {
+  BOARD: 'BOARD',
+  AUDIT_COMMITTEE: 'AUDIT_COMMITTEE',
+  RISK_COMMITTEE: 'RISK_COMMITTEE',
+  PROCUREMENT_COMMITTEE: 'PROCUREMENT_COMMITTEE',
+  FINANCE_COMMITTEE: 'FINANCE_COMMITTEE',
+  EXECUTIVE_LEADERSHIP: 'EXECUTIVE_LEADERSHIP',
+  CUSTOM: 'CUSTOM'
+} as const
+
+export type ExecutiveBoardRecipientGroupType = (typeof ExecutiveBoardRecipientGroupType)[keyof typeof ExecutiveBoardRecipientGroupType]
+
+
+export const ExecutiveBoardRecipientStatus = {
+  ACTIVE: 'ACTIVE',
+  INACTIVE: 'INACTIVE'
+} as const
+
+export type ExecutiveBoardRecipientStatus = (typeof ExecutiveBoardRecipientStatus)[keyof typeof ExecutiveBoardRecipientStatus]
+
+
+export const ExecutiveBoardDistributionStatus = {
+  PENDING: 'PENDING',
+  SENT: 'SENT',
+  PARTIALLY_SENT: 'PARTIALLY_SENT',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type ExecutiveBoardDistributionStatus = (typeof ExecutiveBoardDistributionStatus)[keyof typeof ExecutiveBoardDistributionStatus]
+
+
+export const ExecutiveBoardDeliveryStatus = {
+  PENDING: 'PENDING',
+  SENT: 'SENT',
+  DELIVERED: 'DELIVERED',
+  OPENED: 'OPENED',
+  FAILED: 'FAILED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type ExecutiveBoardDeliveryStatus = (typeof ExecutiveBoardDeliveryStatus)[keyof typeof ExecutiveBoardDeliveryStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

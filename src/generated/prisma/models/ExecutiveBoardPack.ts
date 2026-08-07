@@ -301,6 +301,7 @@ export type ExecutiveBoardPackWhereInput = {
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   definition?: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionScalarRelationFilter, Prisma.ExecutiveBoardPackDefinitionWhereInput>
   exports?: Prisma.ExecutiveBoardPackExportListRelationFilter
+  distributions?: Prisma.ExecutiveBoardDistributionListRelationFilter
 }
 
 export type ExecutiveBoardPackOrderByWithRelationInput = {
@@ -328,6 +329,7 @@ export type ExecutiveBoardPackOrderByWithRelationInput = {
   tenant?: Prisma.TenantOrderByWithRelationInput
   definition?: Prisma.ExecutiveBoardPackDefinitionOrderByWithRelationInput
   exports?: Prisma.ExecutiveBoardPackExportOrderByRelationAggregateInput
+  distributions?: Prisma.ExecutiveBoardDistributionOrderByRelationAggregateInput
 }
 
 export type ExecutiveBoardPackWhereUniqueInput = Prisma.AtLeast<{
@@ -359,6 +361,7 @@ export type ExecutiveBoardPackWhereUniqueInput = Prisma.AtLeast<{
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   definition?: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionScalarRelationFilter, Prisma.ExecutiveBoardPackDefinitionWhereInput>
   exports?: Prisma.ExecutiveBoardPackExportListRelationFilter
+  distributions?: Prisma.ExecutiveBoardDistributionListRelationFilter
 }, "id" | "tenantId_packNumber">
 
 export type ExecutiveBoardPackOrderByWithAggregationInput = {
@@ -438,6 +441,7 @@ export type ExecutiveBoardPackCreateInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPacksInput
   definition: Prisma.ExecutiveBoardPackDefinitionCreateNestedOneWithoutPacksInput
   exports?: Prisma.ExecutiveBoardPackExportCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackUncheckedCreateInput = {
@@ -463,6 +467,7 @@ export type ExecutiveBoardPackUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackUpdateInput = {
@@ -488,6 +493,7 @@ export type ExecutiveBoardPackUpdateInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPacksNestedInput
   definition?: Prisma.ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutPacksNestedInput
   exports?: Prisma.ExecutiveBoardPackExportUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateInput = {
@@ -513,6 +519,7 @@ export type ExecutiveBoardPackUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackCreateManyInput = {
@@ -773,6 +780,20 @@ export type ExecutiveBoardPackUpdateOneRequiredWithoutExportsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ExecutiveBoardPackUpdateToOneWithWhereWithoutExportsInput, Prisma.ExecutiveBoardPackUpdateWithoutExportsInput>, Prisma.ExecutiveBoardPackUncheckedUpdateWithoutExportsInput>
 }
 
+export type ExecutiveBoardPackCreateNestedOneWithoutDistributionsInput = {
+  create?: Prisma.XOR<Prisma.ExecutiveBoardPackCreateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedCreateWithoutDistributionsInput>
+  connectOrCreate?: Prisma.ExecutiveBoardPackCreateOrConnectWithoutDistributionsInput
+  connect?: Prisma.ExecutiveBoardPackWhereUniqueInput
+}
+
+export type ExecutiveBoardPackUpdateOneRequiredWithoutDistributionsNestedInput = {
+  create?: Prisma.XOR<Prisma.ExecutiveBoardPackCreateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedCreateWithoutDistributionsInput>
+  connectOrCreate?: Prisma.ExecutiveBoardPackCreateOrConnectWithoutDistributionsInput
+  upsert?: Prisma.ExecutiveBoardPackUpsertWithoutDistributionsInput
+  connect?: Prisma.ExecutiveBoardPackWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ExecutiveBoardPackUpdateToOneWithWhereWithoutDistributionsInput, Prisma.ExecutiveBoardPackUpdateWithoutDistributionsInput>, Prisma.ExecutiveBoardPackUncheckedUpdateWithoutDistributionsInput>
+}
+
 export type ExecutiveBoardPackCreateWithoutTenantInput = {
   id?: string
   packNumber: string
@@ -795,6 +816,7 @@ export type ExecutiveBoardPackCreateWithoutTenantInput = {
   updatedAt?: Date | string
   definition: Prisma.ExecutiveBoardPackDefinitionCreateNestedOneWithoutPacksInput
   exports?: Prisma.ExecutiveBoardPackExportCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackUncheckedCreateWithoutTenantInput = {
@@ -819,6 +841,7 @@ export type ExecutiveBoardPackUncheckedCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackCreateOrConnectWithoutTenantInput = {
@@ -896,6 +919,7 @@ export type ExecutiveBoardPackCreateWithoutDefinitionInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPacksInput
   exports?: Prisma.ExecutiveBoardPackExportCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackUncheckedCreateWithoutDefinitionInput = {
@@ -920,6 +944,7 @@ export type ExecutiveBoardPackUncheckedCreateWithoutDefinitionInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedCreateNestedManyWithoutBoardPackInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackCreateOrConnectWithoutDefinitionInput = {
@@ -970,6 +995,7 @@ export type ExecutiveBoardPackCreateWithoutExportsInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPacksInput
   definition: Prisma.ExecutiveBoardPackDefinitionCreateNestedOneWithoutPacksInput
+  distributions?: Prisma.ExecutiveBoardDistributionCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackUncheckedCreateWithoutExportsInput = {
@@ -994,6 +1020,7 @@ export type ExecutiveBoardPackUncheckedCreateWithoutExportsInput = {
   sourceFingerprint: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedCreateNestedManyWithoutBoardPackInput
 }
 
 export type ExecutiveBoardPackCreateOrConnectWithoutExportsInput = {
@@ -1034,6 +1061,7 @@ export type ExecutiveBoardPackUpdateWithoutExportsInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPacksNestedInput
   definition?: Prisma.ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutPacksNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateWithoutExportsInput = {
@@ -1058,6 +1086,123 @@ export type ExecutiveBoardPackUncheckedUpdateWithoutExportsInput = {
   sourceFingerprint?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedUpdateManyWithoutBoardPackNestedInput
+}
+
+export type ExecutiveBoardPackCreateWithoutDistributionsInput = {
+  id?: string
+  packNumber: string
+  title: string
+  packType: $Enums.ExecutiveBoardPackType
+  status?: $Enums.ExecutiveBoardPackStatus
+  periodType: $Enums.ExecutiveBoardPackPeriodType
+  periodStart: Date | string
+  periodEnd: Date | string
+  generatedAt?: Date | string | null
+  generatedByUserId?: string | null
+  finalizedAt?: Date | string | null
+  finalizedByUserId?: string | null
+  executiveSummary?: string | null
+  sourceSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sectionSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  governanceSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sourceFingerprint: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPacksInput
+  definition: Prisma.ExecutiveBoardPackDefinitionCreateNestedOneWithoutPacksInput
+  exports?: Prisma.ExecutiveBoardPackExportCreateNestedManyWithoutBoardPackInput
+}
+
+export type ExecutiveBoardPackUncheckedCreateWithoutDistributionsInput = {
+  id?: string
+  tenantId: string
+  definitionId: string
+  packNumber: string
+  title: string
+  packType: $Enums.ExecutiveBoardPackType
+  status?: $Enums.ExecutiveBoardPackStatus
+  periodType: $Enums.ExecutiveBoardPackPeriodType
+  periodStart: Date | string
+  periodEnd: Date | string
+  generatedAt?: Date | string | null
+  generatedByUserId?: string | null
+  finalizedAt?: Date | string | null
+  finalizedByUserId?: string | null
+  executiveSummary?: string | null
+  sourceSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sectionSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  governanceSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sourceFingerprint: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  exports?: Prisma.ExecutiveBoardPackExportUncheckedCreateNestedManyWithoutBoardPackInput
+}
+
+export type ExecutiveBoardPackCreateOrConnectWithoutDistributionsInput = {
+  where: Prisma.ExecutiveBoardPackWhereUniqueInput
+  create: Prisma.XOR<Prisma.ExecutiveBoardPackCreateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedCreateWithoutDistributionsInput>
+}
+
+export type ExecutiveBoardPackUpsertWithoutDistributionsInput = {
+  update: Prisma.XOR<Prisma.ExecutiveBoardPackUpdateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedUpdateWithoutDistributionsInput>
+  create: Prisma.XOR<Prisma.ExecutiveBoardPackCreateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedCreateWithoutDistributionsInput>
+  where?: Prisma.ExecutiveBoardPackWhereInput
+}
+
+export type ExecutiveBoardPackUpdateToOneWithWhereWithoutDistributionsInput = {
+  where?: Prisma.ExecutiveBoardPackWhereInput
+  data: Prisma.XOR<Prisma.ExecutiveBoardPackUpdateWithoutDistributionsInput, Prisma.ExecutiveBoardPackUncheckedUpdateWithoutDistributionsInput>
+}
+
+export type ExecutiveBoardPackUpdateWithoutDistributionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  packNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  packType?: Prisma.EnumExecutiveBoardPackTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackType
+  status?: Prisma.EnumExecutiveBoardPackStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackStatus
+  periodType?: Prisma.EnumExecutiveBoardPackPeriodTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackPeriodType
+  periodStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  periodEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  generatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  generatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalizedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  finalizedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sectionSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  governanceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sourceFingerprint?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPacksNestedInput
+  definition?: Prisma.ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutPacksNestedInput
+  exports?: Prisma.ExecutiveBoardPackExportUpdateManyWithoutBoardPackNestedInput
+}
+
+export type ExecutiveBoardPackUncheckedUpdateWithoutDistributionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  definitionId?: Prisma.StringFieldUpdateOperationsInput | string
+  packNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  packType?: Prisma.EnumExecutiveBoardPackTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackType
+  status?: Prisma.EnumExecutiveBoardPackStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackStatus
+  periodType?: Prisma.EnumExecutiveBoardPackPeriodTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackPeriodType
+  periodStart?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  periodEnd?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  generatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  generatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalizedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  finalizedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executiveSummary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sectionSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  governanceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  sourceFingerprint?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  exports?: Prisma.ExecutiveBoardPackExportUncheckedUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackCreateManyTenantInput = {
@@ -1105,6 +1250,7 @@ export type ExecutiveBoardPackUpdateWithoutTenantInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   definition?: Prisma.ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutPacksNestedInput
   exports?: Prisma.ExecutiveBoardPackExportUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateWithoutTenantInput = {
@@ -1129,6 +1275,7 @@ export type ExecutiveBoardPackUncheckedUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateManyWithoutTenantInput = {
@@ -1199,6 +1346,7 @@ export type ExecutiveBoardPackUpdateWithoutDefinitionInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPacksNestedInput
   exports?: Prisma.ExecutiveBoardPackExportUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateWithoutDefinitionInput = {
@@ -1223,6 +1371,7 @@ export type ExecutiveBoardPackUncheckedUpdateWithoutDefinitionInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exports?: Prisma.ExecutiveBoardPackExportUncheckedUpdateManyWithoutBoardPackNestedInput
+  distributions?: Prisma.ExecutiveBoardDistributionUncheckedUpdateManyWithoutBoardPackNestedInput
 }
 
 export type ExecutiveBoardPackUncheckedUpdateManyWithoutDefinitionInput = {
@@ -1255,10 +1404,12 @@ export type ExecutiveBoardPackUncheckedUpdateManyWithoutDefinitionInput = {
 
 export type ExecutiveBoardPackCountOutputType = {
   exports: number
+  distributions: number
 }
 
 export type ExecutiveBoardPackCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   exports?: boolean | ExecutiveBoardPackCountOutputTypeCountExportsArgs
+  distributions?: boolean | ExecutiveBoardPackCountOutputTypeCountDistributionsArgs
 }
 
 /**
@@ -1276,6 +1427,13 @@ export type ExecutiveBoardPackCountOutputTypeDefaultArgs<ExtArgs extends runtime
  */
 export type ExecutiveBoardPackCountOutputTypeCountExportsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ExecutiveBoardPackExportWhereInput
+}
+
+/**
+ * ExecutiveBoardPackCountOutputType without action
+ */
+export type ExecutiveBoardPackCountOutputTypeCountDistributionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExecutiveBoardDistributionWhereInput
 }
 
 
@@ -1304,6 +1462,7 @@ export type ExecutiveBoardPackSelect<ExtArgs extends runtime.Types.Extensions.In
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   definition?: boolean | Prisma.ExecutiveBoardPackDefinitionDefaultArgs<ExtArgs>
   exports?: boolean | Prisma.ExecutiveBoardPack$exportsArgs<ExtArgs>
+  distributions?: boolean | Prisma.ExecutiveBoardPack$distributionsArgs<ExtArgs>
   _count?: boolean | Prisma.ExecutiveBoardPackCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["executiveBoardPack"]>
 
@@ -1388,6 +1547,7 @@ export type ExecutiveBoardPackInclude<ExtArgs extends runtime.Types.Extensions.I
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   definition?: boolean | Prisma.ExecutiveBoardPackDefinitionDefaultArgs<ExtArgs>
   exports?: boolean | Prisma.ExecutiveBoardPack$exportsArgs<ExtArgs>
+  distributions?: boolean | Prisma.ExecutiveBoardPack$distributionsArgs<ExtArgs>
   _count?: boolean | Prisma.ExecutiveBoardPackCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ExecutiveBoardPackIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1405,6 +1565,7 @@ export type $ExecutiveBoardPackPayload<ExtArgs extends runtime.Types.Extensions.
     tenant: Prisma.$TenantPayload<ExtArgs>
     definition: Prisma.$ExecutiveBoardPackDefinitionPayload<ExtArgs>
     exports: Prisma.$ExecutiveBoardPackExportPayload<ExtArgs>[]
+    distributions: Prisma.$ExecutiveBoardDistributionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1825,6 +1986,7 @@ export interface Prisma__ExecutiveBoardPackClient<T, Null = never, ExtArgs exten
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   definition<T extends Prisma.ExecutiveBoardPackDefinitionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ExecutiveBoardPackDefinitionDefaultArgs<ExtArgs>>): Prisma.Prisma__ExecutiveBoardPackDefinitionClient<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardPackDefinitionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   exports<T extends Prisma.ExecutiveBoardPack$exportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ExecutiveBoardPack$exportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardPackExportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  distributions<T extends Prisma.ExecutiveBoardPack$distributionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ExecutiveBoardPack$distributionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardDistributionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2297,6 +2459,30 @@ export type ExecutiveBoardPack$exportsArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.ExecutiveBoardPackExportScalarFieldEnum | Prisma.ExecutiveBoardPackExportScalarFieldEnum[]
+}
+
+/**
+ * ExecutiveBoardPack.distributions
+ */
+export type ExecutiveBoardPack$distributionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExecutiveBoardDistribution
+   */
+  select?: Prisma.ExecutiveBoardDistributionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExecutiveBoardDistribution
+   */
+  omit?: Prisma.ExecutiveBoardDistributionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExecutiveBoardDistributionInclude<ExtArgs> | null
+  where?: Prisma.ExecutiveBoardDistributionWhereInput
+  orderBy?: Prisma.ExecutiveBoardDistributionOrderByWithRelationInput | Prisma.ExecutiveBoardDistributionOrderByWithRelationInput[]
+  cursor?: Prisma.ExecutiveBoardDistributionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExecutiveBoardDistributionScalarFieldEnum | Prisma.ExecutiveBoardDistributionScalarFieldEnum[]
 }
 
 /**

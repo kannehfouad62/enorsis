@@ -38,6 +38,12 @@ export default async function ExecutiveBoardReportingPage() {
         >
           Board Calendar
         </a>
+        <a
+          href="/app/executive/board-distribution"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+        >
+          Board Distribution
+        </a>
       </div>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">

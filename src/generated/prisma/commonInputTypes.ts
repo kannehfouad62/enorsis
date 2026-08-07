@@ -4913,6 +4913,74 @@ export type EnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<$Prism
   _max?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
 }
 
+export type EnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientGroupType | Prisma.EnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientGroupType
+}
+
+export type EnumExecutiveBoardRecipientGroupTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientGroupType | Prisma.EnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientGroupType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardRecipientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientStatus | Prisma.EnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientStatus
+}
+
+export type EnumExecutiveBoardRecipientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientStatus | Prisma.EnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardDistributionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDistributionStatus | Prisma.EnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardDistributionStatus
+}
+
+export type EnumExecutiveBoardDistributionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDistributionStatus | Prisma.EnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDistributionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardDistributionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardDeliveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDeliveryStatus | Prisma.EnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardDeliveryStatus
+}
+
+export type EnumExecutiveBoardDeliveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDeliveryStatus | Prisma.EnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDeliveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardDeliveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9769,6 +9837,74 @@ export type NestedEnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientGroupType | Prisma.EnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientGroupType
+}
+
+export type NestedEnumExecutiveBoardRecipientGroupTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientGroupType | Prisma.EnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientGroupType[] | Prisma.ListEnumExecutiveBoardRecipientGroupTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientGroupType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardRecipientGroupTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientStatus | Prisma.EnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientStatus
+}
+
+export type NestedEnumExecutiveBoardRecipientStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardRecipientStatus | Prisma.EnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardRecipientStatus[] | Prisma.ListEnumExecutiveBoardRecipientStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardRecipientStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardRecipientStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardRecipientStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDistributionStatus | Prisma.EnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardDistributionStatus
+}
+
+export type NestedEnumExecutiveBoardDistributionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDistributionStatus | Prisma.EnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDistributionStatus[] | Prisma.ListEnumExecutiveBoardDistributionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDistributionStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardDistributionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardDistributionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDeliveryStatus | Prisma.EnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardDeliveryStatus
+}
+
+export type NestedEnumExecutiveBoardDeliveryStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardDeliveryStatus | Prisma.EnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardDeliveryStatus[] | Prisma.ListEnumExecutiveBoardDeliveryStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardDeliveryStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardDeliveryStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardDeliveryStatusFilter<$PrismaModel>
 }
 
 

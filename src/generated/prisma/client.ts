@@ -1201,3 +1201,28 @@ export type ExecutiveBoardReportSchedule = Prisma.ExecutiveBoardReportScheduleMo
  * 
  */
 export type ExecutiveBoardReportScheduleRun = Prisma.ExecutiveBoardReportScheduleRunModel
+/**
+ * Model ExecutiveBoardRecipientGroup
+ * 
+ */
+export type ExecutiveBoardRecipientGroup = Prisma.ExecutiveBoardRecipientGroupModel
+/**
+ * Model ExecutiveBoardRecipient
+ * 
+ */
+export type ExecutiveBoardRecipient = Prisma.ExecutiveBoardRecipientModel
+/**
+ * Model ExecutiveBoardDistribution
+ * 
+ */
+export type ExecutiveBoardDistribution = Prisma.ExecutiveBoardDistributionModel
+/**
+ * Model ExecutiveBoardDelivery
+ * 
+ */
+export type ExecutiveBoardDelivery = Prisma.ExecutiveBoardDeliveryModel
+/**
+ * Model ExecutiveBoardDeliveryAccessEvent
+ * 
+ */
+export type ExecutiveBoardDeliveryAccessEvent = Prisma.ExecutiveBoardDeliveryAccessEventModel
