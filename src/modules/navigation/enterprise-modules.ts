@@ -583,6 +583,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Executive AI Briefing",
+    description: "Prioritized decisions, risks, opportunities and executive actions.",
+    href: "/app/executive/ai-briefing",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

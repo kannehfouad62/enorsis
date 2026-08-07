@@ -156,6 +156,8 @@ export default async function ExecutiveDashboardPage() {
             ["/app/replenishment", "Replenishment & Transfers"],
             ["/app/inventory-financial-valuation", "Financial Valuation"],
             ["/app/executive/kpis", "Enterprise KPI Engine"],
+            ["/app/executive/ai-intelligence", "Governed Executive AI"],
+            ["/app/executive/ai-briefing", "Executive AI Briefing"],
           ].map(([href, label]) => (
             <Link
               key={href}
