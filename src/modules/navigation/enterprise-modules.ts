@@ -503,6 +503,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Inventory Reconciliation",
+    description: "Cycle counts, reconciliation and stock adjustments.",
+    href: "/app/inventory-reconciliation",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

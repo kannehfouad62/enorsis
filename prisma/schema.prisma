@@ -1870,6 +1870,39 @@ enum WarehouseFulfillmentExceptionStatus {
   CANCELLED
 }
 
+enum InventoryCountSessionStatus {
+  DRAFT
+  IN_PROGRESS
+  COUNTED
+  REVIEW_REQUIRED
+  APPROVED
+  POSTED
+  CANCELLED
+}
+
+enum InventoryCountLineStatus {
+  PENDING
+  MATCHED
+  VARIANCE
+  APPROVED
+  POSTED
+}
+
+enum InventoryReconciliationStatus {
+  OPEN
+  REVIEWING
+  APPROVED
+  REJECTED
+  POSTED
+  CANCELLED
+}
+
+enum InventoryAdjustmentDirection {
+  INCREASE
+  DECREASE
+  NONE
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2070,6 +2103,8 @@ model Tenant {
   warehousePickTasks                WarehousePickTask[]
   warehousePackages                 WarehousePackage[]
   warehouseFulfillmentExceptions    WarehouseFulfillmentException[]
+  inventoryCountSessions            InventoryCountSession[]
+  inventoryReconciliations          InventoryReconciliation[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -6864,4 +6899,79 @@ model WarehouseFulfillmentException {
 
   @@index([tenantId, status, severity])
   @@index([fulfillmentOrderId])
+}
+
+model InventoryCountSession {
+  id                String                      @id @default(cuid())
+  tenantId          String
+  countNumber       String
+  status            InventoryCountSessionStatus @default(DRAFT)
+  countType         String?
+  locationId        String?
+  startedAt         DateTime?
+  countedAt         DateTime?
+  approvedAt        DateTime?
+  postedAt          DateTime?
+  initiatedByUserId String?
+  approvedByUserId  String?
+  notes             String?
+  tenant            Tenant                      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lines             InventoryCountLine[]
+  reconciliations   InventoryReconciliation[]
+  createdAt         DateTime                    @default(now())
+  updatedAt         DateTime                    @updatedAt
+
+  @@unique([tenantId, countNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([locationId])
+}
+
+model InventoryCountLine {
+  id                 String                    @id @default(cuid())
+  countSessionId     String
+  inventoryItemId    String
+  locationId         String
+  expectedQuantity   Decimal                   @db.Decimal(18, 4)
+  countedQuantity    Decimal                   @db.Decimal(18, 4)
+  varianceQuantity   Decimal                   @default(0) @db.Decimal(18, 4)
+  unitOfMeasure      String                    @default("EA")
+  serialLotReference String?
+  status             InventoryCountLineStatus  @default(PENDING)
+  countedByUserId    String?
+  countedAt          DateTime?
+  countSession       InventoryCountSession     @relation(fields: [countSessionId], references: [id], onDelete: Cascade)
+  reconciliations    InventoryReconciliation[]
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+
+  @@index([countSessionId, status])
+  @@index([inventoryItemId, locationId])
+}
+
+model InventoryReconciliation {
+  id                   String                        @id @default(cuid())
+  tenantId             String
+  countSessionId       String
+  countLineId          String
+  reconciliationNumber String
+  status               InventoryReconciliationStatus @default(OPEN)
+  direction            InventoryAdjustmentDirection
+  varianceQuantity     Decimal                       @db.Decimal(18, 4)
+  reason               String?
+  reviewedByUserId     String?
+  approvedByUserId     String?
+  reviewedAt           DateTime?
+  approvedAt           DateTime?
+  postedAt             DateTime?
+  movementLedgerId     String?
+  tenant               Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  countSession         InventoryCountSession         @relation(fields: [countSessionId], references: [id], onDelete: Cascade)
+  countLine            InventoryCountLine            @relation(fields: [countLineId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                      @default(now())
+  updatedAt            DateTime                      @updatedAt
+
+  @@unique([tenantId, reconciliationNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([countSessionId])
+  @@index([countLineId])
 }

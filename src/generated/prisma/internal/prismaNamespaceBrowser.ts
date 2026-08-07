@@ -250,7 +250,10 @@ export const ModelName = {
   WarehouseFulfillmentLine: 'WarehouseFulfillmentLine',
   WarehousePickTask: 'WarehousePickTask',
   WarehousePackage: 'WarehousePackage',
-  WarehouseFulfillmentException: 'WarehouseFulfillmentException'
+  WarehouseFulfillmentException: 'WarehouseFulfillmentException',
+  InventoryCountSession: 'InventoryCountSession',
+  InventoryCountLine: 'InventoryCountLine',
+  InventoryReconciliation: 'InventoryReconciliation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4588,6 +4591,70 @@ export const WarehouseFulfillmentExceptionScalarFieldEnum = {
 } as const
 
 export type WarehouseFulfillmentExceptionScalarFieldEnum = (typeof WarehouseFulfillmentExceptionScalarFieldEnum)[keyof typeof WarehouseFulfillmentExceptionScalarFieldEnum]
+
+
+export const InventoryCountSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  countNumber: 'countNumber',
+  status: 'status',
+  countType: 'countType',
+  locationId: 'locationId',
+  startedAt: 'startedAt',
+  countedAt: 'countedAt',
+  approvedAt: 'approvedAt',
+  postedAt: 'postedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryCountSessionScalarFieldEnum = (typeof InventoryCountSessionScalarFieldEnum)[keyof typeof InventoryCountSessionScalarFieldEnum]
+
+
+export const InventoryCountLineScalarFieldEnum = {
+  id: 'id',
+  countSessionId: 'countSessionId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  expectedQuantity: 'expectedQuantity',
+  countedQuantity: 'countedQuantity',
+  varianceQuantity: 'varianceQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  serialLotReference: 'serialLotReference',
+  status: 'status',
+  countedByUserId: 'countedByUserId',
+  countedAt: 'countedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryCountLineScalarFieldEnum = (typeof InventoryCountLineScalarFieldEnum)[keyof typeof InventoryCountLineScalarFieldEnum]
+
+
+export const InventoryReconciliationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  countSessionId: 'countSessionId',
+  countLineId: 'countLineId',
+  reconciliationNumber: 'reconciliationNumber',
+  status: 'status',
+  direction: 'direction',
+  varianceQuantity: 'varianceQuantity',
+  reason: 'reason',
+  reviewedByUserId: 'reviewedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedAt: 'approvedAt',
+  postedAt: 'postedAt',
+  movementLedgerId: 'movementLedgerId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryReconciliationScalarFieldEnum = (typeof InventoryReconciliationScalarFieldEnum)[keyof typeof InventoryReconciliationScalarFieldEnum]
 
 
 export const SortOrder = {

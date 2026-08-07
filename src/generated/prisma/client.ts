@@ -1041,3 +1041,18 @@ export type WarehousePackage = Prisma.WarehousePackageModel
  * 
  */
 export type WarehouseFulfillmentException = Prisma.WarehouseFulfillmentExceptionModel
+/**
+ * Model InventoryCountSession
+ * 
+ */
+export type InventoryCountSession = Prisma.InventoryCountSessionModel
+/**
+ * Model InventoryCountLine
+ * 
+ */
+export type InventoryCountLine = Prisma.InventoryCountLineModel
+/**
+ * Model InventoryReconciliation
+ * 
+ */
+export type InventoryReconciliation = Prisma.InventoryReconciliationModel

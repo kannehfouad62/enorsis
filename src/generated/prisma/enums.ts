@@ -2531,6 +2531,51 @@ export const WarehouseFulfillmentExceptionStatus = {
 export type WarehouseFulfillmentExceptionStatus = (typeof WarehouseFulfillmentExceptionStatus)[keyof typeof WarehouseFulfillmentExceptionStatus]
 
 
+export const InventoryCountSessionStatus = {
+  DRAFT: 'DRAFT',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COUNTED: 'COUNTED',
+  REVIEW_REQUIRED: 'REVIEW_REQUIRED',
+  APPROVED: 'APPROVED',
+  POSTED: 'POSTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryCountSessionStatus = (typeof InventoryCountSessionStatus)[keyof typeof InventoryCountSessionStatus]
+
+
+export const InventoryCountLineStatus = {
+  PENDING: 'PENDING',
+  MATCHED: 'MATCHED',
+  VARIANCE: 'VARIANCE',
+  APPROVED: 'APPROVED',
+  POSTED: 'POSTED'
+} as const
+
+export type InventoryCountLineStatus = (typeof InventoryCountLineStatus)[keyof typeof InventoryCountLineStatus]
+
+
+export const InventoryReconciliationStatus = {
+  OPEN: 'OPEN',
+  REVIEWING: 'REVIEWING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  POSTED: 'POSTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryReconciliationStatus = (typeof InventoryReconciliationStatus)[keyof typeof InventoryReconciliationStatus]
+
+
+export const InventoryAdjustmentDirection = {
+  INCREASE: 'INCREASE',
+  DECREASE: 'DECREASE',
+  NONE: 'NONE'
+} as const
+
+export type InventoryAdjustmentDirection = (typeof InventoryAdjustmentDirection)[keyof typeof InventoryAdjustmentDirection]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
