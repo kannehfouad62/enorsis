@@ -51,6 +51,12 @@ export default async function ExecutiveAiBriefingPage() {
           >
             AI Governance
           </Link>
+          <Link
+            href="/app/executive/ai-synthesis"
+            className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+          >
+            OpenAI Synthesis
+          </Link>
         </div>
       </div>
 

@@ -2110,6 +2110,12 @@ enum GovernedExecutiveApprovalDecision {
   ESCALATE
 }
 
+enum ExecutiveSynthesisStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2333,6 +2339,8 @@ model Tenant {
   governedExecutiveInsightApprovals           GovernedExecutiveInsightApproval[]
   governedExecutiveInsightApprovalDecisions   GovernedExecutiveInsightApprovalDecision[]
   governedExecutiveInsightApprovalAuditEvents GovernedExecutiveInsightApprovalAuditEvent[]
+  executiveSynthesisRuns                      ExecutiveSynthesisRun[]
+  executiveSyntheses                          ExecutiveSynthesis[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -7739,4 +7747,50 @@ model GovernedExecutiveInsightApprovalAuditEvent {
 
   @@index([tenantId, createdAt])
   @@index([approvalId, createdAt])
+}
+
+model ExecutiveSynthesisRun {
+  id                 String                   @id @default(cuid())
+  tenantId           String
+  runNumber          String
+  status             ExecutiveSynthesisStatus @default(PENDING)
+  provider           String                   @default("OPENAI")
+  model              String
+  sourceInsightCount Int                      @default(0)
+  startedAt          DateTime?
+  completedAt        DateTime?
+  initiatedByUserId  String?
+  promptVersion      String
+  inputFingerprint   String
+  responseId         String?
+  summary            Json?
+  errorMessage       String?
+  tenant             Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  synthesis          ExecutiveSynthesis?
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  @@unique([tenantId, runNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([inputFingerprint])
+}
+
+model ExecutiveSynthesis {
+  id                    String                @id @default(cuid())
+  tenantId              String
+  synthesisRunId        String                @unique
+  title                 String
+  executiveSummary      String
+  keyRisks              Json
+  keyOpportunities      Json
+  recommendedPriorities Json
+  governanceNotes       Json
+  confidenceStatement   String
+  sourceInsightIds      Json
+  tenant                Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  synthesisRun          ExecutiveSynthesisRun @relation(fields: [synthesisRunId], references: [id], onDelete: Cascade)
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+
+  @@index([tenantId, createdAt])
 }

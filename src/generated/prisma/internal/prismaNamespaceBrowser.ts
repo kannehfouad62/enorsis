@@ -275,7 +275,9 @@ export const ModelName = {
   GovernedExecutiveInsightFeedback: 'GovernedExecutiveInsightFeedback',
   GovernedExecutiveInsightApproval: 'GovernedExecutiveInsightApproval',
   GovernedExecutiveInsightApprovalDecision: 'GovernedExecutiveInsightApprovalDecision',
-  GovernedExecutiveInsightApprovalAuditEvent: 'GovernedExecutiveInsightApprovalAuditEvent'
+  GovernedExecutiveInsightApprovalAuditEvent: 'GovernedExecutiveInsightApprovalAuditEvent',
+  ExecutiveSynthesisRun: 'ExecutiveSynthesisRun',
+  ExecutiveSynthesis: 'ExecutiveSynthesis'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5139,6 +5141,48 @@ export const GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum = {
 } as const
 
 export type GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum = (typeof GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum)[keyof typeof GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum]
+
+
+export const ExecutiveSynthesisRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  runNumber: 'runNumber',
+  status: 'status',
+  provider: 'provider',
+  model: 'model',
+  sourceInsightCount: 'sourceInsightCount',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  promptVersion: 'promptVersion',
+  inputFingerprint: 'inputFingerprint',
+  responseId: 'responseId',
+  summary: 'summary',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveSynthesisRunScalarFieldEnum = (typeof ExecutiveSynthesisRunScalarFieldEnum)[keyof typeof ExecutiveSynthesisRunScalarFieldEnum]
+
+
+export const ExecutiveSynthesisScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  synthesisRunId: 'synthesisRunId',
+  title: 'title',
+  executiveSummary: 'executiveSummary',
+  keyRisks: 'keyRisks',
+  keyOpportunities: 'keyOpportunities',
+  recommendedPriorities: 'recommendedPriorities',
+  governanceNotes: 'governanceNotes',
+  confidenceStatement: 'confidenceStatement',
+  sourceInsightIds: 'sourceInsightIds',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveSynthesisScalarFieldEnum = (typeof ExecutiveSynthesisScalarFieldEnum)[keyof typeof ExecutiveSynthesisScalarFieldEnum]
 
 
 export const SortOrder = {

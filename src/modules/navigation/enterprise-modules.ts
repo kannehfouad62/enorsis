@@ -599,6 +599,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "OpenAI Executive Synthesis",
+    description: "Governed board-ready synthesis from approved enterprise evidence.",
+    href: "/app/executive/ai-synthesis",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

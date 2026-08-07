@@ -2855,6 +2855,15 @@ export const GovernedExecutiveApprovalDecision = {
 export type GovernedExecutiveApprovalDecision = (typeof GovernedExecutiveApprovalDecision)[keyof typeof GovernedExecutiveApprovalDecision]
 
 
+export const ExecutiveSynthesisStatus = {
+  PENDING: 'PENDING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED'
+} as const
+
+export type ExecutiveSynthesisStatus = (typeof ExecutiveSynthesisStatus)[keyof typeof ExecutiveSynthesisStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

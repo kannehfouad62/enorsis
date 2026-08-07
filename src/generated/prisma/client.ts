@@ -1166,3 +1166,13 @@ export type GovernedExecutiveInsightApprovalDecision = Prisma.GovernedExecutiveI
  * 
  */
 export type GovernedExecutiveInsightApprovalAuditEvent = Prisma.GovernedExecutiveInsightApprovalAuditEventModel
+/**
+ * Model ExecutiveSynthesisRun
+ * 
+ */
+export type ExecutiveSynthesisRun = Prisma.ExecutiveSynthesisRunModel
+/**
+ * Model ExecutiveSynthesis
+ * 
+ */
+export type ExecutiveSynthesis = Prisma.ExecutiveSynthesisModel

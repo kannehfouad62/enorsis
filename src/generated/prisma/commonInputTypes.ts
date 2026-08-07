@@ -4760,6 +4760,23 @@ export type EnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$PrismaMod
   _max?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
 }
 
+export type EnumExecutiveSynthesisStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveSynthesisStatus | Prisma.EnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel> | $Enums.ExecutiveSynthesisStatus
+}
+
+export type EnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveSynthesisStatus | Prisma.EnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveSynthesisStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9463,6 +9480,23 @@ export type NestedEnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$Pri
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
   _max?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveSynthesisStatus | Prisma.EnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel> | $Enums.ExecutiveSynthesisStatus
+}
+
+export type NestedEnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveSynthesisStatus | Prisma.EnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveSynthesisStatus[] | Prisma.ListEnumExecutiveSynthesisStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveSynthesisStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
 }
 
 
