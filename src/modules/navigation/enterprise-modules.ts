@@ -631,6 +631,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Enterprise Workflow Automation",
+    description: "Governed event, schedule and condition-based enterprise automation.",
+    href: "/app/automation",
+    icon: BadgeCheck,
+    group: "Governance",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

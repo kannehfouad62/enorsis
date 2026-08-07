@@ -1226,3 +1226,28 @@ export type ExecutiveBoardDelivery = Prisma.ExecutiveBoardDeliveryModel
  * 
  */
 export type ExecutiveBoardDeliveryAccessEvent = Prisma.ExecutiveBoardDeliveryAccessEventModel
+/**
+ * Model EnterpriseAutomationRule
+ * 
+ */
+export type EnterpriseAutomationRule = Prisma.EnterpriseAutomationRuleModel
+/**
+ * Model EnterpriseAutomationTrigger
+ * 
+ */
+export type EnterpriseAutomationTrigger = Prisma.EnterpriseAutomationTriggerModel
+/**
+ * Model EnterpriseAutomationAction
+ * 
+ */
+export type EnterpriseAutomationAction = Prisma.EnterpriseAutomationActionModel
+/**
+ * Model EnterpriseAutomationRun
+ * 
+ */
+export type EnterpriseAutomationRun = Prisma.EnterpriseAutomationRunModel
+/**
+ * Model EnterpriseAutomationActionRun
+ * 
+ */
+export type EnterpriseAutomationActionRun = Prisma.EnterpriseAutomationActionRunModel

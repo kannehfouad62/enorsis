@@ -2205,6 +2205,37 @@ enum ExecutiveBoardDeliveryStatus {
   REVOKED
 }
 
+enum EnterpriseAutomationRuleStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  DISABLED
+}
+
+enum EnterpriseAutomationTriggerType {
+  DOMAIN_EVENT
+  SCHEDULE
+  RECORD_CONDITION
+  MANUAL
+}
+
+enum EnterpriseAutomationActionType {
+  START_WORKFLOW
+  CREATE_NOTIFICATION
+  CREATE_TASK
+  PUBLISH_EVENT
+  LOG_ACTIVITY
+}
+
+enum EnterpriseAutomationRunStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  COMPLETED_WITH_WARNINGS
+  FAILED
+  SKIPPED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2440,6 +2471,11 @@ model Tenant {
   executiveBoardDistributions                 ExecutiveBoardDistribution[]
   executiveBoardDeliveries                    ExecutiveBoardDelivery[]
   executiveBoardDeliveryAccessEvents          ExecutiveBoardDeliveryAccessEvent[]
+  enterpriseAutomationRules                   EnterpriseAutomationRule[]
+  enterpriseAutomationTriggers                EnterpriseAutomationTrigger[]
+  enterpriseAutomationActions                 EnterpriseAutomationAction[]
+  enterpriseAutomationRuns                    EnterpriseAutomationRun[]
+  enterpriseAutomationActionRuns              EnterpriseAutomationActionRun[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8121,4 +8157,109 @@ model ExecutiveBoardDeliveryAccessEvent {
 
   @@index([tenantId, occurredAt])
   @@index([deliveryId, occurredAt])
+}
+
+model EnterpriseAutomationRule {
+  id              String                         @id @default(cuid())
+  tenantId        String
+  ruleKey         String
+  name            String
+  description     String?
+  status          EnterpriseAutomationRuleStatus @default(DRAFT)
+  priority        Int                            @default(100)
+  stopOnFailure   Boolean                        @default(true)
+  createdByUserId String
+  tenant          Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  triggers        EnterpriseAutomationTrigger[]
+  actions         EnterpriseAutomationAction[]
+  runs            EnterpriseAutomationRun[]
+  createdAt       DateTime                       @default(now())
+  updatedAt       DateTime                       @updatedAt
+
+  @@unique([tenantId, ruleKey])
+  @@index([tenantId, status, priority])
+}
+
+model EnterpriseAutomationTrigger {
+  id                  String                          @id @default(cuid())
+  tenantId            String
+  ruleId              String
+  triggerType         EnterpriseAutomationTriggerType
+  eventType           String?
+  scheduleExpression  String?
+  recordType          String?
+  conditionExpression Json?
+  enabled             Boolean                         @default(true)
+  tenant              Tenant                          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule                EnterpriseAutomationRule        @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  createdAt           DateTime                        @default(now())
+  updatedAt           DateTime                        @updatedAt
+
+  @@index([tenantId, triggerType, enabled])
+  @@index([ruleId])
+  @@index([eventType])
+}
+
+model EnterpriseAutomationAction {
+  id            String                          @id @default(cuid())
+  tenantId      String
+  ruleId        String
+  sequence      Int
+  actionType    EnterpriseAutomationActionType
+  actionKey     String
+  configuration Json
+  enabled       Boolean                         @default(true)
+  tenant        Tenant                          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule          EnterpriseAutomationRule        @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  actionRuns    EnterpriseAutomationActionRun[]
+  createdAt     DateTime                        @default(now())
+  updatedAt     DateTime                        @updatedAt
+
+  @@unique([ruleId, sequence])
+  @@index([tenantId, actionType, enabled])
+  @@index([ruleId])
+}
+
+model EnterpriseAutomationRun {
+  id                String                          @id @default(cuid())
+  tenantId          String
+  ruleId            String
+  runNumber         String
+  status            EnterpriseAutomationRunStatus   @default(PENDING)
+  triggerType       EnterpriseAutomationTriggerType
+  triggerReference  String?
+  startedAt         DateTime?
+  completedAt       DateTime?
+  input             Json?
+  output            Json?
+  errorMessage      String?
+  initiatedByUserId String?
+  tenant            Tenant                          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule              EnterpriseAutomationRule        @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  actionRuns        EnterpriseAutomationActionRun[]
+  createdAt         DateTime                        @default(now())
+
+  @@unique([tenantId, runNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([ruleId, createdAt])
+}
+
+model EnterpriseAutomationActionRun {
+  id              String                        @id @default(cuid())
+  tenantId        String
+  automationRunId String
+  actionId        String
+  sequence        Int
+  status          EnterpriseAutomationRunStatus @default(PENDING)
+  startedAt       DateTime?
+  completedAt     DateTime?
+  output          Json?
+  errorMessage    String?
+  tenant          Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  automationRun   EnterpriseAutomationRun       @relation(fields: [automationRunId], references: [id], onDelete: Cascade)
+  action          EnterpriseAutomationAction    @relation(fields: [actionId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                      @default(now())
+
+  @@index([tenantId, status, createdAt])
+  @@index([automationRunId, sequence])
 }

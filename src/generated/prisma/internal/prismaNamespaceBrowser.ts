@@ -287,7 +287,12 @@ export const ModelName = {
   ExecutiveBoardRecipient: 'ExecutiveBoardRecipient',
   ExecutiveBoardDistribution: 'ExecutiveBoardDistribution',
   ExecutiveBoardDelivery: 'ExecutiveBoardDelivery',
-  ExecutiveBoardDeliveryAccessEvent: 'ExecutiveBoardDeliveryAccessEvent'
+  ExecutiveBoardDeliveryAccessEvent: 'ExecutiveBoardDeliveryAccessEvent',
+  EnterpriseAutomationRule: 'EnterpriseAutomationRule',
+  EnterpriseAutomationTrigger: 'EnterpriseAutomationTrigger',
+  EnterpriseAutomationAction: 'EnterpriseAutomationAction',
+  EnterpriseAutomationRun: 'EnterpriseAutomationRun',
+  EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5385,6 +5390,93 @@ export const ExecutiveBoardDeliveryAccessEventScalarFieldEnum = {
 } as const
 
 export type ExecutiveBoardDeliveryAccessEventScalarFieldEnum = (typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum)[keyof typeof ExecutiveBoardDeliveryAccessEventScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleKey: 'ruleKey',
+  name: 'name',
+  description: 'description',
+  status: 'status',
+  priority: 'priority',
+  stopOnFailure: 'stopOnFailure',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationRuleScalarFieldEnum = (typeof EnterpriseAutomationRuleScalarFieldEnum)[keyof typeof EnterpriseAutomationRuleScalarFieldEnum]
+
+
+export const EnterpriseAutomationTriggerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  triggerType: 'triggerType',
+  eventType: 'eventType',
+  scheduleExpression: 'scheduleExpression',
+  recordType: 'recordType',
+  conditionExpression: 'conditionExpression',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationTriggerScalarFieldEnum = (typeof EnterpriseAutomationTriggerScalarFieldEnum)[keyof typeof EnterpriseAutomationTriggerScalarFieldEnum]
+
+
+export const EnterpriseAutomationActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  sequence: 'sequence',
+  actionType: 'actionType',
+  actionKey: 'actionKey',
+  configuration: 'configuration',
+  enabled: 'enabled',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationActionScalarFieldEnum = (typeof EnterpriseAutomationActionScalarFieldEnum)[keyof typeof EnterpriseAutomationActionScalarFieldEnum]
+
+
+export const EnterpriseAutomationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  runNumber: 'runNumber',
+  status: 'status',
+  triggerType: 'triggerType',
+  triggerReference: 'triggerReference',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  input: 'input',
+  output: 'output',
+  errorMessage: 'errorMessage',
+  initiatedByUserId: 'initiatedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationRunScalarFieldEnum = (typeof EnterpriseAutomationRunScalarFieldEnum)[keyof typeof EnterpriseAutomationRunScalarFieldEnum]
+
+
+export const EnterpriseAutomationActionRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  automationRunId: 'automationRunId',
+  actionId: 'actionId',
+  sequence: 'sequence',
+  status: 'status',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  output: 'output',
+  errorMessage: 'errorMessage',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationActionRunScalarFieldEnum = (typeof EnterpriseAutomationActionRunScalarFieldEnum)[keyof typeof EnterpriseAutomationActionRunScalarFieldEnum]
 
 
 export const SortOrder = {

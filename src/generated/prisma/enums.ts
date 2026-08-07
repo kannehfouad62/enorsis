@@ -2989,6 +2989,49 @@ export const ExecutiveBoardDeliveryStatus = {
 export type ExecutiveBoardDeliveryStatus = (typeof ExecutiveBoardDeliveryStatus)[keyof typeof ExecutiveBoardDeliveryStatus]
 
 
+export const EnterpriseAutomationRuleStatus = {
+  DRAFT: 'DRAFT',
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type EnterpriseAutomationRuleStatus = (typeof EnterpriseAutomationRuleStatus)[keyof typeof EnterpriseAutomationRuleStatus]
+
+
+export const EnterpriseAutomationTriggerType = {
+  DOMAIN_EVENT: 'DOMAIN_EVENT',
+  SCHEDULE: 'SCHEDULE',
+  RECORD_CONDITION: 'RECORD_CONDITION',
+  MANUAL: 'MANUAL'
+} as const
+
+export type EnterpriseAutomationTriggerType = (typeof EnterpriseAutomationTriggerType)[keyof typeof EnterpriseAutomationTriggerType]
+
+
+export const EnterpriseAutomationActionType = {
+  START_WORKFLOW: 'START_WORKFLOW',
+  CREATE_NOTIFICATION: 'CREATE_NOTIFICATION',
+  CREATE_TASK: 'CREATE_TASK',
+  PUBLISH_EVENT: 'PUBLISH_EVENT',
+  LOG_ACTIVITY: 'LOG_ACTIVITY'
+} as const
+
+export type EnterpriseAutomationActionType = (typeof EnterpriseAutomationActionType)[keyof typeof EnterpriseAutomationActionType]
+
+
+export const EnterpriseAutomationRunStatus = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  COMPLETED_WITH_WARNINGS: 'COMPLETED_WITH_WARNINGS',
+  FAILED: 'FAILED',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type EnterpriseAutomationRunStatus = (typeof EnterpriseAutomationRunStatus)[keyof typeof EnterpriseAutomationRunStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
