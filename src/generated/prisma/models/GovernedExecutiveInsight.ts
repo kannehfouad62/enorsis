@@ -370,6 +370,7 @@ export type GovernedExecutiveInsightWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"GovernedExecutiveInsight"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   insightRun?: Prisma.XOR<Prisma.GovernedExecutiveInsightRunScalarRelationFilter, Prisma.GovernedExecutiveInsightRunWhereInput>
+  approval?: Prisma.XOR<Prisma.GovernedExecutiveInsightApprovalNullableScalarRelationFilter, Prisma.GovernedExecutiveInsightApprovalWhereInput> | null
   evidence?: Prisma.GovernedExecutiveInsightEvidenceListRelationFilter
   feedback?: Prisma.GovernedExecutiveInsightFeedbackListRelationFilter
 }
@@ -401,6 +402,7 @@ export type GovernedExecutiveInsightOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
   insightRun?: Prisma.GovernedExecutiveInsightRunOrderByWithRelationInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalOrderByWithRelationInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceOrderByRelationAggregateInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackOrderByRelationAggregateInput
 }
@@ -436,6 +438,7 @@ export type GovernedExecutiveInsightWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"GovernedExecutiveInsight"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   insightRun?: Prisma.XOR<Prisma.GovernedExecutiveInsightRunScalarRelationFilter, Prisma.GovernedExecutiveInsightRunWhereInput>
+  approval?: Prisma.XOR<Prisma.GovernedExecutiveInsightApprovalNullableScalarRelationFilter, Prisma.GovernedExecutiveInsightApprovalWhereInput> | null
   evidence?: Prisma.GovernedExecutiveInsightEvidenceListRelationFilter
   feedback?: Prisma.GovernedExecutiveInsightFeedbackListRelationFilter
 }, "id" | "tenantId_insightRunId_insightKey">
@@ -527,6 +530,7 @@ export type GovernedExecutiveInsightCreateInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutGovernedExecutiveInsightsInput
   insightRun: Prisma.GovernedExecutiveInsightRunCreateNestedOneWithoutInsightsInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutInsightInput
 }
@@ -556,6 +560,7 @@ export type GovernedExecutiveInsightUncheckedCreateInput = {
   dismissalReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutInsightInput
 }
@@ -585,6 +590,7 @@ export type GovernedExecutiveInsightUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutGovernedExecutiveInsightsNestedInput
   insightRun?: Prisma.GovernedExecutiveInsightRunUpdateOneRequiredWithoutInsightsNestedInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutInsightNestedInput
 }
@@ -614,6 +620,7 @@ export type GovernedExecutiveInsightUncheckedUpdateInput = {
   dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutInsightNestedInput
 }
@@ -927,6 +934,20 @@ export type GovernedExecutiveInsightUpdateOneRequiredWithoutFeedbackNestedInput 
   update?: Prisma.XOR<Prisma.XOR<Prisma.GovernedExecutiveInsightUpdateToOneWithWhereWithoutFeedbackInput, Prisma.GovernedExecutiveInsightUpdateWithoutFeedbackInput>, Prisma.GovernedExecutiveInsightUncheckedUpdateWithoutFeedbackInput>
 }
 
+export type GovernedExecutiveInsightCreateNestedOneWithoutApprovalInput = {
+  create?: Prisma.XOR<Prisma.GovernedExecutiveInsightCreateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedCreateWithoutApprovalInput>
+  connectOrCreate?: Prisma.GovernedExecutiveInsightCreateOrConnectWithoutApprovalInput
+  connect?: Prisma.GovernedExecutiveInsightWhereUniqueInput
+}
+
+export type GovernedExecutiveInsightUpdateOneRequiredWithoutApprovalNestedInput = {
+  create?: Prisma.XOR<Prisma.GovernedExecutiveInsightCreateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedCreateWithoutApprovalInput>
+  connectOrCreate?: Prisma.GovernedExecutiveInsightCreateOrConnectWithoutApprovalInput
+  upsert?: Prisma.GovernedExecutiveInsightUpsertWithoutApprovalInput
+  connect?: Prisma.GovernedExecutiveInsightWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GovernedExecutiveInsightUpdateToOneWithWhereWithoutApprovalInput, Prisma.GovernedExecutiveInsightUpdateWithoutApprovalInput>, Prisma.GovernedExecutiveInsightUncheckedUpdateWithoutApprovalInput>
+}
+
 export type GovernedExecutiveInsightCreateWithoutTenantInput = {
   id?: string
   insightKey: string
@@ -951,6 +972,7 @@ export type GovernedExecutiveInsightCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   insightRun: Prisma.GovernedExecutiveInsightRunCreateNestedOneWithoutInsightsInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutInsightInput
 }
@@ -979,6 +1001,7 @@ export type GovernedExecutiveInsightUncheckedCreateWithoutTenantInput = {
   dismissalReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutInsightInput
 }
@@ -1063,6 +1086,7 @@ export type GovernedExecutiveInsightCreateWithoutInsightRunInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutGovernedExecutiveInsightsInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutInsightInput
 }
@@ -1091,6 +1115,7 @@ export type GovernedExecutiveInsightUncheckedCreateWithoutInsightRunInput = {
   dismissalReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutInsightInput
 }
@@ -1146,6 +1171,7 @@ export type GovernedExecutiveInsightCreateWithoutEvidenceInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutGovernedExecutiveInsightsInput
   insightRun: Prisma.GovernedExecutiveInsightRunCreateNestedOneWithoutInsightsInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalCreateNestedOneWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutInsightInput
 }
 
@@ -1174,6 +1200,7 @@ export type GovernedExecutiveInsightUncheckedCreateWithoutEvidenceInput = {
   dismissalReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedOneWithoutInsightInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutInsightInput
 }
 
@@ -1218,6 +1245,7 @@ export type GovernedExecutiveInsightUpdateWithoutEvidenceInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutGovernedExecutiveInsightsNestedInput
   insightRun?: Prisma.GovernedExecutiveInsightRunUpdateOneRequiredWithoutInsightsNestedInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalUpdateOneWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutInsightNestedInput
 }
 
@@ -1246,6 +1274,7 @@ export type GovernedExecutiveInsightUncheckedUpdateWithoutEvidenceInput = {
   dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateOneWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutInsightNestedInput
 }
 
@@ -1274,6 +1303,7 @@ export type GovernedExecutiveInsightCreateWithoutFeedbackInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutGovernedExecutiveInsightsInput
   insightRun: Prisma.GovernedExecutiveInsightRunCreateNestedOneWithoutInsightsInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutInsightInput
 }
 
@@ -1302,6 +1332,7 @@ export type GovernedExecutiveInsightUncheckedCreateWithoutFeedbackInput = {
   dismissalReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedOneWithoutInsightInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutInsightInput
 }
 
@@ -1346,6 +1377,7 @@ export type GovernedExecutiveInsightUpdateWithoutFeedbackInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutGovernedExecutiveInsightsNestedInput
   insightRun?: Prisma.GovernedExecutiveInsightRunUpdateOneRequiredWithoutInsightsNestedInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutInsightNestedInput
 }
 
@@ -1374,7 +1406,140 @@ export type GovernedExecutiveInsightUncheckedUpdateWithoutFeedbackInput = {
   dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutInsightNestedInput
+}
+
+export type GovernedExecutiveInsightCreateWithoutApprovalInput = {
+  id?: string
+  insightKey: string
+  type: $Enums.GovernedExecutiveInsightType
+  status?: $Enums.GovernedExecutiveInsightStatus
+  severity?: $Enums.RequisitionOrderExceptionSeverity
+  title: string
+  executiveSummary: string
+  explanation: string
+  recommendation?: string | null
+  confidenceScore: runtime.Decimal | runtime.DecimalJsLike | number | string
+  domain: string
+  category?: string | null
+  sourceModule: string
+  calculationVersion: string
+  requiresHumanReview?: boolean
+  acknowledgedByUserId?: string | null
+  acknowledgedAt?: Date | string | null
+  dismissedByUserId?: string | null
+  dismissedAt?: Date | string | null
+  dismissalReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutGovernedExecutiveInsightsInput
+  insightRun: Prisma.GovernedExecutiveInsightRunCreateNestedOneWithoutInsightsInput
+  evidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutInsightInput
+  feedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutInsightInput
+}
+
+export type GovernedExecutiveInsightUncheckedCreateWithoutApprovalInput = {
+  id?: string
+  tenantId: string
+  insightRunId: string
+  insightKey: string
+  type: $Enums.GovernedExecutiveInsightType
+  status?: $Enums.GovernedExecutiveInsightStatus
+  severity?: $Enums.RequisitionOrderExceptionSeverity
+  title: string
+  executiveSummary: string
+  explanation: string
+  recommendation?: string | null
+  confidenceScore: runtime.Decimal | runtime.DecimalJsLike | number | string
+  domain: string
+  category?: string | null
+  sourceModule: string
+  calculationVersion: string
+  requiresHumanReview?: boolean
+  acknowledgedByUserId?: string | null
+  acknowledgedAt?: Date | string | null
+  dismissedByUserId?: string | null
+  dismissedAt?: Date | string | null
+  dismissalReason?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutInsightInput
+  feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutInsightInput
+}
+
+export type GovernedExecutiveInsightCreateOrConnectWithoutApprovalInput = {
+  where: Prisma.GovernedExecutiveInsightWhereUniqueInput
+  create: Prisma.XOR<Prisma.GovernedExecutiveInsightCreateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedCreateWithoutApprovalInput>
+}
+
+export type GovernedExecutiveInsightUpsertWithoutApprovalInput = {
+  update: Prisma.XOR<Prisma.GovernedExecutiveInsightUpdateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedUpdateWithoutApprovalInput>
+  create: Prisma.XOR<Prisma.GovernedExecutiveInsightCreateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedCreateWithoutApprovalInput>
+  where?: Prisma.GovernedExecutiveInsightWhereInput
+}
+
+export type GovernedExecutiveInsightUpdateToOneWithWhereWithoutApprovalInput = {
+  where?: Prisma.GovernedExecutiveInsightWhereInput
+  data: Prisma.XOR<Prisma.GovernedExecutiveInsightUpdateWithoutApprovalInput, Prisma.GovernedExecutiveInsightUncheckedUpdateWithoutApprovalInput>
+}
+
+export type GovernedExecutiveInsightUpdateWithoutApprovalInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  insightKey?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumGovernedExecutiveInsightTypeFieldUpdateOperationsInput | $Enums.GovernedExecutiveInsightType
+  status?: Prisma.EnumGovernedExecutiveInsightStatusFieldUpdateOperationsInput | $Enums.GovernedExecutiveInsightStatus
+  severity?: Prisma.EnumRequisitionOrderExceptionSeverityFieldUpdateOperationsInput | $Enums.RequisitionOrderExceptionSeverity
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  executiveSummary?: Prisma.StringFieldUpdateOperationsInput | string
+  explanation?: Prisma.StringFieldUpdateOperationsInput | string
+  recommendation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  confidenceScore?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  domain?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceModule?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationVersion?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  acknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dismissedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dismissedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutGovernedExecutiveInsightsNestedInput
+  insightRun?: Prisma.GovernedExecutiveInsightRunUpdateOneRequiredWithoutInsightsNestedInput
+  evidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutInsightNestedInput
+  feedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutInsightNestedInput
+}
+
+export type GovernedExecutiveInsightUncheckedUpdateWithoutApprovalInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  insightRunId?: Prisma.StringFieldUpdateOperationsInput | string
+  insightKey?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumGovernedExecutiveInsightTypeFieldUpdateOperationsInput | $Enums.GovernedExecutiveInsightType
+  status?: Prisma.EnumGovernedExecutiveInsightStatusFieldUpdateOperationsInput | $Enums.GovernedExecutiveInsightStatus
+  severity?: Prisma.EnumRequisitionOrderExceptionSeverityFieldUpdateOperationsInput | $Enums.RequisitionOrderExceptionSeverity
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  executiveSummary?: Prisma.StringFieldUpdateOperationsInput | string
+  explanation?: Prisma.StringFieldUpdateOperationsInput | string
+  recommendation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  confidenceScore?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  domain?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceModule?: Prisma.StringFieldUpdateOperationsInput | string
+  calculationVersion?: Prisma.StringFieldUpdateOperationsInput | string
+  requiresHumanReview?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  acknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  acknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dismissedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  dismissedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutInsightNestedInput
+  feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutInsightNestedInput
 }
 
 export type GovernedExecutiveInsightCreateManyTenantInput = {
@@ -1427,6 +1592,7 @@ export type GovernedExecutiveInsightUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   insightRun?: Prisma.GovernedExecutiveInsightRunUpdateOneRequiredWithoutInsightsNestedInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutInsightNestedInput
 }
@@ -1455,6 +1621,7 @@ export type GovernedExecutiveInsightUncheckedUpdateWithoutTenantInput = {
   dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutInsightNestedInput
 }
@@ -1535,6 +1702,7 @@ export type GovernedExecutiveInsightUpdateWithoutInsightRunInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutGovernedExecutiveInsightsNestedInput
+  approval?: Prisma.GovernedExecutiveInsightApprovalUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutInsightNestedInput
 }
@@ -1563,6 +1731,7 @@ export type GovernedExecutiveInsightUncheckedUpdateWithoutInsightRunInput = {
   dismissalReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  approval?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateOneWithoutInsightNestedInput
   evidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutInsightNestedInput
   feedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutInsightNestedInput
 }
@@ -1660,6 +1829,7 @@ export type GovernedExecutiveInsightSelect<ExtArgs extends runtime.Types.Extensi
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   insightRun?: boolean | Prisma.GovernedExecutiveInsightRunDefaultArgs<ExtArgs>
+  approval?: boolean | Prisma.GovernedExecutiveInsight$approvalArgs<ExtArgs>
   evidence?: boolean | Prisma.GovernedExecutiveInsight$evidenceArgs<ExtArgs>
   feedback?: boolean | Prisma.GovernedExecutiveInsight$feedbackArgs<ExtArgs>
   _count?: boolean | Prisma.GovernedExecutiveInsightCountOutputTypeDefaultArgs<ExtArgs>
@@ -1754,6 +1924,7 @@ export type GovernedExecutiveInsightOmit<ExtArgs extends runtime.Types.Extension
 export type GovernedExecutiveInsightInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   insightRun?: boolean | Prisma.GovernedExecutiveInsightRunDefaultArgs<ExtArgs>
+  approval?: boolean | Prisma.GovernedExecutiveInsight$approvalArgs<ExtArgs>
   evidence?: boolean | Prisma.GovernedExecutiveInsight$evidenceArgs<ExtArgs>
   feedback?: boolean | Prisma.GovernedExecutiveInsight$feedbackArgs<ExtArgs>
   _count?: boolean | Prisma.GovernedExecutiveInsightCountOutputTypeDefaultArgs<ExtArgs>
@@ -1772,6 +1943,7 @@ export type $GovernedExecutiveInsightPayload<ExtArgs extends runtime.Types.Exten
   objects: {
     tenant: Prisma.$TenantPayload<ExtArgs>
     insightRun: Prisma.$GovernedExecutiveInsightRunPayload<ExtArgs>
+    approval: Prisma.$GovernedExecutiveInsightApprovalPayload<ExtArgs> | null
     evidence: Prisma.$GovernedExecutiveInsightEvidencePayload<ExtArgs>[]
     feedback: Prisma.$GovernedExecutiveInsightFeedbackPayload<ExtArgs>[]
   }
@@ -2196,6 +2368,7 @@ export interface Prisma__GovernedExecutiveInsightClient<T, Null = never, ExtArgs
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   insightRun<T extends Prisma.GovernedExecutiveInsightRunDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernedExecutiveInsightRunDefaultArgs<ExtArgs>>): Prisma.Prisma__GovernedExecutiveInsightRunClient<runtime.Types.Result.GetResult<Prisma.$GovernedExecutiveInsightRunPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  approval<T extends Prisma.GovernedExecutiveInsight$approvalArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernedExecutiveInsight$approvalArgs<ExtArgs>>): Prisma.Prisma__GovernedExecutiveInsightApprovalClient<runtime.Types.Result.GetResult<Prisma.$GovernedExecutiveInsightApprovalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   evidence<T extends Prisma.GovernedExecutiveInsight$evidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernedExecutiveInsight$evidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GovernedExecutiveInsightEvidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   feedback<T extends Prisma.GovernedExecutiveInsight$feedbackArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GovernedExecutiveInsight$feedbackArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GovernedExecutiveInsightFeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -2649,6 +2822,25 @@ export type GovernedExecutiveInsightDeleteManyArgs<ExtArgs extends runtime.Types
    * Limit how many GovernedExecutiveInsights to delete.
    */
   limit?: number
+}
+
+/**
+ * GovernedExecutiveInsight.approval
+ */
+export type GovernedExecutiveInsight$approvalArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GovernedExecutiveInsightApproval
+   */
+  select?: Prisma.GovernedExecutiveInsightApprovalSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GovernedExecutiveInsightApproval
+   */
+  omit?: Prisma.GovernedExecutiveInsightApprovalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GovernedExecutiveInsightApprovalInclude<ExtArgs> | null
+  where?: Prisma.GovernedExecutiveInsightApprovalWhereInput
 }
 
 /**

@@ -2832,6 +2832,29 @@ export const GovernedExecutiveInsightFeedbackType = {
 export type GovernedExecutiveInsightFeedbackType = (typeof GovernedExecutiveInsightFeedbackType)[keyof typeof GovernedExecutiveInsightFeedbackType]
 
 
+export const GovernedExecutiveApprovalStatus = {
+  PENDING_REVIEW: 'PENDING_REVIEW',
+  IN_REVIEW: 'IN_REVIEW',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED',
+  CHANGES_REQUESTED: 'CHANGES_REQUESTED',
+  ESCALATED: 'ESCALATED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type GovernedExecutiveApprovalStatus = (typeof GovernedExecutiveApprovalStatus)[keyof typeof GovernedExecutiveApprovalStatus]
+
+
+export const GovernedExecutiveApprovalDecision = {
+  APPROVE: 'APPROVE',
+  REJECT: 'REJECT',
+  REQUEST_CHANGES: 'REQUEST_CHANGES',
+  ESCALATE: 'ESCALATE'
+} as const
+
+export type GovernedExecutiveApprovalDecision = (typeof GovernedExecutiveApprovalDecision)[keyof typeof GovernedExecutiveApprovalDecision]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

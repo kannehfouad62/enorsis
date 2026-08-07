@@ -591,6 +591,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Executive AI Governance",
+    description: "Human review, approvals, escalation and AI decision audit.",
+    href: "/app/executive/ai-governance",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

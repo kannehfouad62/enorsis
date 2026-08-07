@@ -45,6 +45,12 @@ export default async function ExecutiveAiBriefingPage() {
           >
             Executive Workspace
           </Link>
+          <Link
+            href="/app/executive/ai-governance"
+            className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+          >
+            AI Governance
+          </Link>
         </div>
       </div>
 

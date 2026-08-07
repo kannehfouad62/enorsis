@@ -272,7 +272,10 @@ export const ModelName = {
   GovernedExecutiveInsightRun: 'GovernedExecutiveInsightRun',
   GovernedExecutiveInsight: 'GovernedExecutiveInsight',
   GovernedExecutiveInsightEvidence: 'GovernedExecutiveInsightEvidence',
-  GovernedExecutiveInsightFeedback: 'GovernedExecutiveInsightFeedback'
+  GovernedExecutiveInsightFeedback: 'GovernedExecutiveInsightFeedback',
+  GovernedExecutiveInsightApproval: 'GovernedExecutiveInsightApproval',
+  GovernedExecutiveInsightApprovalDecision: 'GovernedExecutiveInsightApprovalDecision',
+  GovernedExecutiveInsightApprovalAuditEvent: 'GovernedExecutiveInsightApprovalAuditEvent'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5090,6 +5093,52 @@ export const GovernedExecutiveInsightFeedbackScalarFieldEnum = {
 } as const
 
 export type GovernedExecutiveInsightFeedbackScalarFieldEnum = (typeof GovernedExecutiveInsightFeedbackScalarFieldEnum)[keyof typeof GovernedExecutiveInsightFeedbackScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightApprovalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  insightId: 'insightId',
+  status: 'status',
+  assignedReviewerUserId: 'assignedReviewerUserId',
+  assignedAt: 'assignedAt',
+  dueAt: 'dueAt',
+  escalatedAt: 'escalatedAt',
+  escalationReason: 'escalationReason',
+  currentDecisionId: 'currentDecisionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type GovernedExecutiveInsightApprovalScalarFieldEnum = (typeof GovernedExecutiveInsightApprovalScalarFieldEnum)[keyof typeof GovernedExecutiveInsightApprovalScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightApprovalDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  approvalId: 'approvalId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  comment: 'comment',
+  decidedAt: 'decidedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightApprovalDecisionScalarFieldEnum = (typeof GovernedExecutiveInsightApprovalDecisionScalarFieldEnum)[keyof typeof GovernedExecutiveInsightApprovalDecisionScalarFieldEnum]
+
+
+export const GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  approvalId: 'approvalId',
+  eventType: 'eventType',
+  actorUserId: 'actorUserId',
+  description: 'description',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum = (typeof GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum)[keyof typeof GovernedExecutiveInsightApprovalAuditEventScalarFieldEnum]
 
 
 export const SortOrder = {

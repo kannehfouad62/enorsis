@@ -1127,3 +1127,18 @@ export type GovernedExecutiveInsightEvidence = Prisma.GovernedExecutiveInsightEv
  * 
  */
 export type GovernedExecutiveInsightFeedback = Prisma.GovernedExecutiveInsightFeedbackModel
+/**
+ * Model GovernedExecutiveInsightApproval
+ * 
+ */
+export type GovernedExecutiveInsightApproval = Prisma.GovernedExecutiveInsightApprovalModel
+/**
+ * Model GovernedExecutiveInsightApprovalDecision
+ * 
+ */
+export type GovernedExecutiveInsightApprovalDecision = Prisma.GovernedExecutiveInsightApprovalDecisionModel
+/**
+ * Model GovernedExecutiveInsightApprovalAuditEvent
+ * 
+ */
+export type GovernedExecutiveInsightApprovalAuditEvent = Prisma.GovernedExecutiveInsightApprovalAuditEventModel

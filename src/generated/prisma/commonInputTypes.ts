@@ -4726,6 +4726,40 @@ export type EnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$Prisma
   _max?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
 }
 
+export type EnumGovernedExecutiveApprovalStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalStatus | Prisma.EnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalStatus
+}
+
+export type EnumGovernedExecutiveApprovalStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalStatus | Prisma.EnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel>
+}
+
+export type EnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalDecision | Prisma.EnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalDecision
+}
+
+export type EnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalDecision | Prisma.EnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9395,6 +9429,40 @@ export type NestedEnumGovernedExecutiveInsightFeedbackTypeWithAggregatesFilter<$
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumGovernedExecutiveInsightFeedbackTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalStatus | Prisma.EnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalStatus
+}
+
+export type NestedEnumGovernedExecutiveApprovalStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalStatus | Prisma.EnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalStatus[] | Prisma.ListEnumGovernedExecutiveApprovalStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalStatusWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveApprovalStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalDecision | Prisma.EnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalDecision
+}
+
+export type NestedEnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.GovernedExecutiveApprovalDecision | Prisma.EnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  in?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.GovernedExecutiveApprovalDecision[] | Prisma.ListEnumGovernedExecutiveApprovalDecisionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionWithAggregatesFilter<$PrismaModel> | $Enums.GovernedExecutiveApprovalDecision
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumGovernedExecutiveApprovalDecisionFilter<$PrismaModel>
 }
 
 
