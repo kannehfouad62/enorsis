@@ -638,7 +638,10 @@ export const ModelName = {
   EnterpriseAutomationTrigger: 'EnterpriseAutomationTrigger',
   EnterpriseAutomationAction: 'EnterpriseAutomationAction',
   EnterpriseAutomationRun: 'EnterpriseAutomationRun',
-  EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun'
+  EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun',
+  EnterpriseAutomationRuleVersion: 'EnterpriseAutomationRuleVersion',
+  EnterpriseAutomationTemplate: 'EnterpriseAutomationTemplate',
+  EnterpriseAutomationSimulation: 'EnterpriseAutomationSimulation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -654,7 +657,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -18566,6 +18569,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnterpriseAutomationRuleVersion: {
+      payload: Prisma.$EnterpriseAutomationRuleVersionPayload<ExtArgs>
+      fields: Prisma.EnterpriseAutomationRuleVersionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAutomationRuleVersionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAutomationRuleVersionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAutomationRuleVersionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAutomationRuleVersionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAutomationRuleVersionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAutomationRuleVersionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAutomationRuleVersionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAutomationRuleVersionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAutomationRuleVersionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAutomationRuleVersionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAutomationRuleVersionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAutomationRuleVersionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAutomationRuleVersionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAutomationRuleVersionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationRuleVersionPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAutomationRuleVersionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAutomationRuleVersion>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAutomationRuleVersionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationRuleVersionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAutomationRuleVersionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationRuleVersionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseAutomationTemplate: {
+      payload: Prisma.$EnterpriseAutomationTemplatePayload<ExtArgs>
+      fields: Prisma.EnterpriseAutomationTemplateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAutomationTemplateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAutomationTemplateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAutomationTemplateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAutomationTemplateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAutomationTemplateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAutomationTemplateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAutomationTemplateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAutomationTemplateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAutomationTemplateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAutomationTemplateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAutomationTemplateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAutomationTemplateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAutomationTemplateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAutomationTemplateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationTemplatePayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAutomationTemplateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAutomationTemplate>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAutomationTemplateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationTemplateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAutomationTemplateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationTemplateCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseAutomationSimulation: {
+      payload: Prisma.$EnterpriseAutomationSimulationPayload<ExtArgs>
+      fields: Prisma.EnterpriseAutomationSimulationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAutomationSimulationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAutomationSimulationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAutomationSimulationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAutomationSimulationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAutomationSimulationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAutomationSimulationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAutomationSimulationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAutomationSimulationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAutomationSimulationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAutomationSimulationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAutomationSimulationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAutomationSimulationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAutomationSimulationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAutomationSimulationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAutomationSimulationPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAutomationSimulationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAutomationSimulation>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAutomationSimulationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationSimulationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAutomationSimulationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAutomationSimulationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -23696,6 +23921,9 @@ export const EnterpriseAutomationRuleScalarFieldEnum = {
   priority: 'priority',
   stopOnFailure: 'stopOnFailure',
   createdByUserId: 'createdByUserId',
+  designerState: 'designerState',
+  publishedVersion: 'publishedVersion',
+  lastValidatedAt: 'lastValidatedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -23771,6 +23999,61 @@ export const EnterpriseAutomationActionRunScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationActionRunScalarFieldEnum = (typeof EnterpriseAutomationActionRunScalarFieldEnum)[keyof typeof EnterpriseAutomationActionRunScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuleVersionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  versionNumber: 'versionNumber',
+  status: 'status',
+  designerState: 'designerState',
+  validationReport: 'validationReport',
+  changeSummary: 'changeSummary',
+  createdByUserId: 'createdByUserId',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationRuleVersionScalarFieldEnum = (typeof EnterpriseAutomationRuleVersionScalarFieldEnum)[keyof typeof EnterpriseAutomationRuleVersionScalarFieldEnum]
+
+
+export const EnterpriseAutomationTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  templateKey: 'templateKey',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  designerState: 'designerState',
+  systemTemplate: 'systemTemplate',
+  active: 'active',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationTemplateScalarFieldEnum = (typeof EnterpriseAutomationTemplateScalarFieldEnum)[keyof typeof EnterpriseAutomationTemplateScalarFieldEnum]
+
+
+export const EnterpriseAutomationSimulationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  versionId: 'versionId',
+  status: 'status',
+  input: 'input',
+  matched: 'matched',
+  conditionTrace: 'conditionTrace',
+  actionPreview: 'actionPreview',
+  warnings: 'warnings',
+  simulatedByUserId: 'simulatedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationSimulationScalarFieldEnum = (typeof EnterpriseAutomationSimulationScalarFieldEnum)[keyof typeof EnterpriseAutomationSimulationScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -27741,6 +28024,34 @@ export type ListEnumEnterpriseAutomationRunStatusFieldRefInput<$PrismaModel> = F
 
 
 /**
+ * Reference to a field of type 'EnterpriseAutomationRuleVersionStatus'
+ */
+export type EnumEnterpriseAutomationRuleVersionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationRuleVersionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAutomationRuleVersionStatus[]'
+ */
+export type ListEnumEnterpriseAutomationRuleVersionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationRuleVersionStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAutomationSimulationStatus'
+ */
+export type EnumEnterpriseAutomationSimulationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationSimulationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAutomationSimulationStatus[]'
+ */
+export type ListEnumEnterpriseAutomationSimulationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationSimulationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -28146,6 +28457,9 @@ export type GlobalOmitConfig = {
   enterpriseAutomationAction?: Prisma.EnterpriseAutomationActionOmit
   enterpriseAutomationRun?: Prisma.EnterpriseAutomationRunOmit
   enterpriseAutomationActionRun?: Prisma.EnterpriseAutomationActionRunOmit
+  enterpriseAutomationRuleVersion?: Prisma.EnterpriseAutomationRuleVersionOmit
+  enterpriseAutomationTemplate?: Prisma.EnterpriseAutomationTemplateOmit
+  enterpriseAutomationSimulation?: Prisma.EnterpriseAutomationSimulationOmit
 }
 
 /* Types for Logging */

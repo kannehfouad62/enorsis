@@ -28,10 +28,12 @@ export type AggregateEnterpriseAutomationRule = {
 
 export type EnterpriseAutomationRuleAvgAggregateOutputType = {
   priority: number | null
+  publishedVersion: number | null
 }
 
 export type EnterpriseAutomationRuleSumAggregateOutputType = {
   priority: number | null
+  publishedVersion: number | null
 }
 
 export type EnterpriseAutomationRuleMinAggregateOutputType = {
@@ -44,6 +46,8 @@ export type EnterpriseAutomationRuleMinAggregateOutputType = {
   priority: number | null
   stopOnFailure: boolean | null
   createdByUserId: string | null
+  publishedVersion: number | null
+  lastValidatedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -58,6 +62,8 @@ export type EnterpriseAutomationRuleMaxAggregateOutputType = {
   priority: number | null
   stopOnFailure: boolean | null
   createdByUserId: string | null
+  publishedVersion: number | null
+  lastValidatedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -72,6 +78,9 @@ export type EnterpriseAutomationRuleCountAggregateOutputType = {
   priority: number
   stopOnFailure: number
   createdByUserId: number
+  designerState: number
+  publishedVersion: number
+  lastValidatedAt: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -80,10 +89,12 @@ export type EnterpriseAutomationRuleCountAggregateOutputType = {
 
 export type EnterpriseAutomationRuleAvgAggregateInputType = {
   priority?: true
+  publishedVersion?: true
 }
 
 export type EnterpriseAutomationRuleSumAggregateInputType = {
   priority?: true
+  publishedVersion?: true
 }
 
 export type EnterpriseAutomationRuleMinAggregateInputType = {
@@ -96,6 +107,8 @@ export type EnterpriseAutomationRuleMinAggregateInputType = {
   priority?: true
   stopOnFailure?: true
   createdByUserId?: true
+  publishedVersion?: true
+  lastValidatedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -110,6 +123,8 @@ export type EnterpriseAutomationRuleMaxAggregateInputType = {
   priority?: true
   stopOnFailure?: true
   createdByUserId?: true
+  publishedVersion?: true
+  lastValidatedAt?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +139,9 @@ export type EnterpriseAutomationRuleCountAggregateInputType = {
   priority?: true
   stopOnFailure?: true
   createdByUserId?: true
+  designerState?: true
+  publishedVersion?: true
+  lastValidatedAt?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -225,6 +243,9 @@ export type EnterpriseAutomationRuleGroupByOutputType = {
   priority: number
   stopOnFailure: boolean
   createdByUserId: string
+  designerState: runtime.JsonValue | null
+  publishedVersion: number | null
+  lastValidatedAt: Date | null
   createdAt: Date
   updatedAt: Date
   _count: EnterpriseAutomationRuleCountAggregateOutputType | null
@@ -262,12 +283,17 @@ export type EnterpriseAutomationRuleWhereInput = {
   priority?: Prisma.IntFilter<"EnterpriseAutomationRule"> | number
   stopOnFailure?: Prisma.BoolFilter<"EnterpriseAutomationRule"> | boolean
   createdByUserId?: Prisma.StringFilter<"EnterpriseAutomationRule"> | string
+  designerState?: Prisma.JsonNullableFilter<"EnterpriseAutomationRule">
+  publishedVersion?: Prisma.IntNullableFilter<"EnterpriseAutomationRule"> | number | null
+  lastValidatedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRule"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   triggers?: Prisma.EnterpriseAutomationTriggerListRelationFilter
   actions?: Prisma.EnterpriseAutomationActionListRelationFilter
   runs?: Prisma.EnterpriseAutomationRunListRelationFilter
+  versions?: Prisma.EnterpriseAutomationRuleVersionListRelationFilter
+  simulations?: Prisma.EnterpriseAutomationSimulationListRelationFilter
 }
 
 export type EnterpriseAutomationRuleOrderByWithRelationInput = {
@@ -280,12 +306,17 @@ export type EnterpriseAutomationRuleOrderByWithRelationInput = {
   priority?: Prisma.SortOrder
   stopOnFailure?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
+  designerState?: Prisma.SortOrderInput | Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastValidatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
   triggers?: Prisma.EnterpriseAutomationTriggerOrderByRelationAggregateInput
   actions?: Prisma.EnterpriseAutomationActionOrderByRelationAggregateInput
   runs?: Prisma.EnterpriseAutomationRunOrderByRelationAggregateInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionOrderByRelationAggregateInput
+  simulations?: Prisma.EnterpriseAutomationSimulationOrderByRelationAggregateInput
 }
 
 export type EnterpriseAutomationRuleWhereUniqueInput = Prisma.AtLeast<{
@@ -302,12 +333,17 @@ export type EnterpriseAutomationRuleWhereUniqueInput = Prisma.AtLeast<{
   priority?: Prisma.IntFilter<"EnterpriseAutomationRule"> | number
   stopOnFailure?: Prisma.BoolFilter<"EnterpriseAutomationRule"> | boolean
   createdByUserId?: Prisma.StringFilter<"EnterpriseAutomationRule"> | string
+  designerState?: Prisma.JsonNullableFilter<"EnterpriseAutomationRule">
+  publishedVersion?: Prisma.IntNullableFilter<"EnterpriseAutomationRule"> | number | null
+  lastValidatedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRule"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   triggers?: Prisma.EnterpriseAutomationTriggerListRelationFilter
   actions?: Prisma.EnterpriseAutomationActionListRelationFilter
   runs?: Prisma.EnterpriseAutomationRunListRelationFilter
+  versions?: Prisma.EnterpriseAutomationRuleVersionListRelationFilter
+  simulations?: Prisma.EnterpriseAutomationSimulationListRelationFilter
 }, "id" | "tenantId_ruleKey">
 
 export type EnterpriseAutomationRuleOrderByWithAggregationInput = {
@@ -320,6 +356,9 @@ export type EnterpriseAutomationRuleOrderByWithAggregationInput = {
   priority?: Prisma.SortOrder
   stopOnFailure?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
+  designerState?: Prisma.SortOrderInput | Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastValidatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EnterpriseAutomationRuleCountOrderByAggregateInput
@@ -342,6 +381,9 @@ export type EnterpriseAutomationRuleScalarWhereWithAggregatesInput = {
   priority?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationRule"> | number
   stopOnFailure?: Prisma.BoolWithAggregatesFilter<"EnterpriseAutomationRule"> | boolean
   createdByUserId?: Prisma.StringWithAggregatesFilter<"EnterpriseAutomationRule"> | string
+  designerState?: Prisma.JsonNullableWithAggregatesFilter<"EnterpriseAutomationRule">
+  publishedVersion?: Prisma.IntNullableWithAggregatesFilter<"EnterpriseAutomationRule"> | number | null
+  lastValidatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationRule"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationRule"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationRule"> | Date | string
 }
@@ -355,12 +397,17 @@ export type EnterpriseAutomationRuleCreateInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
   triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUncheckedCreateInput = {
@@ -373,11 +420,16 @@ export type EnterpriseAutomationRuleUncheckedCreateInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUpdateInput = {
@@ -389,12 +441,17 @@ export type EnterpriseAutomationRuleUpdateInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
   triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateInput = {
@@ -407,11 +464,16 @@ export type EnterpriseAutomationRuleUncheckedUpdateInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleCreateManyInput = {
@@ -424,6 +486,9 @@ export type EnterpriseAutomationRuleCreateManyInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -437,6 +502,9 @@ export type EnterpriseAutomationRuleUpdateManyMutationInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -451,6 +519,9 @@ export type EnterpriseAutomationRuleUncheckedUpdateManyInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -480,12 +551,16 @@ export type EnterpriseAutomationRuleCountOrderByAggregateInput = {
   priority?: Prisma.SortOrder
   stopOnFailure?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
+  designerState?: Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrder
+  lastValidatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuleAvgOrderByAggregateInput = {
   priority?: Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuleMaxOrderByAggregateInput = {
@@ -498,6 +573,8 @@ export type EnterpriseAutomationRuleMaxOrderByAggregateInput = {
   priority?: Prisma.SortOrder
   stopOnFailure?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrder
+  lastValidatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -512,12 +589,15 @@ export type EnterpriseAutomationRuleMinOrderByAggregateInput = {
   priority?: Prisma.SortOrder
   stopOnFailure?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrder
+  lastValidatedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuleSumOrderByAggregateInput = {
   priority?: Prisma.SortOrder
+  publishedVersion?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuleScalarRelationFilter = {
@@ -613,6 +693,34 @@ export type EnterpriseAutomationRuleUpdateOneRequiredWithoutRunsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateToOneWithWhereWithoutRunsInput, Prisma.EnterpriseAutomationRuleUpdateWithoutRunsInput>, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutRunsInput>
 }
 
+export type EnterpriseAutomationRuleCreateNestedOneWithoutVersionsInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutVersionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuleCreateOrConnectWithoutVersionsInput
+  connect?: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+}
+
+export type EnterpriseAutomationRuleUpdateOneRequiredWithoutVersionsNestedInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutVersionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuleCreateOrConnectWithoutVersionsInput
+  upsert?: Prisma.EnterpriseAutomationRuleUpsertWithoutVersionsInput
+  connect?: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateToOneWithWhereWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUpdateWithoutVersionsInput>, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutVersionsInput>
+}
+
+export type EnterpriseAutomationRuleCreateNestedOneWithoutSimulationsInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutSimulationsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuleCreateOrConnectWithoutSimulationsInput
+  connect?: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+}
+
+export type EnterpriseAutomationRuleUpdateOneRequiredWithoutSimulationsNestedInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutSimulationsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuleCreateOrConnectWithoutSimulationsInput
+  upsert?: Prisma.EnterpriseAutomationRuleUpsertWithoutSimulationsInput
+  connect?: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateToOneWithWhereWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUpdateWithoutSimulationsInput>, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutSimulationsInput>
+}
+
 export type EnterpriseAutomationRuleCreateWithoutTenantInput = {
   id?: string
   ruleKey: string
@@ -622,11 +730,16 @@ export type EnterpriseAutomationRuleCreateWithoutTenantInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUncheckedCreateWithoutTenantInput = {
@@ -638,11 +751,16 @@ export type EnterpriseAutomationRuleUncheckedCreateWithoutTenantInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleCreateOrConnectWithoutTenantInput = {
@@ -684,6 +802,9 @@ export type EnterpriseAutomationRuleScalarWhereInput = {
   priority?: Prisma.IntFilter<"EnterpriseAutomationRule"> | number
   stopOnFailure?: Prisma.BoolFilter<"EnterpriseAutomationRule"> | boolean
   createdByUserId?: Prisma.StringFilter<"EnterpriseAutomationRule"> | string
+  designerState?: Prisma.JsonNullableFilter<"EnterpriseAutomationRule">
+  publishedVersion?: Prisma.IntNullableFilter<"EnterpriseAutomationRule"> | number | null
+  lastValidatedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRule"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRule"> | Date | string
 }
@@ -697,11 +818,16 @@ export type EnterpriseAutomationRuleCreateWithoutTriggersInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
   actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUncheckedCreateWithoutTriggersInput = {
@@ -714,10 +840,15 @@ export type EnterpriseAutomationRuleUncheckedCreateWithoutTriggersInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleCreateOrConnectWithoutTriggersInput = {
@@ -745,11 +876,16 @@ export type EnterpriseAutomationRuleUpdateWithoutTriggersInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
   actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateWithoutTriggersInput = {
@@ -762,10 +898,15 @@ export type EnterpriseAutomationRuleUncheckedUpdateWithoutTriggersInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleCreateWithoutActionsInput = {
@@ -777,11 +918,16 @@ export type EnterpriseAutomationRuleCreateWithoutActionsInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
   triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUncheckedCreateWithoutActionsInput = {
@@ -794,10 +940,15 @@ export type EnterpriseAutomationRuleUncheckedCreateWithoutActionsInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleCreateOrConnectWithoutActionsInput = {
@@ -825,11 +976,16 @@ export type EnterpriseAutomationRuleUpdateWithoutActionsInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
   triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateWithoutActionsInput = {
@@ -842,10 +998,15 @@ export type EnterpriseAutomationRuleUncheckedUpdateWithoutActionsInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleCreateWithoutRunsInput = {
@@ -857,11 +1018,16 @@ export type EnterpriseAutomationRuleCreateWithoutRunsInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
   triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleUncheckedCreateWithoutRunsInput = {
@@ -874,10 +1040,15 @@ export type EnterpriseAutomationRuleUncheckedCreateWithoutRunsInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
 }
 
 export type EnterpriseAutomationRuleCreateOrConnectWithoutRunsInput = {
@@ -905,11 +1076,16 @@ export type EnterpriseAutomationRuleUpdateWithoutRunsInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
   triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateWithoutRunsInput = {
@@ -922,10 +1098,215 @@ export type EnterpriseAutomationRuleUncheckedUpdateWithoutRunsInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
+}
+
+export type EnterpriseAutomationRuleCreateWithoutVersionsInput = {
+  id?: string
+  ruleKey: string
+  name: string
+  description?: string | null
+  status?: $Enums.EnterpriseAutomationRuleStatus
+  priority?: number
+  stopOnFailure?: boolean
+  createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
+  triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
+  actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
+  runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationCreateNestedManyWithoutRuleInput
+}
+
+export type EnterpriseAutomationRuleUncheckedCreateWithoutVersionsInput = {
+  id?: string
+  tenantId: string
+  ruleKey: string
+  name: string
+  description?: string | null
+  status?: $Enums.EnterpriseAutomationRuleStatus
+  priority?: number
+  stopOnFailure?: boolean
+  createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
+  actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
+  runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedCreateNestedManyWithoutRuleInput
+}
+
+export type EnterpriseAutomationRuleCreateOrConnectWithoutVersionsInput = {
+  where: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutVersionsInput>
+}
+
+export type EnterpriseAutomationRuleUpsertWithoutVersionsInput = {
+  update: Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutVersionsInput>
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutVersionsInput>
+  where?: Prisma.EnterpriseAutomationRuleWhereInput
+}
+
+export type EnterpriseAutomationRuleUpdateToOneWithWhereWithoutVersionsInput = {
+  where?: Prisma.EnterpriseAutomationRuleWhereInput
+  data: Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateWithoutVersionsInput, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutVersionsInput>
+}
+
+export type EnterpriseAutomationRuleUpdateWithoutVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  ruleKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuleStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuleStatus
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
+  triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
+  actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
+  runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
+}
+
+export type EnterpriseAutomationRuleUncheckedUpdateWithoutVersionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  ruleKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuleStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuleStatus
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
+  actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
+  runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
+}
+
+export type EnterpriseAutomationRuleCreateWithoutSimulationsInput = {
+  id?: string
+  ruleKey: string
+  name: string
+  description?: string | null
+  status?: $Enums.EnterpriseAutomationRuleStatus
+  priority?: number
+  stopOnFailure?: boolean
+  createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRulesInput
+  triggers?: Prisma.EnterpriseAutomationTriggerCreateNestedManyWithoutRuleInput
+  actions?: Prisma.EnterpriseAutomationActionCreateNestedManyWithoutRuleInput
+  runs?: Prisma.EnterpriseAutomationRunCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionCreateNestedManyWithoutRuleInput
+}
+
+export type EnterpriseAutomationRuleUncheckedCreateWithoutSimulationsInput = {
+  id?: string
+  tenantId: string
+  ruleKey: string
+  name: string
+  description?: string | null
+  status?: $Enums.EnterpriseAutomationRuleStatus
+  priority?: number
+  stopOnFailure?: boolean
+  createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  triggers?: Prisma.EnterpriseAutomationTriggerUncheckedCreateNestedManyWithoutRuleInput
+  actions?: Prisma.EnterpriseAutomationActionUncheckedCreateNestedManyWithoutRuleInput
+  runs?: Prisma.EnterpriseAutomationRunUncheckedCreateNestedManyWithoutRuleInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedCreateNestedManyWithoutRuleInput
+}
+
+export type EnterpriseAutomationRuleCreateOrConnectWithoutSimulationsInput = {
+  where: Prisma.EnterpriseAutomationRuleWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutSimulationsInput>
+}
+
+export type EnterpriseAutomationRuleUpsertWithoutSimulationsInput = {
+  update: Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutSimulationsInput>
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuleCreateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedCreateWithoutSimulationsInput>
+  where?: Prisma.EnterpriseAutomationRuleWhereInput
+}
+
+export type EnterpriseAutomationRuleUpdateToOneWithWhereWithoutSimulationsInput = {
+  where?: Prisma.EnterpriseAutomationRuleWhereInput
+  data: Prisma.XOR<Prisma.EnterpriseAutomationRuleUpdateWithoutSimulationsInput, Prisma.EnterpriseAutomationRuleUncheckedUpdateWithoutSimulationsInput>
+}
+
+export type EnterpriseAutomationRuleUpdateWithoutSimulationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  ruleKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuleStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuleStatus
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRulesNestedInput
+  triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
+  actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
+  runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+}
+
+export type EnterpriseAutomationRuleUncheckedUpdateWithoutSimulationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  ruleKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuleStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuleStatus
+  priority?: Prisma.IntFieldUpdateOperationsInput | number
+  stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
+  actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
+  runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleCreateManyTenantInput = {
@@ -937,6 +1318,9 @@ export type EnterpriseAutomationRuleCreateManyTenantInput = {
   priority?: number
   stopOnFailure?: boolean
   createdByUserId: string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: number | null
+  lastValidatedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -950,11 +1334,16 @@ export type EnterpriseAutomationRuleUpdateWithoutTenantInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateWithoutTenantInput = {
@@ -966,11 +1355,16 @@ export type EnterpriseAutomationRuleUncheckedUpdateWithoutTenantInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   triggers?: Prisma.EnterpriseAutomationTriggerUncheckedUpdateManyWithoutRuleNestedInput
   actions?: Prisma.EnterpriseAutomationActionUncheckedUpdateManyWithoutRuleNestedInput
   runs?: Prisma.EnterpriseAutomationRunUncheckedUpdateManyWithoutRuleNestedInput
+  versions?: Prisma.EnterpriseAutomationRuleVersionUncheckedUpdateManyWithoutRuleNestedInput
+  simulations?: Prisma.EnterpriseAutomationSimulationUncheckedUpdateManyWithoutRuleNestedInput
 }
 
 export type EnterpriseAutomationRuleUncheckedUpdateManyWithoutTenantInput = {
@@ -982,6 +1376,9 @@ export type EnterpriseAutomationRuleUncheckedUpdateManyWithoutTenantInput = {
   priority?: Prisma.IntFieldUpdateOperationsInput | number
   stopOnFailure?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdByUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  designerState?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  publishedVersion?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  lastValidatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -995,12 +1392,16 @@ export type EnterpriseAutomationRuleCountOutputType = {
   triggers: number
   actions: number
   runs: number
+  versions: number
+  simulations: number
 }
 
 export type EnterpriseAutomationRuleCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   triggers?: boolean | EnterpriseAutomationRuleCountOutputTypeCountTriggersArgs
   actions?: boolean | EnterpriseAutomationRuleCountOutputTypeCountActionsArgs
   runs?: boolean | EnterpriseAutomationRuleCountOutputTypeCountRunsArgs
+  versions?: boolean | EnterpriseAutomationRuleCountOutputTypeCountVersionsArgs
+  simulations?: boolean | EnterpriseAutomationRuleCountOutputTypeCountSimulationsArgs
 }
 
 /**
@@ -1034,6 +1435,20 @@ export type EnterpriseAutomationRuleCountOutputTypeCountRunsArgs<ExtArgs extends
   where?: Prisma.EnterpriseAutomationRunWhereInput
 }
 
+/**
+ * EnterpriseAutomationRuleCountOutputType without action
+ */
+export type EnterpriseAutomationRuleCountOutputTypeCountVersionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnterpriseAutomationRuleVersionWhereInput
+}
+
+/**
+ * EnterpriseAutomationRuleCountOutputType without action
+ */
+export type EnterpriseAutomationRuleCountOutputTypeCountSimulationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnterpriseAutomationSimulationWhereInput
+}
+
 
 export type EnterpriseAutomationRuleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1045,12 +1460,17 @@ export type EnterpriseAutomationRuleSelect<ExtArgs extends runtime.Types.Extensi
   priority?: boolean
   stopOnFailure?: boolean
   createdByUserId?: boolean
+  designerState?: boolean
+  publishedVersion?: boolean
+  lastValidatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   triggers?: boolean | Prisma.EnterpriseAutomationRule$triggersArgs<ExtArgs>
   actions?: boolean | Prisma.EnterpriseAutomationRule$actionsArgs<ExtArgs>
   runs?: boolean | Prisma.EnterpriseAutomationRule$runsArgs<ExtArgs>
+  versions?: boolean | Prisma.EnterpriseAutomationRule$versionsArgs<ExtArgs>
+  simulations?: boolean | Prisma.EnterpriseAutomationRule$simulationsArgs<ExtArgs>
   _count?: boolean | Prisma.EnterpriseAutomationRuleCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["enterpriseAutomationRule"]>
 
@@ -1064,6 +1484,9 @@ export type EnterpriseAutomationRuleSelectCreateManyAndReturn<ExtArgs extends ru
   priority?: boolean
   stopOnFailure?: boolean
   createdByUserId?: boolean
+  designerState?: boolean
+  publishedVersion?: boolean
+  lastValidatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1079,6 +1502,9 @@ export type EnterpriseAutomationRuleSelectUpdateManyAndReturn<ExtArgs extends ru
   priority?: boolean
   stopOnFailure?: boolean
   createdByUserId?: boolean
+  designerState?: boolean
+  publishedVersion?: boolean
+  lastValidatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1094,16 +1520,21 @@ export type EnterpriseAutomationRuleSelectScalar = {
   priority?: boolean
   stopOnFailure?: boolean
   createdByUserId?: boolean
+  designerState?: boolean
+  publishedVersion?: boolean
+  lastValidatedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EnterpriseAutomationRuleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "ruleKey" | "name" | "description" | "status" | "priority" | "stopOnFailure" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationRule"]>
+export type EnterpriseAutomationRuleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "ruleKey" | "name" | "description" | "status" | "priority" | "stopOnFailure" | "createdByUserId" | "designerState" | "publishedVersion" | "lastValidatedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationRule"]>
 export type EnterpriseAutomationRuleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   triggers?: boolean | Prisma.EnterpriseAutomationRule$triggersArgs<ExtArgs>
   actions?: boolean | Prisma.EnterpriseAutomationRule$actionsArgs<ExtArgs>
   runs?: boolean | Prisma.EnterpriseAutomationRule$runsArgs<ExtArgs>
+  versions?: boolean | Prisma.EnterpriseAutomationRule$versionsArgs<ExtArgs>
+  simulations?: boolean | Prisma.EnterpriseAutomationRule$simulationsArgs<ExtArgs>
   _count?: boolean | Prisma.EnterpriseAutomationRuleCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type EnterpriseAutomationRuleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1120,6 +1551,8 @@ export type $EnterpriseAutomationRulePayload<ExtArgs extends runtime.Types.Exten
     triggers: Prisma.$EnterpriseAutomationTriggerPayload<ExtArgs>[]
     actions: Prisma.$EnterpriseAutomationActionPayload<ExtArgs>[]
     runs: Prisma.$EnterpriseAutomationRunPayload<ExtArgs>[]
+    versions: Prisma.$EnterpriseAutomationRuleVersionPayload<ExtArgs>[]
+    simulations: Prisma.$EnterpriseAutomationSimulationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1131,6 +1564,9 @@ export type $EnterpriseAutomationRulePayload<ExtArgs extends runtime.Types.Exten
     priority: number
     stopOnFailure: boolean
     createdByUserId: string
+    designerState: runtime.JsonValue | null
+    publishedVersion: number | null
+    lastValidatedAt: Date | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["enterpriseAutomationRule"]>
@@ -1531,6 +1967,8 @@ export interface Prisma__EnterpriseAutomationRuleClient<T, Null = never, ExtArgs
   triggers<T extends Prisma.EnterpriseAutomationRule$triggersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRule$triggersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationTriggerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   actions<T extends Prisma.EnterpriseAutomationRule$actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRule$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   runs<T extends Prisma.EnterpriseAutomationRule$runsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRule$runsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  versions<T extends Prisma.EnterpriseAutomationRule$versionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRule$versionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuleVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  simulations<T extends Prisma.EnterpriseAutomationRule$simulationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRule$simulationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationSimulationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1569,6 +2007,9 @@ export interface EnterpriseAutomationRuleFieldRefs {
   readonly priority: Prisma.FieldRef<"EnterpriseAutomationRule", 'Int'>
   readonly stopOnFailure: Prisma.FieldRef<"EnterpriseAutomationRule", 'Boolean'>
   readonly createdByUserId: Prisma.FieldRef<"EnterpriseAutomationRule", 'String'>
+  readonly designerState: Prisma.FieldRef<"EnterpriseAutomationRule", 'Json'>
+  readonly publishedVersion: Prisma.FieldRef<"EnterpriseAutomationRule", 'Int'>
+  readonly lastValidatedAt: Prisma.FieldRef<"EnterpriseAutomationRule", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"EnterpriseAutomationRule", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"EnterpriseAutomationRule", 'DateTime'>
 }
@@ -2041,6 +2482,54 @@ export type EnterpriseAutomationRule$runsArgs<ExtArgs extends runtime.Types.Exte
   take?: number
   skip?: number
   distinct?: Prisma.EnterpriseAutomationRunScalarFieldEnum | Prisma.EnterpriseAutomationRunScalarFieldEnum[]
+}
+
+/**
+ * EnterpriseAutomationRule.versions
+ */
+export type EnterpriseAutomationRule$versionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationRuleVersion
+   */
+  select?: Prisma.EnterpriseAutomationRuleVersionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnterpriseAutomationRuleVersion
+   */
+  omit?: Prisma.EnterpriseAutomationRuleVersionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnterpriseAutomationRuleVersionInclude<ExtArgs> | null
+  where?: Prisma.EnterpriseAutomationRuleVersionWhereInput
+  orderBy?: Prisma.EnterpriseAutomationRuleVersionOrderByWithRelationInput | Prisma.EnterpriseAutomationRuleVersionOrderByWithRelationInput[]
+  cursor?: Prisma.EnterpriseAutomationRuleVersionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnterpriseAutomationRuleVersionScalarFieldEnum | Prisma.EnterpriseAutomationRuleVersionScalarFieldEnum[]
+}
+
+/**
+ * EnterpriseAutomationRule.simulations
+ */
+export type EnterpriseAutomationRule$simulationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationSimulation
+   */
+  select?: Prisma.EnterpriseAutomationSimulationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnterpriseAutomationSimulation
+   */
+  omit?: Prisma.EnterpriseAutomationSimulationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnterpriseAutomationSimulationInclude<ExtArgs> | null
+  where?: Prisma.EnterpriseAutomationSimulationWhereInput
+  orderBy?: Prisma.EnterpriseAutomationSimulationOrderByWithRelationInput | Prisma.EnterpriseAutomationSimulationOrderByWithRelationInput[]
+  cursor?: Prisma.EnterpriseAutomationSimulationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnterpriseAutomationSimulationScalarFieldEnum | Prisma.EnterpriseAutomationSimulationScalarFieldEnum[]
 }
 
 /**

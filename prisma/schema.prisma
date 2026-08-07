@@ -2236,6 +2236,21 @@ enum EnterpriseAutomationRunStatus {
   SKIPPED
 }
 
+enum EnterpriseAutomationRuleVersionStatus {
+  DRAFT
+  UNDER_REVIEW
+  APPROVED
+  PUBLISHED
+  SUPERSEDED
+  ARCHIVED
+}
+
+enum EnterpriseAutomationSimulationStatus {
+  PASSED
+  FAILED
+  WARNING
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2476,6 +2491,9 @@ model Tenant {
   enterpriseAutomationActions                 EnterpriseAutomationAction[]
   enterpriseAutomationRuns                    EnterpriseAutomationRun[]
   enterpriseAutomationActionRuns              EnterpriseAutomationActionRun[]
+  enterpriseAutomationRuleVersions            EnterpriseAutomationRuleVersion[]
+  enterpriseAutomationTemplates               EnterpriseAutomationTemplate[]
+  enterpriseAutomationSimulations             EnterpriseAutomationSimulation[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8160,21 +8178,26 @@ model ExecutiveBoardDeliveryAccessEvent {
 }
 
 model EnterpriseAutomationRule {
-  id              String                         @id @default(cuid())
-  tenantId        String
-  ruleKey         String
-  name            String
-  description     String?
-  status          EnterpriseAutomationRuleStatus @default(DRAFT)
-  priority        Int                            @default(100)
-  stopOnFailure   Boolean                        @default(true)
-  createdByUserId String
-  tenant          Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  triggers        EnterpriseAutomationTrigger[]
-  actions         EnterpriseAutomationAction[]
-  runs            EnterpriseAutomationRun[]
-  createdAt       DateTime                       @default(now())
-  updatedAt       DateTime                       @updatedAt
+  id               String                            @id @default(cuid())
+  tenantId         String
+  ruleKey          String
+  name             String
+  description      String?
+  status           EnterpriseAutomationRuleStatus    @default(DRAFT)
+  priority         Int                               @default(100)
+  stopOnFailure    Boolean                           @default(true)
+  createdByUserId  String
+  tenant           Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  triggers         EnterpriseAutomationTrigger[]
+  actions          EnterpriseAutomationAction[]
+  runs             EnterpriseAutomationRun[]
+  designerState    Json?
+  publishedVersion Int?
+  lastValidatedAt  DateTime?
+  versions         EnterpriseAutomationRuleVersion[]
+  simulations      EnterpriseAutomationSimulation[]
+  createdAt        DateTime                          @default(now())
+  updatedAt        DateTime                          @updatedAt
 
   @@unique([tenantId, ruleKey])
   @@index([tenantId, status, priority])
@@ -8262,4 +8285,67 @@ model EnterpriseAutomationActionRun {
 
   @@index([tenantId, status, createdAt])
   @@index([automationRunId, sequence])
+}
+
+model EnterpriseAutomationRuleVersion {
+  id               String                                @id @default(cuid())
+  tenantId         String
+  ruleId           String
+  versionNumber    Int
+  status           EnterpriseAutomationRuleVersionStatus @default(DRAFT)
+  designerState    Json
+  validationReport Json?
+  changeSummary    String?
+  createdByUserId  String
+  reviewedByUserId String?
+  reviewedAt       DateTime?
+  publishedAt      DateTime?
+  tenant           Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule             EnterpriseAutomationRule              @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  simulations      EnterpriseAutomationSimulation[]
+  createdAt        DateTime                              @default(now())
+
+  @@unique([ruleId, versionNumber])
+  @@index([tenantId, status, createdAt])
+}
+
+model EnterpriseAutomationTemplate {
+  id              String   @id @default(cuid())
+  tenantId        String?
+  templateKey     String
+  name            String
+  description     String?
+  category        String
+  designerState   Json
+  systemTemplate  Boolean  @default(false)
+  active          Boolean  @default(true)
+  createdByUserId String?
+  tenant          Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([tenantId, templateKey])
+  @@index([tenantId, category, active])
+  @@index([systemTemplate, active])
+}
+
+model EnterpriseAutomationSimulation {
+  id                String                               @id @default(cuid())
+  tenantId          String
+  ruleId            String
+  versionId         String?
+  status            EnterpriseAutomationSimulationStatus
+  input             Json
+  matched           Boolean
+  conditionTrace    Json
+  actionPreview     Json
+  warnings          Json?
+  simulatedByUserId String
+  tenant            Tenant                               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule              EnterpriseAutomationRule             @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  version           EnterpriseAutomationRuleVersion?     @relation(fields: [versionId], references: [id], onDelete: SetNull)
+  createdAt         DateTime                             @default(now())
+
+  @@index([tenantId, status, createdAt])
+  @@index([ruleId, createdAt])
 }

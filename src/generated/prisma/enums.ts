@@ -3032,6 +3032,27 @@ export const EnterpriseAutomationRunStatus = {
 export type EnterpriseAutomationRunStatus = (typeof EnterpriseAutomationRunStatus)[keyof typeof EnterpriseAutomationRunStatus]
 
 
+export const EnterpriseAutomationRuleVersionStatus = {
+  DRAFT: 'DRAFT',
+  UNDER_REVIEW: 'UNDER_REVIEW',
+  APPROVED: 'APPROVED',
+  PUBLISHED: 'PUBLISHED',
+  SUPERSEDED: 'SUPERSEDED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type EnterpriseAutomationRuleVersionStatus = (typeof EnterpriseAutomationRuleVersionStatus)[keyof typeof EnterpriseAutomationRuleVersionStatus]
+
+
+export const EnterpriseAutomationSimulationStatus = {
+  PASSED: 'PASSED',
+  FAILED: 'FAILED',
+  WARNING: 'WARNING'
+} as const
+
+export type EnterpriseAutomationSimulationStatus = (typeof EnterpriseAutomationSimulationStatus)[keyof typeof EnterpriseAutomationSimulationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

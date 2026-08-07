@@ -1227,3 +1227,18 @@ export type EnterpriseAutomationRun = Prisma.EnterpriseAutomationRunModel
  * 
  */
 export type EnterpriseAutomationActionRun = Prisma.EnterpriseAutomationActionRunModel
+/**
+ * Model EnterpriseAutomationRuleVersion
+ * 
+ */
+export type EnterpriseAutomationRuleVersion = Prisma.EnterpriseAutomationRuleVersionModel
+/**
+ * Model EnterpriseAutomationTemplate
+ * 
+ */
+export type EnterpriseAutomationTemplate = Prisma.EnterpriseAutomationTemplateModel
+/**
+ * Model EnterpriseAutomationSimulation
+ * 
+ */
+export type EnterpriseAutomationSimulation = Prisma.EnterpriseAutomationSimulationModel

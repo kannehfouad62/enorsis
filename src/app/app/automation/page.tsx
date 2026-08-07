@@ -21,7 +21,8 @@ export default async function EnterpriseAutomationPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <div>
+      <div className="flex flex-wrap items-start justify-between gap-5">
+        <div>
         <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
           Phase B2.9.1
         </p>
@@ -32,6 +33,13 @@ export default async function EnterpriseAutomationPage() {
           Governed event, schedule, condition and manual automation rules
           layered over the existing Enorsis workflow engine.
         </p>
+        </div>
+        <a
+          href="/app/automation/designer"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+        >
+          Visual Rule Builder
+        </a>
       </div>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">

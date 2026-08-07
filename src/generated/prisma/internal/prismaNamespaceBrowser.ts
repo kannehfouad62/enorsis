@@ -292,7 +292,10 @@ export const ModelName = {
   EnterpriseAutomationTrigger: 'EnterpriseAutomationTrigger',
   EnterpriseAutomationAction: 'EnterpriseAutomationAction',
   EnterpriseAutomationRun: 'EnterpriseAutomationRun',
-  EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun'
+  EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun',
+  EnterpriseAutomationRuleVersion: 'EnterpriseAutomationRuleVersion',
+  EnterpriseAutomationTemplate: 'EnterpriseAutomationTemplate',
+  EnterpriseAutomationSimulation: 'EnterpriseAutomationSimulation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5402,6 +5405,9 @@ export const EnterpriseAutomationRuleScalarFieldEnum = {
   priority: 'priority',
   stopOnFailure: 'stopOnFailure',
   createdByUserId: 'createdByUserId',
+  designerState: 'designerState',
+  publishedVersion: 'publishedVersion',
+  lastValidatedAt: 'lastValidatedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -5477,6 +5483,61 @@ export const EnterpriseAutomationActionRunScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationActionRunScalarFieldEnum = (typeof EnterpriseAutomationActionRunScalarFieldEnum)[keyof typeof EnterpriseAutomationActionRunScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuleVersionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  versionNumber: 'versionNumber',
+  status: 'status',
+  designerState: 'designerState',
+  validationReport: 'validationReport',
+  changeSummary: 'changeSummary',
+  createdByUserId: 'createdByUserId',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationRuleVersionScalarFieldEnum = (typeof EnterpriseAutomationRuleVersionScalarFieldEnum)[keyof typeof EnterpriseAutomationRuleVersionScalarFieldEnum]
+
+
+export const EnterpriseAutomationTemplateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  templateKey: 'templateKey',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  designerState: 'designerState',
+  systemTemplate: 'systemTemplate',
+  active: 'active',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationTemplateScalarFieldEnum = (typeof EnterpriseAutomationTemplateScalarFieldEnum)[keyof typeof EnterpriseAutomationTemplateScalarFieldEnum]
+
+
+export const EnterpriseAutomationSimulationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  versionId: 'versionId',
+  status: 'status',
+  input: 'input',
+  matched: 'matched',
+  conditionTrace: 'conditionTrace',
+  actionPreview: 'actionPreview',
+  warnings: 'warnings',
+  simulatedByUserId: 'simulatedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationSimulationScalarFieldEnum = (typeof EnterpriseAutomationSimulationScalarFieldEnum)[keyof typeof EnterpriseAutomationSimulationScalarFieldEnum]
 
 
 export const SortOrder = {
