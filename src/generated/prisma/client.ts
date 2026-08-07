@@ -991,3 +991,28 @@ export type InventoryReservation = Prisma.InventoryReservationModel
  * 
  */
 export type InventoryOperationException = Prisma.InventoryOperationExceptionModel
+/**
+ * Model WarehouseReceivingSession
+ * 
+ */
+export type WarehouseReceivingSession = Prisma.WarehouseReceivingSessionModel
+/**
+ * Model WarehouseReceiptLine
+ * 
+ */
+export type WarehouseReceiptLine = Prisma.WarehouseReceiptLineModel
+/**
+ * Model WarehouseLocationControl
+ * 
+ */
+export type WarehouseLocationControl = Prisma.WarehouseLocationControlModel
+/**
+ * Model PutawayTask
+ * 
+ */
+export type PutawayTask = Prisma.PutawayTaskModel
+/**
+ * Model WarehouseDiscrepancy
+ * 
+ */
+export type WarehouseDiscrepancy = Prisma.WarehouseDiscrepancyModel

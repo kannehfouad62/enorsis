@@ -487,6 +487,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Warehouse Operations",
+    description: "Receiving, putaway, location capacity and discrepancies.",
+    href: "/app/warehouse-operations",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

@@ -4097,6 +4097,108 @@ export type EnumInventoryOperationExceptionStatusWithAggregatesFilter<$PrismaMod
   _max?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
 }
 
+export type EnumWarehouseReceivingStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceivingStatus | Prisma.EnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel> | $Enums.WarehouseReceivingStatus
+}
+
+export type EnumWarehouseReceivingStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceivingStatus | Prisma.EnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceivingStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseReceivingStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehouseReceiptLineStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceiptLineStatus | Prisma.EnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel> | $Enums.WarehouseReceiptLineStatus
+}
+
+export type EnumWarehouseReceiptLineStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceiptLineStatus | Prisma.EnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceiptLineStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseReceiptLineStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehouseLocationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseLocationStatus | Prisma.EnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel> | $Enums.WarehouseLocationStatus
+}
+
+export type EnumWarehouseLocationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseLocationStatus | Prisma.EnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseLocationStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseLocationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel>
+}
+
+export type EnumPutawayTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PutawayTaskStatus | Prisma.EnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel> | $Enums.PutawayTaskStatus
+}
+
+export type EnumPutawayTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PutawayTaskStatus | Prisma.EnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPutawayTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.PutawayTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehouseDiscrepancyTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyType | Prisma.EnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyType
+}
+
+export type EnumWarehouseDiscrepancyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyStatus | Prisma.EnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyStatus
+}
+
+export type EnumWarehouseDiscrepancyTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyType | Prisma.EnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyTypeWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel>
+}
+
+export type EnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyStatus | Prisma.EnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -8137,6 +8239,108 @@ export type NestedEnumInventoryOperationExceptionStatusWithAggregatesFilter<$Pri
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumInventoryOperationExceptionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseReceivingStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceivingStatus | Prisma.EnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel> | $Enums.WarehouseReceivingStatus
+}
+
+export type NestedEnumWarehouseReceivingStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceivingStatus | Prisma.EnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceivingStatus[] | Prisma.ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceivingStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseReceivingStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseReceivingStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceiptLineStatus | Prisma.EnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel> | $Enums.WarehouseReceiptLineStatus
+}
+
+export type NestedEnumWarehouseReceiptLineStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseReceiptLineStatus | Prisma.EnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseReceiptLineStatus[] | Prisma.ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseReceiptLineStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseReceiptLineStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseReceiptLineStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseLocationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseLocationStatus | Prisma.EnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel> | $Enums.WarehouseLocationStatus
+}
+
+export type NestedEnumWarehouseLocationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseLocationStatus | Prisma.EnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseLocationStatus[] | Prisma.ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseLocationStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseLocationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseLocationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumPutawayTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.PutawayTaskStatus | Prisma.EnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel> | $Enums.PutawayTaskStatus
+}
+
+export type NestedEnumPutawayTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PutawayTaskStatus | Prisma.EnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PutawayTaskStatus[] | Prisma.ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPutawayTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.PutawayTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPutawayTaskStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyType | Prisma.EnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyType
+}
+
+export type NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyStatus | Prisma.EnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyStatus
+}
+
+export type NestedEnumWarehouseDiscrepancyTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyType | Prisma.EnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyType[] | Prisma.ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyTypeWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseDiscrepancyTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseDiscrepancyStatus | Prisma.EnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseDiscrepancyStatus[] | Prisma.ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseDiscrepancyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
 }
 
 

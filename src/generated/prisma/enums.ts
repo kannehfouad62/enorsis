@@ -2399,6 +2399,77 @@ export const InventoryOperationExceptionType = {
 export type InventoryOperationExceptionType = (typeof InventoryOperationExceptionType)[keyof typeof InventoryOperationExceptionType]
 
 
+export const WarehouseReceivingStatus = {
+  DRAFT: 'DRAFT',
+  RECEIVING: 'RECEIVING',
+  RECEIVED: 'RECEIVED',
+  PUTAWAY_PENDING: 'PUTAWAY_PENDING',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WarehouseReceivingStatus = (typeof WarehouseReceivingStatus)[keyof typeof WarehouseReceivingStatus]
+
+
+export const WarehouseReceiptLineStatus = {
+  EXPECTED: 'EXPECTED',
+  RECEIVED: 'RECEIVED',
+  SHORT: 'SHORT',
+  OVER: 'OVER',
+  DAMAGED: 'DAMAGED',
+  REJECTED: 'REJECTED',
+  QUARANTINED: 'QUARANTINED'
+} as const
+
+export type WarehouseReceiptLineStatus = (typeof WarehouseReceiptLineStatus)[keyof typeof WarehouseReceiptLineStatus]
+
+
+export const PutawayTaskStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type PutawayTaskStatus = (typeof PutawayTaskStatus)[keyof typeof PutawayTaskStatus]
+
+
+export const WarehouseLocationStatus = {
+  ACTIVE: 'ACTIVE',
+  HOLD: 'HOLD',
+  BLOCKED: 'BLOCKED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type WarehouseLocationStatus = (typeof WarehouseLocationStatus)[keyof typeof WarehouseLocationStatus]
+
+
+export const WarehouseDiscrepancyStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WarehouseDiscrepancyStatus = (typeof WarehouseDiscrepancyStatus)[keyof typeof WarehouseDiscrepancyStatus]
+
+
+export const WarehouseDiscrepancyType = {
+  SHORT_RECEIPT: 'SHORT_RECEIPT',
+  OVER_RECEIPT: 'OVER_RECEIPT',
+  DAMAGED_GOODS: 'DAMAGED_GOODS',
+  WRONG_ITEM: 'WRONG_ITEM',
+  WRONG_LOCATION: 'WRONG_LOCATION',
+  CAPACITY_EXCEEDED: 'CAPACITY_EXCEEDED',
+  QUARANTINE_REQUIRED: 'QUARANTINE_REQUIRED',
+  SERIAL_LOT_MISMATCH: 'SERIAL_LOT_MISMATCH',
+  OTHER: 'OTHER'
+} as const
+
+export type WarehouseDiscrepancyType = (typeof WarehouseDiscrepancyType)[keyof typeof WarehouseDiscrepancyType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

@@ -347,6 +347,10 @@ export type TenantWhereInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotListRelationFilter
   inventoryReservations?: Prisma.InventoryReservationListRelationFilter
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionListRelationFilter
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionListRelationFilter
+  warehouseLocationControls?: Prisma.WarehouseLocationControlListRelationFilter
+  putawayTasks?: Prisma.PutawayTaskListRelationFilter
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -453,6 +457,10 @@ export type TenantOrderByWithRelationInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotOrderByRelationAggregateInput
   inventoryReservations?: Prisma.InventoryReservationOrderByRelationAggregateInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionOrderByRelationAggregateInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionOrderByRelationAggregateInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlOrderByRelationAggregateInput
+  putawayTasks?: Prisma.PutawayTaskOrderByRelationAggregateInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -562,6 +570,10 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotListRelationFilter
   inventoryReservations?: Prisma.InventoryReservationListRelationFilter
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionListRelationFilter
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionListRelationFilter
+  warehouseLocationControls?: Prisma.WarehouseLocationControlListRelationFilter
+  putawayTasks?: Prisma.PutawayTaskListRelationFilter
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -710,6 +722,10 @@ export type TenantCreateInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -816,6 +832,10 @@ export type TenantUncheckedCreateInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -922,6 +942,10 @@ export type TenantUpdateInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1028,6 +1052,10 @@ export type TenantUncheckedUpdateInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2405,6 +2433,62 @@ export type TenantUpdateOneRequiredWithoutInventoryOperationExceptionsNestedInpu
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutInventoryOperationExceptionsInput, Prisma.TenantUpdateWithoutInventoryOperationExceptionsInput>, Prisma.TenantUncheckedUpdateWithoutInventoryOperationExceptionsInput>
 }
 
+export type TenantCreateNestedOneWithoutWarehouseReceivingSessionsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseReceivingSessionsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutWarehouseReceivingSessionsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseReceivingSessionsInput
+  upsert?: Prisma.TenantUpsertWithoutWarehouseReceivingSessionsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutWarehouseReceivingSessionsInput, Prisma.TenantUpdateWithoutWarehouseReceivingSessionsInput>, Prisma.TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput>
+}
+
+export type TenantCreateNestedOneWithoutWarehouseLocationControlsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedCreateWithoutWarehouseLocationControlsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseLocationControlsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutWarehouseLocationControlsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedCreateWithoutWarehouseLocationControlsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseLocationControlsInput
+  upsert?: Prisma.TenantUpsertWithoutWarehouseLocationControlsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutWarehouseLocationControlsInput, Prisma.TenantUpdateWithoutWarehouseLocationControlsInput>, Prisma.TenantUncheckedUpdateWithoutWarehouseLocationControlsInput>
+}
+
+export type TenantCreateNestedOneWithoutPutawayTasksInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutPutawayTasksInput, Prisma.TenantUncheckedCreateWithoutPutawayTasksInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPutawayTasksInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutPutawayTasksNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutPutawayTasksInput, Prisma.TenantUncheckedCreateWithoutPutawayTasksInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutPutawayTasksInput
+  upsert?: Prisma.TenantUpsertWithoutPutawayTasksInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutPutawayTasksInput, Prisma.TenantUpdateWithoutPutawayTasksInput>, Prisma.TenantUncheckedUpdateWithoutPutawayTasksInput>
+}
+
+export type TenantCreateNestedOneWithoutWarehouseDiscrepanciesInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseDiscrepanciesInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutWarehouseDiscrepanciesNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutWarehouseDiscrepanciesInput
+  upsert?: Prisma.TenantUpsertWithoutWarehouseDiscrepanciesInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutWarehouseDiscrepanciesInput, Prisma.TenantUpdateWithoutWarehouseDiscrepanciesInput>, Prisma.TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -2505,6 +2589,10 @@ export type TenantCreateWithoutMembershipsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -2610,6 +2698,10 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -2731,6 +2823,10 @@ export type TenantUpdateWithoutMembershipsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -2836,6 +2932,10 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -2941,6 +3041,10 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3046,6 +3150,10 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3167,6 +3275,10 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3272,6 +3384,10 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3377,6 +3493,10 @@ export type TenantCreateWithoutSitesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3482,6 +3602,10 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3603,6 +3727,10 @@ export type TenantUpdateWithoutSitesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3708,6 +3836,10 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3813,6 +3945,10 @@ export type TenantCreateWithoutDepartmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3918,6 +4054,10 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4039,6 +4179,10 @@ export type TenantUpdateWithoutDepartmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4144,6 +4288,10 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4249,6 +4397,10 @@ export type TenantCreateWithoutExchangeRatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4354,6 +4506,10 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4475,6 +4631,10 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4580,6 +4740,10 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4685,6 +4849,10 @@ export type TenantCreateWithoutAuditEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4790,6 +4958,10 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4911,6 +5083,10 @@ export type TenantUpdateWithoutAuditEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5016,6 +5192,10 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5121,6 +5301,10 @@ export type TenantCreateWithoutAiAgentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5226,6 +5410,10 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5347,6 +5535,10 @@ export type TenantUpdateWithoutAiAgentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5452,6 +5644,10 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5557,6 +5753,10 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5662,6 +5862,10 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5783,6 +5987,10 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5888,6 +6096,10 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5993,6 +6205,10 @@ export type TenantCreateWithoutSuppliersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6098,6 +6314,10 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6219,6 +6439,10 @@ export type TenantUpdateWithoutSuppliersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6324,6 +6548,10 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6429,6 +6657,10 @@ export type TenantCreateWithoutSourcingEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6534,6 +6766,10 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6655,6 +6891,10 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6760,6 +7000,10 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6866,6 +7110,10 @@ export type TenantCreateWithoutContractsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -6971,6 +7219,10 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -7092,6 +7344,10 @@ export type TenantUpdateWithoutContractsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -7197,6 +7453,10 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -7302,6 +7562,10 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
 }
@@ -7407,6 +7671,10 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -7528,6 +7796,10 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
 }
@@ -7633,6 +7905,10 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -7737,6 +8013,10 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7842,6 +8122,10 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7963,6 +8247,10 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8068,6 +8356,10 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8173,6 +8465,10 @@ export type TenantCreateWithoutReceiptsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8278,6 +8574,10 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8399,6 +8699,10 @@ export type TenantUpdateWithoutReceiptsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8504,6 +8808,10 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8609,6 +8917,10 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8714,6 +9026,10 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8835,6 +9151,10 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8940,6 +9260,10 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9045,6 +9369,10 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -9150,6 +9478,10 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -9271,6 +9603,10 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -9376,6 +9712,10 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -9482,6 +9822,10 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
 }
@@ -9587,6 +9931,10 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
 }
@@ -9708,6 +10056,10 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
 }
@@ -9813,6 +10165,10 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
 }
@@ -9917,6 +10273,10 @@ export type TenantCreateWithoutIntegrationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10022,6 +10382,10 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10143,6 +10507,10 @@ export type TenantUpdateWithoutIntegrationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10248,6 +10616,10 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10353,6 +10725,10 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10458,6 +10834,10 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10579,6 +10959,10 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10684,6 +11068,10 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10789,6 +11177,10 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10894,6 +11286,10 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11015,6 +11411,10 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11120,6 +11520,10 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11225,6 +11629,10 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11330,6 +11738,10 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11451,6 +11863,10 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11556,6 +11972,10 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11661,6 +12081,10 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11766,6 +12190,10 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11887,6 +12315,10 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11992,6 +12424,10 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12097,6 +12533,10 @@ export type TenantCreateWithoutApiClientsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12202,6 +12642,10 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12323,6 +12767,10 @@ export type TenantUpdateWithoutApiClientsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12428,6 +12876,10 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12533,6 +12985,10 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -12638,6 +13094,10 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12759,6 +13219,10 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12864,6 +13328,10 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12969,6 +13437,10 @@ export type TenantCreateWithoutSodRulesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13074,6 +13546,10 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13195,6 +13671,10 @@ export type TenantUpdateWithoutSodRulesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13300,6 +13780,10 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13405,6 +13889,10 @@ export type TenantCreateWithoutSodViolationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13510,6 +13998,10 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13631,6 +14123,10 @@ export type TenantUpdateWithoutSodViolationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13736,6 +14232,10 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13841,6 +14341,10 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13946,6 +14450,10 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14067,6 +14575,10 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14172,6 +14684,10 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14277,6 +14793,10 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14382,6 +14902,10 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14503,6 +15027,10 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14608,6 +15136,10 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14713,6 +15245,10 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14818,6 +15354,10 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14939,6 +15479,10 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15044,6 +15588,10 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15149,6 +15697,10 @@ export type TenantCreateWithoutProcurementPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15254,6 +15806,10 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15375,6 +15931,10 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15480,6 +16040,10 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15585,6 +16149,10 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15690,6 +16258,10 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15811,6 +16383,10 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15916,6 +16492,10 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16021,6 +16601,10 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16126,6 +16710,10 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16247,6 +16835,10 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16352,6 +16944,10 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16457,6 +17053,10 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16562,6 +17162,10 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16683,6 +17287,10 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16788,6 +17396,10 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16893,6 +17505,10 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16998,6 +17614,10 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17119,6 +17739,10 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17224,6 +17848,10 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17329,6 +17957,10 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17434,6 +18066,10 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17555,6 +18191,10 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17660,6 +18300,10 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17765,6 +18409,10 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17870,6 +18518,10 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17991,6 +18643,10 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18096,6 +18752,10 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18201,6 +18861,10 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18306,6 +18970,10 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18427,6 +19095,10 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18532,6 +19204,10 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18637,6 +19313,10 @@ export type TenantCreateWithoutResiliencePlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18742,6 +19422,10 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18863,6 +19547,10 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18968,6 +19656,10 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19073,6 +19765,10 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19178,6 +19874,10 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19299,6 +19999,10 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19404,6 +20108,10 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19509,6 +20217,10 @@ export type TenantCreateWithoutGuidedCartsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19614,6 +20326,10 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19735,6 +20451,10 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19840,6 +20560,10 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19945,6 +20669,10 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20050,6 +20778,10 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20171,6 +20903,10 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20276,6 +21012,10 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20381,6 +21121,10 @@ export type TenantCreateWithoutInventoryItemsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20486,6 +21230,10 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20607,6 +21355,10 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20712,6 +21464,10 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20817,6 +21573,10 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20922,6 +21682,10 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21043,6 +21807,10 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21148,6 +21916,10 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21253,6 +22025,10 @@ export type TenantCreateWithoutCycleCountsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21358,6 +22134,10 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21479,6 +22259,10 @@ export type TenantUpdateWithoutCycleCountsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21584,6 +22368,10 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21689,6 +22477,10 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21794,6 +22586,10 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21915,6 +22711,10 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22020,6 +22820,10 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22125,6 +22929,10 @@ export type TenantCreateWithoutServiceWorkersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22230,6 +23038,10 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22351,6 +23163,10 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22456,6 +23272,10 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22561,6 +23381,10 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22666,6 +23490,10 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22787,6 +23615,10 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22892,6 +23724,10 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22997,6 +23833,10 @@ export type TenantCreateWithoutDemandPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23102,6 +23942,10 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23223,6 +24067,10 @@ export type TenantUpdateWithoutDemandPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23328,6 +24176,10 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23433,6 +24285,10 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23538,6 +24394,10 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23659,6 +24519,10 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23764,6 +24628,10 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23869,6 +24737,10 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23974,6 +24846,10 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24095,6 +24971,10 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24200,6 +25080,10 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24305,6 +25189,10 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24410,6 +25298,10 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24531,6 +25423,10 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24636,6 +25532,10 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24741,6 +25641,10 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24846,6 +25750,10 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24967,6 +25875,10 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25072,6 +25984,10 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25177,6 +26093,10 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25282,6 +26202,10 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25403,6 +26327,10 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25508,6 +26436,10 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25613,6 +26545,10 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25718,6 +26654,10 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25839,6 +26779,10 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25944,6 +26888,10 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26049,6 +26997,10 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26154,6 +27106,10 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26275,6 +27231,10 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26380,6 +27340,10 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26485,6 +27449,10 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26590,6 +27558,10 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26711,6 +27683,10 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26816,6 +27792,10 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26921,6 +27901,10 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27026,6 +28010,10 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27147,6 +28135,10 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27252,6 +28244,10 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27357,6 +28353,10 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27462,6 +28462,10 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27583,6 +28587,10 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27688,6 +28696,10 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27793,6 +28805,10 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27898,6 +28914,10 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28019,6 +29039,10 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28124,6 +29148,10 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28229,6 +29257,10 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28334,6 +29366,10 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28455,6 +29491,10 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28560,6 +29600,10 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28665,6 +29709,10 @@ export type TenantCreateWithoutSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28770,6 +29818,10 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28891,6 +29943,10 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28996,6 +30052,10 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29101,6 +30161,10 @@ export type TenantCreateWithoutEntitlementsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29206,6 +30270,10 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29327,6 +30395,10 @@ export type TenantUpdateWithoutEntitlementsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29432,6 +30504,10 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29537,6 +30613,10 @@ export type TenantCreateWithoutUsageCountersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29642,6 +30722,10 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29763,6 +30847,10 @@ export type TenantUpdateWithoutUsageCountersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29868,6 +30956,10 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29973,6 +31065,10 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30078,6 +31174,10 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30199,6 +31299,10 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30304,6 +31408,10 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30409,6 +31517,10 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30514,6 +31626,10 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30635,6 +31751,10 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30740,6 +31860,10 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30845,6 +31969,10 @@ export type TenantCreateWithoutPlatformEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30950,6 +32078,10 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31071,6 +32203,10 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31176,6 +32312,10 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31281,6 +32421,10 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31386,6 +32530,10 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31507,6 +32655,10 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31612,6 +32764,10 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31717,6 +32873,10 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31822,6 +32982,10 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31943,6 +33107,10 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32048,6 +33216,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32153,6 +33325,10 @@ export type TenantCreateWithoutVaultSecretsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32258,6 +33434,10 @@ export type TenantUncheckedCreateWithoutVaultSecretsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32379,6 +33559,10 @@ export type TenantUpdateWithoutVaultSecretsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32484,6 +33668,10 @@ export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32589,6 +33777,10 @@ export type TenantCreateWithoutEnterpriseNotificationTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32694,6 +33886,10 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32815,6 +34011,10 @@ export type TenantUpdateWithoutEnterpriseNotificationTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32920,6 +34120,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationTemplatesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33025,6 +34229,10 @@ export type TenantCreateWithoutEnterpriseNotificationPreferencesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33130,6 +34338,10 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationPreferencesInput =
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33251,6 +34463,10 @@ export type TenantUpdateWithoutEnterpriseNotificationPreferencesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33356,6 +34572,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationPreferencesInput =
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33461,6 +34681,10 @@ export type TenantCreateWithoutEnterpriseNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33566,6 +34790,10 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33687,6 +34915,10 @@ export type TenantUpdateWithoutEnterpriseNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33792,6 +35024,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33897,6 +35133,10 @@ export type TenantCreateWithoutEnterpriseActivitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34002,6 +35242,10 @@ export type TenantUncheckedCreateWithoutEnterpriseActivitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34123,6 +35367,10 @@ export type TenantUpdateWithoutEnterpriseActivitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34228,6 +35476,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseActivitiesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34333,6 +35585,10 @@ export type TenantCreateWithoutEnterprisePoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34438,6 +35694,10 @@ export type TenantUncheckedCreateWithoutEnterprisePoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34559,6 +35819,10 @@ export type TenantUpdateWithoutEnterprisePoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34664,6 +35928,10 @@ export type TenantUncheckedUpdateWithoutEnterprisePoliciesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34769,6 +36037,10 @@ export type TenantCreateWithoutEnterpriseFeatureFlagsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34874,6 +36146,10 @@ export type TenantUncheckedCreateWithoutEnterpriseFeatureFlagsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34995,6 +36271,10 @@ export type TenantUpdateWithoutEnterpriseFeatureFlagsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35100,6 +36380,10 @@ export type TenantUncheckedUpdateWithoutEnterpriseFeatureFlagsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35205,6 +36489,10 @@ export type TenantCreateWithoutPlatformCertificationRunsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35310,6 +36598,10 @@ export type TenantUncheckedCreateWithoutPlatformCertificationRunsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35431,6 +36723,10 @@ export type TenantUpdateWithoutPlatformCertificationRunsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35536,6 +36832,10 @@ export type TenantUncheckedUpdateWithoutPlatformCertificationRunsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35641,6 +36941,10 @@ export type TenantCreateWithoutRequisitionOrderJourneysInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35746,6 +37050,10 @@ export type TenantUncheckedCreateWithoutRequisitionOrderJourneysInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35867,6 +37175,10 @@ export type TenantUpdateWithoutRequisitionOrderJourneysInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35972,6 +37284,10 @@ export type TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -36077,6 +37393,10 @@ export type TenantCreateWithoutRequisitionSubmissionAssessmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -36182,6 +37502,10 @@ export type TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -36303,6 +37627,10 @@ export type TenantUpdateWithoutRequisitionSubmissionAssessmentsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -36408,6 +37736,10 @@ export type TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -36513,6 +37845,10 @@ export type TenantCreateWithoutRequisitionApprovalRoutesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -36618,6 +37954,10 @@ export type TenantUncheckedCreateWithoutRequisitionApprovalRoutesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -36739,6 +38079,10 @@ export type TenantUpdateWithoutRequisitionApprovalRoutesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -36844,6 +38188,10 @@ export type TenantUncheckedUpdateWithoutRequisitionApprovalRoutesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -36949,6 +38297,10 @@ export type TenantCreateWithoutPurchaseOrderExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -37054,6 +38406,10 @@ export type TenantUncheckedCreateWithoutPurchaseOrderExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -37175,6 +38531,10 @@ export type TenantUpdateWithoutPurchaseOrderExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -37280,6 +38640,10 @@ export type TenantUncheckedUpdateWithoutPurchaseOrderExecutionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -37385,6 +38749,10 @@ export type TenantCreateWithoutGoodsReceiptSessionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -37490,6 +38858,10 @@ export type TenantUncheckedCreateWithoutGoodsReceiptSessionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -37611,6 +38983,10 @@ export type TenantUpdateWithoutGoodsReceiptSessionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -37716,6 +39092,10 @@ export type TenantUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -37821,6 +39201,10 @@ export type TenantCreateWithoutThreeWayMatchCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -37926,6 +39310,10 @@ export type TenantUncheckedCreateWithoutThreeWayMatchCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -38047,6 +39435,10 @@ export type TenantUpdateWithoutThreeWayMatchCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -38152,6 +39544,10 @@ export type TenantUncheckedUpdateWithoutThreeWayMatchCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -38257,6 +39653,10 @@ export type TenantCreateWithoutApPaymentReadinessCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -38362,6 +39762,10 @@ export type TenantUncheckedCreateWithoutApPaymentReadinessCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -38483,6 +39887,10 @@ export type TenantUpdateWithoutApPaymentReadinessCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -38588,6 +39996,10 @@ export type TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -38693,6 +40105,10 @@ export type TenantCreateWithoutProcurementProcessCertificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -38798,6 +40214,10 @@ export type TenantUncheckedCreateWithoutProcurementProcessCertificationsInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -38919,6 +40339,10 @@ export type TenantUpdateWithoutProcurementProcessCertificationsInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -39024,6 +40448,10 @@ export type TenantUncheckedUpdateWithoutProcurementProcessCertificationsInput = 
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -39129,6 +40557,10 @@ export type TenantCreateWithoutInventoryMovementLedgersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -39234,6 +40666,10 @@ export type TenantUncheckedCreateWithoutInventoryMovementLedgersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -39355,6 +40791,10 @@ export type TenantUpdateWithoutInventoryMovementLedgersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -39460,6 +40900,10 @@ export type TenantUncheckedUpdateWithoutInventoryMovementLedgersInput = {
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -39565,6 +41009,10 @@ export type TenantCreateWithoutInventoryAvailabilitySnapshotsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -39670,6 +41118,10 @@ export type TenantUncheckedCreateWithoutInventoryAvailabilitySnapshotsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -39791,6 +41243,10 @@ export type TenantUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -39896,6 +41352,10 @@ export type TenantUncheckedUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -40001,6 +41461,10 @@ export type TenantCreateWithoutInventoryReservationsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -40106,6 +41570,10 @@ export type TenantUncheckedCreateWithoutInventoryReservationsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -40227,6 +41695,10 @@ export type TenantUpdateWithoutInventoryReservationsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -40332,6 +41804,10 @@ export type TenantUncheckedUpdateWithoutInventoryReservationsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -40437,6 +41913,10 @@ export type TenantCreateWithoutInventoryOperationExceptionsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -40542,6 +42022,10 @@ export type TenantUncheckedCreateWithoutInventoryOperationExceptionsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -40663,6 +42147,10 @@ export type TenantUpdateWithoutInventoryOperationExceptionsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -40768,6 +42256,1818 @@ export type TenantUncheckedUpdateWithoutInventoryOperationExceptionsInput = {
   inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
   inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
   inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutWarehouseReceivingSessionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutWarehouseReceivingSessionsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput>
+}
+
+export type TenantUpsertWithoutWarehouseReceivingSessionsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutWarehouseReceivingSessionsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseReceivingSessionsInput, Prisma.TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput>
+}
+
+export type TenantUpdateWithoutWarehouseReceivingSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutWarehouseLocationControlsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutWarehouseLocationControlsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutWarehouseLocationControlsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedCreateWithoutWarehouseLocationControlsInput>
+}
+
+export type TenantUpsertWithoutWarehouseLocationControlsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedUpdateWithoutWarehouseLocationControlsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedCreateWithoutWarehouseLocationControlsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutWarehouseLocationControlsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseLocationControlsInput, Prisma.TenantUncheckedUpdateWithoutWarehouseLocationControlsInput>
+}
+
+export type TenantUpdateWithoutWarehouseLocationControlsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutWarehouseLocationControlsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutPutawayTasksInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutPutawayTasksInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutPutawayTasksInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutPutawayTasksInput, Prisma.TenantUncheckedCreateWithoutPutawayTasksInput>
+}
+
+export type TenantUpsertWithoutPutawayTasksInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutPutawayTasksInput, Prisma.TenantUncheckedUpdateWithoutPutawayTasksInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutPutawayTasksInput, Prisma.TenantUncheckedCreateWithoutPutawayTasksInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutPutawayTasksInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutPutawayTasksInput, Prisma.TenantUncheckedUpdateWithoutPutawayTasksInput>
+}
+
+export type TenantUpdateWithoutPutawayTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutPutawayTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutWarehouseDiscrepanciesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutWarehouseDiscrepanciesInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput>
+}
+
+export type TenantUpsertWithoutWarehouseDiscrepanciesInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutWarehouseDiscrepanciesInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutWarehouseDiscrepanciesInput, Prisma.TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput>
+}
+
+export type TenantUpdateWithoutWarehouseDiscrepanciesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -40863,6 +44163,10 @@ export type TenantCountOutputType = {
   inventoryAvailabilitySnapshots: number
   inventoryReservations: number
   inventoryOperationExceptions: number
+  warehouseReceivingSessions: number
+  warehouseLocationControls: number
+  putawayTasks: number
+  warehouseDiscrepancies: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -40953,6 +44257,10 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   inventoryAvailabilitySnapshots?: boolean | TenantCountOutputTypeCountInventoryAvailabilitySnapshotsArgs
   inventoryReservations?: boolean | TenantCountOutputTypeCountInventoryReservationsArgs
   inventoryOperationExceptions?: boolean | TenantCountOutputTypeCountInventoryOperationExceptionsArgs
+  warehouseReceivingSessions?: boolean | TenantCountOutputTypeCountWarehouseReceivingSessionsArgs
+  warehouseLocationControls?: boolean | TenantCountOutputTypeCountWarehouseLocationControlsArgs
+  putawayTasks?: boolean | TenantCountOutputTypeCountPutawayTasksArgs
+  warehouseDiscrepancies?: boolean | TenantCountOutputTypeCountWarehouseDiscrepanciesArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -41559,6 +44867,34 @@ export type TenantCountOutputTypeCountInventoryOperationExceptionsArgs<ExtArgs e
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountWarehouseReceivingSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WarehouseReceivingSessionWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountWarehouseLocationControlsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WarehouseLocationControlWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountPutawayTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PutawayTaskWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountWarehouseDiscrepanciesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.WarehouseDiscrepancyWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -41679,6 +45015,10 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   inventoryAvailabilitySnapshots?: boolean | Prisma.Tenant$inventoryAvailabilitySnapshotsArgs<ExtArgs>
   inventoryReservations?: boolean | Prisma.Tenant$inventoryReservationsArgs<ExtArgs>
   inventoryOperationExceptions?: boolean | Prisma.Tenant$inventoryOperationExceptionsArgs<ExtArgs>
+  warehouseReceivingSessions?: boolean | Prisma.Tenant$warehouseReceivingSessionsArgs<ExtArgs>
+  warehouseLocationControls?: boolean | Prisma.Tenant$warehouseLocationControlsArgs<ExtArgs>
+  putawayTasks?: boolean | Prisma.Tenant$putawayTasksArgs<ExtArgs>
+  warehouseDiscrepancies?: boolean | Prisma.Tenant$warehouseDiscrepanciesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -41826,6 +45166,10 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   inventoryAvailabilitySnapshots?: boolean | Prisma.Tenant$inventoryAvailabilitySnapshotsArgs<ExtArgs>
   inventoryReservations?: boolean | Prisma.Tenant$inventoryReservationsArgs<ExtArgs>
   inventoryOperationExceptions?: boolean | Prisma.Tenant$inventoryOperationExceptionsArgs<ExtArgs>
+  warehouseReceivingSessions?: boolean | Prisma.Tenant$warehouseReceivingSessionsArgs<ExtArgs>
+  warehouseLocationControls?: boolean | Prisma.Tenant$warehouseLocationControlsArgs<ExtArgs>
+  putawayTasks?: boolean | Prisma.Tenant$putawayTasksArgs<ExtArgs>
+  warehouseDiscrepancies?: boolean | Prisma.Tenant$warehouseDiscrepanciesArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -41922,6 +45266,10 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     inventoryAvailabilitySnapshots: Prisma.$InventoryAvailabilitySnapshotPayload<ExtArgs>[]
     inventoryReservations: Prisma.$InventoryReservationPayload<ExtArgs>[]
     inventoryOperationExceptions: Prisma.$InventoryOperationExceptionPayload<ExtArgs>[]
+    warehouseReceivingSessions: Prisma.$WarehouseReceivingSessionPayload<ExtArgs>[]
+    warehouseLocationControls: Prisma.$WarehouseLocationControlPayload<ExtArgs>[]
+    putawayTasks: Prisma.$PutawayTaskPayload<ExtArgs>[]
+    warehouseDiscrepancies: Prisma.$WarehouseDiscrepancyPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -42421,6 +45769,10 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   inventoryAvailabilitySnapshots<T extends Prisma.Tenant$inventoryAvailabilitySnapshotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$inventoryAvailabilitySnapshotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryAvailabilitySnapshotPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   inventoryReservations<T extends Prisma.Tenant$inventoryReservationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$inventoryReservationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   inventoryOperationExceptions<T extends Prisma.Tenant$inventoryOperationExceptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$inventoryOperationExceptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InventoryOperationExceptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  warehouseReceivingSessions<T extends Prisma.Tenant$warehouseReceivingSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$warehouseReceivingSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WarehouseReceivingSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  warehouseLocationControls<T extends Prisma.Tenant$warehouseLocationControlsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$warehouseLocationControlsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WarehouseLocationControlPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  putawayTasks<T extends Prisma.Tenant$putawayTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$putawayTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PutawayTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  warehouseDiscrepancies<T extends Prisma.Tenant$warehouseDiscrepanciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$warehouseDiscrepanciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WarehouseDiscrepancyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -44893,6 +48245,102 @@ export type Tenant$inventoryOperationExceptionsArgs<ExtArgs extends runtime.Type
   take?: number
   skip?: number
   distinct?: Prisma.InventoryOperationExceptionScalarFieldEnum | Prisma.InventoryOperationExceptionScalarFieldEnum[]
+}
+
+/**
+ * Tenant.warehouseReceivingSessions
+ */
+export type Tenant$warehouseReceivingSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WarehouseReceivingSession
+   */
+  select?: Prisma.WarehouseReceivingSessionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WarehouseReceivingSession
+   */
+  omit?: Prisma.WarehouseReceivingSessionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WarehouseReceivingSessionInclude<ExtArgs> | null
+  where?: Prisma.WarehouseReceivingSessionWhereInput
+  orderBy?: Prisma.WarehouseReceivingSessionOrderByWithRelationInput | Prisma.WarehouseReceivingSessionOrderByWithRelationInput[]
+  cursor?: Prisma.WarehouseReceivingSessionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WarehouseReceivingSessionScalarFieldEnum | Prisma.WarehouseReceivingSessionScalarFieldEnum[]
+}
+
+/**
+ * Tenant.warehouseLocationControls
+ */
+export type Tenant$warehouseLocationControlsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WarehouseLocationControl
+   */
+  select?: Prisma.WarehouseLocationControlSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WarehouseLocationControl
+   */
+  omit?: Prisma.WarehouseLocationControlOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WarehouseLocationControlInclude<ExtArgs> | null
+  where?: Prisma.WarehouseLocationControlWhereInput
+  orderBy?: Prisma.WarehouseLocationControlOrderByWithRelationInput | Prisma.WarehouseLocationControlOrderByWithRelationInput[]
+  cursor?: Prisma.WarehouseLocationControlWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WarehouseLocationControlScalarFieldEnum | Prisma.WarehouseLocationControlScalarFieldEnum[]
+}
+
+/**
+ * Tenant.putawayTasks
+ */
+export type Tenant$putawayTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PutawayTask
+   */
+  select?: Prisma.PutawayTaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PutawayTask
+   */
+  omit?: Prisma.PutawayTaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PutawayTaskInclude<ExtArgs> | null
+  where?: Prisma.PutawayTaskWhereInput
+  orderBy?: Prisma.PutawayTaskOrderByWithRelationInput | Prisma.PutawayTaskOrderByWithRelationInput[]
+  cursor?: Prisma.PutawayTaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PutawayTaskScalarFieldEnum | Prisma.PutawayTaskScalarFieldEnum[]
+}
+
+/**
+ * Tenant.warehouseDiscrepancies
+ */
+export type Tenant$warehouseDiscrepanciesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the WarehouseDiscrepancy
+   */
+  select?: Prisma.WarehouseDiscrepancySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the WarehouseDiscrepancy
+   */
+  omit?: Prisma.WarehouseDiscrepancyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.WarehouseDiscrepancyInclude<ExtArgs> | null
+  where?: Prisma.WarehouseDiscrepancyWhereInput
+  orderBy?: Prisma.WarehouseDiscrepancyOrderByWithRelationInput | Prisma.WarehouseDiscrepancyOrderByWithRelationInput[]
+  cursor?: Prisma.WarehouseDiscrepancyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.WarehouseDiscrepancyScalarFieldEnum | Prisma.WarehouseDiscrepancyScalarFieldEnum[]
 }
 
 /**

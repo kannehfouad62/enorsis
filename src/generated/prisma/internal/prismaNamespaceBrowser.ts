@@ -240,7 +240,12 @@ export const ModelName = {
   InventoryMovementLedger: 'InventoryMovementLedger',
   InventoryAvailabilitySnapshot: 'InventoryAvailabilitySnapshot',
   InventoryReservation: 'InventoryReservation',
-  InventoryOperationException: 'InventoryOperationException'
+  InventoryOperationException: 'InventoryOperationException',
+  WarehouseReceivingSession: 'WarehouseReceivingSession',
+  WarehouseReceiptLine: 'WarehouseReceiptLine',
+  WarehouseLocationControl: 'WarehouseLocationControl',
+  PutawayTask: 'PutawayTask',
+  WarehouseDiscrepancy: 'WarehouseDiscrepancy'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4360,6 +4365,119 @@ export const InventoryOperationExceptionScalarFieldEnum = {
 } as const
 
 export type InventoryOperationExceptionScalarFieldEnum = (typeof InventoryOperationExceptionScalarFieldEnum)[keyof typeof InventoryOperationExceptionScalarFieldEnum]
+
+
+export const WarehouseReceivingSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  receivingNumber: 'receivingNumber',
+  status: 'status',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  purchaseOrderId: 'purchaseOrderId',
+  goodsReceiptSessionId: 'goodsReceiptSessionId',
+  supplierId: 'supplierId',
+  dockLocationId: 'dockLocationId',
+  carrierReference: 'carrierReference',
+  deliveryReference: 'deliveryReference',
+  receivedByUserId: 'receivedByUserId',
+  startedAt: 'startedAt',
+  receivedAt: 'receivedAt',
+  completedAt: 'completedAt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseReceivingSessionScalarFieldEnum = (typeof WarehouseReceivingSessionScalarFieldEnum)[keyof typeof WarehouseReceivingSessionScalarFieldEnum]
+
+
+export const WarehouseReceiptLineScalarFieldEnum = {
+  id: 'id',
+  receivingSessionId: 'receivingSessionId',
+  lineReference: 'lineReference',
+  inventoryItemId: 'inventoryItemId',
+  description: 'description',
+  expectedQuantity: 'expectedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  acceptedQuantity: 'acceptedQuantity',
+  rejectedQuantity: 'rejectedQuantity',
+  damagedQuantity: 'damagedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  serialLotReference: 'serialLotReference',
+  expiryDate: 'expiryDate',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseReceiptLineScalarFieldEnum = (typeof WarehouseReceiptLineScalarFieldEnum)[keyof typeof WarehouseReceiptLineScalarFieldEnum]
+
+
+export const WarehouseLocationControlScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  locationId: 'locationId',
+  warehouseCode: 'warehouseCode',
+  zoneCode: 'zoneCode',
+  aisleCode: 'aisleCode',
+  binCode: 'binCode',
+  status: 'status',
+  capacityQuantity: 'capacityQuantity',
+  occupiedQuantity: 'occupiedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  allowsMixedItems: 'allowsMixedItems',
+  requiresLot: 'requiresLot',
+  requiresSerial: 'requiresSerial',
+  quarantineOnly: 'quarantineOnly',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseLocationControlScalarFieldEnum = (typeof WarehouseLocationControlScalarFieldEnum)[keyof typeof WarehouseLocationControlScalarFieldEnum]
+
+
+export const PutawayTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  taskNumber: 'taskNumber',
+  receivingSessionId: 'receivingSessionId',
+  receiptLineId: 'receiptLineId',
+  destinationControlId: 'destinationControlId',
+  inventoryItemId: 'inventoryItemId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  assignedUserId: 'assignedUserId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  movementLedgerId: 'movementLedgerId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PutawayTaskScalarFieldEnum = (typeof PutawayTaskScalarFieldEnum)[keyof typeof PutawayTaskScalarFieldEnum]
+
+
+export const WarehouseDiscrepancyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  receivingSessionId: 'receivingSessionId',
+  receiptLineId: 'receiptLineId',
+  discrepancyType: 'discrepancyType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseDiscrepancyScalarFieldEnum = (typeof WarehouseDiscrepancyScalarFieldEnum)[keyof typeof WarehouseDiscrepancyScalarFieldEnum]
 
 
 export const SortOrder = {

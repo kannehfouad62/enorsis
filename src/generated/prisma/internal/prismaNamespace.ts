@@ -586,7 +586,12 @@ export const ModelName = {
   InventoryMovementLedger: 'InventoryMovementLedger',
   InventoryAvailabilitySnapshot: 'InventoryAvailabilitySnapshot',
   InventoryReservation: 'InventoryReservation',
-  InventoryOperationException: 'InventoryOperationException'
+  InventoryOperationException: 'InventoryOperationException',
+  WarehouseReceivingSession: 'WarehouseReceivingSession',
+  WarehouseReceiptLine: 'WarehouseReceiptLine',
+  WarehouseLocationControl: 'WarehouseLocationControl',
+  PutawayTask: 'PutawayTask',
+  WarehouseDiscrepancy: 'WarehouseDiscrepancy'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -602,7 +607,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -14666,6 +14671,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    WarehouseReceivingSession: {
+      payload: Prisma.$WarehouseReceivingSessionPayload<ExtArgs>
+      fields: Prisma.WarehouseReceivingSessionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WarehouseReceivingSessionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WarehouseReceivingSessionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        findFirst: {
+          args: Prisma.WarehouseReceivingSessionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WarehouseReceivingSessionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        findMany: {
+          args: Prisma.WarehouseReceivingSessionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>[]
+        }
+        create: {
+          args: Prisma.WarehouseReceivingSessionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        createMany: {
+          args: Prisma.WarehouseReceivingSessionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WarehouseReceivingSessionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>[]
+        }
+        delete: {
+          args: Prisma.WarehouseReceivingSessionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        update: {
+          args: Prisma.WarehouseReceivingSessionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        deleteMany: {
+          args: Prisma.WarehouseReceivingSessionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WarehouseReceivingSessionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WarehouseReceivingSessionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>[]
+        }
+        upsert: {
+          args: Prisma.WarehouseReceivingSessionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceivingSessionPayload>
+        }
+        aggregate: {
+          args: Prisma.WarehouseReceivingSessionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWarehouseReceivingSession>
+        }
+        groupBy: {
+          args: Prisma.WarehouseReceivingSessionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseReceivingSessionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WarehouseReceivingSessionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseReceivingSessionCountAggregateOutputType> | number
+        }
+      }
+    }
+    WarehouseReceiptLine: {
+      payload: Prisma.$WarehouseReceiptLinePayload<ExtArgs>
+      fields: Prisma.WarehouseReceiptLineFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WarehouseReceiptLineFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WarehouseReceiptLineFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        findFirst: {
+          args: Prisma.WarehouseReceiptLineFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WarehouseReceiptLineFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        findMany: {
+          args: Prisma.WarehouseReceiptLineFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>[]
+        }
+        create: {
+          args: Prisma.WarehouseReceiptLineCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        createMany: {
+          args: Prisma.WarehouseReceiptLineCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WarehouseReceiptLineCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>[]
+        }
+        delete: {
+          args: Prisma.WarehouseReceiptLineDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        update: {
+          args: Prisma.WarehouseReceiptLineUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        deleteMany: {
+          args: Prisma.WarehouseReceiptLineDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WarehouseReceiptLineUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WarehouseReceiptLineUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>[]
+        }
+        upsert: {
+          args: Prisma.WarehouseReceiptLineUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseReceiptLinePayload>
+        }
+        aggregate: {
+          args: Prisma.WarehouseReceiptLineAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWarehouseReceiptLine>
+        }
+        groupBy: {
+          args: Prisma.WarehouseReceiptLineGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseReceiptLineGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WarehouseReceiptLineCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseReceiptLineCountAggregateOutputType> | number
+        }
+      }
+    }
+    WarehouseLocationControl: {
+      payload: Prisma.$WarehouseLocationControlPayload<ExtArgs>
+      fields: Prisma.WarehouseLocationControlFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WarehouseLocationControlFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WarehouseLocationControlFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        findFirst: {
+          args: Prisma.WarehouseLocationControlFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WarehouseLocationControlFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        findMany: {
+          args: Prisma.WarehouseLocationControlFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>[]
+        }
+        create: {
+          args: Prisma.WarehouseLocationControlCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        createMany: {
+          args: Prisma.WarehouseLocationControlCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WarehouseLocationControlCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>[]
+        }
+        delete: {
+          args: Prisma.WarehouseLocationControlDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        update: {
+          args: Prisma.WarehouseLocationControlUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        deleteMany: {
+          args: Prisma.WarehouseLocationControlDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WarehouseLocationControlUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WarehouseLocationControlUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>[]
+        }
+        upsert: {
+          args: Prisma.WarehouseLocationControlUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseLocationControlPayload>
+        }
+        aggregate: {
+          args: Prisma.WarehouseLocationControlAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWarehouseLocationControl>
+        }
+        groupBy: {
+          args: Prisma.WarehouseLocationControlGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseLocationControlGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WarehouseLocationControlCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseLocationControlCountAggregateOutputType> | number
+        }
+      }
+    }
+    PutawayTask: {
+      payload: Prisma.$PutawayTaskPayload<ExtArgs>
+      fields: Prisma.PutawayTaskFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PutawayTaskFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PutawayTaskFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        findFirst: {
+          args: Prisma.PutawayTaskFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PutawayTaskFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        findMany: {
+          args: Prisma.PutawayTaskFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>[]
+        }
+        create: {
+          args: Prisma.PutawayTaskCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        createMany: {
+          args: Prisma.PutawayTaskCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PutawayTaskCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>[]
+        }
+        delete: {
+          args: Prisma.PutawayTaskDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        update: {
+          args: Prisma.PutawayTaskUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        deleteMany: {
+          args: Prisma.PutawayTaskDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PutawayTaskUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PutawayTaskUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>[]
+        }
+        upsert: {
+          args: Prisma.PutawayTaskUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PutawayTaskPayload>
+        }
+        aggregate: {
+          args: Prisma.PutawayTaskAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePutawayTask>
+        }
+        groupBy: {
+          args: Prisma.PutawayTaskGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PutawayTaskGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PutawayTaskCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PutawayTaskCountAggregateOutputType> | number
+        }
+      }
+    }
+    WarehouseDiscrepancy: {
+      payload: Prisma.$WarehouseDiscrepancyPayload<ExtArgs>
+      fields: Prisma.WarehouseDiscrepancyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WarehouseDiscrepancyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WarehouseDiscrepancyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        findFirst: {
+          args: Prisma.WarehouseDiscrepancyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WarehouseDiscrepancyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        findMany: {
+          args: Prisma.WarehouseDiscrepancyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>[]
+        }
+        create: {
+          args: Prisma.WarehouseDiscrepancyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        createMany: {
+          args: Prisma.WarehouseDiscrepancyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WarehouseDiscrepancyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>[]
+        }
+        delete: {
+          args: Prisma.WarehouseDiscrepancyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        update: {
+          args: Prisma.WarehouseDiscrepancyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        deleteMany: {
+          args: Prisma.WarehouseDiscrepancyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WarehouseDiscrepancyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WarehouseDiscrepancyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>[]
+        }
+        upsert: {
+          args: Prisma.WarehouseDiscrepancyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WarehouseDiscrepancyPayload>
+        }
+        aggregate: {
+          args: Prisma.WarehouseDiscrepancyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWarehouseDiscrepancy>
+        }
+        groupBy: {
+          args: Prisma.WarehouseDiscrepancyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseDiscrepancyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WarehouseDiscrepancyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WarehouseDiscrepancyCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -18808,6 +19183,119 @@ export const InventoryOperationExceptionScalarFieldEnum = {
 export type InventoryOperationExceptionScalarFieldEnum = (typeof InventoryOperationExceptionScalarFieldEnum)[keyof typeof InventoryOperationExceptionScalarFieldEnum]
 
 
+export const WarehouseReceivingSessionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  receivingNumber: 'receivingNumber',
+  status: 'status',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  purchaseOrderId: 'purchaseOrderId',
+  goodsReceiptSessionId: 'goodsReceiptSessionId',
+  supplierId: 'supplierId',
+  dockLocationId: 'dockLocationId',
+  carrierReference: 'carrierReference',
+  deliveryReference: 'deliveryReference',
+  receivedByUserId: 'receivedByUserId',
+  startedAt: 'startedAt',
+  receivedAt: 'receivedAt',
+  completedAt: 'completedAt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseReceivingSessionScalarFieldEnum = (typeof WarehouseReceivingSessionScalarFieldEnum)[keyof typeof WarehouseReceivingSessionScalarFieldEnum]
+
+
+export const WarehouseReceiptLineScalarFieldEnum = {
+  id: 'id',
+  receivingSessionId: 'receivingSessionId',
+  lineReference: 'lineReference',
+  inventoryItemId: 'inventoryItemId',
+  description: 'description',
+  expectedQuantity: 'expectedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  acceptedQuantity: 'acceptedQuantity',
+  rejectedQuantity: 'rejectedQuantity',
+  damagedQuantity: 'damagedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  serialLotReference: 'serialLotReference',
+  expiryDate: 'expiryDate',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseReceiptLineScalarFieldEnum = (typeof WarehouseReceiptLineScalarFieldEnum)[keyof typeof WarehouseReceiptLineScalarFieldEnum]
+
+
+export const WarehouseLocationControlScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  locationId: 'locationId',
+  warehouseCode: 'warehouseCode',
+  zoneCode: 'zoneCode',
+  aisleCode: 'aisleCode',
+  binCode: 'binCode',
+  status: 'status',
+  capacityQuantity: 'capacityQuantity',
+  occupiedQuantity: 'occupiedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  allowsMixedItems: 'allowsMixedItems',
+  requiresLot: 'requiresLot',
+  requiresSerial: 'requiresSerial',
+  quarantineOnly: 'quarantineOnly',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseLocationControlScalarFieldEnum = (typeof WarehouseLocationControlScalarFieldEnum)[keyof typeof WarehouseLocationControlScalarFieldEnum]
+
+
+export const PutawayTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  taskNumber: 'taskNumber',
+  receivingSessionId: 'receivingSessionId',
+  receiptLineId: 'receiptLineId',
+  destinationControlId: 'destinationControlId',
+  inventoryItemId: 'inventoryItemId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  assignedUserId: 'assignedUserId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  movementLedgerId: 'movementLedgerId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PutawayTaskScalarFieldEnum = (typeof PutawayTaskScalarFieldEnum)[keyof typeof PutawayTaskScalarFieldEnum]
+
+
+export const WarehouseDiscrepancyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  receivingSessionId: 'receivingSessionId',
+  receiptLineId: 'receiptLineId',
+  discrepancyType: 'discrepancyType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseDiscrepancyScalarFieldEnum = (typeof WarehouseDiscrepancyScalarFieldEnum)[keyof typeof WarehouseDiscrepancyScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -21992,6 +22480,90 @@ export type ListEnumInventoryOperationExceptionStatusFieldRefInput<$PrismaModel>
 
 
 /**
+ * Reference to a field of type 'WarehouseReceivingStatus'
+ */
+export type EnumWarehouseReceivingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseReceivingStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseReceivingStatus[]'
+ */
+export type ListEnumWarehouseReceivingStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseReceivingStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseReceiptLineStatus'
+ */
+export type EnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseReceiptLineStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseReceiptLineStatus[]'
+ */
+export type ListEnumWarehouseReceiptLineStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseReceiptLineStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseLocationStatus'
+ */
+export type EnumWarehouseLocationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseLocationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseLocationStatus[]'
+ */
+export type ListEnumWarehouseLocationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseLocationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PutawayTaskStatus'
+ */
+export type EnumPutawayTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PutawayTaskStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PutawayTaskStatus[]'
+ */
+export type ListEnumPutawayTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PutawayTaskStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseDiscrepancyType'
+ */
+export type EnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseDiscrepancyType'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseDiscrepancyType[]'
+ */
+export type ListEnumWarehouseDiscrepancyTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseDiscrepancyType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseDiscrepancyStatus'
+ */
+export type EnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseDiscrepancyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WarehouseDiscrepancyStatus[]'
+ */
+export type ListEnumWarehouseDiscrepancyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WarehouseDiscrepancyStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -22345,6 +22917,11 @@ export type GlobalOmitConfig = {
   inventoryAvailabilitySnapshot?: Prisma.InventoryAvailabilitySnapshotOmit
   inventoryReservation?: Prisma.InventoryReservationOmit
   inventoryOperationException?: Prisma.InventoryOperationExceptionOmit
+  warehouseReceivingSession?: Prisma.WarehouseReceivingSessionOmit
+  warehouseReceiptLine?: Prisma.WarehouseReceiptLineOmit
+  warehouseLocationControl?: Prisma.WarehouseLocationControlOmit
+  putawayTask?: Prisma.PutawayTaskOmit
+  warehouseDiscrepancy?: Prisma.WarehouseDiscrepancyOmit
 }
 
 /* Types for Logging */
