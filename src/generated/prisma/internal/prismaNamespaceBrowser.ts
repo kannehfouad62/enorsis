@@ -264,7 +264,11 @@ export const ModelName = {
   InventoryFinancialValuationPolicy: 'InventoryFinancialValuationPolicy',
   InventoryFinancialCostLayer: 'InventoryFinancialCostLayer',
   InventoryFinancialValuationSnapshot: 'InventoryFinancialValuationSnapshot',
-  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation'
+  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation',
+  EnterpriseAnalyticsMetricDefinition: 'EnterpriseAnalyticsMetricDefinition',
+  EnterpriseAnalyticsMetricSnapshot: 'EnterpriseAnalyticsMetricSnapshot',
+  EnterpriseAnalyticsAggregationRun: 'EnterpriseAnalyticsAggregationRun',
+  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4909,6 +4913,98 @@ export const InventoryFinancialReconciliationScalarFieldEnum = {
 } as const
 
 export type InventoryFinancialReconciliationScalarFieldEnum = (typeof InventoryFinancialReconciliationScalarFieldEnum)[keyof typeof InventoryFinancialReconciliationScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsMetricDefinitionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  metricKey: 'metricKey',
+  name: 'name',
+  description: 'description',
+  domain: 'domain',
+  category: 'category',
+  metricType: 'metricType',
+  unit: 'unit',
+  currencyCode: 'currencyCode',
+  targetValue: 'targetValue',
+  warningThreshold: 'warningThreshold',
+  criticalThreshold: 'criticalThreshold',
+  higherIsBetter: 'higherIsBetter',
+  calculationVersion: 'calculationVersion',
+  sourceModule: 'sourceModule',
+  drilldownPath: 'drilldownPath',
+  active: 'active',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAnalyticsMetricDefinitionScalarFieldEnum = (typeof EnterpriseAnalyticsMetricDefinitionScalarFieldEnum)[keyof typeof EnterpriseAnalyticsMetricDefinitionScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsMetricSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  metricDefinitionId: 'metricDefinitionId',
+  periodType: 'periodType',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  numericValue: 'numericValue',
+  previousValue: 'previousValue',
+  targetValue: 'targetValue',
+  varianceValue: 'varianceValue',
+  variancePercent: 'variancePercent',
+  trendDirection: 'trendDirection',
+  healthStatus: 'healthStatus',
+  dimensionKey: 'dimensionKey',
+  dimensions: 'dimensions',
+  calculationVersion: 'calculationVersion',
+  sourceRecordCount: 'sourceRecordCount',
+  calculatedAt: 'calculatedAt',
+  aggregationRunId: 'aggregationRunId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAnalyticsMetricSnapshotScalarFieldEnum = (typeof EnterpriseAnalyticsMetricSnapshotScalarFieldEnum)[keyof typeof EnterpriseAnalyticsMetricSnapshotScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsAggregationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  runNumber: 'runNumber',
+  scope: 'scope',
+  status: 'status',
+  periodType: 'periodType',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  metricsRequested: 'metricsRequested',
+  metricsCalculated: 'metricsCalculated',
+  warningCount: 'warningCount',
+  failureCount: 'failureCount',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAnalyticsAggregationRunScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationRunScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationRunScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsAggregationFailureScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  aggregationRunId: 'aggregationRunId',
+  metricKey: 'metricKey',
+  sourceModule: 'sourceModule',
+  severity: 'severity',
+  message: 'message',
+  details: 'details',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAnalyticsAggregationFailureScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -4573,6 +4573,91 @@ export type EnumInventoryFinancialReconciliationStatusWithAggregatesFilter<$Pris
   _max?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
 }
 
+export type EnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsMetricType | Prisma.EnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsMetricType
+}
+
+export type EnumEnterpriseAnalyticsMetricTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsMetricType | Prisma.EnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsMetricType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsPeriodType | Prisma.EnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsPeriodType
+}
+
+export type EnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsTrendDirection | Prisma.EnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsTrendDirection
+}
+
+export type EnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsHealthStatus | Prisma.EnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsHealthStatus
+}
+
+export type EnumEnterpriseAnalyticsPeriodTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsPeriodType | Prisma.EnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsPeriodType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseAnalyticsTrendDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsTrendDirection | Prisma.EnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsTrendDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseAnalyticsHealthStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsHealthStatus | Prisma.EnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsHealthStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsRunStatus | Prisma.EnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsRunStatus
+}
+
+export type EnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsRunStatus | Prisma.EnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9089,6 +9174,91 @@ export type NestedEnumInventoryFinancialReconciliationStatusWithAggregatesFilter
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsMetricType | Prisma.EnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsMetricType
+}
+
+export type NestedEnumEnterpriseAnalyticsMetricTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsMetricType | Prisma.EnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsMetricType[] | Prisma.ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsMetricType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsMetricTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsPeriodType | Prisma.EnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsPeriodType
+}
+
+export type NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsTrendDirection | Prisma.EnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsTrendDirection
+}
+
+export type NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsHealthStatus | Prisma.EnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsHealthStatus
+}
+
+export type NestedEnumEnterpriseAnalyticsPeriodTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsPeriodType | Prisma.EnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsPeriodType[] | Prisma.ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsPeriodType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsPeriodTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAnalyticsTrendDirectionWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsTrendDirection | Prisma.EnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsTrendDirection[] | Prisma.ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsTrendDirection
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsTrendDirectionFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAnalyticsHealthStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsHealthStatus | Prisma.EnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsHealthStatus[] | Prisma.ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsHealthStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsHealthStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsRunStatus | Prisma.EnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsRunStatus
+}
+
+export type NestedEnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAnalyticsRunStatus | Prisma.EnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAnalyticsRunStatus[] | Prisma.ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAnalyticsRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAnalyticsRunStatusFilter<$PrismaModel>
 }
 
 

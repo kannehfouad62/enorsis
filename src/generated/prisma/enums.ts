@@ -2728,6 +2728,66 @@ export const InventoryFinancialReconciliationStatus = {
 export type InventoryFinancialReconciliationStatus = (typeof InventoryFinancialReconciliationStatus)[keyof typeof InventoryFinancialReconciliationStatus]
 
 
+export const EnterpriseAnalyticsMetricType = {
+  COUNT: 'COUNT',
+  SUM: 'SUM',
+  AVERAGE: 'AVERAGE',
+  PERCENTAGE: 'PERCENTAGE',
+  CURRENCY: 'CURRENCY',
+  DURATION: 'DURATION',
+  SCORE: 'SCORE',
+  RATIO: 'RATIO'
+} as const
+
+export type EnterpriseAnalyticsMetricType = (typeof EnterpriseAnalyticsMetricType)[keyof typeof EnterpriseAnalyticsMetricType]
+
+
+export const EnterpriseAnalyticsPeriodType = {
+  HOURLY: 'HOURLY',
+  DAILY: 'DAILY',
+  WEEKLY: 'WEEKLY',
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  YEARLY: 'YEARLY',
+  POINT_IN_TIME: 'POINT_IN_TIME'
+} as const
+
+export type EnterpriseAnalyticsPeriodType = (typeof EnterpriseAnalyticsPeriodType)[keyof typeof EnterpriseAnalyticsPeriodType]
+
+
+export const EnterpriseAnalyticsTrendDirection = {
+  UP: 'UP',
+  DOWN: 'DOWN',
+  FLAT: 'FLAT',
+  NOT_AVAILABLE: 'NOT_AVAILABLE'
+} as const
+
+export type EnterpriseAnalyticsTrendDirection = (typeof EnterpriseAnalyticsTrendDirection)[keyof typeof EnterpriseAnalyticsTrendDirection]
+
+
+export const EnterpriseAnalyticsHealthStatus = {
+  GOOD: 'GOOD',
+  WATCH: 'WATCH',
+  WARNING: 'WARNING',
+  CRITICAL: 'CRITICAL',
+  NOT_AVAILABLE: 'NOT_AVAILABLE'
+} as const
+
+export type EnterpriseAnalyticsHealthStatus = (typeof EnterpriseAnalyticsHealthStatus)[keyof typeof EnterpriseAnalyticsHealthStatus]
+
+
+export const EnterpriseAnalyticsRunStatus = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  COMPLETED_WITH_WARNINGS: 'COMPLETED_WITH_WARNINGS',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type EnterpriseAnalyticsRunStatus = (typeof EnterpriseAnalyticsRunStatus)[keyof typeof EnterpriseAnalyticsRunStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

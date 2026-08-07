@@ -2016,6 +2016,51 @@ enum InventoryFinancialReconciliationStatus {
   CANCELLED
 }
 
+enum EnterpriseAnalyticsMetricType {
+  COUNT
+  SUM
+  AVERAGE
+  PERCENTAGE
+  CURRENCY
+  DURATION
+  SCORE
+  RATIO
+}
+
+enum EnterpriseAnalyticsPeriodType {
+  HOURLY
+  DAILY
+  WEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+  POINT_IN_TIME
+}
+
+enum EnterpriseAnalyticsTrendDirection {
+  UP
+  DOWN
+  FLAT
+  NOT_AVAILABLE
+}
+
+enum EnterpriseAnalyticsHealthStatus {
+  GOOD
+  WATCH
+  WARNING
+  CRITICAL
+  NOT_AVAILABLE
+}
+
+enum EnterpriseAnalyticsRunStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  COMPLETED_WITH_WARNINGS
+  FAILED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2111,130 +2156,134 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                                   String                                @id @default(cuid())
-  slug                                 String                                @unique
-  name                                 String
-  legalName                            String?
-  status                               TenantStatus                          @default(PROVISIONING)
-  countryCode                          String?
-  defaultLocale                        String                                @default("en-US")
-  defaultTimeZone                      String                                @default("UTC")
-  currencyPolicyMode                   CurrencyPolicyMode                    @default(USD_ONLY)
-  baseCurrencyCode                     String                                @default("USD")
-  localDisplayCurrency                 String?
-  usdReportingEnabled                  Boolean                               @default(true)
-  memberships                          Membership[]
-  legalEntities                        LegalEntity[]
-  sites                                Site[]
-  departments                          Department[]
-  exchangeRates                        ExchangeRate[]
-  auditEvents                          AuditEvent[]
-  aiAgents                             AiAgent[]
-  purchaseRequests                     PurchaseRequest[]
-  purchaseOrders                       PurchaseOrder[]
-  receipts                             ProcurementReceipt[]
-  supplierInvoices                     SupplierInvoice[]
-  suppliers                            Supplier[]
-  sourcingEvents                       SourcingEvent[]
-  paymentBatches                       PaymentBatch[]
-  integrations                         IntegrationConnection[]
-  workflowDefinitions                  WorkflowDefinition[]
-  workflowInstances                    WorkflowInstance[]
-  workflowDelegations                  WorkflowDelegation[]
-  workflowNotifications                WorkflowNotification[]
-  apiClients                           ApiClient[]
-  accessReviewCampaigns                AccessReviewCampaign[]
-  sodRules                             SodRule[]
-  sodViolations                        SodViolation[]
-  supplierScorecards                   SupplierScorecard[]
-  supplierDevelopmentPlans             SupplierDevelopmentPlan[]
-  supplierCorrectiveActions            SupplierCorrectiveAction[]
-  procurementPlans                     ProcurementPlan[]
-  categoryStrategies                   CategoryStrategy[]
-  savingsInitiatives                   SavingsInitiative[]
-  procurementReviews                   ProcurementReview[]
-  procurementPolicies                  ProcurementPolicy[]
-  procurementComplianceTests           ProcurementComplianceTest[]
-  procurementRemediations              ProcurementRemediation[]
-  supplyRiskEvents                     SupplyRiskEvent[]
-  resiliencePlans                      ResiliencePlan[]
-  procurementCatalogs                  ProcurementCatalog[]
-  guidedCarts                          GuidedCart[]
-  inventoryLocations                   InventoryLocation[]
-  inventoryItems                       InventoryItem[]
-  inventoryTransactions                InventoryTransaction[]
-  cycleCounts                          CycleCount[]
-  statementsOfWork                     StatementOfWork[]
-  serviceWorkers                       ServiceWorker[]
-  serviceTimeEntries                   ServiceTimeEntry[]
-  demandPlans                          DemandPlan[]
-  replenishmentRecommendations         ReplenishmentRecommendation[]
-  logisticsCarriers                    LogisticsCarrier[]
-  logisticsShipments                   LogisticsShipment[]
-  supplierClaims                       SupplierClaim[]
-  procurementAssets                    ProcurementAsset[]
-  supplierEsgProfiles                  SupplierEsgProfile[]
-  procurementValueInitiatives          ProcurementValueInitiative[]
-  supplierPortalInvitations            SupplierPortalInvitation[]
-  supplierPortalUsers                  SupplierPortalUser[]
-  supplierOnboardingQuestionnaires     SupplierOnboardingQuestionnaire[]
-  supplierPortalTasks                  SupplierPortalTask[]
-  supplierPortalMessages               SupplierPortalMessage[]
-  subscriptions                        TenantSubscription[]
-  entitlements                         TenantEntitlement[]
-  usageCounters                        UsageCounter[]
-  configurationProfile                 TenantConfiguration?
-  platformJobExecutions                PlatformJobExecution[]
-  platformEvents                       PlatformEvent[]
-  platformEventSubscriptions           PlatformEventSubscription[]
-  enterpriseConnectorConnections       EnterpriseConnectorConnection[]
-  vaultSecrets                         VaultSecret[]
-  enterpriseNotificationTemplates      EnterpriseNotificationTemplate[]
-  enterpriseNotificationPreferences    EnterpriseNotificationPreference[]
-  enterpriseNotifications              EnterpriseNotification[]
-  enterpriseActivities                 EnterpriseActivity[]
-  enterprisePolicies                   EnterpriseTenantPolicy[]
-  enterpriseFeatureFlags               EnterpriseTenantFeatureFlag[]
-  platformCertificationRuns            PlatformCertificationRun[]
-  requisitionOrderJourneys             RequisitionOrderJourney[]
-  requisitionSubmissionAssessments     RequisitionSubmissionAssessment[]
-  requisitionApprovalRoutes            RequisitionApprovalRoute[]
-  purchaseOrderExecutions              PurchaseOrderExecution[]
-  goodsReceiptSessions                 GoodsReceiptSession[]
-  threeWayMatchCases                   ThreeWayMatchCase[]
-  apPaymentReadinessCases              ApPaymentReadinessCase[]
-  procurementProcessCertifications     ProcurementProcessCertification[]
-  inventoryMovementLedgers             InventoryMovementLedger[]
-  inventoryAvailabilitySnapshots       InventoryAvailabilitySnapshot[]
-  inventoryReservations                InventoryReservation[]
-  inventoryOperationExceptions         InventoryOperationException[]
-  warehouseReceivingSessions           WarehouseReceivingSession[]
-  warehouseLocationControls            WarehouseLocationControl[]
-  putawayTasks                         PutawayTask[]
-  warehouseDiscrepancies               WarehouseDiscrepancy[]
-  warehouseFulfillmentOrders           WarehouseFulfillmentOrder[]
-  warehousePickTasks                   WarehousePickTask[]
-  warehousePackages                    WarehousePackage[]
-  warehouseFulfillmentExceptions       WarehouseFulfillmentException[]
-  inventoryCountSessions               InventoryCountSession[]
-  inventoryReconciliations             InventoryReconciliation[]
-  inventoryTraceUnits                  InventoryTraceUnit[]
-  inventoryTraceEvents                 InventoryTraceEvent[]
-  inventoryTraceHolds                  InventoryTraceHold[]
-  replenishmentPolicies                ReplenishmentPolicy[]
-  stockTransferOrders                  StockTransferOrder[]
-  stockTransferExceptions              StockTransferException[]
-  inventoryFinancialValuationPolicies  InventoryFinancialValuationPolicy[]
-  inventoryFinancialCostLayers         InventoryFinancialCostLayer[]
-  inventoryFinancialValuationSnapshots InventoryFinancialValuationSnapshot[]
-  inventoryFinancialReconciliations    InventoryFinancialReconciliation[]
-  createdAt                            DateTime                              @default(now())
-  updatedAt                            DateTime                              @updatedAt
-  archivedAt                           DateTime?
-  contracts                            Contract[]
-  clauseTemplates                      ClauseTemplate[]
-  aiAgentTasks                         AiAgentTask[]
-  stockReplenishmentRecommendations    StockReplenishmentRecommendation[]
+  id                                     String                                  @id @default(cuid())
+  slug                                   String                                  @unique
+  name                                   String
+  legalName                              String?
+  status                                 TenantStatus                            @default(PROVISIONING)
+  countryCode                            String?
+  defaultLocale                          String                                  @default("en-US")
+  defaultTimeZone                        String                                  @default("UTC")
+  currencyPolicyMode                     CurrencyPolicyMode                      @default(USD_ONLY)
+  baseCurrencyCode                       String                                  @default("USD")
+  localDisplayCurrency                   String?
+  usdReportingEnabled                    Boolean                                 @default(true)
+  memberships                            Membership[]
+  legalEntities                          LegalEntity[]
+  sites                                  Site[]
+  departments                            Department[]
+  exchangeRates                          ExchangeRate[]
+  auditEvents                            AuditEvent[]
+  aiAgents                               AiAgent[]
+  purchaseRequests                       PurchaseRequest[]
+  purchaseOrders                         PurchaseOrder[]
+  receipts                               ProcurementReceipt[]
+  supplierInvoices                       SupplierInvoice[]
+  suppliers                              Supplier[]
+  sourcingEvents                         SourcingEvent[]
+  paymentBatches                         PaymentBatch[]
+  integrations                           IntegrationConnection[]
+  workflowDefinitions                    WorkflowDefinition[]
+  workflowInstances                      WorkflowInstance[]
+  workflowDelegations                    WorkflowDelegation[]
+  workflowNotifications                  WorkflowNotification[]
+  apiClients                             ApiClient[]
+  accessReviewCampaigns                  AccessReviewCampaign[]
+  sodRules                               SodRule[]
+  sodViolations                          SodViolation[]
+  supplierScorecards                     SupplierScorecard[]
+  supplierDevelopmentPlans               SupplierDevelopmentPlan[]
+  supplierCorrectiveActions              SupplierCorrectiveAction[]
+  procurementPlans                       ProcurementPlan[]
+  categoryStrategies                     CategoryStrategy[]
+  savingsInitiatives                     SavingsInitiative[]
+  procurementReviews                     ProcurementReview[]
+  procurementPolicies                    ProcurementPolicy[]
+  procurementComplianceTests             ProcurementComplianceTest[]
+  procurementRemediations                ProcurementRemediation[]
+  supplyRiskEvents                       SupplyRiskEvent[]
+  resiliencePlans                        ResiliencePlan[]
+  procurementCatalogs                    ProcurementCatalog[]
+  guidedCarts                            GuidedCart[]
+  inventoryLocations                     InventoryLocation[]
+  inventoryItems                         InventoryItem[]
+  inventoryTransactions                  InventoryTransaction[]
+  cycleCounts                            CycleCount[]
+  statementsOfWork                       StatementOfWork[]
+  serviceWorkers                         ServiceWorker[]
+  serviceTimeEntries                     ServiceTimeEntry[]
+  demandPlans                            DemandPlan[]
+  replenishmentRecommendations           ReplenishmentRecommendation[]
+  logisticsCarriers                      LogisticsCarrier[]
+  logisticsShipments                     LogisticsShipment[]
+  supplierClaims                         SupplierClaim[]
+  procurementAssets                      ProcurementAsset[]
+  supplierEsgProfiles                    SupplierEsgProfile[]
+  procurementValueInitiatives            ProcurementValueInitiative[]
+  supplierPortalInvitations              SupplierPortalInvitation[]
+  supplierPortalUsers                    SupplierPortalUser[]
+  supplierOnboardingQuestionnaires       SupplierOnboardingQuestionnaire[]
+  supplierPortalTasks                    SupplierPortalTask[]
+  supplierPortalMessages                 SupplierPortalMessage[]
+  subscriptions                          TenantSubscription[]
+  entitlements                           TenantEntitlement[]
+  usageCounters                          UsageCounter[]
+  configurationProfile                   TenantConfiguration?
+  platformJobExecutions                  PlatformJobExecution[]
+  platformEvents                         PlatformEvent[]
+  platformEventSubscriptions             PlatformEventSubscription[]
+  enterpriseConnectorConnections         EnterpriseConnectorConnection[]
+  vaultSecrets                           VaultSecret[]
+  enterpriseNotificationTemplates        EnterpriseNotificationTemplate[]
+  enterpriseNotificationPreferences      EnterpriseNotificationPreference[]
+  enterpriseNotifications                EnterpriseNotification[]
+  enterpriseActivities                   EnterpriseActivity[]
+  enterprisePolicies                     EnterpriseTenantPolicy[]
+  enterpriseFeatureFlags                 EnterpriseTenantFeatureFlag[]
+  platformCertificationRuns              PlatformCertificationRun[]
+  requisitionOrderJourneys               RequisitionOrderJourney[]
+  requisitionSubmissionAssessments       RequisitionSubmissionAssessment[]
+  requisitionApprovalRoutes              RequisitionApprovalRoute[]
+  purchaseOrderExecutions                PurchaseOrderExecution[]
+  goodsReceiptSessions                   GoodsReceiptSession[]
+  threeWayMatchCases                     ThreeWayMatchCase[]
+  apPaymentReadinessCases                ApPaymentReadinessCase[]
+  procurementProcessCertifications       ProcurementProcessCertification[]
+  inventoryMovementLedgers               InventoryMovementLedger[]
+  inventoryAvailabilitySnapshots         InventoryAvailabilitySnapshot[]
+  inventoryReservations                  InventoryReservation[]
+  inventoryOperationExceptions           InventoryOperationException[]
+  warehouseReceivingSessions             WarehouseReceivingSession[]
+  warehouseLocationControls              WarehouseLocationControl[]
+  putawayTasks                           PutawayTask[]
+  warehouseDiscrepancies                 WarehouseDiscrepancy[]
+  warehouseFulfillmentOrders             WarehouseFulfillmentOrder[]
+  warehousePickTasks                     WarehousePickTask[]
+  warehousePackages                      WarehousePackage[]
+  warehouseFulfillmentExceptions         WarehouseFulfillmentException[]
+  inventoryCountSessions                 InventoryCountSession[]
+  inventoryReconciliations               InventoryReconciliation[]
+  inventoryTraceUnits                    InventoryTraceUnit[]
+  inventoryTraceEvents                   InventoryTraceEvent[]
+  inventoryTraceHolds                    InventoryTraceHold[]
+  replenishmentPolicies                  ReplenishmentPolicy[]
+  stockTransferOrders                    StockTransferOrder[]
+  stockTransferExceptions                StockTransferException[]
+  inventoryFinancialValuationPolicies    InventoryFinancialValuationPolicy[]
+  inventoryFinancialCostLayers           InventoryFinancialCostLayer[]
+  inventoryFinancialValuationSnapshots   InventoryFinancialValuationSnapshot[]
+  inventoryFinancialReconciliations      InventoryFinancialReconciliation[]
+  enterpriseAnalyticsMetricDefinitions   EnterpriseAnalyticsMetricDefinition[]
+  enterpriseAnalyticsMetricSnapshots     EnterpriseAnalyticsMetricSnapshot[]
+  enterpriseAnalyticsAggregationRuns     EnterpriseAnalyticsAggregationRun[]
+  enterpriseAnalyticsAggregationFailures EnterpriseAnalyticsAggregationFailure[]
+  createdAt                              DateTime                                @default(now())
+  updatedAt                              DateTime                                @updatedAt
+  archivedAt                             DateTime?
+  contracts                              Contract[]
+  clauseTemplates                        ClauseTemplate[]
+  aiAgentTasks                           AiAgentTask[]
+  stockReplenishmentRecommendations      StockReplenishmentRecommendation[]
 
   @@index([status])
   @@index([countryCode])
@@ -7376,4 +7425,110 @@ model InventoryFinancialReconciliation {
   @@unique([tenantId, reconciliationNumber])
   @@index([tenantId, status, createdAt])
   @@index([inventoryItemId, locationId])
+}
+
+model EnterpriseAnalyticsMetricDefinition {
+  id                 String                              @id @default(cuid())
+  tenantId           String?
+  metricKey          String
+  name               String
+  description        String?
+  domain             String
+  category           String?
+  metricType         EnterpriseAnalyticsMetricType
+  unit               String?
+  currencyCode       String?
+  targetValue        Decimal?                            @db.Decimal(24, 8)
+  warningThreshold   Decimal?                            @db.Decimal(24, 8)
+  criticalThreshold  Decimal?                            @db.Decimal(24, 8)
+  higherIsBetter     Boolean                             @default(true)
+  calculationVersion String                              @default("1.0")
+  sourceModule       String?
+  drilldownPath      String?
+  active             Boolean                             @default(true)
+  metadata           Json?
+  tenant             Tenant?                             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  snapshots          EnterpriseAnalyticsMetricSnapshot[]
+  createdAt          DateTime                            @default(now())
+  updatedAt          DateTime                            @updatedAt
+
+  @@unique([tenantId, metricKey])
+  @@index([domain, category, active])
+  @@index([tenantId, active])
+}
+
+model EnterpriseAnalyticsMetricSnapshot {
+  id                 String                              @id @default(cuid())
+  tenantId           String
+  metricDefinitionId String
+  periodType         EnterpriseAnalyticsPeriodType
+  periodStart        DateTime
+  periodEnd          DateTime
+  numericValue       Decimal                             @db.Decimal(24, 8)
+  previousValue      Decimal?                            @db.Decimal(24, 8)
+  targetValue        Decimal?                            @db.Decimal(24, 8)
+  varianceValue      Decimal?                            @db.Decimal(24, 8)
+  variancePercent    Decimal?                            @db.Decimal(18, 6)
+  trendDirection     EnterpriseAnalyticsTrendDirection   @default(NOT_AVAILABLE)
+  healthStatus       EnterpriseAnalyticsHealthStatus     @default(NOT_AVAILABLE)
+  dimensionKey       String                              @default("ALL")
+  dimensions         Json?
+  calculationVersion String
+  sourceRecordCount  Int                                 @default(0)
+  calculatedAt       DateTime                            @default(now())
+  aggregationRunId   String?
+  tenant             Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  metricDefinition   EnterpriseAnalyticsMetricDefinition @relation(fields: [metricDefinitionId], references: [id], onDelete: Cascade)
+  aggregationRun     EnterpriseAnalyticsAggregationRun?  @relation(fields: [aggregationRunId], references: [id], onDelete: SetNull)
+  createdAt          DateTime                            @default(now())
+
+  @@unique([tenantId, metricDefinitionId, periodType, periodStart, dimensionKey])
+  @@index([tenantId, periodType, periodStart])
+  @@index([metricDefinitionId, calculatedAt])
+  @@index([healthStatus, calculatedAt])
+}
+
+model EnterpriseAnalyticsAggregationRun {
+  id                String                                  @id @default(cuid())
+  tenantId          String
+  runNumber         String
+  scope             String
+  status            EnterpriseAnalyticsRunStatus            @default(PENDING)
+  periodType        EnterpriseAnalyticsPeriodType
+  periodStart       DateTime
+  periodEnd         DateTime
+  startedAt         DateTime?
+  completedAt       DateTime?
+  initiatedByUserId String?
+  metricsRequested  Int                                     @default(0)
+  metricsCalculated Int                                     @default(0)
+  warningCount      Int                                     @default(0)
+  failureCount      Int                                     @default(0)
+  summary           Json?
+  tenant            Tenant                                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  snapshots         EnterpriseAnalyticsMetricSnapshot[]
+  failures          EnterpriseAnalyticsAggregationFailure[]
+  createdAt         DateTime                                @default(now())
+  updatedAt         DateTime                                @updatedAt
+
+  @@unique([tenantId, runNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([periodType, periodStart])
+}
+
+model EnterpriseAnalyticsAggregationFailure {
+  id               String                            @id @default(cuid())
+  tenantId         String
+  aggregationRunId String
+  metricKey        String?
+  sourceModule     String?
+  severity         RequisitionOrderExceptionSeverity @default(MEDIUM)
+  message          String
+  details          Json?
+  aggregationRun   EnterpriseAnalyticsAggregationRun @relation(fields: [aggregationRunId], references: [id], onDelete: Cascade)
+  tenant           Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt        DateTime                          @default(now())
+
+  @@index([tenantId, createdAt])
+  @@index([aggregationRunId])
 }

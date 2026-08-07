@@ -610,7 +610,11 @@ export const ModelName = {
   InventoryFinancialValuationPolicy: 'InventoryFinancialValuationPolicy',
   InventoryFinancialCostLayer: 'InventoryFinancialCostLayer',
   InventoryFinancialValuationSnapshot: 'InventoryFinancialValuationSnapshot',
-  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation'
+  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation',
+  EnterpriseAnalyticsMetricDefinition: 'EnterpriseAnalyticsMetricDefinition',
+  EnterpriseAnalyticsMetricSnapshot: 'EnterpriseAnalyticsMetricSnapshot',
+  EnterpriseAnalyticsAggregationRun: 'EnterpriseAnalyticsAggregationRun',
+  EnterpriseAnalyticsAggregationFailure: 'EnterpriseAnalyticsAggregationFailure'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -626,7 +630,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -16466,6 +16470,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EnterpriseAnalyticsMetricDefinition: {
+      payload: Prisma.$EnterpriseAnalyticsMetricDefinitionPayload<ExtArgs>
+      fields: Prisma.EnterpriseAnalyticsMetricDefinitionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricDefinitionPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAnalyticsMetricDefinition>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsMetricDefinitionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAnalyticsMetricDefinitionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsMetricDefinitionCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseAnalyticsMetricSnapshot: {
+      payload: Prisma.$EnterpriseAnalyticsMetricSnapshotPayload<ExtArgs>
+      fields: Prisma.EnterpriseAnalyticsMetricSnapshotFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsMetricSnapshotPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAnalyticsMetricSnapshot>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsMetricSnapshotGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAnalyticsMetricSnapshotCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsMetricSnapshotCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseAnalyticsAggregationRun: {
+      payload: Prisma.$EnterpriseAnalyticsAggregationRunPayload<ExtArgs>
+      fields: Prisma.EnterpriseAnalyticsAggregationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAnalyticsAggregationRun>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsAggregationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAnalyticsAggregationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsAggregationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterpriseAnalyticsAggregationFailure: {
+      payload: Prisma.$EnterpriseAnalyticsAggregationFailurePayload<ExtArgs>
+      fields: Prisma.EnterpriseAnalyticsAggregationFailureFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        findFirst: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        findMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>[]
+        }
+        create: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        createMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>[]
+        }
+        delete: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        update: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterpriseAnalyticsAggregationFailurePayload>
+        }
+        aggregate: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterpriseAnalyticsAggregationFailure>
+        }
+        groupBy: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsAggregationFailureGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterpriseAnalyticsAggregationFailureCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterpriseAnalyticsAggregationFailureCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -21133,6 +21433,98 @@ export const InventoryFinancialReconciliationScalarFieldEnum = {
 export type InventoryFinancialReconciliationScalarFieldEnum = (typeof InventoryFinancialReconciliationScalarFieldEnum)[keyof typeof InventoryFinancialReconciliationScalarFieldEnum]
 
 
+export const EnterpriseAnalyticsMetricDefinitionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  metricKey: 'metricKey',
+  name: 'name',
+  description: 'description',
+  domain: 'domain',
+  category: 'category',
+  metricType: 'metricType',
+  unit: 'unit',
+  currencyCode: 'currencyCode',
+  targetValue: 'targetValue',
+  warningThreshold: 'warningThreshold',
+  criticalThreshold: 'criticalThreshold',
+  higherIsBetter: 'higherIsBetter',
+  calculationVersion: 'calculationVersion',
+  sourceModule: 'sourceModule',
+  drilldownPath: 'drilldownPath',
+  active: 'active',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAnalyticsMetricDefinitionScalarFieldEnum = (typeof EnterpriseAnalyticsMetricDefinitionScalarFieldEnum)[keyof typeof EnterpriseAnalyticsMetricDefinitionScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsMetricSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  metricDefinitionId: 'metricDefinitionId',
+  periodType: 'periodType',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  numericValue: 'numericValue',
+  previousValue: 'previousValue',
+  targetValue: 'targetValue',
+  varianceValue: 'varianceValue',
+  variancePercent: 'variancePercent',
+  trendDirection: 'trendDirection',
+  healthStatus: 'healthStatus',
+  dimensionKey: 'dimensionKey',
+  dimensions: 'dimensions',
+  calculationVersion: 'calculationVersion',
+  sourceRecordCount: 'sourceRecordCount',
+  calculatedAt: 'calculatedAt',
+  aggregationRunId: 'aggregationRunId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAnalyticsMetricSnapshotScalarFieldEnum = (typeof EnterpriseAnalyticsMetricSnapshotScalarFieldEnum)[keyof typeof EnterpriseAnalyticsMetricSnapshotScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsAggregationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  runNumber: 'runNumber',
+  scope: 'scope',
+  status: 'status',
+  periodType: 'periodType',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  initiatedByUserId: 'initiatedByUserId',
+  metricsRequested: 'metricsRequested',
+  metricsCalculated: 'metricsCalculated',
+  warningCount: 'warningCount',
+  failureCount: 'failureCount',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAnalyticsAggregationRunScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationRunScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationRunScalarFieldEnum]
+
+
+export const EnterpriseAnalyticsAggregationFailureScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  aggregationRunId: 'aggregationRunId',
+  metricKey: 'metricKey',
+  sourceModule: 'sourceModule',
+  severity: 'severity',
+  message: 'message',
+  details: 'details',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAnalyticsAggregationFailureScalarFieldEnum = (typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum)[keyof typeof EnterpriseAnalyticsAggregationFailureScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -24709,6 +25101,76 @@ export type ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaM
 
 
 /**
+ * Reference to a field of type 'EnterpriseAnalyticsMetricType'
+ */
+export type EnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsMetricType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsMetricType[]'
+ */
+export type ListEnumEnterpriseAnalyticsMetricTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsMetricType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsPeriodType'
+ */
+export type EnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsPeriodType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsPeriodType[]'
+ */
+export type ListEnumEnterpriseAnalyticsPeriodTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsPeriodType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsTrendDirection'
+ */
+export type EnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsTrendDirection'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsTrendDirection[]'
+ */
+export type ListEnumEnterpriseAnalyticsTrendDirectionFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsTrendDirection[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsHealthStatus'
+ */
+export type EnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsHealthStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsHealthStatus[]'
+ */
+export type ListEnumEnterpriseAnalyticsHealthStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsHealthStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsRunStatus'
+ */
+export type EnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsRunStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAnalyticsRunStatus[]'
+ */
+export type ListEnumEnterpriseAnalyticsRunStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAnalyticsRunStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -25086,6 +25548,10 @@ export type GlobalOmitConfig = {
   inventoryFinancialCostLayer?: Prisma.InventoryFinancialCostLayerOmit
   inventoryFinancialValuationSnapshot?: Prisma.InventoryFinancialValuationSnapshotOmit
   inventoryFinancialReconciliation?: Prisma.InventoryFinancialReconciliationOmit
+  enterpriseAnalyticsMetricDefinition?: Prisma.EnterpriseAnalyticsMetricDefinitionOmit
+  enterpriseAnalyticsMetricSnapshot?: Prisma.EnterpriseAnalyticsMetricSnapshotOmit
+  enterpriseAnalyticsAggregationRun?: Prisma.EnterpriseAnalyticsAggregationRunOmit
+  enterpriseAnalyticsAggregationFailure?: Prisma.EnterpriseAnalyticsAggregationFailureOmit
 }
 
 /* Types for Logging */

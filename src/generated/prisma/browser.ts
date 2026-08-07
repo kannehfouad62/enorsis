@@ -1087,3 +1087,23 @@ export type InventoryFinancialValuationSnapshot = Prisma.InventoryFinancialValua
  * 
  */
 export type InventoryFinancialReconciliation = Prisma.InventoryFinancialReconciliationModel
+/**
+ * Model EnterpriseAnalyticsMetricDefinition
+ * 
+ */
+export type EnterpriseAnalyticsMetricDefinition = Prisma.EnterpriseAnalyticsMetricDefinitionModel
+/**
+ * Model EnterpriseAnalyticsMetricSnapshot
+ * 
+ */
+export type EnterpriseAnalyticsMetricSnapshot = Prisma.EnterpriseAnalyticsMetricSnapshotModel
+/**
+ * Model EnterpriseAnalyticsAggregationRun
+ * 
+ */
+export type EnterpriseAnalyticsAggregationRun = Prisma.EnterpriseAnalyticsAggregationRunModel
+/**
+ * Model EnterpriseAnalyticsAggregationFailure
+ * 
+ */
+export type EnterpriseAnalyticsAggregationFailure = Prisma.EnterpriseAnalyticsAggregationFailureModel

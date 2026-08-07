@@ -527,6 +527,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Analytics Foundation",
+    description: "Governed KPI registry, snapshots and aggregation runs.",
+    href: "/app/executive/analytics-foundation",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
