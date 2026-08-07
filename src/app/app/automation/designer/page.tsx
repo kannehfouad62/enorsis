@@ -36,12 +36,24 @@ export default async function AutomationDesignerPage({
             using triggers, nested condition logic and reusable actions.
           </p>
         </div>
-        <Link
-          href="/app/automation"
-          className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
-        >
-          Automation Dashboard
-        </Link>
+        <div className="flex gap-3">
+          <Link
+            href={
+              data.selected
+                ? `/app/automation/canvas?ruleId=${data.selected.id}`
+                : "/app/automation/canvas"
+            }
+            className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+          >
+            Visual Canvas
+          </Link>
+          <Link
+            href="/app/automation"
+            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
+          >
+            Automation Dashboard
+          </Link>
+        </div>
       </div>
 
       <div className="mt-8 grid gap-6 xl:grid-cols-[280px_1fr]">
