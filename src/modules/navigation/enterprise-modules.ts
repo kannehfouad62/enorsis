@@ -607,6 +607,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Executive Board Reporting",
+    description: "Governed CEO, CFO, COO, CPO and board-pack generation.",
+    href: "/app/executive/board-reporting",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

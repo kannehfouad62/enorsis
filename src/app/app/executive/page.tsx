@@ -158,6 +158,7 @@ export default async function ExecutiveDashboardPage() {
             ["/app/executive/kpis", "Enterprise KPI Engine"],
             ["/app/executive/ai-intelligence", "Governed Executive AI"],
             ["/app/executive/ai-briefing", "Executive AI Briefing"],
+            ["/app/executive/board-reporting", "Executive Board Reporting"],
           ].map(([href, label]) => (
             <Link
               key={href}

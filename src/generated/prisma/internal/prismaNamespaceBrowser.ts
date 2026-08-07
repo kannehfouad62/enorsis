@@ -277,7 +277,9 @@ export const ModelName = {
   GovernedExecutiveInsightApprovalDecision: 'GovernedExecutiveInsightApprovalDecision',
   GovernedExecutiveInsightApprovalAuditEvent: 'GovernedExecutiveInsightApprovalAuditEvent',
   ExecutiveSynthesisRun: 'ExecutiveSynthesisRun',
-  ExecutiveSynthesis: 'ExecutiveSynthesis'
+  ExecutiveSynthesis: 'ExecutiveSynthesis',
+  ExecutiveBoardPackDefinition: 'ExecutiveBoardPackDefinition',
+  ExecutiveBoardPack: 'ExecutiveBoardPack'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5183,6 +5185,55 @@ export const ExecutiveSynthesisScalarFieldEnum = {
 } as const
 
 export type ExecutiveSynthesisScalarFieldEnum = (typeof ExecutiveSynthesisScalarFieldEnum)[keyof typeof ExecutiveSynthesisScalarFieldEnum]
+
+
+export const ExecutiveBoardPackDefinitionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  definitionKey: 'definitionKey',
+  name: 'name',
+  description: 'description',
+  packType: 'packType',
+  active: 'active',
+  defaultPeriodType: 'defaultPeriodType',
+  includeAiSynthesis: 'includeAiSynthesis',
+  includeGovernance: 'includeGovernance',
+  includeKpis: 'includeKpis',
+  includeRisks: 'includeRisks',
+  includeOpportunities: 'includeOpportunities',
+  sectionConfiguration: 'sectionConfiguration',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardPackDefinitionScalarFieldEnum = (typeof ExecutiveBoardPackDefinitionScalarFieldEnum)[keyof typeof ExecutiveBoardPackDefinitionScalarFieldEnum]
+
+
+export const ExecutiveBoardPackScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  definitionId: 'definitionId',
+  packNumber: 'packNumber',
+  title: 'title',
+  packType: 'packType',
+  status: 'status',
+  periodType: 'periodType',
+  periodStart: 'periodStart',
+  periodEnd: 'periodEnd',
+  generatedAt: 'generatedAt',
+  generatedByUserId: 'generatedByUserId',
+  finalizedAt: 'finalizedAt',
+  finalizedByUserId: 'finalizedByUserId',
+  executiveSummary: 'executiveSummary',
+  sourceSnapshot: 'sourceSnapshot',
+  sectionSnapshot: 'sectionSnapshot',
+  governanceSnapshot: 'governanceSnapshot',
+  sourceFingerprint: 'sourceFingerprint',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardPackScalarFieldEnum = (typeof ExecutiveBoardPackScalarFieldEnum)[keyof typeof ExecutiveBoardPackScalarFieldEnum]
 
 
 export const SortOrder = {

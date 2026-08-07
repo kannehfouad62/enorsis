@@ -1176,3 +1176,13 @@ export type ExecutiveSynthesisRun = Prisma.ExecutiveSynthesisRunModel
  * 
  */
 export type ExecutiveSynthesis = Prisma.ExecutiveSynthesisModel
+/**
+ * Model ExecutiveBoardPackDefinition
+ * 
+ */
+export type ExecutiveBoardPackDefinition = Prisma.ExecutiveBoardPackDefinitionModel
+/**
+ * Model ExecutiveBoardPack
+ * 
+ */
+export type ExecutiveBoardPack = Prisma.ExecutiveBoardPackModel

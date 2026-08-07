@@ -380,6 +380,8 @@ export type TenantWhereInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventListRelationFilter
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunListRelationFilter
   executiveSyntheses?: Prisma.ExecutiveSynthesisListRelationFilter
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionListRelationFilter
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -520,6 +522,8 @@ export type TenantOrderByWithRelationInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventOrderByRelationAggregateInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunOrderByRelationAggregateInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisOrderByRelationAggregateInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionOrderByRelationAggregateInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackOrderByRelationAggregateInput
   contracts?: Prisma.ContractOrderByRelationAggregateInput
   clauseTemplates?: Prisma.ClauseTemplateOrderByRelationAggregateInput
   aiAgentTasks?: Prisma.AiAgentTaskOrderByRelationAggregateInput
@@ -663,6 +667,8 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventListRelationFilter
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunListRelationFilter
   executiveSyntheses?: Prisma.ExecutiveSynthesisListRelationFilter
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionListRelationFilter
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackListRelationFilter
   contracts?: Prisma.ContractListRelationFilter
   clauseTemplates?: Prisma.ClauseTemplateListRelationFilter
   aiAgentTasks?: Prisma.AiAgentTaskListRelationFilter
@@ -845,6 +851,8 @@ export type TenantCreateInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -985,6 +993,8 @@ export type TenantUncheckedCreateInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -1125,6 +1135,8 @@ export type TenantUpdateInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -1265,6 +1277,8 @@ export type TenantUncheckedUpdateInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3121,6 +3135,34 @@ export type TenantUpdateOneRequiredWithoutExecutiveSynthesesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutExecutiveSynthesesInput, Prisma.TenantUpdateWithoutExecutiveSynthesesInput>, Prisma.TenantUncheckedUpdateWithoutExecutiveSynthesesInput>
 }
 
+export type TenantCreateNestedOneWithoutExecutiveBoardPackDefinitionsInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutExecutiveBoardPackDefinitionsInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutExecutiveBoardPackDefinitionsNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutExecutiveBoardPackDefinitionsInput
+  upsert?: Prisma.TenantUpsertWithoutExecutiveBoardPackDefinitionsInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUpdateWithoutExecutiveBoardPackDefinitionsInput>, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPackDefinitionsInput>
+}
+
+export type TenantCreateNestedOneWithoutExecutiveBoardPacksInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPacksInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutExecutiveBoardPacksInput
+  connect?: Prisma.TenantWhereUniqueInput
+}
+
+export type TenantUpdateOneRequiredWithoutExecutiveBoardPacksNestedInput = {
+  create?: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPacksInput>
+  connectOrCreate?: Prisma.TenantCreateOrConnectWithoutExecutiveBoardPacksInput
+  upsert?: Prisma.TenantUpsertWithoutExecutiveBoardPacksInput
+  connect?: Prisma.TenantWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TenantUpdateToOneWithWhereWithoutExecutiveBoardPacksInput, Prisma.TenantUpdateWithoutExecutiveBoardPacksInput>, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPacksInput>
+}
+
 export type TenantCreateWithoutMembershipsInput = {
   id?: string
   slug: string
@@ -3254,6 +3296,8 @@ export type TenantCreateWithoutMembershipsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3393,6 +3437,8 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -3548,6 +3594,8 @@ export type TenantUpdateWithoutMembershipsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -3687,6 +3735,8 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -3826,6 +3876,8 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -3965,6 +4017,8 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4120,6 +4174,8 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4259,6 +4315,8 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4398,6 +4456,8 @@ export type TenantCreateWithoutSitesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -4537,6 +4597,8 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -4692,6 +4754,8 @@ export type TenantUpdateWithoutSitesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -4831,6 +4895,8 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -4970,6 +5036,8 @@ export type TenantCreateWithoutDepartmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5109,6 +5177,8 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5264,6 +5334,8 @@ export type TenantUpdateWithoutDepartmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5403,6 +5475,8 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -5542,6 +5616,8 @@ export type TenantCreateWithoutExchangeRatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -5681,6 +5757,8 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -5836,6 +5914,8 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -5975,6 +6055,8 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6114,6 +6196,8 @@ export type TenantCreateWithoutAuditEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6253,6 +6337,8 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6408,6 +6494,8 @@ export type TenantUpdateWithoutAuditEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -6547,6 +6635,8 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -6686,6 +6776,8 @@ export type TenantCreateWithoutAiAgentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -6825,6 +6917,8 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -6980,6 +7074,8 @@ export type TenantUpdateWithoutAiAgentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7119,6 +7215,8 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7258,6 +7356,8 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7397,6 +7497,8 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -7552,6 +7654,8 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -7691,6 +7795,8 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -7830,6 +7936,8 @@ export type TenantCreateWithoutSuppliersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -7969,6 +8077,8 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8124,6 +8234,8 @@ export type TenantUpdateWithoutSuppliersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8263,6 +8375,8 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8402,6 +8516,8 @@ export type TenantCreateWithoutSourcingEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -8541,6 +8657,8 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -8696,6 +8814,8 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -8835,6 +8955,8 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -8975,6 +9097,8 @@ export type TenantCreateWithoutContractsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationCreateNestedManyWithoutTenantInput
@@ -9114,6 +9238,8 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
@@ -9269,6 +9395,8 @@ export type TenantUpdateWithoutContractsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
@@ -9408,6 +9536,8 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
@@ -9547,6 +9677,8 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationCreateNestedManyWithoutTenantInput
@@ -9686,6 +9818,8 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
@@ -9841,6 +9975,8 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
@@ -9980,6 +10116,8 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
@@ -10118,6 +10256,8 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10257,6 +10397,8 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10412,6 +10554,8 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -10551,6 +10695,8 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -10690,6 +10836,8 @@ export type TenantCreateWithoutReceiptsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -10829,6 +10977,8 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -10984,6 +11134,8 @@ export type TenantUpdateWithoutReceiptsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11123,6 +11275,8 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11262,6 +11416,8 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11401,6 +11557,8 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -11556,6 +11714,8 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -11695,6 +11855,8 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -11834,6 +11996,8 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -11973,6 +12137,8 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -12128,6 +12294,8 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -12267,6 +12435,8 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -12407,6 +12577,8 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationCreateNestedManyWithoutTenantInput
@@ -12546,6 +12718,8 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
@@ -12701,6 +12875,8 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
@@ -12840,6 +13016,8 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
@@ -12978,6 +13156,8 @@ export type TenantCreateWithoutIntegrationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13117,6 +13297,8 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13272,6 +13454,8 @@ export type TenantUpdateWithoutIntegrationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13411,6 +13595,8 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -13550,6 +13736,8 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -13689,6 +13877,8 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -13844,6 +14034,8 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -13983,6 +14175,8 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14122,6 +14316,8 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14261,6 +14457,8 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14416,6 +14614,8 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -14555,6 +14755,8 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -14694,6 +14896,8 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -14833,6 +15037,8 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -14988,6 +15194,8 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15127,6 +15335,8 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15266,6 +15476,8 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15405,6 +15617,8 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -15560,6 +15774,8 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -15699,6 +15915,8 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -15838,6 +16056,8 @@ export type TenantCreateWithoutApiClientsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -15977,6 +16197,8 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16132,6 +16354,8 @@ export type TenantUpdateWithoutApiClientsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16271,6 +16495,8 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16410,6 +16636,8 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -16549,6 +16777,8 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -16704,6 +16934,8 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -16843,6 +17075,8 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -16982,6 +17216,8 @@ export type TenantCreateWithoutSodRulesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17121,6 +17357,8 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17276,6 +17514,8 @@ export type TenantUpdateWithoutSodRulesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17415,6 +17655,8 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -17554,6 +17796,8 @@ export type TenantCreateWithoutSodViolationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -17693,6 +17937,8 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -17848,6 +18094,8 @@ export type TenantUpdateWithoutSodViolationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -17987,6 +18235,8 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18126,6 +18376,8 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18265,6 +18517,8 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18420,6 +18674,8 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -18559,6 +18815,8 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -18698,6 +18956,8 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -18837,6 +19097,8 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -18992,6 +19254,8 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19131,6 +19395,8 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19270,6 +19536,8 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19409,6 +19677,8 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -19564,6 +19834,8 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -19703,6 +19975,8 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -19842,6 +20116,8 @@ export type TenantCreateWithoutProcurementPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -19981,6 +20257,8 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20136,6 +20414,8 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20275,6 +20555,8 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20414,6 +20696,8 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -20553,6 +20837,8 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -20708,6 +20994,8 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -20847,6 +21135,8 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -20986,6 +21276,8 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21125,6 +21417,8 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21280,6 +21574,8 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21419,6 +21715,8 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -21558,6 +21856,8 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -21697,6 +21997,8 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -21852,6 +22154,8 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -21991,6 +22295,8 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22130,6 +22436,8 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22269,6 +22577,8 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22424,6 +22734,8 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -22563,6 +22875,8 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -22702,6 +23016,8 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -22841,6 +23157,8 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -22996,6 +23314,8 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23135,6 +23455,8 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23274,6 +23596,8 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23413,6 +23737,8 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -23568,6 +23894,8 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -23707,6 +24035,8 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -23846,6 +24176,8 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -23985,6 +24317,8 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24140,6 +24474,8 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24279,6 +24615,8 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24418,6 +24756,8 @@ export type TenantCreateWithoutResiliencePlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -24557,6 +24897,8 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -24712,6 +25054,8 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -24851,6 +25195,8 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -24990,6 +25336,8 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25129,6 +25477,8 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25284,6 +25634,8 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25423,6 +25775,8 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -25562,6 +25916,8 @@ export type TenantCreateWithoutGuidedCartsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -25701,6 +26057,8 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -25856,6 +26214,8 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -25995,6 +26355,8 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26134,6 +26496,8 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26273,6 +26637,8 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -26428,6 +26794,8 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -26567,6 +26935,8 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -26706,6 +27076,8 @@ export type TenantCreateWithoutInventoryItemsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -26845,6 +27217,8 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27000,6 +27374,8 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27139,6 +27515,8 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27278,6 +27656,8 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27417,6 +27797,8 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -27572,6 +27954,8 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -27711,6 +28095,8 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -27850,6 +28236,8 @@ export type TenantCreateWithoutCycleCountsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -27989,6 +28377,8 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28144,6 +28534,8 @@ export type TenantUpdateWithoutCycleCountsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28283,6 +28675,8 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28422,6 +28816,8 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -28561,6 +28957,8 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -28716,6 +29114,8 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -28855,6 +29255,8 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -28994,6 +29396,8 @@ export type TenantCreateWithoutServiceWorkersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29133,6 +29537,8 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29288,6 +29694,8 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29427,6 +29835,8 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -29566,6 +29976,8 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -29705,6 +30117,8 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -29860,6 +30274,8 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -29999,6 +30415,8 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30138,6 +30556,8 @@ export type TenantCreateWithoutDemandPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30277,6 +30697,8 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -30432,6 +30854,8 @@ export type TenantUpdateWithoutDemandPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -30571,6 +30995,8 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -30710,6 +31136,8 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -30849,6 +31277,8 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31004,6 +31434,8 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31143,6 +31575,8 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31282,6 +31716,8 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31421,6 +31857,8 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -31576,6 +32014,8 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -31715,6 +32155,8 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -31854,6 +32296,8 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -31993,6 +32437,8 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32148,6 +32594,8 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32287,6 +32735,8 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32426,6 +32876,8 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -32565,6 +33017,8 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -32720,6 +33174,8 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -32859,6 +33315,8 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -32998,6 +33456,8 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33137,6 +33597,8 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33292,6 +33754,8 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -33431,6 +33895,8 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -33570,6 +34036,8 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -33709,6 +34177,8 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -33864,6 +34334,8 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34003,6 +34475,8 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34142,6 +34616,8 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34281,6 +34757,8 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -34436,6 +34914,8 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -34575,6 +35055,8 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -34714,6 +35196,8 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -34853,6 +35337,8 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35008,6 +35494,8 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35147,6 +35635,8 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35286,6 +35776,8 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35425,6 +35917,8 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -35580,6 +36074,8 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -35719,6 +36215,8 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -35858,6 +36356,8 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -35997,6 +36497,8 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -36152,6 +36654,8 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -36291,6 +36795,8 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -36430,6 +36936,8 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -36569,6 +37077,8 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -36724,6 +37234,8 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -36863,6 +37375,8 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -37002,6 +37516,8 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -37141,6 +37657,8 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -37296,6 +37814,8 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -37435,6 +37955,8 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -37574,6 +38096,8 @@ export type TenantCreateWithoutSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -37713,6 +38237,8 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -37868,6 +38394,8 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -38007,6 +38535,8 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -38146,6 +38676,8 @@ export type TenantCreateWithoutEntitlementsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -38285,6 +38817,8 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -38440,6 +38974,8 @@ export type TenantUpdateWithoutEntitlementsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -38579,6 +39115,8 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -38718,6 +39256,8 @@ export type TenantCreateWithoutUsageCountersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -38857,6 +39397,8 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -39012,6 +39554,8 @@ export type TenantUpdateWithoutUsageCountersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -39151,6 +39695,8 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -39290,6 +39836,8 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -39429,6 +39977,8 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -39584,6 +40134,8 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -39723,6 +40275,8 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -39862,6 +40416,8 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -40001,6 +40557,8 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -40156,6 +40714,8 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -40295,6 +40855,8 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -40434,6 +40996,8 @@ export type TenantCreateWithoutPlatformEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -40573,6 +41137,8 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -40728,6 +41294,8 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -40867,6 +41435,8 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -41006,6 +41576,8 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -41145,6 +41717,8 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -41300,6 +41874,8 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -41439,6 +42015,8 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -41578,6 +42156,8 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -41717,6 +42297,8 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -41872,6 +42454,8 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -42011,6 +42595,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -42150,6 +42736,8 @@ export type TenantCreateWithoutVaultSecretsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -42289,6 +42877,8 @@ export type TenantUncheckedCreateWithoutVaultSecretsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -42444,6 +43034,8 @@ export type TenantUpdateWithoutVaultSecretsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -42583,6 +43175,8 @@ export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -42722,6 +43316,8 @@ export type TenantCreateWithoutEnterpriseNotificationTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -42861,6 +43457,8 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -43016,6 +43614,8 @@ export type TenantUpdateWithoutEnterpriseNotificationTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -43155,6 +43755,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationTemplatesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -43294,6 +43896,8 @@ export type TenantCreateWithoutEnterpriseNotificationPreferencesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -43433,6 +44037,8 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationPreferencesInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -43588,6 +44194,8 @@ export type TenantUpdateWithoutEnterpriseNotificationPreferencesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -43727,6 +44335,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationPreferencesInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -43866,6 +44476,8 @@ export type TenantCreateWithoutEnterpriseNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -44005,6 +44617,8 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -44160,6 +44774,8 @@ export type TenantUpdateWithoutEnterpriseNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -44299,6 +44915,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -44438,6 +45056,8 @@ export type TenantCreateWithoutEnterpriseActivitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -44577,6 +45197,8 @@ export type TenantUncheckedCreateWithoutEnterpriseActivitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -44732,6 +45354,8 @@ export type TenantUpdateWithoutEnterpriseActivitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -44871,6 +45495,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseActivitiesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -45010,6 +45636,8 @@ export type TenantCreateWithoutEnterprisePoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -45149,6 +45777,8 @@ export type TenantUncheckedCreateWithoutEnterprisePoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -45304,6 +45934,8 @@ export type TenantUpdateWithoutEnterprisePoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -45443,6 +46075,8 @@ export type TenantUncheckedUpdateWithoutEnterprisePoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -45582,6 +46216,8 @@ export type TenantCreateWithoutEnterpriseFeatureFlagsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -45721,6 +46357,8 @@ export type TenantUncheckedCreateWithoutEnterpriseFeatureFlagsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -45876,6 +46514,8 @@ export type TenantUpdateWithoutEnterpriseFeatureFlagsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -46015,6 +46655,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseFeatureFlagsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -46154,6 +46796,8 @@ export type TenantCreateWithoutPlatformCertificationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -46293,6 +46937,8 @@ export type TenantUncheckedCreateWithoutPlatformCertificationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -46448,6 +47094,8 @@ export type TenantUpdateWithoutPlatformCertificationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -46587,6 +47235,8 @@ export type TenantUncheckedUpdateWithoutPlatformCertificationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -46726,6 +47376,8 @@ export type TenantCreateWithoutRequisitionOrderJourneysInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -46865,6 +47517,8 @@ export type TenantUncheckedCreateWithoutRequisitionOrderJourneysInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -47020,6 +47674,8 @@ export type TenantUpdateWithoutRequisitionOrderJourneysInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -47159,6 +47815,8 @@ export type TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -47298,6 +47956,8 @@ export type TenantCreateWithoutRequisitionSubmissionAssessmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -47437,6 +48097,8 @@ export type TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -47592,6 +48254,8 @@ export type TenantUpdateWithoutRequisitionSubmissionAssessmentsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -47731,6 +48395,8 @@ export type TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -47870,6 +48536,8 @@ export type TenantCreateWithoutRequisitionApprovalRoutesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -48009,6 +48677,8 @@ export type TenantUncheckedCreateWithoutRequisitionApprovalRoutesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -48164,6 +48834,8 @@ export type TenantUpdateWithoutRequisitionApprovalRoutesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -48303,6 +48975,8 @@ export type TenantUncheckedUpdateWithoutRequisitionApprovalRoutesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -48442,6 +49116,8 @@ export type TenantCreateWithoutPurchaseOrderExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -48581,6 +49257,8 @@ export type TenantUncheckedCreateWithoutPurchaseOrderExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -48736,6 +49414,8 @@ export type TenantUpdateWithoutPurchaseOrderExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -48875,6 +49555,8 @@ export type TenantUncheckedUpdateWithoutPurchaseOrderExecutionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -49014,6 +49696,8 @@ export type TenantCreateWithoutGoodsReceiptSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -49153,6 +49837,8 @@ export type TenantUncheckedCreateWithoutGoodsReceiptSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -49308,6 +49994,8 @@ export type TenantUpdateWithoutGoodsReceiptSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -49447,6 +50135,8 @@ export type TenantUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -49586,6 +50276,8 @@ export type TenantCreateWithoutThreeWayMatchCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -49725,6 +50417,8 @@ export type TenantUncheckedCreateWithoutThreeWayMatchCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -49880,6 +50574,8 @@ export type TenantUpdateWithoutThreeWayMatchCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -50019,6 +50715,8 @@ export type TenantUncheckedUpdateWithoutThreeWayMatchCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -50158,6 +50856,8 @@ export type TenantCreateWithoutApPaymentReadinessCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -50297,6 +50997,8 @@ export type TenantUncheckedCreateWithoutApPaymentReadinessCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -50452,6 +51154,8 @@ export type TenantUpdateWithoutApPaymentReadinessCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -50591,6 +51295,8 @@ export type TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -50730,6 +51436,8 @@ export type TenantCreateWithoutProcurementProcessCertificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -50869,6 +51577,8 @@ export type TenantUncheckedCreateWithoutProcurementProcessCertificationsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -51024,6 +51734,8 @@ export type TenantUpdateWithoutProcurementProcessCertificationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -51163,6 +51875,8 @@ export type TenantUncheckedUpdateWithoutProcurementProcessCertificationsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -51302,6 +52016,8 @@ export type TenantCreateWithoutInventoryMovementLedgersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -51441,6 +52157,8 @@ export type TenantUncheckedCreateWithoutInventoryMovementLedgersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -51596,6 +52314,8 @@ export type TenantUpdateWithoutInventoryMovementLedgersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -51735,6 +52455,8 @@ export type TenantUncheckedUpdateWithoutInventoryMovementLedgersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -51874,6 +52596,8 @@ export type TenantCreateWithoutInventoryAvailabilitySnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -52013,6 +52737,8 @@ export type TenantUncheckedCreateWithoutInventoryAvailabilitySnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -52168,6 +52894,8 @@ export type TenantUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -52307,6 +53035,8 @@ export type TenantUncheckedUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -52446,6 +53176,8 @@ export type TenantCreateWithoutInventoryReservationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -52585,6 +53317,8 @@ export type TenantUncheckedCreateWithoutInventoryReservationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -52740,6 +53474,8 @@ export type TenantUpdateWithoutInventoryReservationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -52879,6 +53615,8 @@ export type TenantUncheckedUpdateWithoutInventoryReservationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -53018,6 +53756,8 @@ export type TenantCreateWithoutInventoryOperationExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -53157,6 +53897,8 @@ export type TenantUncheckedCreateWithoutInventoryOperationExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -53312,6 +54054,8 @@ export type TenantUpdateWithoutInventoryOperationExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -53451,6 +54195,8 @@ export type TenantUncheckedUpdateWithoutInventoryOperationExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -53590,6 +54336,8 @@ export type TenantCreateWithoutWarehouseReceivingSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -53729,6 +54477,8 @@ export type TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -53884,6 +54634,8 @@ export type TenantUpdateWithoutWarehouseReceivingSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -54023,6 +54775,8 @@ export type TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -54162,6 +54916,8 @@ export type TenantCreateWithoutWarehouseLocationControlsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -54301,6 +55057,8 @@ export type TenantUncheckedCreateWithoutWarehouseLocationControlsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -54456,6 +55214,8 @@ export type TenantUpdateWithoutWarehouseLocationControlsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -54595,6 +55355,8 @@ export type TenantUncheckedUpdateWithoutWarehouseLocationControlsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -54734,6 +55496,8 @@ export type TenantCreateWithoutPutawayTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -54873,6 +55637,8 @@ export type TenantUncheckedCreateWithoutPutawayTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -55028,6 +55794,8 @@ export type TenantUpdateWithoutPutawayTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -55167,6 +55935,8 @@ export type TenantUncheckedUpdateWithoutPutawayTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -55306,6 +56076,8 @@ export type TenantCreateWithoutWarehouseDiscrepanciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -55445,6 +56217,8 @@ export type TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -55600,6 +56374,8 @@ export type TenantUpdateWithoutWarehouseDiscrepanciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -55739,6 +56515,8 @@ export type TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -55878,6 +56656,8 @@ export type TenantCreateWithoutWarehouseFulfillmentOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -56017,6 +56797,8 @@ export type TenantUncheckedCreateWithoutWarehouseFulfillmentOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -56172,6 +56954,8 @@ export type TenantUpdateWithoutWarehouseFulfillmentOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -56311,6 +57095,8 @@ export type TenantUncheckedUpdateWithoutWarehouseFulfillmentOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -56450,6 +57236,8 @@ export type TenantCreateWithoutWarehousePickTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -56589,6 +57377,8 @@ export type TenantUncheckedCreateWithoutWarehousePickTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -56744,6 +57534,8 @@ export type TenantUpdateWithoutWarehousePickTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -56883,6 +57675,8 @@ export type TenantUncheckedUpdateWithoutWarehousePickTasksInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -57022,6 +57816,8 @@ export type TenantCreateWithoutWarehousePackagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -57161,6 +57957,8 @@ export type TenantUncheckedCreateWithoutWarehousePackagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -57316,6 +58114,8 @@ export type TenantUpdateWithoutWarehousePackagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -57455,6 +58255,8 @@ export type TenantUncheckedUpdateWithoutWarehousePackagesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -57594,6 +58396,8 @@ export type TenantCreateWithoutWarehouseFulfillmentExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -57733,6 +58537,8 @@ export type TenantUncheckedCreateWithoutWarehouseFulfillmentExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -57888,6 +58694,8 @@ export type TenantUpdateWithoutWarehouseFulfillmentExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -58027,6 +58835,8 @@ export type TenantUncheckedUpdateWithoutWarehouseFulfillmentExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -58166,6 +58976,8 @@ export type TenantCreateWithoutInventoryCountSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -58305,6 +59117,8 @@ export type TenantUncheckedCreateWithoutInventoryCountSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -58460,6 +59274,8 @@ export type TenantUpdateWithoutInventoryCountSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -58599,6 +59415,8 @@ export type TenantUncheckedUpdateWithoutInventoryCountSessionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -58738,6 +59556,8 @@ export type TenantCreateWithoutInventoryReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -58877,6 +59697,8 @@ export type TenantUncheckedCreateWithoutInventoryReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -59032,6 +59854,8 @@ export type TenantUpdateWithoutInventoryReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -59171,6 +59995,8 @@ export type TenantUncheckedUpdateWithoutInventoryReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -59310,6 +60136,8 @@ export type TenantCreateWithoutInventoryTraceUnitsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -59449,6 +60277,8 @@ export type TenantUncheckedCreateWithoutInventoryTraceUnitsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -59604,6 +60434,8 @@ export type TenantUpdateWithoutInventoryTraceUnitsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -59743,6 +60575,8 @@ export type TenantUncheckedUpdateWithoutInventoryTraceUnitsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -59882,6 +60716,8 @@ export type TenantCreateWithoutInventoryTraceEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -60021,6 +60857,8 @@ export type TenantUncheckedCreateWithoutInventoryTraceEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -60176,6 +61014,8 @@ export type TenantUpdateWithoutInventoryTraceEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -60315,6 +61155,8 @@ export type TenantUncheckedUpdateWithoutInventoryTraceEventsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -60454,6 +61296,8 @@ export type TenantCreateWithoutInventoryTraceHoldsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -60593,6 +61437,8 @@ export type TenantUncheckedCreateWithoutInventoryTraceHoldsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -60748,6 +61594,8 @@ export type TenantUpdateWithoutInventoryTraceHoldsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -60887,6 +61735,8 @@ export type TenantUncheckedUpdateWithoutInventoryTraceHoldsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -61026,6 +61876,8 @@ export type TenantCreateWithoutReplenishmentPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -61165,6 +62017,8 @@ export type TenantUncheckedCreateWithoutReplenishmentPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -61320,6 +62174,8 @@ export type TenantUpdateWithoutReplenishmentPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -61459,6 +62315,8 @@ export type TenantUncheckedUpdateWithoutReplenishmentPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -61599,6 +62457,8 @@ export type TenantCreateWithoutStockReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -61738,6 +62598,8 @@ export type TenantUncheckedCreateWithoutStockReplenishmentRecommendationsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -61893,6 +62755,8 @@ export type TenantUpdateWithoutStockReplenishmentRecommendationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -62032,6 +62896,8 @@ export type TenantUncheckedUpdateWithoutStockReplenishmentRecommendationsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -62170,6 +63036,8 @@ export type TenantCreateWithoutStockTransferOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -62309,6 +63177,8 @@ export type TenantUncheckedCreateWithoutStockTransferOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -62464,6 +63334,8 @@ export type TenantUpdateWithoutStockTransferOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -62603,6 +63475,8 @@ export type TenantUncheckedUpdateWithoutStockTransferOrdersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -62742,6 +63616,8 @@ export type TenantCreateWithoutStockTransferExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -62881,6 +63757,8 @@ export type TenantUncheckedCreateWithoutStockTransferExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -63036,6 +63914,8 @@ export type TenantUpdateWithoutStockTransferExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -63175,6 +64055,8 @@ export type TenantUncheckedUpdateWithoutStockTransferExceptionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -63314,6 +64196,8 @@ export type TenantCreateWithoutInventoryFinancialValuationPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -63453,6 +64337,8 @@ export type TenantUncheckedCreateWithoutInventoryFinancialValuationPoliciesInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -63608,6 +64494,8 @@ export type TenantUpdateWithoutInventoryFinancialValuationPoliciesInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -63747,6 +64635,8 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialValuationPoliciesInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -63886,6 +64776,8 @@ export type TenantCreateWithoutInventoryFinancialCostLayersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -64025,6 +64917,8 @@ export type TenantUncheckedCreateWithoutInventoryFinancialCostLayersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -64180,6 +65074,8 @@ export type TenantUpdateWithoutInventoryFinancialCostLayersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -64319,6 +65215,8 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialCostLayersInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -64458,6 +65356,8 @@ export type TenantCreateWithoutInventoryFinancialValuationSnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -64597,6 +65497,8 @@ export type TenantUncheckedCreateWithoutInventoryFinancialValuationSnapshotsInpu
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -64752,6 +65654,8 @@ export type TenantUpdateWithoutInventoryFinancialValuationSnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -64891,6 +65795,8 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialValuationSnapshotsInpu
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -65030,6 +65936,8 @@ export type TenantCreateWithoutInventoryFinancialReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -65169,6 +66077,8 @@ export type TenantUncheckedCreateWithoutInventoryFinancialReconciliationsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -65324,6 +66234,8 @@ export type TenantUpdateWithoutInventoryFinancialReconciliationsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -65463,6 +66375,8 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialReconciliationsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -65602,6 +66516,8 @@ export type TenantCreateWithoutEnterpriseAnalyticsMetricDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -65741,6 +66657,8 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsMetricDefinitionsInpu
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -65896,6 +66814,8 @@ export type TenantUpdateWithoutEnterpriseAnalyticsMetricDefinitionsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -66035,6 +66955,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsMetricDefinitionsInpu
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -66174,6 +67096,8 @@ export type TenantCreateWithoutEnterpriseAnalyticsMetricSnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -66313,6 +67237,8 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsMetricSnapshotsInput 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -66468,6 +67394,8 @@ export type TenantUpdateWithoutEnterpriseAnalyticsMetricSnapshotsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -66607,6 +67535,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsMetricSnapshotsInput 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -66746,6 +67676,8 @@ export type TenantCreateWithoutEnterpriseAnalyticsAggregationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -66885,6 +67817,8 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsAggregationRunsInput 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -67040,6 +67974,8 @@ export type TenantUpdateWithoutEnterpriseAnalyticsAggregationRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -67179,6 +68115,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsAggregationRunsInput 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -67318,6 +68256,8 @@ export type TenantCreateWithoutEnterpriseAnalyticsAggregationFailuresInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -67457,6 +68397,8 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsAggregationFailuresIn
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -67612,6 +68554,8 @@ export type TenantUpdateWithoutEnterpriseAnalyticsAggregationFailuresInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -67751,6 +68695,8 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsAggregationFailuresIn
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -67890,6 +68836,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -68029,6 +68977,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -68184,6 +69134,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -68323,6 +69275,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightRunsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -68462,6 +69416,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -68601,6 +69557,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -68756,6 +69714,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -68895,6 +69855,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -69034,6 +69996,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightEvidenceInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -69173,6 +70137,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightEvidenceInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -69328,6 +70294,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightEvidenceInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -69467,6 +70435,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightEvidenceInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -69606,6 +70576,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightFeedbackInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -69745,6 +70717,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightFeedbackInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -69900,6 +70874,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightFeedbackInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -70039,6 +71015,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightFeedbackInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -70178,6 +71156,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -70317,6 +71297,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -70472,6 +71454,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalsInput = {
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -70611,6 +71595,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalsInput =
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -70750,6 +71736,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalDecisionsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -70889,6 +71877,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalDecision
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -71044,6 +72034,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalDecisionsInput = 
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -71183,6 +72175,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalDecision
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -71322,6 +72316,8 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalAuditEventsInput 
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -71461,6 +72457,8 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalAuditEve
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -71616,6 +72614,8 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalAuditEventsInput 
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -71755,6 +72755,8 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalAuditEve
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -71894,6 +72896,8 @@ export type TenantCreateWithoutExecutiveSynthesisRunsInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionCreateNestedManyWithoutTenantInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -72033,6 +73037,8 @@ export type TenantUncheckedCreateWithoutExecutiveSynthesisRunsInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedCreateNestedManyWithoutTenantInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -72188,6 +73194,8 @@ export type TenantUpdateWithoutExecutiveSynthesisRunsInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUpdateManyWithoutTenantNestedInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -72327,6 +73335,8 @@ export type TenantUncheckedUpdateWithoutExecutiveSynthesisRunsInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedUpdateManyWithoutTenantNestedInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -72466,6 +73476,8 @@ export type TenantCreateWithoutExecutiveSynthesesInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionCreateNestedManyWithoutTenantInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
@@ -72605,6 +73617,8 @@ export type TenantUncheckedCreateWithoutExecutiveSynthesesInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedCreateNestedManyWithoutTenantInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
   contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
@@ -72760,6 +73774,8 @@ export type TenantUpdateWithoutExecutiveSynthesesInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUpdateManyWithoutTenantNestedInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
@@ -72899,6 +73915,1168 @@ export type TenantUncheckedUpdateWithoutExecutiveSynthesesInput = {
   governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedUpdateManyWithoutTenantNestedInput
   governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
   executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutExecutiveBoardPackDefinitionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderCreateNestedManyWithoutTenantInput
+  warehousePickTasks?: Prisma.WarehousePickTaskCreateNestedManyWithoutTenantInput
+  warehousePackages?: Prisma.WarehousePackageCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionCreateNestedManyWithoutTenantInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionCreateNestedManyWithoutTenantInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationCreateNestedManyWithoutTenantInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitCreateNestedManyWithoutTenantInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventCreateNestedManyWithoutTenantInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldCreateNestedManyWithoutTenantInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyCreateNestedManyWithoutTenantInput
+  stockTransferOrders?: Prisma.StockTransferOrderCreateNestedManyWithoutTenantInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyCreateNestedManyWithoutTenantInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotCreateNestedManyWithoutTenantInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunCreateNestedManyWithoutTenantInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUncheckedCreateNestedManyWithoutTenantInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehousePackages?: Prisma.WarehousePackageUncheckedCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUncheckedCreateNestedManyWithoutTenantInput
+  stockTransferOrders?: Prisma.StockTransferOrderUncheckedCreateNestedManyWithoutTenantInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutExecutiveBoardPackDefinitionsInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput>
+}
+
+export type TenantUpsertWithoutExecutiveBoardPackDefinitionsInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPackDefinitionsInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutExecutiveBoardPackDefinitionsInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutExecutiveBoardPackDefinitionsInput, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPackDefinitionsInput>
+}
+
+export type TenantUpdateWithoutExecutiveBoardPackDefinitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUpdateManyWithoutTenantNestedInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUpdateManyWithoutTenantNestedInput
+  warehousePackages?: Prisma.WarehousePackageUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUpdateManyWithoutTenantNestedInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUpdateManyWithoutTenantNestedInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUpdateManyWithoutTenantNestedInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUpdateManyWithoutTenantNestedInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUpdateManyWithoutTenantNestedInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUpdateManyWithoutTenantNestedInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUpdateManyWithoutTenantNestedInput
+  stockTransferOrders?: Prisma.StockTransferOrderUpdateManyWithoutTenantNestedInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUpdateManyWithoutTenantNestedInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUpdateManyWithoutTenantNestedInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutExecutiveBoardPackDefinitionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUncheckedUpdateManyWithoutTenantNestedInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehousePackages?: Prisma.WarehousePackageUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  stockTransferOrders?: Prisma.StockTransferOrderUncheckedUpdateManyWithoutTenantNestedInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPacks?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantCreateWithoutExecutiveBoardPacksInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderCreateNestedManyWithoutTenantInput
+  warehousePickTasks?: Prisma.WarehousePickTaskCreateNestedManyWithoutTenantInput
+  warehousePackages?: Prisma.WarehousePackageCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionCreateNestedManyWithoutTenantInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionCreateNestedManyWithoutTenantInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationCreateNestedManyWithoutTenantInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitCreateNestedManyWithoutTenantInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventCreateNestedManyWithoutTenantInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldCreateNestedManyWithoutTenantInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyCreateNestedManyWithoutTenantInput
+  stockTransferOrders?: Prisma.StockTransferOrderCreateNestedManyWithoutTenantInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyCreateNestedManyWithoutTenantInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotCreateNestedManyWithoutTenantInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunCreateNestedManyWithoutTenantInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventCreateNestedManyWithoutTenantInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunCreateNestedManyWithoutTenantInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskCreateNestedManyWithoutTenantInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationCreateNestedManyWithoutTenantInput
+}
+
+export type TenantUncheckedCreateWithoutExecutiveBoardPacksInput = {
+  id?: string
+  slug: string
+  name: string
+  legalName?: string | null
+  status?: $Enums.TenantStatus
+  countryCode?: string | null
+  defaultLocale?: string
+  defaultTimeZone?: string
+  currencyPolicyMode?: $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: string
+  localDisplayCurrency?: string | null
+  usdReportingEnabled?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  memberships?: Prisma.MembershipUncheckedCreateNestedManyWithoutTenantInput
+  legalEntities?: Prisma.LegalEntityUncheckedCreateNestedManyWithoutTenantInput
+  sites?: Prisma.SiteUncheckedCreateNestedManyWithoutTenantInput
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutTenantInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedCreateNestedManyWithoutTenantInput
+  auditEvents?: Prisma.AuditEventUncheckedCreateNestedManyWithoutTenantInput
+  aiAgents?: Prisma.AiAgentUncheckedCreateNestedManyWithoutTenantInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedCreateNestedManyWithoutTenantInput
+  receipts?: Prisma.ProcurementReceiptUncheckedCreateNestedManyWithoutTenantInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedCreateNestedManyWithoutTenantInput
+  suppliers?: Prisma.SupplierUncheckedCreateNestedManyWithoutTenantInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedCreateNestedManyWithoutTenantInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedCreateNestedManyWithoutTenantInput
+  integrations?: Prisma.IntegrationConnectionUncheckedCreateNestedManyWithoutTenantInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedCreateNestedManyWithoutTenantInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedCreateNestedManyWithoutTenantInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedCreateNestedManyWithoutTenantInput
+  apiClients?: Prisma.ApiClientUncheckedCreateNestedManyWithoutTenantInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedCreateNestedManyWithoutTenantInput
+  sodRules?: Prisma.SodRuleUncheckedCreateNestedManyWithoutTenantInput
+  sodViolations?: Prisma.SodViolationUncheckedCreateNestedManyWithoutTenantInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedCreateNestedManyWithoutTenantInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedCreateNestedManyWithoutTenantInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedCreateNestedManyWithoutTenantInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedCreateNestedManyWithoutTenantInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedCreateNestedManyWithoutTenantInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedCreateNestedManyWithoutTenantInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedCreateNestedManyWithoutTenantInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedCreateNestedManyWithoutTenantInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedCreateNestedManyWithoutTenantInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedCreateNestedManyWithoutTenantInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedCreateNestedManyWithoutTenantInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedCreateNestedManyWithoutTenantInput
+  guidedCarts?: Prisma.GuidedCartUncheckedCreateNestedManyWithoutTenantInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryItems?: Prisma.InventoryItemUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedCreateNestedManyWithoutTenantInput
+  cycleCounts?: Prisma.CycleCountUncheckedCreateNestedManyWithoutTenantInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedCreateNestedManyWithoutTenantInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedCreateNestedManyWithoutTenantInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedCreateNestedManyWithoutTenantInput
+  demandPlans?: Prisma.DemandPlanUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedCreateNestedManyWithoutTenantInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedCreateNestedManyWithoutTenantInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedCreateNestedManyWithoutTenantInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedCreateNestedManyWithoutTenantInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedCreateNestedManyWithoutTenantInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedCreateNestedManyWithoutTenantInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedCreateNestedManyWithoutTenantInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedCreateNestedManyWithoutTenantInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  entitlements?: Prisma.TenantEntitlementUncheckedCreateNestedManyWithoutTenantInput
+  usageCounters?: Prisma.UsageCounterUncheckedCreateNestedManyWithoutTenantInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedCreateNestedOneWithoutTenantInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedCreateNestedManyWithoutTenantInput
+  platformEvents?: Prisma.PlatformEventUncheckedCreateNestedManyWithoutTenantInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedCreateNestedManyWithoutTenantInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedCreateNestedManyWithoutTenantInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedCreateNestedManyWithoutTenantInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedCreateNestedManyWithoutTenantInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedCreateNestedManyWithoutTenantInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedCreateNestedManyWithoutTenantInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedCreateNestedManyWithoutTenantInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedCreateNestedManyWithoutTenantInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedCreateNestedManyWithoutTenantInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedCreateNestedManyWithoutTenantInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedCreateNestedManyWithoutTenantInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedCreateNestedManyWithoutTenantInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedCreateNestedManyWithoutTenantInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUncheckedCreateNestedManyWithoutTenantInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUncheckedCreateNestedManyWithoutTenantInput
+  warehousePackages?: Prisma.WarehousePackageUncheckedCreateNestedManyWithoutTenantInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUncheckedCreateNestedManyWithoutTenantInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUncheckedCreateNestedManyWithoutTenantInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUncheckedCreateNestedManyWithoutTenantInput
+  stockTransferOrders?: Prisma.StockTransferOrderUncheckedCreateNestedManyWithoutTenantInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUncheckedCreateNestedManyWithoutTenantInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUncheckedCreateNestedManyWithoutTenantInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedCreateNestedManyWithoutTenantInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedCreateNestedManyWithoutTenantInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedCreateNestedManyWithoutTenantInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedCreateNestedManyWithoutTenantInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedCreateNestedManyWithoutTenantInput
+  contracts?: Prisma.ContractUncheckedCreateNestedManyWithoutTenantInput
+  clauseTemplates?: Prisma.ClauseTemplateUncheckedCreateNestedManyWithoutTenantInput
+  aiAgentTasks?: Prisma.AiAgentTaskUncheckedCreateNestedManyWithoutTenantInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUncheckedCreateNestedManyWithoutTenantInput
+}
+
+export type TenantCreateOrConnectWithoutExecutiveBoardPacksInput = {
+  where: Prisma.TenantWhereUniqueInput
+  create: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPacksInput>
+}
+
+export type TenantUpsertWithoutExecutiveBoardPacksInput = {
+  update: Prisma.XOR<Prisma.TenantUpdateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPacksInput>
+  create: Prisma.XOR<Prisma.TenantCreateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedCreateWithoutExecutiveBoardPacksInput>
+  where?: Prisma.TenantWhereInput
+}
+
+export type TenantUpdateToOneWithWhereWithoutExecutiveBoardPacksInput = {
+  where?: Prisma.TenantWhereInput
+  data: Prisma.XOR<Prisma.TenantUpdateWithoutExecutiveBoardPacksInput, Prisma.TenantUncheckedUpdateWithoutExecutiveBoardPacksInput>
+}
+
+export type TenantUpdateWithoutExecutiveBoardPacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUpdateManyWithoutTenantNestedInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUpdateManyWithoutTenantNestedInput
+  warehousePackages?: Prisma.WarehousePackageUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUpdateManyWithoutTenantNestedInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUpdateManyWithoutTenantNestedInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUpdateManyWithoutTenantNestedInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUpdateManyWithoutTenantNestedInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUpdateManyWithoutTenantNestedInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUpdateManyWithoutTenantNestedInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUpdateManyWithoutTenantNestedInput
+  stockTransferOrders?: Prisma.StockTransferOrderUpdateManyWithoutTenantNestedInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUpdateManyWithoutTenantNestedInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUpdateManyWithoutTenantNestedInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUpdateManyWithoutTenantNestedInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUpdateManyWithoutTenantNestedInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUpdateManyWithoutTenantNestedInput
+  contracts?: Prisma.ContractUpdateManyWithoutTenantNestedInput
+  clauseTemplates?: Prisma.ClauseTemplateUpdateManyWithoutTenantNestedInput
+  aiAgentTasks?: Prisma.AiAgentTaskUpdateManyWithoutTenantNestedInput
+  stockReplenishmentRecommendations?: Prisma.StockReplenishmentRecommendationUpdateManyWithoutTenantNestedInput
+}
+
+export type TenantUncheckedUpdateWithoutExecutiveBoardPacksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
+  defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
+  currencyPolicyMode?: Prisma.EnumCurrencyPolicyModeFieldUpdateOperationsInput | $Enums.CurrencyPolicyMode
+  baseCurrencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  localDisplayCurrency?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  usdReportingEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  memberships?: Prisma.MembershipUncheckedUpdateManyWithoutTenantNestedInput
+  legalEntities?: Prisma.LegalEntityUncheckedUpdateManyWithoutTenantNestedInput
+  sites?: Prisma.SiteUncheckedUpdateManyWithoutTenantNestedInput
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutTenantNestedInput
+  exchangeRates?: Prisma.ExchangeRateUncheckedUpdateManyWithoutTenantNestedInput
+  auditEvents?: Prisma.AuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  aiAgents?: Prisma.AiAgentUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseRequests?: Prisma.PurchaseRequestUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrders?: Prisma.PurchaseOrderUncheckedUpdateManyWithoutTenantNestedInput
+  receipts?: Prisma.ProcurementReceiptUncheckedUpdateManyWithoutTenantNestedInput
+  supplierInvoices?: Prisma.SupplierInvoiceUncheckedUpdateManyWithoutTenantNestedInput
+  suppliers?: Prisma.SupplierUncheckedUpdateManyWithoutTenantNestedInput
+  sourcingEvents?: Prisma.SourcingEventUncheckedUpdateManyWithoutTenantNestedInput
+  paymentBatches?: Prisma.PaymentBatchUncheckedUpdateManyWithoutTenantNestedInput
+  integrations?: Prisma.IntegrationConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDefinitions?: Prisma.WorkflowDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  workflowInstances?: Prisma.WorkflowInstanceUncheckedUpdateManyWithoutTenantNestedInput
+  workflowDelegations?: Prisma.WorkflowDelegationUncheckedUpdateManyWithoutTenantNestedInput
+  workflowNotifications?: Prisma.WorkflowNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  apiClients?: Prisma.ApiClientUncheckedUpdateManyWithoutTenantNestedInput
+  accessReviewCampaigns?: Prisma.AccessReviewCampaignUncheckedUpdateManyWithoutTenantNestedInput
+  sodRules?: Prisma.SodRuleUncheckedUpdateManyWithoutTenantNestedInput
+  sodViolations?: Prisma.SodViolationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierScorecards?: Prisma.SupplierScorecardUncheckedUpdateManyWithoutTenantNestedInput
+  supplierDevelopmentPlans?: Prisma.SupplierDevelopmentPlanUncheckedUpdateManyWithoutTenantNestedInput
+  supplierCorrectiveActions?: Prisma.SupplierCorrectiveActionUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPlans?: Prisma.ProcurementPlanUncheckedUpdateManyWithoutTenantNestedInput
+  categoryStrategies?: Prisma.CategoryStrategyUncheckedUpdateManyWithoutTenantNestedInput
+  savingsInitiatives?: Prisma.SavingsInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  procurementReviews?: Prisma.ProcurementReviewUncheckedUpdateManyWithoutTenantNestedInput
+  procurementPolicies?: Prisma.ProcurementPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  procurementComplianceTests?: Prisma.ProcurementComplianceTestUncheckedUpdateManyWithoutTenantNestedInput
+  procurementRemediations?: Prisma.ProcurementRemediationUncheckedUpdateManyWithoutTenantNestedInput
+  supplyRiskEvents?: Prisma.SupplyRiskEventUncheckedUpdateManyWithoutTenantNestedInput
+  resiliencePlans?: Prisma.ResiliencePlanUncheckedUpdateManyWithoutTenantNestedInput
+  procurementCatalogs?: Prisma.ProcurementCatalogUncheckedUpdateManyWithoutTenantNestedInput
+  guidedCarts?: Prisma.GuidedCartUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryLocations?: Prisma.InventoryLocationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryItems?: Prisma.InventoryItemUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTransactions?: Prisma.InventoryTransactionUncheckedUpdateManyWithoutTenantNestedInput
+  cycleCounts?: Prisma.CycleCountUncheckedUpdateManyWithoutTenantNestedInput
+  statementsOfWork?: Prisma.StatementOfWorkUncheckedUpdateManyWithoutTenantNestedInput
+  serviceWorkers?: Prisma.ServiceWorkerUncheckedUpdateManyWithoutTenantNestedInput
+  serviceTimeEntries?: Prisma.ServiceTimeEntryUncheckedUpdateManyWithoutTenantNestedInput
+  demandPlans?: Prisma.DemandPlanUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentRecommendations?: Prisma.ReplenishmentRecommendationUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsCarriers?: Prisma.LogisticsCarrierUncheckedUpdateManyWithoutTenantNestedInput
+  logisticsShipments?: Prisma.LogisticsShipmentUncheckedUpdateManyWithoutTenantNestedInput
+  supplierClaims?: Prisma.SupplierClaimUncheckedUpdateManyWithoutTenantNestedInput
+  procurementAssets?: Prisma.ProcurementAssetUncheckedUpdateManyWithoutTenantNestedInput
+  supplierEsgProfiles?: Prisma.SupplierEsgProfileUncheckedUpdateManyWithoutTenantNestedInput
+  procurementValueInitiatives?: Prisma.ProcurementValueInitiativeUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalInvitations?: Prisma.SupplierPortalInvitationUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalUsers?: Prisma.SupplierPortalUserUncheckedUpdateManyWithoutTenantNestedInput
+  supplierOnboardingQuestionnaires?: Prisma.SupplierOnboardingQuestionnaireUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalTasks?: Prisma.SupplierPortalTaskUncheckedUpdateManyWithoutTenantNestedInput
+  supplierPortalMessages?: Prisma.SupplierPortalMessageUncheckedUpdateManyWithoutTenantNestedInput
+  subscriptions?: Prisma.TenantSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  entitlements?: Prisma.TenantEntitlementUncheckedUpdateManyWithoutTenantNestedInput
+  usageCounters?: Prisma.UsageCounterUncheckedUpdateManyWithoutTenantNestedInput
+  configurationProfile?: Prisma.TenantConfigurationUncheckedUpdateOneWithoutTenantNestedInput
+  platformJobExecutions?: Prisma.PlatformJobExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  platformEvents?: Prisma.PlatformEventUncheckedUpdateManyWithoutTenantNestedInput
+  platformEventSubscriptions?: Prisma.PlatformEventSubscriptionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseConnectorConnections?: Prisma.EnterpriseConnectorConnectionUncheckedUpdateManyWithoutTenantNestedInput
+  vaultSecrets?: Prisma.VaultSecretUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationTemplates?: Prisma.EnterpriseNotificationTemplateUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotificationPreferences?: Prisma.EnterpriseNotificationPreferenceUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseNotifications?: Prisma.EnterpriseNotificationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseActivities?: Prisma.EnterpriseActivityUncheckedUpdateManyWithoutTenantNestedInput
+  enterprisePolicies?: Prisma.EnterpriseTenantPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseFeatureFlags?: Prisma.EnterpriseTenantFeatureFlagUncheckedUpdateManyWithoutTenantNestedInput
+  platformCertificationRuns?: Prisma.PlatformCertificationRunUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionOrderJourneys?: Prisma.RequisitionOrderJourneyUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionSubmissionAssessments?: Prisma.RequisitionSubmissionAssessmentUncheckedUpdateManyWithoutTenantNestedInput
+  requisitionApprovalRoutes?: Prisma.RequisitionApprovalRouteUncheckedUpdateManyWithoutTenantNestedInput
+  purchaseOrderExecutions?: Prisma.PurchaseOrderExecutionUncheckedUpdateManyWithoutTenantNestedInput
+  goodsReceiptSessions?: Prisma.GoodsReceiptSessionUncheckedUpdateManyWithoutTenantNestedInput
+  threeWayMatchCases?: Prisma.ThreeWayMatchCaseUncheckedUpdateManyWithoutTenantNestedInput
+  apPaymentReadinessCases?: Prisma.ApPaymentReadinessCaseUncheckedUpdateManyWithoutTenantNestedInput
+  procurementProcessCertifications?: Prisma.ProcurementProcessCertificationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryMovementLedgers?: Prisma.InventoryMovementLedgerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryAvailabilitySnapshots?: Prisma.InventoryAvailabilitySnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReservations?: Prisma.InventoryReservationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryOperationExceptions?: Prisma.InventoryOperationExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseReceivingSessions?: Prisma.WarehouseReceivingSessionUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseLocationControls?: Prisma.WarehouseLocationControlUncheckedUpdateManyWithoutTenantNestedInput
+  putawayTasks?: Prisma.PutawayTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseDiscrepancies?: Prisma.WarehouseDiscrepancyUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentOrders?: Prisma.WarehouseFulfillmentOrderUncheckedUpdateManyWithoutTenantNestedInput
+  warehousePickTasks?: Prisma.WarehousePickTaskUncheckedUpdateManyWithoutTenantNestedInput
+  warehousePackages?: Prisma.WarehousePackageUncheckedUpdateManyWithoutTenantNestedInput
+  warehouseFulfillmentExceptions?: Prisma.WarehouseFulfillmentExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryCountSessions?: Prisma.InventoryCountSessionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryReconciliations?: Prisma.InventoryReconciliationUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceUnits?: Prisma.InventoryTraceUnitUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceEvents?: Prisma.InventoryTraceEventUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryTraceHolds?: Prisma.InventoryTraceHoldUncheckedUpdateManyWithoutTenantNestedInput
+  replenishmentPolicies?: Prisma.ReplenishmentPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  stockTransferOrders?: Prisma.StockTransferOrderUncheckedUpdateManyWithoutTenantNestedInput
+  stockTransferExceptions?: Prisma.StockTransferExceptionUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationPolicies?: Prisma.InventoryFinancialValuationPolicyUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialCostLayers?: Prisma.InventoryFinancialCostLayerUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialValuationSnapshots?: Prisma.InventoryFinancialValuationSnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  inventoryFinancialReconciliations?: Prisma.InventoryFinancialReconciliationUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricDefinitions?: Prisma.EnterpriseAnalyticsMetricDefinitionUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsMetricSnapshots?: Prisma.EnterpriseAnalyticsMetricSnapshotUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationRuns?: Prisma.EnterpriseAnalyticsAggregationRunUncheckedUpdateManyWithoutTenantNestedInput
+  enterpriseAnalyticsAggregationFailures?: Prisma.EnterpriseAnalyticsAggregationFailureUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightRuns?: Prisma.GovernedExecutiveInsightRunUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsights?: Prisma.GovernedExecutiveInsightUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightEvidence?: Prisma.GovernedExecutiveInsightEvidenceUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightFeedback?: Prisma.GovernedExecutiveInsightFeedbackUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovals?: Prisma.GovernedExecutiveInsightApprovalUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalDecisions?: Prisma.GovernedExecutiveInsightApprovalDecisionUncheckedUpdateManyWithoutTenantNestedInput
+  governedExecutiveInsightApprovalAuditEvents?: Prisma.GovernedExecutiveInsightApprovalAuditEventUncheckedUpdateManyWithoutTenantNestedInput
+  executiveSynthesisRuns?: Prisma.ExecutiveSynthesisRunUncheckedUpdateManyWithoutTenantNestedInput
+  executiveSyntheses?: Prisma.ExecutiveSynthesisUncheckedUpdateManyWithoutTenantNestedInput
+  executiveBoardPackDefinitions?: Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantNestedInput
   contracts?: Prisma.ContractUncheckedUpdateManyWithoutTenantNestedInput
   clauseTemplates?: Prisma.ClauseTemplateUncheckedUpdateManyWithoutTenantNestedInput
   aiAgentTasks?: Prisma.AiAgentTaskUncheckedUpdateManyWithoutTenantNestedInput
@@ -73028,6 +75206,8 @@ export type TenantCountOutputType = {
   governedExecutiveInsightApprovalAuditEvents: number
   executiveSynthesisRuns: number
   executiveSyntheses: number
+  executiveBoardPackDefinitions: number
+  executiveBoardPacks: number
   contracts: number
   clauseTemplates: number
   aiAgentTasks: number
@@ -73152,6 +75332,8 @@ export type TenantCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   governedExecutiveInsightApprovalAuditEvents?: boolean | TenantCountOutputTypeCountGovernedExecutiveInsightApprovalAuditEventsArgs
   executiveSynthesisRuns?: boolean | TenantCountOutputTypeCountExecutiveSynthesisRunsArgs
   executiveSyntheses?: boolean | TenantCountOutputTypeCountExecutiveSynthesesArgs
+  executiveBoardPackDefinitions?: boolean | TenantCountOutputTypeCountExecutiveBoardPackDefinitionsArgs
+  executiveBoardPacks?: boolean | TenantCountOutputTypeCountExecutiveBoardPacksArgs
   contracts?: boolean | TenantCountOutputTypeCountContractsArgs
   clauseTemplates?: boolean | TenantCountOutputTypeCountClauseTemplatesArgs
   aiAgentTasks?: boolean | TenantCountOutputTypeCountAiAgentTasksArgs
@@ -73990,6 +76172,20 @@ export type TenantCountOutputTypeCountExecutiveSynthesesArgs<ExtArgs extends run
 /**
  * TenantCountOutputType without action
  */
+export type TenantCountOutputTypeCountExecutiveBoardPackDefinitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExecutiveBoardPackDefinitionWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
+export type TenantCountOutputTypeCountExecutiveBoardPacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExecutiveBoardPackWhereInput
+}
+
+/**
+ * TenantCountOutputType without action
+ */
 export type TenantCountOutputTypeCountContractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ContractWhereInput
 }
@@ -74150,6 +76346,8 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   governedExecutiveInsightApprovalAuditEvents?: boolean | Prisma.Tenant$governedExecutiveInsightApprovalAuditEventsArgs<ExtArgs>
   executiveSynthesisRuns?: boolean | Prisma.Tenant$executiveSynthesisRunsArgs<ExtArgs>
   executiveSyntheses?: boolean | Prisma.Tenant$executiveSynthesesArgs<ExtArgs>
+  executiveBoardPackDefinitions?: boolean | Prisma.Tenant$executiveBoardPackDefinitionsArgs<ExtArgs>
+  executiveBoardPacks?: boolean | Prisma.Tenant$executiveBoardPacksArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -74331,6 +76529,8 @@ export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   governedExecutiveInsightApprovalAuditEvents?: boolean | Prisma.Tenant$governedExecutiveInsightApprovalAuditEventsArgs<ExtArgs>
   executiveSynthesisRuns?: boolean | Prisma.Tenant$executiveSynthesisRunsArgs<ExtArgs>
   executiveSyntheses?: boolean | Prisma.Tenant$executiveSynthesesArgs<ExtArgs>
+  executiveBoardPackDefinitions?: boolean | Prisma.Tenant$executiveBoardPackDefinitionsArgs<ExtArgs>
+  executiveBoardPacks?: boolean | Prisma.Tenant$executiveBoardPacksArgs<ExtArgs>
   contracts?: boolean | Prisma.Tenant$contractsArgs<ExtArgs>
   clauseTemplates?: boolean | Prisma.Tenant$clauseTemplatesArgs<ExtArgs>
   aiAgentTasks?: boolean | Prisma.Tenant$aiAgentTasksArgs<ExtArgs>
@@ -74461,6 +76661,8 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     governedExecutiveInsightApprovalAuditEvents: Prisma.$GovernedExecutiveInsightApprovalAuditEventPayload<ExtArgs>[]
     executiveSynthesisRuns: Prisma.$ExecutiveSynthesisRunPayload<ExtArgs>[]
     executiveSyntheses: Prisma.$ExecutiveSynthesisPayload<ExtArgs>[]
+    executiveBoardPackDefinitions: Prisma.$ExecutiveBoardPackDefinitionPayload<ExtArgs>[]
+    executiveBoardPacks: Prisma.$ExecutiveBoardPackPayload<ExtArgs>[]
     contracts: Prisma.$ContractPayload<ExtArgs>[]
     clauseTemplates: Prisma.$ClauseTemplatePayload<ExtArgs>[]
     aiAgentTasks: Prisma.$AiAgentTaskPayload<ExtArgs>[]
@@ -74994,6 +77196,8 @@ export interface Prisma__TenantClient<T, Null = never, ExtArgs extends runtime.T
   governedExecutiveInsightApprovalAuditEvents<T extends Prisma.Tenant$governedExecutiveInsightApprovalAuditEventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$governedExecutiveInsightApprovalAuditEventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GovernedExecutiveInsightApprovalAuditEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   executiveSynthesisRuns<T extends Prisma.Tenant$executiveSynthesisRunsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$executiveSynthesisRunsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveSynthesisRunPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   executiveSyntheses<T extends Prisma.Tenant$executiveSynthesesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$executiveSynthesesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveSynthesisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  executiveBoardPackDefinitions<T extends Prisma.Tenant$executiveBoardPackDefinitionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$executiveBoardPackDefinitionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardPackDefinitionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  executiveBoardPacks<T extends Prisma.Tenant$executiveBoardPacksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$executiveBoardPacksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   contracts<T extends Prisma.Tenant$contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ContractPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   clauseTemplates<T extends Prisma.Tenant$clauseTemplatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$clauseTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClauseTemplatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   aiAgentTasks<T extends Prisma.Tenant$aiAgentTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Tenant$aiAgentTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiAgentTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -78259,6 +80463,54 @@ export type Tenant$executiveSynthesesArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.ExecutiveSynthesisScalarFieldEnum | Prisma.ExecutiveSynthesisScalarFieldEnum[]
+}
+
+/**
+ * Tenant.executiveBoardPackDefinitions
+ */
+export type Tenant$executiveBoardPackDefinitionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExecutiveBoardPackDefinition
+   */
+  select?: Prisma.ExecutiveBoardPackDefinitionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExecutiveBoardPackDefinition
+   */
+  omit?: Prisma.ExecutiveBoardPackDefinitionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExecutiveBoardPackDefinitionInclude<ExtArgs> | null
+  where?: Prisma.ExecutiveBoardPackDefinitionWhereInput
+  orderBy?: Prisma.ExecutiveBoardPackDefinitionOrderByWithRelationInput | Prisma.ExecutiveBoardPackDefinitionOrderByWithRelationInput[]
+  cursor?: Prisma.ExecutiveBoardPackDefinitionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExecutiveBoardPackDefinitionScalarFieldEnum | Prisma.ExecutiveBoardPackDefinitionScalarFieldEnum[]
+}
+
+/**
+ * Tenant.executiveBoardPacks
+ */
+export type Tenant$executiveBoardPacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExecutiveBoardPack
+   */
+  select?: Prisma.ExecutiveBoardPackSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExecutiveBoardPack
+   */
+  omit?: Prisma.ExecutiveBoardPackOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExecutiveBoardPackInclude<ExtArgs> | null
+  where?: Prisma.ExecutiveBoardPackWhereInput
+  orderBy?: Prisma.ExecutiveBoardPackOrderByWithRelationInput | Prisma.ExecutiveBoardPackOrderByWithRelationInput[]
+  cursor?: Prisma.ExecutiveBoardPackWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExecutiveBoardPackScalarFieldEnum | Prisma.ExecutiveBoardPackScalarFieldEnum[]
 }
 
 /**

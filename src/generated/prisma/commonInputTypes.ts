@@ -4777,6 +4777,57 @@ export type EnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel = neve
   _max?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
 }
 
+export type EnumExecutiveBoardPackTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackType | Prisma.EnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardPackType
+}
+
+export type EnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackPeriodType | Prisma.EnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardPackPeriodType
+}
+
+export type EnumExecutiveBoardPackTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackType | Prisma.EnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardPackPeriodTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackPeriodType | Prisma.EnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackPeriodType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardPackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackStatus | Prisma.EnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardPackStatus
+}
+
+export type EnumExecutiveBoardPackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackStatus | Prisma.EnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9497,6 +9548,57 @@ export type NestedEnumExecutiveSynthesisStatusWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumExecutiveSynthesisStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackType | Prisma.EnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardPackType
+}
+
+export type NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackPeriodType | Prisma.EnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel> | $Enums.ExecutiveBoardPackPeriodType
+}
+
+export type NestedEnumExecutiveBoardPackTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackType | Prisma.EnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackType[] | Prisma.ListEnumExecutiveBoardPackTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardPackPeriodTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackPeriodType | Prisma.EnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackPeriodType[] | Prisma.ListEnumExecutiveBoardPackPeriodTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackPeriodType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackPeriodTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackStatus | Prisma.EnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardPackStatus
+}
+
+export type NestedEnumExecutiveBoardPackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardPackStatus | Prisma.EnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardPackStatus[] | Prisma.ListEnumExecutiveBoardPackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardPackStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardPackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardPackStatusFilter<$PrismaModel>
 }
 
 

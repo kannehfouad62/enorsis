@@ -2864,6 +2864,40 @@ export const ExecutiveSynthesisStatus = {
 export type ExecutiveSynthesisStatus = (typeof ExecutiveSynthesisStatus)[keyof typeof ExecutiveSynthesisStatus]
 
 
+export const ExecutiveBoardPackType = {
+  CEO: 'CEO',
+  CFO: 'CFO',
+  COO: 'COO',
+  CPO: 'CPO',
+  CRO: 'CRO',
+  ESG: 'ESG',
+  SUPPLY_CHAIN: 'SUPPLY_CHAIN',
+  GENERAL_BOARD: 'GENERAL_BOARD'
+} as const
+
+export type ExecutiveBoardPackType = (typeof ExecutiveBoardPackType)[keyof typeof ExecutiveBoardPackType]
+
+
+export const ExecutiveBoardPackStatus = {
+  DRAFT: 'DRAFT',
+  GENERATED: 'GENERATED',
+  FINALIZED: 'FINALIZED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type ExecutiveBoardPackStatus = (typeof ExecutiveBoardPackStatus)[keyof typeof ExecutiveBoardPackStatus]
+
+
+export const ExecutiveBoardPackPeriodType = {
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  ANNUAL: 'ANNUAL',
+  AD_HOC: 'AD_HOC'
+} as const
+
+export type ExecutiveBoardPackPeriodType = (typeof ExecutiveBoardPackPeriodType)[keyof typeof ExecutiveBoardPackPeriodType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

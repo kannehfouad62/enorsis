@@ -2116,6 +2116,31 @@ enum ExecutiveSynthesisStatus {
   FAILED
 }
 
+enum ExecutiveBoardPackType {
+  CEO
+  CFO
+  COO
+  CPO
+  CRO
+  ESG
+  SUPPLY_CHAIN
+  GENERAL_BOARD
+}
+
+enum ExecutiveBoardPackStatus {
+  DRAFT
+  GENERATED
+  FINALIZED
+  ARCHIVED
+}
+
+enum ExecutiveBoardPackPeriodType {
+  MONTHLY
+  QUARTERLY
+  ANNUAL
+  AD_HOC
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2341,6 +2366,8 @@ model Tenant {
   governedExecutiveInsightApprovalAuditEvents GovernedExecutiveInsightApprovalAuditEvent[]
   executiveSynthesisRuns                      ExecutiveSynthesisRun[]
   executiveSyntheses                          ExecutiveSynthesis[]
+  executiveBoardPackDefinitions               ExecutiveBoardPackDefinition[]
+  executiveBoardPacks                         ExecutiveBoardPack[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -7793,4 +7820,59 @@ model ExecutiveSynthesis {
   updatedAt             DateTime              @updatedAt
 
   @@index([tenantId, createdAt])
+}
+
+model ExecutiveBoardPackDefinition {
+  id                   String                       @id @default(cuid())
+  tenantId             String
+  definitionKey        String
+  name                 String
+  description          String?
+  packType             ExecutiveBoardPackType
+  active               Boolean                      @default(true)
+  defaultPeriodType    ExecutiveBoardPackPeriodType
+  includeAiSynthesis   Boolean                      @default(true)
+  includeGovernance    Boolean                      @default(true)
+  includeKpis          Boolean                      @default(true)
+  includeRisks         Boolean                      @default(true)
+  includeOpportunities Boolean                      @default(true)
+  sectionConfiguration Json?
+  tenant               Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  packs                ExecutiveBoardPack[]
+  createdAt            DateTime                     @default(now())
+  updatedAt            DateTime                     @updatedAt
+
+  @@unique([tenantId, definitionKey])
+  @@index([tenantId, packType, active])
+}
+
+model ExecutiveBoardPack {
+  id                 String                       @id @default(cuid())
+  tenantId           String
+  definitionId       String
+  packNumber         String
+  title              String
+  packType           ExecutiveBoardPackType
+  status             ExecutiveBoardPackStatus     @default(DRAFT)
+  periodType         ExecutiveBoardPackPeriodType
+  periodStart        DateTime
+  periodEnd          DateTime
+  generatedAt        DateTime?
+  generatedByUserId  String?
+  finalizedAt        DateTime?
+  finalizedByUserId  String?
+  executiveSummary   String?
+  sourceSnapshot     Json
+  sectionSnapshot    Json
+  governanceSnapshot Json
+  sourceFingerprint  String
+  tenant             Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  definition         ExecutiveBoardPackDefinition @relation(fields: [definitionId], references: [id], onDelete: Restrict)
+  createdAt          DateTime                     @default(now())
+  updatedAt          DateTime                     @updatedAt
+
+  @@unique([tenantId, packNumber])
+  @@index([tenantId, packType, status, periodEnd])
+  @@index([definitionId, createdAt])
+  @@index([sourceFingerprint])
 }
