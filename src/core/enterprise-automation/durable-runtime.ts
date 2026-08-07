@@ -6,6 +6,12 @@ import type {
   AutomationCanvasNode,
 } from "./graph-types";
 import { compileAutomationRuntimePlan } from "./runtime-plan";
+import {
+  durableRetryPolicy,
+  retryDelayForAttempt,
+  timeoutAtForNode,
+} from "./durable-runtime-policy";
+import { isDurableJoinReady } from "./durable-join";
 
 function getPath(
   value: Record<string, unknown>,
@@ -171,7 +177,7 @@ export async function resumeDurableAutomationExecution(input: {
       executionId: execution.id,
       status: "WAITING",
       availableAt: { lte: now },
-      waitReason: "TIME",
+      waitReason: { in: ["TIME", "RETRY"] },
     },
     data: {
       status: "READY",
@@ -220,12 +226,16 @@ export async function resumeDurableAutomationExecution(input: {
       break;
     }
 
+    const nodeStartedAt =
+      checkpoint.startedAt ?? new Date();
+
     await prisma.enterpriseAutomationRuntimeNode.update({
       where: { id: checkpoint.id },
       data: {
         status: "RUNNING",
         attemptCount: { increment: 1 },
-        startedAt: checkpoint.startedAt ?? new Date(),
+        startedAt: nodeStartedAt,
+        timeoutAt: timeoutAtForNode(node, nodeStartedAt),
       },
     });
 
@@ -256,6 +266,28 @@ export async function resumeDurableAutomationExecution(input: {
       });
 
       break;
+    }
+
+    if (node.type === "JOIN") {
+      const join = await isDurableJoinReady({
+        executionId: execution.id,
+        graph,
+        joinNodeId: node.id,
+      });
+
+      if (!join.ready) {
+        await prisma.enterpriseAutomationRuntimeNode.update({
+          where: { id: checkpoint.id },
+          data: {
+            status: "WAITING",
+            waitReason: "PARALLEL_JOIN",
+            result: toJson({
+              missingIncomingNodeIds: join.missing,
+            }),
+          },
+        });
+        break;
+      }
     }
 
     if (node.type === "APPROVAL") {
@@ -320,6 +352,7 @@ export async function resumeDurableAutomationExecution(input: {
       data: {
         status: "COMPLETED",
         completedAt: new Date(),
+        timeoutAt: null,
         result: toJson({
           outgoing: outgoing.map((edge) => edge.target),
         }),
@@ -423,7 +456,12 @@ export async function signalDurableAutomationExecution(input: {
   tenantId: string;
   executionId: string;
   correlationNodeId: string;
-  signalType: "APPROVAL" | "RESUME" | "CANCEL";
+  signalType:
+    | "APPROVAL"
+    | "RESUME"
+    | "RETRY"
+    | "RECOVER"
+    | "CANCEL";
   payload?: Record<string, unknown>;
   actorUserId?: string | null;
 }) {

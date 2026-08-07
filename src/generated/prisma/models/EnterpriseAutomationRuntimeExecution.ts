@@ -20,8 +20,18 @@ export type EnterpriseAutomationRuntimeExecutionModel = runtime.Types.Result.Def
 
 export type AggregateEnterpriseAutomationRuntimeExecution = {
   _count: EnterpriseAutomationRuntimeExecutionCountAggregateOutputType | null
+  _avg: EnterpriseAutomationRuntimeExecutionAvgAggregateOutputType | null
+  _sum: EnterpriseAutomationRuntimeExecutionSumAggregateOutputType | null
   _min: EnterpriseAutomationRuntimeExecutionMinAggregateOutputType | null
   _max: EnterpriseAutomationRuntimeExecutionMaxAggregateOutputType | null
+}
+
+export type EnterpriseAutomationRuntimeExecutionAvgAggregateOutputType = {
+  recoveryCount: number | null
+}
+
+export type EnterpriseAutomationRuntimeExecutionSumAggregateOutputType = {
+  recoveryCount: number | null
 }
 
 export type EnterpriseAutomationRuntimeExecutionMinAggregateOutputType = {
@@ -36,6 +46,9 @@ export type EnterpriseAutomationRuntimeExecutionMinAggregateOutputType = {
   startedAt: Date | null
   completedAt: Date | null
   lastError: string | null
+  recoveryCount: number | null
+  lastRecoveredAt: Date | null
+  recoveredByUserId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -52,6 +65,9 @@ export type EnterpriseAutomationRuntimeExecutionMaxAggregateOutputType = {
   startedAt: Date | null
   completedAt: Date | null
   lastError: string | null
+  recoveryCount: number | null
+  lastRecoveredAt: Date | null
+  recoveredByUserId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -71,11 +87,22 @@ export type EnterpriseAutomationRuntimeExecutionCountAggregateOutputType = {
   startedAt: number
   completedAt: number
   lastError: number
+  recoveryCount: number
+  lastRecoveredAt: number
+  recoveredByUserId: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
+
+export type EnterpriseAutomationRuntimeExecutionAvgAggregateInputType = {
+  recoveryCount?: true
+}
+
+export type EnterpriseAutomationRuntimeExecutionSumAggregateInputType = {
+  recoveryCount?: true
+}
 
 export type EnterpriseAutomationRuntimeExecutionMinAggregateInputType = {
   id?: true
@@ -89,6 +116,9 @@ export type EnterpriseAutomationRuntimeExecutionMinAggregateInputType = {
   startedAt?: true
   completedAt?: true
   lastError?: true
+  recoveryCount?: true
+  lastRecoveredAt?: true
+  recoveredByUserId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -105,6 +135,9 @@ export type EnterpriseAutomationRuntimeExecutionMaxAggregateInputType = {
   startedAt?: true
   completedAt?: true
   lastError?: true
+  recoveryCount?: true
+  lastRecoveredAt?: true
+  recoveredByUserId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +157,9 @@ export type EnterpriseAutomationRuntimeExecutionCountAggregateInputType = {
   startedAt?: true
   completedAt?: true
   lastError?: true
+  recoveryCount?: true
+  lastRecoveredAt?: true
+  recoveredByUserId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -167,6 +203,18 @@ export type EnterpriseAutomationRuntimeExecutionAggregateArgs<ExtArgs extends ru
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: EnterpriseAutomationRuntimeExecutionAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: EnterpriseAutomationRuntimeExecutionSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: EnterpriseAutomationRuntimeExecutionMinAggregateInputType
@@ -197,6 +245,8 @@ export type EnterpriseAutomationRuntimeExecutionGroupByArgs<ExtArgs extends runt
   take?: number
   skip?: number
   _count?: EnterpriseAutomationRuntimeExecutionCountAggregateInputType | true
+  _avg?: EnterpriseAutomationRuntimeExecutionAvgAggregateInputType
+  _sum?: EnterpriseAutomationRuntimeExecutionSumAggregateInputType
   _min?: EnterpriseAutomationRuntimeExecutionMinAggregateInputType
   _max?: EnterpriseAutomationRuntimeExecutionMaxAggregateInputType
 }
@@ -216,9 +266,14 @@ export type EnterpriseAutomationRuntimeExecutionGroupByOutputType = {
   startedAt: Date
   completedAt: Date | null
   lastError: string | null
+  recoveryCount: number
+  lastRecoveredAt: Date | null
+  recoveredByUserId: string | null
   createdAt: Date
   updatedAt: Date
   _count: EnterpriseAutomationRuntimeExecutionCountAggregateOutputType | null
+  _avg: EnterpriseAutomationRuntimeExecutionAvgAggregateOutputType | null
+  _sum: EnterpriseAutomationRuntimeExecutionSumAggregateOutputType | null
   _min: EnterpriseAutomationRuntimeExecutionMinAggregateOutputType | null
   _max: EnterpriseAutomationRuntimeExecutionMaxAggregateOutputType | null
 }
@@ -256,6 +311,9 @@ export type EnterpriseAutomationRuntimeExecutionWhereInput = {
   startedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
+  recoveryCount?: Prisma.IntFilter<"EnterpriseAutomationRuntimeExecution"> | number
+  lastRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
+  recoveredByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -279,6 +337,9 @@ export type EnterpriseAutomationRuntimeExecutionOrderByWithRelationInput = {
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastError?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveryCount?: Prisma.SortOrder
+  lastRecoveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveredByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
@@ -306,6 +367,9 @@ export type EnterpriseAutomationRuntimeExecutionWhereUniqueInput = Prisma.AtLeas
   startedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
+  recoveryCount?: Prisma.IntFilter<"EnterpriseAutomationRuntimeExecution"> | number
+  lastRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
+  recoveredByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -329,11 +393,16 @@ export type EnterpriseAutomationRuntimeExecutionOrderByWithAggregationInput = {
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   lastError?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveryCount?: Prisma.SortOrder
+  lastRecoveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  recoveredByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EnterpriseAutomationRuntimeExecutionCountOrderByAggregateInput
+  _avg?: Prisma.EnterpriseAutomationRuntimeExecutionAvgOrderByAggregateInput
   _max?: Prisma.EnterpriseAutomationRuntimeExecutionMaxOrderByAggregateInput
   _min?: Prisma.EnterpriseAutomationRuntimeExecutionMinOrderByAggregateInput
+  _sum?: Prisma.EnterpriseAutomationRuntimeExecutionSumOrderByAggregateInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionScalarWhereWithAggregatesInput = {
@@ -354,6 +423,9 @@ export type EnterpriseAutomationRuntimeExecutionScalarWhereWithAggregatesInput =
   startedAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
   lastError?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
+  recoveryCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | number
+  lastRecoveredAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
+  recoveredByUserId?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
 }
@@ -371,6 +443,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
@@ -394,6 +469,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
@@ -413,6 +491,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
@@ -436,6 +517,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
@@ -457,6 +541,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateManyInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -474,6 +561,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateManyMutationInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -493,6 +583,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -527,8 +620,15 @@ export type EnterpriseAutomationRuntimeExecutionCountOrderByAggregateInput = {
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
+  recoveryCount?: Prisma.SortOrder
+  lastRecoveredAt?: Prisma.SortOrder
+  recoveredByUserId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type EnterpriseAutomationRuntimeExecutionAvgOrderByAggregateInput = {
+  recoveryCount?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuntimeExecutionMaxOrderByAggregateInput = {
@@ -543,6 +643,9 @@ export type EnterpriseAutomationRuntimeExecutionMaxOrderByAggregateInput = {
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
+  recoveryCount?: Prisma.SortOrder
+  lastRecoveredAt?: Prisma.SortOrder
+  recoveredByUserId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -559,8 +662,15 @@ export type EnterpriseAutomationRuntimeExecutionMinOrderByAggregateInput = {
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   lastError?: Prisma.SortOrder
+  recoveryCount?: Prisma.SortOrder
+  lastRecoveredAt?: Prisma.SortOrder
+  recoveredByUserId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type EnterpriseAutomationRuntimeExecutionSumOrderByAggregateInput = {
+  recoveryCount?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationRuntimeExecutionScalarRelationFilter = {
@@ -697,6 +807,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutTenantInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
@@ -718,6 +831,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutTenantInpu
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
@@ -768,6 +884,9 @@ export type EnterpriseAutomationRuntimeExecutionScalarWhereInput = {
   startedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   completedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
   lastError?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
+  recoveryCount?: Prisma.IntFilter<"EnterpriseAutomationRuntimeExecution"> | number
+  lastRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string | null
+  recoveredByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationRuntimeExecution"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeExecution"> | Date | string
 }
@@ -785,6 +904,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutRuleInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
@@ -806,6 +928,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutRuleInput 
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
@@ -851,6 +976,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutNodesInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
@@ -873,6 +1001,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutNodesInput
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
@@ -907,6 +1038,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutNodesInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
@@ -929,6 +1063,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutNodesInput
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
@@ -947,6 +1084,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutSignalsInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
@@ -969,6 +1109,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutSignalsInp
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
@@ -1003,6 +1146,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutSignalsInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
@@ -1025,6 +1171,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutSignalsInp
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
@@ -1044,6 +1193,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateManyTenantInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1061,6 +1213,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutTenantInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
@@ -1082,6 +1237,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutTenantInpu
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
@@ -1102,6 +1260,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyWithoutTenant
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1120,6 +1281,9 @@ export type EnterpriseAutomationRuntimeExecutionCreateManyRuleInput = {
   startedAt?: Date | string
   completedAt?: Date | string | null
   lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1137,6 +1301,9 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutRuleInput = {
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
@@ -1158,6 +1325,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutRuleInput 
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
@@ -1178,6 +1348,9 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyWithoutRuleIn
   startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1237,6 +1410,9 @@ export type EnterpriseAutomationRuntimeExecutionSelect<ExtArgs extends runtime.T
   startedAt?: boolean
   completedAt?: boolean
   lastError?: boolean
+  recoveryCount?: boolean
+  lastRecoveredAt?: boolean
+  recoveredByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1261,6 +1437,9 @@ export type EnterpriseAutomationRuntimeExecutionSelectCreateManyAndReturn<ExtArg
   startedAt?: boolean
   completedAt?: boolean
   lastError?: boolean
+  recoveryCount?: boolean
+  lastRecoveredAt?: boolean
+  recoveredByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1282,6 +1461,9 @@ export type EnterpriseAutomationRuntimeExecutionSelectUpdateManyAndReturn<ExtArg
   startedAt?: boolean
   completedAt?: boolean
   lastError?: boolean
+  recoveryCount?: boolean
+  lastRecoveredAt?: boolean
+  recoveredByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1303,11 +1485,14 @@ export type EnterpriseAutomationRuntimeExecutionSelectScalar = {
   startedAt?: boolean
   completedAt?: boolean
   lastError?: boolean
+  recoveryCount?: boolean
+  lastRecoveredAt?: boolean
+  recoveredByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EnterpriseAutomationRuntimeExecutionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "ruleId" | "versionId" | "executionNumber" | "status" | "graphSnapshot" | "input" | "context" | "wakeAt" | "initiatedByUserId" | "startedAt" | "completedAt" | "lastError" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationRuntimeExecution"]>
+export type EnterpriseAutomationRuntimeExecutionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "ruleId" | "versionId" | "executionNumber" | "status" | "graphSnapshot" | "input" | "context" | "wakeAt" | "initiatedByUserId" | "startedAt" | "completedAt" | "lastError" | "recoveryCount" | "lastRecoveredAt" | "recoveredByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationRuntimeExecution"]>
 export type EnterpriseAutomationRuntimeExecutionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   rule?: boolean | Prisma.EnterpriseAutomationRuleDefaultArgs<ExtArgs>
@@ -1347,6 +1532,9 @@ export type $EnterpriseAutomationRuntimeExecutionPayload<ExtArgs extends runtime
     startedAt: Date
     completedAt: Date | null
     lastError: string | null
+    recoveryCount: number
+    lastRecoveredAt: Date | null
+    recoveredByUserId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["enterpriseAutomationRuntimeExecution"]>
@@ -1790,6 +1978,9 @@ export interface EnterpriseAutomationRuntimeExecutionFieldRefs {
   readonly startedAt: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'DateTime'>
   readonly completedAt: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'DateTime'>
   readonly lastError: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'String'>
+  readonly recoveryCount: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'Int'>
+  readonly lastRecoveredAt: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'DateTime'>
+  readonly recoveredByUserId: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'String'>
   readonly createdAt: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"EnterpriseAutomationRuntimeExecution", 'DateTime'>
 }

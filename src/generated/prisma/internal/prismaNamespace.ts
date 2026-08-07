@@ -24296,6 +24296,9 @@ export const EnterpriseAutomationRuntimeExecutionScalarFieldEnum = {
   startedAt: 'startedAt',
   completedAt: 'completedAt',
   lastError: 'lastError',
+  recoveryCount: 'recoveryCount',
+  lastRecoveredAt: 'lastRecoveredAt',
+  recoveredByUserId: 'recoveredByUserId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -24320,6 +24323,8 @@ export const EnterpriseAutomationRuntimeNodeScalarFieldEnum = {
   lastError: 'lastError',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
+  failureCode: 'failureCode',
+  retryDelayMinutes: 'retryDelayMinutes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

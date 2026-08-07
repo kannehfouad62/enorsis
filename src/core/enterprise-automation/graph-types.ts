@@ -5,6 +5,7 @@ export type AutomationCanvasNodeType =
   | "WAIT"
   | "APPROVAL"
   | "PARALLEL"
+  | "JOIN"
   | "RETRY"
   | "TIMEOUT"
   | "END";

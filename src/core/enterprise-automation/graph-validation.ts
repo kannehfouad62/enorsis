@@ -286,6 +286,19 @@ export function validateAutomationCanvasGraph(
     }
 
     if (
+      node.type === "JOIN" &&
+      (incoming.get(node.id) ?? 0) < 2
+    ) {
+      issues.push({
+        severity: "ERROR",
+        code: "JOIN_INCOMING_COUNT",
+        message:
+          "Join node requires at least two incoming branches.",
+        nodeId: node.id,
+      });
+    }
+
+    if (
       node.type !== "TRIGGER" &&
       (incoming.get(node.id) ?? 0) === 0
     ) {

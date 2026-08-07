@@ -21,6 +21,7 @@ const nodeTypes: Array<{
   { type: "WAIT", label: "Wait" },
   { type: "APPROVAL", label: "Approval" },
   { type: "PARALLEL", label: "Parallel" },
+  { type: "JOIN", label: "Join" },
   { type: "RETRY", label: "Retry" },
   { type: "TIMEOUT", label: "Timeout" },
   { type: "END", label: "End" },

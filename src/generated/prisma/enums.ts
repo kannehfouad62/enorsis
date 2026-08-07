@@ -3079,6 +3079,8 @@ export type EnterpriseAutomationRuntimeNodeStatus = (typeof EnterpriseAutomation
 export const EnterpriseAutomationRuntimeSignalType = {
   APPROVAL: 'APPROVAL',
   RESUME: 'RESUME',
+  RETRY: 'RETRY',
+  RECOVER: 'RECOVER',
   CANCEL: 'CANCEL'
 } as const
 

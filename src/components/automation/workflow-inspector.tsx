@@ -264,6 +264,13 @@ export function WorkflowInspector({
           </p>
         ) : null}
 
+        {node.type === "JOIN" ? (
+          <p className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600">
+            Join waits until all directly connected incoming branches
+            have completed before continuing.
+          </p>
+        ) : null}
+
       </div>
     </div>
   );

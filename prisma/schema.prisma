@@ -2271,6 +2271,8 @@ enum EnterpriseAutomationRuntimeNodeStatus {
 enum EnterpriseAutomationRuntimeSignalType {
   APPROVAL
   RESUME
+  RETRY
+  RECOVER
   CANCEL
 }
 
@@ -8396,6 +8398,9 @@ model EnterpriseAutomationRuntimeExecution {
   rule              EnterpriseAutomationRule            @relation(fields: [ruleId], references: [id], onDelete: Cascade)
   nodes             EnterpriseAutomationRuntimeNode[]
   signals           EnterpriseAutomationRuntimeSignal[]
+  recoveryCount     Int                                 @default(0)
+  lastRecoveredAt   DateTime?
+  recoveredByUserId String?
   createdAt         DateTime                            @default(now())
   updatedAt         DateTime                            @updatedAt
 
@@ -8405,26 +8410,28 @@ model EnterpriseAutomationRuntimeExecution {
 }
 
 model EnterpriseAutomationRuntimeNode {
-  id           String                                @id @default(cuid())
-  tenantId     String
-  executionId  String
-  nodeId       String
-  nodeType     String
-  branchKey    String?
-  status       EnterpriseAutomationRuntimeNodeStatus @default(READY)
-  attemptCount Int                                   @default(0)
-  availableAt  DateTime?
-  timeoutAt    DateTime?
-  waitReason   String?
-  payload      Json?
-  result       Json?
-  lastError    String?
-  startedAt    DateTime?
-  completedAt  DateTime?
-  tenant       Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  execution    EnterpriseAutomationRuntimeExecution  @relation(fields: [executionId], references: [id], onDelete: Cascade)
-  createdAt    DateTime                              @default(now())
-  updatedAt    DateTime                              @updatedAt
+  id                String                                @id @default(cuid())
+  tenantId          String
+  executionId       String
+  nodeId            String
+  nodeType          String
+  branchKey         String?
+  status            EnterpriseAutomationRuntimeNodeStatus @default(READY)
+  attemptCount      Int                                   @default(0)
+  availableAt       DateTime?
+  timeoutAt         DateTime?
+  waitReason        String?
+  payload           Json?
+  result            Json?
+  lastError         String?
+  startedAt         DateTime?
+  completedAt       DateTime?
+  tenant            Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  execution         EnterpriseAutomationRuntimeExecution  @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  failureCode       String?
+  retryDelayMinutes Int?
+  createdAt         DateTime                              @default(now())
+  updatedAt         DateTime                              @updatedAt
 
   @@index([tenantId, status, availableAt])
   @@index([executionId, status])
