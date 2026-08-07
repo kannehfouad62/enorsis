@@ -4522,6 +4522,57 @@ export type EnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
 }
 
+export type EnumInventoryFinancialCostMethodFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialCostMethod | Prisma.EnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel> | $Enums.InventoryFinancialCostMethod
+}
+
+export type EnumInventoryFinancialCostMethodWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialCostMethod | Prisma.EnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialCostMethodWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialCostMethod
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel>
+}
+
+export type EnumInventoryFinancialLayerStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialLayerStatus | Prisma.EnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel> | $Enums.InventoryFinancialLayerStatus
+}
+
+export type EnumInventoryFinancialLayerStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialLayerStatus | Prisma.EnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialLayerStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialLayerStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel>
+}
+
+export type EnumInventoryFinancialReconciliationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialReconciliationStatus | Prisma.EnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel> | $Enums.InventoryFinancialReconciliationStatus
+}
+
+export type EnumInventoryFinancialReconciliationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialReconciliationStatus | Prisma.EnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialReconciliationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialReconciliationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -8987,6 +9038,57 @@ export type NestedEnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaMo
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialCostMethod | Prisma.EnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel> | $Enums.InventoryFinancialCostMethod
+}
+
+export type NestedEnumInventoryFinancialCostMethodWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialCostMethod | Prisma.EnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialCostMethod[] | Prisma.ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialCostMethodWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialCostMethod
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialCostMethodFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialLayerStatus | Prisma.EnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel> | $Enums.InventoryFinancialLayerStatus
+}
+
+export type NestedEnumInventoryFinancialLayerStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialLayerStatus | Prisma.EnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialLayerStatus[] | Prisma.ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialLayerStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialLayerStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialLayerStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialReconciliationStatus | Prisma.EnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel> | $Enums.InventoryFinancialReconciliationStatus
+}
+
+export type NestedEnumInventoryFinancialReconciliationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryFinancialReconciliationStatus | Prisma.EnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryFinancialReconciliationStatus[] | Prisma.ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryFinancialReconciliationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryFinancialReconciliationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryFinancialReconciliationStatusFilter<$PrismaModel>
 }
 
 

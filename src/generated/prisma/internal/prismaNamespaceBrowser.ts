@@ -260,7 +260,11 @@ export const ModelName = {
   ReplenishmentPolicy: 'ReplenishmentPolicy',
   StockReplenishmentRecommendation: 'StockReplenishmentRecommendation',
   StockTransferOrder: 'StockTransferOrder',
-  StockTransferException: 'StockTransferException'
+  StockTransferException: 'StockTransferException',
+  InventoryFinancialValuationPolicy: 'InventoryFinancialValuationPolicy',
+  InventoryFinancialCostLayer: 'InventoryFinancialCostLayer',
+  InventoryFinancialValuationSnapshot: 'InventoryFinancialValuationSnapshot',
+  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4822,6 +4826,89 @@ export const StockTransferExceptionScalarFieldEnum = {
 } as const
 
 export type StockTransferExceptionScalarFieldEnum = (typeof StockTransferExceptionScalarFieldEnum)[keyof typeof StockTransferExceptionScalarFieldEnum]
+
+
+export const InventoryFinancialValuationPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  costMethod: 'costMethod',
+  standardUnitCost: 'standardUnitCost',
+  currencyCode: 'currencyCode',
+  effectiveFrom: 'effectiveFrom',
+  effectiveTo: 'effectiveTo',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialValuationPolicyScalarFieldEnum = (typeof InventoryFinancialValuationPolicyScalarFieldEnum)[keyof typeof InventoryFinancialValuationPolicyScalarFieldEnum]
+
+
+export const InventoryFinancialCostLayerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  sourceMovementId: 'sourceMovementId',
+  layerNumber: 'layerNumber',
+  status: 'status',
+  originalQuantity: 'originalQuantity',
+  remainingQuantity: 'remainingQuantity',
+  unitCost: 'unitCost',
+  currencyCode: 'currencyCode',
+  extendedCost: 'extendedCost',
+  receivedAt: 'receivedAt',
+  closedAt: 'closedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialCostLayerScalarFieldEnum = (typeof InventoryFinancialCostLayerScalarFieldEnum)[keyof typeof InventoryFinancialCostLayerScalarFieldEnum]
+
+
+export const InventoryFinancialValuationSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  quantityOnHand: 'quantityOnHand',
+  averageUnitCost: 'averageUnitCost',
+  inventoryValue: 'inventoryValue',
+  currencyCode: 'currencyCode',
+  asOf: 'asOf',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialValuationSnapshotScalarFieldEnum = (typeof InventoryFinancialValuationSnapshotScalarFieldEnum)[keyof typeof InventoryFinancialValuationSnapshotScalarFieldEnum]
+
+
+export const InventoryFinancialReconciliationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  reconciliationNumber: 'reconciliationNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  quantityOnHand: 'quantityOnHand',
+  ledgerValue: 'ledgerValue',
+  expectedValue: 'expectedValue',
+  varianceValue: 'varianceValue',
+  currencyCode: 'currencyCode',
+  reason: 'reason',
+  reviewedByUserId: 'reviewedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedAt: 'approvedAt',
+  postedAt: 'postedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialReconciliationScalarFieldEnum = (typeof InventoryFinancialReconciliationScalarFieldEnum)[keyof typeof InventoryFinancialReconciliationScalarFieldEnum]
 
 
 export const SortOrder = {

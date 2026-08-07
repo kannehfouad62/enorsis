@@ -1992,6 +1992,30 @@ enum StockTransferExceptionType {
   OTHER
 }
 
+enum InventoryFinancialCostMethod {
+  FIFO
+  WEIGHTED_AVERAGE
+  STANDARD
+  SPECIFIC_IDENTIFICATION
+}
+
+enum InventoryFinancialLayerStatus {
+  OPEN
+  PARTIALLY_CONSUMED
+  CONSUMED
+  ADJUSTED
+  CLOSED
+}
+
+enum InventoryFinancialReconciliationStatus {
+  DRAFT
+  REVIEW_REQUIRED
+  BALANCED
+  APPROVED
+  POSTED
+  CANCELLED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2087,126 +2111,130 @@ model PasswordResetToken {
 }
 
 model Tenant {
-  id                                String                             @id @default(cuid())
-  slug                              String                             @unique
-  name                              String
-  legalName                         String?
-  status                            TenantStatus                       @default(PROVISIONING)
-  countryCode                       String?
-  defaultLocale                     String                             @default("en-US")
-  defaultTimeZone                   String                             @default("UTC")
-  currencyPolicyMode                CurrencyPolicyMode                 @default(USD_ONLY)
-  baseCurrencyCode                  String                             @default("USD")
-  localDisplayCurrency              String?
-  usdReportingEnabled               Boolean                            @default(true)
-  memberships                       Membership[]
-  legalEntities                     LegalEntity[]
-  sites                             Site[]
-  departments                       Department[]
-  exchangeRates                     ExchangeRate[]
-  auditEvents                       AuditEvent[]
-  aiAgents                          AiAgent[]
-  purchaseRequests                  PurchaseRequest[]
-  purchaseOrders                    PurchaseOrder[]
-  receipts                          ProcurementReceipt[]
-  supplierInvoices                  SupplierInvoice[]
-  suppliers                         Supplier[]
-  sourcingEvents                    SourcingEvent[]
-  paymentBatches                    PaymentBatch[]
-  integrations                      IntegrationConnection[]
-  workflowDefinitions               WorkflowDefinition[]
-  workflowInstances                 WorkflowInstance[]
-  workflowDelegations               WorkflowDelegation[]
-  workflowNotifications             WorkflowNotification[]
-  apiClients                        ApiClient[]
-  accessReviewCampaigns             AccessReviewCampaign[]
-  sodRules                          SodRule[]
-  sodViolations                     SodViolation[]
-  supplierScorecards                SupplierScorecard[]
-  supplierDevelopmentPlans          SupplierDevelopmentPlan[]
-  supplierCorrectiveActions         SupplierCorrectiveAction[]
-  procurementPlans                  ProcurementPlan[]
-  categoryStrategies                CategoryStrategy[]
-  savingsInitiatives                SavingsInitiative[]
-  procurementReviews                ProcurementReview[]
-  procurementPolicies               ProcurementPolicy[]
-  procurementComplianceTests        ProcurementComplianceTest[]
-  procurementRemediations           ProcurementRemediation[]
-  supplyRiskEvents                  SupplyRiskEvent[]
-  resiliencePlans                   ResiliencePlan[]
-  procurementCatalogs               ProcurementCatalog[]
-  guidedCarts                       GuidedCart[]
-  inventoryLocations                InventoryLocation[]
-  inventoryItems                    InventoryItem[]
-  inventoryTransactions             InventoryTransaction[]
-  cycleCounts                       CycleCount[]
-  statementsOfWork                  StatementOfWork[]
-  serviceWorkers                    ServiceWorker[]
-  serviceTimeEntries                ServiceTimeEntry[]
-  demandPlans                       DemandPlan[]
-  replenishmentRecommendations      ReplenishmentRecommendation[]
-  logisticsCarriers                 LogisticsCarrier[]
-  logisticsShipments                LogisticsShipment[]
-  supplierClaims                    SupplierClaim[]
-  procurementAssets                 ProcurementAsset[]
-  supplierEsgProfiles               SupplierEsgProfile[]
-  procurementValueInitiatives       ProcurementValueInitiative[]
-  supplierPortalInvitations         SupplierPortalInvitation[]
-  supplierPortalUsers               SupplierPortalUser[]
-  supplierOnboardingQuestionnaires  SupplierOnboardingQuestionnaire[]
-  supplierPortalTasks               SupplierPortalTask[]
-  supplierPortalMessages            SupplierPortalMessage[]
-  subscriptions                     TenantSubscription[]
-  entitlements                      TenantEntitlement[]
-  usageCounters                     UsageCounter[]
-  configurationProfile              TenantConfiguration?
-  platformJobExecutions             PlatformJobExecution[]
-  platformEvents                    PlatformEvent[]
-  platformEventSubscriptions        PlatformEventSubscription[]
-  enterpriseConnectorConnections    EnterpriseConnectorConnection[]
-  vaultSecrets                      VaultSecret[]
-  enterpriseNotificationTemplates   EnterpriseNotificationTemplate[]
-  enterpriseNotificationPreferences EnterpriseNotificationPreference[]
-  enterpriseNotifications           EnterpriseNotification[]
-  enterpriseActivities              EnterpriseActivity[]
-  enterprisePolicies                EnterpriseTenantPolicy[]
-  enterpriseFeatureFlags            EnterpriseTenantFeatureFlag[]
-  platformCertificationRuns         PlatformCertificationRun[]
-  requisitionOrderJourneys          RequisitionOrderJourney[]
-  requisitionSubmissionAssessments  RequisitionSubmissionAssessment[]
-  requisitionApprovalRoutes         RequisitionApprovalRoute[]
-  purchaseOrderExecutions           PurchaseOrderExecution[]
-  goodsReceiptSessions              GoodsReceiptSession[]
-  threeWayMatchCases                ThreeWayMatchCase[]
-  apPaymentReadinessCases           ApPaymentReadinessCase[]
-  procurementProcessCertifications  ProcurementProcessCertification[]
-  inventoryMovementLedgers          InventoryMovementLedger[]
-  inventoryAvailabilitySnapshots    InventoryAvailabilitySnapshot[]
-  inventoryReservations             InventoryReservation[]
-  inventoryOperationExceptions      InventoryOperationException[]
-  warehouseReceivingSessions        WarehouseReceivingSession[]
-  warehouseLocationControls         WarehouseLocationControl[]
-  putawayTasks                      PutawayTask[]
-  warehouseDiscrepancies            WarehouseDiscrepancy[]
-  warehouseFulfillmentOrders        WarehouseFulfillmentOrder[]
-  warehousePickTasks                WarehousePickTask[]
-  warehousePackages                 WarehousePackage[]
-  warehouseFulfillmentExceptions    WarehouseFulfillmentException[]
-  inventoryCountSessions            InventoryCountSession[]
-  inventoryReconciliations          InventoryReconciliation[]
-  inventoryTraceUnits               InventoryTraceUnit[]
-  inventoryTraceEvents              InventoryTraceEvent[]
-  inventoryTraceHolds               InventoryTraceHold[]
-  replenishmentPolicies             ReplenishmentPolicy[]
-  stockTransferOrders               StockTransferOrder[]
-  stockTransferExceptions           StockTransferException[]
-  createdAt                         DateTime                           @default(now())
-  updatedAt                         DateTime                           @updatedAt
-  archivedAt                        DateTime?
-  contracts                         Contract[]
-  clauseTemplates                   ClauseTemplate[]
-  aiAgentTasks                      AiAgentTask[]
-  stockReplenishmentRecommendations StockReplenishmentRecommendation[]
+  id                                   String                                @id @default(cuid())
+  slug                                 String                                @unique
+  name                                 String
+  legalName                            String?
+  status                               TenantStatus                          @default(PROVISIONING)
+  countryCode                          String?
+  defaultLocale                        String                                @default("en-US")
+  defaultTimeZone                      String                                @default("UTC")
+  currencyPolicyMode                   CurrencyPolicyMode                    @default(USD_ONLY)
+  baseCurrencyCode                     String                                @default("USD")
+  localDisplayCurrency                 String?
+  usdReportingEnabled                  Boolean                               @default(true)
+  memberships                          Membership[]
+  legalEntities                        LegalEntity[]
+  sites                                Site[]
+  departments                          Department[]
+  exchangeRates                        ExchangeRate[]
+  auditEvents                          AuditEvent[]
+  aiAgents                             AiAgent[]
+  purchaseRequests                     PurchaseRequest[]
+  purchaseOrders                       PurchaseOrder[]
+  receipts                             ProcurementReceipt[]
+  supplierInvoices                     SupplierInvoice[]
+  suppliers                            Supplier[]
+  sourcingEvents                       SourcingEvent[]
+  paymentBatches                       PaymentBatch[]
+  integrations                         IntegrationConnection[]
+  workflowDefinitions                  WorkflowDefinition[]
+  workflowInstances                    WorkflowInstance[]
+  workflowDelegations                  WorkflowDelegation[]
+  workflowNotifications                WorkflowNotification[]
+  apiClients                           ApiClient[]
+  accessReviewCampaigns                AccessReviewCampaign[]
+  sodRules                             SodRule[]
+  sodViolations                        SodViolation[]
+  supplierScorecards                   SupplierScorecard[]
+  supplierDevelopmentPlans             SupplierDevelopmentPlan[]
+  supplierCorrectiveActions            SupplierCorrectiveAction[]
+  procurementPlans                     ProcurementPlan[]
+  categoryStrategies                   CategoryStrategy[]
+  savingsInitiatives                   SavingsInitiative[]
+  procurementReviews                   ProcurementReview[]
+  procurementPolicies                  ProcurementPolicy[]
+  procurementComplianceTests           ProcurementComplianceTest[]
+  procurementRemediations              ProcurementRemediation[]
+  supplyRiskEvents                     SupplyRiskEvent[]
+  resiliencePlans                      ResiliencePlan[]
+  procurementCatalogs                  ProcurementCatalog[]
+  guidedCarts                          GuidedCart[]
+  inventoryLocations                   InventoryLocation[]
+  inventoryItems                       InventoryItem[]
+  inventoryTransactions                InventoryTransaction[]
+  cycleCounts                          CycleCount[]
+  statementsOfWork                     StatementOfWork[]
+  serviceWorkers                       ServiceWorker[]
+  serviceTimeEntries                   ServiceTimeEntry[]
+  demandPlans                          DemandPlan[]
+  replenishmentRecommendations         ReplenishmentRecommendation[]
+  logisticsCarriers                    LogisticsCarrier[]
+  logisticsShipments                   LogisticsShipment[]
+  supplierClaims                       SupplierClaim[]
+  procurementAssets                    ProcurementAsset[]
+  supplierEsgProfiles                  SupplierEsgProfile[]
+  procurementValueInitiatives          ProcurementValueInitiative[]
+  supplierPortalInvitations            SupplierPortalInvitation[]
+  supplierPortalUsers                  SupplierPortalUser[]
+  supplierOnboardingQuestionnaires     SupplierOnboardingQuestionnaire[]
+  supplierPortalTasks                  SupplierPortalTask[]
+  supplierPortalMessages               SupplierPortalMessage[]
+  subscriptions                        TenantSubscription[]
+  entitlements                         TenantEntitlement[]
+  usageCounters                        UsageCounter[]
+  configurationProfile                 TenantConfiguration?
+  platformJobExecutions                PlatformJobExecution[]
+  platformEvents                       PlatformEvent[]
+  platformEventSubscriptions           PlatformEventSubscription[]
+  enterpriseConnectorConnections       EnterpriseConnectorConnection[]
+  vaultSecrets                         VaultSecret[]
+  enterpriseNotificationTemplates      EnterpriseNotificationTemplate[]
+  enterpriseNotificationPreferences    EnterpriseNotificationPreference[]
+  enterpriseNotifications              EnterpriseNotification[]
+  enterpriseActivities                 EnterpriseActivity[]
+  enterprisePolicies                   EnterpriseTenantPolicy[]
+  enterpriseFeatureFlags               EnterpriseTenantFeatureFlag[]
+  platformCertificationRuns            PlatformCertificationRun[]
+  requisitionOrderJourneys             RequisitionOrderJourney[]
+  requisitionSubmissionAssessments     RequisitionSubmissionAssessment[]
+  requisitionApprovalRoutes            RequisitionApprovalRoute[]
+  purchaseOrderExecutions              PurchaseOrderExecution[]
+  goodsReceiptSessions                 GoodsReceiptSession[]
+  threeWayMatchCases                   ThreeWayMatchCase[]
+  apPaymentReadinessCases              ApPaymentReadinessCase[]
+  procurementProcessCertifications     ProcurementProcessCertification[]
+  inventoryMovementLedgers             InventoryMovementLedger[]
+  inventoryAvailabilitySnapshots       InventoryAvailabilitySnapshot[]
+  inventoryReservations                InventoryReservation[]
+  inventoryOperationExceptions         InventoryOperationException[]
+  warehouseReceivingSessions           WarehouseReceivingSession[]
+  warehouseLocationControls            WarehouseLocationControl[]
+  putawayTasks                         PutawayTask[]
+  warehouseDiscrepancies               WarehouseDiscrepancy[]
+  warehouseFulfillmentOrders           WarehouseFulfillmentOrder[]
+  warehousePickTasks                   WarehousePickTask[]
+  warehousePackages                    WarehousePackage[]
+  warehouseFulfillmentExceptions       WarehouseFulfillmentException[]
+  inventoryCountSessions               InventoryCountSession[]
+  inventoryReconciliations             InventoryReconciliation[]
+  inventoryTraceUnits                  InventoryTraceUnit[]
+  inventoryTraceEvents                 InventoryTraceEvent[]
+  inventoryTraceHolds                  InventoryTraceHold[]
+  replenishmentPolicies                ReplenishmentPolicy[]
+  stockTransferOrders                  StockTransferOrder[]
+  stockTransferExceptions              StockTransferException[]
+  inventoryFinancialValuationPolicies  InventoryFinancialValuationPolicy[]
+  inventoryFinancialCostLayers         InventoryFinancialCostLayer[]
+  inventoryFinancialValuationSnapshots InventoryFinancialValuationSnapshot[]
+  inventoryFinancialReconciliations    InventoryFinancialReconciliation[]
+  createdAt                            DateTime                              @default(now())
+  updatedAt                            DateTime                              @updatedAt
+  archivedAt                           DateTime?
+  contracts                            Contract[]
+  clauseTemplates                      ClauseTemplate[]
+  aiAgentTasks                         AiAgentTask[]
+  stockReplenishmentRecommendations    StockReplenishmentRecommendation[]
 
   @@index([status])
   @@index([countryCode])
@@ -7257,4 +7285,95 @@ model StockTransferException {
 
   @@index([tenantId, status, severity])
   @@index([stockTransferId])
+}
+
+model InventoryFinancialValuationPolicy {
+  id               String                        @id @default(cuid())
+  tenantId         String
+  inventoryItemId  String
+  locationId       String?
+  costMethod       InventoryFinancialCostMethod  @default(WEIGHTED_AVERAGE)
+  standardUnitCost Decimal?                      @db.Decimal(18, 6)
+  currencyCode     String                        @default("USD")
+  effectiveFrom    DateTime                      @default(now())
+  effectiveTo      DateTime?
+  active           Boolean                       @default(true)
+  tenant           Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  costLayers       InventoryFinancialCostLayer[]
+  createdAt        DateTime                      @default(now())
+  updatedAt        DateTime                      @updatedAt
+
+  @@index([tenantId, inventoryItemId, active])
+  @@index([locationId])
+}
+
+model InventoryFinancialCostLayer {
+  id                String                            @id @default(cuid())
+  tenantId          String
+  policyId          String
+  inventoryItemId   String
+  locationId        String
+  sourceMovementId  String?
+  layerNumber       String
+  status            InventoryFinancialLayerStatus     @default(OPEN)
+  originalQuantity  Decimal                           @db.Decimal(18, 4)
+  remainingQuantity Decimal                           @db.Decimal(18, 4)
+  unitCost          Decimal                           @db.Decimal(18, 6)
+  currencyCode      String                            @default("USD")
+  extendedCost      Decimal                           @db.Decimal(18, 6)
+  receivedAt        DateTime                          @default(now())
+  closedAt          DateTime?
+  tenant            Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  policy            InventoryFinancialValuationPolicy @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                          @default(now())
+  updatedAt         DateTime                          @updatedAt
+
+  @@unique([tenantId, layerNumber])
+  @@index([tenantId, inventoryItemId, locationId, status])
+  @@index([sourceMovementId])
+}
+
+model InventoryFinancialValuationSnapshot {
+  id              String   @id @default(cuid())
+  tenantId        String
+  inventoryItemId String
+  locationId      String
+  quantityOnHand  Decimal  @db.Decimal(18, 4)
+  averageUnitCost Decimal  @default(0) @db.Decimal(18, 6)
+  inventoryValue  Decimal  @default(0) @db.Decimal(18, 6)
+  currencyCode    String   @default("USD")
+  asOf            DateTime @default(now())
+  tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([tenantId, inventoryItemId, locationId])
+  @@index([tenantId, asOf])
+}
+
+model InventoryFinancialReconciliation {
+  id                   String                                 @id @default(cuid())
+  tenantId             String
+  reconciliationNumber String
+  status               InventoryFinancialReconciliationStatus @default(DRAFT)
+  inventoryItemId      String
+  locationId           String
+  quantityOnHand       Decimal                                @db.Decimal(18, 4)
+  ledgerValue          Decimal                                @db.Decimal(18, 6)
+  expectedValue        Decimal                                @db.Decimal(18, 6)
+  varianceValue        Decimal                                @db.Decimal(18, 6)
+  currencyCode         String                                 @default("USD")
+  reason               String?
+  reviewedByUserId     String?
+  approvedByUserId     String?
+  reviewedAt           DateTime?
+  approvedAt           DateTime?
+  postedAt             DateTime?
+  tenant               Tenant                                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt            DateTime                               @default(now())
+  updatedAt            DateTime                               @updatedAt
+
+  @@unique([tenantId, reconciliationNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([inventoryItemId, locationId])
 }

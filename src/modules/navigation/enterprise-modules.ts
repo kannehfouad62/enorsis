@@ -519,6 +519,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Inventory Financial Valuation",
+    description: "Cost layers, inventory valuation and financial reconciliation.",
+    href: "/app/inventory-financial-valuation",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

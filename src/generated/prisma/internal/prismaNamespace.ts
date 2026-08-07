@@ -606,7 +606,11 @@ export const ModelName = {
   ReplenishmentPolicy: 'ReplenishmentPolicy',
   StockReplenishmentRecommendation: 'StockReplenishmentRecommendation',
   StockTransferOrder: 'StockTransferOrder',
-  StockTransferException: 'StockTransferException'
+  StockTransferException: 'StockTransferException',
+  InventoryFinancialValuationPolicy: 'InventoryFinancialValuationPolicy',
+  InventoryFinancialCostLayer: 'InventoryFinancialCostLayer',
+  InventoryFinancialValuationSnapshot: 'InventoryFinancialValuationSnapshot',
+  InventoryFinancialReconciliation: 'InventoryFinancialReconciliation'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -622,7 +626,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -16166,6 +16170,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    InventoryFinancialValuationPolicy: {
+      payload: Prisma.$InventoryFinancialValuationPolicyPayload<ExtArgs>
+      fields: Prisma.InventoryFinancialValuationPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryFinancialValuationPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryFinancialValuationPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryFinancialValuationPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryFinancialValuationPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryFinancialValuationPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryFinancialValuationPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryFinancialValuationPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryFinancialValuationPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryFinancialValuationPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        update: {
+          args: Prisma.InventoryFinancialValuationPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryFinancialValuationPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryFinancialValuationPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryFinancialValuationPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryFinancialValuationPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryFinancialValuationPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryFinancialValuationPolicy>
+        }
+        groupBy: {
+          args: Prisma.InventoryFinancialValuationPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialValuationPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryFinancialValuationPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialValuationPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryFinancialCostLayer: {
+      payload: Prisma.$InventoryFinancialCostLayerPayload<ExtArgs>
+      fields: Prisma.InventoryFinancialCostLayerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryFinancialCostLayerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryFinancialCostLayerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryFinancialCostLayerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryFinancialCostLayerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryFinancialCostLayerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryFinancialCostLayerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryFinancialCostLayerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryFinancialCostLayerCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryFinancialCostLayerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        update: {
+          args: Prisma.InventoryFinancialCostLayerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryFinancialCostLayerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryFinancialCostLayerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryFinancialCostLayerUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryFinancialCostLayerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialCostLayerPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryFinancialCostLayerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryFinancialCostLayer>
+        }
+        groupBy: {
+          args: Prisma.InventoryFinancialCostLayerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialCostLayerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryFinancialCostLayerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialCostLayerCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryFinancialValuationSnapshot: {
+      payload: Prisma.$InventoryFinancialValuationSnapshotPayload<ExtArgs>
+      fields: Prisma.InventoryFinancialValuationSnapshotFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryFinancialValuationSnapshotFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryFinancialValuationSnapshotFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryFinancialValuationSnapshotFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryFinancialValuationSnapshotFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryFinancialValuationSnapshotFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryFinancialValuationSnapshotCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryFinancialValuationSnapshotCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryFinancialValuationSnapshotCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryFinancialValuationSnapshotDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        update: {
+          args: Prisma.InventoryFinancialValuationSnapshotUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryFinancialValuationSnapshotDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryFinancialValuationSnapshotUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryFinancialValuationSnapshotUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryFinancialValuationSnapshotUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialValuationSnapshotPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryFinancialValuationSnapshotAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryFinancialValuationSnapshot>
+        }
+        groupBy: {
+          args: Prisma.InventoryFinancialValuationSnapshotGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialValuationSnapshotGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryFinancialValuationSnapshotCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialValuationSnapshotCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryFinancialReconciliation: {
+      payload: Prisma.$InventoryFinancialReconciliationPayload<ExtArgs>
+      fields: Prisma.InventoryFinancialReconciliationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryFinancialReconciliationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryFinancialReconciliationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryFinancialReconciliationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryFinancialReconciliationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryFinancialReconciliationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryFinancialReconciliationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryFinancialReconciliationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryFinancialReconciliationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryFinancialReconciliationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        update: {
+          args: Prisma.InventoryFinancialReconciliationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryFinancialReconciliationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryFinancialReconciliationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryFinancialReconciliationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryFinancialReconciliationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryFinancialReconciliationPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryFinancialReconciliationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryFinancialReconciliation>
+        }
+        groupBy: {
+          args: Prisma.InventoryFinancialReconciliationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialReconciliationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryFinancialReconciliationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryFinancialReconciliationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -20750,6 +21050,89 @@ export const StockTransferExceptionScalarFieldEnum = {
 export type StockTransferExceptionScalarFieldEnum = (typeof StockTransferExceptionScalarFieldEnum)[keyof typeof StockTransferExceptionScalarFieldEnum]
 
 
+export const InventoryFinancialValuationPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  costMethod: 'costMethod',
+  standardUnitCost: 'standardUnitCost',
+  currencyCode: 'currencyCode',
+  effectiveFrom: 'effectiveFrom',
+  effectiveTo: 'effectiveTo',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialValuationPolicyScalarFieldEnum = (typeof InventoryFinancialValuationPolicyScalarFieldEnum)[keyof typeof InventoryFinancialValuationPolicyScalarFieldEnum]
+
+
+export const InventoryFinancialCostLayerScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  sourceMovementId: 'sourceMovementId',
+  layerNumber: 'layerNumber',
+  status: 'status',
+  originalQuantity: 'originalQuantity',
+  remainingQuantity: 'remainingQuantity',
+  unitCost: 'unitCost',
+  currencyCode: 'currencyCode',
+  extendedCost: 'extendedCost',
+  receivedAt: 'receivedAt',
+  closedAt: 'closedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialCostLayerScalarFieldEnum = (typeof InventoryFinancialCostLayerScalarFieldEnum)[keyof typeof InventoryFinancialCostLayerScalarFieldEnum]
+
+
+export const InventoryFinancialValuationSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  quantityOnHand: 'quantityOnHand',
+  averageUnitCost: 'averageUnitCost',
+  inventoryValue: 'inventoryValue',
+  currencyCode: 'currencyCode',
+  asOf: 'asOf',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialValuationSnapshotScalarFieldEnum = (typeof InventoryFinancialValuationSnapshotScalarFieldEnum)[keyof typeof InventoryFinancialValuationSnapshotScalarFieldEnum]
+
+
+export const InventoryFinancialReconciliationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  reconciliationNumber: 'reconciliationNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  quantityOnHand: 'quantityOnHand',
+  ledgerValue: 'ledgerValue',
+  expectedValue: 'expectedValue',
+  varianceValue: 'varianceValue',
+  currencyCode: 'currencyCode',
+  reason: 'reason',
+  reviewedByUserId: 'reviewedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  reviewedAt: 'reviewedAt',
+  approvedAt: 'approvedAt',
+  postedAt: 'postedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryFinancialReconciliationScalarFieldEnum = (typeof InventoryFinancialReconciliationScalarFieldEnum)[keyof typeof InventoryFinancialReconciliationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -24284,6 +24667,48 @@ export type ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel> = Fi
 
 
 /**
+ * Reference to a field of type 'InventoryFinancialCostMethod'
+ */
+export type EnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialCostMethod'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryFinancialCostMethod[]'
+ */
+export type ListEnumInventoryFinancialCostMethodFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialCostMethod[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryFinancialLayerStatus'
+ */
+export type EnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialLayerStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryFinancialLayerStatus[]'
+ */
+export type ListEnumInventoryFinancialLayerStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialLayerStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryFinancialReconciliationStatus'
+ */
+export type EnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialReconciliationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryFinancialReconciliationStatus[]'
+ */
+export type ListEnumInventoryFinancialReconciliationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryFinancialReconciliationStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -24657,6 +25082,10 @@ export type GlobalOmitConfig = {
   stockReplenishmentRecommendation?: Prisma.StockReplenishmentRecommendationOmit
   stockTransferOrder?: Prisma.StockTransferOrderOmit
   stockTransferException?: Prisma.StockTransferExceptionOmit
+  inventoryFinancialValuationPolicy?: Prisma.InventoryFinancialValuationPolicyOmit
+  inventoryFinancialCostLayer?: Prisma.InventoryFinancialCostLayerOmit
+  inventoryFinancialValuationSnapshot?: Prisma.InventoryFinancialValuationSnapshotOmit
+  inventoryFinancialReconciliation?: Prisma.InventoryFinancialReconciliationOmit
 }
 
 /* Types for Logging */

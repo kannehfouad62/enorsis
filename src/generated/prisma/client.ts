@@ -1091,3 +1091,23 @@ export type StockTransferOrder = Prisma.StockTransferOrderModel
  * 
  */
 export type StockTransferException = Prisma.StockTransferExceptionModel
+/**
+ * Model InventoryFinancialValuationPolicy
+ * 
+ */
+export type InventoryFinancialValuationPolicy = Prisma.InventoryFinancialValuationPolicyModel
+/**
+ * Model InventoryFinancialCostLayer
+ * 
+ */
+export type InventoryFinancialCostLayer = Prisma.InventoryFinancialCostLayerModel
+/**
+ * Model InventoryFinancialValuationSnapshot
+ * 
+ */
+export type InventoryFinancialValuationSnapshot = Prisma.InventoryFinancialValuationSnapshotModel
+/**
+ * Model InventoryFinancialReconciliation
+ * 
+ */
+export type InventoryFinancialReconciliation = Prisma.InventoryFinancialReconciliationModel

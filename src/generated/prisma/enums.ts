@@ -2695,6 +2695,39 @@ export const StockTransferExceptionType = {
 export type StockTransferExceptionType = (typeof StockTransferExceptionType)[keyof typeof StockTransferExceptionType]
 
 
+export const InventoryFinancialCostMethod = {
+  FIFO: 'FIFO',
+  WEIGHTED_AVERAGE: 'WEIGHTED_AVERAGE',
+  STANDARD: 'STANDARD',
+  SPECIFIC_IDENTIFICATION: 'SPECIFIC_IDENTIFICATION'
+} as const
+
+export type InventoryFinancialCostMethod = (typeof InventoryFinancialCostMethod)[keyof typeof InventoryFinancialCostMethod]
+
+
+export const InventoryFinancialLayerStatus = {
+  OPEN: 'OPEN',
+  PARTIALLY_CONSUMED: 'PARTIALLY_CONSUMED',
+  CONSUMED: 'CONSUMED',
+  ADJUSTED: 'ADJUSTED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type InventoryFinancialLayerStatus = (typeof InventoryFinancialLayerStatus)[keyof typeof InventoryFinancialLayerStatus]
+
+
+export const InventoryFinancialReconciliationStatus = {
+  DRAFT: 'DRAFT',
+  REVIEW_REQUIRED: 'REVIEW_REQUIRED',
+  BALANCED: 'BALANCED',
+  APPROVED: 'APPROVED',
+  POSTED: 'POSTED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryFinancialReconciliationStatus = (typeof InventoryFinancialReconciliationStatus)[keyof typeof InventoryFinancialReconciliationStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
