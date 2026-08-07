@@ -35,11 +35,21 @@ export function WorkflowCanvas({
   onChange,
   selectedNodeId,
   onSelectNode,
+  zoom,
+  pan,
+  onPanChange,
+  selectedEdgeId,
+  onSelectEdge,
 }: {
   graph: AutomationCanvasGraph;
   onChange: (graph: AutomationCanvasGraph) => void;
   selectedNodeId: string | null;
   onSelectNode: (nodeId: string | null) => void;
+  zoom: number;
+  pan: { x: number; y: number };
+  onPanChange: (pan: { x: number; y: number }) => void;
+  selectedEdgeId: string | null;
+  onSelectEdge: (edgeId: string | null) => void;
 }) {
   const canvasRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState<{
@@ -50,6 +60,12 @@ export function WorkflowCanvas({
   const [connectFrom, setConnectFrom] = useState<string | null>(
     null,
   );
+  const [panning, setPanning] = useState<{
+    startX: number;
+    startY: number;
+    panX: number;
+    panY: number;
+  } | null>(null);
 
   const nodeMap = useMemo(
     () => new Map(graph.nodes.map((node) => [node.id, node])),
@@ -165,19 +181,37 @@ export function WorkflowCanvas({
       <div
         ref={canvasRef}
         className="relative min-h-[620px] overflow-hidden rounded-3xl border border-slate-200 bg-slate-50"
+        onPointerDown={(event) => {
+          if (event.target !== event.currentTarget) return;
+
+          setPanning({
+            startX: event.clientX,
+            startY: event.clientY,
+            panX: pan.x,
+            panY: pan.y,
+          });
+          onSelectNode(null);
+          onSelectEdge(null);
+        }}
         onPointerMove={(event) => {
+          if (panning) {
+            onPanChange({
+              x: panning.panX + event.clientX - panning.startX,
+              y: panning.panY + event.clientY - panning.startY,
+            });
+            return;
+          }
+
           if (!dragging || !canvasRef.current) return;
 
           const bounds =
             canvasRef.current.getBoundingClientRect();
 
           const x =
-            event.clientX -
-            bounds.left -
+            (event.clientX - bounds.left - pan.x) / zoom -
             dragging.offsetX;
           const y =
-            event.clientY -
-            bounds.top -
+            (event.clientY - bounds.top - pan.y) / zoom -
             dragging.offsetY;
 
           onChange({
@@ -193,10 +227,22 @@ export function WorkflowCanvas({
             ),
           });
         }}
-        onPointerUp={() => setDragging(null)}
-        onPointerLeave={() => setDragging(null)}
+        onPointerUp={() => {
+          setDragging(null);
+          setPanning(null);
+        }}
+        onPointerLeave={() => {
+          setDragging(null);
+          setPanning(null);
+        }}
       >
-        <svg className="pointer-events-none absolute inset-0 h-full w-full">
+        <div
+          className="absolute left-0 top-0 h-full w-full origin-top-left"
+          style={{
+            transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+          }}
+        >
+        <svg className="pointer-events-none absolute inset-0 h-[1600px] w-[2400px]">
           <defs>
             <marker
               id="arrow"
@@ -227,9 +273,14 @@ export function WorkflowCanvas({
                   d={`M ${x1} ${y1} C ${mid} ${y1}, ${mid} ${y2}, ${x2} ${y2}`}
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth={selectedEdgeId === edge.id ? "3" : "2"}
                   markerEnd="url(#arrow)"
-                  className="text-slate-400"
+                  className={
+                    selectedEdgeId === edge.id
+                      ? "pointer-events-auto cursor-pointer text-blue-600"
+                      : "pointer-events-auto cursor-pointer text-slate-400"
+                  }
+                  onClick={() => onSelectEdge(edge.id)}
                 />
                 {edge.label ? (
                   <text
@@ -263,8 +314,10 @@ export function WorkflowCanvas({
 
               setDragging({
                 nodeId: node.id,
-                offsetX: event.clientX - rect.left,
-                offsetY: event.clientY - rect.top,
+                offsetX:
+                  (event.clientX - rect.left) / zoom,
+                offsetY:
+                  (event.clientY - rect.top) / zoom,
               });
             }}
             style={{
@@ -312,6 +365,7 @@ export function WorkflowCanvas({
             </div>
           </div>
         ))}
+        </div>
       </div>
     </div>
   );

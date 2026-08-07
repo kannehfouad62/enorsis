@@ -32,6 +32,13 @@ export function VisualWorkflowDesigner({
   const [historyIndex, setHistoryIndex] = useState(0);
   const graph = history[historyIndex];
   const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({
+    x: 0,
+    y: 0,
+  });
+  
+  const [selectedEdgeId, setSelectedEdgeId] =
+    useState<string | null>(null);
   const [selectedNodeId, setSelectedNodeId] =
     useState<string | null>(null);
   const [payloadText, setPayloadText] = useState(
@@ -122,6 +129,11 @@ export function VisualWorkflowDesigner({
   onChange={commitGraph}
   selectedNodeId={selectedNodeId}
   onSelectNode={setSelectedNodeId}
+  zoom={zoom}
+  pan={pan}
+  onPanChange={setPan}
+  selectedEdgeId={selectedEdgeId}
+  onSelectEdge={setSelectedEdgeId}
 />
 
         <div className="space-y-4">

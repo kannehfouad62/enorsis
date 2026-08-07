@@ -1,8 +1,10 @@
 import type { AutomationCanvasGraph } from "./graph-types";
+import type { AutomationCanvasViewport } from "./viewport";
 import type { AutomationDesignerState } from "./designer-types";
 
 export type CanvasDesignerState = AutomationDesignerState & {
   canvasGraph?: AutomationCanvasGraph;
+  canvasViewport?: AutomationCanvasViewport;
 };
 
 export function defaultAutomationCanvasGraph(): AutomationCanvasGraph {
