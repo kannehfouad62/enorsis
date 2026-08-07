@@ -4437,6 +4437,91 @@ export type EnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel = neve
   _max?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
 }
 
+export type EnumReplenishmentPolicyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentPolicyStatus | Prisma.EnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel> | $Enums.ReplenishmentPolicyStatus
+}
+
+export type EnumReplenishmentPolicyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentPolicyStatus | Prisma.EnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentPolicyStatusWithAggregatesFilter<$PrismaModel> | $Enums.ReplenishmentPolicyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel>
+}
+
+export type EnumStockReplenishmentRecommendationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockReplenishmentRecommendationStatus | Prisma.EnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel> | $Enums.StockReplenishmentRecommendationStatus
+}
+
+export type EnumStockReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockReplenishmentRecommendationStatus | Prisma.EnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockReplenishmentRecommendationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel>
+}
+
+export type EnumStockTransferStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferStatus | Prisma.EnumStockTransferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel> | $Enums.StockTransferStatus
+}
+
+export type EnumStockTransferStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferStatus | Prisma.EnumStockTransferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel>
+}
+
+export type EnumStockTransferExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionType | Prisma.EnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel> | $Enums.StockTransferExceptionType
+}
+
+export type EnumStockTransferExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionStatus | Prisma.EnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel> | $Enums.StockTransferExceptionStatus
+}
+
+export type EnumStockTransferExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionType | Prisma.EnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel>
+}
+
+export type EnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionStatus | Prisma.EnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -8817,6 +8902,91 @@ export type NestedEnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel 
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentPolicyStatus | Prisma.EnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel> | $Enums.ReplenishmentPolicyStatus
+}
+
+export type NestedEnumReplenishmentPolicyStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ReplenishmentPolicyStatus | Prisma.EnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ReplenishmentPolicyStatus[] | Prisma.ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumReplenishmentPolicyStatusWithAggregatesFilter<$PrismaModel> | $Enums.ReplenishmentPolicyStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumReplenishmentPolicyStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockReplenishmentRecommendationStatus | Prisma.EnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel> | $Enums.StockReplenishmentRecommendationStatus
+}
+
+export type NestedEnumStockReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockReplenishmentRecommendationStatus | Prisma.EnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockReplenishmentRecommendationStatus[] | Prisma.ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockReplenishmentRecommendationStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockReplenishmentRecommendationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockReplenishmentRecommendationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumStockTransferStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferStatus | Prisma.EnumStockTransferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel> | $Enums.StockTransferStatus
+}
+
+export type NestedEnumStockTransferStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferStatus | Prisma.EnumStockTransferStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferStatus[] | Prisma.ListEnumStockTransferStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumStockTransferExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionType | Prisma.EnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel> | $Enums.StockTransferExceptionType
+}
+
+export type NestedEnumStockTransferExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionStatus | Prisma.EnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel> | $Enums.StockTransferExceptionStatus
+}
+
+export type NestedEnumStockTransferExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionType | Prisma.EnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionType[] | Prisma.ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferExceptionTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.StockTransferExceptionStatus | Prisma.EnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.StockTransferExceptionStatus[] | Prisma.ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumStockTransferExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.StockTransferExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumStockTransferExceptionStatusFilter<$PrismaModel>
 }
 
 

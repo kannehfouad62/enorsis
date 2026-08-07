@@ -1950,6 +1950,48 @@ enum InventoryTraceHoldType {
   OTHER
 }
 
+enum ReplenishmentPolicyStatus {
+  ACTIVE
+  PAUSED
+  DISABLED
+}
+
+enum StockReplenishmentRecommendationStatus {
+  OPEN
+  APPROVED
+  TRANSFER_CREATED
+  DISMISSED
+  CANCELLED
+}
+
+enum StockTransferStatus {
+  DRAFT
+  APPROVED
+  PICKING
+  IN_TRANSIT
+  RECEIVED
+  COMPLETED
+  CANCELLED
+  EXCEPTION
+}
+
+enum StockTransferExceptionStatus {
+  OPEN
+  INVESTIGATING
+  RESOLVED
+  WAIVED
+  CANCELLED
+}
+
+enum StockTransferExceptionType {
+  INSUFFICIENT_SOURCE_STOCK
+  DESTINATION_CAPACITY
+  TRACEABILITY_HOLD
+  QUANTITY_VARIANCE
+  LOCATION_BLOCKED
+  OTHER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2155,12 +2197,16 @@ model Tenant {
   inventoryTraceUnits               InventoryTraceUnit[]
   inventoryTraceEvents              InventoryTraceEvent[]
   inventoryTraceHolds               InventoryTraceHold[]
+  replenishmentPolicies             ReplenishmentPolicy[]
+  stockTransferOrders               StockTransferOrder[]
+  stockTransferExceptions           StockTransferException[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
   contracts                         Contract[]
   clauseTemplates                   ClauseTemplate[]
   aiAgentTasks                      AiAgentTask[]
+  stockReplenishmentRecommendations StockReplenishmentRecommendation[]
 
   @@index([status])
   @@index([countryCode])
@@ -4361,33 +4407,34 @@ model InventoryLocation {
 }
 
 model InventoryItem {
-  id                           String                        @id @default(cuid())
-  tenantId                     String
-  sku                          String
-  name                         String
-  description                  String?
-  category                     String
-  unitOfMeasure                String
-  status                       InventoryItemStatus           @default(ACTIVE)
-  catalogItemId                String?
-  manufacturer                 String?
-  manufacturerPartNo           String?
-  preferredSupplierId          String?
-  standardCost                 Decimal?                      @db.Decimal(18, 4)
-  reorderPoint                 Decimal                       @default(0) @db.Decimal(18, 4)
-  reorderQuantity              Decimal                       @default(0) @db.Decimal(18, 4)
-  safetyStock                  Decimal                       @default(0) @db.Decimal(18, 4)
-  leadTimeDays                 Int?
-  lotControlled                Boolean                       @default(false)
-  serialControlled             Boolean                       @default(false)
-  tenant                       Tenant                        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  balances                     InventoryBalance[]
-  transactions                 InventoryTransaction[]
-  countLines                   CycleCountLine[]
-  demandForecasts              DemandForecast[]
-  replenishmentRecommendations ReplenishmentRecommendation[]
-  createdAt                    DateTime                      @default(now())
-  updatedAt                    DateTime                      @updatedAt
+  id                                String                             @id @default(cuid())
+  tenantId                          String
+  sku                               String
+  name                              String
+  description                       String?
+  category                          String
+  unitOfMeasure                     String
+  status                            InventoryItemStatus                @default(ACTIVE)
+  catalogItemId                     String?
+  manufacturer                      String?
+  manufacturerPartNo                String?
+  preferredSupplierId               String?
+  standardCost                      Decimal?                           @db.Decimal(18, 4)
+  reorderPoint                      Decimal                            @default(0) @db.Decimal(18, 4)
+  reorderQuantity                   Decimal                            @default(0) @db.Decimal(18, 4)
+  safetyStock                       Decimal                            @default(0) @db.Decimal(18, 4)
+  leadTimeDays                      Int?
+  lotControlled                     Boolean                            @default(false)
+  serialControlled                  Boolean                            @default(false)
+  tenant                            Tenant                             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  balances                          InventoryBalance[]
+  transactions                      InventoryTransaction[]
+  countLines                        CycleCountLine[]
+  demandForecasts                   DemandForecast[]
+  stockReplenishmentRecommendations StockReplenishmentRecommendation[]
+  createdAt                         DateTime                           @default(now())
+  updatedAt                         DateTime                           @updatedAt
+  replenishmentRecommendations      ReplenishmentRecommendation[]
 
   @@unique([tenantId, sku])
   @@index([tenantId, status, category])
@@ -7101,4 +7148,113 @@ model InventoryTraceHold {
 
   @@index([tenantId, status, holdType])
   @@index([traceUnitId, status])
+}
+
+model ReplenishmentPolicy {
+  id                  String                             @id @default(cuid())
+  tenantId            String
+  inventoryItemId     String
+  locationId          String
+  status              ReplenishmentPolicyStatus          @default(ACTIVE)
+  minimumQuantity     Decimal                            @db.Decimal(18, 4)
+  maximumQuantity     Decimal                            @db.Decimal(18, 4)
+  reorderQuantity     Decimal?                           @db.Decimal(18, 4)
+  sourceLocationId    String?
+  leadTimeDays        Int                                @default(0)
+  safetyStockQuantity Decimal                            @default(0) @db.Decimal(18, 4)
+  unitOfMeasure       String                             @default("EA")
+  tenant              Tenant                             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  recommendations     StockReplenishmentRecommendation[]
+  createdAt           DateTime                           @default(now())
+  updatedAt           DateTime                           @updatedAt
+
+  @@unique([tenantId, inventoryItemId, locationId])
+  @@index([tenantId, status])
+  @@index([sourceLocationId])
+}
+
+model StockReplenishmentRecommendation {
+  id                    String                                 @id @default(cuid())
+  tenantId              String
+  policyId              String
+  recommendationNumber  String
+  status                StockReplenishmentRecommendationStatus @default(OPEN)
+  inventoryItemId       String
+  sourceLocationId      String?
+  destinationLocationId String
+  currentQuantity       Decimal                                @db.Decimal(18, 4)
+  minimumQuantity       Decimal                                @db.Decimal(18, 4)
+  maximumQuantity       Decimal                                @db.Decimal(18, 4)
+  recommendedQuantity   Decimal                                @db.Decimal(18, 4)
+  reason                String?
+  approvedByUserId      String?
+  approvedAt            DateTime?
+  stockTransferId       String?
+  tenant                Tenant                                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  policy                ReplenishmentPolicy                    @relation(fields: [policyId], references: [id], onDelete: Cascade)
+  createdAt             DateTime                               @default(now())
+  updatedAt             DateTime                               @updatedAt
+  inventoryItem         InventoryItem                          @relation(fields: [inventoryItemId], references: [id])
+
+  @@unique([tenantId, recommendationNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([inventoryItemId, destinationLocationId])
+}
+
+model StockTransferOrder {
+  id                    String                   @id @default(cuid())
+  tenantId              String
+  transferNumber        String
+  status                StockTransferStatus      @default(DRAFT)
+  inventoryItemId       String
+  sourceLocationId      String
+  destinationLocationId String
+  requestedQuantity     Decimal                  @db.Decimal(18, 4)
+  shippedQuantity       Decimal                  @default(0) @db.Decimal(18, 4)
+  receivedQuantity      Decimal                  @default(0) @db.Decimal(18, 4)
+  unitOfMeasure         String                   @default("EA")
+  recommendationId      String?
+  requestedByUserId     String?
+  approvedByUserId      String?
+  shippedByUserId       String?
+  receivedByUserId      String?
+  requestedAt           DateTime                 @default(now())
+  approvedAt            DateTime?
+  shippedAt             DateTime?
+  receivedAt            DateTime?
+  completedAt           DateTime?
+  outboundMovementId    String?
+  inboundMovementId     String?
+  notes                 String?
+  tenant                Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  exceptions            StockTransferException[]
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+
+  @@unique([tenantId, transferNumber])
+  @@index([tenantId, status, createdAt])
+  @@index([inventoryItemId])
+  @@index([sourceLocationId])
+  @@index([destinationLocationId])
+}
+
+model StockTransferException {
+  id              String                            @id @default(cuid())
+  tenantId        String
+  stockTransferId String
+  exceptionType   StockTransferExceptionType
+  status          StockTransferExceptionStatus      @default(OPEN)
+  severity        RequisitionOrderExceptionSeverity @default(MEDIUM)
+  title           String
+  description     String?
+  ownerUserId     String?
+  resolution      String?
+  resolvedAt      DateTime?
+  tenant          Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  stockTransfer   StockTransferOrder                @relation(fields: [stockTransferId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                          @default(now())
+  updatedAt       DateTime                          @updatedAt
+
+  @@index([tenantId, status, severity])
+  @@index([stockTransferId])
 }

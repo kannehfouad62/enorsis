@@ -1047,3 +1047,23 @@ export type InventoryTraceEvent = Prisma.InventoryTraceEventModel
  * 
  */
 export type InventoryTraceHold = Prisma.InventoryTraceHoldModel
+/**
+ * Model ReplenishmentPolicy
+ * 
+ */
+export type ReplenishmentPolicy = Prisma.ReplenishmentPolicyModel
+/**
+ * Model StockReplenishmentRecommendation
+ * 
+ */
+export type StockReplenishmentRecommendation = Prisma.StockReplenishmentRecommendationModel
+/**
+ * Model StockTransferOrder
+ * 
+ */
+export type StockTransferOrder = Prisma.StockTransferOrderModel
+/**
+ * Model StockTransferException
+ * 
+ */
+export type StockTransferException = Prisma.StockTransferExceptionModel

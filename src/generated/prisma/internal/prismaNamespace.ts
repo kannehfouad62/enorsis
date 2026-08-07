@@ -602,7 +602,11 @@ export const ModelName = {
   InventoryReconciliation: 'InventoryReconciliation',
   InventoryTraceUnit: 'InventoryTraceUnit',
   InventoryTraceEvent: 'InventoryTraceEvent',
-  InventoryTraceHold: 'InventoryTraceHold'
+  InventoryTraceHold: 'InventoryTraceHold',
+  ReplenishmentPolicy: 'ReplenishmentPolicy',
+  StockReplenishmentRecommendation: 'StockReplenishmentRecommendation',
+  StockTransferOrder: 'StockTransferOrder',
+  StockTransferException: 'StockTransferException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -618,7 +622,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -15866,6 +15870,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ReplenishmentPolicy: {
+      payload: Prisma.$ReplenishmentPolicyPayload<ExtArgs>
+      fields: Prisma.ReplenishmentPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ReplenishmentPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ReplenishmentPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.ReplenishmentPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ReplenishmentPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.ReplenishmentPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.ReplenishmentPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.ReplenishmentPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ReplenishmentPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.ReplenishmentPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        update: {
+          args: Prisma.ReplenishmentPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.ReplenishmentPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ReplenishmentPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ReplenishmentPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.ReplenishmentPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ReplenishmentPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.ReplenishmentPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateReplenishmentPolicy>
+        }
+        groupBy: {
+          args: Prisma.ReplenishmentPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReplenishmentPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ReplenishmentPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ReplenishmentPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    StockReplenishmentRecommendation: {
+      payload: Prisma.$StockReplenishmentRecommendationPayload<ExtArgs>
+      fields: Prisma.StockReplenishmentRecommendationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StockReplenishmentRecommendationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StockReplenishmentRecommendationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        findFirst: {
+          args: Prisma.StockReplenishmentRecommendationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StockReplenishmentRecommendationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        findMany: {
+          args: Prisma.StockReplenishmentRecommendationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>[]
+        }
+        create: {
+          args: Prisma.StockReplenishmentRecommendationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        createMany: {
+          args: Prisma.StockReplenishmentRecommendationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StockReplenishmentRecommendationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>[]
+        }
+        delete: {
+          args: Prisma.StockReplenishmentRecommendationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        update: {
+          args: Prisma.StockReplenishmentRecommendationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        deleteMany: {
+          args: Prisma.StockReplenishmentRecommendationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StockReplenishmentRecommendationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StockReplenishmentRecommendationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>[]
+        }
+        upsert: {
+          args: Prisma.StockReplenishmentRecommendationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockReplenishmentRecommendationPayload>
+        }
+        aggregate: {
+          args: Prisma.StockReplenishmentRecommendationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStockReplenishmentRecommendation>
+        }
+        groupBy: {
+          args: Prisma.StockReplenishmentRecommendationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockReplenishmentRecommendationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StockReplenishmentRecommendationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockReplenishmentRecommendationCountAggregateOutputType> | number
+        }
+      }
+    }
+    StockTransferOrder: {
+      payload: Prisma.$StockTransferOrderPayload<ExtArgs>
+      fields: Prisma.StockTransferOrderFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StockTransferOrderFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StockTransferOrderFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        findFirst: {
+          args: Prisma.StockTransferOrderFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StockTransferOrderFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        findMany: {
+          args: Prisma.StockTransferOrderFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>[]
+        }
+        create: {
+          args: Prisma.StockTransferOrderCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        createMany: {
+          args: Prisma.StockTransferOrderCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StockTransferOrderCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>[]
+        }
+        delete: {
+          args: Prisma.StockTransferOrderDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        update: {
+          args: Prisma.StockTransferOrderUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        deleteMany: {
+          args: Prisma.StockTransferOrderDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StockTransferOrderUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StockTransferOrderUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>[]
+        }
+        upsert: {
+          args: Prisma.StockTransferOrderUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferOrderPayload>
+        }
+        aggregate: {
+          args: Prisma.StockTransferOrderAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStockTransferOrder>
+        }
+        groupBy: {
+          args: Prisma.StockTransferOrderGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockTransferOrderGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StockTransferOrderCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockTransferOrderCountAggregateOutputType> | number
+        }
+      }
+    }
+    StockTransferException: {
+      payload: Prisma.$StockTransferExceptionPayload<ExtArgs>
+      fields: Prisma.StockTransferExceptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StockTransferExceptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StockTransferExceptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        findFirst: {
+          args: Prisma.StockTransferExceptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StockTransferExceptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        findMany: {
+          args: Prisma.StockTransferExceptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>[]
+        }
+        create: {
+          args: Prisma.StockTransferExceptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        createMany: {
+          args: Prisma.StockTransferExceptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StockTransferExceptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>[]
+        }
+        delete: {
+          args: Prisma.StockTransferExceptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        update: {
+          args: Prisma.StockTransferExceptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.StockTransferExceptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StockTransferExceptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StockTransferExceptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.StockTransferExceptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockTransferExceptionPayload>
+        }
+        aggregate: {
+          args: Prisma.StockTransferExceptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStockTransferException>
+        }
+        groupBy: {
+          args: Prisma.StockTransferExceptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockTransferExceptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StockTransferExceptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockTransferExceptionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -20355,6 +20655,101 @@ export const InventoryTraceHoldScalarFieldEnum = {
 export type InventoryTraceHoldScalarFieldEnum = (typeof InventoryTraceHoldScalarFieldEnum)[keyof typeof InventoryTraceHoldScalarFieldEnum]
 
 
+export const ReplenishmentPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  status: 'status',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  reorderQuantity: 'reorderQuantity',
+  sourceLocationId: 'sourceLocationId',
+  leadTimeDays: 'leadTimeDays',
+  safetyStockQuantity: 'safetyStockQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReplenishmentPolicyScalarFieldEnum = (typeof ReplenishmentPolicyScalarFieldEnum)[keyof typeof ReplenishmentPolicyScalarFieldEnum]
+
+
+export const StockReplenishmentRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  recommendationNumber: 'recommendationNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  destinationLocationId: 'destinationLocationId',
+  currentQuantity: 'currentQuantity',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  recommendedQuantity: 'recommendedQuantity',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  stockTransferId: 'stockTransferId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockReplenishmentRecommendationScalarFieldEnum = (typeof StockReplenishmentRecommendationScalarFieldEnum)[keyof typeof StockReplenishmentRecommendationScalarFieldEnum]
+
+
+export const StockTransferOrderScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  transferNumber: 'transferNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  destinationLocationId: 'destinationLocationId',
+  requestedQuantity: 'requestedQuantity',
+  shippedQuantity: 'shippedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  recommendationId: 'recommendationId',
+  requestedByUserId: 'requestedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  shippedByUserId: 'shippedByUserId',
+  receivedByUserId: 'receivedByUserId',
+  requestedAt: 'requestedAt',
+  approvedAt: 'approvedAt',
+  shippedAt: 'shippedAt',
+  receivedAt: 'receivedAt',
+  completedAt: 'completedAt',
+  outboundMovementId: 'outboundMovementId',
+  inboundMovementId: 'inboundMovementId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockTransferOrderScalarFieldEnum = (typeof StockTransferOrderScalarFieldEnum)[keyof typeof StockTransferOrderScalarFieldEnum]
+
+
+export const StockTransferExceptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  stockTransferId: 'stockTransferId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockTransferExceptionScalarFieldEnum = (typeof StockTransferExceptionScalarFieldEnum)[keyof typeof StockTransferExceptionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -23819,6 +24214,76 @@ export type ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel> = FieldR
 
 
 /**
+ * Reference to a field of type 'ReplenishmentPolicyStatus'
+ */
+export type EnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReplenishmentPolicyStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ReplenishmentPolicyStatus[]'
+ */
+export type ListEnumReplenishmentPolicyStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReplenishmentPolicyStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StockReplenishmentRecommendationStatus'
+ */
+export type EnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockReplenishmentRecommendationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'StockReplenishmentRecommendationStatus[]'
+ */
+export type ListEnumStockReplenishmentRecommendationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockReplenishmentRecommendationStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferStatus'
+ */
+export type EnumStockTransferStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferStatus[]'
+ */
+export type ListEnumStockTransferStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferExceptionType'
+ */
+export type EnumStockTransferExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferExceptionType'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferExceptionType[]'
+ */
+export type ListEnumStockTransferExceptionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferExceptionType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferExceptionStatus'
+ */
+export type EnumStockTransferExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferExceptionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'StockTransferExceptionStatus[]'
+ */
+export type ListEnumStockTransferExceptionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StockTransferExceptionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -24188,6 +24653,10 @@ export type GlobalOmitConfig = {
   inventoryTraceUnit?: Prisma.InventoryTraceUnitOmit
   inventoryTraceEvent?: Prisma.InventoryTraceEventOmit
   inventoryTraceHold?: Prisma.InventoryTraceHoldOmit
+  replenishmentPolicy?: Prisma.ReplenishmentPolicyOmit
+  stockReplenishmentRecommendation?: Prisma.StockReplenishmentRecommendationOmit
+  stockTransferOrder?: Prisma.StockTransferOrderOmit
+  stockTransferException?: Prisma.StockTransferExceptionOmit
 }
 
 /* Types for Logging */

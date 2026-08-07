@@ -256,7 +256,11 @@ export const ModelName = {
   InventoryReconciliation: 'InventoryReconciliation',
   InventoryTraceUnit: 'InventoryTraceUnit',
   InventoryTraceEvent: 'InventoryTraceEvent',
-  InventoryTraceHold: 'InventoryTraceHold'
+  InventoryTraceHold: 'InventoryTraceHold',
+  ReplenishmentPolicy: 'ReplenishmentPolicy',
+  StockReplenishmentRecommendation: 'StockReplenishmentRecommendation',
+  StockTransferOrder: 'StockTransferOrder',
+  StockTransferException: 'StockTransferException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4723,6 +4727,101 @@ export const InventoryTraceHoldScalarFieldEnum = {
 } as const
 
 export type InventoryTraceHoldScalarFieldEnum = (typeof InventoryTraceHoldScalarFieldEnum)[keyof typeof InventoryTraceHoldScalarFieldEnum]
+
+
+export const ReplenishmentPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  inventoryItemId: 'inventoryItemId',
+  locationId: 'locationId',
+  status: 'status',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  reorderQuantity: 'reorderQuantity',
+  sourceLocationId: 'sourceLocationId',
+  leadTimeDays: 'leadTimeDays',
+  safetyStockQuantity: 'safetyStockQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ReplenishmentPolicyScalarFieldEnum = (typeof ReplenishmentPolicyScalarFieldEnum)[keyof typeof ReplenishmentPolicyScalarFieldEnum]
+
+
+export const StockReplenishmentRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  recommendationNumber: 'recommendationNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  destinationLocationId: 'destinationLocationId',
+  currentQuantity: 'currentQuantity',
+  minimumQuantity: 'minimumQuantity',
+  maximumQuantity: 'maximumQuantity',
+  recommendedQuantity: 'recommendedQuantity',
+  reason: 'reason',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  stockTransferId: 'stockTransferId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockReplenishmentRecommendationScalarFieldEnum = (typeof StockReplenishmentRecommendationScalarFieldEnum)[keyof typeof StockReplenishmentRecommendationScalarFieldEnum]
+
+
+export const StockTransferOrderScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  transferNumber: 'transferNumber',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  destinationLocationId: 'destinationLocationId',
+  requestedQuantity: 'requestedQuantity',
+  shippedQuantity: 'shippedQuantity',
+  receivedQuantity: 'receivedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  recommendationId: 'recommendationId',
+  requestedByUserId: 'requestedByUserId',
+  approvedByUserId: 'approvedByUserId',
+  shippedByUserId: 'shippedByUserId',
+  receivedByUserId: 'receivedByUserId',
+  requestedAt: 'requestedAt',
+  approvedAt: 'approvedAt',
+  shippedAt: 'shippedAt',
+  receivedAt: 'receivedAt',
+  completedAt: 'completedAt',
+  outboundMovementId: 'outboundMovementId',
+  inboundMovementId: 'inboundMovementId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockTransferOrderScalarFieldEnum = (typeof StockTransferOrderScalarFieldEnum)[keyof typeof StockTransferOrderScalarFieldEnum]
+
+
+export const StockTransferExceptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  stockTransferId: 'stockTransferId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type StockTransferExceptionScalarFieldEnum = (typeof StockTransferExceptionScalarFieldEnum)[keyof typeof StockTransferExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

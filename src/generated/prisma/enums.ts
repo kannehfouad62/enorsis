@@ -2638,6 +2638,63 @@ export const InventoryTraceHoldType = {
 export type InventoryTraceHoldType = (typeof InventoryTraceHoldType)[keyof typeof InventoryTraceHoldType]
 
 
+export const ReplenishmentPolicyStatus = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type ReplenishmentPolicyStatus = (typeof ReplenishmentPolicyStatus)[keyof typeof ReplenishmentPolicyStatus]
+
+
+export const StockReplenishmentRecommendationStatus = {
+  OPEN: 'OPEN',
+  APPROVED: 'APPROVED',
+  TRANSFER_CREATED: 'TRANSFER_CREATED',
+  DISMISSED: 'DISMISSED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type StockReplenishmentRecommendationStatus = (typeof StockReplenishmentRecommendationStatus)[keyof typeof StockReplenishmentRecommendationStatus]
+
+
+export const StockTransferStatus = {
+  DRAFT: 'DRAFT',
+  APPROVED: 'APPROVED',
+  PICKING: 'PICKING',
+  IN_TRANSIT: 'IN_TRANSIT',
+  RECEIVED: 'RECEIVED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  EXCEPTION: 'EXCEPTION'
+} as const
+
+export type StockTransferStatus = (typeof StockTransferStatus)[keyof typeof StockTransferStatus]
+
+
+export const StockTransferExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type StockTransferExceptionStatus = (typeof StockTransferExceptionStatus)[keyof typeof StockTransferExceptionStatus]
+
+
+export const StockTransferExceptionType = {
+  INSUFFICIENT_SOURCE_STOCK: 'INSUFFICIENT_SOURCE_STOCK',
+  DESTINATION_CAPACITY: 'DESTINATION_CAPACITY',
+  TRACEABILITY_HOLD: 'TRACEABILITY_HOLD',
+  QUANTITY_VARIANCE: 'QUANTITY_VARIANCE',
+  LOCATION_BLOCKED: 'LOCATION_BLOCKED',
+  OTHER: 'OTHER'
+} as const
+
+export type StockTransferExceptionType = (typeof StockTransferExceptionType)[keyof typeof StockTransferExceptionType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
