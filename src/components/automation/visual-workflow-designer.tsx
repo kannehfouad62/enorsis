@@ -5,6 +5,7 @@ import { WorkflowCanvas } from "./workflow-canvas";
 import { WorkflowInspector } from "./workflow-inspector";
 import { WorkflowMiniMap } from "./workflow-minimap";
 import { WorkflowToolbar } from "./workflow-toolbar";
+import { WorkflowEdgeEditor } from "./workflow-edge-editor";
 import type { AutomationCanvasGraph } from "@/core/enterprise-automation/graph-types";
 import {
   defaultAutomationCanvasGraph,
@@ -13,6 +14,8 @@ import {
 import { validateAutomationCanvasGraph } from "@/core/enterprise-automation/graph-validation";
 import { simulateAutomationCanvasGraph } from "@/core/enterprise-automation/graph-simulation";
 import { compileAutomationRuntimePlan } from "@/core/enterprise-automation/runtime-plan";
+import { executeAutomationRuntimeGraph } from "@/core/enterprise-automation/runtime-executor";
+import { normalizeAutomationCanvasViewport } from "@/core/enterprise-automation/viewport";
 import { saveAutomationDesignerVersionAction } from "@/modules/enterprise-automation/designer-actions";
 
 export function VisualWorkflowDesigner({
@@ -31,10 +34,15 @@ export function VisualWorkflowDesigner({
   ]);
   const [historyIndex, setHistoryIndex] = useState(0);
   const graph = history[historyIndex];
-  const [zoom, setZoom] = useState(1);
+
+  const initialViewport = normalizeAutomationCanvasViewport(
+    initialState?.canvasViewport,
+  );
+
+  const [zoom, setZoom] = useState(initialViewport.zoom);
   const [pan, setPan] = useState({
-    x: 0,
-    y: 0,
+    x: initialViewport.panX,
+    y: initialViewport.panY,
   });
   
   const [selectedEdgeId, setSelectedEdgeId] =
@@ -47,6 +55,11 @@ export function VisualWorkflowDesigner({
   const [simulation, setSimulation] =
     useState<ReturnType<
       typeof simulateAutomationCanvasGraph
+    > | null>(null);
+
+  const [runtimeExecution, setRuntimeExecution] =
+    useState<Awaited<
+      ReturnType<typeof executeAutomationRuntimeGraph>
     > | null>(null);
 
   const validation = useMemo(
@@ -94,6 +107,11 @@ export function VisualWorkflowDesigner({
       actions: [],
     }),
     canvasGraph: graph,
+    canvasViewport: {
+      zoom,
+      panX: pan.x,
+      panY: pan.y,
+    },
   };
 
   return (
@@ -120,7 +138,10 @@ export function VisualWorkflowDesigner({
             Math.max(0.4, Number((current - 0.1).toFixed(2))),
           )
         }
-        onResetView={() => setZoom(1)}
+        onResetView={() => {
+          setZoom(1);
+          setPan({ x: 0, y: 0 });
+        }}
       />
 
       <div className="grid gap-4 2xl:grid-cols-[1fr_300px]">
@@ -142,6 +163,15 @@ export function VisualWorkflowDesigner({
             node={selectedNode}
             onChange={commitGraph}
           />
+
+          {selectedEdgeId ? (
+            <WorkflowEdgeEditor
+              graph={graph}
+              edgeId={selectedEdgeId}
+              onChange={commitGraph}
+              onClose={() => setSelectedEdgeId(null)}
+            />
+          ) : null}
 
           <div className="rounded-2xl border border-slate-200 bg-white p-5">
             <div className="flex items-center justify-between gap-3">
@@ -245,6 +275,44 @@ export function VisualWorkflowDesigner({
             >
               Preview execution
             </button>
+
+            <button
+              type="button"
+              disabled={!validation.valid}
+              onClick={async () => {
+                const payload = JSON.parse(
+                  payloadText,
+                ) as Record<string, unknown>;
+
+                setRuntimeExecution(
+                  await executeAutomationRuntimeGraph({
+                    graph,
+                    payload,
+                  }),
+                );
+              }}
+              className="mt-3 ml-2 rounded-xl border border-slate-200 px-4 py-2 text-sm font-black disabled:opacity-40"
+            >
+              Execute runtime preview
+            </button>
+
+            {runtimeExecution ? (
+              <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">
+                  Runtime:{" "}
+                  {runtimeExecution.failed
+                    ? "FAILED"
+                    : runtimeExecution.waiting
+                      ? "WAITING"
+                      : runtimeExecution.completed
+                        ? "COMPLETED"
+                        : "PARTIAL"}
+                </p>
+                <p className="mt-1 text-slate-500">
+                  {runtimeExecution.results.length} node result(s)
+                </p>
+              </div>
+            ) : null}
 
             {simulation ? (
               <div className="mt-4 space-y-2">

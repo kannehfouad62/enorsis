@@ -7,7 +7,7 @@ import { compileAutomationRuntimePlan } from "./runtime-plan";
 export type RuntimeNodeResult = {
   nodeId: string;
   type: AutomationCanvasNode["type"];
-  status: "COMPLETED" | "SKIPPED" | "FAILED" | "WAITING";
+  status: "COMPLETED" | "FAILED" | "WAITING";
   attempt: number;
   startedAt: string;
   completedAt?: string;
@@ -49,7 +49,7 @@ function readPath(
   }, value);
 }
 
-function evaluateCondition(
+function matches(
   node: AutomationCanvasNode,
   payload: Record<string, unknown>,
 ) {
@@ -67,40 +67,7 @@ function evaluateCondition(
   if (operator === "EXISTS") {
     return observed !== undefined && observed !== null;
   }
-
   return false;
-}
-
-async function executeNodeWithRetry(input: {
-  node: AutomationCanvasNode;
-  payload: Record<string, unknown>;
-  hooks: RuntimeHooks;
-  maxAttempts: number;
-}) {
-  let lastError: unknown;
-
-  for (let attempt = 1; attempt <= input.maxAttempts; attempt += 1) {
-    try {
-      const detail =
-        input.node.type === "ACTION"
-          ? await input.hooks.executeAction?.(
-              input.node,
-              input.payload,
-            )
-          : undefined;
-
-      return {
-        attempt,
-        detail: detail ?? {},
-      };
-    } catch (error) {
-      lastError = error;
-    }
-  }
-
-  throw lastError instanceof Error
-    ? lastError
-    : new Error("Automation node execution failed.");
 }
 
 export async function executeAutomationRuntimeGraph(input: {
@@ -110,19 +77,13 @@ export async function executeAutomationRuntimeGraph(input: {
 }): Promise<RuntimeExecutionResult> {
   const hooks = input.hooks ?? {};
   const plan = compileAutomationRuntimePlan(input.graph);
-  const nodes = new Map(
-    input.graph.nodes.map((node) => [node.id, node]),
-  );
+  const nodes = new Map(input.graph.nodes.map((node) => [node.id, node]));
   const instructions = new Map(
-    plan.instructions.map((instruction) => [
-      instruction.nodeId,
-      instruction,
-    ]),
+    plan.instructions.map((item) => [item.nodeId, item]),
   );
-
   const results: RuntimeNodeResult[] = [];
   const visited = new Set<string>();
-  const queue: string[] = [plan.entryNodeId];
+  const queue = [plan.entryNodeId];
 
   while (queue.length > 0) {
     const nodeId = queue.shift()!;
@@ -155,11 +116,9 @@ export async function executeAutomationRuntimeGraph(input: {
         attempt: 1,
         startedAt,
         detail: {
-          waitMinutes:
-            instruction.runtimePolicy.waitMinutes ?? 0,
+          waitMinutes: instruction.runtimePolicy.waitMinutes ?? 0,
         },
       });
-
       return {
         entryNodeId: plan.entryNodeId,
         completed: false,
@@ -169,28 +128,8 @@ export async function executeAutomationRuntimeGraph(input: {
       };
     }
 
-    if (node.type === "TIMEOUT") {
-      results.push({
-        nodeId,
-        type: node.type,
-        status: "COMPLETED",
-        attempt: 1,
-        startedAt,
-        completedAt: new Date().toISOString(),
-        detail: {
-          timeoutMinutes:
-            instruction.runtimePolicy.timeoutMinutes ?? 0,
-        },
-      });
-
-      for (const next of instruction.next) {
-        queue.push(next.target);
-      }
-      continue;
-    }
-
     if (node.type === "CONDITION") {
-      const matched = evaluateCondition(node, input.payload);
+      const matched = matches(node, input.payload);
       results.push({
         nodeId,
         type: node.type,
@@ -220,12 +159,7 @@ export async function executeAutomationRuntimeGraph(input: {
         attempt: 1,
         startedAt,
         completedAt: new Date().toISOString(),
-        detail: {
-          branches: instruction.next.map((edge) => ({
-            target: edge.target,
-            label: edge.label ?? null,
-          })),
-        },
+        detail: { branches: instruction.next.length },
       });
 
       for (const branch of instruction.next) {
@@ -236,18 +170,13 @@ export async function executeAutomationRuntimeGraph(input: {
 
     if (node.type === "APPROVAL") {
       const decision =
-        (await hooks.executeApproval?.(
-          node,
-          input.payload,
-        )) ?? "PENDING";
+        (await hooks.executeApproval?.(node, input.payload)) ??
+        "PENDING";
 
       results.push({
         nodeId,
         type: node.type,
-        status:
-          decision === "PENDING"
-            ? "WAITING"
-            : "COMPLETED",
+        status: decision === "PENDING" ? "WAITING" : "COMPLETED",
         attempt: 1,
         startedAt,
         completedAt:
@@ -277,57 +206,44 @@ export async function executeAutomationRuntimeGraph(input: {
       continue;
     }
 
-    try {
-      const maxAttempts =
-        node.type === "RETRY"
-          ? Math.max(
-              1,
-              Number(node.configuration.maxAttempts ?? 3),
-            )
-          : Math.max(
-              1,
-              instruction.runtimePolicy.retryCount || 1,
-            );
+    const maxAttempts =
+      node.type === "RETRY"
+        ? Math.max(1, Number(node.configuration.maxAttempts ?? 3))
+        : 1;
 
-      const execution = await executeNodeWithRetry({
-        node,
-        payload: input.payload,
-        hooks,
-        maxAttempts,
-      });
+    let attempt = 0;
+    let detail: Record<string, unknown> | void = {};
+let lastError: unknown;
 
-      results.push({
-        nodeId,
-        type: node.type,
-        status: "COMPLETED",
-        attempt: execution.attempt,
-        startedAt,
-        completedAt: new Date().toISOString(),
-        detail: execution.detail,
-      });
-
-      for (const next of instruction.next) {
-        queue.push(next.target);
+    while (attempt < maxAttempts) {
+      attempt += 1;
+      try {
+        detail =
+          node.type === "ACTION"
+            ? await hooks.executeAction?.(node, input.payload)
+            : {};
+        lastError = undefined;
+        break;
+      } catch (error) {
+        lastError = error;
       }
-    } catch (error) {
+    }
+
+    if (lastError) {
       results.push({
         nodeId,
         type: node.type,
         status: "FAILED",
-        attempt: Math.max(
-          1,
-          Number(node.configuration.maxAttempts ?? 1),
-        ),
+        attempt,
         startedAt,
         completedAt: new Date().toISOString(),
         detail: {
           message:
-            error instanceof Error
-              ? error.message
-              : "Unknown runtime execution failure.",
+            lastError instanceof Error
+              ? lastError.message
+              : "Unknown runtime failure.",
         },
       });
-
       return {
         entryNodeId: plan.entryNodeId,
         completed: false,
@@ -336,14 +252,27 @@ export async function executeAutomationRuntimeGraph(input: {
         results,
       };
     }
+
+    results.push({
+      nodeId,
+      type: node.type,
+      status: "COMPLETED",
+      attempt,
+      startedAt,
+      completedAt: new Date().toISOString(),
+      detail: detail ?? {},
+    });
+
+    for (const next of instruction.next) {
+      queue.push(next.target);
+    }
   }
 
   return {
     entryNodeId: plan.entryNodeId,
     completed: results.some(
       (result) =>
-        result.type === "END" &&
-        result.status === "COMPLETED",
+        result.type === "END" && result.status === "COMPLETED",
     ),
     waiting: false,
     failed: false,

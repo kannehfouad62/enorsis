@@ -18,7 +18,6 @@ export function WorkflowEdgeEditor({
   onClose: () => void;
 }) {
   const edge = graph.edges.find((item) => item.id === edgeId);
-
   if (!edge) return null;
 
   return (
@@ -26,7 +25,6 @@ export function WorkflowEdgeEditor({
       <p className="text-xs font-black uppercase text-slate-500">
         Edge
       </p>
-
       <input
         value={edge.label ?? ""}
         onChange={(event) =>
@@ -39,7 +37,6 @@ export function WorkflowEdgeEditor({
         placeholder="Branch label"
         className="mt-3 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
       />
-
       <div className="mt-3 flex gap-2">
         <button
           type="button"
