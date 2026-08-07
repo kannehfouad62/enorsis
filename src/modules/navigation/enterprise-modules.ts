@@ -543,6 +543,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Executive Intelligence",
+    description: "Enterprise health, KPI cockpit and operational risk.",
+    href: "/app/executive",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
