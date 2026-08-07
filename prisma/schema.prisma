@@ -1903,6 +1903,53 @@ enum InventoryAdjustmentDirection {
   NONE
 }
 
+enum InventoryTraceUnitType {
+  LOT
+  SERIAL
+}
+
+enum InventoryTraceUnitStatus {
+  ACTIVE
+  QUARANTINED
+  EXPIRED
+  RECALLED
+  CONSUMED
+  SCRAPPED
+  CLOSED
+}
+
+enum InventoryTraceEventType {
+  CREATED
+  RECEIVED
+  PUTAWAY
+  TRANSFERRED
+  RESERVED
+  PICKED
+  ISSUED
+  ADJUSTED
+  QUARANTINED
+  RELEASED
+  RECALLED
+  EXPIRED
+  SCRAPPED
+  COUNTED
+}
+
+enum InventoryTraceHoldStatus {
+  ACTIVE
+  RELEASED
+  CANCELLED
+}
+
+enum InventoryTraceHoldType {
+  QUALITY
+  EXPIRY
+  RECALL
+  COMPLIANCE
+  INVESTIGATION
+  OTHER
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2105,6 +2152,9 @@ model Tenant {
   warehouseFulfillmentExceptions    WarehouseFulfillmentException[]
   inventoryCountSessions            InventoryCountSession[]
   inventoryReconciliations          InventoryReconciliation[]
+  inventoryTraceUnits               InventoryTraceUnit[]
+  inventoryTraceEvents              InventoryTraceEvent[]
+  inventoryTraceHolds               InventoryTraceHold[]
   createdAt                         DateTime                           @default(now())
   updatedAt                         DateTime                           @updatedAt
   archivedAt                        DateTime?
@@ -6974,4 +7024,81 @@ model InventoryReconciliation {
   @@index([tenantId, status, createdAt])
   @@index([countSessionId])
   @@index([countLineId])
+}
+
+model InventoryTraceUnit {
+  id                  String                   @id @default(cuid())
+  tenantId            String
+  traceNumber         String
+  unitType            InventoryTraceUnitType
+  status              InventoryTraceUnitStatus @default(ACTIVE)
+  inventoryItemId     String
+  lotNumber           String?
+  serialNumber        String?
+  currentLocationId   String?
+  quantity            Decimal                  @default(1) @db.Decimal(18, 4)
+  unitOfMeasure       String                   @default("EA")
+  manufactureDate     DateTime?
+  receivedDate        DateTime?
+  expiryDate          DateTime?
+  supplierId          String?
+  sourceReferenceType String?
+  sourceReferenceId   String?
+  notes               String?
+  tenant              Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  events              InventoryTraceEvent[]
+  holds               InventoryTraceHold[]
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime                 @updatedAt
+
+  @@unique([tenantId, traceNumber])
+  @@unique([tenantId, inventoryItemId, serialNumber])
+  @@index([tenantId, status, expiryDate])
+  @@index([inventoryItemId, lotNumber])
+  @@index([currentLocationId])
+}
+
+model InventoryTraceEvent {
+  id               String                  @id @default(cuid())
+  tenantId         String
+  traceUnitId      String
+  eventType        InventoryTraceEventType
+  movementLedgerId String?
+  referenceType    String?
+  referenceId      String?
+  fromLocationId   String?
+  toLocationId     String?
+  quantity         Decimal?                @db.Decimal(18, 4)
+  eventAt          DateTime                @default(now())
+  actorUserId      String?
+  notes            String?
+  tenant           Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  traceUnit        InventoryTraceUnit      @relation(fields: [traceUnitId], references: [id], onDelete: Cascade)
+  createdAt        DateTime                @default(now())
+
+  @@index([tenantId, eventAt])
+  @@index([traceUnitId, eventAt])
+  @@index([movementLedgerId])
+  @@index([referenceType, referenceId])
+}
+
+model InventoryTraceHold {
+  id               String                   @id @default(cuid())
+  tenantId         String
+  traceUnitId      String
+  holdType         InventoryTraceHoldType
+  status           InventoryTraceHoldStatus @default(ACTIVE)
+  title            String
+  description      String?
+  ownerUserId      String?
+  releasedByUserId String?
+  releasedAt       DateTime?
+  releaseReason    String?
+  tenant           Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  traceUnit        InventoryTraceUnit       @relation(fields: [traceUnitId], references: [id], onDelete: Cascade)
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+
+  @@index([tenantId, status, holdType])
+  @@index([traceUnitId, status])
 }

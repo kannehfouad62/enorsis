@@ -2576,6 +2576,68 @@ export const InventoryAdjustmentDirection = {
 export type InventoryAdjustmentDirection = (typeof InventoryAdjustmentDirection)[keyof typeof InventoryAdjustmentDirection]
 
 
+export const InventoryTraceUnitType = {
+  LOT: 'LOT',
+  SERIAL: 'SERIAL'
+} as const
+
+export type InventoryTraceUnitType = (typeof InventoryTraceUnitType)[keyof typeof InventoryTraceUnitType]
+
+
+export const InventoryTraceUnitStatus = {
+  ACTIVE: 'ACTIVE',
+  QUARANTINED: 'QUARANTINED',
+  EXPIRED: 'EXPIRED',
+  RECALLED: 'RECALLED',
+  CONSUMED: 'CONSUMED',
+  SCRAPPED: 'SCRAPPED',
+  CLOSED: 'CLOSED'
+} as const
+
+export type InventoryTraceUnitStatus = (typeof InventoryTraceUnitStatus)[keyof typeof InventoryTraceUnitStatus]
+
+
+export const InventoryTraceEventType = {
+  CREATED: 'CREATED',
+  RECEIVED: 'RECEIVED',
+  PUTAWAY: 'PUTAWAY',
+  TRANSFERRED: 'TRANSFERRED',
+  RESERVED: 'RESERVED',
+  PICKED: 'PICKED',
+  ISSUED: 'ISSUED',
+  ADJUSTED: 'ADJUSTED',
+  QUARANTINED: 'QUARANTINED',
+  RELEASED: 'RELEASED',
+  RECALLED: 'RECALLED',
+  EXPIRED: 'EXPIRED',
+  SCRAPPED: 'SCRAPPED',
+  COUNTED: 'COUNTED'
+} as const
+
+export type InventoryTraceEventType = (typeof InventoryTraceEventType)[keyof typeof InventoryTraceEventType]
+
+
+export const InventoryTraceHoldStatus = {
+  ACTIVE: 'ACTIVE',
+  RELEASED: 'RELEASED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type InventoryTraceHoldStatus = (typeof InventoryTraceHoldStatus)[keyof typeof InventoryTraceHoldStatus]
+
+
+export const InventoryTraceHoldType = {
+  QUALITY: 'QUALITY',
+  EXPIRY: 'EXPIRY',
+  RECALL: 'RECALL',
+  COMPLIANCE: 'COMPLIANCE',
+  INVESTIGATION: 'INVESTIGATION',
+  OTHER: 'OTHER'
+} as const
+
+export type InventoryTraceHoldType = (typeof InventoryTraceHoldType)[keyof typeof InventoryTraceHoldType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

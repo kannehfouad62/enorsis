@@ -511,6 +511,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Inventory Traceability",
+    description: "Lot, serial, expiry, quarantine and recall traceability.",
+    href: "/app/inventory-traceability",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

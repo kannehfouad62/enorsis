@@ -4352,6 +4352,91 @@ export type EnumInventoryAdjustmentDirectionWithAggregatesFilter<$PrismaModel = 
   _max?: Prisma.NestedEnumInventoryAdjustmentDirectionFilter<$PrismaModel>
 }
 
+export type EnumInventoryTraceUnitTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitType | Prisma.EnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel> | $Enums.InventoryTraceUnitType
+}
+
+export type EnumInventoryTraceUnitStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitStatus | Prisma.EnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel> | $Enums.InventoryTraceUnitStatus
+}
+
+export type EnumInventoryTraceUnitTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitType | Prisma.EnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceUnitType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel>
+}
+
+export type EnumInventoryTraceUnitStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitStatus | Prisma.EnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceUnitStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel>
+}
+
+export type EnumInventoryTraceEventTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceEventType | Prisma.EnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel> | $Enums.InventoryTraceEventType
+}
+
+export type EnumInventoryTraceEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceEventType | Prisma.EnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceEventType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel>
+}
+
+export type EnumInventoryTraceHoldTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldType | Prisma.EnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel> | $Enums.InventoryTraceHoldType
+}
+
+export type EnumInventoryTraceHoldStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldStatus | Prisma.EnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel> | $Enums.InventoryTraceHoldStatus
+}
+
+export type EnumInventoryTraceHoldTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldType | Prisma.EnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceHoldType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel>
+}
+
+export type EnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldStatus | Prisma.EnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceHoldStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -8647,6 +8732,91 @@ export type NestedEnumInventoryAdjustmentDirectionWithAggregatesFilter<$PrismaMo
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumInventoryAdjustmentDirectionFilter<$PrismaModel>
   _max?: Prisma.NestedEnumInventoryAdjustmentDirectionFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitType | Prisma.EnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel> | $Enums.InventoryTraceUnitType
+}
+
+export type NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitStatus | Prisma.EnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel> | $Enums.InventoryTraceUnitStatus
+}
+
+export type NestedEnumInventoryTraceUnitTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitType | Prisma.EnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitType[] | Prisma.ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceUnitType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceUnitTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryTraceUnitStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceUnitStatus | Prisma.EnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceUnitStatus[] | Prisma.ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceUnitStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceUnitStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceUnitStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryTraceEventTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceEventType | Prisma.EnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel> | $Enums.InventoryTraceEventType
+}
+
+export type NestedEnumInventoryTraceEventTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceEventType | Prisma.EnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceEventType[] | Prisma.ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceEventTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceEventType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceEventTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldType | Prisma.EnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel> | $Enums.InventoryTraceHoldType
+}
+
+export type NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldStatus | Prisma.EnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel> | $Enums.InventoryTraceHoldStatus
+}
+
+export type NestedEnumInventoryTraceHoldTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldType | Prisma.EnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldType[] | Prisma.ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldTypeWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceHoldType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceHoldTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.InventoryTraceHoldStatus | Prisma.EnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.InventoryTraceHoldStatus[] | Prisma.ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumInventoryTraceHoldStatusWithAggregatesFilter<$PrismaModel> | $Enums.InventoryTraceHoldStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumInventoryTraceHoldStatusFilter<$PrismaModel>
 }
 
 

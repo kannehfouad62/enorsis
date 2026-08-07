@@ -1032,3 +1032,18 @@ export type InventoryCountLine = Prisma.InventoryCountLineModel
  * 
  */
 export type InventoryReconciliation = Prisma.InventoryReconciliationModel
+/**
+ * Model InventoryTraceUnit
+ * 
+ */
+export type InventoryTraceUnit = Prisma.InventoryTraceUnitModel
+/**
+ * Model InventoryTraceEvent
+ * 
+ */
+export type InventoryTraceEvent = Prisma.InventoryTraceEventModel
+/**
+ * Model InventoryTraceHold
+ * 
+ */
+export type InventoryTraceHold = Prisma.InventoryTraceHoldModel

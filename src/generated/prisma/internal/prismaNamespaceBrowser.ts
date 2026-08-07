@@ -253,7 +253,10 @@ export const ModelName = {
   WarehouseFulfillmentException: 'WarehouseFulfillmentException',
   InventoryCountSession: 'InventoryCountSession',
   InventoryCountLine: 'InventoryCountLine',
-  InventoryReconciliation: 'InventoryReconciliation'
+  InventoryReconciliation: 'InventoryReconciliation',
+  InventoryTraceUnit: 'InventoryTraceUnit',
+  InventoryTraceEvent: 'InventoryTraceEvent',
+  InventoryTraceHold: 'InventoryTraceHold'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4655,6 +4658,71 @@ export const InventoryReconciliationScalarFieldEnum = {
 } as const
 
 export type InventoryReconciliationScalarFieldEnum = (typeof InventoryReconciliationScalarFieldEnum)[keyof typeof InventoryReconciliationScalarFieldEnum]
+
+
+export const InventoryTraceUnitScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceNumber: 'traceNumber',
+  unitType: 'unitType',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  lotNumber: 'lotNumber',
+  serialNumber: 'serialNumber',
+  currentLocationId: 'currentLocationId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  manufactureDate: 'manufactureDate',
+  receivedDate: 'receivedDate',
+  expiryDate: 'expiryDate',
+  supplierId: 'supplierId',
+  sourceReferenceType: 'sourceReferenceType',
+  sourceReferenceId: 'sourceReferenceId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryTraceUnitScalarFieldEnum = (typeof InventoryTraceUnitScalarFieldEnum)[keyof typeof InventoryTraceUnitScalarFieldEnum]
+
+
+export const InventoryTraceEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceUnitId: 'traceUnitId',
+  eventType: 'eventType',
+  movementLedgerId: 'movementLedgerId',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  fromLocationId: 'fromLocationId',
+  toLocationId: 'toLocationId',
+  quantity: 'quantity',
+  eventAt: 'eventAt',
+  actorUserId: 'actorUserId',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type InventoryTraceEventScalarFieldEnum = (typeof InventoryTraceEventScalarFieldEnum)[keyof typeof InventoryTraceEventScalarFieldEnum]
+
+
+export const InventoryTraceHoldScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceUnitId: 'traceUnitId',
+  holdType: 'holdType',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  releaseReason: 'releaseReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryTraceHoldScalarFieldEnum = (typeof InventoryTraceHoldScalarFieldEnum)[keyof typeof InventoryTraceHoldScalarFieldEnum]
 
 
 export const SortOrder = {

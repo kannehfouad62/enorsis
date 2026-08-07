@@ -599,7 +599,10 @@ export const ModelName = {
   WarehouseFulfillmentException: 'WarehouseFulfillmentException',
   InventoryCountSession: 'InventoryCountSession',
   InventoryCountLine: 'InventoryCountLine',
-  InventoryReconciliation: 'InventoryReconciliation'
+  InventoryReconciliation: 'InventoryReconciliation',
+  InventoryTraceUnit: 'InventoryTraceUnit',
+  InventoryTraceEvent: 'InventoryTraceEvent',
+  InventoryTraceHold: 'InventoryTraceHold'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -615,7 +618,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -15641,6 +15644,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    InventoryTraceUnit: {
+      payload: Prisma.$InventoryTraceUnitPayload<ExtArgs>
+      fields: Prisma.InventoryTraceUnitFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryTraceUnitFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryTraceUnitFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryTraceUnitFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryTraceUnitFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryTraceUnitFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryTraceUnitCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryTraceUnitCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryTraceUnitCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryTraceUnitDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        update: {
+          args: Prisma.InventoryTraceUnitUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryTraceUnitDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryTraceUnitUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryTraceUnitUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryTraceUnitUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceUnitPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryTraceUnitAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryTraceUnit>
+        }
+        groupBy: {
+          args: Prisma.InventoryTraceUnitGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceUnitGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryTraceUnitCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceUnitCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryTraceEvent: {
+      payload: Prisma.$InventoryTraceEventPayload<ExtArgs>
+      fields: Prisma.InventoryTraceEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryTraceEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryTraceEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryTraceEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryTraceEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryTraceEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryTraceEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryTraceEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryTraceEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryTraceEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        update: {
+          args: Prisma.InventoryTraceEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryTraceEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryTraceEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryTraceEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryTraceEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceEventPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryTraceEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryTraceEvent>
+        }
+        groupBy: {
+          args: Prisma.InventoryTraceEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryTraceEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    InventoryTraceHold: {
+      payload: Prisma.$InventoryTraceHoldPayload<ExtArgs>
+      fields: Prisma.InventoryTraceHoldFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.InventoryTraceHoldFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.InventoryTraceHoldFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        findFirst: {
+          args: Prisma.InventoryTraceHoldFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.InventoryTraceHoldFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        findMany: {
+          args: Prisma.InventoryTraceHoldFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>[]
+        }
+        create: {
+          args: Prisma.InventoryTraceHoldCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        createMany: {
+          args: Prisma.InventoryTraceHoldCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.InventoryTraceHoldCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>[]
+        }
+        delete: {
+          args: Prisma.InventoryTraceHoldDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        update: {
+          args: Prisma.InventoryTraceHoldUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        deleteMany: {
+          args: Prisma.InventoryTraceHoldDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.InventoryTraceHoldUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.InventoryTraceHoldUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>[]
+        }
+        upsert: {
+          args: Prisma.InventoryTraceHoldUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$InventoryTraceHoldPayload>
+        }
+        aggregate: {
+          args: Prisma.InventoryTraceHoldAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInventoryTraceHold>
+        }
+        groupBy: {
+          args: Prisma.InventoryTraceHoldGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceHoldGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.InventoryTraceHoldCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InventoryTraceHoldCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -20065,6 +20290,71 @@ export const InventoryReconciliationScalarFieldEnum = {
 export type InventoryReconciliationScalarFieldEnum = (typeof InventoryReconciliationScalarFieldEnum)[keyof typeof InventoryReconciliationScalarFieldEnum]
 
 
+export const InventoryTraceUnitScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceNumber: 'traceNumber',
+  unitType: 'unitType',
+  status: 'status',
+  inventoryItemId: 'inventoryItemId',
+  lotNumber: 'lotNumber',
+  serialNumber: 'serialNumber',
+  currentLocationId: 'currentLocationId',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  manufactureDate: 'manufactureDate',
+  receivedDate: 'receivedDate',
+  expiryDate: 'expiryDate',
+  supplierId: 'supplierId',
+  sourceReferenceType: 'sourceReferenceType',
+  sourceReferenceId: 'sourceReferenceId',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryTraceUnitScalarFieldEnum = (typeof InventoryTraceUnitScalarFieldEnum)[keyof typeof InventoryTraceUnitScalarFieldEnum]
+
+
+export const InventoryTraceEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceUnitId: 'traceUnitId',
+  eventType: 'eventType',
+  movementLedgerId: 'movementLedgerId',
+  referenceType: 'referenceType',
+  referenceId: 'referenceId',
+  fromLocationId: 'fromLocationId',
+  toLocationId: 'toLocationId',
+  quantity: 'quantity',
+  eventAt: 'eventAt',
+  actorUserId: 'actorUserId',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type InventoryTraceEventScalarFieldEnum = (typeof InventoryTraceEventScalarFieldEnum)[keyof typeof InventoryTraceEventScalarFieldEnum]
+
+
+export const InventoryTraceHoldScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  traceUnitId: 'traceUnitId',
+  holdType: 'holdType',
+  status: 'status',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  releaseReason: 'releaseReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type InventoryTraceHoldScalarFieldEnum = (typeof InventoryTraceHoldScalarFieldEnum)[keyof typeof InventoryTraceHoldScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -23459,6 +23749,76 @@ export type ListEnumInventoryAdjustmentDirectionFieldRefInput<$PrismaModel> = Fi
 
 
 /**
+ * Reference to a field of type 'InventoryTraceUnitType'
+ */
+export type EnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceUnitType'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceUnitType[]'
+ */
+export type ListEnumInventoryTraceUnitTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceUnitType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceUnitStatus'
+ */
+export type EnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceUnitStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceUnitStatus[]'
+ */
+export type ListEnumInventoryTraceUnitStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceUnitStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceEventType'
+ */
+export type EnumInventoryTraceEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceEventType'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceEventType[]'
+ */
+export type ListEnumInventoryTraceEventTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceEventType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceHoldType'
+ */
+export type EnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceHoldType'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceHoldType[]'
+ */
+export type ListEnumInventoryTraceHoldTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceHoldType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceHoldStatus'
+ */
+export type EnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceHoldStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'InventoryTraceHoldStatus[]'
+ */
+export type ListEnumInventoryTraceHoldStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InventoryTraceHoldStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -23825,6 +24185,9 @@ export type GlobalOmitConfig = {
   inventoryCountSession?: Prisma.InventoryCountSessionOmit
   inventoryCountLine?: Prisma.InventoryCountLineOmit
   inventoryReconciliation?: Prisma.InventoryReconciliationOmit
+  inventoryTraceUnit?: Prisma.InventoryTraceUnitOmit
+  inventoryTraceEvent?: Prisma.InventoryTraceEventOmit
+  inventoryTraceHold?: Prisma.InventoryTraceHoldOmit
 }
 
 /* Types for Logging */
