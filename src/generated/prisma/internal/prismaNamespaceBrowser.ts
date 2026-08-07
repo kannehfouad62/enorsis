@@ -245,7 +245,12 @@ export const ModelName = {
   WarehouseReceiptLine: 'WarehouseReceiptLine',
   WarehouseLocationControl: 'WarehouseLocationControl',
   PutawayTask: 'PutawayTask',
-  WarehouseDiscrepancy: 'WarehouseDiscrepancy'
+  WarehouseDiscrepancy: 'WarehouseDiscrepancy',
+  WarehouseFulfillmentOrder: 'WarehouseFulfillmentOrder',
+  WarehouseFulfillmentLine: 'WarehouseFulfillmentLine',
+  WarehousePickTask: 'WarehousePickTask',
+  WarehousePackage: 'WarehousePackage',
+  WarehouseFulfillmentException: 'WarehouseFulfillmentException'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -4478,6 +4483,111 @@ export const WarehouseDiscrepancyScalarFieldEnum = {
 } as const
 
 export type WarehouseDiscrepancyScalarFieldEnum = (typeof WarehouseDiscrepancyScalarFieldEnum)[keyof typeof WarehouseDiscrepancyScalarFieldEnum]
+
+
+export const WarehouseFulfillmentOrderScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  fulfillmentNumber: 'fulfillmentNumber',
+  status: 'status',
+  requestType: 'requestType',
+  requestId: 'requestId',
+  requestedByUserId: 'requestedByUserId',
+  destinationType: 'destinationType',
+  destinationId: 'destinationId',
+  neededAt: 'neededAt',
+  allocatedAt: 'allocatedAt',
+  pickedAt: 'pickedAt',
+  packedAt: 'packedAt',
+  issuedAt: 'issuedAt',
+  completedAt: 'completedAt',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseFulfillmentOrderScalarFieldEnum = (typeof WarehouseFulfillmentOrderScalarFieldEnum)[keyof typeof WarehouseFulfillmentOrderScalarFieldEnum]
+
+
+export const WarehouseFulfillmentLineScalarFieldEnum = {
+  id: 'id',
+  fulfillmentOrderId: 'fulfillmentOrderId',
+  lineReference: 'lineReference',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  requestedQuantity: 'requestedQuantity',
+  allocatedQuantity: 'allocatedQuantity',
+  pickedQuantity: 'pickedQuantity',
+  issuedQuantity: 'issuedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  serialLotReference: 'serialLotReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseFulfillmentLineScalarFieldEnum = (typeof WarehouseFulfillmentLineScalarFieldEnum)[keyof typeof WarehouseFulfillmentLineScalarFieldEnum]
+
+
+export const WarehousePickTaskScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  taskNumber: 'taskNumber',
+  fulfillmentOrderId: 'fulfillmentOrderId',
+  fulfillmentLineId: 'fulfillmentLineId',
+  inventoryItemId: 'inventoryItemId',
+  sourceLocationId: 'sourceLocationId',
+  requestedQuantity: 'requestedQuantity',
+  pickedQuantity: 'pickedQuantity',
+  unitOfMeasure: 'unitOfMeasure',
+  status: 'status',
+  assignedUserId: 'assignedUserId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehousePickTaskScalarFieldEnum = (typeof WarehousePickTaskScalarFieldEnum)[keyof typeof WarehousePickTaskScalarFieldEnum]
+
+
+export const WarehousePackageScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  packageNumber: 'packageNumber',
+  fulfillmentOrderId: 'fulfillmentOrderId',
+  status: 'status',
+  packageType: 'packageType',
+  grossWeight: 'grossWeight',
+  weightUnit: 'weightUnit',
+  carrierReference: 'carrierReference',
+  trackingReference: 'trackingReference',
+  packedByUserId: 'packedByUserId',
+  packedAt: 'packedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehousePackageScalarFieldEnum = (typeof WarehousePackageScalarFieldEnum)[keyof typeof WarehousePackageScalarFieldEnum]
+
+
+export const WarehouseFulfillmentExceptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  fulfillmentOrderId: 'fulfillmentOrderId',
+  fulfillmentLineId: 'fulfillmentLineId',
+  exceptionType: 'exceptionType',
+  status: 'status',
+  severity: 'severity',
+  title: 'title',
+  description: 'description',
+  ownerUserId: 'ownerUserId',
+  resolution: 'resolution',
+  resolvedAt: 'resolvedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WarehouseFulfillmentExceptionScalarFieldEnum = (typeof WarehouseFulfillmentExceptionScalarFieldEnum)[keyof typeof WarehouseFulfillmentExceptionScalarFieldEnum]
 
 
 export const SortOrder = {

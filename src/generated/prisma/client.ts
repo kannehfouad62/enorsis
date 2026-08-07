@@ -1016,3 +1016,28 @@ export type PutawayTask = Prisma.PutawayTaskModel
  * 
  */
 export type WarehouseDiscrepancy = Prisma.WarehouseDiscrepancyModel
+/**
+ * Model WarehouseFulfillmentOrder
+ * 
+ */
+export type WarehouseFulfillmentOrder = Prisma.WarehouseFulfillmentOrderModel
+/**
+ * Model WarehouseFulfillmentLine
+ * 
+ */
+export type WarehouseFulfillmentLine = Prisma.WarehouseFulfillmentLineModel
+/**
+ * Model WarehousePickTask
+ * 
+ */
+export type WarehousePickTask = Prisma.WarehousePickTaskModel
+/**
+ * Model WarehousePackage
+ * 
+ */
+export type WarehousePackage = Prisma.WarehousePackageModel
+/**
+ * Model WarehouseFulfillmentException
+ * 
+ */
+export type WarehouseFulfillmentException = Prisma.WarehouseFulfillmentExceptionModel

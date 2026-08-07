@@ -2470,6 +2470,67 @@ export const WarehouseDiscrepancyType = {
 export type WarehouseDiscrepancyType = (typeof WarehouseDiscrepancyType)[keyof typeof WarehouseDiscrepancyType]
 
 
+export const WarehouseFulfillmentStatus = {
+  DRAFT: 'DRAFT',
+  ALLOCATED: 'ALLOCATED',
+  PICKING: 'PICKING',
+  PICKED: 'PICKED',
+  PACKED: 'PACKED',
+  ISSUED: 'ISSUED',
+  COMPLETED: 'COMPLETED',
+  CANCELLED: 'CANCELLED',
+  EXCEPTION: 'EXCEPTION'
+} as const
+
+export type WarehouseFulfillmentStatus = (typeof WarehouseFulfillmentStatus)[keyof typeof WarehouseFulfillmentStatus]
+
+
+export const WarehousePickTaskStatus = {
+  OPEN: 'OPEN',
+  IN_PROGRESS: 'IN_PROGRESS',
+  PICKED: 'PICKED',
+  SHORT_PICK: 'SHORT_PICK',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WarehousePickTaskStatus = (typeof WarehousePickTaskStatus)[keyof typeof WarehousePickTaskStatus]
+
+
+export const WarehousePackStatus = {
+  OPEN: 'OPEN',
+  PACKED: 'PACKED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WarehousePackStatus = (typeof WarehousePackStatus)[keyof typeof WarehousePackStatus]
+
+
+export const WarehouseFulfillmentExceptionType = {
+  INSUFFICIENT_STOCK: 'INSUFFICIENT_STOCK',
+  SHORT_PICK: 'SHORT_PICK',
+  WRONG_ITEM: 'WRONG_ITEM',
+  WRONG_LOCATION: 'WRONG_LOCATION',
+  DAMAGED_STOCK: 'DAMAGED_STOCK',
+  SERIAL_LOT_MISMATCH: 'SERIAL_LOT_MISMATCH',
+  PACKING_VARIANCE: 'PACKING_VARIANCE',
+  ISSUE_FAILURE: 'ISSUE_FAILURE',
+  OTHER: 'OTHER'
+} as const
+
+export type WarehouseFulfillmentExceptionType = (typeof WarehouseFulfillmentExceptionType)[keyof typeof WarehouseFulfillmentExceptionType]
+
+
+export const WarehouseFulfillmentExceptionStatus = {
+  OPEN: 'OPEN',
+  INVESTIGATING: 'INVESTIGATING',
+  RESOLVED: 'RESOLVED',
+  WAIVED: 'WAIVED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type WarehouseFulfillmentExceptionStatus = (typeof WarehouseFulfillmentExceptionStatus)[keyof typeof WarehouseFulfillmentExceptionStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

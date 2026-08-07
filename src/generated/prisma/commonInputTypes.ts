@@ -4199,6 +4199,91 @@ export type EnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaModel = ne
   _max?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
 }
 
+export type EnumWarehouseFulfillmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentStatus | Prisma.EnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel> | $Enums.WarehouseFulfillmentStatus
+}
+
+export type EnumWarehouseFulfillmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentStatus | Prisma.EnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehousePickTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePickTaskStatus | Prisma.EnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel> | $Enums.WarehousePickTaskStatus
+}
+
+export type EnumWarehousePickTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePickTaskStatus | Prisma.EnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePickTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehousePickTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehousePackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePackStatus | Prisma.EnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel> | $Enums.WarehousePackStatus
+}
+
+export type EnumWarehousePackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePackStatus | Prisma.EnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePackStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehousePackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel>
+}
+
+export type EnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionType | Prisma.EnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionType
+}
+
+export type EnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionStatus | Prisma.EnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionStatus
+}
+
+export type EnumWarehouseFulfillmentExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionType | Prisma.EnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel>
+}
+
+export type EnumWarehouseFulfillmentExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionStatus | Prisma.EnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -8341,6 +8426,91 @@ export type NestedEnumWarehouseDiscrepancyStatusWithAggregatesFilter<$PrismaMode
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumWarehouseDiscrepancyStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentStatus | Prisma.EnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel> | $Enums.WarehouseFulfillmentStatus
+}
+
+export type NestedEnumWarehouseFulfillmentStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentStatus | Prisma.EnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentStatus[] | Prisma.ListEnumWarehouseFulfillmentStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehousePickTaskStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePickTaskStatus | Prisma.EnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel> | $Enums.WarehousePickTaskStatus
+}
+
+export type NestedEnumWarehousePickTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePickTaskStatus | Prisma.EnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePickTaskStatus[] | Prisma.ListEnumWarehousePickTaskStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePickTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehousePickTaskStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehousePickTaskStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehousePackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePackStatus | Prisma.EnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel> | $Enums.WarehousePackStatus
+}
+
+export type NestedEnumWarehousePackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehousePackStatus | Prisma.EnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehousePackStatus[] | Prisma.ListEnumWarehousePackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehousePackStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehousePackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehousePackStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionType | Prisma.EnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionType
+}
+
+export type NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionStatus | Prisma.EnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionStatus
+}
+
+export type NestedEnumWarehouseFulfillmentExceptionTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionType | Prisma.EnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionType[] | Prisma.ListEnumWarehouseFulfillmentExceptionTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentExceptionTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumWarehouseFulfillmentExceptionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WarehouseFulfillmentExceptionStatus | Prisma.EnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WarehouseFulfillmentExceptionStatus[] | Prisma.ListEnumWarehouseFulfillmentExceptionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusWithAggregatesFilter<$PrismaModel> | $Enums.WarehouseFulfillmentExceptionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWarehouseFulfillmentExceptionStatusFilter<$PrismaModel>
 }
 
 

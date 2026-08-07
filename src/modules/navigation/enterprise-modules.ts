@@ -495,6 +495,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
 
+  {
+    title: "Warehouse Fulfillment",
+    description: "Picking, packing, issue and internal fulfillment.",
+    href: "/app/warehouse-fulfillment",
+    icon: BadgeCheck,
+    group: "Procurement",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
