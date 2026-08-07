@@ -1167,3 +1167,13 @@ export type ExecutiveBoardPack = Prisma.ExecutiveBoardPackModel
  * 
  */
 export type ExecutiveBoardPackExport = Prisma.ExecutiveBoardPackExportModel
+/**
+ * Model ExecutiveBoardReportSchedule
+ * 
+ */
+export type ExecutiveBoardReportSchedule = Prisma.ExecutiveBoardReportScheduleModel
+/**
+ * Model ExecutiveBoardReportScheduleRun
+ * 
+ */
+export type ExecutiveBoardReportScheduleRun = Prisma.ExecutiveBoardReportScheduleRunModel

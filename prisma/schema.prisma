@@ -2153,6 +2153,26 @@ enum ExecutiveBoardPackExportStatus {
   FAILED
 }
 
+enum ExecutiveBoardReportScheduleStatus {
+  ACTIVE
+  PAUSED
+  DISABLED
+}
+
+enum ExecutiveBoardReportScheduleFrequency {
+  MONTHLY
+  QUARTERLY
+  ANNUAL
+}
+
+enum ExecutiveBoardReportScheduleRunStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  SKIPPED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2381,6 +2401,8 @@ model Tenant {
   executiveBoardPackDefinitions               ExecutiveBoardPackDefinition[]
   executiveBoardPacks                         ExecutiveBoardPack[]
   executiveBoardPackExports                   ExecutiveBoardPackExport[]
+  executiveBoardReportSchedules               ExecutiveBoardReportSchedule[]
+  executiveBoardReportScheduleRuns            ExecutiveBoardReportScheduleRun[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -7836,24 +7858,25 @@ model ExecutiveSynthesis {
 }
 
 model ExecutiveBoardPackDefinition {
-  id                   String                       @id @default(cuid())
+  id                   String                         @id @default(cuid())
   tenantId             String
   definitionKey        String
   name                 String
   description          String?
   packType             ExecutiveBoardPackType
-  active               Boolean                      @default(true)
+  active               Boolean                        @default(true)
   defaultPeriodType    ExecutiveBoardPackPeriodType
-  includeAiSynthesis   Boolean                      @default(true)
-  includeGovernance    Boolean                      @default(true)
-  includeKpis          Boolean                      @default(true)
-  includeRisks         Boolean                      @default(true)
-  includeOpportunities Boolean                      @default(true)
+  includeAiSynthesis   Boolean                        @default(true)
+  includeGovernance    Boolean                        @default(true)
+  includeKpis          Boolean                        @default(true)
+  includeRisks         Boolean                        @default(true)
+  includeOpportunities Boolean                        @default(true)
   sectionConfiguration Json?
-  tenant               Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant               Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   packs                ExecutiveBoardPack[]
-  createdAt            DateTime                     @default(now())
-  updatedAt            DateTime                     @updatedAt
+  schedules            ExecutiveBoardReportSchedule[]
+  createdAt            DateTime                       @default(now())
+  updatedAt            DateTime                       @updatedAt
 
   @@unique([tenantId, definitionKey])
   @@index([tenantId, packType, active])
@@ -7910,4 +7933,49 @@ model ExecutiveBoardPackExport {
   @@index([tenantId, generatedAt])
   @@index([boardPackId, generatedAt])
   @@index([format, status])
+}
+
+model ExecutiveBoardReportSchedule {
+  id                String                                @id @default(cuid())
+  tenantId          String
+  definitionId      String
+  name              String
+  status            ExecutiveBoardReportScheduleStatus    @default(ACTIVE)
+  frequency         ExecutiveBoardReportScheduleFrequency
+  dayOfMonth        Int                                   @default(1)
+  monthOfYear       Int?
+  hourUtc           Int                                   @default(8)
+  nextRunAt         DateTime
+  lastRunAt         DateTime?
+  lastBoardPackId   String?
+  generateFinalized Boolean                               @default(false)
+  createdByUserId   String
+  tenant            Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  definition        ExecutiveBoardPackDefinition          @relation(fields: [definitionId], references: [id], onDelete: Cascade)
+  runs              ExecutiveBoardReportScheduleRun[]
+  createdAt         DateTime                              @default(now())
+  updatedAt         DateTime                              @updatedAt
+
+  @@unique([tenantId, definitionId, frequency])
+  @@index([tenantId, status, nextRunAt])
+  @@index([definitionId])
+}
+
+model ExecutiveBoardReportScheduleRun {
+  id                String                                @id @default(cuid())
+  tenantId          String
+  scheduleId        String
+  status            ExecutiveBoardReportScheduleRunStatus @default(PENDING)
+  scheduledFor      DateTime
+  startedAt         DateTime?
+  completedAt       DateTime?
+  boardPackId       String?
+  errorMessage      String?
+  sourceFingerprint String?
+  tenant            Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  schedule          ExecutiveBoardReportSchedule          @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  createdAt         DateTime                              @default(now())
+
+  @@unique([scheduleId, scheduledFor])
+  @@index([tenantId, status, scheduledFor])
 }

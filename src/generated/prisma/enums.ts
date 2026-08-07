@@ -2916,6 +2916,35 @@ export const ExecutiveBoardPackExportStatus = {
 export type ExecutiveBoardPackExportStatus = (typeof ExecutiveBoardPackExportStatus)[keyof typeof ExecutiveBoardPackExportStatus]
 
 
+export const ExecutiveBoardReportScheduleStatus = {
+  ACTIVE: 'ACTIVE',
+  PAUSED: 'PAUSED',
+  DISABLED: 'DISABLED'
+} as const
+
+export type ExecutiveBoardReportScheduleStatus = (typeof ExecutiveBoardReportScheduleStatus)[keyof typeof ExecutiveBoardReportScheduleStatus]
+
+
+export const ExecutiveBoardReportScheduleFrequency = {
+  MONTHLY: 'MONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  ANNUAL: 'ANNUAL'
+} as const
+
+export type ExecutiveBoardReportScheduleFrequency = (typeof ExecutiveBoardReportScheduleFrequency)[keyof typeof ExecutiveBoardReportScheduleFrequency]
+
+
+export const ExecutiveBoardReportScheduleRunStatus = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type ExecutiveBoardReportScheduleRunStatus = (typeof ExecutiveBoardReportScheduleRunStatus)[keyof typeof ExecutiveBoardReportScheduleRunStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

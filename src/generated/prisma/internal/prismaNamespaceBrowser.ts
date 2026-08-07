@@ -280,7 +280,9 @@ export const ModelName = {
   ExecutiveSynthesis: 'ExecutiveSynthesis',
   ExecutiveBoardPackDefinition: 'ExecutiveBoardPackDefinition',
   ExecutiveBoardPack: 'ExecutiveBoardPack',
-  ExecutiveBoardPackExport: 'ExecutiveBoardPackExport'
+  ExecutiveBoardPackExport: 'ExecutiveBoardPackExport',
+  ExecutiveBoardReportSchedule: 'ExecutiveBoardReportSchedule',
+  ExecutiveBoardReportScheduleRun: 'ExecutiveBoardReportScheduleRun'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5253,6 +5255,45 @@ export const ExecutiveBoardPackExportScalarFieldEnum = {
 } as const
 
 export type ExecutiveBoardPackExportScalarFieldEnum = (typeof ExecutiveBoardPackExportScalarFieldEnum)[keyof typeof ExecutiveBoardPackExportScalarFieldEnum]
+
+
+export const ExecutiveBoardReportScheduleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  definitionId: 'definitionId',
+  name: 'name',
+  status: 'status',
+  frequency: 'frequency',
+  dayOfMonth: 'dayOfMonth',
+  monthOfYear: 'monthOfYear',
+  hourUtc: 'hourUtc',
+  nextRunAt: 'nextRunAt',
+  lastRunAt: 'lastRunAt',
+  lastBoardPackId: 'lastBoardPackId',
+  generateFinalized: 'generateFinalized',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ExecutiveBoardReportScheduleScalarFieldEnum = (typeof ExecutiveBoardReportScheduleScalarFieldEnum)[keyof typeof ExecutiveBoardReportScheduleScalarFieldEnum]
+
+
+export const ExecutiveBoardReportScheduleRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  scheduleId: 'scheduleId',
+  status: 'status',
+  scheduledFor: 'scheduledFor',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  boardPackId: 'boardPackId',
+  errorMessage: 'errorMessage',
+  sourceFingerprint: 'sourceFingerprint',
+  createdAt: 'createdAt'
+} as const
+
+export type ExecutiveBoardReportScheduleRunScalarFieldEnum = (typeof ExecutiveBoardReportScheduleRunScalarFieldEnum)[keyof typeof ExecutiveBoardReportScheduleRunScalarFieldEnum]
 
 
 export const SortOrder = {

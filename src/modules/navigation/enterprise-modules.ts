@@ -615,6 +615,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Board Calendar",
+    description: "Schedule monthly, quarterly and annual governed board packs.",
+    href: "/app/executive/board-calendar",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [

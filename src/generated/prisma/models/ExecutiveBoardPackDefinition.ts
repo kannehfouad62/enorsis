@@ -268,6 +268,7 @@ export type ExecutiveBoardPackDefinitionWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"ExecutiveBoardPackDefinition"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   packs?: Prisma.ExecutiveBoardPackListRelationFilter
+  schedules?: Prisma.ExecutiveBoardReportScheduleListRelationFilter
 }
 
 export type ExecutiveBoardPackDefinitionOrderByWithRelationInput = {
@@ -289,6 +290,7 @@ export type ExecutiveBoardPackDefinitionOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
   packs?: Prisma.ExecutiveBoardPackOrderByRelationAggregateInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleOrderByRelationAggregateInput
 }
 
 export type ExecutiveBoardPackDefinitionWhereUniqueInput = Prisma.AtLeast<{
@@ -314,6 +316,7 @@ export type ExecutiveBoardPackDefinitionWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"ExecutiveBoardPackDefinition"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   packs?: Prisma.ExecutiveBoardPackListRelationFilter
+  schedules?: Prisma.ExecutiveBoardReportScheduleListRelationFilter
 }, "id" | "tenantId_definitionKey">
 
 export type ExecutiveBoardPackDefinitionOrderByWithAggregationInput = {
@@ -378,6 +381,7 @@ export type ExecutiveBoardPackDefinitionCreateInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPackDefinitionsInput
   packs?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutDefinitionInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedCreateInput = {
@@ -398,6 +402,7 @@ export type ExecutiveBoardPackDefinitionUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   packs?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutDefinitionInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionUpdateInput = {
@@ -418,6 +423,7 @@ export type ExecutiveBoardPackDefinitionUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPackDefinitionsNestedInput
   packs?: Prisma.ExecutiveBoardPackUpdateManyWithoutDefinitionNestedInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedUpdateInput = {
@@ -438,6 +444,7 @@ export type ExecutiveBoardPackDefinitionUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packs?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutDefinitionNestedInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionCreateManyInput = {
@@ -635,6 +642,20 @@ export type ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutPacksNestedInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionUpdateToOneWithWhereWithoutPacksInput, Prisma.ExecutiveBoardPackDefinitionUpdateWithoutPacksInput>, Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateWithoutPacksInput>
 }
 
+export type ExecutiveBoardPackDefinitionCreateNestedOneWithoutSchedulesInput = {
+  create?: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionCreateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedCreateWithoutSchedulesInput>
+  connectOrCreate?: Prisma.ExecutiveBoardPackDefinitionCreateOrConnectWithoutSchedulesInput
+  connect?: Prisma.ExecutiveBoardPackDefinitionWhereUniqueInput
+}
+
+export type ExecutiveBoardPackDefinitionUpdateOneRequiredWithoutSchedulesNestedInput = {
+  create?: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionCreateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedCreateWithoutSchedulesInput>
+  connectOrCreate?: Prisma.ExecutiveBoardPackDefinitionCreateOrConnectWithoutSchedulesInput
+  upsert?: Prisma.ExecutiveBoardPackDefinitionUpsertWithoutSchedulesInput
+  connect?: Prisma.ExecutiveBoardPackDefinitionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionUpdateToOneWithWhereWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUpdateWithoutSchedulesInput>, Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateWithoutSchedulesInput>
+}
+
 export type ExecutiveBoardPackDefinitionCreateWithoutTenantInput = {
   id?: string
   definitionKey: string
@@ -652,6 +673,7 @@ export type ExecutiveBoardPackDefinitionCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   packs?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutDefinitionInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedCreateWithoutTenantInput = {
@@ -671,6 +693,7 @@ export type ExecutiveBoardPackDefinitionUncheckedCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   packs?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutDefinitionInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionCreateOrConnectWithoutTenantInput = {
@@ -738,6 +761,7 @@ export type ExecutiveBoardPackDefinitionCreateWithoutPacksInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPackDefinitionsInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedCreateWithoutPacksInput = {
@@ -757,6 +781,7 @@ export type ExecutiveBoardPackDefinitionUncheckedCreateWithoutPacksInput = {
   sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
   updatedAt?: Date | string
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedCreateNestedManyWithoutDefinitionInput
 }
 
 export type ExecutiveBoardPackDefinitionCreateOrConnectWithoutPacksInput = {
@@ -792,6 +817,7 @@ export type ExecutiveBoardPackDefinitionUpdateWithoutPacksInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPackDefinitionsNestedInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedUpdateWithoutPacksInput = {
@@ -811,6 +837,103 @@ export type ExecutiveBoardPackDefinitionUncheckedUpdateWithoutPacksInput = {
   sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedUpdateManyWithoutDefinitionNestedInput
+}
+
+export type ExecutiveBoardPackDefinitionCreateWithoutSchedulesInput = {
+  id?: string
+  definitionKey: string
+  name: string
+  description?: string | null
+  packType: $Enums.ExecutiveBoardPackType
+  active?: boolean
+  defaultPeriodType: $Enums.ExecutiveBoardPackPeriodType
+  includeAiSynthesis?: boolean
+  includeGovernance?: boolean
+  includeKpis?: boolean
+  includeRisks?: boolean
+  includeOpportunities?: boolean
+  sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutExecutiveBoardPackDefinitionsInput
+  packs?: Prisma.ExecutiveBoardPackCreateNestedManyWithoutDefinitionInput
+}
+
+export type ExecutiveBoardPackDefinitionUncheckedCreateWithoutSchedulesInput = {
+  id?: string
+  tenantId: string
+  definitionKey: string
+  name: string
+  description?: string | null
+  packType: $Enums.ExecutiveBoardPackType
+  active?: boolean
+  defaultPeriodType: $Enums.ExecutiveBoardPackPeriodType
+  includeAiSynthesis?: boolean
+  includeGovernance?: boolean
+  includeKpis?: boolean
+  includeRisks?: boolean
+  includeOpportunities?: boolean
+  sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  packs?: Prisma.ExecutiveBoardPackUncheckedCreateNestedManyWithoutDefinitionInput
+}
+
+export type ExecutiveBoardPackDefinitionCreateOrConnectWithoutSchedulesInput = {
+  where: Prisma.ExecutiveBoardPackDefinitionWhereUniqueInput
+  create: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionCreateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedCreateWithoutSchedulesInput>
+}
+
+export type ExecutiveBoardPackDefinitionUpsertWithoutSchedulesInput = {
+  update: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionUpdateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateWithoutSchedulesInput>
+  create: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionCreateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedCreateWithoutSchedulesInput>
+  where?: Prisma.ExecutiveBoardPackDefinitionWhereInput
+}
+
+export type ExecutiveBoardPackDefinitionUpdateToOneWithWhereWithoutSchedulesInput = {
+  where?: Prisma.ExecutiveBoardPackDefinitionWhereInput
+  data: Prisma.XOR<Prisma.ExecutiveBoardPackDefinitionUpdateWithoutSchedulesInput, Prisma.ExecutiveBoardPackDefinitionUncheckedUpdateWithoutSchedulesInput>
+}
+
+export type ExecutiveBoardPackDefinitionUpdateWithoutSchedulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  definitionKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packType?: Prisma.EnumExecutiveBoardPackTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackType
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  defaultPeriodType?: Prisma.EnumExecutiveBoardPackPeriodTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackPeriodType
+  includeAiSynthesis?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeGovernance?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeKpis?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeRisks?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeOpportunities?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutExecutiveBoardPackDefinitionsNestedInput
+  packs?: Prisma.ExecutiveBoardPackUpdateManyWithoutDefinitionNestedInput
+}
+
+export type ExecutiveBoardPackDefinitionUncheckedUpdateWithoutSchedulesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  definitionKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  packType?: Prisma.EnumExecutiveBoardPackTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackType
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  defaultPeriodType?: Prisma.EnumExecutiveBoardPackPeriodTypeFieldUpdateOperationsInput | $Enums.ExecutiveBoardPackPeriodType
+  includeAiSynthesis?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeGovernance?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeKpis?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeRisks?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  includeOpportunities?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  sectionConfiguration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  packs?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionCreateManyTenantInput = {
@@ -848,6 +971,7 @@ export type ExecutiveBoardPackDefinitionUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packs?: Prisma.ExecutiveBoardPackUpdateManyWithoutDefinitionNestedInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedUpdateWithoutTenantInput = {
@@ -867,6 +991,7 @@ export type ExecutiveBoardPackDefinitionUncheckedUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   packs?: Prisma.ExecutiveBoardPackUncheckedUpdateManyWithoutDefinitionNestedInput
+  schedules?: Prisma.ExecutiveBoardReportScheduleUncheckedUpdateManyWithoutDefinitionNestedInput
 }
 
 export type ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantInput = {
@@ -894,10 +1019,12 @@ export type ExecutiveBoardPackDefinitionUncheckedUpdateManyWithoutTenantInput = 
 
 export type ExecutiveBoardPackDefinitionCountOutputType = {
   packs: number
+  schedules: number
 }
 
 export type ExecutiveBoardPackDefinitionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   packs?: boolean | ExecutiveBoardPackDefinitionCountOutputTypeCountPacksArgs
+  schedules?: boolean | ExecutiveBoardPackDefinitionCountOutputTypeCountSchedulesArgs
 }
 
 /**
@@ -915,6 +1042,13 @@ export type ExecutiveBoardPackDefinitionCountOutputTypeDefaultArgs<ExtArgs exten
  */
 export type ExecutiveBoardPackDefinitionCountOutputTypeCountPacksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ExecutiveBoardPackWhereInput
+}
+
+/**
+ * ExecutiveBoardPackDefinitionCountOutputType without action
+ */
+export type ExecutiveBoardPackDefinitionCountOutputTypeCountSchedulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ExecutiveBoardReportScheduleWhereInput
 }
 
 
@@ -937,6 +1071,7 @@ export type ExecutiveBoardPackDefinitionSelect<ExtArgs extends runtime.Types.Ext
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   packs?: boolean | Prisma.ExecutiveBoardPackDefinition$packsArgs<ExtArgs>
+  schedules?: boolean | Prisma.ExecutiveBoardPackDefinition$schedulesArgs<ExtArgs>
   _count?: boolean | Prisma.ExecutiveBoardPackDefinitionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["executiveBoardPackDefinition"]>
 
@@ -1003,6 +1138,7 @@ export type ExecutiveBoardPackDefinitionOmit<ExtArgs extends runtime.Types.Exten
 export type ExecutiveBoardPackDefinitionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   packs?: boolean | Prisma.ExecutiveBoardPackDefinition$packsArgs<ExtArgs>
+  schedules?: boolean | Prisma.ExecutiveBoardPackDefinition$schedulesArgs<ExtArgs>
   _count?: boolean | Prisma.ExecutiveBoardPackDefinitionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ExecutiveBoardPackDefinitionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1017,6 +1153,7 @@ export type $ExecutiveBoardPackDefinitionPayload<ExtArgs extends runtime.Types.E
   objects: {
     tenant: Prisma.$TenantPayload<ExtArgs>
     packs: Prisma.$ExecutiveBoardPackPayload<ExtArgs>[]
+    schedules: Prisma.$ExecutiveBoardReportSchedulePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1431,6 +1568,7 @@ export interface Prisma__ExecutiveBoardPackDefinitionClient<T, Null = never, Ext
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   packs<T extends Prisma.ExecutiveBoardPackDefinition$packsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ExecutiveBoardPackDefinition$packsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardPackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  schedules<T extends Prisma.ExecutiveBoardPackDefinition$schedulesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ExecutiveBoardPackDefinition$schedulesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ExecutiveBoardReportSchedulePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1898,6 +2036,30 @@ export type ExecutiveBoardPackDefinition$packsArgs<ExtArgs extends runtime.Types
   take?: number
   skip?: number
   distinct?: Prisma.ExecutiveBoardPackScalarFieldEnum | Prisma.ExecutiveBoardPackScalarFieldEnum[]
+}
+
+/**
+ * ExecutiveBoardPackDefinition.schedules
+ */
+export type ExecutiveBoardPackDefinition$schedulesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ExecutiveBoardReportSchedule
+   */
+  select?: Prisma.ExecutiveBoardReportScheduleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ExecutiveBoardReportSchedule
+   */
+  omit?: Prisma.ExecutiveBoardReportScheduleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ExecutiveBoardReportScheduleInclude<ExtArgs> | null
+  where?: Prisma.ExecutiveBoardReportScheduleWhereInput
+  orderBy?: Prisma.ExecutiveBoardReportScheduleOrderByWithRelationInput | Prisma.ExecutiveBoardReportScheduleOrderByWithRelationInput[]
+  cursor?: Prisma.ExecutiveBoardReportScheduleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ExecutiveBoardReportScheduleScalarFieldEnum | Prisma.ExecutiveBoardReportScheduleScalarFieldEnum[]
 }
 
 /**

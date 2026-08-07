@@ -4862,6 +4862,57 @@ export type EnumExecutiveBoardPackExportStatusWithAggregatesFilter<$PrismaModel 
   _max?: Prisma.NestedEnumExecutiveBoardPackExportStatusFilter<$PrismaModel>
 }
 
+export type EnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleStatus | Prisma.EnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleStatus
+}
+
+export type EnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleFrequency | Prisma.EnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleFrequency
+}
+
+export type EnumExecutiveBoardReportScheduleStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleStatus | Prisma.EnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardReportScheduleFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleFrequency | Prisma.EnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel>
+}
+
+export type EnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleRunStatus | Prisma.EnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleRunStatus
+}
+
+export type EnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleRunStatus | Prisma.EnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -9667,6 +9718,57 @@ export type NestedEnumExecutiveBoardPackExportStatusWithAggregatesFilter<$Prisma
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumExecutiveBoardPackExportStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumExecutiveBoardPackExportStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleStatus | Prisma.EnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleStatus
+}
+
+export type NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleFrequency | Prisma.EnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleFrequency
+}
+
+export type NestedEnumExecutiveBoardReportScheduleStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleStatus | Prisma.EnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardReportScheduleFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleFrequency | Prisma.EnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleFrequency[] | Prisma.ListEnumExecutiveBoardReportScheduleFrequencyFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleFrequency
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleFrequencyFilter<$PrismaModel>
+}
+
+export type NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleRunStatus | Prisma.EnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleRunStatus
+}
+
+export type NestedEnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ExecutiveBoardReportScheduleRunStatus | Prisma.EnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ExecutiveBoardReportScheduleRunStatus[] | Prisma.ListEnumExecutiveBoardReportScheduleRunStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusWithAggregatesFilter<$PrismaModel> | $Enums.ExecutiveBoardReportScheduleRunStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumExecutiveBoardReportScheduleRunStatusFilter<$PrismaModel>
 }
 
 
