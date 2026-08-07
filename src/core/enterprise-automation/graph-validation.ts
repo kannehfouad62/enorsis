@@ -60,19 +60,16 @@ function validateNodeConfiguration(
   node: AutomationCanvasNode,
   issues: GraphValidationIssue[],
 ) {
-  if (node.type === "TRIGGER") {
-    const triggerType = String(
-      node.configuration.triggerType ?? "",
-    );
-
-    if (!triggerType) {
-      issues.push({
-        severity: "ERROR",
-        code: "TRIGGER_TYPE_REQUIRED",
-        message: "Trigger node requires triggerType.",
-        nodeId: node.id,
-      });
-    }
+  if (
+    node.type === "TRIGGER" &&
+    !node.configuration.triggerType
+  ) {
+    issues.push({
+      severity: "ERROR",
+      code: "TRIGGER_TYPE_REQUIRED",
+      message: "Trigger node requires triggerType.",
+      nodeId: node.id,
+    });
   }
 
   if (node.type === "CONDITION") {
@@ -95,27 +92,58 @@ function validateNodeConfiguration(
     }
   }
 
-  if (node.type === "ACTION") {
-    if (!node.configuration.actionType) {
+  if (
+    node.type === "ACTION" &&
+    !node.configuration.actionType
+  ) {
+    issues.push({
+      severity: "ERROR",
+      code: "ACTION_TYPE_REQUIRED",
+      message: "Action node requires an action type.",
+      nodeId: node.id,
+    });
+  }
+
+  if (node.type === "WAIT") {
+    const duration = Number(
+      node.configuration.durationMinutes ?? 0,
+    );
+
+    if (!Number.isFinite(duration) || duration <= 0) {
       issues.push({
         severity: "ERROR",
-        code: "ACTION_TYPE_REQUIRED",
-        message: "Action node requires an action type.",
+        code: "WAIT_DURATION_INVALID",
+        message: "Wait node requires durationMinutes greater than zero.",
         nodeId: node.id,
       });
     }
   }
 
-  if (node.type === "WAIT") {
-    const durationMinutes = Number(
-      node.configuration.durationMinutes ?? 0,
+  if (node.type === "RETRY") {
+    const attempts = Number(
+      node.configuration.maxAttempts ?? 0,
     );
 
-    if (!Number.isFinite(durationMinutes) || durationMinutes <= 0) {
+    if (!Number.isInteger(attempts) || attempts < 1 || attempts > 10) {
       issues.push({
         severity: "ERROR",
-        code: "WAIT_DURATION_INVALID",
-        message: "Wait node requires durationMinutes greater than zero.",
+        code: "RETRY_COUNT_INVALID",
+        message: "Retry node maxAttempts must be between 1 and 10.",
+        nodeId: node.id,
+      });
+    }
+  }
+
+  if (node.type === "TIMEOUT") {
+    const timeout = Number(
+      node.configuration.timeoutMinutes ?? 0,
+    );
+
+    if (!Number.isFinite(timeout) || timeout <= 0) {
+      issues.push({
+        severity: "ERROR",
+        code: "TIMEOUT_INVALID",
+        message: "Timeout node requires timeoutMinutes greater than zero.",
         nodeId: node.id,
       });
     }
@@ -128,12 +156,16 @@ export function validateAutomationCanvasGraph(
   const issues: GraphValidationIssue[] = [];
 
   if (graph.nodes.length === 0) {
-    issues.push({
-      severity: "ERROR",
-      code: "EMPTY_GRAPH",
-      message: "Workflow graph contains no nodes.",
-    });
-    return { valid: false, issues };
+    return {
+      valid: false,
+      issues: [
+        {
+          severity: "ERROR" as const,
+          code: "EMPTY_GRAPH",
+          message: "Workflow graph contains no nodes.",
+        },
+      ],
+    };
   }
 
   const nodeIds = new Set(graph.nodes.map((node) => node.id));
@@ -199,7 +231,7 @@ export function validateAutomationCanvasGraph(
       severity: "ERROR",
       code: "CYCLE_DETECTED",
       message:
-        "Circular workflow reference detected. Loops require a governed loop node in a later runtime phase.",
+        "Circular reference detected. Governed loop execution is not enabled in this runtime increment.",
     });
   }
 
@@ -224,10 +256,7 @@ export function validateAutomationCanvasGraph(
   for (const node of graph.nodes) {
     const outgoing = adjacency.get(node.id) ?? [];
 
-    if (
-      node.type !== "END" &&
-      outgoing.length === 0
-    ) {
+    if (node.type !== "END" && outgoing.length === 0) {
       issues.push({
         severity: "WARNING",
         code: "DEAD_END",
@@ -236,15 +265,22 @@ export function validateAutomationCanvasGraph(
       });
     }
 
-    if (
-      node.type === "CONDITION" &&
-      outgoing.length !== 2
-    ) {
+    if (node.type === "CONDITION" && outgoing.length !== 2) {
       issues.push({
         severity: "WARNING",
         code: "CONDITION_BRANCH_COUNT",
         message:
-          "Condition nodes should normally have exactly two branches.",
+          "Condition nodes should have exactly two TRUE/FALSE branches.",
+        nodeId: node.id,
+      });
+    }
+
+    if (node.type === "PARALLEL" && outgoing.length < 2) {
+      issues.push({
+        severity: "ERROR",
+        code: "PARALLEL_BRANCH_COUNT",
+        message:
+          "Parallel node requires at least two outgoing branches.",
         nodeId: node.id,
       });
     }

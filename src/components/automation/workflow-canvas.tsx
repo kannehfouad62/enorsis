@@ -20,6 +20,9 @@ const nodeTypes: Array<{
   { type: "ACTION", label: "Action" },
   { type: "WAIT", label: "Wait" },
   { type: "APPROVAL", label: "Approval" },
+  { type: "PARALLEL", label: "Parallel" },
+  { type: "RETRY", label: "Retry" },
+  { type: "TIMEOUT", label: "Timeout" },
   { type: "END", label: "End" },
 ];
 
@@ -77,7 +80,11 @@ export function WorkflowCanvas({
               ? { actionType: "PUBLISH_EVENT" }
               : type === "WAIT"
                 ? { durationMinutes: 60 }
-                : {},
+                : type === "RETRY"
+                  ? { maxAttempts: 3, delayMinutes: 5 }
+                  : type === "TIMEOUT"
+                    ? { timeoutMinutes: 60 }
+                    : {},
     };
 
     onChange({

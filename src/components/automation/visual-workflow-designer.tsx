@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import { WorkflowCanvas } from "./workflow-canvas";
 import { WorkflowInspector } from "./workflow-inspector";
+import { WorkflowMiniMap } from "./workflow-minimap";
+import { WorkflowToolbar } from "./workflow-toolbar";
 import type { AutomationCanvasGraph } from "@/core/enterprise-automation/graph-types";
 import {
   defaultAutomationCanvasGraph,
@@ -10,6 +12,7 @@ import {
 } from "@/core/enterprise-automation/canvas-state";
 import { validateAutomationCanvasGraph } from "@/core/enterprise-automation/graph-validation";
 import { simulateAutomationCanvasGraph } from "@/core/enterprise-automation/graph-simulation";
+import { compileAutomationRuntimePlan } from "@/core/enterprise-automation/runtime-plan";
 import { saveAutomationDesignerVersionAction } from "@/modules/enterprise-automation/designer-actions";
 
 export function VisualWorkflowDesigner({
@@ -19,10 +22,16 @@ export function VisualWorkflowDesigner({
   ruleId: string;
   initialState: CanvasDesignerState | null;
 }) {
-  const [graph, setGraph] = useState<AutomationCanvasGraph>(
+  const initialGraph =
     initialState?.canvasGraph ??
-      defaultAutomationCanvasGraph(),
-  );
+    defaultAutomationCanvasGraph();
+
+  const [history, setHistory] = useState<AutomationCanvasGraph[]>([
+    initialGraph,
+  ]);
+  const [historyIndex, setHistoryIndex] = useState(0);
+  const graph = history[historyIndex];
+  const [zoom, setZoom] = useState(1);
   const [selectedNodeId, setSelectedNodeId] =
     useState<string | null>(null);
   const [payloadText, setPayloadText] = useState(
@@ -37,6 +46,30 @@ export function VisualWorkflowDesigner({
     () => validateAutomationCanvasGraph(graph),
     [graph],
   );
+
+  const runtimePlan = useMemo(() => {
+    if (!validation.valid) return null;
+    try {
+      return compileAutomationRuntimePlan(graph);
+    } catch {
+      return null;
+    }
+  }, [graph, validation.valid]);
+
+  const commitGraph = (next: AutomationCanvasGraph) => {
+    if (JSON.stringify(next) === JSON.stringify(graph)) return;
+
+    const nextHistory = history.slice(0, historyIndex + 1);
+    nextHistory.push(next);
+
+    const bounded =
+      nextHistory.length > 60
+        ? nextHistory.slice(nextHistory.length - 60)
+        : nextHistory;
+
+    setHistory(bounded);
+    setHistoryIndex(bounded.length - 1);
+  };
 
   const selectedNode =
     graph.nodes.find((node) => node.id === selectedNodeId) ??
@@ -58,19 +91,44 @@ export function VisualWorkflowDesigner({
 
   return (
     <div className="space-y-6">
+      <WorkflowToolbar
+        zoom={zoom}
+        canUndo={historyIndex > 0}
+        canRedo={historyIndex < history.length - 1}
+        onUndo={() =>
+          setHistoryIndex((current) => Math.max(0, current - 1))
+        }
+        onRedo={() =>
+          setHistoryIndex((current) =>
+            Math.min(history.length - 1, current + 1),
+          )
+        }
+        onZoomIn={() =>
+          setZoom((current) =>
+            Math.min(2, Number((current + 0.1).toFixed(2))),
+          )
+        }
+        onZoomOut={() =>
+          setZoom((current) =>
+            Math.max(0.4, Number((current - 0.1).toFixed(2))),
+          )
+        }
+        onResetView={() => setZoom(1)}
+      />
+
       <div className="grid gap-4 2xl:grid-cols-[1fr_300px]">
-        <WorkflowCanvas
-          graph={graph}
-          onChange={setGraph}
-          selectedNodeId={selectedNodeId}
-          onSelectNode={setSelectedNodeId}
-        />
+      <WorkflowCanvas
+  graph={graph}
+  onChange={commitGraph}
+  selectedNodeId={selectedNodeId}
+  onSelectNode={setSelectedNodeId}
+/>
 
         <div className="space-y-4">
           <WorkflowInspector
             graph={graph}
             node={selectedNode}
-            onChange={setGraph}
+            onChange={commitGraph}
           />
 
           <div className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -110,6 +168,40 @@ export function VisualWorkflowDesigner({
                 ))
               )}
             </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 bg-white p-5">
+            <p className="text-xs font-black uppercase text-slate-500">
+              Runtime Plan
+            </p>
+            {runtimePlan ? (
+              <div className="mt-3 space-y-2">
+                <p className="text-xs text-slate-500">
+                  {runtimePlan.instructions.length} instructions ·{" "}
+                  {runtimePlan.terminalNodeIds.length} terminal path(s)
+                </p>
+                {runtimePlan.instructions.slice(0, 8).map(
+                  (instruction, index) => (
+                    <div
+                      key={instruction.nodeId}
+                      className="rounded-xl bg-slate-50 p-3 text-xs"
+                    >
+                      <p className="font-black">
+                        {index + 1}. {instruction.label}
+                      </p>
+                      <p className="mt-1 text-slate-500">
+                        {instruction.type} ·{" "}
+                        {instruction.runtimePolicy.mode}
+                      </p>
+                    </div>
+                  ),
+                )}
+              </div>
+            ) : (
+              <p className="mt-3 text-sm text-slate-500">
+                Resolve validation errors to compile the runtime plan.
+              </p>
+            )}
           </div>
 
           <div className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -163,6 +255,8 @@ export function VisualWorkflowDesigner({
           </div>
         </div>
       </div>
+
+      <WorkflowMiniMap graph={graph} />
 
       <form action={saveAutomationDesignerVersionAction}>
         <input type="hidden" name="ruleId" value={ruleId} />

@@ -4,6 +4,9 @@ export type AutomationCanvasNodeType =
   | "ACTION"
   | "WAIT"
   | "APPROVAL"
+  | "PARALLEL"
+  | "RETRY"
+  | "TIMEOUT"
   | "END";
 
 export type AutomationCanvasNode = {

@@ -212,6 +212,58 @@ export function WorkflowInspector({
             className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
         ) : null}
+
+        {node.type === "RETRY" ? (
+          <>
+            <input
+              type="number"
+              min="1"
+              max="10"
+              value={Number(node.configuration.maxAttempts ?? 3)}
+              onChange={(event) =>
+                updateConfiguration(
+                  "maxAttempts",
+                  Number(event.target.value),
+                )
+              }
+              className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+            />
+            <input
+              type="number"
+              min="0"
+              value={Number(node.configuration.delayMinutes ?? 5)}
+              onChange={(event) =>
+                updateConfiguration(
+                  "delayMinutes",
+                  Number(event.target.value),
+                )
+              }
+              className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+            />
+          </>
+        ) : null}
+
+        {node.type === "TIMEOUT" ? (
+          <input
+            type="number"
+            min="1"
+            value={Number(node.configuration.timeoutMinutes ?? 60)}
+            onChange={(event) =>
+              updateConfiguration(
+                "timeoutMinutes",
+                Number(event.target.value),
+              )
+            }
+            className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+        ) : null}
+
+        {node.type === "PARALLEL" ? (
+          <p className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600">
+            Connect this node to at least two branches.
+          </p>
+        ) : null}
+
       </div>
     </div>
   );
