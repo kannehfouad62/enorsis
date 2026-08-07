@@ -559,6 +559,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Warehouse Intelligence",
+    description: "Receiving, putaway, picking, utilization and warehouse health.",
+    href: "/app/executive/warehouse-intelligence",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
