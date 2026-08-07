@@ -4,6 +4,7 @@ import {
   recordGovernedExecutiveInsightFeedbackAction,
   runGovernedExecutiveInsightEngineAction,
 } from "@/modules/governed-executive-ai/actions";
+import { CrossDomainInsightActions } from "./cross-domain-actions";
 import { getGovernedExecutiveAiWorkspace } from "@/modules/governed-executive-ai/queries";
 
 const card =
@@ -38,11 +39,14 @@ export default async function GovernedExecutiveAiPage() {
           </p>
         </div>
 
-        <form action={runGovernedExecutiveInsightEngineAction}>
-          <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">
-            Run insight engine
-          </button>
-        </form>
+        <div className="flex flex-wrap gap-3">
+          <form action={runGovernedExecutiveInsightEngineAction}>
+            <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">
+              Run insight engine
+            </button>
+          </form>
+          <CrossDomainInsightActions />
+        </div>
       </div>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
