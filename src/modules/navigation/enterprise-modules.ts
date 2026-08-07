@@ -535,6 +535,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Enterprise KPI Engine",
+    description: "Targets, thresholds, trends and executive health scoring.",
+    href: "/app/executive/kpis",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
