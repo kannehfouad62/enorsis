@@ -5354,6 +5354,9 @@ export type ExecutiveBoardDistributionScalarFieldEnum = (typeof ExecutiveBoardDi
 
 export const ExecutiveBoardDeliveryScalarFieldEnum = {
   id: 'id',
+  accessExpiresAt: 'accessExpiresAt',
+  emailMessageId: 'emailMessageId',
+  lastAccessAt: 'lastAccessAt',
   tenantId: 'tenantId',
   distributionId: 'distributionId',
   recipientId: 'recipientId',

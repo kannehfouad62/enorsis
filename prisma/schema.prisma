@@ -8083,6 +8083,9 @@ model ExecutiveBoardDistribution {
 
 model ExecutiveBoardDelivery {
   id              String                              @id @default(cuid())
+  accessExpiresAt DateTime?
+  emailMessageId  String?
+  lastAccessAt    DateTime?
   tenantId        String
   distributionId  String
   recipientId     String

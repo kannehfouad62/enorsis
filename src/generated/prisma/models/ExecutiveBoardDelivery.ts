@@ -26,6 +26,9 @@ export type AggregateExecutiveBoardDelivery = {
 
 export type ExecutiveBoardDeliveryMinAggregateOutputType = {
   id: string | null
+  accessExpiresAt: Date | null
+  emailMessageId: string | null
+  lastAccessAt: Date | null
   tenantId: string | null
   distributionId: string | null
   recipientId: string | null
@@ -42,6 +45,9 @@ export type ExecutiveBoardDeliveryMinAggregateOutputType = {
 
 export type ExecutiveBoardDeliveryMaxAggregateOutputType = {
   id: string | null
+  accessExpiresAt: Date | null
+  emailMessageId: string | null
+  lastAccessAt: Date | null
   tenantId: string | null
   distributionId: string | null
   recipientId: string | null
@@ -58,6 +64,9 @@ export type ExecutiveBoardDeliveryMaxAggregateOutputType = {
 
 export type ExecutiveBoardDeliveryCountAggregateOutputType = {
   id: number
+  accessExpiresAt: number
+  emailMessageId: number
+  lastAccessAt: number
   tenantId: number
   distributionId: number
   recipientId: number
@@ -76,6 +85,9 @@ export type ExecutiveBoardDeliveryCountAggregateOutputType = {
 
 export type ExecutiveBoardDeliveryMinAggregateInputType = {
   id?: true
+  accessExpiresAt?: true
+  emailMessageId?: true
+  lastAccessAt?: true
   tenantId?: true
   distributionId?: true
   recipientId?: true
@@ -92,6 +104,9 @@ export type ExecutiveBoardDeliveryMinAggregateInputType = {
 
 export type ExecutiveBoardDeliveryMaxAggregateInputType = {
   id?: true
+  accessExpiresAt?: true
+  emailMessageId?: true
+  lastAccessAt?: true
   tenantId?: true
   distributionId?: true
   recipientId?: true
@@ -108,6 +123,9 @@ export type ExecutiveBoardDeliveryMaxAggregateInputType = {
 
 export type ExecutiveBoardDeliveryCountAggregateInputType = {
   id?: true
+  accessExpiresAt?: true
+  emailMessageId?: true
+  lastAccessAt?: true
   tenantId?: true
   distributionId?: true
   recipientId?: true
@@ -197,6 +215,9 @@ export type ExecutiveBoardDeliveryGroupByArgs<ExtArgs extends runtime.Types.Exte
 
 export type ExecutiveBoardDeliveryGroupByOutputType = {
   id: string
+  accessExpiresAt: Date | null
+  emailMessageId: string | null
+  lastAccessAt: Date | null
   tenantId: string
   distributionId: string
   recipientId: string
@@ -234,6 +255,9 @@ export type ExecutiveBoardDeliveryWhereInput = {
   OR?: Prisma.ExecutiveBoardDeliveryWhereInput[]
   NOT?: Prisma.ExecutiveBoardDeliveryWhereInput | Prisma.ExecutiveBoardDeliveryWhereInput[]
   id?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
+  emailMessageId?: Prisma.StringNullableFilter<"ExecutiveBoardDelivery"> | string | null
+  lastAccessAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
   tenantId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   distributionId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   recipientId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
@@ -254,6 +278,9 @@ export type ExecutiveBoardDeliveryWhereInput = {
 
 export type ExecutiveBoardDeliveryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastAccessAt?: Prisma.SortOrderInput | Prisma.SortOrder
   tenantId?: Prisma.SortOrder
   distributionId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
@@ -278,6 +305,9 @@ export type ExecutiveBoardDeliveryWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ExecutiveBoardDeliveryWhereInput | Prisma.ExecutiveBoardDeliveryWhereInput[]
   OR?: Prisma.ExecutiveBoardDeliveryWhereInput[]
   NOT?: Prisma.ExecutiveBoardDeliveryWhereInput | Prisma.ExecutiveBoardDeliveryWhereInput[]
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
+  emailMessageId?: Prisma.StringNullableFilter<"ExecutiveBoardDelivery"> | string | null
+  lastAccessAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
   tenantId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   distributionId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   recipientId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
@@ -298,6 +328,9 @@ export type ExecutiveBoardDeliveryWhereUniqueInput = Prisma.AtLeast<{
 
 export type ExecutiveBoardDeliveryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  emailMessageId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastAccessAt?: Prisma.SortOrderInput | Prisma.SortOrder
   tenantId?: Prisma.SortOrder
   distributionId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
@@ -320,6 +353,9 @@ export type ExecutiveBoardDeliveryScalarWhereWithAggregatesInput = {
   OR?: Prisma.ExecutiveBoardDeliveryScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ExecutiveBoardDeliveryScalarWhereWithAggregatesInput | Prisma.ExecutiveBoardDeliveryScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"ExecutiveBoardDelivery"> | string
+  accessExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ExecutiveBoardDelivery"> | Date | string | null
+  emailMessageId?: Prisma.StringNullableWithAggregatesFilter<"ExecutiveBoardDelivery"> | string | null
+  lastAccessAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ExecutiveBoardDelivery"> | Date | string | null
   tenantId?: Prisma.StringWithAggregatesFilter<"ExecutiveBoardDelivery"> | string
   distributionId?: Prisma.StringWithAggregatesFilter<"ExecutiveBoardDelivery"> | string
   recipientId?: Prisma.StringWithAggregatesFilter<"ExecutiveBoardDelivery"> | string
@@ -336,6 +372,9 @@ export type ExecutiveBoardDeliveryScalarWhereWithAggregatesInput = {
 
 export type ExecutiveBoardDeliveryCreateInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   status?: $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash: string
   sentAt?: Date | string | null
@@ -353,6 +392,9 @@ export type ExecutiveBoardDeliveryCreateInput = {
 
 export type ExecutiveBoardDeliveryUncheckedCreateInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   distributionId: string
   recipientId: string
@@ -370,6 +412,9 @@ export type ExecutiveBoardDeliveryUncheckedCreateInput = {
 
 export type ExecutiveBoardDeliveryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -387,6 +432,9 @@ export type ExecutiveBoardDeliveryUpdateInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -404,6 +452,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateInput = {
 
 export type ExecutiveBoardDeliveryCreateManyInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   distributionId: string
   recipientId: string
@@ -420,6 +471,9 @@ export type ExecutiveBoardDeliveryCreateManyInput = {
 
 export type ExecutiveBoardDeliveryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -433,6 +487,9 @@ export type ExecutiveBoardDeliveryUpdateManyMutationInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -464,6 +521,9 @@ export type ExecutiveBoardDeliveryDistributionIdRecipientIdCompoundUniqueInput =
 
 export type ExecutiveBoardDeliveryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  emailMessageId?: Prisma.SortOrder
+  lastAccessAt?: Prisma.SortOrder
   tenantId?: Prisma.SortOrder
   distributionId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
@@ -480,6 +540,9 @@ export type ExecutiveBoardDeliveryCountOrderByAggregateInput = {
 
 export type ExecutiveBoardDeliveryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  emailMessageId?: Prisma.SortOrder
+  lastAccessAt?: Prisma.SortOrder
   tenantId?: Prisma.SortOrder
   distributionId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
@@ -496,6 +559,9 @@ export type ExecutiveBoardDeliveryMaxOrderByAggregateInput = {
 
 export type ExecutiveBoardDeliveryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  accessExpiresAt?: Prisma.SortOrder
+  emailMessageId?: Prisma.SortOrder
+  lastAccessAt?: Prisma.SortOrder
   tenantId?: Prisma.SortOrder
   distributionId?: Prisma.SortOrder
   recipientId?: Prisma.SortOrder
@@ -661,6 +727,9 @@ export type ExecutiveBoardDeliveryUpdateOneRequiredWithoutAccessEventsNestedInpu
 
 export type ExecutiveBoardDeliveryCreateWithoutTenantInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   status?: $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash: string
   sentAt?: Date | string | null
@@ -677,6 +746,9 @@ export type ExecutiveBoardDeliveryCreateWithoutTenantInput = {
 
 export type ExecutiveBoardDeliveryUncheckedCreateWithoutTenantInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   distributionId: string
   recipientId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -722,6 +794,9 @@ export type ExecutiveBoardDeliveryScalarWhereInput = {
   OR?: Prisma.ExecutiveBoardDeliveryScalarWhereInput[]
   NOT?: Prisma.ExecutiveBoardDeliveryScalarWhereInput | Prisma.ExecutiveBoardDeliveryScalarWhereInput[]
   id?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
+  accessExpiresAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
+  emailMessageId?: Prisma.StringNullableFilter<"ExecutiveBoardDelivery"> | string | null
+  lastAccessAt?: Prisma.DateTimeNullableFilter<"ExecutiveBoardDelivery"> | Date | string | null
   tenantId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   distributionId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
   recipientId?: Prisma.StringFilter<"ExecutiveBoardDelivery"> | string
@@ -738,6 +813,9 @@ export type ExecutiveBoardDeliveryScalarWhereInput = {
 
 export type ExecutiveBoardDeliveryCreateWithoutRecipientInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   status?: $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash: string
   sentAt?: Date | string | null
@@ -754,6 +832,9 @@ export type ExecutiveBoardDeliveryCreateWithoutRecipientInput = {
 
 export type ExecutiveBoardDeliveryUncheckedCreateWithoutRecipientInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   distributionId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -796,6 +877,9 @@ export type ExecutiveBoardDeliveryUpdateManyWithWhereWithoutRecipientInput = {
 
 export type ExecutiveBoardDeliveryCreateWithoutDistributionInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   status?: $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash: string
   sentAt?: Date | string | null
@@ -812,6 +896,9 @@ export type ExecutiveBoardDeliveryCreateWithoutDistributionInput = {
 
 export type ExecutiveBoardDeliveryUncheckedCreateWithoutDistributionInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   recipientId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -854,6 +941,9 @@ export type ExecutiveBoardDeliveryUpdateManyWithWhereWithoutDistributionInput = 
 
 export type ExecutiveBoardDeliveryCreateWithoutAccessEventsInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   status?: $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash: string
   sentAt?: Date | string | null
@@ -870,6 +960,9 @@ export type ExecutiveBoardDeliveryCreateWithoutAccessEventsInput = {
 
 export type ExecutiveBoardDeliveryUncheckedCreateWithoutAccessEventsInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   distributionId: string
   recipientId: string
@@ -902,6 +995,9 @@ export type ExecutiveBoardDeliveryUpdateToOneWithWhereWithoutAccessEventsInput =
 
 export type ExecutiveBoardDeliveryUpdateWithoutAccessEventsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -918,6 +1014,9 @@ export type ExecutiveBoardDeliveryUpdateWithoutAccessEventsInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateWithoutAccessEventsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -934,6 +1033,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateWithoutAccessEventsInput = {
 
 export type ExecutiveBoardDeliveryCreateManyTenantInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   distributionId: string
   recipientId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -949,6 +1051,9 @@ export type ExecutiveBoardDeliveryCreateManyTenantInput = {
 
 export type ExecutiveBoardDeliveryUpdateWithoutTenantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -965,6 +1070,9 @@ export type ExecutiveBoardDeliveryUpdateWithoutTenantInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateWithoutTenantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -981,6 +1089,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateWithoutTenantInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateManyWithoutTenantInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -996,6 +1107,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateManyWithoutTenantInput = {
 
 export type ExecutiveBoardDeliveryCreateManyRecipientInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   distributionId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -1011,6 +1125,9 @@ export type ExecutiveBoardDeliveryCreateManyRecipientInput = {
 
 export type ExecutiveBoardDeliveryUpdateWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1027,6 +1144,9 @@ export type ExecutiveBoardDeliveryUpdateWithoutRecipientInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -1043,6 +1163,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateWithoutRecipientInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateManyWithoutRecipientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   distributionId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -1058,6 +1181,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateManyWithoutRecipientInput = {
 
 export type ExecutiveBoardDeliveryCreateManyDistributionInput = {
   id?: string
+  accessExpiresAt?: Date | string | null
+  emailMessageId?: string | null
+  lastAccessAt?: Date | string | null
   tenantId: string
   recipientId: string
   status?: $Enums.ExecutiveBoardDeliveryStatus
@@ -1073,6 +1199,9 @@ export type ExecutiveBoardDeliveryCreateManyDistributionInput = {
 
 export type ExecutiveBoardDeliveryUpdateWithoutDistributionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
   accessTokenHash?: Prisma.StringFieldUpdateOperationsInput | string
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1089,6 +1218,9 @@ export type ExecutiveBoardDeliveryUpdateWithoutDistributionInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateWithoutDistributionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -1105,6 +1237,9 @@ export type ExecutiveBoardDeliveryUncheckedUpdateWithoutDistributionInput = {
 
 export type ExecutiveBoardDeliveryUncheckedUpdateManyWithoutDistributionInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  accessExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  emailMessageId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastAccessAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   tenantId?: Prisma.StringFieldUpdateOperationsInput | string
   recipientId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumExecutiveBoardDeliveryStatusFieldUpdateOperationsInput | $Enums.ExecutiveBoardDeliveryStatus
@@ -1151,6 +1286,9 @@ export type ExecutiveBoardDeliveryCountOutputTypeCountAccessEventsArgs<ExtArgs e
 
 export type ExecutiveBoardDeliverySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  accessExpiresAt?: boolean
+  emailMessageId?: boolean
+  lastAccessAt?: boolean
   tenantId?: boolean
   distributionId?: boolean
   recipientId?: boolean
@@ -1172,6 +1310,9 @@ export type ExecutiveBoardDeliverySelect<ExtArgs extends runtime.Types.Extension
 
 export type ExecutiveBoardDeliverySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  accessExpiresAt?: boolean
+  emailMessageId?: boolean
+  lastAccessAt?: boolean
   tenantId?: boolean
   distributionId?: boolean
   recipientId?: boolean
@@ -1191,6 +1332,9 @@ export type ExecutiveBoardDeliverySelectCreateManyAndReturn<ExtArgs extends runt
 
 export type ExecutiveBoardDeliverySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  accessExpiresAt?: boolean
+  emailMessageId?: boolean
+  lastAccessAt?: boolean
   tenantId?: boolean
   distributionId?: boolean
   recipientId?: boolean
@@ -1210,6 +1354,9 @@ export type ExecutiveBoardDeliverySelectUpdateManyAndReturn<ExtArgs extends runt
 
 export type ExecutiveBoardDeliverySelectScalar = {
   id?: boolean
+  accessExpiresAt?: boolean
+  emailMessageId?: boolean
+  lastAccessAt?: boolean
   tenantId?: boolean
   distributionId?: boolean
   recipientId?: boolean
@@ -1224,7 +1371,7 @@ export type ExecutiveBoardDeliverySelectScalar = {
   updatedAt?: boolean
 }
 
-export type ExecutiveBoardDeliveryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "distributionId" | "recipientId" | "status" | "accessTokenHash" | "sentAt" | "deliveredAt" | "openedAt" | "revokedAt" | "failureReason" | "createdAt" | "updatedAt", ExtArgs["result"]["executiveBoardDelivery"]>
+export type ExecutiveBoardDeliveryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "accessExpiresAt" | "emailMessageId" | "lastAccessAt" | "tenantId" | "distributionId" | "recipientId" | "status" | "accessTokenHash" | "sentAt" | "deliveredAt" | "openedAt" | "revokedAt" | "failureReason" | "createdAt" | "updatedAt", ExtArgs["result"]["executiveBoardDelivery"]>
 export type ExecutiveBoardDeliveryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   distribution?: boolean | Prisma.ExecutiveBoardDistributionDefaultArgs<ExtArgs>
@@ -1253,6 +1400,9 @@ export type $ExecutiveBoardDeliveryPayload<ExtArgs extends runtime.Types.Extensi
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    accessExpiresAt: Date | null
+    emailMessageId: string | null
+    lastAccessAt: Date | null
     tenantId: string
     distributionId: string
     recipientId: string
@@ -1693,6 +1843,9 @@ export interface Prisma__ExecutiveBoardDeliveryClient<T, Null = never, ExtArgs e
  */
 export interface ExecutiveBoardDeliveryFieldRefs {
   readonly id: Prisma.FieldRef<"ExecutiveBoardDelivery", 'String'>
+  readonly accessExpiresAt: Prisma.FieldRef<"ExecutiveBoardDelivery", 'DateTime'>
+  readonly emailMessageId: Prisma.FieldRef<"ExecutiveBoardDelivery", 'String'>
+  readonly lastAccessAt: Prisma.FieldRef<"ExecutiveBoardDelivery", 'DateTime'>
   readonly tenantId: Prisma.FieldRef<"ExecutiveBoardDelivery", 'String'>
   readonly distributionId: Prisma.FieldRef<"ExecutiveBoardDelivery", 'String'>
   readonly recipientId: Prisma.FieldRef<"ExecutiveBoardDelivery", 'String'>
