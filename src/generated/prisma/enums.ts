@@ -3053,6 +3053,38 @@ export const EnterpriseAutomationSimulationStatus = {
 export type EnterpriseAutomationSimulationStatus = (typeof EnterpriseAutomationSimulationStatus)[keyof typeof EnterpriseAutomationSimulationStatus]
 
 
+export const EnterpriseAutomationRuntimeStatus = {
+  RUNNING: 'RUNNING',
+  WAITING: 'WAITING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type EnterpriseAutomationRuntimeStatus = (typeof EnterpriseAutomationRuntimeStatus)[keyof typeof EnterpriseAutomationRuntimeStatus]
+
+
+export const EnterpriseAutomationRuntimeNodeStatus = {
+  READY: 'READY',
+  RUNNING: 'RUNNING',
+  WAITING: 'WAITING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  SKIPPED: 'SKIPPED'
+} as const
+
+export type EnterpriseAutomationRuntimeNodeStatus = (typeof EnterpriseAutomationRuntimeNodeStatus)[keyof typeof EnterpriseAutomationRuntimeNodeStatus]
+
+
+export const EnterpriseAutomationRuntimeSignalType = {
+  APPROVAL: 'APPROVAL',
+  RESUME: 'RESUME',
+  CANCEL: 'CANCEL'
+} as const
+
+export type EnterpriseAutomationRuntimeSignalType = (typeof EnterpriseAutomationRuntimeSignalType)[keyof typeof EnterpriseAutomationRuntimeSignalType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

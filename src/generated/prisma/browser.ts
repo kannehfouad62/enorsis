@@ -1242,3 +1242,18 @@ export type EnterpriseAutomationTemplate = Prisma.EnterpriseAutomationTemplateMo
  * 
  */
 export type EnterpriseAutomationSimulation = Prisma.EnterpriseAutomationSimulationModel
+/**
+ * Model EnterpriseAutomationRuntimeExecution
+ * 
+ */
+export type EnterpriseAutomationRuntimeExecution = Prisma.EnterpriseAutomationRuntimeExecutionModel
+/**
+ * Model EnterpriseAutomationRuntimeNode
+ * 
+ */
+export type EnterpriseAutomationRuntimeNode = Prisma.EnterpriseAutomationRuntimeNodeModel
+/**
+ * Model EnterpriseAutomationRuntimeSignal
+ * 
+ */
+export type EnterpriseAutomationRuntimeSignal = Prisma.EnterpriseAutomationRuntimeSignalModel

@@ -295,7 +295,10 @@ export const ModelName = {
   EnterpriseAutomationActionRun: 'EnterpriseAutomationActionRun',
   EnterpriseAutomationRuleVersion: 'EnterpriseAutomationRuleVersion',
   EnterpriseAutomationTemplate: 'EnterpriseAutomationTemplate',
-  EnterpriseAutomationSimulation: 'EnterpriseAutomationSimulation'
+  EnterpriseAutomationSimulation: 'EnterpriseAutomationSimulation',
+  EnterpriseAutomationRuntimeExecution: 'EnterpriseAutomationRuntimeExecution',
+  EnterpriseAutomationRuntimeNode: 'EnterpriseAutomationRuntimeNode',
+  EnterpriseAutomationRuntimeSignal: 'EnterpriseAutomationRuntimeSignal'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5538,6 +5541,67 @@ export const EnterpriseAutomationSimulationScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationSimulationScalarFieldEnum = (typeof EnterpriseAutomationSimulationScalarFieldEnum)[keyof typeof EnterpriseAutomationSimulationScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuntimeExecutionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  ruleId: 'ruleId',
+  versionId: 'versionId',
+  executionNumber: 'executionNumber',
+  status: 'status',
+  graphSnapshot: 'graphSnapshot',
+  input: 'input',
+  context: 'context',
+  wakeAt: 'wakeAt',
+  initiatedByUserId: 'initiatedByUserId',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  lastError: 'lastError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationRuntimeExecutionScalarFieldEnum = (typeof EnterpriseAutomationRuntimeExecutionScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeExecutionScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuntimeNodeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionId: 'executionId',
+  nodeId: 'nodeId',
+  nodeType: 'nodeType',
+  branchKey: 'branchKey',
+  status: 'status',
+  attemptCount: 'attemptCount',
+  availableAt: 'availableAt',
+  timeoutAt: 'timeoutAt',
+  waitReason: 'waitReason',
+  payload: 'payload',
+  result: 'result',
+  lastError: 'lastError',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationRuntimeNodeScalarFieldEnum = (typeof EnterpriseAutomationRuntimeNodeScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeNodeScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuntimeSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionId: 'executionId',
+  signalType: 'signalType',
+  correlationKey: 'correlationKey',
+  payload: 'payload',
+  consumedAt: 'consumedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationRuntimeSignalScalarFieldEnum = (typeof EnterpriseAutomationRuntimeSignalScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeSignalScalarFieldEnum]
 
 
 export const SortOrder = {

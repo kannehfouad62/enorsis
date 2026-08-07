@@ -40,6 +40,12 @@ export default async function EnterpriseAutomationPage() {
         >
           Visual Rule Builder
         </a>
+        <a
+          href="/app/automation/runtime"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+        >
+          Durable Runtime
+        </a>
       </div>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">

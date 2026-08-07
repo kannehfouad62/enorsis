@@ -2251,6 +2251,29 @@ enum EnterpriseAutomationSimulationStatus {
   WARNING
 }
 
+enum EnterpriseAutomationRuntimeStatus {
+  RUNNING
+  WAITING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum EnterpriseAutomationRuntimeNodeStatus {
+  READY
+  RUNNING
+  WAITING
+  COMPLETED
+  FAILED
+  SKIPPED
+}
+
+enum EnterpriseAutomationRuntimeSignalType {
+  APPROVAL
+  RESUME
+  CANCEL
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2494,6 +2517,9 @@ model Tenant {
   enterpriseAutomationRuleVersions            EnterpriseAutomationRuleVersion[]
   enterpriseAutomationTemplates               EnterpriseAutomationTemplate[]
   enterpriseAutomationSimulations             EnterpriseAutomationSimulation[]
+  enterpriseAutomationRuntimeExecutions       EnterpriseAutomationRuntimeExecution[]
+  enterpriseAutomationRuntimeNodes            EnterpriseAutomationRuntimeNode[]
+  enterpriseAutomationRuntimeSignals          EnterpriseAutomationRuntimeSignal[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8178,26 +8204,27 @@ model ExecutiveBoardDeliveryAccessEvent {
 }
 
 model EnterpriseAutomationRule {
-  id               String                            @id @default(cuid())
-  tenantId         String
-  ruleKey          String
-  name             String
-  description      String?
-  status           EnterpriseAutomationRuleStatus    @default(DRAFT)
-  priority         Int                               @default(100)
-  stopOnFailure    Boolean                           @default(true)
-  createdByUserId  String
-  tenant           Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  triggers         EnterpriseAutomationTrigger[]
-  actions          EnterpriseAutomationAction[]
-  runs             EnterpriseAutomationRun[]
-  designerState    Json?
-  publishedVersion Int?
-  lastValidatedAt  DateTime?
-  versions         EnterpriseAutomationRuleVersion[]
-  simulations      EnterpriseAutomationSimulation[]
-  createdAt        DateTime                          @default(now())
-  updatedAt        DateTime                          @updatedAt
+  id                String                                 @id @default(cuid())
+  tenantId          String
+  ruleKey           String
+  name              String
+  description       String?
+  status            EnterpriseAutomationRuleStatus         @default(DRAFT)
+  priority          Int                                    @default(100)
+  stopOnFailure     Boolean                                @default(true)
+  createdByUserId   String
+  tenant            Tenant                                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  triggers          EnterpriseAutomationTrigger[]
+  actions           EnterpriseAutomationAction[]
+  runs              EnterpriseAutomationRun[]
+  designerState     Json?
+  publishedVersion  Int?
+  lastValidatedAt   DateTime?
+  versions          EnterpriseAutomationRuleVersion[]
+  simulations       EnterpriseAutomationSimulation[]
+  runtimeExecutions EnterpriseAutomationRuntimeExecution[]
+  createdAt         DateTime                               @default(now())
+  updatedAt         DateTime                               @updatedAt
 
   @@unique([tenantId, ruleKey])
   @@index([tenantId, status, priority])
@@ -8348,4 +8375,75 @@ model EnterpriseAutomationSimulation {
 
   @@index([tenantId, status, createdAt])
   @@index([ruleId, createdAt])
+}
+
+model EnterpriseAutomationRuntimeExecution {
+  id                String                              @id @default(cuid())
+  tenantId          String
+  ruleId            String
+  versionId         String?
+  executionNumber   String
+  status            EnterpriseAutomationRuntimeStatus   @default(RUNNING)
+  graphSnapshot     Json
+  input             Json
+  context           Json?
+  wakeAt            DateTime?
+  initiatedByUserId String?
+  startedAt         DateTime                            @default(now())
+  completedAt       DateTime?
+  lastError         String?
+  tenant            Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  rule              EnterpriseAutomationRule            @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  nodes             EnterpriseAutomationRuntimeNode[]
+  signals           EnterpriseAutomationRuntimeSignal[]
+  createdAt         DateTime                            @default(now())
+  updatedAt         DateTime                            @updatedAt
+
+  @@unique([tenantId, executionNumber])
+  @@index([tenantId, status, wakeAt])
+  @@index([ruleId, createdAt])
+}
+
+model EnterpriseAutomationRuntimeNode {
+  id           String                                @id @default(cuid())
+  tenantId     String
+  executionId  String
+  nodeId       String
+  nodeType     String
+  branchKey    String?
+  status       EnterpriseAutomationRuntimeNodeStatus @default(READY)
+  attemptCount Int                                   @default(0)
+  availableAt  DateTime?
+  timeoutAt    DateTime?
+  waitReason   String?
+  payload      Json?
+  result       Json?
+  lastError    String?
+  startedAt    DateTime?
+  completedAt  DateTime?
+  tenant       Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  execution    EnterpriseAutomationRuntimeExecution  @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime                              @default(now())
+  updatedAt    DateTime                              @updatedAt
+
+  @@index([tenantId, status, availableAt])
+  @@index([executionId, status])
+  @@index([executionId, nodeId])
+}
+
+model EnterpriseAutomationRuntimeSignal {
+  id              String                                @id @default(cuid())
+  tenantId        String
+  executionId     String
+  signalType      EnterpriseAutomationRuntimeSignalType
+  correlationKey  String
+  payload         Json?
+  consumedAt      DateTime?
+  createdByUserId String?
+  tenant          Tenant                                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  execution       EnterpriseAutomationRuntimeExecution  @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                              @default(now())
+
+  @@index([tenantId, signalType, consumedAt])
+  @@index([executionId, correlationKey, consumedAt])
 }
