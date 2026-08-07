@@ -279,7 +279,8 @@ export const ModelName = {
   ExecutiveSynthesisRun: 'ExecutiveSynthesisRun',
   ExecutiveSynthesis: 'ExecutiveSynthesis',
   ExecutiveBoardPackDefinition: 'ExecutiveBoardPackDefinition',
-  ExecutiveBoardPack: 'ExecutiveBoardPack'
+  ExecutiveBoardPack: 'ExecutiveBoardPack',
+  ExecutiveBoardPackExport: 'ExecutiveBoardPackExport'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5234,6 +5235,24 @@ export const ExecutiveBoardPackScalarFieldEnum = {
 } as const
 
 export type ExecutiveBoardPackScalarFieldEnum = (typeof ExecutiveBoardPackScalarFieldEnum)[keyof typeof ExecutiveBoardPackScalarFieldEnum]
+
+
+export const ExecutiveBoardPackExportScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  boardPackId: 'boardPackId',
+  format: 'format',
+  status: 'status',
+  fileName: 'fileName',
+  contentType: 'contentType',
+  byteSize: 'byteSize',
+  generatedByUserId: 'generatedByUserId',
+  generatedAt: 'generatedAt',
+  sourceFingerprint: 'sourceFingerprint',
+  errorMessage: 'errorMessage'
+} as const
+
+export type ExecutiveBoardPackExportScalarFieldEnum = (typeof ExecutiveBoardPackExportScalarFieldEnum)[keyof typeof ExecutiveBoardPackExportScalarFieldEnum]
 
 
 export const SortOrder = {

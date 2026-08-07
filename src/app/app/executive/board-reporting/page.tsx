@@ -129,17 +129,26 @@ export default async function ExecutiveBoardReportingPage() {
               </p>
             </div>
 
-            {pack.status === "GENERATED" ? (
-              <form
-                action={finalizeExecutiveBoardPackAction}
-                className="mt-5"
-              >
-                <input type="hidden" name="packId" value={pack.id} />
-                <button className="rounded-xl bg-emerald-700 px-4 py-2 text-sm font-black text-white">
-                  Finalize board pack
-                </button>
-              </form>
-            ) : null}
+            <div className="mt-5 flex flex-wrap gap-3">
+              {(["pdf", "docx", "xlsx", "pptx"] as const).map((format) => (
+                <a
+                  key={format}
+                  href={`/api/executive/board-packs/${pack.id}/export/${format}`}
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-black"
+                >
+                  Export {format.toUpperCase()}
+                </a>
+              ))}
+
+              {pack.status === "GENERATED" ? (
+                <form action={finalizeExecutiveBoardPackAction}>
+                  <input type="hidden" name="packId" value={pack.id} />
+                  <button className="rounded-xl bg-emerald-700 px-4 py-2 text-sm font-black text-white">
+                    Finalize board pack
+                  </button>
+                </form>
+              ) : null}
+            </div>
           </article>
         ))}
       </section>

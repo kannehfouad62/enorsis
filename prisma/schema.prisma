@@ -2141,6 +2141,18 @@ enum ExecutiveBoardPackPeriodType {
   AD_HOC
 }
 
+enum ExecutiveBoardPackExportFormat {
+  PDF
+  DOCX
+  XLSX
+  PPTX
+}
+
+enum ExecutiveBoardPackExportStatus {
+  GENERATED
+  FAILED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2368,6 +2380,7 @@ model Tenant {
   executiveSyntheses                          ExecutiveSynthesis[]
   executiveBoardPackDefinitions               ExecutiveBoardPackDefinition[]
   executiveBoardPacks                         ExecutiveBoardPack[]
+  executiveBoardPackExports                   ExecutiveBoardPackExport[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -7868,6 +7881,7 @@ model ExecutiveBoardPack {
   sourceFingerprint  String
   tenant             Tenant                       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   definition         ExecutiveBoardPackDefinition @relation(fields: [definitionId], references: [id], onDelete: Restrict)
+  exports            ExecutiveBoardPackExport[]
   createdAt          DateTime                     @default(now())
   updatedAt          DateTime                     @updatedAt
 
@@ -7875,4 +7889,25 @@ model ExecutiveBoardPack {
   @@index([tenantId, packType, status, periodEnd])
   @@index([definitionId, createdAt])
   @@index([sourceFingerprint])
+}
+
+model ExecutiveBoardPackExport {
+  id                String                         @id @default(cuid())
+  tenantId          String
+  boardPackId       String
+  format            ExecutiveBoardPackExportFormat
+  status            ExecutiveBoardPackExportStatus
+  fileName          String
+  contentType       String
+  byteSize          Int?
+  generatedByUserId String
+  generatedAt       DateTime                       @default(now())
+  sourceFingerprint String
+  errorMessage      String?
+  tenant            Tenant                         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  boardPack         ExecutiveBoardPack             @relation(fields: [boardPackId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, generatedAt])
+  @@index([boardPackId, generatedAt])
+  @@index([format, status])
 }

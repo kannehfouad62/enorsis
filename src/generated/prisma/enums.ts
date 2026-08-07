@@ -2898,6 +2898,24 @@ export const ExecutiveBoardPackPeriodType = {
 export type ExecutiveBoardPackPeriodType = (typeof ExecutiveBoardPackPeriodType)[keyof typeof ExecutiveBoardPackPeriodType]
 
 
+export const ExecutiveBoardPackExportFormat = {
+  PDF: 'PDF',
+  DOCX: 'DOCX',
+  XLSX: 'XLSX',
+  PPTX: 'PPTX'
+} as const
+
+export type ExecutiveBoardPackExportFormat = (typeof ExecutiveBoardPackExportFormat)[keyof typeof ExecutiveBoardPackExportFormat]
+
+
+export const ExecutiveBoardPackExportStatus = {
+  GENERATED: 'GENERATED',
+  FAILED: 'FAILED'
+} as const
+
+export type ExecutiveBoardPackExportStatus = (typeof ExecutiveBoardPackExportStatus)[keyof typeof ExecutiveBoardPackExportStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

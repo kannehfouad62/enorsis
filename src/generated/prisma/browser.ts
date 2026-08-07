@@ -1162,3 +1162,8 @@ export type ExecutiveBoardPackDefinition = Prisma.ExecutiveBoardPackDefinitionMo
  * 
  */
 export type ExecutiveBoardPack = Prisma.ExecutiveBoardPackModel
+/**
+ * Model ExecutiveBoardPackExport
+ * 
+ */
+export type ExecutiveBoardPackExport = Prisma.ExecutiveBoardPackExportModel
