@@ -551,6 +551,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
 
+  {
+    title: "Inventory Intelligence",
+    description: "Turnover, DIO, aging, ABC/XYZ and inventory health.",
+    href: "/app/executive/inventory-intelligence",
+    icon: BadgeCheck,
+    group: "Intelligence",
+  },
+
 ];
 
 export const enterpriseModuleGroups = [
