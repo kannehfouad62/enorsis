@@ -100,6 +100,8 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/suppliers": { id: "supplier-directory", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/marketplace/suppliers": { id: "supplier-marketplace-discovery", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/marketplace/catalog": { id: "marketplace-product-catalog", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
+  "/app/marketplace/trust": { id: "verified-supplier-network-ratings", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
+  "/app/marketplace/matching": { id: "ai-supplier-matching", featureKey: FEATURE_KEYS.AI_PLATFORM, aiEligible: true },
   "/app/suppliers/compliance": { id: "supplier-compliance", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/suppliers/performance": { id: "supplier-performance", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/suppliers/performance/trends": { id: "supplier-performance-trends", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
@@ -137,8 +139,48 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },
+  "/app/automation/autonomous-planning": {
+    id: "autonomous-procurement-planning",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/automation/autonomous-recommendations": {
+    id: "autonomous-strategy-savings-risk",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution": {
+    id: "controlled-autonomous-execution",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/adapters": {
+    id: "controlled-transaction-adapters",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
   "/app/analytics/process-mining": {
     id: "enterprise-process-mining",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/predictive-procurement": {
+    id: "predictive-procurement-forecasting",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/predictive-inventory": {
+    id: "predictive-inventory-optimization",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/predictive-capacity": {
+    id: "predictive-capacity-planning",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/digital-twin": {
+    id: "procurement-digital-twin",
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },

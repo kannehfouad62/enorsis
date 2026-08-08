@@ -12,6 +12,7 @@ import {
   ChartNetwork,
   CircleDollarSign,
   ClipboardCheck,
+  Lightbulb,
   FileKey2,
   FileSearch,
   FileScan,
@@ -32,6 +33,7 @@ import {
   Scale,
   Settings2,
   ShieldCheck,
+  Cable,
   ShieldAlert,
   ShoppingCart,
   Store,
@@ -41,6 +43,8 @@ import {
   UserRoundCog,
   Workflow,
   Warehouse,
+  Gauge,
+  GitCompareArrows,
   Wrench,
   PlugZap,
   Bell,
@@ -48,6 +52,7 @@ import {
   SlidersHorizontal,
   BadgeCheck,
   FileCheck2,
+  
   
 } from "lucide-react";
 
@@ -150,6 +155,24 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     icon: CircleDollarSign,
     group: "Procurement",
   },
+  {
+    title: "AI Supplier Matching",
+    description:
+      "Explainable supplier ranking using capabilities, geography, trust, performance, risk and catalog evidence with governed AI analysis.",
+    href: "/app/marketplace/matching",
+    icon: Bot,
+    group: "Suppliers",
+  },
+
+  {
+    title: "Verified Supplier Network & Ratings",
+    description:
+      "Govern supplier verification evidence, marketplace ratings, trust scores, suspension and reinstatement.",
+    href: "/app/marketplace/trust",
+    icon: BadgeCheck,
+    group: "Suppliers",
+  },
+
   {
     title: "Marketplace Product Catalog",
     description:
@@ -298,6 +321,42 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
   {
+    title: "Procurement Digital Twin",
+    description:
+      "Run governed what-if simulations across demand, supplier disruption, lead times, cost, inbound flow, inventory and capacity.",
+    href: "/app/analytics/digital-twin",
+    icon: GitCompareArrows,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Predictive Capacity Planning",
+    description:
+      "Forecast location inventory-unit capacity pressure, projected utilization, capacity gaps and redistribution needs.",
+    href: "/app/analytics/predictive-capacity",
+    icon: Gauge,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Predictive Inventory Optimization",
+    description:
+      "Predict stockouts, optimize reorder points and safety stock, and identify excess inventory using demand and stock evidence.",
+    href: "/app/analytics/predictive-inventory",
+    icon: Warehouse,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Predictive Procurement Forecasting",
+    description:
+      "Forecast spend direction, demand shifts and supplier risk using explainable procurement evidence.",
+    href: "/app/analytics/predictive-procurement",
+    icon: ChartSpline,
+    group: "Intelligence",
+  },
+
+  {
     title: "Spend Intelligence",
     description: "Analyze procurement spend, suppliers and category exposure.",
     href: "/app/analytics/spend",
@@ -351,6 +410,42 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     icon: BookOpenCheck,
     group: "Intelligence",
   },
+  {
+    title: "Controlled Transaction Adapters",
+    description:
+      "Prepare idempotent operator-controlled handoffs from released autonomous execution envelopes into native Enorsis workflows.",
+    href: "/app/governance/autonomous-execution/adapters",
+    icon: Cable,
+    group: "Governance",
+  },
+
+  {
+    title: "Controlled Autonomous Execution",
+    description:
+      "Stage approved AI-driven procurement actions, evaluate policy boundaries, require human release and create controlled workflow handoffs.",
+    href: "/app/governance/autonomous-execution",
+    icon: ShieldCheck,
+    group: "Governance",
+  },
+
+  {
+    title: "Autonomous Strategy & Savings",
+    description:
+      "Generate human-governed strategy recommendations, savings hypotheses and risk-mitigation actions from approved plans and predictive evidence.",
+    href: "/app/automation/autonomous-recommendations",
+    icon: Lightbulb,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Autonomous Procurement Planning",
+    description:
+      "Generate evidence-backed procurement plans from predictive intelligence, supplier matching and digital-twin risk with mandatory human approval.",
+    href: "/app/automation/autonomous-planning",
+    icon: ClipboardCheck,
+    group: "Intelligence",
+  },
+
   {
     title: "AI Automation Copilot",
     description:

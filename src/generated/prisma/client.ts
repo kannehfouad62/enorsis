@@ -1351,3 +1351,128 @@ export type SupplierMarketplaceProfile = Prisma.SupplierMarketplaceProfileModel
  * 
  */
 export type SupplierMarketplaceOffering = Prisma.SupplierMarketplaceOfferingModel
+/**
+ * Model SupplierMarketplaceVerification
+ * 
+ */
+export type SupplierMarketplaceVerification = Prisma.SupplierMarketplaceVerificationModel
+/**
+ * Model SupplierMarketplaceRating
+ * 
+ */
+export type SupplierMarketplaceRating = Prisma.SupplierMarketplaceRatingModel
+/**
+ * Model SupplierMarketplaceMatchRun
+ * 
+ */
+export type SupplierMarketplaceMatchRun = Prisma.SupplierMarketplaceMatchRunModel
+/**
+ * Model SupplierMarketplaceMatchResult
+ * 
+ */
+export type SupplierMarketplaceMatchResult = Prisma.SupplierMarketplaceMatchResultModel
+/**
+ * Model PredictiveProcurementForecastRun
+ * 
+ */
+export type PredictiveProcurementForecastRun = Prisma.PredictiveProcurementForecastRunModel
+/**
+ * Model PredictiveProcurementForecastSignal
+ * 
+ */
+export type PredictiveProcurementForecastSignal = Prisma.PredictiveProcurementForecastSignalModel
+/**
+ * Model PredictiveInventoryOptimizationRun
+ * 
+ */
+export type PredictiveInventoryOptimizationRun = Prisma.PredictiveInventoryOptimizationRunModel
+/**
+ * Model PredictiveInventoryOptimizationSignal
+ * 
+ */
+export type PredictiveInventoryOptimizationSignal = Prisma.PredictiveInventoryOptimizationSignalModel
+/**
+ * Model PredictiveCapacityPlanningRun
+ * 
+ */
+export type PredictiveCapacityPlanningRun = Prisma.PredictiveCapacityPlanningRunModel
+/**
+ * Model PredictiveCapacityPlanningSignal
+ * 
+ */
+export type PredictiveCapacityPlanningSignal = Prisma.PredictiveCapacityPlanningSignalModel
+/**
+ * Model ProcurementDigitalTwinScenario
+ * 
+ */
+export type ProcurementDigitalTwinScenario = Prisma.ProcurementDigitalTwinScenarioModel
+/**
+ * Model ProcurementDigitalTwinRun
+ * 
+ */
+export type ProcurementDigitalTwinRun = Prisma.ProcurementDigitalTwinRunModel
+/**
+ * Model ProcurementDigitalTwinImpact
+ * 
+ */
+export type ProcurementDigitalTwinImpact = Prisma.ProcurementDigitalTwinImpactModel
+/**
+ * Model AutonomousProcurementPlan
+ * 
+ */
+export type AutonomousProcurementPlan = Prisma.AutonomousProcurementPlanModel
+/**
+ * Model AutonomousProcurementPlanAction
+ * 
+ */
+export type AutonomousProcurementPlanAction = Prisma.AutonomousProcurementPlanActionModel
+/**
+ * Model AutonomousProcurementPlanDecision
+ * 
+ */
+export type AutonomousProcurementPlanDecision = Prisma.AutonomousProcurementPlanDecisionModel
+/**
+ * Model AutonomousProcurementRecommendationSet
+ * 
+ */
+export type AutonomousProcurementRecommendationSet = Prisma.AutonomousProcurementRecommendationSetModel
+/**
+ * Model AutonomousProcurementRecommendation
+ * 
+ */
+export type AutonomousProcurementRecommendation = Prisma.AutonomousProcurementRecommendationModel
+/**
+ * Model AutonomousProcurementRecommendationDecision
+ * 
+ */
+export type AutonomousProcurementRecommendationDecision = Prisma.AutonomousProcurementRecommendationDecisionModel
+/**
+ * Model AutonomousExecutionEnvelope
+ * 
+ */
+export type AutonomousExecutionEnvelope = Prisma.AutonomousExecutionEnvelopeModel
+/**
+ * Model AutonomousExecutionPolicyCheck
+ * 
+ */
+export type AutonomousExecutionPolicyCheck = Prisma.AutonomousExecutionPolicyCheckModel
+/**
+ * Model AutonomousExecutionDecision
+ * 
+ */
+export type AutonomousExecutionDecision = Prisma.AutonomousExecutionDecisionModel
+/**
+ * Model AutonomousExecutionHandoff
+ * 
+ */
+export type AutonomousExecutionHandoff = Prisma.AutonomousExecutionHandoffModel
+/**
+ * Model AutonomousExecutionAdapterJob
+ * 
+ */
+export type AutonomousExecutionAdapterJob = Prisma.AutonomousExecutionAdapterJobModel
+/**
+ * Model AutonomousExecutionAdapterDecision
+ * 
+ */
+export type AutonomousExecutionAdapterDecision = Prisma.AutonomousExecutionAdapterDecisionModel

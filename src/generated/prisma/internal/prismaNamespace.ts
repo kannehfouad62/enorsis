@@ -658,7 +658,32 @@ export const ModelName = {
   SupplierSharedDocument: 'SupplierSharedDocument',
   SupplierActionRequest: 'SupplierActionRequest',
   SupplierMarketplaceProfile: 'SupplierMarketplaceProfile',
-  SupplierMarketplaceOffering: 'SupplierMarketplaceOffering'
+  SupplierMarketplaceOffering: 'SupplierMarketplaceOffering',
+  SupplierMarketplaceVerification: 'SupplierMarketplaceVerification',
+  SupplierMarketplaceRating: 'SupplierMarketplaceRating',
+  SupplierMarketplaceMatchRun: 'SupplierMarketplaceMatchRun',
+  SupplierMarketplaceMatchResult: 'SupplierMarketplaceMatchResult',
+  PredictiveProcurementForecastRun: 'PredictiveProcurementForecastRun',
+  PredictiveProcurementForecastSignal: 'PredictiveProcurementForecastSignal',
+  PredictiveInventoryOptimizationRun: 'PredictiveInventoryOptimizationRun',
+  PredictiveInventoryOptimizationSignal: 'PredictiveInventoryOptimizationSignal',
+  PredictiveCapacityPlanningRun: 'PredictiveCapacityPlanningRun',
+  PredictiveCapacityPlanningSignal: 'PredictiveCapacityPlanningSignal',
+  ProcurementDigitalTwinScenario: 'ProcurementDigitalTwinScenario',
+  ProcurementDigitalTwinRun: 'ProcurementDigitalTwinRun',
+  ProcurementDigitalTwinImpact: 'ProcurementDigitalTwinImpact',
+  AutonomousProcurementPlan: 'AutonomousProcurementPlan',
+  AutonomousProcurementPlanAction: 'AutonomousProcurementPlanAction',
+  AutonomousProcurementPlanDecision: 'AutonomousProcurementPlanDecision',
+  AutonomousProcurementRecommendationSet: 'AutonomousProcurementRecommendationSet',
+  AutonomousProcurementRecommendation: 'AutonomousProcurementRecommendation',
+  AutonomousProcurementRecommendationDecision: 'AutonomousProcurementRecommendationDecision',
+  AutonomousExecutionEnvelope: 'AutonomousExecutionEnvelope',
+  AutonomousExecutionPolicyCheck: 'AutonomousExecutionPolicyCheck',
+  AutonomousExecutionDecision: 'AutonomousExecutionDecision',
+  AutonomousExecutionHandoff: 'AutonomousExecutionHandoff',
+  AutonomousExecutionAdapterJob: 'AutonomousExecutionAdapterJob',
+  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -674,7 +699,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering" | "supplierMarketplaceVerification" | "supplierMarketplaceRating" | "supplierMarketplaceMatchRun" | "supplierMarketplaceMatchResult" | "predictiveProcurementForecastRun" | "predictiveProcurementForecastSignal" | "predictiveInventoryOptimizationRun" | "predictiveInventoryOptimizationSignal" | "predictiveCapacityPlanningRun" | "predictiveCapacityPlanningSignal" | "procurementDigitalTwinScenario" | "procurementDigitalTwinRun" | "procurementDigitalTwinImpact" | "autonomousProcurementPlan" | "autonomousProcurementPlanAction" | "autonomousProcurementPlanDecision" | "autonomousProcurementRecommendationSet" | "autonomousProcurementRecommendation" | "autonomousProcurementRecommendationDecision" | "autonomousExecutionEnvelope" | "autonomousExecutionPolicyCheck" | "autonomousExecutionDecision" | "autonomousExecutionHandoff" | "autonomousExecutionAdapterJob" | "autonomousExecutionAdapterDecision"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -20066,6 +20091,1856 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierMarketplaceVerification: {
+      payload: Prisma.$SupplierMarketplaceVerificationPayload<ExtArgs>
+      fields: Prisma.SupplierMarketplaceVerificationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierMarketplaceVerificationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierMarketplaceVerificationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierMarketplaceVerificationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierMarketplaceVerificationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierMarketplaceVerificationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierMarketplaceVerificationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierMarketplaceVerificationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierMarketplaceVerificationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierMarketplaceVerificationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        update: {
+          args: Prisma.SupplierMarketplaceVerificationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierMarketplaceVerificationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierMarketplaceVerificationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierMarketplaceVerificationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierMarketplaceVerificationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceVerificationPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierMarketplaceVerificationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierMarketplaceVerification>
+        }
+        groupBy: {
+          args: Prisma.SupplierMarketplaceVerificationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceVerificationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierMarketplaceVerificationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceVerificationCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierMarketplaceRating: {
+      payload: Prisma.$SupplierMarketplaceRatingPayload<ExtArgs>
+      fields: Prisma.SupplierMarketplaceRatingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierMarketplaceRatingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierMarketplaceRatingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierMarketplaceRatingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierMarketplaceRatingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierMarketplaceRatingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierMarketplaceRatingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierMarketplaceRatingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierMarketplaceRatingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierMarketplaceRatingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        update: {
+          args: Prisma.SupplierMarketplaceRatingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierMarketplaceRatingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierMarketplaceRatingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierMarketplaceRatingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierMarketplaceRatingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceRatingPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierMarketplaceRatingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierMarketplaceRating>
+        }
+        groupBy: {
+          args: Prisma.SupplierMarketplaceRatingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceRatingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierMarketplaceRatingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceRatingCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierMarketplaceMatchRun: {
+      payload: Prisma.$SupplierMarketplaceMatchRunPayload<ExtArgs>
+      fields: Prisma.SupplierMarketplaceMatchRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierMarketplaceMatchRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierMarketplaceMatchRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierMarketplaceMatchRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierMarketplaceMatchRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierMarketplaceMatchRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierMarketplaceMatchRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierMarketplaceMatchRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierMarketplaceMatchRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierMarketplaceMatchRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        update: {
+          args: Prisma.SupplierMarketplaceMatchRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierMarketplaceMatchRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierMarketplaceMatchRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierMarketplaceMatchRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierMarketplaceMatchRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchRunPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierMarketplaceMatchRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierMarketplaceMatchRun>
+        }
+        groupBy: {
+          args: Prisma.SupplierMarketplaceMatchRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceMatchRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierMarketplaceMatchRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceMatchRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierMarketplaceMatchResult: {
+      payload: Prisma.$SupplierMarketplaceMatchResultPayload<ExtArgs>
+      fields: Prisma.SupplierMarketplaceMatchResultFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierMarketplaceMatchResultFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierMarketplaceMatchResultFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierMarketplaceMatchResultFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierMarketplaceMatchResultFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierMarketplaceMatchResultFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierMarketplaceMatchResultCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierMarketplaceMatchResultCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierMarketplaceMatchResultCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierMarketplaceMatchResultDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        update: {
+          args: Prisma.SupplierMarketplaceMatchResultUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierMarketplaceMatchResultDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierMarketplaceMatchResultUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierMarketplaceMatchResultUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierMarketplaceMatchResultUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierMarketplaceMatchResultPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierMarketplaceMatchResultAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierMarketplaceMatchResult>
+        }
+        groupBy: {
+          args: Prisma.SupplierMarketplaceMatchResultGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceMatchResultGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierMarketplaceMatchResultCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierMarketplaceMatchResultCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveProcurementForecastRun: {
+      payload: Prisma.$PredictiveProcurementForecastRunPayload<ExtArgs>
+      fields: Prisma.PredictiveProcurementForecastRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveProcurementForecastRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveProcurementForecastRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveProcurementForecastRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveProcurementForecastRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveProcurementForecastRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveProcurementForecastRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveProcurementForecastRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveProcurementForecastRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveProcurementForecastRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        update: {
+          args: Prisma.PredictiveProcurementForecastRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveProcurementForecastRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveProcurementForecastRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveProcurementForecastRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveProcurementForecastRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastRunPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveProcurementForecastRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveProcurementForecastRun>
+        }
+        groupBy: {
+          args: Prisma.PredictiveProcurementForecastRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveProcurementForecastRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveProcurementForecastRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveProcurementForecastRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveProcurementForecastSignal: {
+      payload: Prisma.$PredictiveProcurementForecastSignalPayload<ExtArgs>
+      fields: Prisma.PredictiveProcurementForecastSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveProcurementForecastSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveProcurementForecastSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveProcurementForecastSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveProcurementForecastSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveProcurementForecastSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveProcurementForecastSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveProcurementForecastSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveProcurementForecastSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveProcurementForecastSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        update: {
+          args: Prisma.PredictiveProcurementForecastSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveProcurementForecastSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveProcurementForecastSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveProcurementForecastSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveProcurementForecastSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveProcurementForecastSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveProcurementForecastSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveProcurementForecastSignal>
+        }
+        groupBy: {
+          args: Prisma.PredictiveProcurementForecastSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveProcurementForecastSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveProcurementForecastSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveProcurementForecastSignalCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveInventoryOptimizationRun: {
+      payload: Prisma.$PredictiveInventoryOptimizationRunPayload<ExtArgs>
+      fields: Prisma.PredictiveInventoryOptimizationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveInventoryOptimizationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveInventoryOptimizationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveInventoryOptimizationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveInventoryOptimizationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveInventoryOptimizationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveInventoryOptimizationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveInventoryOptimizationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveInventoryOptimizationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveInventoryOptimizationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        update: {
+          args: Prisma.PredictiveInventoryOptimizationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveInventoryOptimizationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveInventoryOptimizationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveInventoryOptimizationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveInventoryOptimizationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveInventoryOptimizationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveInventoryOptimizationRun>
+        }
+        groupBy: {
+          args: Prisma.PredictiveInventoryOptimizationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveInventoryOptimizationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveInventoryOptimizationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveInventoryOptimizationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveInventoryOptimizationSignal: {
+      payload: Prisma.$PredictiveInventoryOptimizationSignalPayload<ExtArgs>
+      fields: Prisma.PredictiveInventoryOptimizationSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveInventoryOptimizationSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveInventoryOptimizationSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveInventoryOptimizationSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveInventoryOptimizationSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveInventoryOptimizationSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveInventoryOptimizationSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveInventoryOptimizationSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveInventoryOptimizationSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveInventoryOptimizationSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        update: {
+          args: Prisma.PredictiveInventoryOptimizationSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveInventoryOptimizationSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveInventoryOptimizationSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveInventoryOptimizationSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveInventoryOptimizationSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveInventoryOptimizationSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveInventoryOptimizationSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveInventoryOptimizationSignal>
+        }
+        groupBy: {
+          args: Prisma.PredictiveInventoryOptimizationSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveInventoryOptimizationSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveInventoryOptimizationSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveInventoryOptimizationSignalCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveCapacityPlanningRun: {
+      payload: Prisma.$PredictiveCapacityPlanningRunPayload<ExtArgs>
+      fields: Prisma.PredictiveCapacityPlanningRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveCapacityPlanningRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveCapacityPlanningRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveCapacityPlanningRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveCapacityPlanningRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveCapacityPlanningRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveCapacityPlanningRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveCapacityPlanningRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveCapacityPlanningRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveCapacityPlanningRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        update: {
+          args: Prisma.PredictiveCapacityPlanningRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveCapacityPlanningRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveCapacityPlanningRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveCapacityPlanningRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveCapacityPlanningRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningRunPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveCapacityPlanningRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveCapacityPlanningRun>
+        }
+        groupBy: {
+          args: Prisma.PredictiveCapacityPlanningRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveCapacityPlanningRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveCapacityPlanningRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveCapacityPlanningRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    PredictiveCapacityPlanningSignal: {
+      payload: Prisma.$PredictiveCapacityPlanningSignalPayload<ExtArgs>
+      fields: Prisma.PredictiveCapacityPlanningSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PredictiveCapacityPlanningSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PredictiveCapacityPlanningSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.PredictiveCapacityPlanningSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PredictiveCapacityPlanningSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        findMany: {
+          args: Prisma.PredictiveCapacityPlanningSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>[]
+        }
+        create: {
+          args: Prisma.PredictiveCapacityPlanningSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        createMany: {
+          args: Prisma.PredictiveCapacityPlanningSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PredictiveCapacityPlanningSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.PredictiveCapacityPlanningSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        update: {
+          args: Prisma.PredictiveCapacityPlanningSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.PredictiveCapacityPlanningSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PredictiveCapacityPlanningSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PredictiveCapacityPlanningSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.PredictiveCapacityPlanningSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PredictiveCapacityPlanningSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.PredictiveCapacityPlanningSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePredictiveCapacityPlanningSignal>
+        }
+        groupBy: {
+          args: Prisma.PredictiveCapacityPlanningSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveCapacityPlanningSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PredictiveCapacityPlanningSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PredictiveCapacityPlanningSignalCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementDigitalTwinScenario: {
+      payload: Prisma.$ProcurementDigitalTwinScenarioPayload<ExtArgs>
+      fields: Prisma.ProcurementDigitalTwinScenarioFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementDigitalTwinScenarioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementDigitalTwinScenarioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementDigitalTwinScenarioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementDigitalTwinScenarioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementDigitalTwinScenarioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementDigitalTwinScenarioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementDigitalTwinScenarioCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinScenarioCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementDigitalTwinScenarioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        update: {
+          args: Prisma.ProcurementDigitalTwinScenarioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementDigitalTwinScenarioDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementDigitalTwinScenarioUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinScenarioUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementDigitalTwinScenarioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinScenarioPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementDigitalTwinScenarioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementDigitalTwinScenario>
+        }
+        groupBy: {
+          args: Prisma.ProcurementDigitalTwinScenarioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinScenarioGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementDigitalTwinScenarioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinScenarioCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementDigitalTwinRun: {
+      payload: Prisma.$ProcurementDigitalTwinRunPayload<ExtArgs>
+      fields: Prisma.ProcurementDigitalTwinRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementDigitalTwinRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementDigitalTwinRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementDigitalTwinRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementDigitalTwinRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementDigitalTwinRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementDigitalTwinRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementDigitalTwinRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementDigitalTwinRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        update: {
+          args: Prisma.ProcurementDigitalTwinRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementDigitalTwinRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementDigitalTwinRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementDigitalTwinRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinRunPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementDigitalTwinRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementDigitalTwinRun>
+        }
+        groupBy: {
+          args: Prisma.ProcurementDigitalTwinRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementDigitalTwinRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    ProcurementDigitalTwinImpact: {
+      payload: Prisma.$ProcurementDigitalTwinImpactPayload<ExtArgs>
+      fields: Prisma.ProcurementDigitalTwinImpactFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ProcurementDigitalTwinImpactFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ProcurementDigitalTwinImpactFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        findFirst: {
+          args: Prisma.ProcurementDigitalTwinImpactFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ProcurementDigitalTwinImpactFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        findMany: {
+          args: Prisma.ProcurementDigitalTwinImpactFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>[]
+        }
+        create: {
+          args: Prisma.ProcurementDigitalTwinImpactCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        createMany: {
+          args: Prisma.ProcurementDigitalTwinImpactCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinImpactCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>[]
+        }
+        delete: {
+          args: Prisma.ProcurementDigitalTwinImpactDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        update: {
+          args: Prisma.ProcurementDigitalTwinImpactUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        deleteMany: {
+          args: Prisma.ProcurementDigitalTwinImpactDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ProcurementDigitalTwinImpactUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ProcurementDigitalTwinImpactUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>[]
+        }
+        upsert: {
+          args: Prisma.ProcurementDigitalTwinImpactUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ProcurementDigitalTwinImpactPayload>
+        }
+        aggregate: {
+          args: Prisma.ProcurementDigitalTwinImpactAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProcurementDigitalTwinImpact>
+        }
+        groupBy: {
+          args: Prisma.ProcurementDigitalTwinImpactGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinImpactGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ProcurementDigitalTwinImpactCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ProcurementDigitalTwinImpactCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementPlan: {
+      payload: Prisma.$AutonomousProcurementPlanPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementPlanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementPlanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementPlanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementPlanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementPlanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementPlanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementPlanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementPlanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementPlanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementPlanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementPlanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementPlanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementPlanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementPlanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementPlan>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementPlanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementPlanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementPlanAction: {
+      payload: Prisma.$AutonomousProcurementPlanActionPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementPlanActionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementPlanActionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementPlanActionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementPlanActionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementPlanActionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementPlanActionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementPlanActionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementPlanActionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanActionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementPlanActionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementPlanActionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementPlanActionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementPlanActionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanActionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementPlanActionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanActionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementPlanActionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementPlanAction>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementPlanActionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanActionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementPlanActionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanActionCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementPlanDecision: {
+      payload: Prisma.$AutonomousProcurementPlanDecisionPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementPlanDecisionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementPlanDecisionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementPlanDecisionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementPlanDecisionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementPlanDecisionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementPlanDecisionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementPlanDecisionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementPlanDecisionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanDecisionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementPlanDecisionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementPlanDecisionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementPlanDecisionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementPlanDecisionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementPlanDecisionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementPlanDecisionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementPlanDecisionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementPlanDecisionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementPlanDecision>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementPlanDecisionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanDecisionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementPlanDecisionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementPlanDecisionCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementRecommendationSet: {
+      payload: Prisma.$AutonomousProcurementRecommendationSetPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementRecommendationSetFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementRecommendationSetFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationSetFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementRecommendationSetFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationSetFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementRecommendationSetFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementRecommendationSetCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementRecommendationSetCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationSetCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementRecommendationSetDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementRecommendationSetUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementRecommendationSetDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementRecommendationSetUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationSetUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementRecommendationSetUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationSetPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementRecommendationSetAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementRecommendationSet>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementRecommendationSetGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationSetGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementRecommendationSetCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationSetCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementRecommendation: {
+      payload: Prisma.$AutonomousProcurementRecommendationPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementRecommendationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementRecommendationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementRecommendationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementRecommendationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementRecommendationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementRecommendationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementRecommendationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementRecommendationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementRecommendationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementRecommendationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementRecommendationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementRecommendationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementRecommendation>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementRecommendationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementRecommendationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementRecommendationDecision: {
+      payload: Prisma.$AutonomousProcurementRecommendationDecisionPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementRecommendationDecisionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementRecommendationDecisionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementRecommendationDecision>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationDecisionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementRecommendationDecisionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementRecommendationDecisionCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionEnvelope: {
+      payload: Prisma.$AutonomousExecutionEnvelopePayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionEnvelopeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionEnvelopeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionEnvelopeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionEnvelopeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionEnvelopeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionEnvelopeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionEnvelopeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionEnvelopeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionEnvelopeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionEnvelopeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionEnvelopeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionEnvelopeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionEnvelopeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionEnvelopeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionEnvelopeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionEnvelopePayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionEnvelopeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionEnvelope>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionEnvelopeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionEnvelopeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionEnvelopeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionEnvelopeCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionPolicyCheck: {
+      payload: Prisma.$AutonomousExecutionPolicyCheckPayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionPolicyCheckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionPolicyCheckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionPolicyCheckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionPolicyCheckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionPolicyCheckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionPolicyCheckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionPolicyCheckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionPolicyCheckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionPolicyCheckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionPolicyCheckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionPolicyCheckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionPolicyCheckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionPolicyCheckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionPolicyCheckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionPolicyCheckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionPolicyCheckPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionPolicyCheckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionPolicyCheck>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionPolicyCheckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionPolicyCheckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionPolicyCheckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionPolicyCheckCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionDecision: {
+      payload: Prisma.$AutonomousExecutionDecisionPayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionDecisionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionDecisionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionDecisionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionDecisionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionDecisionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionDecisionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionDecisionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionDecisionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionDecisionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionDecisionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionDecisionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionDecisionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionDecisionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionDecisionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionDecisionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionDecisionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionDecisionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionDecision>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionDecisionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionDecisionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionDecisionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionDecisionCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionHandoff: {
+      payload: Prisma.$AutonomousExecutionHandoffPayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionHandoffFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionHandoffFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionHandoffFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionHandoffFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionHandoffFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionHandoffFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionHandoffCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionHandoffCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionHandoffCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionHandoffDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionHandoffUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionHandoffDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionHandoffUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionHandoffUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionHandoffUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionHandoffPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionHandoffAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionHandoff>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionHandoffGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionHandoffGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionHandoffCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionHandoffCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionAdapterJob: {
+      payload: Prisma.$AutonomousExecutionAdapterJobPayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionAdapterJobFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionAdapterJobFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionAdapterJobFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionAdapterJobFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionAdapterJobFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionAdapterJobFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionAdapterJobCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionAdapterJobCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionAdapterJobCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionAdapterJobDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionAdapterJobUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionAdapterJobDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionAdapterJobUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionAdapterJobUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionAdapterJobUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterJobPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionAdapterJobAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionAdapterJob>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionAdapterJobGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionAdapterJobGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionAdapterJobCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionAdapterJobCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousExecutionAdapterDecision: {
+      payload: Prisma.$AutonomousExecutionAdapterDecisionPayload<ExtArgs>
+      fields: Prisma.AutonomousExecutionAdapterDecisionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousExecutionAdapterDecisionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousExecutionAdapterDecisionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousExecutionAdapterDecisionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousExecutionAdapterDecisionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousExecutionAdapterDecisionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousExecutionAdapterDecisionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousExecutionAdapterDecisionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousExecutionAdapterDecisionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousExecutionAdapterDecisionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousExecutionAdapterDecisionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousExecutionAdapterDecisionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousExecutionAdapterDecisionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousExecutionAdapterDecisionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousExecutionAdapterDecisionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousExecutionAdapterDecisionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousExecutionAdapterDecisionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousExecutionAdapterDecision>
+        }
+        groupBy: {
+          args: Prisma.AutonomousExecutionAdapterDecisionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionAdapterDecisionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousExecutionAdapterDecisionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousExecutionAdapterDecisionCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -25745,6 +27620,557 @@ export const SupplierMarketplaceOfferingScalarFieldEnum = {
 export type SupplierMarketplaceOfferingScalarFieldEnum = (typeof SupplierMarketplaceOfferingScalarFieldEnum)[keyof typeof SupplierMarketplaceOfferingScalarFieldEnum]
 
 
+export const SupplierMarketplaceVerificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceProfileId: 'marketplaceProfileId',
+  status: 'status',
+  verificationType: 'verificationType',
+  evidenceSummary: 'evidenceSummary',
+  evidenceRefs: 'evidenceRefs',
+  reviewerNotes: 'reviewerNotes',
+  requestedByUserId: 'requestedByUserId',
+  requestedAt: 'requestedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  expiresAt: 'expiresAt',
+  suspendedAt: 'suspendedAt',
+  suspensionReason: 'suspensionReason',
+  reinstatedAt: 'reinstatedAt',
+  reinstatedByUserId: 'reinstatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceVerificationScalarFieldEnum = (typeof SupplierMarketplaceVerificationScalarFieldEnum)[keyof typeof SupplierMarketplaceVerificationScalarFieldEnum]
+
+
+export const SupplierMarketplaceRatingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceProfileId: 'marketplaceProfileId',
+  ratingType: 'ratingType',
+  overallRating: 'overallRating',
+  qualityRating: 'qualityRating',
+  deliveryRating: 'deliveryRating',
+  serviceRating: 'serviceRating',
+  valueRating: 'valueRating',
+  complianceRating: 'complianceRating',
+  reviewTitle: 'reviewTitle',
+  reviewText: 'reviewText',
+  contextType: 'contextType',
+  contextReference: 'contextReference',
+  reviewerUserId: 'reviewerUserId',
+  reviewerLabel: 'reviewerLabel',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceRatingScalarFieldEnum = (typeof SupplierMarketplaceRatingScalarFieldEnum)[keyof typeof SupplierMarketplaceRatingScalarFieldEnum]
+
+
+export const SupplierMarketplaceMatchRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  requirementText: 'requirementText',
+  category: 'category',
+  country: 'country',
+  requiredCapabilities: 'requiredCapabilities',
+  requiredCertifications: 'requiredCertifications',
+  preferredCurrency: 'preferredCurrency',
+  maxLeadTimeDays: 'maxLeadTimeDays',
+  verificationRequired: 'verificationRequired',
+  weights: 'weights',
+  status: 'status',
+  candidateCount: 'candidateCount',
+  aiExecutionId: 'aiExecutionId',
+  aiSummary: 'aiSummary',
+  aiError: 'aiError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceMatchRunScalarFieldEnum = (typeof SupplierMarketplaceMatchRunScalarFieldEnum)[keyof typeof SupplierMarketplaceMatchRunScalarFieldEnum]
+
+
+export const SupplierMarketplaceMatchResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  matchRunId: 'matchRunId',
+  supplierId: 'supplierId',
+  rank: 'rank',
+  totalScore: 'totalScore',
+  capabilityScore: 'capabilityScore',
+  geographyScore: 'geographyScore',
+  trustScore: 'trustScore',
+  performanceScore: 'performanceScore',
+  riskScore: 'riskScore',
+  catalogScore: 'catalogScore',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierMarketplaceMatchResultScalarFieldEnum = (typeof SupplierMarketplaceMatchResultScalarFieldEnum)[keyof typeof SupplierMarketplaceMatchResultScalarFieldEnum]
+
+
+export const PredictiveProcurementForecastRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  sourceWindowStart: 'sourceWindowStart',
+  sourceWindowEnd: 'sourceWindowEnd',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveProcurementForecastRunScalarFieldEnum = (typeof PredictiveProcurementForecastRunScalarFieldEnum)[keyof typeof PredictiveProcurementForecastRunScalarFieldEnum]
+
+
+export const PredictiveProcurementForecastSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  forecastRunId: 'forecastRunId',
+  signalType: 'signalType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  currentValue: 'currentValue',
+  forecastValue: 'forecastValue',
+  changePercent: 'changePercent',
+  confidence: 'confidence',
+  riskLevel: 'riskLevel',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveProcurementForecastSignalScalarFieldEnum = (typeof PredictiveProcurementForecastSignalScalarFieldEnum)[keyof typeof PredictiveProcurementForecastSignalScalarFieldEnum]
+
+
+export const PredictiveInventoryOptimizationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveInventoryOptimizationRunScalarFieldEnum = (typeof PredictiveInventoryOptimizationRunScalarFieldEnum)[keyof typeof PredictiveInventoryOptimizationRunScalarFieldEnum]
+
+
+export const PredictiveInventoryOptimizationSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  optimizationRunId: 'optimizationRunId',
+  inventoryItemId: 'inventoryItemId',
+  sku: 'sku',
+  itemName: 'itemName',
+  category: 'category',
+  currentOnHand: 'currentOnHand',
+  currentAvailable: 'currentAvailable',
+  currentReserved: 'currentReserved',
+  dailyDemand: 'dailyDemand',
+  horizonDemand: 'horizonDemand',
+  currentReorderPoint: 'currentReorderPoint',
+  predictedReorderPoint: 'predictedReorderPoint',
+  currentSafetyStock: 'currentSafetyStock',
+  recommendedSafetyStock: 'recommendedSafetyStock',
+  suggestedReorderQty: 'suggestedReorderQty',
+  stockoutProbability: 'stockoutProbability',
+  daysOfSupply: 'daysOfSupply',
+  excessQuantity: 'excessQuantity',
+  excessValue: 'excessValue',
+  unitCost: 'unitCost',
+  leadTimeDays: 'leadTimeDays',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveInventoryOptimizationSignalScalarFieldEnum = (typeof PredictiveInventoryOptimizationSignalScalarFieldEnum)[keyof typeof PredictiveInventoryOptimizationSignalScalarFieldEnum]
+
+
+export const PredictiveCapacityPlanningRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  targetHeadroomPct: 'targetHeadroomPct',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveCapacityPlanningRunScalarFieldEnum = (typeof PredictiveCapacityPlanningRunScalarFieldEnum)[keyof typeof PredictiveCapacityPlanningRunScalarFieldEnum]
+
+
+export const PredictiveCapacityPlanningSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  capacityRunId: 'capacityRunId',
+  scopeType: 'scopeType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  currentUnits: 'currentUnits',
+  projectedDemandUnits: 'projectedDemandUnits',
+  projectedInboundUnits: 'projectedInboundUnits',
+  projectedEndingUnits: 'projectedEndingUnits',
+  operatingCapacityProxy: 'operatingCapacityProxy',
+  currentUtilizationPct: 'currentUtilizationPct',
+  projectedUtilizationPct: 'projectedUtilizationPct',
+  capacityGapUnits: 'capacityGapUnits',
+  pressureScore: 'pressureScore',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveCapacityPlanningSignalScalarFieldEnum = (typeof PredictiveCapacityPlanningSignalScalarFieldEnum)[keyof typeof PredictiveCapacityPlanningSignalScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinScenarioScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  name: 'name',
+  description: 'description',
+  scenarioType: 'scenarioType',
+  horizonDays: 'horizonDays',
+  demandShockPct: 'demandShockPct',
+  leadTimeShockPct: 'leadTimeShockPct',
+  costInflationPct: 'costInflationPct',
+  supplierDisruptionPct: 'supplierDisruptionPct',
+  inboundReductionPct: 'inboundReductionPct',
+  safetyStockChangePct: 'safetyStockChangePct',
+  assumptions: 'assumptions',
+  status: 'status',
+  simulatedAt: 'simulatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementDigitalTwinScenarioScalarFieldEnum = (typeof ProcurementDigitalTwinScenarioScalarFieldEnum)[keyof typeof ProcurementDigitalTwinScenarioScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  scenarioId: 'scenarioId',
+  createdByUserId: 'createdByUserId',
+  modelVersion: 'modelVersion',
+  baselineSnapshot: 'baselineSnapshot',
+  scenarioSnapshot: 'scenarioSnapshot',
+  summary: 'summary',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  status: 'status',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementDigitalTwinRunScalarFieldEnum = (typeof ProcurementDigitalTwinRunScalarFieldEnum)[keyof typeof ProcurementDigitalTwinRunScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinImpactScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  digitalTwinRunId: 'digitalTwinRunId',
+  impactType: 'impactType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  baselineValue: 'baselineValue',
+  scenarioValue: 'scenarioValue',
+  varianceValue: 'varianceValue',
+  variancePct: 'variancePct',
+  severity: 'severity',
+  explanation: 'explanation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementDigitalTwinImpactScalarFieldEnum = (typeof ProcurementDigitalTwinImpactScalarFieldEnum)[keyof typeof ProcurementDigitalTwinImpactScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  horizonDays: 'horizonDays',
+  status: 'status',
+  planVersion: 'planVersion',
+  modelVersion: 'modelVersion',
+  sourceSnapshot: 'sourceSnapshot',
+  summary: 'summary',
+  aiExecutionId: 'aiExecutionId',
+  aiNarrative: 'aiNarrative',
+  aiError: 'aiError',
+  overallRiskLevel: 'overallRiskLevel',
+  estimatedSpendUsd: 'estimatedSpendUsd',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  requiresHumanApproval: 'requiresHumanApproval',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementPlanScalarFieldEnum = (typeof AutonomousProcurementPlanScalarFieldEnum)[keyof typeof AutonomousProcurementPlanScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  planId: 'planId',
+  sequence: 'sequence',
+  actionType: 'actionType',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  resourceLabel: 'resourceLabel',
+  priority: 'priority',
+  recommendation: 'recommendation',
+  proposedQuantity: 'proposedQuantity',
+  proposedValueUsd: 'proposedValueUsd',
+  proposedSupplierId: 'proposedSupplierId',
+  confidence: 'confidence',
+  riskLevel: 'riskLevel',
+  evidence: 'evidence',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementPlanActionScalarFieldEnum = (typeof AutonomousProcurementPlanActionScalarFieldEnum)[keyof typeof AutonomousProcurementPlanActionScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  planId: 'planId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  decisionReason: 'decisionReason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementPlanDecisionScalarFieldEnum = (typeof AutonomousProcurementPlanDecisionScalarFieldEnum)[keyof typeof AutonomousProcurementPlanDecisionScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationSetScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  sourcePlanId: 'sourcePlanId',
+  title: 'title',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  overallRiskLevel: 'overallRiskLevel',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  estimatedExposureUsd: 'estimatedExposureUsd',
+  sourceSnapshot: 'sourceSnapshot',
+  summary: 'summary',
+  aiExecutionId: 'aiExecutionId',
+  aiNarrative: 'aiNarrative',
+  aiError: 'aiError',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementRecommendationSetScalarFieldEnum = (typeof AutonomousProcurementRecommendationSetScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationSetScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  recommendationSetId: 'recommendationSetId',
+  sequence: 'sequence',
+  recommendationType: 'recommendationType',
+  title: 'title',
+  description: 'description',
+  priority: 'priority',
+  riskLevel: 'riskLevel',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  estimatedExposureUsd: 'estimatedExposureUsd',
+  confidence: 'confidence',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  resourceLabel: 'resourceLabel',
+  evidence: 'evidence',
+  status: 'status',
+  disposition: 'disposition',
+  dispositionReason: 'dispositionReason',
+  dispositionedByUserId: 'dispositionedByUserId',
+  dispositionedAt: 'dispositionedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementRecommendationScalarFieldEnum = (typeof AutonomousProcurementRecommendationScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  recommendationId: 'recommendationId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementRecommendationDecisionScalarFieldEnum = (typeof AutonomousProcurementRecommendationDecisionScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationDecisionScalarFieldEnum]
+
+
+export const AutonomousExecutionEnvelopeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  sourceLabel: 'sourceLabel',
+  executionType: 'executionType',
+  targetWorkflow: 'targetWorkflow',
+  status: 'status',
+  riskLevel: 'riskLevel',
+  proposedValueUsd: 'proposedValueUsd',
+  proposedQuantity: 'proposedQuantity',
+  proposedSupplierId: 'proposedSupplierId',
+  executionPayload: 'executionPayload',
+  policySnapshot: 'policySnapshot',
+  readinessSummary: 'readinessSummary',
+  requiresHumanRelease: 'requiresHumanRelease',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  handoffStatus: 'handoffStatus',
+  handoffReference: 'handoffReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionEnvelopeScalarFieldEnum = (typeof AutonomousExecutionEnvelopeScalarFieldEnum)[keyof typeof AutonomousExecutionEnvelopeScalarFieldEnum]
+
+
+export const AutonomousExecutionPolicyCheckScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  policyKey: 'policyKey',
+  policyLabel: 'policyLabel',
+  result: 'result',
+  severity: 'severity',
+  blocking: 'blocking',
+  rationale: 'rationale',
+  evidence: 'evidence',
+  evaluatedAt: 'evaluatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionPolicyCheckScalarFieldEnum = (typeof AutonomousExecutionPolicyCheckScalarFieldEnum)[keyof typeof AutonomousExecutionPolicyCheckScalarFieldEnum]
+
+
+export const AutonomousExecutionDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionDecisionScalarFieldEnum = (typeof AutonomousExecutionDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionDecisionScalarFieldEnum]
+
+
+export const AutonomousExecutionHandoffScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  handoffMode: 'handoffMode',
+  status: 'status',
+  payload: 'payload',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionHandoffScalarFieldEnum = (typeof AutonomousExecutionHandoffScalarFieldEnum)[keyof typeof AutonomousExecutionHandoffScalarFieldEnum]
+
+
+export const AutonomousExecutionAdapterJobScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionHandoffId: 'executionHandoffId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  adapterKey: 'adapterKey',
+  nativeRoute: 'nativeRoute',
+  status: 'status',
+  idempotencyKey: 'idempotencyKey',
+  draftPayload: 'draftPayload',
+  validationSnapshot: 'validationSnapshot',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  completedByUserId: 'completedByUserId',
+  completedAt: 'completedAt',
+  failureReason: 'failureReason',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionAdapterJobScalarFieldEnum = (typeof AutonomousExecutionAdapterJobScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterJobScalarFieldEnum]
+
+
+export const AutonomousExecutionAdapterDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adapterJobId: 'adapterJobId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionAdapterDecisionScalarFieldEnum = (typeof AutonomousExecutionAdapterDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterDecisionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -30278,6 +32704,31 @@ export type GlobalOmitConfig = {
   supplierActionRequest?: Prisma.SupplierActionRequestOmit
   supplierMarketplaceProfile?: Prisma.SupplierMarketplaceProfileOmit
   supplierMarketplaceOffering?: Prisma.SupplierMarketplaceOfferingOmit
+  supplierMarketplaceVerification?: Prisma.SupplierMarketplaceVerificationOmit
+  supplierMarketplaceRating?: Prisma.SupplierMarketplaceRatingOmit
+  supplierMarketplaceMatchRun?: Prisma.SupplierMarketplaceMatchRunOmit
+  supplierMarketplaceMatchResult?: Prisma.SupplierMarketplaceMatchResultOmit
+  predictiveProcurementForecastRun?: Prisma.PredictiveProcurementForecastRunOmit
+  predictiveProcurementForecastSignal?: Prisma.PredictiveProcurementForecastSignalOmit
+  predictiveInventoryOptimizationRun?: Prisma.PredictiveInventoryOptimizationRunOmit
+  predictiveInventoryOptimizationSignal?: Prisma.PredictiveInventoryOptimizationSignalOmit
+  predictiveCapacityPlanningRun?: Prisma.PredictiveCapacityPlanningRunOmit
+  predictiveCapacityPlanningSignal?: Prisma.PredictiveCapacityPlanningSignalOmit
+  procurementDigitalTwinScenario?: Prisma.ProcurementDigitalTwinScenarioOmit
+  procurementDigitalTwinRun?: Prisma.ProcurementDigitalTwinRunOmit
+  procurementDigitalTwinImpact?: Prisma.ProcurementDigitalTwinImpactOmit
+  autonomousProcurementPlan?: Prisma.AutonomousProcurementPlanOmit
+  autonomousProcurementPlanAction?: Prisma.AutonomousProcurementPlanActionOmit
+  autonomousProcurementPlanDecision?: Prisma.AutonomousProcurementPlanDecisionOmit
+  autonomousProcurementRecommendationSet?: Prisma.AutonomousProcurementRecommendationSetOmit
+  autonomousProcurementRecommendation?: Prisma.AutonomousProcurementRecommendationOmit
+  autonomousProcurementRecommendationDecision?: Prisma.AutonomousProcurementRecommendationDecisionOmit
+  autonomousExecutionEnvelope?: Prisma.AutonomousExecutionEnvelopeOmit
+  autonomousExecutionPolicyCheck?: Prisma.AutonomousExecutionPolicyCheckOmit
+  autonomousExecutionDecision?: Prisma.AutonomousExecutionDecisionOmit
+  autonomousExecutionHandoff?: Prisma.AutonomousExecutionHandoffOmit
+  autonomousExecutionAdapterJob?: Prisma.AutonomousExecutionAdapterJobOmit
+  autonomousExecutionAdapterDecision?: Prisma.AutonomousExecutionAdapterDecisionOmit
 }
 
 /* Types for Logging */

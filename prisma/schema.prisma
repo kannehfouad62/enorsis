@@ -8894,3 +8894,574 @@ model SupplierMarketplaceOffering {
   @@index([marketplaceProfileId])
   @@index([name])
 }
+
+model SupplierMarketplaceVerification {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  supplierId           String
+  marketplaceProfileId String?
+  status               String    @default("PENDING")
+  verificationType     String    @default("STANDARD")
+  evidenceSummary      String?
+  evidenceRefs         Json?
+  reviewerNotes        String?
+  requestedByUserId    String?
+  requestedAt          DateTime  @default(now())
+  reviewedByUserId     String?
+  reviewedAt           DateTime?
+  expiresAt            DateTime?
+  suspendedAt          DateTime?
+  suspensionReason     String?
+  reinstatedAt         DateTime?
+  reinstatedByUserId   String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([tenantId, supplierId, status])
+  @@index([tenantId, status, requestedAt])
+  @@index([marketplaceProfileId])
+  @@index([expiresAt])
+}
+
+model SupplierMarketplaceRating {
+  id                   String   @id @default(cuid())
+  tenantId             String
+  supplierId           String
+  marketplaceProfileId String?
+  ratingType           String   @default("BUYER_REVIEW")
+  overallRating        Decimal  @db.Decimal(3, 2)
+  qualityRating        Decimal? @db.Decimal(3, 2)
+  deliveryRating       Decimal? @db.Decimal(3, 2)
+  serviceRating        Decimal? @db.Decimal(3, 2)
+  valueRating          Decimal? @db.Decimal(3, 2)
+  complianceRating     Decimal? @db.Decimal(3, 2)
+  reviewTitle          String?
+  reviewText           String?
+  contextType          String?
+  contextReference     String?
+  reviewerUserId       String?
+  reviewerLabel        String?
+  status               String   @default("PUBLISHED")
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@index([tenantId, supplierId, status])
+  @@index([tenantId, createdAt])
+  @@index([marketplaceProfileId])
+  @@index([contextType, contextReference])
+}
+
+model SupplierMarketplaceMatchRun {
+  id                     String   @id @default(cuid())
+  tenantId               String
+  createdByUserId        String
+  title                  String
+  requirementText        String
+  category               String?
+  country                String?
+  requiredCapabilities   Json?
+  requiredCertifications Json?
+  preferredCurrency      String?
+  maxLeadTimeDays        Int?
+  verificationRequired   Boolean  @default(false)
+  weights                Json?
+  status                 String   @default("COMPLETED")
+  candidateCount         Int      @default(0)
+  aiExecutionId          String?
+  aiSummary              String?
+  aiError                String?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, status])
+}
+
+model SupplierMarketplaceMatchResult {
+  id               String   @id @default(cuid())
+  tenantId         String
+  matchRunId       String
+  supplierId       String
+  rank             Int
+  totalScore       Decimal  @db.Decimal(6, 2)
+  capabilityScore  Decimal  @db.Decimal(6, 2)
+  geographyScore   Decimal  @db.Decimal(6, 2)
+  trustScore       Decimal  @db.Decimal(6, 2)
+  performanceScore Decimal  @db.Decimal(6, 2)
+  riskScore        Decimal  @db.Decimal(6, 2)
+  catalogScore     Decimal  @db.Decimal(6, 2)
+  evidence         Json
+  createdAt        DateTime @default(now())
+
+  @@unique([matchRunId, supplierId])
+  @@index([tenantId, matchRunId, rank])
+  @@index([tenantId, supplierId])
+  @@index([totalScore])
+}
+
+model PredictiveProcurementForecastRun {
+  id                String   @id @default(cuid())
+  tenantId          String
+  createdByUserId   String
+  horizonDays       Int      @default(90)
+  modelVersion      String   @default("ENORSIS_PREDICTIVE_V1")
+  status            String   @default("COMPLETED")
+  sourceWindowStart DateTime
+  sourceWindowEnd   DateTime
+  assumptions       Json?
+  generatedAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([tenantId, generatedAt])
+  @@index([tenantId, status])
+}
+
+model PredictiveProcurementForecastSignal {
+  id            String   @id @default(cuid())
+  tenantId      String
+  forecastRunId String
+  signalType    String
+  scopeKey      String
+  scopeLabel    String
+  currentValue  Decimal? @db.Decimal(20, 4)
+  forecastValue Decimal? @db.Decimal(20, 4)
+  changePercent Decimal? @db.Decimal(10, 4)
+  confidence    Decimal? @db.Decimal(6, 2)
+  riskLevel     String   @default("LOW")
+  evidence      Json
+  createdAt     DateTime @default(now())
+
+  @@index([tenantId, forecastRunId, signalType])
+  @@index([tenantId, riskLevel])
+  @@index([scopeKey])
+}
+
+model PredictiveInventoryOptimizationRun {
+  id              String   @id @default(cuid())
+  tenantId        String
+  createdByUserId String
+  horizonDays     Int      @default(90)
+  modelVersion    String   @default("ENORSIS_INVENTORY_OPT_V1")
+  status          String   @default("COMPLETED")
+  assumptions     Json?
+  generatedAt     DateTime @default(now())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([tenantId, generatedAt])
+  @@index([tenantId, status])
+}
+
+model PredictiveInventoryOptimizationSignal {
+  id                     String   @id @default(cuid())
+  tenantId               String
+  optimizationRunId      String
+  inventoryItemId        String
+  sku                    String
+  itemName               String
+  category               String?
+  currentOnHand          Decimal  @db.Decimal(20, 4)
+  currentAvailable       Decimal  @db.Decimal(20, 4)
+  currentReserved        Decimal  @db.Decimal(20, 4)
+  dailyDemand            Decimal  @db.Decimal(20, 6)
+  horizonDemand          Decimal  @db.Decimal(20, 4)
+  currentReorderPoint    Decimal  @db.Decimal(20, 4)
+  predictedReorderPoint  Decimal  @db.Decimal(20, 4)
+  currentSafetyStock     Decimal  @db.Decimal(20, 4)
+  recommendedSafetyStock Decimal  @db.Decimal(20, 4)
+  suggestedReorderQty    Decimal  @db.Decimal(20, 4)
+  stockoutProbability    Decimal  @db.Decimal(6, 2)
+  daysOfSupply           Decimal? @db.Decimal(12, 2)
+  excessQuantity         Decimal  @db.Decimal(20, 4)
+  excessValue            Decimal  @db.Decimal(20, 4)
+  unitCost               Decimal  @db.Decimal(20, 4)
+  leadTimeDays           Int
+  riskLevel              String   @default("LOW")
+  recommendation         String
+  confidence             Decimal  @db.Decimal(6, 2)
+  evidence               Json
+  createdAt              DateTime @default(now())
+
+  @@index([tenantId, optimizationRunId, riskLevel])
+  @@index([tenantId, inventoryItemId])
+  @@index([stockoutProbability])
+  @@index([suggestedReorderQty])
+}
+
+model PredictiveCapacityPlanningRun {
+  id                String   @id @default(cuid())
+  tenantId          String
+  createdByUserId   String
+  horizonDays       Int      @default(90)
+  targetHeadroomPct Decimal  @default(20) @db.Decimal(6, 2)
+  modelVersion      String   @default("ENORSIS_CAPACITY_V1")
+  status            String   @default("COMPLETED")
+  assumptions       Json?
+  generatedAt       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([tenantId, generatedAt])
+  @@index([tenantId, status])
+}
+
+model PredictiveCapacityPlanningSignal {
+  id                      String   @id @default(cuid())
+  tenantId                String
+  capacityRunId           String
+  scopeType               String
+  scopeKey                String
+  scopeLabel              String
+  currentUnits            Decimal  @db.Decimal(20, 4)
+  projectedDemandUnits    Decimal  @db.Decimal(20, 4)
+  projectedInboundUnits   Decimal  @db.Decimal(20, 4)
+  projectedEndingUnits    Decimal  @db.Decimal(20, 4)
+  operatingCapacityProxy  Decimal  @db.Decimal(20, 4)
+  currentUtilizationPct   Decimal  @db.Decimal(8, 2)
+  projectedUtilizationPct Decimal  @db.Decimal(8, 2)
+  capacityGapUnits        Decimal  @db.Decimal(20, 4)
+  pressureScore           Decimal  @db.Decimal(8, 2)
+  riskLevel               String   @default("LOW")
+  recommendation          String
+  confidence              Decimal  @db.Decimal(6, 2)
+  evidence                Json
+  createdAt               DateTime @default(now())
+
+  @@index([tenantId, capacityRunId, riskLevel])
+  @@index([tenantId, scopeType, scopeKey])
+  @@index([projectedUtilizationPct])
+}
+
+model ProcurementDigitalTwinScenario {
+  id                    String    @id @default(cuid())
+  tenantId              String
+  createdByUserId       String
+  name                  String
+  description           String?
+  scenarioType          String    @default("COMBINED")
+  horizonDays           Int       @default(90)
+  demandShockPct        Decimal   @default(0) @db.Decimal(8, 2)
+  leadTimeShockPct      Decimal   @default(0) @db.Decimal(8, 2)
+  costInflationPct      Decimal   @default(0) @db.Decimal(8, 2)
+  supplierDisruptionPct Decimal   @default(0) @db.Decimal(8, 2)
+  inboundReductionPct   Decimal   @default(0) @db.Decimal(8, 2)
+  safetyStockChangePct  Decimal   @default(0) @db.Decimal(8, 2)
+  assumptions           Json?
+  status                String    @default("DRAFT")
+  simulatedAt           DateTime?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, status])
+}
+
+model ProcurementDigitalTwinRun {
+  id               String   @id @default(cuid())
+  tenantId         String
+  scenarioId       String
+  createdByUserId  String
+  modelVersion     String   @default("ENORSIS_DIGITAL_TWIN_V1")
+  baselineSnapshot Json
+  scenarioSnapshot Json
+  summary          Json
+  riskLevel        String   @default("LOW")
+  recommendation   String
+  status           String   @default("COMPLETED")
+  generatedAt      DateTime @default(now())
+  createdAt        DateTime @default(now())
+
+  @@index([tenantId, scenarioId, generatedAt])
+  @@index([tenantId, riskLevel])
+}
+
+model ProcurementDigitalTwinImpact {
+  id               String   @id @default(cuid())
+  tenantId         String
+  digitalTwinRunId String
+  impactType       String
+  scopeKey         String
+  scopeLabel       String
+  baselineValue    Decimal? @db.Decimal(20, 4)
+  scenarioValue    Decimal? @db.Decimal(20, 4)
+  varianceValue    Decimal? @db.Decimal(20, 4)
+  variancePct      Decimal? @db.Decimal(10, 4)
+  severity         String   @default("LOW")
+  explanation      String
+  evidence         Json
+  createdAt        DateTime @default(now())
+
+  @@index([tenantId, digitalTwinRunId, impactType], map: "PDigitalTwinImpact_run_type_idx")
+  @@index([tenantId, severity])
+  @@index([scopeKey])
+}
+
+model AutonomousProcurementPlan {
+  id                    String    @id @default(cuid())
+  tenantId              String
+  createdByUserId       String
+  title                 String
+  horizonDays           Int       @default(90)
+  status                String    @default("PENDING_APPROVAL")
+  planVersion           Int       @default(1)
+  modelVersion          String    @default("ENORSIS_AUTONOMOUS_PLAN_V1")
+  sourceSnapshot        Json
+  summary               Json
+  aiExecutionId         String?
+  aiNarrative           String?
+  aiError               String?
+  overallRiskLevel      String    @default("LOW")
+  estimatedSpendUsd     Decimal   @default(0) @db.Decimal(20, 4)
+  estimatedSavingsUsd   Decimal   @default(0) @db.Decimal(20, 4)
+  requiresHumanApproval Boolean   @default(true)
+  approvedByUserId      String?
+  approvedAt            DateTime?
+  rejectedByUserId      String?
+  rejectedAt            DateTime?
+  rejectionReason       String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "AutoPlan_tenant_created_idx")
+  @@index([tenantId, status], map: "AutoPlan_tenant_status_idx")
+}
+
+model AutonomousProcurementPlanAction {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  planId             String
+  sequence           Int
+  actionType         String
+  resourceType       String
+  resourceId         String?
+  resourceLabel      String
+  priority           String   @default("MEDIUM")
+  recommendation     String
+  proposedQuantity   Decimal? @db.Decimal(20, 4)
+  proposedValueUsd   Decimal? @db.Decimal(20, 4)
+  proposedSupplierId String?
+  confidence         Decimal  @default(50) @db.Decimal(6, 2)
+  riskLevel          String   @default("LOW")
+  evidence           Json
+  status             String   @default("PROPOSED")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@unique([planId, sequence], map: "AutoPlanAction_plan_seq_key")
+  @@index([tenantId, planId, priority], map: "AutoPlanAction_plan_priority_idx")
+  @@index([tenantId, actionType], map: "AutoPlanAction_type_idx")
+}
+
+model AutonomousProcurementPlanDecision {
+  id              String   @id @default(cuid())
+  tenantId        String
+  planId          String
+  decision        String
+  decidedByUserId String
+  decisionReason  String?
+  evidence        Json?
+  createdAt       DateTime @default(now())
+
+  @@index([tenantId, planId, createdAt], map: "AutoPlanDecision_plan_idx")
+  @@index([tenantId, decision], map: "AutoPlanDecision_type_idx")
+}
+
+model AutonomousProcurementRecommendationSet {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  createdByUserId      String
+  sourcePlanId         String?
+  title                String
+  horizonDays          Int       @default(90)
+  modelVersion         String    @default("ENORSIS_AUTONOMOUS_RECOMMEND_V1")
+  status               String    @default("PENDING_REVIEW")
+  overallRiskLevel     String    @default("LOW")
+  estimatedSavingsUsd  Decimal   @default(0) @db.Decimal(20, 4)
+  estimatedExposureUsd Decimal   @default(0) @db.Decimal(20, 4)
+  sourceSnapshot       Json
+  summary              Json
+  aiExecutionId        String?
+  aiNarrative          String?
+  aiError              String?
+  reviewedByUserId     String?
+  reviewedAt           DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "AutoRecSet_tenant_created_idx")
+  @@index([tenantId, status], map: "AutoRecSet_tenant_status_idx")
+  @@index([tenantId, sourcePlanId], map: "AutoRecSet_source_plan_idx")
+}
+
+model AutonomousProcurementRecommendation {
+  id                    String    @id @default(cuid())
+  tenantId              String
+  recommendationSetId   String
+  sequence              Int
+  recommendationType    String
+  title                 String
+  description           String
+  priority              String    @default("MEDIUM")
+  riskLevel             String    @default("LOW")
+  estimatedSavingsUsd   Decimal?  @db.Decimal(20, 4)
+  estimatedExposureUsd  Decimal?  @db.Decimal(20, 4)
+  confidence            Decimal   @default(50) @db.Decimal(6, 2)
+  resourceType          String?
+  resourceId            String?
+  resourceLabel         String?
+  evidence              Json
+  status                String    @default("PROPOSED")
+  disposition           String?
+  dispositionReason     String?
+  dispositionedByUserId String?
+  dispositionedAt       DateTime?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([recommendationSetId, sequence], map: "AutoRec_set_seq_key")
+  @@index([tenantId, recommendationSetId, priority], map: "AutoRec_set_priority_idx")
+  @@index([tenantId, recommendationType], map: "AutoRec_type_idx")
+  @@index([tenantId, status], map: "AutoRec_status_idx")
+}
+
+model AutonomousProcurementRecommendationDecision {
+  id               String   @id @default(cuid())
+  tenantId         String
+  recommendationId String
+  decision         String
+  decidedByUserId  String
+  reason           String?
+  evidence         Json?
+  createdAt        DateTime @default(now())
+
+  @@index([tenantId, recommendationId, createdAt], map: "AutoRecDecision_rec_idx")
+  @@index([tenantId, decision], map: "AutoRecDecision_type_idx")
+}
+
+model AutonomousExecutionEnvelope {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  createdByUserId      String
+  sourceType           String
+  sourceId             String
+  sourceLabel          String
+  executionType        String
+  targetWorkflow       String
+  status               String    @default("PENDING_POLICY_REVIEW")
+  riskLevel            String    @default("LOW")
+  proposedValueUsd     Decimal?  @db.Decimal(20, 4)
+  proposedQuantity     Decimal?  @db.Decimal(20, 4)
+  proposedSupplierId   String?
+  executionPayload     Json
+  policySnapshot       Json
+  readinessSummary     Json
+  requiresHumanRelease Boolean   @default(true)
+  releasedByUserId     String?
+  releasedAt           DateTime?
+  rejectedByUserId     String?
+  rejectedAt           DateTime?
+  rejectionReason      String?
+  handoffStatus        String    @default("NOT_RELEASED")
+  handoffReference     String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@unique([tenantId, sourceType, sourceId], map: "AutoExec_source_key")
+  @@index([tenantId, status], map: "AutoExec_tenant_status_idx")
+  @@index([tenantId, createdAt], map: "AutoExec_tenant_created_idx")
+  @@index([tenantId, executionType], map: "AutoExec_type_idx")
+}
+
+model AutonomousExecutionPolicyCheck {
+  id                  String   @id @default(cuid())
+  tenantId            String
+  executionEnvelopeId String
+  policyKey           String
+  policyLabel         String
+  result              String
+  severity            String   @default("LOW")
+  blocking            Boolean  @default(false)
+  rationale           String
+  evidence            Json
+  evaluatedAt         DateTime @default(now())
+  createdAt           DateTime @default(now())
+
+  @@unique([executionEnvelopeId, policyKey], map: "AutoExecPolicy_env_key")
+  @@index([tenantId, executionEnvelopeId], map: "AutoExecPolicy_env_idx")
+  @@index([tenantId, result], map: "AutoExecPolicy_result_idx")
+}
+
+model AutonomousExecutionDecision {
+  id                  String   @id @default(cuid())
+  tenantId            String
+  executionEnvelopeId String
+  decision            String
+  decidedByUserId     String
+  reason              String?
+  evidence            Json?
+  createdAt           DateTime @default(now())
+
+  @@index([tenantId, executionEnvelopeId, createdAt], map: "AutoExecDecision_env_idx")
+  @@index([tenantId, decision], map: "AutoExecDecision_type_idx")
+}
+
+model AutonomousExecutionHandoff {
+  id                  String   @id @default(cuid())
+  tenantId            String
+  executionEnvelopeId String
+  targetWorkflow      String
+  handoffMode         String   @default("CONTROLLED")
+  status              String   @default("READY_FOR_HANDOFF")
+  payload             Json
+  createdByUserId     String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([tenantId, status], map: "AutoExecHandoff_status_idx")
+  @@index([tenantId, executionEnvelopeId], map: "AutoExecHandoff_env_idx")
+}
+
+model AutonomousExecutionAdapterJob {
+  id                  String    @id @default(cuid())
+  tenantId            String
+  executionHandoffId  String
+  executionEnvelopeId String
+  targetWorkflow      String
+  adapterKey          String
+  nativeRoute         String
+  status              String    @default("DRAFT_READY")
+  idempotencyKey      String
+  draftPayload        Json
+  validationSnapshot  Json
+  nativeReferenceType String?
+  nativeReferenceId   String?
+  nativeReferenceUrl  String?
+  activatedByUserId   String?
+  activatedAt         DateTime?
+  completedByUserId   String?
+  completedAt         DateTime?
+  failureReason       String?
+  createdByUserId     String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@unique([tenantId, idempotencyKey], map: "AutoAdapter_idempotency_key")
+  @@unique([tenantId, executionHandoffId], map: "AutoAdapter_handoff_key")
+  @@index([tenantId, status], map: "AutoAdapter_status_idx")
+  @@index([tenantId, targetWorkflow], map: "AutoAdapter_workflow_idx")
+}
+
+model AutonomousExecutionAdapterDecision {
+  id              String   @id @default(cuid())
+  tenantId        String
+  adapterJobId    String
+  decision        String
+  decidedByUserId String
+  reason          String?
+  evidence        Json?
+  createdAt       DateTime @default(now())
+
+  @@index([tenantId, adapterJobId, createdAt], map: "AutoAdapterDecision_job_idx")
+  @@index([tenantId, decision], map: "AutoAdapterDecision_type_idx")
+}

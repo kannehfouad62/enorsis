@@ -312,7 +312,32 @@ export const ModelName = {
   SupplierSharedDocument: 'SupplierSharedDocument',
   SupplierActionRequest: 'SupplierActionRequest',
   SupplierMarketplaceProfile: 'SupplierMarketplaceProfile',
-  SupplierMarketplaceOffering: 'SupplierMarketplaceOffering'
+  SupplierMarketplaceOffering: 'SupplierMarketplaceOffering',
+  SupplierMarketplaceVerification: 'SupplierMarketplaceVerification',
+  SupplierMarketplaceRating: 'SupplierMarketplaceRating',
+  SupplierMarketplaceMatchRun: 'SupplierMarketplaceMatchRun',
+  SupplierMarketplaceMatchResult: 'SupplierMarketplaceMatchResult',
+  PredictiveProcurementForecastRun: 'PredictiveProcurementForecastRun',
+  PredictiveProcurementForecastSignal: 'PredictiveProcurementForecastSignal',
+  PredictiveInventoryOptimizationRun: 'PredictiveInventoryOptimizationRun',
+  PredictiveInventoryOptimizationSignal: 'PredictiveInventoryOptimizationSignal',
+  PredictiveCapacityPlanningRun: 'PredictiveCapacityPlanningRun',
+  PredictiveCapacityPlanningSignal: 'PredictiveCapacityPlanningSignal',
+  ProcurementDigitalTwinScenario: 'ProcurementDigitalTwinScenario',
+  ProcurementDigitalTwinRun: 'ProcurementDigitalTwinRun',
+  ProcurementDigitalTwinImpact: 'ProcurementDigitalTwinImpact',
+  AutonomousProcurementPlan: 'AutonomousProcurementPlan',
+  AutonomousProcurementPlanAction: 'AutonomousProcurementPlanAction',
+  AutonomousProcurementPlanDecision: 'AutonomousProcurementPlanDecision',
+  AutonomousProcurementRecommendationSet: 'AutonomousProcurementRecommendationSet',
+  AutonomousProcurementRecommendation: 'AutonomousProcurementRecommendation',
+  AutonomousProcurementRecommendationDecision: 'AutonomousProcurementRecommendationDecision',
+  AutonomousExecutionEnvelope: 'AutonomousExecutionEnvelope',
+  AutonomousExecutionPolicyCheck: 'AutonomousExecutionPolicyCheck',
+  AutonomousExecutionDecision: 'AutonomousExecutionDecision',
+  AutonomousExecutionHandoff: 'AutonomousExecutionHandoff',
+  AutonomousExecutionAdapterJob: 'AutonomousExecutionAdapterJob',
+  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5969,6 +5994,557 @@ export const SupplierMarketplaceOfferingScalarFieldEnum = {
 } as const
 
 export type SupplierMarketplaceOfferingScalarFieldEnum = (typeof SupplierMarketplaceOfferingScalarFieldEnum)[keyof typeof SupplierMarketplaceOfferingScalarFieldEnum]
+
+
+export const SupplierMarketplaceVerificationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceProfileId: 'marketplaceProfileId',
+  status: 'status',
+  verificationType: 'verificationType',
+  evidenceSummary: 'evidenceSummary',
+  evidenceRefs: 'evidenceRefs',
+  reviewerNotes: 'reviewerNotes',
+  requestedByUserId: 'requestedByUserId',
+  requestedAt: 'requestedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  expiresAt: 'expiresAt',
+  suspendedAt: 'suspendedAt',
+  suspensionReason: 'suspensionReason',
+  reinstatedAt: 'reinstatedAt',
+  reinstatedByUserId: 'reinstatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceVerificationScalarFieldEnum = (typeof SupplierMarketplaceVerificationScalarFieldEnum)[keyof typeof SupplierMarketplaceVerificationScalarFieldEnum]
+
+
+export const SupplierMarketplaceRatingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceProfileId: 'marketplaceProfileId',
+  ratingType: 'ratingType',
+  overallRating: 'overallRating',
+  qualityRating: 'qualityRating',
+  deliveryRating: 'deliveryRating',
+  serviceRating: 'serviceRating',
+  valueRating: 'valueRating',
+  complianceRating: 'complianceRating',
+  reviewTitle: 'reviewTitle',
+  reviewText: 'reviewText',
+  contextType: 'contextType',
+  contextReference: 'contextReference',
+  reviewerUserId: 'reviewerUserId',
+  reviewerLabel: 'reviewerLabel',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceRatingScalarFieldEnum = (typeof SupplierMarketplaceRatingScalarFieldEnum)[keyof typeof SupplierMarketplaceRatingScalarFieldEnum]
+
+
+export const SupplierMarketplaceMatchRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  requirementText: 'requirementText',
+  category: 'category',
+  country: 'country',
+  requiredCapabilities: 'requiredCapabilities',
+  requiredCertifications: 'requiredCertifications',
+  preferredCurrency: 'preferredCurrency',
+  maxLeadTimeDays: 'maxLeadTimeDays',
+  verificationRequired: 'verificationRequired',
+  weights: 'weights',
+  status: 'status',
+  candidateCount: 'candidateCount',
+  aiExecutionId: 'aiExecutionId',
+  aiSummary: 'aiSummary',
+  aiError: 'aiError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceMatchRunScalarFieldEnum = (typeof SupplierMarketplaceMatchRunScalarFieldEnum)[keyof typeof SupplierMarketplaceMatchRunScalarFieldEnum]
+
+
+export const SupplierMarketplaceMatchResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  matchRunId: 'matchRunId',
+  supplierId: 'supplierId',
+  rank: 'rank',
+  totalScore: 'totalScore',
+  capabilityScore: 'capabilityScore',
+  geographyScore: 'geographyScore',
+  trustScore: 'trustScore',
+  performanceScore: 'performanceScore',
+  riskScore: 'riskScore',
+  catalogScore: 'catalogScore',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierMarketplaceMatchResultScalarFieldEnum = (typeof SupplierMarketplaceMatchResultScalarFieldEnum)[keyof typeof SupplierMarketplaceMatchResultScalarFieldEnum]
+
+
+export const PredictiveProcurementForecastRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  sourceWindowStart: 'sourceWindowStart',
+  sourceWindowEnd: 'sourceWindowEnd',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveProcurementForecastRunScalarFieldEnum = (typeof PredictiveProcurementForecastRunScalarFieldEnum)[keyof typeof PredictiveProcurementForecastRunScalarFieldEnum]
+
+
+export const PredictiveProcurementForecastSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  forecastRunId: 'forecastRunId',
+  signalType: 'signalType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  currentValue: 'currentValue',
+  forecastValue: 'forecastValue',
+  changePercent: 'changePercent',
+  confidence: 'confidence',
+  riskLevel: 'riskLevel',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveProcurementForecastSignalScalarFieldEnum = (typeof PredictiveProcurementForecastSignalScalarFieldEnum)[keyof typeof PredictiveProcurementForecastSignalScalarFieldEnum]
+
+
+export const PredictiveInventoryOptimizationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveInventoryOptimizationRunScalarFieldEnum = (typeof PredictiveInventoryOptimizationRunScalarFieldEnum)[keyof typeof PredictiveInventoryOptimizationRunScalarFieldEnum]
+
+
+export const PredictiveInventoryOptimizationSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  optimizationRunId: 'optimizationRunId',
+  inventoryItemId: 'inventoryItemId',
+  sku: 'sku',
+  itemName: 'itemName',
+  category: 'category',
+  currentOnHand: 'currentOnHand',
+  currentAvailable: 'currentAvailable',
+  currentReserved: 'currentReserved',
+  dailyDemand: 'dailyDemand',
+  horizonDemand: 'horizonDemand',
+  currentReorderPoint: 'currentReorderPoint',
+  predictedReorderPoint: 'predictedReorderPoint',
+  currentSafetyStock: 'currentSafetyStock',
+  recommendedSafetyStock: 'recommendedSafetyStock',
+  suggestedReorderQty: 'suggestedReorderQty',
+  stockoutProbability: 'stockoutProbability',
+  daysOfSupply: 'daysOfSupply',
+  excessQuantity: 'excessQuantity',
+  excessValue: 'excessValue',
+  unitCost: 'unitCost',
+  leadTimeDays: 'leadTimeDays',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveInventoryOptimizationSignalScalarFieldEnum = (typeof PredictiveInventoryOptimizationSignalScalarFieldEnum)[keyof typeof PredictiveInventoryOptimizationSignalScalarFieldEnum]
+
+
+export const PredictiveCapacityPlanningRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  horizonDays: 'horizonDays',
+  targetHeadroomPct: 'targetHeadroomPct',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  assumptions: 'assumptions',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PredictiveCapacityPlanningRunScalarFieldEnum = (typeof PredictiveCapacityPlanningRunScalarFieldEnum)[keyof typeof PredictiveCapacityPlanningRunScalarFieldEnum]
+
+
+export const PredictiveCapacityPlanningSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  capacityRunId: 'capacityRunId',
+  scopeType: 'scopeType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  currentUnits: 'currentUnits',
+  projectedDemandUnits: 'projectedDemandUnits',
+  projectedInboundUnits: 'projectedInboundUnits',
+  projectedEndingUnits: 'projectedEndingUnits',
+  operatingCapacityProxy: 'operatingCapacityProxy',
+  currentUtilizationPct: 'currentUtilizationPct',
+  projectedUtilizationPct: 'projectedUtilizationPct',
+  capacityGapUnits: 'capacityGapUnits',
+  pressureScore: 'pressureScore',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  confidence: 'confidence',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type PredictiveCapacityPlanningSignalScalarFieldEnum = (typeof PredictiveCapacityPlanningSignalScalarFieldEnum)[keyof typeof PredictiveCapacityPlanningSignalScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinScenarioScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  name: 'name',
+  description: 'description',
+  scenarioType: 'scenarioType',
+  horizonDays: 'horizonDays',
+  demandShockPct: 'demandShockPct',
+  leadTimeShockPct: 'leadTimeShockPct',
+  costInflationPct: 'costInflationPct',
+  supplierDisruptionPct: 'supplierDisruptionPct',
+  inboundReductionPct: 'inboundReductionPct',
+  safetyStockChangePct: 'safetyStockChangePct',
+  assumptions: 'assumptions',
+  status: 'status',
+  simulatedAt: 'simulatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProcurementDigitalTwinScenarioScalarFieldEnum = (typeof ProcurementDigitalTwinScenarioScalarFieldEnum)[keyof typeof ProcurementDigitalTwinScenarioScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  scenarioId: 'scenarioId',
+  createdByUserId: 'createdByUserId',
+  modelVersion: 'modelVersion',
+  baselineSnapshot: 'baselineSnapshot',
+  scenarioSnapshot: 'scenarioSnapshot',
+  summary: 'summary',
+  riskLevel: 'riskLevel',
+  recommendation: 'recommendation',
+  status: 'status',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementDigitalTwinRunScalarFieldEnum = (typeof ProcurementDigitalTwinRunScalarFieldEnum)[keyof typeof ProcurementDigitalTwinRunScalarFieldEnum]
+
+
+export const ProcurementDigitalTwinImpactScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  digitalTwinRunId: 'digitalTwinRunId',
+  impactType: 'impactType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  baselineValue: 'baselineValue',
+  scenarioValue: 'scenarioValue',
+  varianceValue: 'varianceValue',
+  variancePct: 'variancePct',
+  severity: 'severity',
+  explanation: 'explanation',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type ProcurementDigitalTwinImpactScalarFieldEnum = (typeof ProcurementDigitalTwinImpactScalarFieldEnum)[keyof typeof ProcurementDigitalTwinImpactScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  title: 'title',
+  horizonDays: 'horizonDays',
+  status: 'status',
+  planVersion: 'planVersion',
+  modelVersion: 'modelVersion',
+  sourceSnapshot: 'sourceSnapshot',
+  summary: 'summary',
+  aiExecutionId: 'aiExecutionId',
+  aiNarrative: 'aiNarrative',
+  aiError: 'aiError',
+  overallRiskLevel: 'overallRiskLevel',
+  estimatedSpendUsd: 'estimatedSpendUsd',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  requiresHumanApproval: 'requiresHumanApproval',
+  approvedByUserId: 'approvedByUserId',
+  approvedAt: 'approvedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementPlanScalarFieldEnum = (typeof AutonomousProcurementPlanScalarFieldEnum)[keyof typeof AutonomousProcurementPlanScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  planId: 'planId',
+  sequence: 'sequence',
+  actionType: 'actionType',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  resourceLabel: 'resourceLabel',
+  priority: 'priority',
+  recommendation: 'recommendation',
+  proposedQuantity: 'proposedQuantity',
+  proposedValueUsd: 'proposedValueUsd',
+  proposedSupplierId: 'proposedSupplierId',
+  confidence: 'confidence',
+  riskLevel: 'riskLevel',
+  evidence: 'evidence',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementPlanActionScalarFieldEnum = (typeof AutonomousProcurementPlanActionScalarFieldEnum)[keyof typeof AutonomousProcurementPlanActionScalarFieldEnum]
+
+
+export const AutonomousProcurementPlanDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  planId: 'planId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  decisionReason: 'decisionReason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementPlanDecisionScalarFieldEnum = (typeof AutonomousProcurementPlanDecisionScalarFieldEnum)[keyof typeof AutonomousProcurementPlanDecisionScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationSetScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  sourcePlanId: 'sourcePlanId',
+  title: 'title',
+  horizonDays: 'horizonDays',
+  modelVersion: 'modelVersion',
+  status: 'status',
+  overallRiskLevel: 'overallRiskLevel',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  estimatedExposureUsd: 'estimatedExposureUsd',
+  sourceSnapshot: 'sourceSnapshot',
+  summary: 'summary',
+  aiExecutionId: 'aiExecutionId',
+  aiNarrative: 'aiNarrative',
+  aiError: 'aiError',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementRecommendationSetScalarFieldEnum = (typeof AutonomousProcurementRecommendationSetScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationSetScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  recommendationSetId: 'recommendationSetId',
+  sequence: 'sequence',
+  recommendationType: 'recommendationType',
+  title: 'title',
+  description: 'description',
+  priority: 'priority',
+  riskLevel: 'riskLevel',
+  estimatedSavingsUsd: 'estimatedSavingsUsd',
+  estimatedExposureUsd: 'estimatedExposureUsd',
+  confidence: 'confidence',
+  resourceType: 'resourceType',
+  resourceId: 'resourceId',
+  resourceLabel: 'resourceLabel',
+  evidence: 'evidence',
+  status: 'status',
+  disposition: 'disposition',
+  dispositionReason: 'dispositionReason',
+  dispositionedByUserId: 'dispositionedByUserId',
+  dispositionedAt: 'dispositionedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementRecommendationScalarFieldEnum = (typeof AutonomousProcurementRecommendationScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationScalarFieldEnum]
+
+
+export const AutonomousProcurementRecommendationDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  recommendationId: 'recommendationId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementRecommendationDecisionScalarFieldEnum = (typeof AutonomousProcurementRecommendationDecisionScalarFieldEnum)[keyof typeof AutonomousProcurementRecommendationDecisionScalarFieldEnum]
+
+
+export const AutonomousExecutionEnvelopeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  createdByUserId: 'createdByUserId',
+  sourceType: 'sourceType',
+  sourceId: 'sourceId',
+  sourceLabel: 'sourceLabel',
+  executionType: 'executionType',
+  targetWorkflow: 'targetWorkflow',
+  status: 'status',
+  riskLevel: 'riskLevel',
+  proposedValueUsd: 'proposedValueUsd',
+  proposedQuantity: 'proposedQuantity',
+  proposedSupplierId: 'proposedSupplierId',
+  executionPayload: 'executionPayload',
+  policySnapshot: 'policySnapshot',
+  readinessSummary: 'readinessSummary',
+  requiresHumanRelease: 'requiresHumanRelease',
+  releasedByUserId: 'releasedByUserId',
+  releasedAt: 'releasedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  handoffStatus: 'handoffStatus',
+  handoffReference: 'handoffReference',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionEnvelopeScalarFieldEnum = (typeof AutonomousExecutionEnvelopeScalarFieldEnum)[keyof typeof AutonomousExecutionEnvelopeScalarFieldEnum]
+
+
+export const AutonomousExecutionPolicyCheckScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  policyKey: 'policyKey',
+  policyLabel: 'policyLabel',
+  result: 'result',
+  severity: 'severity',
+  blocking: 'blocking',
+  rationale: 'rationale',
+  evidence: 'evidence',
+  evaluatedAt: 'evaluatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionPolicyCheckScalarFieldEnum = (typeof AutonomousExecutionPolicyCheckScalarFieldEnum)[keyof typeof AutonomousExecutionPolicyCheckScalarFieldEnum]
+
+
+export const AutonomousExecutionDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionDecisionScalarFieldEnum = (typeof AutonomousExecutionDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionDecisionScalarFieldEnum]
+
+
+export const AutonomousExecutionHandoffScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  handoffMode: 'handoffMode',
+  status: 'status',
+  payload: 'payload',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionHandoffScalarFieldEnum = (typeof AutonomousExecutionHandoffScalarFieldEnum)[keyof typeof AutonomousExecutionHandoffScalarFieldEnum]
+
+
+export const AutonomousExecutionAdapterJobScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionHandoffId: 'executionHandoffId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  adapterKey: 'adapterKey',
+  nativeRoute: 'nativeRoute',
+  status: 'status',
+  idempotencyKey: 'idempotencyKey',
+  draftPayload: 'draftPayload',
+  validationSnapshot: 'validationSnapshot',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  completedByUserId: 'completedByUserId',
+  completedAt: 'completedAt',
+  failureReason: 'failureReason',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousExecutionAdapterJobScalarFieldEnum = (typeof AutonomousExecutionAdapterJobScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterJobScalarFieldEnum]
+
+
+export const AutonomousExecutionAdapterDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adapterJobId: 'adapterJobId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousExecutionAdapterDecisionScalarFieldEnum = (typeof AutonomousExecutionAdapterDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterDecisionScalarFieldEnum]
 
 
 export const SortOrder = {
