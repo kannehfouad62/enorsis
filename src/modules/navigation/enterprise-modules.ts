@@ -22,6 +22,7 @@ import {
   Landmark,
   Leaf,
   Network,
+  MessagesSquare,
   PackageCheck,
   PackageX,
   Presentation,
@@ -264,6 +265,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Enterprise procurement analytics and performance views.",
     href: "/app/analytics",
     icon: Sparkles,
+    group: "Intelligence",
+  },
+  {
+    title: "Specialized AI Assistants",
+    description:
+      "Role-aware Procurement, Supplier, Inventory, Contract and Executive assistants grounded in Enterprise RAG.",
+    href: "/app/ai/assistants",
+    icon: MessagesSquare,
     group: "Intelligence",
   },
   {
