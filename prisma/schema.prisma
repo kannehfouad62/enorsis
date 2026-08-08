@@ -2292,6 +2292,18 @@ enum EnterpriseAutomationRuntimeCallbackStatus {
   DUPLICATE
 }
 
+enum EnterpriseAutomationConnectorType {
+  HTTP
+  WEBHOOK
+  DOMAIN_EVENT
+}
+
+enum EnterpriseAutomationConnectorStatus {
+  ACTIVE
+  DISABLED
+  ARCHIVED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2540,6 +2552,7 @@ model Tenant {
   enterpriseAutomationRuntimeSignals          EnterpriseAutomationRuntimeSignal[]
   enterpriseAutomationRuntimeActions          EnterpriseAutomationRuntimeAction[]
   enterpriseAutomationRuntimeCallbacks        EnterpriseAutomationRuntimeCallback[]
+  enterpriseAutomationConnectors              EnterpriseAutomationConnector[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8520,4 +8533,27 @@ model EnterpriseAutomationRuntimeCallback {
 
   @@unique([tenantId, callbackKey])
   @@index([actionId, status, receivedAt])
+}
+
+model EnterpriseAutomationConnector {
+  id              String                              @id @default(cuid())
+  tenantId        String
+  connectorKey    String
+  name            String
+  type            EnterpriseAutomationConnectorType
+  status          EnterpriseAutomationConnectorStatus @default(ACTIVE)
+  baseUrl         String?
+  allowedHosts    Json?
+  secretEnvKey    String?
+  defaultHeaders  Json?
+  configuration   Json?
+  timeoutMs       Int                                 @default(15000)
+  createdByUserId String?
+  updatedByUserId String?
+  tenant          Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime                            @default(now())
+  updatedAt       DateTime                            @updatedAt
+
+  @@unique([tenantId, connectorKey])
+  @@index([tenantId, status, type])
 }

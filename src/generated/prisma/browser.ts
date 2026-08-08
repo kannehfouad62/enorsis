@@ -1267,3 +1267,8 @@ export type EnterpriseAutomationRuntimeAction = Prisma.EnterpriseAutomationRunti
  * 
  */
 export type EnterpriseAutomationRuntimeCallback = Prisma.EnterpriseAutomationRuntimeCallbackModel
+/**
+ * Model EnterpriseAutomationConnector
+ * 
+ */
+export type EnterpriseAutomationConnector = Prisma.EnterpriseAutomationConnectorModel

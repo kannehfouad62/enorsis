@@ -170,6 +170,15 @@ export function WorkflowInspector({
               <option value="PUBLISH_EVENT">
                 Publish Event
               </option>
+              <option value="HTTP_REQUEST">
+                HTTP Request
+              </option>
+              <option value="WEBHOOK">
+                Webhook
+              </option>
+              <option value="SEND_EMAIL">
+                Send Email
+              </option>
               <option value="LOG_ACTIVITY">
                 Log Activity
               </option>

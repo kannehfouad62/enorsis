@@ -300,7 +300,8 @@ export const ModelName = {
   EnterpriseAutomationRuntimeNode: 'EnterpriseAutomationRuntimeNode',
   EnterpriseAutomationRuntimeSignal: 'EnterpriseAutomationRuntimeSignal',
   EnterpriseAutomationRuntimeAction: 'EnterpriseAutomationRuntimeAction',
-  EnterpriseAutomationRuntimeCallback: 'EnterpriseAutomationRuntimeCallback'
+  EnterpriseAutomationRuntimeCallback: 'EnterpriseAutomationRuntimeCallback',
+  EnterpriseAutomationConnector: 'EnterpriseAutomationConnector'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5649,6 +5650,28 @@ export const EnterpriseAutomationRuntimeCallbackScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationRuntimeCallbackScalarFieldEnum = (typeof EnterpriseAutomationRuntimeCallbackScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeCallbackScalarFieldEnum]
+
+
+export const EnterpriseAutomationConnectorScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  connectorKey: 'connectorKey',
+  name: 'name',
+  type: 'type',
+  status: 'status',
+  baseUrl: 'baseUrl',
+  allowedHosts: 'allowedHosts',
+  secretEnvKey: 'secretEnvKey',
+  defaultHeaders: 'defaultHeaders',
+  configuration: 'configuration',
+  timeoutMs: 'timeoutMs',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationConnectorScalarFieldEnum = (typeof EnterpriseAutomationConnectorScalarFieldEnum)[keyof typeof EnterpriseAutomationConnectorScalarFieldEnum]
 
 
 export const SortOrder = {

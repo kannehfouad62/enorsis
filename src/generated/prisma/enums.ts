@@ -3109,6 +3109,24 @@ export const EnterpriseAutomationRuntimeCallbackStatus = {
 export type EnterpriseAutomationRuntimeCallbackStatus = (typeof EnterpriseAutomationRuntimeCallbackStatus)[keyof typeof EnterpriseAutomationRuntimeCallbackStatus]
 
 
+export const EnterpriseAutomationConnectorType = {
+  HTTP: 'HTTP',
+  WEBHOOK: 'WEBHOOK',
+  DOMAIN_EVENT: 'DOMAIN_EVENT'
+} as const
+
+export type EnterpriseAutomationConnectorType = (typeof EnterpriseAutomationConnectorType)[keyof typeof EnterpriseAutomationConnectorType]
+
+
+export const EnterpriseAutomationConnectorStatus = {
+  ACTIVE: 'ACTIVE',
+  DISABLED: 'DISABLED',
+  ARCHIVED: 'ARCHIVED'
+} as const
+
+export type EnterpriseAutomationConnectorStatus = (typeof EnterpriseAutomationConnectorStatus)[keyof typeof EnterpriseAutomationConnectorStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',
