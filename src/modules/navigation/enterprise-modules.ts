@@ -125,8 +125,9 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
   {
     title: "Procure to Pay",
-    description: "Manage orders, receipts, invoices and payment operations.",
-    href: "/app/procure-to-pay",
+    description:
+      "End-to-end requisition, approval, order, receipt, match and payment readiness.",
+    href: "/app/requisition-to-order",
     icon: ReceiptText,
     group: "Procurement",
   },
@@ -265,9 +266,25 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
   {
     title: "AI Procurement",
-    description: "Governed AI procurement capabilities and execution.",
-    href: "/app/ai",
+    description: "Governed procurement AI capabilities, analysis and human review.",
+    href: "/app/agents",
     icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "AI Automation Copilot",
+    description:
+      "Turn automation intent into governed, explainable workflow designs.",
+    href: "/app/automation/copilot",
+    icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "Enterprise Process Mining",
+    description:
+      "Discover workflow variants, bottlenecks, cycle time and conformance.",
+    href: "/app/analytics/process-mining",
+    icon: ChartNetwork,
     group: "Intelligence",
   },
   {
@@ -411,6 +428,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     title: "Platform Readiness",
     description: "Release checks, evidence, blockers and certification history.",
     href: "/app/settings/platform-readiness",
+    icon: BadgeCheck,
+    group: "Platform",
+  },
+  {
+    title: "Full Enterprise RC1",
+    description:
+      "Enterprise release-candidate evidence, operational gates and certification readiness.",
+    href: "/app/settings/platform-readiness/rc1",
     icon: BadgeCheck,
     group: "Platform",
   },
