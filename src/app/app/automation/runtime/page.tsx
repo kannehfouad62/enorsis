@@ -136,6 +136,52 @@ export default async function DurableAutomationRuntimePage() {
                 </table>
               </div>
 
+              {execution.actions.length > 0 ? (
+                <div className="mt-5">
+                  <p className="text-xs font-black uppercase text-slate-500">
+                    Durable actions
+                  </p>
+
+                  <div className="mt-3 space-y-2">
+                    {execution.actions.map((action) => (
+                      <div
+                        key={action.id}
+                        className="rounded-xl bg-slate-50 p-3 text-xs"
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <p className="font-black">
+                            {action.actionType}
+                          </p>
+
+                          <span>
+                            {action.status}
+                          </span>
+                        </div>
+
+                        <p className="mt-1 text-slate-500">
+                          Dispatches:{" "}
+                          {action.dispatchCount}
+                          {" · "}
+                          callbacks:{" "}
+                          {action.callbacks.length}
+                        </p>
+
+                        <p className="mt-1 break-all font-mono text-[10px] text-slate-400">
+                          {action.idempotencyKey}
+                        </p>
+
+                        {action.externalReference ? (
+                          <p className="mt-1 text-slate-500">
+                            External reference:{" "}
+                            {action.externalReference}
+                          </p>
+                        ) : null}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {execution.status === "FAILED" ? (
                 <div className="mt-5 rounded-2xl bg-red-50 p-4">
                   <p className="font-black text-red-800">

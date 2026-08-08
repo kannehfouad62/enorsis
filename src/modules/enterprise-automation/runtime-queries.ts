@@ -32,6 +32,19 @@ export async function getDurableAutomationRuntimeWorkspace() {
           orderBy: { createdAt: "desc" },
           take: 20,
         },
+        actions: {
+          include: {
+            callbacks: {
+              orderBy: {
+                receivedAt: "desc",
+              },
+              take: 5,
+            },
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
+        },
       },
       orderBy: { createdAt: "desc" },
       take: 100,

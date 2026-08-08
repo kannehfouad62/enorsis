@@ -3087,6 +3087,28 @@ export const EnterpriseAutomationRuntimeSignalType = {
 export type EnterpriseAutomationRuntimeSignalType = (typeof EnterpriseAutomationRuntimeSignalType)[keyof typeof EnterpriseAutomationRuntimeSignalType]
 
 
+export const EnterpriseAutomationRuntimeActionStatus = {
+  PENDING: 'PENDING',
+  DISPATCHED: 'DISPATCHED',
+  ACKNOWLEDGED: 'ACKNOWLEDGED',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type EnterpriseAutomationRuntimeActionStatus = (typeof EnterpriseAutomationRuntimeActionStatus)[keyof typeof EnterpriseAutomationRuntimeActionStatus]
+
+
+export const EnterpriseAutomationRuntimeCallbackStatus = {
+  RECEIVED: 'RECEIVED',
+  ACCEPTED: 'ACCEPTED',
+  REJECTED: 'REJECTED',
+  DUPLICATE: 'DUPLICATE'
+} as const
+
+export type EnterpriseAutomationRuntimeCallbackStatus = (typeof EnterpriseAutomationRuntimeCallbackStatus)[keyof typeof EnterpriseAutomationRuntimeCallbackStatus]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

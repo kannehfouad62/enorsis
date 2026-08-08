@@ -320,6 +320,7 @@ export type EnterpriseAutomationRuntimeExecutionWhereInput = {
   rule?: Prisma.XOR<Prisma.EnterpriseAutomationRuleScalarRelationFilter, Prisma.EnterpriseAutomationRuleWhereInput>
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeListRelationFilter
   signals?: Prisma.EnterpriseAutomationRuntimeSignalListRelationFilter
+  actions?: Prisma.EnterpriseAutomationRuntimeActionListRelationFilter
 }
 
 export type EnterpriseAutomationRuntimeExecutionOrderByWithRelationInput = {
@@ -346,6 +347,7 @@ export type EnterpriseAutomationRuntimeExecutionOrderByWithRelationInput = {
   rule?: Prisma.EnterpriseAutomationRuleOrderByWithRelationInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeOrderByRelationAggregateInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalOrderByRelationAggregateInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionOrderByRelationAggregateInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionWhereUniqueInput = Prisma.AtLeast<{
@@ -376,6 +378,7 @@ export type EnterpriseAutomationRuntimeExecutionWhereUniqueInput = Prisma.AtLeas
   rule?: Prisma.XOR<Prisma.EnterpriseAutomationRuleScalarRelationFilter, Prisma.EnterpriseAutomationRuleWhereInput>
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeListRelationFilter
   signals?: Prisma.EnterpriseAutomationRuntimeSignalListRelationFilter
+  actions?: Prisma.EnterpriseAutomationRuntimeActionListRelationFilter
 }, "id" | "tenantId_executionNumber">
 
 export type EnterpriseAutomationRuntimeExecutionOrderByWithAggregationInput = {
@@ -452,6 +455,7 @@ export type EnterpriseAutomationRuntimeExecutionCreateInput = {
   rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedCreateInput = {
@@ -476,6 +480,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateInput = {
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUpdateInput = {
@@ -500,6 +505,7 @@ export type EnterpriseAutomationRuntimeExecutionUpdateInput = {
   rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateInput = {
@@ -524,6 +530,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateManyInput = {
@@ -794,6 +801,20 @@ export type EnterpriseAutomationRuntimeExecutionUpdateOneRequiredWithoutSignalsN
   update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionUpdateToOneWithWhereWithoutSignalsInput, Prisma.EnterpriseAutomationRuntimeExecutionUpdateWithoutSignalsInput>, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutSignalsInput>
 }
 
+export type EnterpriseAutomationRuntimeExecutionCreateNestedOneWithoutActionsInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutActionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutActionsInput
+  connect?: Prisma.EnterpriseAutomationRuntimeExecutionWhereUniqueInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionUpdateOneRequiredWithoutActionsNestedInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutActionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutActionsInput
+  upsert?: Prisma.EnterpriseAutomationRuntimeExecutionUpsertWithoutActionsInput
+  connect?: Prisma.EnterpriseAutomationRuntimeExecutionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionUpdateToOneWithWhereWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUpdateWithoutActionsInput>, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutActionsInput>
+}
+
 export type EnterpriseAutomationRuntimeExecutionCreateWithoutTenantInput = {
   id?: string
   versionId?: string | null
@@ -815,6 +836,7 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutTenantInput = {
   rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutTenantInput = {
@@ -838,6 +860,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutTenantInpu
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutTenantInput = {
@@ -912,6 +935,7 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutRuleInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutRuleInput = {
@@ -935,6 +959,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutRuleInput 
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutRuleInput = {
@@ -984,6 +1009,7 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutNodesInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
   rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutNodesInput = {
@@ -1007,6 +1033,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutNodesInput
   createdAt?: Date | string
   updatedAt?: Date | string
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutNodesInput = {
@@ -1046,6 +1073,7 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutNodesInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
   rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutNodesInput = {
@@ -1069,6 +1097,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutNodesInput
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateWithoutSignalsInput = {
@@ -1092,6 +1121,7 @@ export type EnterpriseAutomationRuntimeExecutionCreateWithoutSignalsInput = {
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
   rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutSignalsInput = {
@@ -1115,6 +1145,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutSignalsInp
   createdAt?: Date | string
   updatedAt?: Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutExecutionInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutSignalsInput = {
@@ -1154,6 +1185,7 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutSignalsInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
   rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutSignalsInput = {
@@ -1177,6 +1209,119 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutSignalsInp
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutExecutionNestedInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionCreateWithoutActionsInput = {
+  id?: string
+  versionId?: string | null
+  executionNumber: string
+  status?: $Enums.EnterpriseAutomationRuntimeStatus
+  graphSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  input: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  context?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  wakeAt?: Date | string | null
+  initiatedByUserId?: string | null
+  startedAt?: Date | string
+  completedAt?: Date | string | null
+  lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeExecutionsInput
+  rule: Prisma.EnterpriseAutomationRuleCreateNestedOneWithoutRuntimeExecutionsInput
+  nodes?: Prisma.EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutExecutionInput
+  signals?: Prisma.EnterpriseAutomationRuntimeSignalCreateNestedManyWithoutExecutionInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutActionsInput = {
+  id?: string
+  tenantId: string
+  ruleId: string
+  versionId?: string | null
+  executionNumber: string
+  status?: $Enums.EnterpriseAutomationRuntimeStatus
+  graphSnapshot: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  input: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  context?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  wakeAt?: Date | string | null
+  initiatedByUserId?: string | null
+  startedAt?: Date | string
+  completedAt?: Date | string | null
+  lastError?: string | null
+  recoveryCount?: number
+  lastRecoveredAt?: Date | string | null
+  recoveredByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateNestedManyWithoutExecutionInput
+  signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedCreateNestedManyWithoutExecutionInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionCreateOrConnectWithoutActionsInput = {
+  where: Prisma.EnterpriseAutomationRuntimeExecutionWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutActionsInput>
+}
+
+export type EnterpriseAutomationRuntimeExecutionUpsertWithoutActionsInput = {
+  update: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionUpdateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutActionsInput>
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedCreateWithoutActionsInput>
+  where?: Prisma.EnterpriseAutomationRuntimeExecutionWhereInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionUpdateToOneWithWhereWithoutActionsInput = {
+  where?: Prisma.EnterpriseAutomationRuntimeExecutionWhereInput
+  data: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionUpdateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutActionsInput>
+}
+
+export type EnterpriseAutomationRuntimeExecutionUpdateWithoutActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  versionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executionNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumEnterpriseAutomationRuntimeStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuntimeStatus
+  graphSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  input?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  context?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  wakeAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  initiatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
+  rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
+  nodes?: Prisma.EnterpriseAutomationRuntimeNodeUpdateManyWithoutExecutionNestedInput
+  signals?: Prisma.EnterpriseAutomationRuntimeSignalUpdateManyWithoutExecutionNestedInput
+}
+
+export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  ruleId?: Prisma.StringFieldUpdateOperationsInput | string
+  versionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  executionNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumEnterpriseAutomationRuntimeStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuntimeStatus
+  graphSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  input?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  context?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  wakeAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  initiatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recoveryCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  recoveredByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
+  signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionCreateManyTenantInput = {
@@ -1221,6 +1366,7 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutTenantInput = {
   rule?: Prisma.EnterpriseAutomationRuleUpdateOneRequiredWithoutRuntimeExecutionsNestedInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutTenantInput = {
@@ -1244,6 +1390,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutTenantInpu
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyWithoutTenantInput = {
@@ -1309,6 +1456,7 @@ export type EnterpriseAutomationRuntimeExecutionUpdateWithoutRuleInput = {
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeExecutionsNestedInput
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutRuleInput = {
@@ -1332,6 +1480,7 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateWithoutRuleInput 
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   nodes?: Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionNestedInput
   signals?: Prisma.EnterpriseAutomationRuntimeSignalUncheckedUpdateManyWithoutExecutionNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutExecutionNestedInput
 }
 
 export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyWithoutRuleInput = {
@@ -1363,11 +1512,13 @@ export type EnterpriseAutomationRuntimeExecutionUncheckedUpdateManyWithoutRuleIn
 export type EnterpriseAutomationRuntimeExecutionCountOutputType = {
   nodes: number
   signals: number
+  actions: number
 }
 
 export type EnterpriseAutomationRuntimeExecutionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   nodes?: boolean | EnterpriseAutomationRuntimeExecutionCountOutputTypeCountNodesArgs
   signals?: boolean | EnterpriseAutomationRuntimeExecutionCountOutputTypeCountSignalsArgs
+  actions?: boolean | EnterpriseAutomationRuntimeExecutionCountOutputTypeCountActionsArgs
 }
 
 /**
@@ -1392,6 +1543,13 @@ export type EnterpriseAutomationRuntimeExecutionCountOutputTypeCountNodesArgs<Ex
  */
 export type EnterpriseAutomationRuntimeExecutionCountOutputTypeCountSignalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.EnterpriseAutomationRuntimeSignalWhereInput
+}
+
+/**
+ * EnterpriseAutomationRuntimeExecutionCountOutputType without action
+ */
+export type EnterpriseAutomationRuntimeExecutionCountOutputTypeCountActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnterpriseAutomationRuntimeActionWhereInput
 }
 
 
@@ -1419,6 +1577,7 @@ export type EnterpriseAutomationRuntimeExecutionSelect<ExtArgs extends runtime.T
   rule?: boolean | Prisma.EnterpriseAutomationRuleDefaultArgs<ExtArgs>
   nodes?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$nodesArgs<ExtArgs>
   signals?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$signalsArgs<ExtArgs>
+  actions?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$actionsArgs<ExtArgs>
   _count?: boolean | Prisma.EnterpriseAutomationRuntimeExecutionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["enterpriseAutomationRuntimeExecution"]>
 
@@ -1498,6 +1657,7 @@ export type EnterpriseAutomationRuntimeExecutionInclude<ExtArgs extends runtime.
   rule?: boolean | Prisma.EnterpriseAutomationRuleDefaultArgs<ExtArgs>
   nodes?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$nodesArgs<ExtArgs>
   signals?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$signalsArgs<ExtArgs>
+  actions?: boolean | Prisma.EnterpriseAutomationRuntimeExecution$actionsArgs<ExtArgs>
   _count?: boolean | Prisma.EnterpriseAutomationRuntimeExecutionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type EnterpriseAutomationRuntimeExecutionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1516,6 +1676,7 @@ export type $EnterpriseAutomationRuntimeExecutionPayload<ExtArgs extends runtime
     rule: Prisma.$EnterpriseAutomationRulePayload<ExtArgs>
     nodes: Prisma.$EnterpriseAutomationRuntimeNodePayload<ExtArgs>[]
     signals: Prisma.$EnterpriseAutomationRuntimeSignalPayload<ExtArgs>[]
+    actions: Prisma.$EnterpriseAutomationRuntimeActionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1935,6 +2096,7 @@ export interface Prisma__EnterpriseAutomationRuntimeExecutionClient<T, Null = ne
   rule<T extends Prisma.EnterpriseAutomationRuleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuleDefaultArgs<ExtArgs>>): Prisma.Prisma__EnterpriseAutomationRuleClient<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRulePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   nodes<T extends Prisma.EnterpriseAutomationRuntimeExecution$nodesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuntimeExecution$nodesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuntimeNodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   signals<T extends Prisma.EnterpriseAutomationRuntimeExecution$signalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuntimeExecution$signalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuntimeSignalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  actions<T extends Prisma.EnterpriseAutomationRuntimeExecution$actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuntimeExecution$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuntimeActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2429,6 +2591,30 @@ export type EnterpriseAutomationRuntimeExecution$signalsArgs<ExtArgs extends run
   take?: number
   skip?: number
   distinct?: Prisma.EnterpriseAutomationRuntimeSignalScalarFieldEnum | Prisma.EnterpriseAutomationRuntimeSignalScalarFieldEnum[]
+}
+
+/**
+ * EnterpriseAutomationRuntimeExecution.actions
+ */
+export type EnterpriseAutomationRuntimeExecution$actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationRuntimeAction
+   */
+  select?: Prisma.EnterpriseAutomationRuntimeActionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnterpriseAutomationRuntimeAction
+   */
+  omit?: Prisma.EnterpriseAutomationRuntimeActionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnterpriseAutomationRuntimeActionInclude<ExtArgs> | null
+  where?: Prisma.EnterpriseAutomationRuntimeActionWhereInput
+  orderBy?: Prisma.EnterpriseAutomationRuntimeActionOrderByWithRelationInput | Prisma.EnterpriseAutomationRuntimeActionOrderByWithRelationInput[]
+  cursor?: Prisma.EnterpriseAutomationRuntimeActionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnterpriseAutomationRuntimeActionScalarFieldEnum | Prisma.EnterpriseAutomationRuntimeActionScalarFieldEnum[]
 }
 
 /**

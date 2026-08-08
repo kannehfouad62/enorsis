@@ -298,7 +298,9 @@ export const ModelName = {
   EnterpriseAutomationSimulation: 'EnterpriseAutomationSimulation',
   EnterpriseAutomationRuntimeExecution: 'EnterpriseAutomationRuntimeExecution',
   EnterpriseAutomationRuntimeNode: 'EnterpriseAutomationRuntimeNode',
-  EnterpriseAutomationRuntimeSignal: 'EnterpriseAutomationRuntimeSignal'
+  EnterpriseAutomationRuntimeSignal: 'EnterpriseAutomationRuntimeSignal',
+  EnterpriseAutomationRuntimeAction: 'EnterpriseAutomationRuntimeAction',
+  EnterpriseAutomationRuntimeCallback: 'EnterpriseAutomationRuntimeCallback'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5607,6 +5609,46 @@ export const EnterpriseAutomationRuntimeSignalScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationRuntimeSignalScalarFieldEnum = (typeof EnterpriseAutomationRuntimeSignalScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeSignalScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuntimeActionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionId: 'executionId',
+  runtimeNodeId: 'runtimeNodeId',
+  nodeId: 'nodeId',
+  actionType: 'actionType',
+  idempotencyKey: 'idempotencyKey',
+  status: 'status',
+  requestPayload: 'requestPayload',
+  responsePayload: 'responsePayload',
+  externalReference: 'externalReference',
+  dispatchCount: 'dispatchCount',
+  lastDispatchedAt: 'lastDispatchedAt',
+  acknowledgedAt: 'acknowledgedAt',
+  completedAt: 'completedAt',
+  failedAt: 'failedAt',
+  lastError: 'lastError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseAutomationRuntimeActionScalarFieldEnum = (typeof EnterpriseAutomationRuntimeActionScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeActionScalarFieldEnum]
+
+
+export const EnterpriseAutomationRuntimeCallbackScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  actionId: 'actionId',
+  callbackKey: 'callbackKey',
+  status: 'status',
+  payload: 'payload',
+  source: 'source',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt'
+} as const
+
+export type EnterpriseAutomationRuntimeCallbackScalarFieldEnum = (typeof EnterpriseAutomationRuntimeCallbackScalarFieldEnum)[keyof typeof EnterpriseAutomationRuntimeCallbackScalarFieldEnum]
 
 
 export const SortOrder = {

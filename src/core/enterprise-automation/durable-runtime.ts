@@ -12,6 +12,7 @@ import {
   timeoutAtForNode,
 } from "./durable-runtime-policy";
 import { isDurableJoinReady } from "./durable-join";
+import { dispatchDurableAutomationAction } from "./runtime-action-dispatch";
 
 function getPath(
   value: Record<string, unknown>,
@@ -328,23 +329,144 @@ export async function resumeDurableAutomationExecution(input: {
     }
 
     if (node.type === "ACTION") {
-      await publishDomainEvent({
-        tenantId: input.tenantId,
-        eventType:
-          "EnterpriseAutomation.RuntimeActionRequested",
-        aggregateType:
-          "EnterpriseAutomationRuntimeExecution",
-        aggregateId: execution.id,
-        sourceModule: "enterprise-automation",
-        payload: {
-          executionId: execution.id,
-          nodeId: node.id,
-          actionType:
-            node.configuration.actionType ?? null,
-          configuration: node.configuration,
-          input: execution.input,
-        },
-      });
+      const existingAction =
+        await prisma.enterpriseAutomationRuntimeAction.findFirst({
+          where: {
+            runtimeNodeId: checkpoint.id,
+          },
+          orderBy: {
+            createdAt: "desc",
+          },
+        });
+
+      if (existingAction?.status === "COMPLETED") {
+        // The external action already completed.
+        // Continue through the graph without dispatching it again.
+      } else if (
+        existingAction &&
+        ["DISPATCHED", "ACKNOWLEDGED"].includes(
+          existingAction.status,
+        )
+      ) {
+        await prisma.enterpriseAutomationRuntimeNode.update({
+          where: {
+            id: checkpoint.id,
+          },
+          data: {
+            status: "WAITING",
+            waitReason: "ACTION_CALLBACK",
+          },
+        });
+
+        await prisma.enterpriseAutomationRuntimeExecution.update({
+          where: {
+            id: execution.id,
+          },
+          data: {
+            status: "WAITING",
+            wakeAt: null,
+          },
+        });
+
+        break;
+      } else {
+        const retryPolicy = durableRetryPolicy(node);
+
+        const nextAttempt =
+          checkpoint.attemptCount + 1;
+
+        if (
+          checkpoint.lastError &&
+          nextAttempt < retryPolicy.maxAttempts
+        ) {
+          const delayMinutes =
+            retryDelayForAttempt(
+              retryPolicy,
+              nextAttempt,
+            );
+
+          const availableAt =
+            delayMinutes > 0
+              ? new Date(
+                  Date.now() +
+                    delayMinutes * 60_000,
+                )
+              : new Date();
+
+          await prisma.enterpriseAutomationRuntimeNode.update({
+            where: {
+              id: checkpoint.id,
+            },
+            data: {
+              status: "WAITING",
+              waitReason: "RETRY",
+              availableAt,
+              retryDelayMinutes:
+                delayMinutes,
+            },
+          });
+
+          await prisma.enterpriseAutomationRuntimeExecution.update({
+            where: {
+              id: execution.id,
+            },
+            data: {
+              status: "WAITING",
+              wakeAt: availableAt,
+            },
+          });
+
+          break;
+        }
+
+        const dispatch =
+          await dispatchDurableAutomationAction({
+            tenantId: input.tenantId,
+            executionId: execution.id,
+            runtimeNodeId: checkpoint.id,
+            node,
+            executionInput:
+              execution.input,
+          });
+
+        if (
+          dispatch.action.status !==
+          "COMPLETED"
+        ) {
+          await prisma.enterpriseAutomationRuntimeNode.update({
+            where: {
+              id: checkpoint.id,
+            },
+            data: {
+              status: "WAITING",
+              waitReason:
+                "ACTION_CALLBACK",
+              result: toJson({
+                actionId:
+                  dispatch.action.id,
+                idempotencyKey:
+                  dispatch.action
+                    .idempotencyKey,
+                duplicateSuppressed:
+                  dispatch
+                    .duplicateSuppressed,
+              }),
+            },
+          });
+
+          await prisma.enterpriseAutomationRuntimeExecution.update({
+            where: {
+              id: execution.id,
+            },
+            data: {
+              status: "WAITING",
+              wakeAt: null,
+            },
+          });
+
+          break;
+        }
+      }
     }
 
     await prisma.enterpriseAutomationRuntimeNode.update({

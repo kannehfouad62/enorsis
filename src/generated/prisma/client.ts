@@ -1281,3 +1281,13 @@ export type EnterpriseAutomationRuntimeNode = Prisma.EnterpriseAutomationRuntime
  * 
  */
 export type EnterpriseAutomationRuntimeSignal = Prisma.EnterpriseAutomationRuntimeSignalModel
+/**
+ * Model EnterpriseAutomationRuntimeAction
+ * 
+ */
+export type EnterpriseAutomationRuntimeAction = Prisma.EnterpriseAutomationRuntimeActionModel
+/**
+ * Model EnterpriseAutomationRuntimeCallback
+ * 
+ */
+export type EnterpriseAutomationRuntimeCallback = Prisma.EnterpriseAutomationRuntimeCallbackModel

@@ -5134,6 +5134,40 @@ export type EnumEnterpriseAutomationRuntimeSignalTypeWithAggregatesFilter<$Prism
   _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeSignalTypeFilter<$PrismaModel>
 }
 
+export type EnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeActionStatus | Prisma.EnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeActionStatus
+}
+
+export type EnumEnterpriseAutomationRuntimeActionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeActionStatus | Prisma.EnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeActionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel>
+}
+
+export type EnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeCallbackStatus | Prisma.EnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeCallbackStatus
+}
+
+export type EnumEnterpriseAutomationRuntimeCallbackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeCallbackStatus | Prisma.EnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeCallbackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -10211,6 +10245,40 @@ export type NestedEnumEnterpriseAutomationRuntimeSignalTypeWithAggregatesFilter<
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseAutomationRuntimeSignalTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeSignalTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeActionStatus | Prisma.EnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeActionStatus
+}
+
+export type NestedEnumEnterpriseAutomationRuntimeActionStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeActionStatus | Prisma.EnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeActionStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeActionStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeActionStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeActionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeCallbackStatus | Prisma.EnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeCallbackStatus
+}
+
+export type NestedEnumEnterpriseAutomationRuntimeCallbackStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationRuntimeCallbackStatus | Prisma.EnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationRuntimeCallbackStatus[] | Prisma.ListEnumEnterpriseAutomationRuntimeCallbackStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationRuntimeCallbackStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationRuntimeCallbackStatusFilter<$PrismaModel>
 }
 
 

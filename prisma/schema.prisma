@@ -2276,6 +2276,22 @@ enum EnterpriseAutomationRuntimeSignalType {
   CANCEL
 }
 
+enum EnterpriseAutomationRuntimeActionStatus {
+  PENDING
+  DISPATCHED
+  ACKNOWLEDGED
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum EnterpriseAutomationRuntimeCallbackStatus {
+  RECEIVED
+  ACCEPTED
+  REJECTED
+  DUPLICATE
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2522,6 +2538,8 @@ model Tenant {
   enterpriseAutomationRuntimeExecutions       EnterpriseAutomationRuntimeExecution[]
   enterpriseAutomationRuntimeNodes            EnterpriseAutomationRuntimeNode[]
   enterpriseAutomationRuntimeSignals          EnterpriseAutomationRuntimeSignal[]
+  enterpriseAutomationRuntimeActions          EnterpriseAutomationRuntimeAction[]
+  enterpriseAutomationRuntimeCallbacks        EnterpriseAutomationRuntimeCallback[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8401,6 +8419,7 @@ model EnterpriseAutomationRuntimeExecution {
   recoveryCount     Int                                 @default(0)
   lastRecoveredAt   DateTime?
   recoveredByUserId String?
+  actions           EnterpriseAutomationRuntimeAction[]
   createdAt         DateTime                            @default(now())
   updatedAt         DateTime                            @updatedAt
 
@@ -8430,6 +8449,7 @@ model EnterpriseAutomationRuntimeNode {
   execution         EnterpriseAutomationRuntimeExecution  @relation(fields: [executionId], references: [id], onDelete: Cascade)
   failureCode       String?
   retryDelayMinutes Int?
+  actions           EnterpriseAutomationRuntimeAction[]
   createdAt         DateTime                              @default(now())
   updatedAt         DateTime                              @updatedAt
 
@@ -8453,4 +8473,51 @@ model EnterpriseAutomationRuntimeSignal {
 
   @@index([tenantId, signalType, consumedAt])
   @@index([executionId, correlationKey, consumedAt])
+}
+
+model EnterpriseAutomationRuntimeAction {
+  id                String                                  @id @default(cuid())
+  tenantId          String
+  executionId       String
+  runtimeNodeId     String
+  nodeId            String
+  actionType        String
+  idempotencyKey    String
+  status            EnterpriseAutomationRuntimeActionStatus @default(PENDING)
+  requestPayload    Json
+  responsePayload   Json?
+  externalReference String?
+  dispatchCount     Int                                     @default(0)
+  lastDispatchedAt  DateTime?
+  acknowledgedAt    DateTime?
+  completedAt       DateTime?
+  failedAt          DateTime?
+  lastError         String?
+  tenant            Tenant                                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  execution         EnterpriseAutomationRuntimeExecution    @relation(fields: [executionId], references: [id], onDelete: Cascade)
+  runtimeNode       EnterpriseAutomationRuntimeNode         @relation(fields: [runtimeNodeId], references: [id], onDelete: Cascade)
+  callbacks         EnterpriseAutomationRuntimeCallback[]
+  createdAt         DateTime                                @default(now())
+  updatedAt         DateTime                                @updatedAt
+
+  @@unique([tenantId, idempotencyKey])
+  @@index([executionId, status, createdAt])
+  @@index([runtimeNodeId, status])
+}
+
+model EnterpriseAutomationRuntimeCallback {
+  id          String                                    @id @default(cuid())
+  tenantId    String
+  actionId    String
+  callbackKey String
+  status      EnterpriseAutomationRuntimeCallbackStatus @default(RECEIVED)
+  payload     Json
+  source      String?
+  receivedAt  DateTime                                  @default(now())
+  processedAt DateTime?
+  tenant      Tenant                                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  action      EnterpriseAutomationRuntimeAction         @relation(fields: [actionId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, callbackKey])
+  @@index([actionId, status, receivedAt])
 }

@@ -334,6 +334,7 @@ export type EnterpriseAutomationRuntimeNodeWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeNode"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   execution?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionScalarRelationFilter, Prisma.EnterpriseAutomationRuntimeExecutionWhereInput>
+  actions?: Prisma.EnterpriseAutomationRuntimeActionListRelationFilter
 }
 
 export type EnterpriseAutomationRuntimeNodeOrderByWithRelationInput = {
@@ -359,6 +360,7 @@ export type EnterpriseAutomationRuntimeNodeOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
   execution?: Prisma.EnterpriseAutomationRuntimeExecutionOrderByWithRelationInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionOrderByRelationAggregateInput
 }
 
 export type EnterpriseAutomationRuntimeNodeWhereUniqueInput = Prisma.AtLeast<{
@@ -387,6 +389,7 @@ export type EnterpriseAutomationRuntimeNodeWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationRuntimeNode"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   execution?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeExecutionScalarRelationFilter, Prisma.EnterpriseAutomationRuntimeExecutionWhereInput>
+  actions?: Prisma.EnterpriseAutomationRuntimeActionListRelationFilter
 }, "id">
 
 export type EnterpriseAutomationRuntimeNodeOrderByWithAggregationInput = {
@@ -464,6 +467,7 @@ export type EnterpriseAutomationRuntimeNodeCreateInput = {
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeNodesInput
   execution: Prisma.EnterpriseAutomationRuntimeExecutionCreateNestedOneWithoutNodesInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedCreateInput = {
@@ -487,6 +491,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedCreateInput = {
   retryDelayMinutes?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUpdateInput = {
@@ -510,6 +515,7 @@ export type EnterpriseAutomationRuntimeNodeUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeNodesNestedInput
   execution?: Prisma.EnterpriseAutomationRuntimeExecutionUpdateOneRequiredWithoutNodesNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedUpdateInput = {
@@ -533,6 +539,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedUpdateInput = {
   retryDelayMinutes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeCreateManyInput = {
@@ -687,6 +694,11 @@ export type EnterpriseAutomationRuntimeNodeSumOrderByAggregateInput = {
   retryDelayMinutes?: Prisma.SortOrder
 }
 
+export type EnterpriseAutomationRuntimeNodeScalarRelationFilter = {
+  is?: Prisma.EnterpriseAutomationRuntimeNodeWhereInput
+  isNot?: Prisma.EnterpriseAutomationRuntimeNodeWhereInput
+}
+
 export type EnterpriseAutomationRuntimeNodeCreateNestedManyWithoutTenantInput = {
   create?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutTenantInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutTenantInput> | Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutTenantInput[] | Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutTenantInput[]
   connectOrCreate?: Prisma.EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutTenantInput | Prisma.EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutTenantInput[]
@@ -775,6 +787,20 @@ export type EnumEnterpriseAutomationRuntimeNodeStatusFieldUpdateOperationsInput 
   set?: $Enums.EnterpriseAutomationRuntimeNodeStatus
 }
 
+export type EnterpriseAutomationRuntimeNodeCreateNestedOneWithoutActionsInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutActionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutActionsInput
+  connect?: Prisma.EnterpriseAutomationRuntimeNodeWhereUniqueInput
+}
+
+export type EnterpriseAutomationRuntimeNodeUpdateOneRequiredWithoutActionsNestedInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutActionsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutActionsInput
+  upsert?: Prisma.EnterpriseAutomationRuntimeNodeUpsertWithoutActionsInput
+  connect?: Prisma.EnterpriseAutomationRuntimeNodeWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeUpdateToOneWithWhereWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUpdateWithoutActionsInput>, Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutActionsInput>
+}
+
 export type EnterpriseAutomationRuntimeNodeCreateWithoutTenantInput = {
   id?: string
   nodeId: string
@@ -795,6 +821,7 @@ export type EnterpriseAutomationRuntimeNodeCreateWithoutTenantInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   execution: Prisma.EnterpriseAutomationRuntimeExecutionCreateNestedOneWithoutNodesInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutTenantInput = {
@@ -817,6 +844,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutTenantInput = {
   retryDelayMinutes?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutTenantInput = {
@@ -891,6 +919,7 @@ export type EnterpriseAutomationRuntimeNodeCreateWithoutExecutionInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeNodesInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutExecutionInput = {
@@ -913,6 +942,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutExecutionInput 
   retryDelayMinutes?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedCreateNestedManyWithoutRuntimeNodeInput
 }
 
 export type EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutExecutionInput = {
@@ -939,6 +969,114 @@ export type EnterpriseAutomationRuntimeNodeUpdateWithWhereUniqueWithoutExecution
 export type EnterpriseAutomationRuntimeNodeUpdateManyWithWhereWithoutExecutionInput = {
   where: Prisma.EnterpriseAutomationRuntimeNodeScalarWhereInput
   data: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeUpdateManyMutationInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionInput>
+}
+
+export type EnterpriseAutomationRuntimeNodeCreateWithoutActionsInput = {
+  id?: string
+  nodeId: string
+  nodeType: string
+  branchKey?: string | null
+  status?: $Enums.EnterpriseAutomationRuntimeNodeStatus
+  attemptCount?: number
+  availableAt?: Date | string | null
+  timeoutAt?: Date | string | null
+  waitReason?: string | null
+  payload?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  result?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  lastError?: string | null
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  failureCode?: string | null
+  retryDelayMinutes?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationRuntimeNodesInput
+  execution: Prisma.EnterpriseAutomationRuntimeExecutionCreateNestedOneWithoutNodesInput
+}
+
+export type EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutActionsInput = {
+  id?: string
+  tenantId: string
+  executionId: string
+  nodeId: string
+  nodeType: string
+  branchKey?: string | null
+  status?: $Enums.EnterpriseAutomationRuntimeNodeStatus
+  attemptCount?: number
+  availableAt?: Date | string | null
+  timeoutAt?: Date | string | null
+  waitReason?: string | null
+  payload?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  result?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  lastError?: string | null
+  startedAt?: Date | string | null
+  completedAt?: Date | string | null
+  failureCode?: string | null
+  retryDelayMinutes?: number | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EnterpriseAutomationRuntimeNodeCreateOrConnectWithoutActionsInput = {
+  where: Prisma.EnterpriseAutomationRuntimeNodeWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutActionsInput>
+}
+
+export type EnterpriseAutomationRuntimeNodeUpsertWithoutActionsInput = {
+  update: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeUpdateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutActionsInput>
+  create: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeCreateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedCreateWithoutActionsInput>
+  where?: Prisma.EnterpriseAutomationRuntimeNodeWhereInput
+}
+
+export type EnterpriseAutomationRuntimeNodeUpdateToOneWithWhereWithoutActionsInput = {
+  where?: Prisma.EnterpriseAutomationRuntimeNodeWhereInput
+  data: Prisma.XOR<Prisma.EnterpriseAutomationRuntimeNodeUpdateWithoutActionsInput, Prisma.EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutActionsInput>
+}
+
+export type EnterpriseAutomationRuntimeNodeUpdateWithoutActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  nodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  nodeType?: Prisma.StringFieldUpdateOperationsInput | string
+  branchKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuntimeNodeStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuntimeNodeStatus
+  attemptCount?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timeoutAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  waitReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payload?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  result?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  failureCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  retryDelayMinutes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeNodesNestedInput
+  execution?: Prisma.EnterpriseAutomationRuntimeExecutionUpdateOneRequiredWithoutNodesNestedInput
+}
+
+export type EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutActionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  executionId?: Prisma.StringFieldUpdateOperationsInput | string
+  nodeId?: Prisma.StringFieldUpdateOperationsInput | string
+  nodeType?: Prisma.StringFieldUpdateOperationsInput | string
+  branchKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumEnterpriseAutomationRuntimeNodeStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationRuntimeNodeStatus
+  attemptCount?: Prisma.IntFieldUpdateOperationsInput | number
+  availableAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  timeoutAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  waitReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  payload?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  result?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  lastError?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  failureCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  retryDelayMinutes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EnterpriseAutomationRuntimeNodeCreateManyTenantInput = {
@@ -983,6 +1121,7 @@ export type EnterpriseAutomationRuntimeNodeUpdateWithoutTenantInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   execution?: Prisma.EnterpriseAutomationRuntimeExecutionUpdateOneRequiredWithoutNodesNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutTenantInput = {
@@ -1005,6 +1144,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutTenantInput = {
   retryDelayMinutes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutTenantInput = {
@@ -1071,6 +1211,7 @@ export type EnterpriseAutomationRuntimeNodeUpdateWithoutExecutionInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationRuntimeNodesNestedInput
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutExecutionInput = {
@@ -1093,6 +1234,7 @@ export type EnterpriseAutomationRuntimeNodeUncheckedUpdateWithoutExecutionInput 
   retryDelayMinutes?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  actions?: Prisma.EnterpriseAutomationRuntimeActionUncheckedUpdateManyWithoutRuntimeNodeNestedInput
 }
 
 export type EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionInput = {
@@ -1118,6 +1260,35 @@ export type EnterpriseAutomationRuntimeNodeUncheckedUpdateManyWithoutExecutionIn
 }
 
 
+/**
+ * Count Type EnterpriseAutomationRuntimeNodeCountOutputType
+ */
+
+export type EnterpriseAutomationRuntimeNodeCountOutputType = {
+  actions: number
+}
+
+export type EnterpriseAutomationRuntimeNodeCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  actions?: boolean | EnterpriseAutomationRuntimeNodeCountOutputTypeCountActionsArgs
+}
+
+/**
+ * EnterpriseAutomationRuntimeNodeCountOutputType without action
+ */
+export type EnterpriseAutomationRuntimeNodeCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationRuntimeNodeCountOutputType
+   */
+  select?: Prisma.EnterpriseAutomationRuntimeNodeCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * EnterpriseAutomationRuntimeNodeCountOutputType without action
+ */
+export type EnterpriseAutomationRuntimeNodeCountOutputTypeCountActionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnterpriseAutomationRuntimeActionWhereInput
+}
+
 
 export type EnterpriseAutomationRuntimeNodeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1142,6 +1313,8 @@ export type EnterpriseAutomationRuntimeNodeSelect<ExtArgs extends runtime.Types.
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   execution?: boolean | Prisma.EnterpriseAutomationRuntimeExecutionDefaultArgs<ExtArgs>
+  actions?: boolean | Prisma.EnterpriseAutomationRuntimeNode$actionsArgs<ExtArgs>
+  _count?: boolean | Prisma.EnterpriseAutomationRuntimeNodeCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["enterpriseAutomationRuntimeNode"]>
 
 export type EnterpriseAutomationRuntimeNodeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1221,6 +1394,8 @@ export type EnterpriseAutomationRuntimeNodeOmit<ExtArgs extends runtime.Types.Ex
 export type EnterpriseAutomationRuntimeNodeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   execution?: boolean | Prisma.EnterpriseAutomationRuntimeExecutionDefaultArgs<ExtArgs>
+  actions?: boolean | Prisma.EnterpriseAutomationRuntimeNode$actionsArgs<ExtArgs>
+  _count?: boolean | Prisma.EnterpriseAutomationRuntimeNodeCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type EnterpriseAutomationRuntimeNodeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1236,6 +1411,7 @@ export type $EnterpriseAutomationRuntimeNodePayload<ExtArgs extends runtime.Type
   objects: {
     tenant: Prisma.$TenantPayload<ExtArgs>
     execution: Prisma.$EnterpriseAutomationRuntimeExecutionPayload<ExtArgs>
+    actions: Prisma.$EnterpriseAutomationRuntimeActionPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1654,6 +1830,7 @@ export interface Prisma__EnterpriseAutomationRuntimeNodeClient<T, Null = never, 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   execution<T extends Prisma.EnterpriseAutomationRuntimeExecutionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuntimeExecutionDefaultArgs<ExtArgs>>): Prisma.Prisma__EnterpriseAutomationRuntimeExecutionClient<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuntimeExecutionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  actions<T extends Prisma.EnterpriseAutomationRuntimeNode$actionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationRuntimeNode$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationRuntimeActionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2101,6 +2278,30 @@ export type EnterpriseAutomationRuntimeNodeDeleteManyArgs<ExtArgs extends runtim
    * Limit how many EnterpriseAutomationRuntimeNodes to delete.
    */
   limit?: number
+}
+
+/**
+ * EnterpriseAutomationRuntimeNode.actions
+ */
+export type EnterpriseAutomationRuntimeNode$actionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationRuntimeAction
+   */
+  select?: Prisma.EnterpriseAutomationRuntimeActionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnterpriseAutomationRuntimeAction
+   */
+  omit?: Prisma.EnterpriseAutomationRuntimeActionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnterpriseAutomationRuntimeActionInclude<ExtArgs> | null
+  where?: Prisma.EnterpriseAutomationRuntimeActionWhereInput
+  orderBy?: Prisma.EnterpriseAutomationRuntimeActionOrderByWithRelationInput | Prisma.EnterpriseAutomationRuntimeActionOrderByWithRelationInput[]
+  cursor?: Prisma.EnterpriseAutomationRuntimeActionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnterpriseAutomationRuntimeActionScalarFieldEnum | Prisma.EnterpriseAutomationRuntimeActionScalarFieldEnum[]
 }
 
 /**
