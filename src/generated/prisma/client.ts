@@ -1301,3 +1301,13 @@ export type EnterpriseAutomationConnector = Prisma.EnterpriseAutomationConnector
  * 
  */
 export type EnterpriseAutomationConnectorAudit = Prisma.EnterpriseAutomationConnectorAuditModel
+/**
+ * Model EnterpriseKnowledgeSource
+ * 
+ */
+export type EnterpriseKnowledgeSource = Prisma.EnterpriseKnowledgeSourceModel
+/**
+ * Model EnterpriseKnowledgeChunk
+ * 
+ */
+export type EnterpriseKnowledgeChunk = Prisma.EnterpriseKnowledgeChunkModel

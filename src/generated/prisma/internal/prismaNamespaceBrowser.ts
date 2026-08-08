@@ -302,7 +302,9 @@ export const ModelName = {
   EnterpriseAutomationRuntimeAction: 'EnterpriseAutomationRuntimeAction',
   EnterpriseAutomationRuntimeCallback: 'EnterpriseAutomationRuntimeCallback',
   EnterpriseAutomationConnector: 'EnterpriseAutomationConnector',
-  EnterpriseAutomationConnectorAudit: 'EnterpriseAutomationConnectorAudit'
+  EnterpriseAutomationConnectorAudit: 'EnterpriseAutomationConnectorAudit',
+  EnterpriseKnowledgeSource: 'EnterpriseKnowledgeSource',
+  EnterpriseKnowledgeChunk: 'EnterpriseKnowledgeChunk'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5712,6 +5714,40 @@ export const EnterpriseAutomationConnectorAuditScalarFieldEnum = {
 } as const
 
 export type EnterpriseAutomationConnectorAuditScalarFieldEnum = (typeof EnterpriseAutomationConnectorAuditScalarFieldEnum)[keyof typeof EnterpriseAutomationConnectorAuditScalarFieldEnum]
+
+
+export const EnterpriseKnowledgeSourceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  sourceType: 'sourceType',
+  title: 'title',
+  description: 'description',
+  externalReference: 'externalReference',
+  status: 'status',
+  contentHash: 'contentHash',
+  metadata: 'metadata',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterpriseKnowledgeSourceScalarFieldEnum = (typeof EnterpriseKnowledgeSourceScalarFieldEnum)[keyof typeof EnterpriseKnowledgeSourceScalarFieldEnum]
+
+
+export const EnterpriseKnowledgeChunkScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  sourceId: 'sourceId',
+  ordinal: 'ordinal',
+  content: 'content',
+  tokenEstimate: 'tokenEstimate',
+  embedding: 'embedding',
+  embeddingModel: 'embeddingModel',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseKnowledgeChunkScalarFieldEnum = (typeof EnterpriseKnowledgeChunkScalarFieldEnum)[keyof typeof EnterpriseKnowledgeChunkScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -265,10 +265,19 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
   {
-    title: "AI Procurement",
-    description: "Governed procurement AI capabilities, analysis and human review.",
-    href: "/app/agents",
+    title: "Unified Procurement AI",
+    description:
+      "Tenant-grounded procurement intelligence across contracts, suppliers, policies and procedures.",
+    href: "/app/ai/workspace",
     icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "Enterprise Knowledge & RAG",
+    description:
+      "Govern tenant knowledge sources, embeddings and semantic retrieval for Enorsis AI.",
+    href: "/app/ai/knowledge",
+    icon: BookOpenCheck,
     group: "Intelligence",
   },
   {
