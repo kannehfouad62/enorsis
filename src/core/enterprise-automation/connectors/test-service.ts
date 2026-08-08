@@ -4,6 +4,7 @@ import {
   resolveConnectorSecret,
   validateAutomationConnectorUrl,
 } from "./security";
+import { getAutomationConnectorCircuitState } from "./circuit-breaker";
 
 export async function testAutomationConnector(input: {
   tenantId: string;
@@ -16,6 +17,11 @@ export async function testAutomationConnector(input: {
         tenantId: input.tenantId,
       },
     });
+
+  const circuitBeforeTest = getAutomationConnectorCircuitState({
+    consecutiveFailures: connector.consecutiveFailures,
+    lastFailureAt: connector.lastFailureAt,
+  });
 
   try {
     if (connector.type === "HTTP" || connector.type === "WEBHOOK") {
@@ -44,10 +50,14 @@ export async function testAutomationConnector(input: {
         lastTestStatus: "PASSED",
         lastTestMessage:
           "Connector configuration passed governance validation.",
+        consecutiveFailures: 0,
       },
     });
 
-    return { ok: true };
+    return {
+      ok: true,
+      recovered: circuitBeforeTest.state !== "CLOSED",
+    };
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Connector test failed.";
@@ -61,6 +71,6 @@ export async function testAutomationConnector(input: {
       },
     });
 
-    return { ok: false, message };
+    return { ok: false, message, recovered: false };
   }
 }

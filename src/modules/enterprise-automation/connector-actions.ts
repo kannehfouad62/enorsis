@@ -33,8 +33,7 @@ export async function createAutomationConnectorAction(
     .toUpperCase()
     .replace(/[^A-Z0-9_]+/g, "_");
 
-  const created =
-    await prisma.enterpriseAutomationConnector.create({
+  const created = await prisma.enterpriseAutomationConnector.create({
     data: {
       tenantId: user.tenantId,
       connectorKey,
@@ -48,8 +47,7 @@ export async function createAutomationConnectorAction(
       allowedHosts: toJson(
         parseHosts(field(data, "allowedHosts")),
       ),
-      secretEnvKey:
-        field(data, "secretEnvKey") || null,
+      secretEnvKey: field(data, "secretEnvKey") || null,
       defaultHeaders: toJson({}),
       configuration: toJson({}),
       timeoutMs: Math.max(
@@ -80,16 +78,8 @@ export async function setAutomationConnectorStatusAction(
   data: FormData,
 ) {
   const user = await requireAnyRole([...adminRoles]);
-
-  const connectorId = field(
-    data,
-    "connectorId",
-  );
-
-  const nextStatus = field(
-    data,
-    "status",
-  ) as
+  const connectorId = field(data, "connectorId");
+  const nextStatus = field(data, "status") as
     | "ACTIVE"
     | "DISABLED"
     | "ARCHIVED";
@@ -125,17 +115,12 @@ export async function testAutomationConnectorAction(
   data: FormData,
 ) {
   const user = await requireAnyRole([...adminRoles]);
+  const connectorId = field(data, "connectorId");
 
-  const connectorId = field(
-    data,
-    "connectorId",
-  );
-
-  const result =
-    await testAutomationConnector({
-      tenantId: user.tenantId,
-      connectorId,
-    });
+  const result = await testAutomationConnector({
+    tenantId: user.tenantId,
+    connectorId,
+  });
 
   await recordAutomationConnectorAudit({
     tenantId: user.tenantId,
@@ -147,10 +132,20 @@ export async function testAutomationConnectorAction(
       (result.ok
         ? "Connector test passed."
         : "Connector test failed."),
-    metadata: {
-      ok: result.ok,
-    },
+    metadata: { ok: result.ok },
   });
 
+  if (result.ok && result.recovered) {
+    await recordAutomationConnectorAudit({
+      tenantId: user.tenantId,
+      connectorId,
+      type: "CIRCUIT_RECOVERY_SUCCEEDED",
+      actorUserId: user.id,
+      message:
+        "Connector governance test succeeded and reset the circuit failure streak.",
+    });
+  }
+
   revalidatePath("/app/automation/connectors");
+  revalidatePath("/app/automation/connectors/observability");
 }

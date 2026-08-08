@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { getAutomationConnectorCircuitState } from "./circuit-breaker";
 
 export async function getAutomationConnectorMetrics(
   tenantId: string,
@@ -16,9 +17,7 @@ export async function getAutomationConnectorMetrics(
     });
 
   return connectors.map((connector) => {
-    const total =
-      connector.successCount +
-      connector.failureCount;
+    const total = connector.successCount + connector.failureCount;
 
     const successRate =
       total > 0
@@ -27,19 +26,30 @@ export async function getAutomationConnectorMetrics(
           ) / 100
         : null;
 
+    const circuit = getAutomationConnectorCircuitState({
+      consecutiveFailures: connector.consecutiveFailures,
+      lastFailureAt: connector.lastFailureAt,
+    });
+
     const health =
       connector.status !== "ACTIVE"
         ? "INACTIVE"
-        : connector.consecutiveFailures >= 3
-          ? "DEGRADED"
-          : connector.lastTestStatus === "FAILED"
-            ? "WARNING"
-            : "HEALTHY";
+        : circuit.state === "OPEN"
+          ? "OPEN_CIRCUIT"
+          : circuit.state === "RECOVERY_READY"
+            ? "RECOVERY"
+            : connector.consecutiveFailures >= 3
+              ? "DEGRADED"
+              : connector.lastTestStatus === "FAILED"
+                ? "WARNING"
+                : "HEALTHY";
 
     return {
       ...connector,
       successRate,
       health,
+      circuitState: circuit.state,
+      circuitRetryAt: circuit.retryAt,
     };
   });
 }

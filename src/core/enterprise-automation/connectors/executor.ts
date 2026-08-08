@@ -12,12 +12,32 @@ import {
 } from "./registry-service";
 import { enforceAutomationConnectorPolicy } from "./policy";
 import { recordAutomationConnectorAudit } from "./audit-service";
+import {
+  AUTOMATION_CONNECTOR_CIRCUIT_FAILURE_THRESHOLD,
+  AutomationConnectorCircuitOpenError,
+  assertAutomationConnectorCircuitAvailable,
+  type AutomationConnectorCircuitState,
+} from "./circuit-breaker";
 
 type StoredActionRequest = {
   actionType?: unknown;
   configuration?: unknown;
   input?: unknown;
 };
+
+async function failAutomationAction(
+  actionId: string,
+  message: string,
+) {
+  return prisma.enterpriseAutomationRuntimeAction.update({
+    where: { id: actionId },
+    data: {
+      status: "FAILED",
+      failedAt: new Date(),
+      lastError: message,
+    },
+  });
+}
 
 export async function executePendingAutomationAction(
   actionId: string,
@@ -34,17 +54,13 @@ export async function executePendingAutomationAction(
     return action;
   }
 
-  const request =
-    action.requestPayload as StoredActionRequest;
+  const request = action.requestPayload as StoredActionRequest;
 
   const configuration =
     request.configuration &&
     typeof request.configuration === "object" &&
     !Array.isArray(request.configuration)
-      ? (request.configuration as Record<
-          string,
-          unknown
-        >)
+      ? (request.configuration as Record<string, unknown>)
       : {};
 
   const connectorKey =
@@ -54,6 +70,7 @@ export async function executePendingAutomationAction(
 
   let governedConfiguration = configuration;
   let governedConnectorId: string | null = null;
+  let governedCircuitState: AutomationConnectorCircuitState = "CLOSED";
 
   if (connectorKey) {
     const resolved =
@@ -65,25 +82,41 @@ export async function executePendingAutomationAction(
     governedConnectorId = resolved.connector.id;
 
     try {
-      await enforceAutomationConnectorPolicy({
-        tenantId: action.tenantId,
-        connectorId: governedConnectorId,
+      const connector =
+        await enforceAutomationConnectorPolicy({
+          tenantId: action.tenantId,
+          connectorId: governedConnectorId,
+        });
+
+      const circuit = assertAutomationConnectorCircuitAvailable({
+        connectorKey: connector.connectorKey,
+        consecutiveFailures: connector.consecutiveFailures,
+        lastFailureAt: connector.lastFailureAt,
       });
+
+      governedCircuitState = circuit.state;
     } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Connector governance blocked execution.";
+      const circuitOpen =
+        error instanceof AutomationConnectorCircuitOpenError;
+
       await recordAutomationConnectorAudit({
         tenantId: action.tenantId,
         connectorId: governedConnectorId,
-        type: "POLICY_BLOCKED",
+        type: circuitOpen ? "CIRCUIT_BLOCKED" : "POLICY_BLOCKED",
         actionId: action.id,
-        message:
-          error instanceof Error
-            ? error.message
-            : "Connector policy blocked execution.",
+        message,
+        metadata: circuitOpen
+          ? { retryAt: error.retryAt.toISOString() }
+          : undefined,
       });
 
+      await failAutomationAction(action.id, message);
       throw error;
     }
-
 
     governedConfiguration = {
       ...configuration,
@@ -91,10 +124,7 @@ export async function executePendingAutomationAction(
     };
   }
 
-  const adapter =
-    resolveAutomationConnectorAdapter(
-      action.actionType,
-    );
+  const adapter = resolveAutomationConnectorAdapter(action.actionType);
 
   try {
     const result = await adapter.execute({
@@ -102,24 +132,17 @@ export async function executePendingAutomationAction(
       actionId: action.id,
       idempotencyKey: action.idempotencyKey,
       actionType: action.actionType,
-      configuration:
-        governedConfiguration,
+      configuration: governedConfiguration,
       input: request.input,
     });
 
     if (governedConnectorId) {
-      await recordAutomationConnectorUsage(
-        governedConnectorId,
-      );
+      await recordAutomationConnectorUsage(governedConnectorId);
 
       await prisma.enterpriseAutomationConnector.update({
-        where: {
-          id: governedConnectorId,
-        },
+        where: { id: governedConnectorId },
         data: {
-          successCount: {
-            increment: 1,
-          },
+          successCount: { increment: 1 },
           consecutiveFailures: 0,
         },
       });
@@ -127,10 +150,15 @@ export async function executePendingAutomationAction(
       await recordAutomationConnectorAudit({
         tenantId: action.tenantId,
         connectorId: governedConnectorId,
-        type: "EXECUTED",
+        type:
+          governedCircuitState === "RECOVERY_READY"
+            ? "CIRCUIT_RECOVERY_SUCCEEDED"
+            : "EXECUTED",
         actionId: action.id,
         message:
-          "Connector action executed successfully.",
+          governedCircuitState === "RECOVERY_READY"
+            ? "Connector recovery probe succeeded and the circuit was closed."
+            : "Connector action executed successfully.",
       });
     }
 
@@ -140,11 +168,8 @@ export async function executePendingAutomationAction(
         data: {
           status: "ACKNOWLEDGED",
           acknowledgedAt: new Date(),
-          externalReference:
-            result.externalReference ?? null,
-          responsePayload: toJson(
-            result.payload ?? {},
-          ),
+          externalReference: result.externalReference ?? null,
+          responsePayload: toJson(result.payload ?? {}),
         },
       });
     }
@@ -157,8 +182,7 @@ export async function executePendingAutomationAction(
           result.mode === "ACKNOWLEDGED"
             ? "ACKNOWLEDGED"
             : "COMPLETED",
-        externalReference:
-          result.externalReference ?? null,
+        externalReference: result.externalReference ?? null,
         source: "ENORSIS_CONNECTOR_EXECUTOR",
         payload: result.payload ?? {},
         externalCallbackId:
@@ -171,24 +195,17 @@ export async function executePendingAutomationAction(
         ? error.message
         : "Unknown connector execution failure.";
 
-    
-
     if (governedConnectorId) {
-      await prisma.enterpriseAutomationConnector.update({
-        where: {
-          id: governedConnectorId,
-        },
-        data: {
-          failureCount: {
-            increment: 1,
+      const connector =
+        await prisma.enterpriseAutomationConnector.update({
+          where: { id: governedConnectorId },
+          data: {
+            failureCount: { increment: 1 },
+            consecutiveFailures: { increment: 1 },
+            lastFailureAt: new Date(),
+            lastFailureMessage: message,
           },
-          consecutiveFailures: {
-            increment: 1,
-          },
-          lastFailureAt: new Date(),
-          lastFailureMessage: message,
-        },
-      });
+        });
 
       await recordAutomationConnectorAudit({
         tenantId: action.tenantId,
@@ -197,16 +214,32 @@ export async function executePendingAutomationAction(
         actionId: action.id,
         message,
       });
-    }
-await prisma.enterpriseAutomationRuntimeAction.update({
-      where: { id: action.id },
-      data: {
-        status: "FAILED",
-        failedAt: new Date(),
-        lastError: message,
-      },
-    });
 
+      if (governedCircuitState === "RECOVERY_READY") {
+        await recordAutomationConnectorAudit({
+          tenantId: action.tenantId,
+          connectorId: governedConnectorId,
+          type: "CIRCUIT_RECOVERY_FAILED",
+          actionId: action.id,
+          message:
+            "Connector recovery probe failed; the circuit cooldown was restarted.",
+        });
+      } else if (
+        connector.consecutiveFailures ===
+        AUTOMATION_CONNECTOR_CIRCUIT_FAILURE_THRESHOLD
+      ) {
+        await recordAutomationConnectorAudit({
+          tenantId: action.tenantId,
+          connectorId: governedConnectorId,
+          type: "CIRCUIT_OPENED",
+          actionId: action.id,
+          message:
+            "Connector circuit opened after repeated execution failures.",
+        });
+      }
+    }
+
+    await failAutomationAction(action.id, message);
     throw error;
   }
 }
@@ -214,12 +247,8 @@ await prisma.enterpriseAutomationRuntimeAction.update({
 export async function runPendingAutomationActions() {
   const actions =
     await prisma.enterpriseAutomationRuntimeAction.findMany({
-      where: {
-        status: "DISPATCHED",
-      },
-      orderBy: {
-        createdAt: "asc",
-      },
+      where: { status: "DISPATCHED" },
+      orderBy: { createdAt: "asc" },
       take: 100,
     });
 
@@ -227,10 +256,7 @@ export async function runPendingAutomationActions() {
 
   for (const action of actions) {
     try {
-      const result =
-        await executePendingAutomationAction(
-          action.id,
-        );
+      const result = await executePendingAutomationAction(action.id);
 
       results.push({
         actionId: action.id,

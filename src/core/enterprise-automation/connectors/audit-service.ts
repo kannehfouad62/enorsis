@@ -13,7 +13,11 @@ export async function recordAutomationConnectorAudit(input: {
     | "TESTED"
     | "EXECUTED"
     | "EXECUTION_FAILED"
-    | "POLICY_BLOCKED";
+    | "POLICY_BLOCKED"
+    | "CIRCUIT_OPENED"
+    | "CIRCUIT_BLOCKED"
+    | "CIRCUIT_RECOVERY_SUCCEEDED"
+    | "CIRCUIT_RECOVERY_FAILED";
   actorUserId?: string | null;
   actionId?: string | null;
   message?: string | null;
