@@ -17,7 +17,13 @@ export async function recordAutomationConnectorAudit(input: {
     | "CIRCUIT_OPENED"
     | "CIRCUIT_BLOCKED"
     | "CIRCUIT_RECOVERY_SUCCEEDED"
-    | "CIRCUIT_RECOVERY_FAILED";
+    | "CIRCUIT_RECOVERY_FAILED"
+    | "SLA_BREACH_DETECTED"
+    | "SLA_RECOVERED"
+    | "RELIABILITY_POLICY_UPDATED"
+    | "REMEDIATION_TRIGGERED"
+    | "REMEDIATION_SUCCEEDED"
+    | "REMEDIATION_FAILED";
   actorUserId?: string | null;
   actionId?: string | null;
   message?: string | null;

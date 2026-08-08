@@ -149,3 +149,87 @@ export async function testAutomationConnectorAction(
   revalidatePath("/app/automation/connectors");
   revalidatePath("/app/automation/connectors/observability");
 }
+
+export async function updateAutomationConnectorReliabilityPolicyAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...adminRoles]);
+  const connectorId = field(data, "connectorId");
+
+  const slaTargetPercent = Math.max(
+    90,
+    Math.min(
+      100,
+      Number(field(data, "slaTargetPercent") || 99),
+    ),
+  );
+  const slaWindowHours = Math.max(
+    1,
+    Math.min(
+      720,
+      Number(field(data, "slaWindowHours") || 24),
+    ),
+  );
+  const remediationFailureThreshold = Math.max(
+    1,
+    Math.min(
+      10,
+      Number(
+        field(data, "remediationFailureThreshold") || 3,
+      ),
+    ),
+  );
+  const remediationCooldownMinutes = Math.max(
+    5,
+    Math.min(
+      1440,
+      Number(
+        field(data, "remediationCooldownMinutes") || 30,
+      ),
+    ),
+  );
+  const autoRemediationEnabled =
+    data.get("autoRemediationEnabled") === "on";
+
+  const updated =
+    await prisma.enterpriseAutomationConnector.updateMany({
+      where: {
+        id: connectorId,
+        tenantId: user.tenantId,
+      },
+      data: {
+        slaTargetPercent,
+        slaWindowHours,
+        autoRemediationEnabled,
+        remediationFailureThreshold,
+        remediationCooldownMinutes,
+        updatedByUserId: user.id,
+      },
+    });
+
+  if (updated.count !== 1) {
+    throw new Error(
+      "Connector reliability policy could not be updated.",
+    );
+  }
+
+  await recordAutomationConnectorAudit({
+    tenantId: user.tenantId,
+    connectorId,
+    type: "RELIABILITY_POLICY_UPDATED",
+    actorUserId: user.id,
+    message: "Connector reliability policy updated.",
+    metadata: {
+      slaTargetPercent,
+      slaWindowHours,
+      autoRemediationEnabled,
+      remediationFailureThreshold,
+      remediationCooldownMinutes,
+    },
+  });
+
+  revalidatePath("/app/automation/connectors");
+  revalidatePath(
+    "/app/automation/connectors/observability",
+  );
+}

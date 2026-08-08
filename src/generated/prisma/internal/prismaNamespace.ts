@@ -24710,6 +24710,17 @@ export const EnterpriseAutomationConnectorScalarFieldEnum = {
   ownerUserId: 'ownerUserId',
   policyTag: 'policyTag',
   maxDailyExecutions: 'maxDailyExecutions',
+  slaTargetPercent: 'slaTargetPercent',
+  slaWindowHours: 'slaWindowHours',
+  slaBreached: 'slaBreached',
+  slaBreachCount: 'slaBreachCount',
+  lastSlaBreachAt: 'lastSlaBreachAt',
+  lastSlaRecoveredAt: 'lastSlaRecoveredAt',
+  autoRemediationEnabled: 'autoRemediationEnabled',
+  remediationFailureThreshold: 'remediationFailureThreshold',
+  remediationCooldownMinutes: 'remediationCooldownMinutes',
+  remediationCount: 'remediationCount',
+  lastRemediationAt: 'lastRemediationAt',
   consecutiveFailures: 'consecutiveFailures',
   successCount: 'successCount',
   failureCount: 'failureCount',
@@ -28831,20 +28842,6 @@ export type ListEnumEnterpriseAutomationConnectorStatusFieldRefInput<$PrismaMode
 
 
 /**
- * Reference to a field of type 'EnterpriseAutomationConnectorAuditType'
- */
-export type EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationConnectorAuditType'>
-    
-
-
-/**
- * Reference to a field of type 'EnterpriseAutomationConnectorAuditType[]'
- */
-export type ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationConnectorAuditType[]'>
-    
-
-
-/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -28855,6 +28852,20 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Float[]'
  */
 export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAutomationConnectorAuditType'
+ */
+export type EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationConnectorAuditType'>
+    
+
+
+/**
+ * Reference to a field of type 'EnterpriseAutomationConnectorAuditType[]'
+ */
+export type ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'EnterpriseAutomationConnectorAuditType[]'>
     
 
 /**

@@ -18,6 +18,9 @@ import {
   assertAutomationConnectorCircuitAvailable,
   type AutomationConnectorCircuitState,
 } from "./circuit-breaker";
+import {
+  evaluateAutomationConnectorSlaSafely,
+} from "./sla-service";
 
 type StoredActionRequest = {
   actionType?: unknown;
@@ -160,6 +163,12 @@ export async function executePendingAutomationAction(
             ? "Connector recovery probe succeeded and the circuit was closed."
             : "Connector action executed successfully.",
       });
+
+      await evaluateAutomationConnectorSlaSafely({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+        actionId: action.id,
+      });
     }
 
     if (result.mode === "ASYNC") {
@@ -237,6 +246,12 @@ export async function executePendingAutomationAction(
             "Connector circuit opened after repeated execution failures.",
         });
       }
+
+      await evaluateAutomationConnectorSlaSafely({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+        actionId: action.id,
+      });
     }
 
     await failAutomationAction(action.id, message);

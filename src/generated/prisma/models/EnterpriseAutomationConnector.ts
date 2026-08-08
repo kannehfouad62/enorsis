@@ -30,6 +30,12 @@ export type EnterpriseAutomationConnectorAvgAggregateOutputType = {
   timeoutMs: number | null
   usageCount: number | null
   maxDailyExecutions: number | null
+  slaTargetPercent: number | null
+  slaWindowHours: number | null
+  slaBreachCount: number | null
+  remediationFailureThreshold: number | null
+  remediationCooldownMinutes: number | null
+  remediationCount: number | null
   consecutiveFailures: number | null
   successCount: number | null
   failureCount: number | null
@@ -39,6 +45,12 @@ export type EnterpriseAutomationConnectorSumAggregateOutputType = {
   timeoutMs: number | null
   usageCount: number | null
   maxDailyExecutions: number | null
+  slaTargetPercent: number | null
+  slaWindowHours: number | null
+  slaBreachCount: number | null
+  remediationFailureThreshold: number | null
+  remediationCooldownMinutes: number | null
+  remediationCount: number | null
   consecutiveFailures: number | null
   successCount: number | null
   failureCount: number | null
@@ -64,6 +76,17 @@ export type EnterpriseAutomationConnectorMinAggregateOutputType = {
   ownerUserId: string | null
   policyTag: string | null
   maxDailyExecutions: number | null
+  slaTargetPercent: number | null
+  slaWindowHours: number | null
+  slaBreached: boolean | null
+  slaBreachCount: number | null
+  lastSlaBreachAt: Date | null
+  lastSlaRecoveredAt: Date | null
+  autoRemediationEnabled: boolean | null
+  remediationFailureThreshold: number | null
+  remediationCooldownMinutes: number | null
+  remediationCount: number | null
+  lastRemediationAt: Date | null
   consecutiveFailures: number | null
   successCount: number | null
   failureCount: number | null
@@ -93,6 +116,17 @@ export type EnterpriseAutomationConnectorMaxAggregateOutputType = {
   ownerUserId: string | null
   policyTag: string | null
   maxDailyExecutions: number | null
+  slaTargetPercent: number | null
+  slaWindowHours: number | null
+  slaBreached: boolean | null
+  slaBreachCount: number | null
+  lastSlaBreachAt: Date | null
+  lastSlaRecoveredAt: Date | null
+  autoRemediationEnabled: boolean | null
+  remediationFailureThreshold: number | null
+  remediationCooldownMinutes: number | null
+  remediationCount: number | null
+  lastRemediationAt: Date | null
   consecutiveFailures: number | null
   successCount: number | null
   failureCount: number | null
@@ -125,6 +159,17 @@ export type EnterpriseAutomationConnectorCountAggregateOutputType = {
   ownerUserId: number
   policyTag: number
   maxDailyExecutions: number
+  slaTargetPercent: number
+  slaWindowHours: number
+  slaBreached: number
+  slaBreachCount: number
+  lastSlaBreachAt: number
+  lastSlaRecoveredAt: number
+  autoRemediationEnabled: number
+  remediationFailureThreshold: number
+  remediationCooldownMinutes: number
+  remediationCount: number
+  lastRemediationAt: number
   consecutiveFailures: number
   successCount: number
   failureCount: number
@@ -140,6 +185,12 @@ export type EnterpriseAutomationConnectorAvgAggregateInputType = {
   timeoutMs?: true
   usageCount?: true
   maxDailyExecutions?: true
+  slaTargetPercent?: true
+  slaWindowHours?: true
+  slaBreachCount?: true
+  remediationFailureThreshold?: true
+  remediationCooldownMinutes?: true
+  remediationCount?: true
   consecutiveFailures?: true
   successCount?: true
   failureCount?: true
@@ -149,6 +200,12 @@ export type EnterpriseAutomationConnectorSumAggregateInputType = {
   timeoutMs?: true
   usageCount?: true
   maxDailyExecutions?: true
+  slaTargetPercent?: true
+  slaWindowHours?: true
+  slaBreachCount?: true
+  remediationFailureThreshold?: true
+  remediationCooldownMinutes?: true
+  remediationCount?: true
   consecutiveFailures?: true
   successCount?: true
   failureCount?: true
@@ -174,6 +231,17 @@ export type EnterpriseAutomationConnectorMinAggregateInputType = {
   ownerUserId?: true
   policyTag?: true
   maxDailyExecutions?: true
+  slaTargetPercent?: true
+  slaWindowHours?: true
+  slaBreached?: true
+  slaBreachCount?: true
+  lastSlaBreachAt?: true
+  lastSlaRecoveredAt?: true
+  autoRemediationEnabled?: true
+  remediationFailureThreshold?: true
+  remediationCooldownMinutes?: true
+  remediationCount?: true
+  lastRemediationAt?: true
   consecutiveFailures?: true
   successCount?: true
   failureCount?: true
@@ -203,6 +271,17 @@ export type EnterpriseAutomationConnectorMaxAggregateInputType = {
   ownerUserId?: true
   policyTag?: true
   maxDailyExecutions?: true
+  slaTargetPercent?: true
+  slaWindowHours?: true
+  slaBreached?: true
+  slaBreachCount?: true
+  lastSlaBreachAt?: true
+  lastSlaRecoveredAt?: true
+  autoRemediationEnabled?: true
+  remediationFailureThreshold?: true
+  remediationCooldownMinutes?: true
+  remediationCount?: true
+  lastRemediationAt?: true
   consecutiveFailures?: true
   successCount?: true
   failureCount?: true
@@ -235,6 +314,17 @@ export type EnterpriseAutomationConnectorCountAggregateInputType = {
   ownerUserId?: true
   policyTag?: true
   maxDailyExecutions?: true
+  slaTargetPercent?: true
+  slaWindowHours?: true
+  slaBreached?: true
+  slaBreachCount?: true
+  lastSlaBreachAt?: true
+  lastSlaRecoveredAt?: true
+  autoRemediationEnabled?: true
+  remediationFailureThreshold?: true
+  remediationCooldownMinutes?: true
+  remediationCount?: true
+  lastRemediationAt?: true
   consecutiveFailures?: true
   successCount?: true
   failureCount?: true
@@ -354,6 +444,17 @@ export type EnterpriseAutomationConnectorGroupByOutputType = {
   ownerUserId: string | null
   policyTag: string | null
   maxDailyExecutions: number | null
+  slaTargetPercent: number
+  slaWindowHours: number
+  slaBreached: boolean
+  slaBreachCount: number
+  lastSlaBreachAt: Date | null
+  lastSlaRecoveredAt: Date | null
+  autoRemediationEnabled: boolean
+  remediationFailureThreshold: number
+  remediationCooldownMinutes: number
+  remediationCount: number
+  lastRemediationAt: Date | null
   consecutiveFailures: number
   successCount: number
   failureCount: number
@@ -409,6 +510,17 @@ export type EnterpriseAutomationConnectorWhereInput = {
   ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  slaTargetPercent?: Prisma.FloatFilter<"EnterpriseAutomationConnector"> | number
+  slaWindowHours?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  slaBreached?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  slaBreachCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastSlaBreachAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastSlaRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  remediationFailureThreshold?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCooldownMinutes?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastRemediationAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
@@ -443,6 +555,17 @@ export type EnterpriseAutomationConnectorOrderByWithRelationInput = {
   ownerUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   policyTag?: Prisma.SortOrderInput | Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrderInput | Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreached?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  lastSlaBreachAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastSlaRecoveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  autoRemediationEnabled?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
+  lastRemediationAt?: Prisma.SortOrderInput | Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -481,6 +604,17 @@ export type EnterpriseAutomationConnectorWhereUniqueInput = Prisma.AtLeast<{
   ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  slaTargetPercent?: Prisma.FloatFilter<"EnterpriseAutomationConnector"> | number
+  slaWindowHours?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  slaBreached?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  slaBreachCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastSlaBreachAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastSlaRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  remediationFailureThreshold?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCooldownMinutes?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastRemediationAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
@@ -515,6 +649,17 @@ export type EnterpriseAutomationConnectorOrderByWithAggregationInput = {
   ownerUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   policyTag?: Prisma.SortOrderInput | Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrderInput | Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreached?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  lastSlaBreachAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastSlaRecoveredAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  autoRemediationEnabled?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
+  lastRemediationAt?: Prisma.SortOrderInput | Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -555,6 +700,17 @@ export type EnterpriseAutomationConnectorScalarWhereWithAggregatesInput = {
   ownerUserId?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
   policyTag?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
   maxDailyExecutions?: Prisma.IntNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | number | null
+  slaTargetPercent?: Prisma.FloatWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  slaWindowHours?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  slaBreached?: Prisma.BoolWithAggregatesFilter<"EnterpriseAutomationConnector"> | boolean
+  slaBreachCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  lastSlaBreachAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastSlaRecoveredAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolWithAggregatesFilter<"EnterpriseAutomationConnector"> | boolean
+  remediationFailureThreshold?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  remediationCooldownMinutes?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  remediationCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  lastRemediationAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
   consecutiveFailures?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
   successCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
   failureCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
@@ -586,6 +742,17 @@ export type EnterpriseAutomationConnectorCreateInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -620,6 +787,17 @@ export type EnterpriseAutomationConnectorUncheckedCreateInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -652,6 +830,17 @@ export type EnterpriseAutomationConnectorUpdateInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -686,6 +875,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -719,6 +919,17 @@ export type EnterpriseAutomationConnectorCreateManyInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -750,6 +961,17 @@ export type EnterpriseAutomationConnectorUpdateManyMutationInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -782,6 +1004,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -829,6 +1062,17 @@ export type EnterpriseAutomationConnectorCountOrderByAggregateInput = {
   ownerUserId?: Prisma.SortOrder
   policyTag?: Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreached?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  lastSlaBreachAt?: Prisma.SortOrder
+  lastSlaRecoveredAt?: Prisma.SortOrder
+  autoRemediationEnabled?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
+  lastRemediationAt?: Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -842,6 +1086,12 @@ export type EnterpriseAutomationConnectorAvgOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -867,6 +1117,17 @@ export type EnterpriseAutomationConnectorMaxOrderByAggregateInput = {
   ownerUserId?: Prisma.SortOrder
   policyTag?: Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreached?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  lastSlaBreachAt?: Prisma.SortOrder
+  lastSlaRecoveredAt?: Prisma.SortOrder
+  autoRemediationEnabled?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
+  lastRemediationAt?: Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -896,6 +1157,17 @@ export type EnterpriseAutomationConnectorMinOrderByAggregateInput = {
   ownerUserId?: Prisma.SortOrder
   policyTag?: Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreached?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  lastSlaBreachAt?: Prisma.SortOrder
+  lastSlaRecoveredAt?: Prisma.SortOrder
+  autoRemediationEnabled?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
+  lastRemediationAt?: Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -909,6 +1181,12 @@ export type EnterpriseAutomationConnectorSumOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
   maxDailyExecutions?: Prisma.SortOrder
+  slaTargetPercent?: Prisma.SortOrder
+  slaWindowHours?: Prisma.SortOrder
+  slaBreachCount?: Prisma.SortOrder
+  remediationFailureThreshold?: Prisma.SortOrder
+  remediationCooldownMinutes?: Prisma.SortOrder
+  remediationCount?: Prisma.SortOrder
   consecutiveFailures?: Prisma.SortOrder
   successCount?: Prisma.SortOrder
   failureCount?: Prisma.SortOrder
@@ -969,6 +1247,14 @@ export type EnumEnterpriseAutomationConnectorStatusFieldUpdateOperationsInput = 
   set?: $Enums.EnterpriseAutomationConnectorStatus
 }
 
+export type FloatFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type EnterpriseAutomationConnectorCreateNestedOneWithoutAuditsInput = {
   create?: Prisma.XOR<Prisma.EnterpriseAutomationConnectorCreateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput>
   connectOrCreate?: Prisma.EnterpriseAutomationConnectorCreateOrConnectWithoutAuditsInput
@@ -1005,6 +1291,17 @@ export type EnterpriseAutomationConnectorCreateWithoutTenantInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -1037,6 +1334,17 @@ export type EnterpriseAutomationConnectorUncheckedCreateWithoutTenantInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -1099,6 +1407,17 @@ export type EnterpriseAutomationConnectorScalarWhereInput = {
   ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  slaTargetPercent?: Prisma.FloatFilter<"EnterpriseAutomationConnector"> | number
+  slaWindowHours?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  slaBreached?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  slaBreachCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastSlaBreachAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastSlaRecoveredAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFilter<"EnterpriseAutomationConnector"> | boolean
+  remediationFailureThreshold?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCooldownMinutes?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  remediationCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastRemediationAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
@@ -1130,6 +1449,17 @@ export type EnterpriseAutomationConnectorCreateWithoutAuditsInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -1163,6 +1493,17 @@ export type EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -1210,6 +1551,17 @@ export type EnterpriseAutomationConnectorUpdateWithoutAuditsInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1243,6 +1595,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateWithoutAuditsInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1274,6 +1637,17 @@ export type EnterpriseAutomationConnectorCreateManyTenantInput = {
   ownerUserId?: string | null
   policyTag?: string | null
   maxDailyExecutions?: number | null
+  slaTargetPercent?: number
+  slaWindowHours?: number
+  slaBreached?: boolean
+  slaBreachCount?: number
+  lastSlaBreachAt?: Date | string | null
+  lastSlaRecoveredAt?: Date | string | null
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: number
+  remediationCooldownMinutes?: number
+  remediationCount?: number
+  lastRemediationAt?: Date | string | null
   consecutiveFailures?: number
   successCount?: number
   failureCount?: number
@@ -1305,6 +1679,17 @@ export type EnterpriseAutomationConnectorUpdateWithoutTenantInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1337,6 +1722,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateWithoutTenantInput = {
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1369,6 +1765,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyWithoutTenantInput =
   ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slaTargetPercent?: Prisma.FloatFieldUpdateOperationsInput | number
+  slaWindowHours?: Prisma.IntFieldUpdateOperationsInput | number
+  slaBreached?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  slaBreachCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastSlaBreachAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastSlaRecoveredAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  autoRemediationEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  remediationFailureThreshold?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCooldownMinutes?: Prisma.IntFieldUpdateOperationsInput | number
+  remediationCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastRemediationAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
   successCount?: Prisma.IntFieldUpdateOperationsInput | number
   failureCount?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1432,6 +1839,17 @@ export type EnterpriseAutomationConnectorSelect<ExtArgs extends runtime.Types.Ex
   ownerUserId?: boolean
   policyTag?: boolean
   maxDailyExecutions?: boolean
+  slaTargetPercent?: boolean
+  slaWindowHours?: boolean
+  slaBreached?: boolean
+  slaBreachCount?: boolean
+  lastSlaBreachAt?: boolean
+  lastSlaRecoveredAt?: boolean
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: boolean
+  remediationCooldownMinutes?: boolean
+  remediationCount?: boolean
+  lastRemediationAt?: boolean
   consecutiveFailures?: boolean
   successCount?: boolean
   failureCount?: boolean
@@ -1467,6 +1885,17 @@ export type EnterpriseAutomationConnectorSelectCreateManyAndReturn<ExtArgs exten
   ownerUserId?: boolean
   policyTag?: boolean
   maxDailyExecutions?: boolean
+  slaTargetPercent?: boolean
+  slaWindowHours?: boolean
+  slaBreached?: boolean
+  slaBreachCount?: boolean
+  lastSlaBreachAt?: boolean
+  lastSlaRecoveredAt?: boolean
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: boolean
+  remediationCooldownMinutes?: boolean
+  remediationCount?: boolean
+  lastRemediationAt?: boolean
   consecutiveFailures?: boolean
   successCount?: boolean
   failureCount?: boolean
@@ -1500,6 +1929,17 @@ export type EnterpriseAutomationConnectorSelectUpdateManyAndReturn<ExtArgs exten
   ownerUserId?: boolean
   policyTag?: boolean
   maxDailyExecutions?: boolean
+  slaTargetPercent?: boolean
+  slaWindowHours?: boolean
+  slaBreached?: boolean
+  slaBreachCount?: boolean
+  lastSlaBreachAt?: boolean
+  lastSlaRecoveredAt?: boolean
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: boolean
+  remediationCooldownMinutes?: boolean
+  remediationCount?: boolean
+  lastRemediationAt?: boolean
   consecutiveFailures?: boolean
   successCount?: boolean
   failureCount?: boolean
@@ -1533,6 +1973,17 @@ export type EnterpriseAutomationConnectorSelectScalar = {
   ownerUserId?: boolean
   policyTag?: boolean
   maxDailyExecutions?: boolean
+  slaTargetPercent?: boolean
+  slaWindowHours?: boolean
+  slaBreached?: boolean
+  slaBreachCount?: boolean
+  lastSlaBreachAt?: boolean
+  lastSlaRecoveredAt?: boolean
+  autoRemediationEnabled?: boolean
+  remediationFailureThreshold?: boolean
+  remediationCooldownMinutes?: boolean
+  remediationCount?: boolean
+  lastRemediationAt?: boolean
   consecutiveFailures?: boolean
   successCount?: boolean
   failureCount?: boolean
@@ -1542,7 +1993,7 @@ export type EnterpriseAutomationConnectorSelectScalar = {
   updatedAt?: boolean
 }
 
-export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "lastTestedAt" | "lastTestStatus" | "lastTestMessage" | "lastUsedAt" | "usageCount" | "ownerUserId" | "policyTag" | "maxDailyExecutions" | "consecutiveFailures" | "successCount" | "failureCount" | "lastFailureAt" | "lastFailureMessage" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
+export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "lastTestedAt" | "lastTestStatus" | "lastTestMessage" | "lastUsedAt" | "usageCount" | "ownerUserId" | "policyTag" | "maxDailyExecutions" | "slaTargetPercent" | "slaWindowHours" | "slaBreached" | "slaBreachCount" | "lastSlaBreachAt" | "lastSlaRecoveredAt" | "autoRemediationEnabled" | "remediationFailureThreshold" | "remediationCooldownMinutes" | "remediationCount" | "lastRemediationAt" | "consecutiveFailures" | "successCount" | "failureCount" | "lastFailureAt" | "lastFailureMessage" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
 export type EnterpriseAutomationConnectorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   audits?: boolean | Prisma.EnterpriseAutomationConnector$auditsArgs<ExtArgs>
@@ -1584,6 +2035,17 @@ export type $EnterpriseAutomationConnectorPayload<ExtArgs extends runtime.Types.
     ownerUserId: string | null
     policyTag: string | null
     maxDailyExecutions: number | null
+    slaTargetPercent: number
+    slaWindowHours: number
+    slaBreached: boolean
+    slaBreachCount: number
+    lastSlaBreachAt: Date | null
+    lastSlaRecoveredAt: Date | null
+    autoRemediationEnabled: boolean
+    remediationFailureThreshold: number
+    remediationCooldownMinutes: number
+    remediationCount: number
+    lastRemediationAt: Date | null
     consecutiveFailures: number
     successCount: number
     failureCount: number
@@ -2038,6 +2500,17 @@ export interface EnterpriseAutomationConnectorFieldRefs {
   readonly ownerUserId: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
   readonly policyTag: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
   readonly maxDailyExecutions: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly slaTargetPercent: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Float'>
+  readonly slaWindowHours: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly slaBreached: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Boolean'>
+  readonly slaBreachCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly lastSlaBreachAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
+  readonly lastSlaRecoveredAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
+  readonly autoRemediationEnabled: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Boolean'>
+  readonly remediationFailureThreshold: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly remediationCooldownMinutes: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly remediationCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly lastRemediationAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
   readonly consecutiveFailures: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
   readonly successCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
   readonly failureCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>

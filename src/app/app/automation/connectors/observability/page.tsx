@@ -18,23 +18,38 @@ export default async function ConnectorObservabilityPage() {
   const openCircuits = data.connectors.filter(
     (connector) => connector.circuitState === "OPEN",
   ).length;
-  const recoveryReady = data.connectors.filter(
-    (connector) => connector.circuitState === "RECOVERY_READY",
+  const slaBreaches = data.connectors.filter(
+    (connector) => connector.slaStatus === "BREACHED",
   ).length;
+  const remediationEnabled = data.connectors.filter(
+    (connector) => connector.autoRemediationEnabled,
+  ).length;
+  const averageReliability =
+    data.connectors.length > 0
+      ? Math.round(
+          (data.connectors.reduce(
+            (sum, connector) =>
+              sum + connector.reliabilityScore,
+            0,
+          ) /
+            data.connectors.length) *
+            100,
+        ) / 100
+      : null;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Phase B2.9.2.11
+            Phase B2.9.2.12
           </p>
           <h1 className="mt-3 text-4xl font-black">
             Connector Observability
           </h1>
           <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-            Operational health, policy enforcement, circuit-breaker resilience,
-            recovery readiness and governed execution history.
+            Operational health, SLA governance, reliability scoring,
+            circuit-breaker resilience and governed remediation.
           </p>
         </div>
 
@@ -46,26 +61,64 @@ export default async function ConnectorObservabilityPage() {
         </Link>
       </div>
 
-      <section className="mt-8 grid gap-4 md:grid-cols-5">
+      <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-7">
         <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">Connectors</p>
-          <p className="mt-2 text-3xl font-black">{data.connectors.length}</p>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Connectors
+          </p>
+          <p className="mt-2 text-3xl font-black">
+            {data.connectors.length}
+          </p>
         </div>
         <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">Healthy</p>
-          <p className="mt-2 text-3xl font-black text-emerald-700">{healthy}</p>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Healthy
+          </p>
+          <p className="mt-2 text-3xl font-black text-emerald-700">
+            {healthy}
+          </p>
         </div>
         <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">Attention</p>
-          <p className="mt-2 text-3xl font-black text-amber-700">{attention}</p>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Attention
+          </p>
+          <p className="mt-2 text-3xl font-black text-amber-700">
+            {attention}
+          </p>
         </div>
         <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">Open circuits</p>
-          <p className="mt-2 text-3xl font-black text-red-700">{openCircuits}</p>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Open circuits
+          </p>
+          <p className="mt-2 text-3xl font-black text-red-700">
+            {openCircuits}
+          </p>
         </div>
         <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">Recovery ready</p>
-          <p className="mt-2 text-3xl font-black text-blue-700">{recoveryReady}</p>
+          <p className="text-xs font-black uppercase text-slate-500">
+            SLA breaches
+          </p>
+          <p className="mt-2 text-3xl font-black text-red-700">
+            {slaBreaches}
+          </p>
+        </div>
+        <div className={card}>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Auto-remediation
+          </p>
+          <p className="mt-2 text-3xl font-black text-blue-700">
+            {remediationEnabled}
+          </p>
+        </div>
+        <div className={card}>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Reliability
+          </p>
+          <p className="mt-2 text-3xl font-black">
+            {averageReliability === null
+              ? "—"
+              : averageReliability}
+          </p>
         </div>
       </section>
 
@@ -77,7 +130,9 @@ export default async function ConnectorObservabilityPage() {
                 <p className="text-xs font-black uppercase text-blue-700">
                   {connector.health} · {connector.status}
                 </p>
-                <h2 className="mt-1 text-xl font-black">{connector.name}</h2>
+                <h2 className="mt-1 text-xl font-black">
+                  {connector.name}
+                </h2>
                 <p className="mt-1 font-mono text-xs text-slate-500">
                   {connector.connectorKey}
                 </p>
@@ -85,48 +140,86 @@ export default async function ConnectorObservabilityPage() {
 
               <div className="text-right text-xs text-slate-500">
                 <p>
-                  Success rate:{" "}
+                  Reliability: {connector.reliabilityScore}/100
+                </p>
+                <p className="mt-1">
+                  All-time success:{" "}
                   {connector.successRate === null
                     ? "—"
                     : `${connector.successRate}%`}
                 </p>
-                <p className="mt-1">Failures: {connector.failureCount}</p>
                 <p className="mt-1">
-                  Consecutive: {connector.consecutiveFailures}
+                  Consecutive failures:{" "}
+                  {connector.consecutiveFailures}
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 grid gap-3 md:grid-cols-5">
+            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-6">
               <div className="rounded-xl bg-slate-50 p-3 text-xs">
-                <p className="font-black">Usage</p>
-                <p className="mt-1 text-slate-500">{connector.usageCount}</p>
-              </div>
-              <div className="rounded-xl bg-slate-50 p-3 text-xs">
-                <p className="font-black">Successes</p>
-                <p className="mt-1 text-slate-500">{connector.successCount}</p>
-              </div>
-              <div className="rounded-xl bg-slate-50 p-3 text-xs">
-                <p className="font-black">Policy</p>
-                <p className="mt-1 text-slate-500">
-                  {connector.policyTag ?? "Default"}
+                <p className="font-black">SLA</p>
+                <p
+                  className={`mt-1 ${
+                    connector.slaStatus === "BREACHED"
+                      ? "text-red-700"
+                      : "text-slate-500"
+                  }`}
+                >
+                  {connector.slaStatus}
                 </p>
               </div>
               <div className="rounded-xl bg-slate-50 p-3 text-xs">
-                <p className="font-black">Daily limit</p>
+                <p className="font-black">Availability</p>
                 <p className="mt-1 text-slate-500">
-                  {connector.maxDailyExecutions ?? "Unlimited"}
+                  {connector.slaAvailabilityPercent === null
+                    ? "No data"
+                    : `${connector.slaAvailabilityPercent}%`}
+                </p>
+                <p className="mt-1 text-slate-400">
+                  Target {connector.slaTargetPercent}%
+                </p>
+              </div>
+              <div className="rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">SLA window</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.slaWindowHours}h ·{" "}
+                  {connector.slaWindowExecutions} executions
                 </p>
               </div>
               <div className="rounded-xl bg-slate-50 p-3 text-xs">
                 <p className="font-black">Circuit</p>
-                <p className="mt-1 text-slate-500">{connector.circuitState}</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.circuitState}
+                </p>
                 {connector.circuitState === "OPEN" &&
                 connector.circuitRetryAt ? (
                   <p className="mt-1 text-red-700">
-                    Retry after {connector.circuitRetryAt.toLocaleString()}
+                    Retry after{" "}
+                    {connector.circuitRetryAt.toLocaleString()}
                   </p>
                 ) : null}
+              </div>
+              <div className="rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">Remediation</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.autoRemediationEnabled
+                    ? "Enabled"
+                    : "Manual"}
+                </p>
+                <p className="mt-1 text-slate-400">
+                  {connector.remediationCount} attempts
+                </p>
+              </div>
+              <div className="rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">SLA breaches</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.slaBreachCount}
+                </p>
+                <p className="mt-1 text-slate-400">
+                  {connector.lastSlaBreachAt
+                    ? connector.lastSlaBreachAt.toLocaleString()
+                    : "None recorded"}
+                </p>
               </div>
             </div>
 
@@ -142,7 +235,10 @@ export default async function ConnectorObservabilityPage() {
               </p>
               <div className="mt-3 space-y-2">
                 {connector.audits.map((audit) => (
-                  <div key={audit.id} className="rounded-xl bg-slate-50 p-3 text-xs">
+                  <div
+                    key={audit.id}
+                    className="rounded-xl bg-slate-50 p-3 text-xs"
+                  >
                     <div className="flex flex-wrap justify-between gap-2">
                       <p className="font-black">{audit.type}</p>
                       <p className="text-slate-500">
@@ -150,7 +246,9 @@ export default async function ConnectorObservabilityPage() {
                       </p>
                     </div>
                     {audit.message ? (
-                      <p className="mt-1 text-slate-600">{audit.message}</p>
+                      <p className="mt-1 text-slate-600">
+                        {audit.message}
+                      </p>
                     ) : null}
                   </div>
                 ))}

@@ -2318,6 +2318,12 @@ enum EnterpriseAutomationConnectorAuditType {
   CIRCUIT_BLOCKED
   CIRCUIT_RECOVERY_SUCCEEDED
   CIRCUIT_RECOVERY_FAILED
+  SLA_BREACH_DETECTED
+  SLA_RECOVERED
+  RELIABILITY_POLICY_UPDATED
+  REMEDIATION_TRIGGERED
+  REMEDIATION_SUCCEEDED
+  REMEDIATION_FAILED
 }
 
 enum AuditActorType {
@@ -8553,37 +8559,48 @@ model EnterpriseAutomationRuntimeCallback {
 }
 
 model EnterpriseAutomationConnector {
-  id                  String                               @id @default(cuid())
-  tenantId            String
-  connectorKey        String
-  name                String
-  type                EnterpriseAutomationConnectorType
-  status              EnterpriseAutomationConnectorStatus  @default(ACTIVE)
-  baseUrl             String?
-  allowedHosts        Json?
-  secretEnvKey        String?
-  defaultHeaders      Json?
-  configuration       Json?
-  timeoutMs           Int                                  @default(15000)
-  createdByUserId     String?
-  updatedByUserId     String?
-  tenant              Tenant                               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  lastTestedAt        DateTime?
-  lastTestStatus      String?
-  lastTestMessage     String?
-  lastUsedAt          DateTime?
-  usageCount          Int                                  @default(0)
-  ownerUserId         String?
-  policyTag           String?
-  maxDailyExecutions  Int?
-  consecutiveFailures Int                                  @default(0)
-  successCount        Int                                  @default(0)
-  failureCount        Int                                  @default(0)
-  lastFailureAt       DateTime?
-  lastFailureMessage  String?
-  audits              EnterpriseAutomationConnectorAudit[]
-  createdAt           DateTime                             @default(now())
-  updatedAt           DateTime                             @updatedAt
+  id                          String                               @id @default(cuid())
+  tenantId                    String
+  connectorKey                String
+  name                        String
+  type                        EnterpriseAutomationConnectorType
+  status                      EnterpriseAutomationConnectorStatus  @default(ACTIVE)
+  baseUrl                     String?
+  allowedHosts                Json?
+  secretEnvKey                String?
+  defaultHeaders              Json?
+  configuration               Json?
+  timeoutMs                   Int                                  @default(15000)
+  createdByUserId             String?
+  updatedByUserId             String?
+  tenant                      Tenant                               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lastTestedAt                DateTime?
+  lastTestStatus              String?
+  lastTestMessage             String?
+  lastUsedAt                  DateTime?
+  usageCount                  Int                                  @default(0)
+  ownerUserId                 String?
+  policyTag                   String?
+  maxDailyExecutions          Int?
+  slaTargetPercent            Float                                @default(99)
+  slaWindowHours              Int                                  @default(24)
+  slaBreached                 Boolean                              @default(false)
+  slaBreachCount              Int                                  @default(0)
+  lastSlaBreachAt             DateTime?
+  lastSlaRecoveredAt          DateTime?
+  autoRemediationEnabled      Boolean                              @default(false)
+  remediationFailureThreshold Int                                  @default(3)
+  remediationCooldownMinutes  Int                                  @default(30)
+  remediationCount            Int                                  @default(0)
+  lastRemediationAt           DateTime?
+  consecutiveFailures         Int                                  @default(0)
+  successCount                Int                                  @default(0)
+  failureCount                Int                                  @default(0)
+  lastFailureAt               DateTime?
+  lastFailureMessage          String?
+  audits                      EnterpriseAutomationConnectorAudit[]
+  createdAt                   DateTime                             @default(now())
+  updatedAt                   DateTime                             @updatedAt
 
   @@unique([tenantId, connectorKey])
   @@index([tenantId, status, type])

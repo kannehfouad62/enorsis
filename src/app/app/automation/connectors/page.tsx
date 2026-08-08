@@ -3,6 +3,7 @@ import {
   createAutomationConnectorAction,
   setAutomationConnectorStatusAction,
   testAutomationConnectorAction,
+  updateAutomationConnectorReliabilityPolicyAction,
 } from "@/modules/enterprise-automation/connector-actions";
 import { getAutomationConnectorRegistry } from "@/modules/enterprise-automation/connector-queries";
 
@@ -17,35 +18,36 @@ export default async function AutomationConnectorsPage() {
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Phase B2.9.2.9
+            Governed Connector Platform
           </p>
           <h1 className="mt-3 text-4xl font-black">
             Governed Connector Registry
           </h1>
           <p className="mt-3 max-w-3xl leading-7 text-slate-600">
             Tenant-managed connector definitions with credential references,
-            allowlists, testing, activation controls and usage visibility.
+            allowlists, reliability policy, testing, activation controls and
+            usage visibility.
           </p>
         </div>
 
-        <Link
-          href="/app/automation/runtime"
-          className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
-        >
-          Durable Runtime
-        </Link>
-        <Link
-          href="/app/automation/connectors/observability"
-          className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
-        >
-          Observability
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/app/automation/runtime"
+            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
+          >
+            Durable Runtime
+          </Link>
+          <Link
+            href="/app/automation/connectors/observability"
+            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
+          >
+            Observability
+          </Link>
+        </div>
       </div>
 
       <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">
-          Register connector
-        </h2>
+        <h2 className="text-xl font-black">Register connector</h2>
 
         <form
           action={createAutomationConnectorAction}
@@ -57,14 +59,12 @@ export default async function AutomationConnectorsPage() {
             placeholder="Connector name"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
-
           <input
             name="connectorKey"
             required
             placeholder="ERP_PRIMARY"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-mono"
           />
-
           <select
             name="type"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
@@ -73,25 +73,21 @@ export default async function AutomationConnectorsPage() {
             <option value="WEBHOOK">Webhook</option>
             <option value="DOMAIN_EVENT">Domain Event</option>
           </select>
-
           <input
             name="baseUrl"
             placeholder="https://api.example.com/endpoint"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
-
           <input
             name="allowedHosts"
             placeholder="api.example.com, hooks.example.com"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
-
           <input
             name="secretEnvKey"
             placeholder="ENORSIS_ERP_API_TOKEN"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-mono"
           />
-
           <input
             name="timeoutMs"
             type="number"
@@ -100,7 +96,6 @@ export default async function AutomationConnectorsPage() {
             defaultValue="15000"
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
-
           <button className="rounded-xl bg-slate-950 px-4 py-3 text-sm font-black text-white">
             Register connector
           </button>
@@ -109,10 +104,7 @@ export default async function AutomationConnectorsPage() {
 
       <section className="mt-8 grid gap-5 xl:grid-cols-2">
         {data.connectors.map((connector) => (
-          <article
-            key={connector.id}
-            className={card}
-          >
+          <article key={connector.id} className={card}>
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase text-blue-700">
@@ -129,8 +121,7 @@ export default async function AutomationConnectorsPage() {
               <div className="text-right text-xs text-slate-500">
                 <p>Uses: {connector.usageCount}</p>
                 <p className="mt-1">
-                  Last used:{" "}
-                  {connector.lastUsedAt?.toLocaleString() ?? "Never"}
+                  Last used: {connector.lastUsedAt?.toLocaleString() ?? "Never"}
                 </p>
               </div>
             </div>
@@ -141,9 +132,7 @@ export default async function AutomationConnectorsPage() {
                 {connector.baseUrl ?? "—"}
               </p>
               <p>
-                <span className="font-black">
-                  Secret reference:
-                </span>{" "}
+                <span className="font-black">Secret reference:</span>{" "}
                 {connector.secretEnvKey ?? "None"}
               </p>
               <p>
@@ -159,6 +148,78 @@ export default async function AutomationConnectorsPage() {
                   {connector.lastTestMessage}
                 </p>
               ) : null}
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-slate-200 p-4">
+              <p className="text-xs font-black uppercase text-slate-500">
+                Reliability governance
+              </p>
+              <form
+                action={updateAutomationConnectorReliabilityPolicyAction}
+                className="mt-3 grid gap-3 sm:grid-cols-2"
+              >
+                <input
+                  type="hidden"
+                  name="connectorId"
+                  value={connector.id}
+                />
+                <label className="text-xs font-bold text-slate-600">
+                  SLA target %
+                  <input
+                    name="slaTargetPercent"
+                    type="number"
+                    min="90"
+                    max="100"
+                    step="0.01"
+                    defaultValue={connector.slaTargetPercent}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-xs font-bold text-slate-600">
+                  SLA window hours
+                  <input
+                    name="slaWindowHours"
+                    type="number"
+                    min="1"
+                    max="720"
+                    defaultValue={connector.slaWindowHours}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-xs font-bold text-slate-600">
+                  Failure threshold
+                  <input
+                    name="remediationFailureThreshold"
+                    type="number"
+                    min="1"
+                    max="10"
+                    defaultValue={connector.remediationFailureThreshold}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="text-xs font-bold text-slate-600">
+                  Remediation cooldown minutes
+                  <input
+                    name="remediationCooldownMinutes"
+                    type="number"
+                    min="5"
+                    max="1440"
+                    defaultValue={connector.remediationCooldownMinutes}
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <label className="flex items-center gap-2 text-xs font-bold text-slate-600">
+                  <input
+                    name="autoRemediationEnabled"
+                    type="checkbox"
+                    defaultChecked={connector.autoRemediationEnabled}
+                  />
+                  Enable governed auto-remediation
+                </label>
+                <button className="rounded-xl bg-slate-950 px-3 py-2 text-xs font-black text-white">
+                  Save reliability policy
+                </button>
+              </form>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
