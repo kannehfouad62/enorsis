@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { toJson } from "@/lib/prisma-json";
 import { readinessChecks } from "./checks";
+import { rc1ReadinessChecks } from "./rc1-checks";
 import type { ReadinessCheckResult } from "./types";
 
 export async function runPlatformCertification({
@@ -33,7 +34,10 @@ export async function runPlatformCertification({
 
   const results: ReadinessCheckResult[] = [];
 
-  for (const check of readinessChecks) {
+  for (const check of [
+    ...readinessChecks,
+    ...rc1ReadinessChecks,
+  ]) {
     try {
       const result = await check();
       results.push(result);
