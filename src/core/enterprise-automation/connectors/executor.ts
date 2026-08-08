@@ -10,6 +10,8 @@ import {
   recordAutomationConnectorUsage,
   resolveAutomationConnectorConfiguration,
 } from "./registry-service";
+import { enforceAutomationConnectorPolicy } from "./policy";
+import { recordAutomationConnectorAudit } from "./audit-service";
 
 type StoredActionRequest = {
   actionType?: unknown;
@@ -62,6 +64,27 @@ export async function executePendingAutomationAction(
 
     governedConnectorId = resolved.connector.id;
 
+    try {
+      await enforceAutomationConnectorPolicy({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+      });
+    } catch (error) {
+      await recordAutomationConnectorAudit({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+        type: "POLICY_BLOCKED",
+        actionId: action.id,
+        message:
+          error instanceof Error
+            ? error.message
+            : "Connector policy blocked execution.",
+      });
+
+      throw error;
+    }
+
+
     governedConfiguration = {
       ...configuration,
       connector: resolved.configuration,
@@ -88,6 +111,27 @@ export async function executePendingAutomationAction(
       await recordAutomationConnectorUsage(
         governedConnectorId,
       );
+
+      await prisma.enterpriseAutomationConnector.update({
+        where: {
+          id: governedConnectorId,
+        },
+        data: {
+          successCount: {
+            increment: 1,
+          },
+          consecutiveFailures: 0,
+        },
+      });
+
+      await recordAutomationConnectorAudit({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+        type: "EXECUTED",
+        actionId: action.id,
+        message:
+          "Connector action executed successfully.",
+      });
     }
 
     if (result.mode === "ASYNC") {
@@ -127,7 +171,34 @@ export async function executePendingAutomationAction(
         ? error.message
         : "Unknown connector execution failure.";
 
-    await prisma.enterpriseAutomationRuntimeAction.update({
+    
+
+    if (governedConnectorId) {
+      await prisma.enterpriseAutomationConnector.update({
+        where: {
+          id: governedConnectorId,
+        },
+        data: {
+          failureCount: {
+            increment: 1,
+          },
+          consecutiveFailures: {
+            increment: 1,
+          },
+          lastFailureAt: new Date(),
+          lastFailureMessage: message,
+        },
+      });
+
+      await recordAutomationConnectorAudit({
+        tenantId: action.tenantId,
+        connectorId: governedConnectorId,
+        type: "EXECUTION_FAILED",
+        actionId: action.id,
+        message,
+      });
+    }
+await prisma.enterpriseAutomationRuntimeAction.update({
       where: { id: action.id },
       data: {
         status: "FAILED",

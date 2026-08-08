@@ -34,6 +34,12 @@ export default async function AutomationConnectorsPage() {
         >
           Durable Runtime
         </Link>
+        <Link
+          href="/app/automation/connectors/observability"
+          className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
+        >
+          Observability
+        </Link>
       </div>
 
       <section className={`${card} mt-8`}>

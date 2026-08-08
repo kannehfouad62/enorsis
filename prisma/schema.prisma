@@ -2304,6 +2304,18 @@ enum EnterpriseAutomationConnectorStatus {
   ARCHIVED
 }
 
+enum EnterpriseAutomationConnectorAuditType {
+  CREATED
+  UPDATED
+  ACTIVATED
+  DISABLED
+  ARCHIVED
+  TESTED
+  EXECUTED
+  EXECUTION_FAILED
+  POLICY_BLOCKED
+}
+
 enum AuditActorType {
   USER
   SYSTEM
@@ -2553,6 +2565,7 @@ model Tenant {
   enterpriseAutomationRuntimeActions          EnterpriseAutomationRuntimeAction[]
   enterpriseAutomationRuntimeCallbacks        EnterpriseAutomationRuntimeCallback[]
   enterpriseAutomationConnectors              EnterpriseAutomationConnector[]
+  enterpriseAutomationConnectorAudits         EnterpriseAutomationConnectorAudit[]
   createdAt                                   DateTime                                     @default(now())
   updatedAt                                   DateTime                                     @updatedAt
   archivedAt                                  DateTime?
@@ -8536,29 +8549,56 @@ model EnterpriseAutomationRuntimeCallback {
 }
 
 model EnterpriseAutomationConnector {
-  id              String                              @id @default(cuid())
-  tenantId        String
-  connectorKey    String
-  name            String
-  type            EnterpriseAutomationConnectorType
-  status          EnterpriseAutomationConnectorStatus @default(ACTIVE)
-  baseUrl         String?
-  allowedHosts    Json?
-  secretEnvKey    String?
-  defaultHeaders  Json?
-  configuration   Json?
-  timeoutMs       Int                                 @default(15000)
-  createdByUserId String?
-  updatedByUserId String?
-  tenant          Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  lastTestedAt    DateTime?
-  lastTestStatus  String?
-  lastTestMessage String?
-  lastUsedAt      DateTime?
-  usageCount      Int                                 @default(0)
-  createdAt       DateTime                            @default(now())
-  updatedAt       DateTime                            @updatedAt
+  id                  String                               @id @default(cuid())
+  tenantId            String
+  connectorKey        String
+  name                String
+  type                EnterpriseAutomationConnectorType
+  status              EnterpriseAutomationConnectorStatus  @default(ACTIVE)
+  baseUrl             String?
+  allowedHosts        Json?
+  secretEnvKey        String?
+  defaultHeaders      Json?
+  configuration       Json?
+  timeoutMs           Int                                  @default(15000)
+  createdByUserId     String?
+  updatedByUserId     String?
+  tenant              Tenant                               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lastTestedAt        DateTime?
+  lastTestStatus      String?
+  lastTestMessage     String?
+  lastUsedAt          DateTime?
+  usageCount          Int                                  @default(0)
+  ownerUserId         String?
+  policyTag           String?
+  maxDailyExecutions  Int?
+  consecutiveFailures Int                                  @default(0)
+  successCount        Int                                  @default(0)
+  failureCount        Int                                  @default(0)
+  lastFailureAt       DateTime?
+  lastFailureMessage  String?
+  audits              EnterpriseAutomationConnectorAudit[]
+  createdAt           DateTime                             @default(now())
+  updatedAt           DateTime                             @updatedAt
 
   @@unique([tenantId, connectorKey])
   @@index([tenantId, status, type])
+}
+
+model EnterpriseAutomationConnectorAudit {
+  id          String                                 @id @default(cuid())
+  tenantId    String
+  connectorId String
+  type        EnterpriseAutomationConnectorAuditType
+  actorUserId String?
+  actionId    String?
+  message     String?
+  metadata    Json?
+  tenant      Tenant                                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  connector   EnterpriseAutomationConnector          @relation(fields: [connectorId], references: [id], onDelete: Cascade)
+  createdAt   DateTime                               @default(now())
+
+  @@index([tenantId, createdAt])
+  @@index([connectorId, createdAt])
+  @@index([connectorId, type, createdAt])
 }

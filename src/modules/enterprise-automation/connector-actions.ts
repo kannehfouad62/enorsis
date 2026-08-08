@@ -5,6 +5,7 @@ import { requireAnyRole } from "@/core/auth/authorization";
 import { prisma } from "@/lib/prisma";
 import { toJson } from "@/lib/prisma-json";
 import { testAutomationConnector } from "@/core/enterprise-automation/connectors/test-service";
+import { recordAutomationConnectorAudit } from "@/core/enterprise-automation/connectors/audit-service";
 
 const field = (data: FormData, key: string) =>
   String(data.get(key) ?? "").trim();
@@ -32,7 +33,8 @@ export async function createAutomationConnectorAction(
     .toUpperCase()
     .replace(/[^A-Z0-9_]+/g, "_");
 
-  await prisma.enterpriseAutomationConnector.create({
+  const created =
+    await prisma.enterpriseAutomationConnector.create({
     data: {
       tenantId: user.tenantId,
       connectorKey,
@@ -59,7 +61,16 @@ export async function createAutomationConnectorAction(
       ),
       createdByUserId: user.id,
       updatedByUserId: user.id,
+      ownerUserId: user.id,
     },
+  });
+
+  await recordAutomationConnectorAudit({
+    tenantId: user.tenantId,
+    connectorId: created.id,
+    type: "CREATED",
+    actorUserId: user.id,
+    message: "Connector registered.",
   });
 
   revalidatePath("/app/automation/connectors");
@@ -70,18 +81,41 @@ export async function setAutomationConnectorStatusAction(
 ) {
   const user = await requireAnyRole([...adminRoles]);
 
+  const connectorId = field(
+    data,
+    "connectorId",
+  );
+
+  const nextStatus = field(
+    data,
+    "status",
+  ) as
+    | "ACTIVE"
+    | "DISABLED"
+    | "ARCHIVED";
+
   await prisma.enterpriseAutomationConnector.updateMany({
     where: {
-      id: field(data, "connectorId"),
+      id: connectorId,
       tenantId: user.tenantId,
     },
     data: {
-      status: field(data, "status") as
-        | "ACTIVE"
-        | "DISABLED"
-        | "ARCHIVED",
+      status: nextStatus,
       updatedByUserId: user.id,
     },
+  });
+
+  await recordAutomationConnectorAudit({
+    tenantId: user.tenantId,
+    connectorId,
+    type:
+      nextStatus === "ACTIVE"
+        ? "ACTIVATED"
+        : nextStatus === "DISABLED"
+          ? "DISABLED"
+          : "ARCHIVED",
+    actorUserId: user.id,
+    message: `Connector status changed to ${nextStatus}.`,
   });
 
   revalidatePath("/app/automation/connectors");
@@ -92,9 +126,30 @@ export async function testAutomationConnectorAction(
 ) {
   const user = await requireAnyRole([...adminRoles]);
 
-  await testAutomationConnector({
+  const connectorId = field(
+    data,
+    "connectorId",
+  );
+
+  const result =
+    await testAutomationConnector({
+      tenantId: user.tenantId,
+      connectorId,
+    });
+
+  await recordAutomationConnectorAudit({
     tenantId: user.tenantId,
-    connectorId: field(data, "connectorId"),
+    connectorId,
+    type: "TESTED",
+    actorUserId: user.id,
+    message:
+      result.message ??
+      (result.ok
+        ? "Connector test passed."
+        : "Connector test failed."),
+    metadata: {
+      ok: result.ok,
+    },
   });
 
   revalidatePath("/app/automation/connectors");

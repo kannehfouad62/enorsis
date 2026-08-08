@@ -301,7 +301,8 @@ export const ModelName = {
   EnterpriseAutomationRuntimeSignal: 'EnterpriseAutomationRuntimeSignal',
   EnterpriseAutomationRuntimeAction: 'EnterpriseAutomationRuntimeAction',
   EnterpriseAutomationRuntimeCallback: 'EnterpriseAutomationRuntimeCallback',
-  EnterpriseAutomationConnector: 'EnterpriseAutomationConnector'
+  EnterpriseAutomationConnector: 'EnterpriseAutomationConnector',
+  EnterpriseAutomationConnectorAudit: 'EnterpriseAutomationConnectorAudit'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5672,11 +5673,34 @@ export const EnterpriseAutomationConnectorScalarFieldEnum = {
   lastTestMessage: 'lastTestMessage',
   lastUsedAt: 'lastUsedAt',
   usageCount: 'usageCount',
+  ownerUserId: 'ownerUserId',
+  policyTag: 'policyTag',
+  maxDailyExecutions: 'maxDailyExecutions',
+  consecutiveFailures: 'consecutiveFailures',
+  successCount: 'successCount',
+  failureCount: 'failureCount',
+  lastFailureAt: 'lastFailureAt',
+  lastFailureMessage: 'lastFailureMessage',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type EnterpriseAutomationConnectorScalarFieldEnum = (typeof EnterpriseAutomationConnectorScalarFieldEnum)[keyof typeof EnterpriseAutomationConnectorScalarFieldEnum]
+
+
+export const EnterpriseAutomationConnectorAuditScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  connectorId: 'connectorId',
+  type: 'type',
+  actorUserId: 'actorUserId',
+  actionId: 'actionId',
+  message: 'message',
+  metadata: 'metadata',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterpriseAutomationConnectorAuditScalarFieldEnum = (typeof EnterpriseAutomationConnectorAuditScalarFieldEnum)[keyof typeof EnterpriseAutomationConnectorAuditScalarFieldEnum]
 
 
 export const SortOrder = {

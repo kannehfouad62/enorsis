@@ -5202,6 +5202,23 @@ export type EnumEnterpriseAutomationConnectorStatusWithAggregatesFilter<$PrismaM
   _max?: Prisma.NestedEnumEnterpriseAutomationConnectorStatusFilter<$PrismaModel>
 }
 
+export type EnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationConnectorAuditType | Prisma.EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel> | $Enums.EnterpriseAutomationConnectorAuditType
+}
+
+export type EnumEnterpriseAutomationConnectorAuditTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationConnectorAuditType | Prisma.EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationConnectorAuditType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -10347,6 +10364,23 @@ export type NestedEnumEnterpriseAutomationConnectorStatusWithAggregatesFilter<$P
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumEnterpriseAutomationConnectorStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumEnterpriseAutomationConnectorStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationConnectorAuditType | Prisma.EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel> | $Enums.EnterpriseAutomationConnectorAuditType
+}
+
+export type NestedEnumEnterpriseAutomationConnectorAuditTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.EnterpriseAutomationConnectorAuditType | Prisma.EnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.EnterpriseAutomationConnectorAuditType[] | Prisma.ListEnumEnterpriseAutomationConnectorAuditTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeWithAggregatesFilter<$PrismaModel> | $Enums.EnterpriseAutomationConnectorAuditType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumEnterpriseAutomationConnectorAuditTypeFilter<$PrismaModel>
 }
 
 

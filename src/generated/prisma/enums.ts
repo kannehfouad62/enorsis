@@ -3127,6 +3127,21 @@ export const EnterpriseAutomationConnectorStatus = {
 export type EnterpriseAutomationConnectorStatus = (typeof EnterpriseAutomationConnectorStatus)[keyof typeof EnterpriseAutomationConnectorStatus]
 
 
+export const EnterpriseAutomationConnectorAuditType = {
+  CREATED: 'CREATED',
+  UPDATED: 'UPDATED',
+  ACTIVATED: 'ACTIVATED',
+  DISABLED: 'DISABLED',
+  ARCHIVED: 'ARCHIVED',
+  TESTED: 'TESTED',
+  EXECUTED: 'EXECUTED',
+  EXECUTION_FAILED: 'EXECUTION_FAILED',
+  POLICY_BLOCKED: 'POLICY_BLOCKED'
+} as const
+
+export type EnterpriseAutomationConnectorAuditType = (typeof EnterpriseAutomationConnectorAuditType)[keyof typeof EnterpriseAutomationConnectorAuditType]
+
+
 export const AuditActorType = {
   USER: 'USER',
   SYSTEM: 'SYSTEM',

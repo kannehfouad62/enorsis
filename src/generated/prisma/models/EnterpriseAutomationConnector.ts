@@ -29,11 +29,19 @@ export type AggregateEnterpriseAutomationConnector = {
 export type EnterpriseAutomationConnectorAvgAggregateOutputType = {
   timeoutMs: number | null
   usageCount: number | null
+  maxDailyExecutions: number | null
+  consecutiveFailures: number | null
+  successCount: number | null
+  failureCount: number | null
 }
 
 export type EnterpriseAutomationConnectorSumAggregateOutputType = {
   timeoutMs: number | null
   usageCount: number | null
+  maxDailyExecutions: number | null
+  consecutiveFailures: number | null
+  successCount: number | null
+  failureCount: number | null
 }
 
 export type EnterpriseAutomationConnectorMinAggregateOutputType = {
@@ -53,6 +61,14 @@ export type EnterpriseAutomationConnectorMinAggregateOutputType = {
   lastTestMessage: string | null
   lastUsedAt: Date | null
   usageCount: number | null
+  ownerUserId: string | null
+  policyTag: string | null
+  maxDailyExecutions: number | null
+  consecutiveFailures: number | null
+  successCount: number | null
+  failureCount: number | null
+  lastFailureAt: Date | null
+  lastFailureMessage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -74,6 +90,14 @@ export type EnterpriseAutomationConnectorMaxAggregateOutputType = {
   lastTestMessage: string | null
   lastUsedAt: Date | null
   usageCount: number | null
+  ownerUserId: string | null
+  policyTag: string | null
+  maxDailyExecutions: number | null
+  consecutiveFailures: number | null
+  successCount: number | null
+  failureCount: number | null
+  lastFailureAt: Date | null
+  lastFailureMessage: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -98,6 +122,14 @@ export type EnterpriseAutomationConnectorCountAggregateOutputType = {
   lastTestMessage: number
   lastUsedAt: number
   usageCount: number
+  ownerUserId: number
+  policyTag: number
+  maxDailyExecutions: number
+  consecutiveFailures: number
+  successCount: number
+  failureCount: number
+  lastFailureAt: number
+  lastFailureMessage: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -107,11 +139,19 @@ export type EnterpriseAutomationConnectorCountAggregateOutputType = {
 export type EnterpriseAutomationConnectorAvgAggregateInputType = {
   timeoutMs?: true
   usageCount?: true
+  maxDailyExecutions?: true
+  consecutiveFailures?: true
+  successCount?: true
+  failureCount?: true
 }
 
 export type EnterpriseAutomationConnectorSumAggregateInputType = {
   timeoutMs?: true
   usageCount?: true
+  maxDailyExecutions?: true
+  consecutiveFailures?: true
+  successCount?: true
+  failureCount?: true
 }
 
 export type EnterpriseAutomationConnectorMinAggregateInputType = {
@@ -131,6 +171,14 @@ export type EnterpriseAutomationConnectorMinAggregateInputType = {
   lastTestMessage?: true
   lastUsedAt?: true
   usageCount?: true
+  ownerUserId?: true
+  policyTag?: true
+  maxDailyExecutions?: true
+  consecutiveFailures?: true
+  successCount?: true
+  failureCount?: true
+  lastFailureAt?: true
+  lastFailureMessage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -152,6 +200,14 @@ export type EnterpriseAutomationConnectorMaxAggregateInputType = {
   lastTestMessage?: true
   lastUsedAt?: true
   usageCount?: true
+  ownerUserId?: true
+  policyTag?: true
+  maxDailyExecutions?: true
+  consecutiveFailures?: true
+  successCount?: true
+  failureCount?: true
+  lastFailureAt?: true
+  lastFailureMessage?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -176,6 +232,14 @@ export type EnterpriseAutomationConnectorCountAggregateInputType = {
   lastTestMessage?: true
   lastUsedAt?: true
   usageCount?: true
+  ownerUserId?: true
+  policyTag?: true
+  maxDailyExecutions?: true
+  consecutiveFailures?: true
+  successCount?: true
+  failureCount?: true
+  lastFailureAt?: true
+  lastFailureMessage?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -287,6 +351,14 @@ export type EnterpriseAutomationConnectorGroupByOutputType = {
   lastTestMessage: string | null
   lastUsedAt: Date | null
   usageCount: number
+  ownerUserId: string | null
+  policyTag: string | null
+  maxDailyExecutions: number | null
+  consecutiveFailures: number
+  successCount: number
+  failureCount: number
+  lastFailureAt: Date | null
+  lastFailureMessage: string | null
   createdAt: Date
   updatedAt: Date
   _count: EnterpriseAutomationConnectorCountAggregateOutputType | null
@@ -334,9 +406,18 @@ export type EnterpriseAutomationConnectorWhereInput = {
   lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastFailureAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastFailureMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  audits?: Prisma.EnterpriseAutomationConnectorAuditListRelationFilter
 }
 
 export type EnterpriseAutomationConnectorOrderByWithRelationInput = {
@@ -359,9 +440,18 @@ export type EnterpriseAutomationConnectorOrderByWithRelationInput = {
   lastTestMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   lastUsedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  ownerUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  policyTag?: Prisma.SortOrderInput | Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrderInput | Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+  lastFailureAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastFailureMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
+  audits?: Prisma.EnterpriseAutomationConnectorAuditOrderByRelationAggregateInput
 }
 
 export type EnterpriseAutomationConnectorWhereUniqueInput = Prisma.AtLeast<{
@@ -388,9 +478,18 @@ export type EnterpriseAutomationConnectorWhereUniqueInput = Prisma.AtLeast<{
   lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastFailureAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastFailureMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
+  audits?: Prisma.EnterpriseAutomationConnectorAuditListRelationFilter
 }, "id" | "tenantId_connectorKey">
 
 export type EnterpriseAutomationConnectorOrderByWithAggregationInput = {
@@ -413,6 +512,14 @@ export type EnterpriseAutomationConnectorOrderByWithAggregationInput = {
   lastTestMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   lastUsedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  ownerUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  policyTag?: Prisma.SortOrderInput | Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrderInput | Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+  lastFailureAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastFailureMessage?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EnterpriseAutomationConnectorCountOrderByAggregateInput
@@ -445,6 +552,14 @@ export type EnterpriseAutomationConnectorScalarWhereWithAggregatesInput = {
   lastTestMessage?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
   lastUsedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
   usageCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  ownerUserId?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
+  policyTag?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
+  maxDailyExecutions?: Prisma.IntNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | number | null
+  consecutiveFailures?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  successCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  failureCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
+  lastFailureAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastFailureMessage?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string
 }
@@ -468,9 +583,18 @@ export type EnterpriseAutomationConnectorCreateInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationConnectorsInput
+  audits?: Prisma.EnterpriseAutomationConnectorAuditCreateNestedManyWithoutConnectorInput
 }
 
 export type EnterpriseAutomationConnectorUncheckedCreateInput = {
@@ -493,8 +617,17 @@ export type EnterpriseAutomationConnectorUncheckedCreateInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUncheckedCreateNestedManyWithoutConnectorInput
 }
 
 export type EnterpriseAutomationConnectorUpdateInput = {
@@ -516,9 +649,18 @@ export type EnterpriseAutomationConnectorUpdateInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationConnectorsNestedInput
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUpdateManyWithoutConnectorNestedInput
 }
 
 export type EnterpriseAutomationConnectorUncheckedUpdateInput = {
@@ -541,8 +683,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUncheckedUpdateManyWithoutConnectorNestedInput
 }
 
 export type EnterpriseAutomationConnectorCreateManyInput = {
@@ -565,6 +716,14 @@ export type EnterpriseAutomationConnectorCreateManyInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -588,6 +747,14 @@ export type EnterpriseAutomationConnectorUpdateManyMutationInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -612,6 +779,14 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -651,6 +826,14 @@ export type EnterpriseAutomationConnectorCountOrderByAggregateInput = {
   lastTestMessage?: Prisma.SortOrder
   lastUsedAt?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  ownerUserId?: Prisma.SortOrder
+  policyTag?: Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+  lastFailureAt?: Prisma.SortOrder
+  lastFailureMessage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -658,6 +841,10 @@ export type EnterpriseAutomationConnectorCountOrderByAggregateInput = {
 export type EnterpriseAutomationConnectorAvgOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationConnectorMaxOrderByAggregateInput = {
@@ -677,6 +864,14 @@ export type EnterpriseAutomationConnectorMaxOrderByAggregateInput = {
   lastTestMessage?: Prisma.SortOrder
   lastUsedAt?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  ownerUserId?: Prisma.SortOrder
+  policyTag?: Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+  lastFailureAt?: Prisma.SortOrder
+  lastFailureMessage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -698,6 +893,14 @@ export type EnterpriseAutomationConnectorMinOrderByAggregateInput = {
   lastTestMessage?: Prisma.SortOrder
   lastUsedAt?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  ownerUserId?: Prisma.SortOrder
+  policyTag?: Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+  lastFailureAt?: Prisma.SortOrder
+  lastFailureMessage?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -705,6 +908,15 @@ export type EnterpriseAutomationConnectorMinOrderByAggregateInput = {
 export type EnterpriseAutomationConnectorSumOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   usageCount?: Prisma.SortOrder
+  maxDailyExecutions?: Prisma.SortOrder
+  consecutiveFailures?: Prisma.SortOrder
+  successCount?: Prisma.SortOrder
+  failureCount?: Prisma.SortOrder
+}
+
+export type EnterpriseAutomationConnectorScalarRelationFilter = {
+  is?: Prisma.EnterpriseAutomationConnectorWhereInput
+  isNot?: Prisma.EnterpriseAutomationConnectorWhereInput
 }
 
 export type EnterpriseAutomationConnectorCreateNestedManyWithoutTenantInput = {
@@ -757,6 +969,20 @@ export type EnumEnterpriseAutomationConnectorStatusFieldUpdateOperationsInput = 
   set?: $Enums.EnterpriseAutomationConnectorStatus
 }
 
+export type EnterpriseAutomationConnectorCreateNestedOneWithoutAuditsInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationConnectorCreateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationConnectorCreateOrConnectWithoutAuditsInput
+  connect?: Prisma.EnterpriseAutomationConnectorWhereUniqueInput
+}
+
+export type EnterpriseAutomationConnectorUpdateOneRequiredWithoutAuditsNestedInput = {
+  create?: Prisma.XOR<Prisma.EnterpriseAutomationConnectorCreateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput>
+  connectOrCreate?: Prisma.EnterpriseAutomationConnectorCreateOrConnectWithoutAuditsInput
+  upsert?: Prisma.EnterpriseAutomationConnectorUpsertWithoutAuditsInput
+  connect?: Prisma.EnterpriseAutomationConnectorWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EnterpriseAutomationConnectorUpdateToOneWithWhereWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUpdateWithoutAuditsInput>, Prisma.EnterpriseAutomationConnectorUncheckedUpdateWithoutAuditsInput>
+}
+
 export type EnterpriseAutomationConnectorCreateWithoutTenantInput = {
   id?: string
   connectorKey: string
@@ -776,8 +1002,17 @@ export type EnterpriseAutomationConnectorCreateWithoutTenantInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditCreateNestedManyWithoutConnectorInput
 }
 
 export type EnterpriseAutomationConnectorUncheckedCreateWithoutTenantInput = {
@@ -799,8 +1034,17 @@ export type EnterpriseAutomationConnectorUncheckedCreateWithoutTenantInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUncheckedCreateNestedManyWithoutConnectorInput
 }
 
 export type EnterpriseAutomationConnectorCreateOrConnectWithoutTenantInput = {
@@ -852,8 +1096,160 @@ export type EnterpriseAutomationConnectorScalarWhereInput = {
   lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
   usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  ownerUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  policyTag?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  maxDailyExecutions?: Prisma.IntNullableFilter<"EnterpriseAutomationConnector"> | number | null
+  consecutiveFailures?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  successCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  failureCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
+  lastFailureAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastFailureMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
+}
+
+export type EnterpriseAutomationConnectorCreateWithoutAuditsInput = {
+  id?: string
+  connectorKey: string
+  name: string
+  type: $Enums.EnterpriseAutomationConnectorType
+  status?: $Enums.EnterpriseAutomationConnectorStatus
+  baseUrl?: string | null
+  allowedHosts?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  secretEnvKey?: string | null
+  defaultHeaders?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeoutMs?: number
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationConnectorsInput
+}
+
+export type EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput = {
+  id?: string
+  tenantId: string
+  connectorKey: string
+  name: string
+  type: $Enums.EnterpriseAutomationConnectorType
+  status?: $Enums.EnterpriseAutomationConnectorStatus
+  baseUrl?: string | null
+  allowedHosts?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  secretEnvKey?: string | null
+  defaultHeaders?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeoutMs?: number
+  createdByUserId?: string | null
+  updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EnterpriseAutomationConnectorCreateOrConnectWithoutAuditsInput = {
+  where: Prisma.EnterpriseAutomationConnectorWhereUniqueInput
+  create: Prisma.XOR<Prisma.EnterpriseAutomationConnectorCreateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput>
+}
+
+export type EnterpriseAutomationConnectorUpsertWithoutAuditsInput = {
+  update: Prisma.XOR<Prisma.EnterpriseAutomationConnectorUpdateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedUpdateWithoutAuditsInput>
+  create: Prisma.XOR<Prisma.EnterpriseAutomationConnectorCreateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedCreateWithoutAuditsInput>
+  where?: Prisma.EnterpriseAutomationConnectorWhereInput
+}
+
+export type EnterpriseAutomationConnectorUpdateToOneWithWhereWithoutAuditsInput = {
+  where?: Prisma.EnterpriseAutomationConnectorWhereInput
+  data: Prisma.XOR<Prisma.EnterpriseAutomationConnectorUpdateWithoutAuditsInput, Prisma.EnterpriseAutomationConnectorUncheckedUpdateWithoutAuditsInput>
+}
+
+export type EnterpriseAutomationConnectorUpdateWithoutAuditsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  connectorKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumEnterpriseAutomationConnectorTypeFieldUpdateOperationsInput | $Enums.EnterpriseAutomationConnectorType
+  status?: Prisma.EnumEnterpriseAutomationConnectorStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationConnectorStatus
+  baseUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowedHosts?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  secretEnvKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultHeaders?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationConnectorsNestedInput
+}
+
+export type EnterpriseAutomationConnectorUncheckedUpdateWithoutAuditsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  connectorKey?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  type?: Prisma.EnumEnterpriseAutomationConnectorTypeFieldUpdateOperationsInput | $Enums.EnterpriseAutomationConnectorType
+  status?: Prisma.EnumEnterpriseAutomationConnectorStatusFieldUpdateOperationsInput | $Enums.EnterpriseAutomationConnectorStatus
+  baseUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allowedHosts?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  secretEnvKey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  defaultHeaders?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  configuration?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EnterpriseAutomationConnectorCreateManyTenantInput = {
@@ -875,6 +1271,14 @@ export type EnterpriseAutomationConnectorCreateManyTenantInput = {
   lastTestMessage?: string | null
   lastUsedAt?: Date | string | null
   usageCount?: number
+  ownerUserId?: string | null
+  policyTag?: string | null
+  maxDailyExecutions?: number | null
+  consecutiveFailures?: number
+  successCount?: number
+  failureCount?: number
+  lastFailureAt?: Date | string | null
+  lastFailureMessage?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -898,8 +1302,17 @@ export type EnterpriseAutomationConnectorUpdateWithoutTenantInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUpdateManyWithoutConnectorNestedInput
 }
 
 export type EnterpriseAutomationConnectorUncheckedUpdateWithoutTenantInput = {
@@ -921,8 +1334,17 @@ export type EnterpriseAutomationConnectorUncheckedUpdateWithoutTenantInput = {
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  audits?: Prisma.EnterpriseAutomationConnectorAuditUncheckedUpdateManyWithoutConnectorNestedInput
 }
 
 export type EnterpriseAutomationConnectorUncheckedUpdateManyWithoutTenantInput = {
@@ -944,10 +1366,47 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyWithoutTenantInput =
   lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   usageCount?: Prisma.IntFieldUpdateOperationsInput | number
+  ownerUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  policyTag?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  maxDailyExecutions?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  consecutiveFailures?: Prisma.IntFieldUpdateOperationsInput | number
+  successCount?: Prisma.IntFieldUpdateOperationsInput | number
+  failureCount?: Prisma.IntFieldUpdateOperationsInput | number
+  lastFailureAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastFailureMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type EnterpriseAutomationConnectorCountOutputType
+ */
+
+export type EnterpriseAutomationConnectorCountOutputType = {
+  audits: number
+}
+
+export type EnterpriseAutomationConnectorCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  audits?: boolean | EnterpriseAutomationConnectorCountOutputTypeCountAuditsArgs
+}
+
+/**
+ * EnterpriseAutomationConnectorCountOutputType without action
+ */
+export type EnterpriseAutomationConnectorCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationConnectorCountOutputType
+   */
+  select?: Prisma.EnterpriseAutomationConnectorCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * EnterpriseAutomationConnectorCountOutputType without action
+ */
+export type EnterpriseAutomationConnectorCountOutputTypeCountAuditsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EnterpriseAutomationConnectorAuditWhereInput
+}
 
 
 export type EnterpriseAutomationConnectorSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -970,9 +1429,19 @@ export type EnterpriseAutomationConnectorSelect<ExtArgs extends runtime.Types.Ex
   lastTestMessage?: boolean
   lastUsedAt?: boolean
   usageCount?: boolean
+  ownerUserId?: boolean
+  policyTag?: boolean
+  maxDailyExecutions?: boolean
+  consecutiveFailures?: boolean
+  successCount?: boolean
+  failureCount?: boolean
+  lastFailureAt?: boolean
+  lastFailureMessage?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  audits?: boolean | Prisma.EnterpriseAutomationConnector$auditsArgs<ExtArgs>
+  _count?: boolean | Prisma.EnterpriseAutomationConnectorCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["enterpriseAutomationConnector"]>
 
 export type EnterpriseAutomationConnectorSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -995,6 +1464,14 @@ export type EnterpriseAutomationConnectorSelectCreateManyAndReturn<ExtArgs exten
   lastTestMessage?: boolean
   lastUsedAt?: boolean
   usageCount?: boolean
+  ownerUserId?: boolean
+  policyTag?: boolean
+  maxDailyExecutions?: boolean
+  consecutiveFailures?: boolean
+  successCount?: boolean
+  failureCount?: boolean
+  lastFailureAt?: boolean
+  lastFailureMessage?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1020,6 +1497,14 @@ export type EnterpriseAutomationConnectorSelectUpdateManyAndReturn<ExtArgs exten
   lastTestMessage?: boolean
   lastUsedAt?: boolean
   usageCount?: boolean
+  ownerUserId?: boolean
+  policyTag?: boolean
+  maxDailyExecutions?: boolean
+  consecutiveFailures?: boolean
+  successCount?: boolean
+  failureCount?: boolean
+  lastFailureAt?: boolean
+  lastFailureMessage?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1045,13 +1530,23 @@ export type EnterpriseAutomationConnectorSelectScalar = {
   lastTestMessage?: boolean
   lastUsedAt?: boolean
   usageCount?: boolean
+  ownerUserId?: boolean
+  policyTag?: boolean
+  maxDailyExecutions?: boolean
+  consecutiveFailures?: boolean
+  successCount?: boolean
+  failureCount?: boolean
+  lastFailureAt?: boolean
+  lastFailureMessage?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "lastTestedAt" | "lastTestStatus" | "lastTestMessage" | "lastUsedAt" | "usageCount" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
+export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "lastTestedAt" | "lastTestStatus" | "lastTestMessage" | "lastUsedAt" | "usageCount" | "ownerUserId" | "policyTag" | "maxDailyExecutions" | "consecutiveFailures" | "successCount" | "failureCount" | "lastFailureAt" | "lastFailureMessage" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
 export type EnterpriseAutomationConnectorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
+  audits?: boolean | Prisma.EnterpriseAutomationConnector$auditsArgs<ExtArgs>
+  _count?: boolean | Prisma.EnterpriseAutomationConnectorCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type EnterpriseAutomationConnectorIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -1064,6 +1559,7 @@ export type $EnterpriseAutomationConnectorPayload<ExtArgs extends runtime.Types.
   name: "EnterpriseAutomationConnector"
   objects: {
     tenant: Prisma.$TenantPayload<ExtArgs>
+    audits: Prisma.$EnterpriseAutomationConnectorAuditPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1085,6 +1581,14 @@ export type $EnterpriseAutomationConnectorPayload<ExtArgs extends runtime.Types.
     lastTestMessage: string | null
     lastUsedAt: Date | null
     usageCount: number
+    ownerUserId: string | null
+    policyTag: string | null
+    maxDailyExecutions: number | null
+    consecutiveFailures: number
+    successCount: number
+    failureCount: number
+    lastFailureAt: Date | null
+    lastFailureMessage: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["enterpriseAutomationConnector"]>
@@ -1482,6 +1986,7 @@ readonly fields: EnterpriseAutomationConnectorFieldRefs;
 export interface Prisma__EnterpriseAutomationConnectorClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tenant<T extends Prisma.TenantDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TenantDefaultArgs<ExtArgs>>): Prisma.Prisma__TenantClient<runtime.Types.Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  audits<T extends Prisma.EnterpriseAutomationConnector$auditsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.EnterpriseAutomationConnector$auditsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EnterpriseAutomationConnectorAuditPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1530,6 +2035,14 @@ export interface EnterpriseAutomationConnectorFieldRefs {
   readonly lastTestMessage: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
   readonly lastUsedAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
   readonly usageCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly ownerUserId: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
+  readonly policyTag: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
+  readonly maxDailyExecutions: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly consecutiveFailures: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly successCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly failureCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
+  readonly lastFailureAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
+  readonly lastFailureMessage: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
   readonly createdAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
 }
@@ -1930,6 +2443,30 @@ export type EnterpriseAutomationConnectorDeleteManyArgs<ExtArgs extends runtime.
    * Limit how many EnterpriseAutomationConnectors to delete.
    */
   limit?: number
+}
+
+/**
+ * EnterpriseAutomationConnector.audits
+ */
+export type EnterpriseAutomationConnector$auditsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EnterpriseAutomationConnectorAudit
+   */
+  select?: Prisma.EnterpriseAutomationConnectorAuditSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EnterpriseAutomationConnectorAudit
+   */
+  omit?: Prisma.EnterpriseAutomationConnectorAuditOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EnterpriseAutomationConnectorAuditInclude<ExtArgs> | null
+  where?: Prisma.EnterpriseAutomationConnectorAuditWhereInput
+  orderBy?: Prisma.EnterpriseAutomationConnectorAuditOrderByWithRelationInput | Prisma.EnterpriseAutomationConnectorAuditOrderByWithRelationInput[]
+  cursor?: Prisma.EnterpriseAutomationConnectorAuditWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EnterpriseAutomationConnectorAuditScalarFieldEnum | Prisma.EnterpriseAutomationConnectorAuditScalarFieldEnum[]
 }
 
 /**
