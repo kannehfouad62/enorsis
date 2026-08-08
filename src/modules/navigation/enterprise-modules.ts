@@ -13,6 +13,7 @@ import {
   CircleDollarSign,
   ClipboardCheck,
   FileKey2,
+  FileSearch,
   FileText,
   GitBranch,
   Handshake,
@@ -270,6 +271,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
       "Tenant-grounded procurement intelligence across contracts, suppliers, policies and procedures.",
     href: "/app/ai/workspace",
     icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "RAG Document Ingestion",
+    description:
+      "Extract and index tenant-private supplier and contract documents for governed semantic retrieval.",
+    href: "/app/ai/knowledge/documents",
+    icon: FileSearch,
     group: "Intelligence",
   },
   {
