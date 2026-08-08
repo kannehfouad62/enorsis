@@ -1287,3 +1287,23 @@ export type EnterpriseKnowledgeSource = Prisma.EnterpriseKnowledgeSourceModel
  * 
  */
 export type EnterpriseKnowledgeChunk = Prisma.EnterpriseKnowledgeChunkModel
+/**
+ * Model SupplierCollaborationInvoice
+ * 
+ */
+export type SupplierCollaborationInvoice = Prisma.SupplierCollaborationInvoiceModel
+/**
+ * Model SupplierCollaborationShipment
+ * 
+ */
+export type SupplierCollaborationShipment = Prisma.SupplierCollaborationShipmentModel
+/**
+ * Model SupplierConversationThread
+ * 
+ */
+export type SupplierConversationThread = Prisma.SupplierConversationThreadModel
+/**
+ * Model SupplierConversationMessage
+ * 
+ */
+export type SupplierConversationMessage = Prisma.SupplierConversationMessageModel

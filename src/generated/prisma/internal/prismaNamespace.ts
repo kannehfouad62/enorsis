@@ -650,7 +650,11 @@ export const ModelName = {
   EnterpriseAutomationConnector: 'EnterpriseAutomationConnector',
   EnterpriseAutomationConnectorAudit: 'EnterpriseAutomationConnectorAudit',
   EnterpriseKnowledgeSource: 'EnterpriseKnowledgeSource',
-  EnterpriseKnowledgeChunk: 'EnterpriseKnowledgeChunk'
+  EnterpriseKnowledgeChunk: 'EnterpriseKnowledgeChunk',
+  SupplierCollaborationInvoice: 'SupplierCollaborationInvoice',
+  SupplierCollaborationShipment: 'SupplierCollaborationShipment',
+  SupplierConversationThread: 'SupplierConversationThread',
+  SupplierConversationMessage: 'SupplierConversationMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -666,7 +670,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -19466,6 +19470,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SupplierCollaborationInvoice: {
+      payload: Prisma.$SupplierCollaborationInvoicePayload<ExtArgs>
+      fields: Prisma.SupplierCollaborationInvoiceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierCollaborationInvoiceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierCollaborationInvoiceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierCollaborationInvoiceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierCollaborationInvoiceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierCollaborationInvoiceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierCollaborationInvoiceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierCollaborationInvoiceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierCollaborationInvoiceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierCollaborationInvoiceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        update: {
+          args: Prisma.SupplierCollaborationInvoiceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierCollaborationInvoiceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierCollaborationInvoiceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierCollaborationInvoiceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierCollaborationInvoiceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationInvoicePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierCollaborationInvoiceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierCollaborationInvoice>
+        }
+        groupBy: {
+          args: Prisma.SupplierCollaborationInvoiceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCollaborationInvoiceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierCollaborationInvoiceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCollaborationInvoiceCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierCollaborationShipment: {
+      payload: Prisma.$SupplierCollaborationShipmentPayload<ExtArgs>
+      fields: Prisma.SupplierCollaborationShipmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierCollaborationShipmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierCollaborationShipmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierCollaborationShipmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierCollaborationShipmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierCollaborationShipmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierCollaborationShipmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierCollaborationShipmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierCollaborationShipmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierCollaborationShipmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        update: {
+          args: Prisma.SupplierCollaborationShipmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierCollaborationShipmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierCollaborationShipmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierCollaborationShipmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierCollaborationShipmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierCollaborationShipmentPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierCollaborationShipmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierCollaborationShipment>
+        }
+        groupBy: {
+          args: Prisma.SupplierCollaborationShipmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCollaborationShipmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierCollaborationShipmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierCollaborationShipmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierConversationThread: {
+      payload: Prisma.$SupplierConversationThreadPayload<ExtArgs>
+      fields: Prisma.SupplierConversationThreadFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierConversationThreadFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierConversationThreadFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierConversationThreadFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierConversationThreadFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        findMany: {
+          args: Prisma.SupplierConversationThreadFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>[]
+        }
+        create: {
+          args: Prisma.SupplierConversationThreadCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        createMany: {
+          args: Prisma.SupplierConversationThreadCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierConversationThreadCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierConversationThreadDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        update: {
+          args: Prisma.SupplierConversationThreadUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierConversationThreadDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierConversationThreadUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierConversationThreadUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierConversationThreadUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationThreadPayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierConversationThreadAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierConversationThread>
+        }
+        groupBy: {
+          args: Prisma.SupplierConversationThreadGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierConversationThreadGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierConversationThreadCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierConversationThreadCountAggregateOutputType> | number
+        }
+      }
+    }
+    SupplierConversationMessage: {
+      payload: Prisma.$SupplierConversationMessagePayload<ExtArgs>
+      fields: Prisma.SupplierConversationMessageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SupplierConversationMessageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SupplierConversationMessageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        findFirst: {
+          args: Prisma.SupplierConversationMessageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SupplierConversationMessageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        findMany: {
+          args: Prisma.SupplierConversationMessageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>[]
+        }
+        create: {
+          args: Prisma.SupplierConversationMessageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        createMany: {
+          args: Prisma.SupplierConversationMessageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SupplierConversationMessageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>[]
+        }
+        delete: {
+          args: Prisma.SupplierConversationMessageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        update: {
+          args: Prisma.SupplierConversationMessageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        deleteMany: {
+          args: Prisma.SupplierConversationMessageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SupplierConversationMessageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SupplierConversationMessageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>[]
+        }
+        upsert: {
+          args: Prisma.SupplierConversationMessageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SupplierConversationMessagePayload>
+        }
+        aggregate: {
+          args: Prisma.SupplierConversationMessageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSupplierConversationMessage>
+        }
+        groupBy: {
+          args: Prisma.SupplierConversationMessageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierConversationMessageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SupplierConversationMessageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SupplierConversationMessageCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -24932,6 +25232,92 @@ export const EnterpriseKnowledgeChunkScalarFieldEnum = {
 export type EnterpriseKnowledgeChunkScalarFieldEnum = (typeof EnterpriseKnowledgeChunkScalarFieldEnum)[keyof typeof EnterpriseKnowledgeChunkScalarFieldEnum]
 
 
+export const SupplierCollaborationInvoiceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  invoiceNumber: 'invoiceNumber',
+  purchaseOrderRef: 'purchaseOrderRef',
+  currencyCode: 'currencyCode',
+  invoiceAmount: 'invoiceAmount',
+  invoiceDate: 'invoiceDate',
+  dueDate: 'dueDate',
+  status: 'status',
+  supplierEmail: 'supplierEmail',
+  notes: 'notes',
+  attachmentRef: 'attachmentRef',
+  submittedAt: 'submittedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCollaborationInvoiceScalarFieldEnum = (typeof SupplierCollaborationInvoiceScalarFieldEnum)[keyof typeof SupplierCollaborationInvoiceScalarFieldEnum]
+
+
+export const SupplierCollaborationShipmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  purchaseOrderRef: 'purchaseOrderRef',
+  shipmentReference: 'shipmentReference',
+  trackingNumber: 'trackingNumber',
+  carrierName: 'carrierName',
+  status: 'status',
+  origin: 'origin',
+  destination: 'destination',
+  estimatedDeliveryAt: 'estimatedDeliveryAt',
+  actualDeliveryAt: 'actualDeliveryAt',
+  supplierEmail: 'supplierEmail',
+  notes: 'notes',
+  proofOfDeliveryRef: 'proofOfDeliveryRef',
+  submittedAt: 'submittedAt',
+  lastStatusUpdatedAt: 'lastStatusUpdatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCollaborationShipmentScalarFieldEnum = (typeof SupplierCollaborationShipmentScalarFieldEnum)[keyof typeof SupplierCollaborationShipmentScalarFieldEnum]
+
+
+export const SupplierConversationThreadScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  subject: 'subject',
+  contextType: 'contextType',
+  contextReference: 'contextReference',
+  status: 'status',
+  priority: 'priority',
+  buyerOwnerUserId: 'buyerOwnerUserId',
+  supplierEmail: 'supplierEmail',
+  lastMessageAt: 'lastMessageAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierConversationThreadScalarFieldEnum = (typeof SupplierConversationThreadScalarFieldEnum)[keyof typeof SupplierConversationThreadScalarFieldEnum]
+
+
+export const SupplierConversationMessageScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  threadId: 'threadId',
+  senderType: 'senderType',
+  senderId: 'senderId',
+  senderEmail: 'senderEmail',
+  body: 'body',
+  attachmentRef: 'attachmentRef',
+  readByBuyerAt: 'readByBuyerAt',
+  readBySupplierAt: 'readBySupplierAt',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierConversationMessageScalarFieldEnum = (typeof SupplierConversationMessageScalarFieldEnum)[keyof typeof SupplierConversationMessageScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -29457,6 +29843,10 @@ export type GlobalOmitConfig = {
   enterpriseAutomationConnectorAudit?: Prisma.EnterpriseAutomationConnectorAuditOmit
   enterpriseKnowledgeSource?: Prisma.EnterpriseKnowledgeSourceOmit
   enterpriseKnowledgeChunk?: Prisma.EnterpriseKnowledgeChunkOmit
+  supplierCollaborationInvoice?: Prisma.SupplierCollaborationInvoiceOmit
+  supplierCollaborationShipment?: Prisma.SupplierCollaborationShipmentOmit
+  supplierConversationThread?: Prisma.SupplierConversationThreadOmit
+  supplierConversationMessage?: Prisma.SupplierConversationMessageOmit
 }
 
 /* Types for Logging */

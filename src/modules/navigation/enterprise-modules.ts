@@ -156,6 +156,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Suppliers",
   },
   {
+    title: "Supplier Collaboration Operations",
+    description:
+      "Supplier invoice submissions, shipment updates and persistent buyer–supplier conversations.",
+    href: "/app/supplier-portal/collaboration",
+    icon: MessagesSquare,
+    group: "Suppliers",
+  },
+  {
     title: "Supplier Compliance",
     description: "Track supplier documents, expiry and compliance status.",
     href: "/app/suppliers/compliance",
@@ -474,14 +482,6 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     href: "/app/settings/platform-readiness/rc1",
     icon: BadgeCheck,
     group: "Platform",
-  },
-
-  {
-    title: "Requisition-to-Order",
-    description: "Requisition, approval, order, receipt and exception journey.",
-    href: "/app/requisition-to-order",
-    icon: ShoppingCart,
-    group: "Procurement",
   },
 
   {

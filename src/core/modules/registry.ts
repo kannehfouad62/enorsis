@@ -94,7 +94,7 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/buying": { id: "catalog-guided-buying", featureKey: FEATURE_KEYS.CORE_PROCUREMENT },
   "/app/requests": { id: "purchase-requests", featureKey: FEATURE_KEYS.CORE_PROCUREMENT },
   "/app/sourcing": { id: "strategic-sourcing", featureKey: FEATURE_KEYS.STRATEGIC_SOURCING },
-  "/app/procure-to-pay": { id: "procure-to-pay", featureKey: FEATURE_KEYS.CORE_PROCUREMENT },
+  "/app/requisition-to-order": { id: "procure-to-pay", featureKey: FEATURE_KEYS.CORE_PROCUREMENT },
   "/app/contracts": { id: "contracts", featureKey: FEATURE_KEYS.CONTRACT_MANAGEMENT },
   "/app/planning": { id: "planning-savings", featureKey: FEATURE_KEYS.CATEGORY_MANAGEMENT },
   "/app/suppliers": { id: "supplier-directory", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
@@ -105,8 +105,38 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/value-realization": { id: "value-realization", featureKey: FEATURE_KEYS.CATEGORY_MANAGEMENT },
   "/app/sustainability": { id: "sustainable-procurement", featureKey: FEATURE_KEYS.SUSTAINABLE_PROCUREMENT },
   "/app/resilience": { id: "risk-resilience", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
-  "/app/ai": {
-    id: "ai-procurement",
+  "/app/ai/workspace": {
+    id: "unified-procurement-ai",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/ai/assistants": {
+    id: "specialized-ai-assistants",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/ai/knowledge": {
+    id: "enterprise-knowledge-rag",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/ai/knowledge/documents": {
+    id: "rag-document-ingestion",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/ai/knowledge/ocr": {
+    id: "governed-ocr-ingestion",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/automation/copilot": {
+    id: "ai-automation-copilot",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/process-mining": {
+    id: "enterprise-process-mining",
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },
@@ -116,6 +146,7 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/settings/workflows": { id: "workflow-designer", featureKey: FEATURE_KEYS.WORKFLOW_STUDIO },
   "/app/settings/workflows/automation": { id: "workflow-automation", featureKey: FEATURE_KEYS.WORKFLOW_STUDIO },
   "/app/supplier-portal": { id: "supplier-portal", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
+  "/app/supplier-portal/collaboration": { id: "supplier-collaboration-operations", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/settings/licensing": {
     id: "licensing-entitlements",
     featureKey: null,
@@ -190,8 +221,8 @@ export async function getAccessibleModules({
   const decisions = await Promise.all(
     moduleRegistry.map(async (module) => {
       if (!module.active) return null;
-      if (!hasAnyRole(userRoles, module.roles)) return null;
       if (isPlatformOperator) return module;
+      if (!hasAnyRole(userRoles, module.roles)) return null;
       if (!module.featureKey) return module;
 
       return (await hasFeature(tenantId, module.featureKey))

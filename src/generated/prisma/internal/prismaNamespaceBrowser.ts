@@ -304,7 +304,11 @@ export const ModelName = {
   EnterpriseAutomationConnector: 'EnterpriseAutomationConnector',
   EnterpriseAutomationConnectorAudit: 'EnterpriseAutomationConnectorAudit',
   EnterpriseKnowledgeSource: 'EnterpriseKnowledgeSource',
-  EnterpriseKnowledgeChunk: 'EnterpriseKnowledgeChunk'
+  EnterpriseKnowledgeChunk: 'EnterpriseKnowledgeChunk',
+  SupplierCollaborationInvoice: 'SupplierCollaborationInvoice',
+  SupplierCollaborationShipment: 'SupplierCollaborationShipment',
+  SupplierConversationThread: 'SupplierConversationThread',
+  SupplierConversationMessage: 'SupplierConversationMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5748,6 +5752,92 @@ export const EnterpriseKnowledgeChunkScalarFieldEnum = {
 } as const
 
 export type EnterpriseKnowledgeChunkScalarFieldEnum = (typeof EnterpriseKnowledgeChunkScalarFieldEnum)[keyof typeof EnterpriseKnowledgeChunkScalarFieldEnum]
+
+
+export const SupplierCollaborationInvoiceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  invoiceNumber: 'invoiceNumber',
+  purchaseOrderRef: 'purchaseOrderRef',
+  currencyCode: 'currencyCode',
+  invoiceAmount: 'invoiceAmount',
+  invoiceDate: 'invoiceDate',
+  dueDate: 'dueDate',
+  status: 'status',
+  supplierEmail: 'supplierEmail',
+  notes: 'notes',
+  attachmentRef: 'attachmentRef',
+  submittedAt: 'submittedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCollaborationInvoiceScalarFieldEnum = (typeof SupplierCollaborationInvoiceScalarFieldEnum)[keyof typeof SupplierCollaborationInvoiceScalarFieldEnum]
+
+
+export const SupplierCollaborationShipmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  purchaseOrderRef: 'purchaseOrderRef',
+  shipmentReference: 'shipmentReference',
+  trackingNumber: 'trackingNumber',
+  carrierName: 'carrierName',
+  status: 'status',
+  origin: 'origin',
+  destination: 'destination',
+  estimatedDeliveryAt: 'estimatedDeliveryAt',
+  actualDeliveryAt: 'actualDeliveryAt',
+  supplierEmail: 'supplierEmail',
+  notes: 'notes',
+  proofOfDeliveryRef: 'proofOfDeliveryRef',
+  submittedAt: 'submittedAt',
+  lastStatusUpdatedAt: 'lastStatusUpdatedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierCollaborationShipmentScalarFieldEnum = (typeof SupplierCollaborationShipmentScalarFieldEnum)[keyof typeof SupplierCollaborationShipmentScalarFieldEnum]
+
+
+export const SupplierConversationThreadScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  subject: 'subject',
+  contextType: 'contextType',
+  contextReference: 'contextReference',
+  status: 'status',
+  priority: 'priority',
+  buyerOwnerUserId: 'buyerOwnerUserId',
+  supplierEmail: 'supplierEmail',
+  lastMessageAt: 'lastMessageAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierConversationThreadScalarFieldEnum = (typeof SupplierConversationThreadScalarFieldEnum)[keyof typeof SupplierConversationThreadScalarFieldEnum]
+
+
+export const SupplierConversationMessageScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  threadId: 'threadId',
+  senderType: 'senderType',
+  senderId: 'senderId',
+  senderEmail: 'senderEmail',
+  body: 'body',
+  attachmentRef: 'attachmentRef',
+  readByBuyerAt: 'readByBuyerAt',
+  readBySupplierAt: 'readBySupplierAt',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierConversationMessageScalarFieldEnum = (typeof SupplierConversationMessageScalarFieldEnum)[keyof typeof SupplierConversationMessageScalarFieldEnum]
 
 
 export const SortOrder = {

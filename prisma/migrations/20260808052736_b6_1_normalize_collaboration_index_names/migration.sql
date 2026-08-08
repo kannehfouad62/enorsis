@@ -1,0 +1,8 @@
+-- RenameIndex
+ALTER INDEX "SupplierCollaborationInvoice_tenantId_supplierId_invoiceNumber_" RENAME TO "SupplierCollaborationInvoice_tenantId_supplierId_invoiceNum_key";
+
+-- RenameIndex
+ALTER INDEX "SupplierCollaborationShipment_tenantId_status_estimatedDelivery" RENAME TO "SupplierCollaborationShipment_tenantId_status_estimatedDeli_idx";
+
+-- RenameIndex
+ALTER INDEX "SupplierCollaborationShipment_tenantId_supplierId_shipmentRefer" RENAME TO "SupplierCollaborationShipment_tenantId_supplierId_shipmentR_key";
