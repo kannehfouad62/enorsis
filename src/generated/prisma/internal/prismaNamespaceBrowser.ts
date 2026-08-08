@@ -308,7 +308,9 @@ export const ModelName = {
   SupplierCollaborationInvoice: 'SupplierCollaborationInvoice',
   SupplierCollaborationShipment: 'SupplierCollaborationShipment',
   SupplierConversationThread: 'SupplierConversationThread',
-  SupplierConversationMessage: 'SupplierConversationMessage'
+  SupplierConversationMessage: 'SupplierConversationMessage',
+  SupplierSharedDocument: 'SupplierSharedDocument',
+  SupplierActionRequest: 'SupplierActionRequest'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5838,6 +5840,57 @@ export const SupplierConversationMessageScalarFieldEnum = {
 } as const
 
 export type SupplierConversationMessageScalarFieldEnum = (typeof SupplierConversationMessageScalarFieldEnum)[keyof typeof SupplierConversationMessageScalarFieldEnum]
+
+
+export const SupplierSharedDocumentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  title: 'title',
+  description: 'description',
+  documentRef: 'documentRef',
+  documentType: 'documentType',
+  direction: 'direction',
+  status: 'status',
+  sharedByUserId: 'sharedByUserId',
+  supplierEmail: 'supplierEmail',
+  sharedAt: 'sharedAt',
+  acknowledgedAt: 'acknowledgedAt',
+  acknowledgedBy: 'acknowledgedBy',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierSharedDocumentScalarFieldEnum = (typeof SupplierSharedDocumentScalarFieldEnum)[keyof typeof SupplierSharedDocumentScalarFieldEnum]
+
+
+export const SupplierActionRequestScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  requestType: 'requestType',
+  title: 'title',
+  description: 'description',
+  contextType: 'contextType',
+  contextReference: 'contextReference',
+  priority: 'priority',
+  status: 'status',
+  supplierEmail: 'supplierEmail',
+  dueAt: 'dueAt',
+  requestedByUserId: 'requestedByUserId',
+  requestedAt: 'requestedAt',
+  respondedAt: 'respondedAt',
+  responseText: 'responseText',
+  responseDocumentRef: 'responseDocumentRef',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  reviewNotes: 'reviewNotes',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierActionRequestScalarFieldEnum = (typeof SupplierActionRequestScalarFieldEnum)[keyof typeof SupplierActionRequestScalarFieldEnum]
 
 
 export const SortOrder = {

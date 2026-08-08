@@ -1331,3 +1331,13 @@ export type SupplierConversationThread = Prisma.SupplierConversationThreadModel
  * 
  */
 export type SupplierConversationMessage = Prisma.SupplierConversationMessageModel
+/**
+ * Model SupplierSharedDocument
+ * 
+ */
+export type SupplierSharedDocument = Prisma.SupplierSharedDocumentModel
+/**
+ * Model SupplierActionRequest
+ * 
+ */
+export type SupplierActionRequest = Prisma.SupplierActionRequestModel

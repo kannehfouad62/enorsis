@@ -23,6 +23,7 @@ import {
   Leaf,
   Network,
   MessagesSquare,
+  ListChecks,
   PackageCheck,
   PackageX,
   Presentation,
@@ -153,6 +154,22 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     description: "Manage supplier master data, contacts and qualification.",
     href: "/app/suppliers",
     icon: Building2,
+    group: "Suppliers",
+  },
+  {
+    title: "Supplier Self-Service Access",
+    description:
+      "Issue secure supplier portal access for invoice, shipment, task and conversation self-service.",
+    href: "/app/supplier-portal/access",
+    icon: KeyRound,
+    group: "Suppliers",
+  },
+  {
+    title: "Supplier Documents & Action Requests",
+    description:
+      "Govern shared document exchange, supplier acknowledgements, structured requests and supplier responses.",
+    href: "/app/supplier-portal/collaboration/requests",
+    icon: ListChecks,
     group: "Suppliers",
   },
   {

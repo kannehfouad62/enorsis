@@ -147,6 +147,8 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/settings/workflows/automation": { id: "workflow-automation", featureKey: FEATURE_KEYS.WORKFLOW_STUDIO },
   "/app/supplier-portal": { id: "supplier-portal", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/supplier-portal/collaboration": { id: "supplier-collaboration-operations", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
+  "/app/supplier-portal/collaboration/requests": { id: "supplier-documents-action-requests", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
+  "/app/supplier-portal/access": { id: "supplier-self-service-access", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/settings/licensing": {
     id: "licensing-entitlements",
     featureKey: null,
