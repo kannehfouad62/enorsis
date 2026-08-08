@@ -8551,6 +8551,11 @@ model EnterpriseAutomationConnector {
   createdByUserId String?
   updatedByUserId String?
   tenant          Tenant                              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lastTestedAt    DateTime?
+  lastTestStatus  String?
+  lastTestMessage String?
+  lastUsedAt      DateTime?
+  usageCount      Int                                 @default(0)
   createdAt       DateTime                            @default(now())
   updatedAt       DateTime                            @updatedAt
 

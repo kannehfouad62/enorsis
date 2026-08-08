@@ -5667,6 +5667,11 @@ export const EnterpriseAutomationConnectorScalarFieldEnum = {
   timeoutMs: 'timeoutMs',
   createdByUserId: 'createdByUserId',
   updatedByUserId: 'updatedByUserId',
+  lastTestedAt: 'lastTestedAt',
+  lastTestStatus: 'lastTestStatus',
+  lastTestMessage: 'lastTestMessage',
+  lastUsedAt: 'lastUsedAt',
+  usageCount: 'usageCount',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -28,10 +28,12 @@ export type AggregateEnterpriseAutomationConnector = {
 
 export type EnterpriseAutomationConnectorAvgAggregateOutputType = {
   timeoutMs: number | null
+  usageCount: number | null
 }
 
 export type EnterpriseAutomationConnectorSumAggregateOutputType = {
   timeoutMs: number | null
+  usageCount: number | null
 }
 
 export type EnterpriseAutomationConnectorMinAggregateOutputType = {
@@ -46,6 +48,11 @@ export type EnterpriseAutomationConnectorMinAggregateOutputType = {
   timeoutMs: number | null
   createdByUserId: string | null
   updatedByUserId: string | null
+  lastTestedAt: Date | null
+  lastTestStatus: string | null
+  lastTestMessage: string | null
+  lastUsedAt: Date | null
+  usageCount: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,6 +69,11 @@ export type EnterpriseAutomationConnectorMaxAggregateOutputType = {
   timeoutMs: number | null
   createdByUserId: string | null
   updatedByUserId: string | null
+  lastTestedAt: Date | null
+  lastTestStatus: string | null
+  lastTestMessage: string | null
+  lastUsedAt: Date | null
+  usageCount: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -81,6 +93,11 @@ export type EnterpriseAutomationConnectorCountAggregateOutputType = {
   timeoutMs: number
   createdByUserId: number
   updatedByUserId: number
+  lastTestedAt: number
+  lastTestStatus: number
+  lastTestMessage: number
+  lastUsedAt: number
+  usageCount: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -89,10 +106,12 @@ export type EnterpriseAutomationConnectorCountAggregateOutputType = {
 
 export type EnterpriseAutomationConnectorAvgAggregateInputType = {
   timeoutMs?: true
+  usageCount?: true
 }
 
 export type EnterpriseAutomationConnectorSumAggregateInputType = {
   timeoutMs?: true
+  usageCount?: true
 }
 
 export type EnterpriseAutomationConnectorMinAggregateInputType = {
@@ -107,6 +126,11 @@ export type EnterpriseAutomationConnectorMinAggregateInputType = {
   timeoutMs?: true
   createdByUserId?: true
   updatedByUserId?: true
+  lastTestedAt?: true
+  lastTestStatus?: true
+  lastTestMessage?: true
+  lastUsedAt?: true
+  usageCount?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -123,6 +147,11 @@ export type EnterpriseAutomationConnectorMaxAggregateInputType = {
   timeoutMs?: true
   createdByUserId?: true
   updatedByUserId?: true
+  lastTestedAt?: true
+  lastTestStatus?: true
+  lastTestMessage?: true
+  lastUsedAt?: true
+  usageCount?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -142,6 +171,11 @@ export type EnterpriseAutomationConnectorCountAggregateInputType = {
   timeoutMs?: true
   createdByUserId?: true
   updatedByUserId?: true
+  lastTestedAt?: true
+  lastTestStatus?: true
+  lastTestMessage?: true
+  lastUsedAt?: true
+  usageCount?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -248,6 +282,11 @@ export type EnterpriseAutomationConnectorGroupByOutputType = {
   timeoutMs: number
   createdByUserId: string | null
   updatedByUserId: string | null
+  lastTestedAt: Date | null
+  lastTestStatus: string | null
+  lastTestMessage: string | null
+  lastUsedAt: Date | null
+  usageCount: number
   createdAt: Date
   updatedAt: Date
   _count: EnterpriseAutomationConnectorCountAggregateOutputType | null
@@ -290,6 +329,11 @@ export type EnterpriseAutomationConnectorWhereInput = {
   timeoutMs?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   updatedByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastTestStatus?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -310,6 +354,11 @@ export type EnterpriseAutomationConnectorOrderByWithRelationInput = {
   timeoutMs?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestMessage?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastUsedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
@@ -334,6 +383,11 @@ export type EnterpriseAutomationConnectorWhereUniqueInput = Prisma.AtLeast<{
   timeoutMs?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   updatedByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastTestStatus?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
@@ -354,6 +408,11 @@ export type EnterpriseAutomationConnectorOrderByWithAggregationInput = {
   timeoutMs?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestStatus?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastTestMessage?: Prisma.SortOrderInput | Prisma.SortOrder
+  lastUsedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.EnterpriseAutomationConnectorCountOrderByAggregateInput
@@ -381,6 +440,11 @@ export type EnterpriseAutomationConnectorScalarWhereWithAggregatesInput = {
   timeoutMs?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
   createdByUserId?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
   updatedByUserId?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastTestStatus?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestMessage?: Prisma.StringNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | string | null
+  lastUsedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  usageCount?: Prisma.IntWithAggregatesFilter<"EnterpriseAutomationConnector"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"EnterpriseAutomationConnector"> | Date | string
 }
@@ -399,6 +463,11 @@ export type EnterpriseAutomationConnectorCreateInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
   tenant: Prisma.TenantCreateNestedOneWithoutEnterpriseAutomationConnectorsInput
@@ -419,6 +488,11 @@ export type EnterpriseAutomationConnectorUncheckedCreateInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -437,6 +511,11 @@ export type EnterpriseAutomationConnectorUpdateInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tenant?: Prisma.TenantUpdateOneRequiredWithoutEnterpriseAutomationConnectorsNestedInput
@@ -457,6 +536,11 @@ export type EnterpriseAutomationConnectorUncheckedUpdateInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -476,6 +560,11 @@ export type EnterpriseAutomationConnectorCreateManyInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -494,6 +583,11 @@ export type EnterpriseAutomationConnectorUpdateManyMutationInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -513,6 +607,11 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -547,12 +646,18 @@ export type EnterpriseAutomationConnectorCountOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
   updatedByUserId?: Prisma.SortOrder
+  lastTestedAt?: Prisma.SortOrder
+  lastTestStatus?: Prisma.SortOrder
+  lastTestMessage?: Prisma.SortOrder
+  lastUsedAt?: Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationConnectorAvgOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationConnectorMaxOrderByAggregateInput = {
@@ -567,6 +672,11 @@ export type EnterpriseAutomationConnectorMaxOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
   updatedByUserId?: Prisma.SortOrder
+  lastTestedAt?: Prisma.SortOrder
+  lastTestStatus?: Prisma.SortOrder
+  lastTestMessage?: Prisma.SortOrder
+  lastUsedAt?: Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -583,12 +693,18 @@ export type EnterpriseAutomationConnectorMinOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
   createdByUserId?: Prisma.SortOrder
   updatedByUserId?: Prisma.SortOrder
+  lastTestedAt?: Prisma.SortOrder
+  lastTestStatus?: Prisma.SortOrder
+  lastTestMessage?: Prisma.SortOrder
+  lastUsedAt?: Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationConnectorSumOrderByAggregateInput = {
   timeoutMs?: Prisma.SortOrder
+  usageCount?: Prisma.SortOrder
 }
 
 export type EnterpriseAutomationConnectorCreateNestedManyWithoutTenantInput = {
@@ -655,6 +771,11 @@ export type EnterpriseAutomationConnectorCreateWithoutTenantInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -673,6 +794,11 @@ export type EnterpriseAutomationConnectorUncheckedCreateWithoutTenantInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -721,6 +847,11 @@ export type EnterpriseAutomationConnectorScalarWhereInput = {
   timeoutMs?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
   updatedByUserId?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  lastTestStatus?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastTestMessage?: Prisma.StringNullableFilter<"EnterpriseAutomationConnector"> | string | null
+  lastUsedAt?: Prisma.DateTimeNullableFilter<"EnterpriseAutomationConnector"> | Date | string | null
+  usageCount?: Prisma.IntFilter<"EnterpriseAutomationConnector"> | number
   createdAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"EnterpriseAutomationConnector"> | Date | string
 }
@@ -739,6 +870,11 @@ export type EnterpriseAutomationConnectorCreateManyTenantInput = {
   timeoutMs?: number
   createdByUserId?: string | null
   updatedByUserId?: string | null
+  lastTestedAt?: Date | string | null
+  lastTestStatus?: string | null
+  lastTestMessage?: string | null
+  lastUsedAt?: Date | string | null
+  usageCount?: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -757,6 +893,11 @@ export type EnterpriseAutomationConnectorUpdateWithoutTenantInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -775,6 +916,11 @@ export type EnterpriseAutomationConnectorUncheckedUpdateWithoutTenantInput = {
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -793,6 +939,11 @@ export type EnterpriseAutomationConnectorUncheckedUpdateManyWithoutTenantInput =
   timeoutMs?: Prisma.IntFieldUpdateOperationsInput | number
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  lastTestStatus?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastTestMessage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastUsedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  usageCount?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -814,6 +965,11 @@ export type EnterpriseAutomationConnectorSelect<ExtArgs extends runtime.Types.Ex
   timeoutMs?: boolean
   createdByUserId?: boolean
   updatedByUserId?: boolean
+  lastTestedAt?: boolean
+  lastTestStatus?: boolean
+  lastTestMessage?: boolean
+  lastUsedAt?: boolean
+  usageCount?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -834,6 +990,11 @@ export type EnterpriseAutomationConnectorSelectCreateManyAndReturn<ExtArgs exten
   timeoutMs?: boolean
   createdByUserId?: boolean
   updatedByUserId?: boolean
+  lastTestedAt?: boolean
+  lastTestStatus?: boolean
+  lastTestMessage?: boolean
+  lastUsedAt?: boolean
+  usageCount?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -854,6 +1015,11 @@ export type EnterpriseAutomationConnectorSelectUpdateManyAndReturn<ExtArgs exten
   timeoutMs?: boolean
   createdByUserId?: boolean
   updatedByUserId?: boolean
+  lastTestedAt?: boolean
+  lastTestStatus?: boolean
+  lastTestMessage?: boolean
+  lastUsedAt?: boolean
+  usageCount?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
@@ -874,11 +1040,16 @@ export type EnterpriseAutomationConnectorSelectScalar = {
   timeoutMs?: boolean
   createdByUserId?: boolean
   updatedByUserId?: boolean
+  lastTestedAt?: boolean
+  lastTestStatus?: boolean
+  lastTestMessage?: boolean
+  lastUsedAt?: boolean
+  usageCount?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
+export type EnterpriseAutomationConnectorOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "connectorKey" | "name" | "type" | "status" | "baseUrl" | "allowedHosts" | "secretEnvKey" | "defaultHeaders" | "configuration" | "timeoutMs" | "createdByUserId" | "updatedByUserId" | "lastTestedAt" | "lastTestStatus" | "lastTestMessage" | "lastUsedAt" | "usageCount" | "createdAt" | "updatedAt", ExtArgs["result"]["enterpriseAutomationConnector"]>
 export type EnterpriseAutomationConnectorInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
 }
@@ -909,6 +1080,11 @@ export type $EnterpriseAutomationConnectorPayload<ExtArgs extends runtime.Types.
     timeoutMs: number
     createdByUserId: string | null
     updatedByUserId: string | null
+    lastTestedAt: Date | null
+    lastTestStatus: string | null
+    lastTestMessage: string | null
+    lastUsedAt: Date | null
+    usageCount: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["enterpriseAutomationConnector"]>
@@ -1349,6 +1525,11 @@ export interface EnterpriseAutomationConnectorFieldRefs {
   readonly timeoutMs: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
   readonly createdByUserId: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
   readonly updatedByUserId: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
+  readonly lastTestedAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
+  readonly lastTestStatus: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
+  readonly lastTestMessage: Prisma.FieldRef<"EnterpriseAutomationConnector", 'String'>
+  readonly lastUsedAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
+  readonly usageCount: Prisma.FieldRef<"EnterpriseAutomationConnector", 'Int'>
   readonly createdAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"EnterpriseAutomationConnector", 'DateTime'>
 }

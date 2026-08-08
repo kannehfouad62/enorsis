@@ -6,6 +6,10 @@ import {
 import {
   resolveAutomationConnectorAdapter,
 } from "./registry";
+import {
+  recordAutomationConnectorUsage,
+  resolveAutomationConnectorConfiguration,
+} from "./registry-service";
 
 type StoredActionRequest = {
   actionType?: unknown;
@@ -41,6 +45,29 @@ export async function executePendingAutomationAction(
         >)
       : {};
 
+  const connectorKey =
+    typeof configuration.connectorKey === "string"
+      ? configuration.connectorKey
+      : null;
+
+  let governedConfiguration = configuration;
+  let governedConnectorId: string | null = null;
+
+  if (connectorKey) {
+    const resolved =
+      await resolveAutomationConnectorConfiguration({
+        tenantId: action.tenantId,
+        connectorKey,
+      });
+
+    governedConnectorId = resolved.connector.id;
+
+    governedConfiguration = {
+      ...configuration,
+      connector: resolved.configuration,
+    };
+  }
+
   const adapter =
     resolveAutomationConnectorAdapter(
       action.actionType,
@@ -52,9 +79,16 @@ export async function executePendingAutomationAction(
       actionId: action.id,
       idempotencyKey: action.idempotencyKey,
       actionType: action.actionType,
-      configuration,
+      configuration:
+        governedConfiguration,
       input: request.input,
     });
+
+    if (governedConnectorId) {
+      await recordAutomationConnectorUsage(
+        governedConnectorId,
+      );
+    }
 
     if (result.mode === "ASYNC") {
       return prisma.enterpriseAutomationRuntimeAction.update({

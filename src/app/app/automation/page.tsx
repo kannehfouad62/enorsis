@@ -46,6 +46,12 @@ export default async function EnterpriseAutomationPage() {
         >
           Durable Runtime
         </a>
+        <a
+          href="/app/automation/connectors"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black"
+        >
+          Connector Registry
+        </a>
       </div>
 
       <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
