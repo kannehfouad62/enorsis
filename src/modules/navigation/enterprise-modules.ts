@@ -14,6 +14,7 @@ import {
   ClipboardCheck,
   FileKey2,
   FileSearch,
+  FileScan,
   FileText,
   GitBranch,
   Handshake,
@@ -271,6 +272,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
       "Tenant-grounded procurement intelligence across contracts, suppliers, policies and procedures.",
     href: "/app/ai/workspace",
     icon: Bot,
+    group: "Intelligence",
+  },
+  {
+    title: "Governed OCR Ingestion",
+    description:
+      "Extract scanned PDF and image document text through governed AI and index it into Enterprise RAG.",
+    href: "/app/ai/knowledge/ocr",
+    icon: FileScan,
     group: "Intelligence",
   },
   {
