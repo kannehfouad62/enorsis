@@ -17,6 +17,9 @@ export async function getAutomationConnectorMetrics(
       orderBy: { name: "asc" },
     });
 
+  const startOfDay = new Date();
+  startOfDay.setHours(0, 0, 0, 0);
+
   return Promise.all(
     connectors.map(async (connector) => {
       const total =
@@ -34,16 +37,31 @@ export async function getAutomationConnectorMetrics(
         lastFailureAt: connector.lastFailureAt,
       });
 
-      const sla = await getAutomationConnectorSlaSnapshot({
-        tenantId,
-        connectorId: connector.id,
-        targetPercent: connector.slaTargetPercent,
-        windowHours: connector.slaWindowHours,
-        consecutiveFailures: connector.consecutiveFailures,
-        lastFailureAt: connector.lastFailureAt,
-        lastTestStatus: connector.lastTestStatus,
-        status: connector.status,
-      });
+      const [sla, executionsToday] = await Promise.all([
+        getAutomationConnectorSlaSnapshot({
+          tenantId,
+          connectorId: connector.id,
+          targetPercent: connector.slaTargetPercent,
+          windowHours: connector.slaWindowHours,
+          consecutiveFailures: connector.consecutiveFailures,
+          lastFailureAt: connector.lastFailureAt,
+          lastTestStatus: connector.lastTestStatus,
+          status: connector.status,
+        }),
+        prisma.enterpriseAutomationConnectorAudit.count({
+          where: {
+            tenantId,
+            connectorId: connector.id,
+            type: {
+              in: [
+                "EXECUTED",
+                "CIRCUIT_RECOVERY_SUCCEEDED",
+              ],
+            },
+            createdAt: { gte: startOfDay },
+          },
+        }),
+      ]);
 
       const health =
         connector.status !== "ACTIVE"
@@ -59,6 +77,18 @@ export async function getAutomationConnectorMetrics(
                   ? "WARNING"
                   : "HEALTHY";
 
+      const dailyPolicyUsagePercent =
+        connector.maxDailyExecutions
+          ? Math.min(
+              100,
+              Math.round(
+                (executionsToday /
+                  connector.maxDailyExecutions) *
+                  10000,
+              ) / 100,
+            )
+          : null;
+
       return {
         ...connector,
         successRate,
@@ -70,6 +100,8 @@ export async function getAutomationConnectorMetrics(
           sla.availabilityPercent,
         slaWindowExecutions: sla.total,
         reliabilityScore: sla.reliabilityScore,
+        executionsToday,
+        dailyPolicyUsagePercent,
       };
     }),
   );

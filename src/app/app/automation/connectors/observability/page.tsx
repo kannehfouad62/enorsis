@@ -21,8 +21,13 @@ export default async function ConnectorObservabilityPage() {
   const slaBreaches = data.connectors.filter(
     (connector) => connector.slaStatus === "BREACHED",
   ).length;
-  const remediationEnabled = data.connectors.filter(
-    (connector) => connector.autoRemediationEnabled,
+  const policyConstrained = data.connectors.filter(
+    (connector) => connector.maxDailyExecutions !== null,
+  ).length;
+  const policyLimitReached = data.connectors.filter(
+    (connector) =>
+      connector.dailyPolicyUsagePercent !== null &&
+      connector.dailyPolicyUsagePercent >= 100,
   ).length;
   const averageReliability =
     data.connectors.length > 0
@@ -42,14 +47,15 @@ export default async function ConnectorObservabilityPage() {
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Phase B2.9.2.12
+            Phase B2.9.2.11
           </p>
           <h1 className="mt-3 text-4xl font-black">
-            Connector Observability
+            Connector SLA Monitoring
           </h1>
           <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-            Operational health, SLA governance, reliability scoring,
-            circuit-breaker resilience and governed remediation.
+            Execution-policy consumption, SLA performance,
+            reliability scoring, circuit-breaker resilience and
+            governed remediation.
           </p>
         </div>
 
@@ -57,7 +63,7 @@ export default async function ConnectorObservabilityPage() {
           href="/app/automation/connectors"
           className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
         >
-          Connector Registry
+          Policy Administration
         </Link>
       </div>
 
@@ -88,14 +94,6 @@ export default async function ConnectorObservabilityPage() {
         </div>
         <div className={card}>
           <p className="text-xs font-black uppercase text-slate-500">
-            Open circuits
-          </p>
-          <p className="mt-2 text-3xl font-black text-red-700">
-            {openCircuits}
-          </p>
-        </div>
-        <div className={card}>
-          <p className="text-xs font-black uppercase text-slate-500">
             SLA breaches
           </p>
           <p className="mt-2 text-3xl font-black text-red-700">
@@ -104,10 +102,18 @@ export default async function ConnectorObservabilityPage() {
         </div>
         <div className={card}>
           <p className="text-xs font-black uppercase text-slate-500">
-            Auto-remediation
+            Policy constrained
           </p>
           <p className="mt-2 text-3xl font-black text-blue-700">
-            {remediationEnabled}
+            {policyConstrained}
+          </p>
+        </div>
+        <div className={card}>
+          <p className="text-xs font-black uppercase text-slate-500">
+            Daily limits reached
+          </p>
+          <p className="mt-2 text-3xl font-black text-red-700">
+            {policyLimitReached}
           </p>
         </div>
         <div className={card}>
@@ -149,13 +155,41 @@ export default async function ConnectorObservabilityPage() {
                     : `${connector.successRate}%`}
                 </p>
                 <p className="mt-1">
-                  Consecutive failures:{" "}
-                  {connector.consecutiveFailures}
+                  Open circuit:{" "}
+                  {connector.circuitState === "OPEN"
+                    ? "Yes"
+                    : "No"}
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-6">
+            <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-8">
+              <div className="rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">Policy tag</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.policyTag ?? "Default"}
+                </p>
+              </div>
+              <div className="rounded-xl bg-slate-50 p-3 text-xs">
+                <p className="font-black">Daily execution policy</p>
+                <p className="mt-1 text-slate-500">
+                  {connector.executionsToday} /{" "}
+                  {connector.maxDailyExecutions ?? "Unlimited"}
+                </p>
+                {connector.dailyPolicyUsagePercent !== null ? (
+                  <p
+                    className={`mt-1 ${
+                      connector.dailyPolicyUsagePercent >= 100
+                        ? "text-red-700"
+                        : connector.dailyPolicyUsagePercent >= 80
+                          ? "text-amber-700"
+                          : "text-slate-400"
+                    }`}
+                  >
+                    {connector.dailyPolicyUsagePercent}% consumed
+                  </p>
+                ) : null}
+              </div>
               <div className="rounded-xl bg-slate-50 p-3 text-xs">
                 <p className="font-black">SLA</p>
                 <p

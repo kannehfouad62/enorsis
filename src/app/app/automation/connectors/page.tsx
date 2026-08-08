@@ -3,6 +3,7 @@ import {
   createAutomationConnectorAction,
   setAutomationConnectorStatusAction,
   testAutomationConnectorAction,
+  updateAutomationConnectorExecutionPolicyAction,
   updateAutomationConnectorReliabilityPolicyAction,
 } from "@/modules/enterprise-automation/connector-actions";
 import { getAutomationConnectorRegistry } from "@/modules/enterprise-automation/connector-queries";
@@ -18,15 +19,15 @@ export default async function AutomationConnectorsPage() {
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Governed Connector Platform
+            Phase B2.9.2.11
           </p>
           <h1 className="mt-3 text-4xl font-black">
-            Governed Connector Registry
+            Connector Policy Administration
           </h1>
           <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-            Tenant-managed connector definitions with credential references,
-            allowlists, reliability policy, testing, activation controls and
-            usage visibility.
+            Tenant-managed connector definitions, execution policy,
+            SLA governance, credential references, allowlists,
+            testing, activation controls and usage visibility.
           </p>
         </div>
 
@@ -41,7 +42,7 @@ export default async function AutomationConnectorsPage() {
             href="/app/automation/connectors/observability"
             className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
           >
-            Observability
+            SLA Monitoring
           </Link>
         </div>
       </div>
@@ -152,7 +153,53 @@ export default async function AutomationConnectorsPage() {
 
             <div className="mt-5 rounded-2xl border border-slate-200 p-4">
               <p className="text-xs font-black uppercase text-slate-500">
-                Reliability governance
+                Execution policy
+              </p>
+              <form
+                action={updateAutomationConnectorExecutionPolicyAction}
+                className="mt-3 grid gap-3 sm:grid-cols-2"
+              >
+                <input
+                  type="hidden"
+                  name="connectorId"
+                  value={connector.id}
+                />
+                <label className="text-xs font-bold text-slate-600">
+                  Policy tag
+                  <input
+                    name="policyTag"
+                    defaultValue={connector.policyTag ?? ""}
+                    placeholder="ERP_CRITICAL"
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm font-mono"
+                  />
+                </label>
+                <label className="text-xs font-bold text-slate-600">
+                  Maximum daily executions
+                  <input
+                    name="maxDailyExecutions"
+                    type="number"
+                    min="1"
+                    max="1000000"
+                    defaultValue={
+                      connector.maxDailyExecutions ?? ""
+                    }
+                    placeholder="Unlimited"
+                    className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+                  />
+                </label>
+                <p className="text-xs leading-5 text-slate-500">
+                  Leave the daily limit blank for unlimited
+                  governed execution.
+                </p>
+                <button className="rounded-xl bg-slate-950 px-3 py-2 text-xs font-black text-white">
+                  Save execution policy
+                </button>
+              </form>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-slate-200 p-4">
+              <p className="text-xs font-black uppercase text-slate-500">
+                SLA & reliability governance
               </p>
               <form
                 action={updateAutomationConnectorReliabilityPolicyAction}
@@ -217,7 +264,7 @@ export default async function AutomationConnectorsPage() {
                   Enable governed auto-remediation
                 </label>
                 <button className="rounded-xl bg-slate-950 px-3 py-2 text-xs font-black text-white">
-                  Save reliability policy
+                  Save SLA policy
                 </button>
               </form>
             </div>

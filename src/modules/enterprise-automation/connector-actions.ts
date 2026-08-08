@@ -233,3 +233,66 @@ export async function updateAutomationConnectorReliabilityPolicyAction(
     "/app/automation/connectors/observability",
   );
 }
+
+export async function updateAutomationConnectorExecutionPolicyAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...adminRoles]);
+  const connectorId = field(data, "connectorId");
+  const policyTag = field(data, "policyTag") || null;
+  const rawDailyLimit = field(data, "maxDailyExecutions");
+
+  const maxDailyExecutions =
+    rawDailyLimit === ""
+      ? null
+      : Math.max(
+          1,
+          Math.min(1_000_000, Number(rawDailyLimit)),
+        );
+
+  if (
+    rawDailyLimit !== "" &&
+    !Number.isFinite(maxDailyExecutions)
+  ) {
+    throw new Error(
+      "Connector daily execution limit must be a valid number.",
+    );
+  }
+
+  const updated =
+    await prisma.enterpriseAutomationConnector.updateMany({
+      where: {
+        id: connectorId,
+        tenantId: user.tenantId,
+      },
+      data: {
+        policyTag,
+        maxDailyExecutions,
+        updatedByUserId: user.id,
+      },
+    });
+
+  if (updated.count !== 1) {
+    throw new Error(
+      "Connector execution policy could not be updated.",
+    );
+  }
+
+  await recordAutomationConnectorAudit({
+    tenantId: user.tenantId,
+    connectorId,
+    type: "UPDATED",
+    actorUserId: user.id,
+    message: "Connector execution policy updated.",
+    metadata: {
+      scope: "EXECUTION_POLICY",
+      policyTag,
+      maxDailyExecutions,
+    },
+  });
+
+  revalidatePath("/app/automation/connectors");
+  revalidatePath(
+    "/app/automation/connectors/observability",
+  );
+}
