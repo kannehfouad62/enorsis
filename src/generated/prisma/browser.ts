@@ -1317,3 +1317,13 @@ export type SupplierSharedDocument = Prisma.SupplierSharedDocumentModel
  * 
  */
 export type SupplierActionRequest = Prisma.SupplierActionRequestModel
+/**
+ * Model SupplierMarketplaceProfile
+ * 
+ */
+export type SupplierMarketplaceProfile = Prisma.SupplierMarketplaceProfileModel
+/**
+ * Model SupplierMarketplaceOffering
+ * 
+ */
+export type SupplierMarketplaceOffering = Prisma.SupplierMarketplaceOfferingModel

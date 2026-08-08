@@ -98,6 +98,8 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/contracts": { id: "contracts", featureKey: FEATURE_KEYS.CONTRACT_MANAGEMENT },
   "/app/planning": { id: "planning-savings", featureKey: FEATURE_KEYS.CATEGORY_MANAGEMENT },
   "/app/suppliers": { id: "supplier-directory", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
+  "/app/marketplace/suppliers": { id: "supplier-marketplace-discovery", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
+  "/app/marketplace/catalog": { id: "marketplace-product-catalog", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/suppliers/compliance": { id: "supplier-compliance", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/suppliers/performance": { id: "supplier-performance", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/suppliers/performance/trends": { id: "supplier-performance-trends", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },

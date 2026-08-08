@@ -310,7 +310,9 @@ export const ModelName = {
   SupplierConversationThread: 'SupplierConversationThread',
   SupplierConversationMessage: 'SupplierConversationMessage',
   SupplierSharedDocument: 'SupplierSharedDocument',
-  SupplierActionRequest: 'SupplierActionRequest'
+  SupplierActionRequest: 'SupplierActionRequest',
+  SupplierMarketplaceProfile: 'SupplierMarketplaceProfile',
+  SupplierMarketplaceOffering: 'SupplierMarketplaceOffering'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -5891,6 +5893,82 @@ export const SupplierActionRequestScalarFieldEnum = {
 } as const
 
 export type SupplierActionRequestScalarFieldEnum = (typeof SupplierActionRequestScalarFieldEnum)[keyof typeof SupplierActionRequestScalarFieldEnum]
+
+
+export const SupplierMarketplaceProfileScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceVisible: 'marketplaceVisible',
+  verificationStatus: 'verificationStatus',
+  headline: 'headline',
+  description: 'description',
+  websiteUrl: 'websiteUrl',
+  headquartersCountry: 'headquartersCountry',
+  countriesServed: 'countriesServed',
+  industries: 'industries',
+  categories: 'categories',
+  capabilities: 'capabilities',
+  certifications: 'certifications',
+  keywords: 'keywords',
+  minimumOrderValue: 'minimumOrderValue',
+  preferredCurrency: 'preferredCurrency',
+  leadTimeDays: 'leadTimeDays',
+  employeeBand: 'employeeBand',
+  annualRevenueBand: 'annualRevenueBand',
+  sustainabilityTags: 'sustainabilityTags',
+  diversityTags: 'diversityTags',
+  qualityScore: 'qualityScore',
+  riskScore: 'riskScore',
+  performanceScore: 'performanceScore',
+  marketplaceScore: 'marketplaceScore',
+  verifiedAt: 'verifiedAt',
+  verifiedByUserId: 'verifiedByUserId',
+  publishedAt: 'publishedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceProfileScalarFieldEnum = (typeof SupplierMarketplaceProfileScalarFieldEnum)[keyof typeof SupplierMarketplaceProfileScalarFieldEnum]
+
+
+export const SupplierMarketplaceOfferingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  supplierId: 'supplierId',
+  marketplaceProfileId: 'marketplaceProfileId',
+  offeringType: 'offeringType',
+  sku: 'sku',
+  name: 'name',
+  shortDescription: 'shortDescription',
+  description: 'description',
+  category: 'category',
+  subcategory: 'subcategory',
+  manufacturer: 'manufacturer',
+  brand: 'brand',
+  modelNumber: 'modelNumber',
+  unitOfMeasure: 'unitOfMeasure',
+  currencyCode: 'currencyCode',
+  unitPrice: 'unitPrice',
+  minimumOrderQty: 'minimumOrderQty',
+  leadTimeDays: 'leadTimeDays',
+  availabilityStatus: 'availabilityStatus',
+  countriesAvailable: 'countriesAvailable',
+  certifications: 'certifications',
+  attributes: 'attributes',
+  keywords: 'keywords',
+  imageRef: 'imageRef',
+  documentRef: 'documentRef',
+  externalUrl: 'externalUrl',
+  marketplaceVisible: 'marketplaceVisible',
+  featured: 'featured',
+  publishedAt: 'publishedAt',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierMarketplaceOfferingScalarFieldEnum = (typeof SupplierMarketplaceOfferingScalarFieldEnum)[keyof typeof SupplierMarketplaceOfferingScalarFieldEnum]
 
 
 export const SortOrder = {

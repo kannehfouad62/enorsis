@@ -25,6 +25,7 @@ import {
   MessagesSquare,
   ListChecks,
   PackageCheck,
+  PackageSearch,
   PackageX,
   Presentation,
   ReceiptText,
@@ -149,6 +150,24 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     icon: CircleDollarSign,
     group: "Procurement",
   },
+  {
+    title: "Marketplace Product Catalog",
+    description:
+      "Publish and discover supplier products and services with pricing, availability, category and regional metadata.",
+    href: "/app/marketplace/catalog",
+    icon: PackageSearch,
+    group: "Suppliers",
+  },
+
+  {
+    title: "Supplier Marketplace Discovery",
+    description:
+      "Global supplier discovery, marketplace visibility, verification, industries, categories and capability search.",
+    href: "/app/marketplace/suppliers",
+    icon: Store,
+    group: "Suppliers",
+  },
+
   {
     title: "Supplier Directory",
     description: "Manage supplier master data, contacts and qualification.",

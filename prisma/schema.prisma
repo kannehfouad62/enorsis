@@ -8759,24 +8759,23 @@ model SupplierConversationMessage {
   @@index([threadId, createdAt])
 }
 
-
 model SupplierSharedDocument {
-  id               String   @id @default(cuid())
-  tenantId         String
-  supplierId       String
-  title            String
-  description      String?
-  documentRef      String
-  documentType     String?
-  direction        String   @default("BUYER_TO_SUPPLIER")
-  status           String   @default("SHARED")
-  sharedByUserId   String?
-  supplierEmail    String?
-  sharedAt         DateTime @default(now())
-  acknowledgedAt   DateTime?
-  acknowledgedBy   String?
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  id             String    @id @default(cuid())
+  tenantId       String
+  supplierId     String
+  title          String
+  description    String?
+  documentRef    String
+  documentType   String?
+  direction      String    @default("BUYER_TO_SUPPLIER")
+  status         String    @default("SHARED")
+  sharedByUserId String?
+  supplierEmail  String?
+  sharedAt       DateTime  @default(now())
+  acknowledgedAt DateTime?
+  acknowledgedBy String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
   @@index([tenantId, supplierId, status])
   @@index([supplierId, sharedAt])
@@ -8784,32 +8783,114 @@ model SupplierSharedDocument {
 }
 
 model SupplierActionRequest {
-  id                 String   @id @default(cuid())
-  tenantId           String
-  supplierId         String
-  requestType        String
-  title              String
-  description        String?
-  contextType        String?
-  contextReference   String?
-  priority           String   @default("NORMAL")
-  status             String   @default("OPEN")
-  supplierEmail      String?
-  dueAt              DateTime?
-  requestedByUserId  String?
-  requestedAt        DateTime @default(now())
-  respondedAt        DateTime?
-  responseText       String?
+  id                  String    @id @default(cuid())
+  tenantId            String
+  supplierId          String
+  requestType         String
+  title               String
+  description         String?
+  contextType         String?
+  contextReference    String?
+  priority            String    @default("NORMAL")
+  status              String    @default("OPEN")
+  supplierEmail       String?
+  dueAt               DateTime?
+  requestedByUserId   String?
+  requestedAt         DateTime  @default(now())
+  respondedAt         DateTime?
+  responseText        String?
   responseDocumentRef String?
-  reviewedByUserId   String?
-  reviewedAt         DateTime?
-  reviewNotes        String?
-  completedAt        DateTime?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  reviewedByUserId    String?
+  reviewedAt          DateTime?
+  reviewNotes         String?
+  completedAt         DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
 
   @@index([tenantId, supplierId, status])
   @@index([tenantId, dueAt, status])
   @@index([supplierId, requestedAt])
   @@index([contextType, contextReference])
+}
+
+model SupplierMarketplaceProfile {
+  id                  String    @id @default(cuid())
+  tenantId            String
+  supplierId          String
+  marketplaceVisible  Boolean   @default(false)
+  verificationStatus  String    @default("UNVERIFIED")
+  headline            String?
+  description         String?
+  websiteUrl          String?
+  headquartersCountry String?
+  countriesServed     Json?
+  industries          Json?
+  categories          Json?
+  capabilities        Json?
+  certifications      Json?
+  keywords            Json?
+  minimumOrderValue   Decimal?  @db.Decimal(18, 2)
+  preferredCurrency   String?   @default("USD")
+  leadTimeDays        Int?
+  employeeBand        String?
+  annualRevenueBand   String?
+  sustainabilityTags  Json?
+  diversityTags       Json?
+  qualityScore        Decimal?  @db.Decimal(5, 2)
+  riskScore           Decimal?  @db.Decimal(5, 2)
+  performanceScore    Decimal?  @db.Decimal(5, 2)
+  marketplaceScore    Decimal?  @db.Decimal(5, 2)
+  verifiedAt          DateTime?
+  verifiedByUserId    String?
+  publishedAt         DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@unique([tenantId, supplierId])
+  @@index([tenantId, marketplaceVisible, verificationStatus])
+  @@index([tenantId, marketplaceScore])
+  @@index([headquartersCountry])
+}
+
+model SupplierMarketplaceOffering {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  supplierId           String
+  marketplaceProfileId String?
+  offeringType         String    @default("PRODUCT")
+  sku                  String?
+  name                 String
+  shortDescription     String?
+  description          String?
+  category             String?
+  subcategory          String?
+  manufacturer         String?
+  brand                String?
+  modelNumber          String?
+  unitOfMeasure        String?
+  currencyCode         String    @default("USD")
+  unitPrice            Decimal?  @db.Decimal(18, 4)
+  minimumOrderQty      Decimal?  @db.Decimal(18, 4)
+  leadTimeDays         Int?
+  availabilityStatus   String    @default("AVAILABLE")
+  countriesAvailable   Json?
+  certifications       Json?
+  attributes           Json?
+  keywords             Json?
+  imageRef             String?
+  documentRef          String?
+  externalUrl          String?
+  marketplaceVisible   Boolean   @default(false)
+  featured             Boolean   @default(false)
+  publishedAt          DateTime?
+  createdByUserId      String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@unique([tenantId, supplierId, sku])
+  @@index([tenantId, marketplaceVisible, offeringType])
+  @@index([tenantId, category, availabilityStatus])
+  @@index([supplierId, marketplaceVisible])
+  @@index([marketplaceProfileId])
+  @@index([name])
 }
