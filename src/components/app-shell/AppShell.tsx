@@ -10,6 +10,7 @@ import {
   FileCheck2,
   Gauge,
   Globe2,
+  LayoutGrid,
   Menu,
   Network,
   Search,
@@ -18,12 +19,12 @@ import {
   Sparkles,
   UsersRound,
   X,
-  LayoutGrid,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
+import { enterpriseModules } from "@/modules/navigation/enterprise-modules";
 import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
@@ -33,10 +34,18 @@ const navigation = [
   { href: "/app/sourcing", label: "Strategic sourcing", icon: Network, roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/suppliers", label: "Supplier intelligence", icon: UsersRound, roles: ["SUPPLIER_MANAGER", "BUYER", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/contracts", label: "Contracts", icon: FileCheck2, roles: ["LEGAL", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/spend", label: "Spend intelligence", icon: CircleDollarSign, roles: ["FINANCE", "PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/analytics/spend", label: "Spend intelligence", icon: CircleDollarSign, roles: ["FINANCE", "PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/agents", label: "AI agent workforce", icon: Bot, roles: ["PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/risk", label: "Risk & governance", icon: ShieldCheck, roles: ["RISK_COMPLIANCE", "AUDITOR", "PLATFORM_AUDITOR", "TENANT_ADMIN", "TENANT_OWNER"] },
+  { href: "/app/resilience", label: "Risk & governance", icon: ShieldCheck, roles: ["RISK_COMPLIANCE", "AUDITOR", "PLATFORM_AUDITOR", "TENANT_ADMIN", "TENANT_OWNER"] },
 ];
+
+type SearchResult = {
+  id: string;
+  type: "Supplier" | "Purchase request" | "Contract" | "Insight";
+  title: string;
+  subtitle: string;
+  href: string;
+};
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -52,7 +61,28 @@ interface AppShellProps {
 export function AppShell({ children, user }: AppShellProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const searchRef = useRef<HTMLDivElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const [recordResults, setRecordResults] = useState<SearchResult[]>([]);
+
+  const workspaceResults = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+
+    if (normalized.length < 2) {
+      return [];
+    }
+
+    return enterpriseModules
+      .filter((module) =>
+        `${module.title} ${module.description} ${module.group}`
+          .toLowerCase()
+          .includes(normalized),
+      )
+      .slice(0, 6);
+  }, [query]);
 
   useEffect(() => {
     if (
@@ -62,6 +92,75 @@ export function AppShell({ children, user }: AppShellProps) {
       router.replace("/app/settings/security");
     }
   }, [pathname, router, user.mustChangePassword]);
+
+  useEffect(() => {
+    const normalized = query.trim();
+
+    if (normalized.length < 2) {
+      setRecordResults([]);
+      setSearching(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(async () => {
+      setSearching(true);
+
+      try {
+        const response = await fetch(
+          `/api/search?q=${encodeURIComponent(normalized)}`,
+          {
+            signal: controller.signal,
+            headers: { Accept: "application/json" },
+          },
+        );
+
+        if (!response.ok) {
+          throw new Error("Search request failed.");
+        }
+
+        const payload = (await response.json()) as {
+          results?: SearchResult[];
+        };
+
+        setRecordResults(payload.results ?? []);
+      } catch (error) {
+        if (
+          !(error instanceof DOMException && error.name === "AbortError")
+        ) {
+          setRecordResults([]);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setSearching(false);
+        }
+      }
+    }, 250);
+
+    return () => {
+      window.clearTimeout(timeout);
+      controller.abort();
+    };
+  }, [query]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent) => {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
+        setSearchOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown);
+    };
+  }, []);
+
+  const hasSearchResults =
+    workspaceResults.length > 0 || recordResults.length > 0;
 
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-slate-950">
@@ -98,19 +197,120 @@ export function AppShell({ children, user }: AppShellProps) {
           >
             <Menu className="h-5 w-5" />
           </button>
-          <div className="relative hidden max-w-xl flex-1 md:block">
+
+          <div
+            ref={searchRef}
+            className="relative hidden max-w-xl flex-1 md:block"
+          >
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               aria-label="Search Enorsis"
+              value={query}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setSearchOpen(true);
+              }}
+              onFocus={() => setSearchOpen(true)}
+              onKeyDown={(event) => {
+                if (event.key === "Escape") {
+                  setSearchOpen(false);
+                }
+
+                if (
+                  event.key === "Enter" &&
+                  recordResults[0]?.href
+                ) {
+                  router.push(recordResults[0].href);
+                  setSearchOpen(false);
+                } else if (
+                  event.key === "Enter" &&
+                  workspaceResults[0]?.href
+                ) {
+                  router.push(workspaceResults[0].href);
+                  setSearchOpen(false);
+                }
+              }}
               placeholder="Search suppliers, requests, contracts and insights"
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50"
             />
+
+            {searchOpen && query.trim().length >= 2 ? (
+              <div className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 max-h-[32rem] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
+                {searching ? (
+                  <p className="px-3 py-3 text-xs font-semibold text-slate-500">
+                    Searching Enorsis…
+                  </p>
+                ) : null}
+
+                {recordResults.length > 0 ? (
+                  <div>
+                    <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
+                      Records
+                    </p>
+                    {recordResults.map((result) => (
+                      <Link
+                        key={`${result.type}:${result.id}`}
+                        href={result.href}
+                        onClick={() => setSearchOpen(false)}
+                        className="block rounded-xl px-3 py-2.5 hover:bg-slate-50"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="truncate text-sm font-black text-slate-900">
+                            {result.title}
+                          </p>
+                          <span className="shrink-0 text-[10px] font-black uppercase text-blue-700">
+                            {result.type}
+                          </span>
+                        </div>
+                        <p className="mt-1 truncate text-xs text-slate-500">
+                          {result.subtitle}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+
+                {workspaceResults.length > 0 ? (
+                  <div className={recordResults.length > 0 ? "mt-2 border-t border-slate-100 pt-2" : ""}>
+                    <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
+                      Workspaces
+                    </p>
+                    {workspaceResults.map((module) => (
+                      <Link
+                        key={module.href}
+                        href={module.href}
+                        onClick={() => setSearchOpen(false)}
+                        className="block rounded-xl px-3 py-2.5 hover:bg-slate-50"
+                      >
+                        <p className="text-sm font-black text-slate-900">
+                          {module.title}
+                        </p>
+                        <p className="mt-1 line-clamp-1 text-xs text-slate-500">
+                          {module.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+
+                {!searching && !hasSearchResults ? (
+                  <p className="px-3 py-5 text-center text-sm text-slate-500">
+                    No matching records or workspaces.
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
           </div>
+
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <button className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50" aria-label="Notifications">
+            <Link
+              href="/app/notifications"
+              className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50"
+              aria-label="Open notifications"
+              title="Notifications"
+            >
               <Bell className="h-5 w-5" />
-              <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-blue-600 ring-2 ring-white" />
-            </button>
+            </Link>
             <Link
               href="/app/settings/organization"
               className="hidden rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50 sm:block"
