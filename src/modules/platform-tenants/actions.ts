@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { issueTenantUserActivationInvitation } from "@/core/tenant-user-activation/service";
 import { issueTenantOwnerActivationInvitation } from "@/core/tenant-owner-activation/service";
 import {
   CurrencyPolicyMode,
@@ -345,4 +346,45 @@ export async function resendTenantOwnerActivationAction(
   revalidatePath(
     `/app/settings/tenants/${tenantId}`,
   );
+}
+
+
+export async function sendTenantMemberActivationAction(formData: FormData) {
+  const actor = await requirePlatformSuperAdmin();
+  const tenantId = value(formData, "tenantId");
+  const userId = value(formData, "userId");
+
+  if (!tenantId || !userId) {
+    throw new Error("Tenant and user are required.");
+  }
+
+  const membership = await prisma.membership.findUnique({
+    where: { tenantId_userId: { tenantId, userId } },
+    include: {
+      user: {
+        select: {
+          id: true,
+          email: true,
+          passwordHash: true,
+        },
+      },
+    },
+  });
+
+  if (!membership) {
+    throw new Error("The selected user is not a member of this tenant.");
+  }
+
+  if (membership.user.passwordHash) {
+    throw new Error("This user already has login credentials.");
+  }
+
+  await issueTenantUserActivationInvitation({
+    tenantId,
+    userId,
+    actorUserId: actor.id,
+    actorEmail: actor.email,
+  });
+
+  revalidatePath(`/app/settings/tenants/${tenantId}`);
 }

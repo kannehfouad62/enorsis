@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   assignPlatformTenantOwnerAction,
+  sendTenantMemberActivationAction,
   resendTenantOwnerActivationAction,
   updatePlatformTenantStatusAction,
 } from "@/modules/platform-tenants/actions";
@@ -149,15 +150,36 @@ export default async function PlatformTenantDetailPage({
               key={membership.id}
               className="rounded-2xl border border-slate-200 p-4"
             >
-              <p className="font-black">
-                {membership.user.name ?? membership.user.email}
-              </p>
-              <p className="mt-1 text-sm text-slate-600">
-                {membership.user.email}
-              </p>
-              <p className="mt-2 text-xs text-slate-500">
-                {membership.roles.join(" · ")} · {membership.status}
-              </p>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <p className="font-black">
+                    {membership.user.name ?? membership.user.email}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">
+                    {membership.user.email}
+                  </p>
+                  <p className="mt-2 text-xs text-slate-500">
+                    {membership.roles.join(" · ")} · {membership.status}
+                  </p>
+                  <p className="mt-2 text-xs font-bold uppercase tracking-wide text-slate-500">
+                    {membership.user.passwordHash
+                      ? "Credentials configured"
+                      : "Awaiting account activation"}
+                  </p>
+                </div>
+
+                {!membership.user.passwordHash ? (
+                  <form action={sendTenantMemberActivationAction}>
+                    <input type="hidden" name="tenantId" value={tenant.id} />
+                    <input type="hidden" name="userId" value={membership.user.id} />
+                    <button className="rounded-xl bg-blue-700 px-4 py-3 text-xs font-black text-white">
+                      {membership.status === "INVITED"
+                        ? "Resend activation invitation"
+                        : "Send activation invitation"}
+                    </button>
+                  </form>
+                ) : null}
+              </div>
             </div>
           ))}
         </div>
