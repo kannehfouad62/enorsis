@@ -216,12 +216,16 @@ function tenantScopeCheck(): Check {
   const paths = [
     "src/core/purchasing",
     "src/core/requisition-to-order",
-    "src/core/warehouse",
+    "src/core/warehouse-operations",
+    "src/core/warehouse-fulfillment",
+    "src/core/warehouse-intelligence",
     "src/core/inventory",
     "src/core/suppliers",
     "src/modules/purchasing",
     "src/modules/requisition-to-order",
-    "src/modules/warehouse",
+    "src/modules/warehouse-operations",
+    "src/modules/warehouse-fulfillment",
+    "src/modules/warehouse-intelligence",
     "src/modules/inventory",
   ];
 
@@ -469,8 +473,12 @@ export async function runEndToEndCommerceCertification(input: {
         label: "Warehouse receiving/putaway",
         stage: "WAREHOUSE_PUTAWAY",
         roots: [
-          "src/core/warehouse",
-          "src/modules/warehouse",
+          "src/core/warehouse-operations",
+          "src/modules/warehouse-operations",
+          "src/core/warehouse-fulfillment",
+          "src/modules/warehouse-fulfillment",
+          "src/core/warehouse-intelligence",
+          "src/modules/warehouse-intelligence",
         ],
       }),
 
@@ -515,6 +523,8 @@ export async function runEndToEndCommerceCertification(input: {
         candidates: [
           "PurchaseOrderReceipt",
           "GoodsReceipt",
+          "GoodsReceiptSession",
+          "ProcurementReceipt",
           "Receipt",
         ],
       }),
@@ -576,6 +586,9 @@ export async function runEndToEndCommerceCertification(input: {
           "MarketplaceCatalogItem",
           "SupplierCatalogItem",
           "SupplierOffering",
+          "SupplierMarketplaceOffering",
+          "ProcurementCatalogItem",
+          "ProcurementCatalog",
         ],
       }),
     ];

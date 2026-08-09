@@ -1,4 +1,5 @@
 import { prisma } from "../src/lib/prisma";
+import type { Prisma } from "../src/generated/prisma/client";
 
 const policies = [
   {
@@ -97,7 +98,7 @@ const policies = [
     status: "ACTIVE",
     managedByPlatform: true,
   },
-];
+] satisfies Prisma.EnterprisePolicyDefinitionCreateInput[];
 
 async function main() {
   console.log("Seeding foundational Enorsis enterprise policies...");
