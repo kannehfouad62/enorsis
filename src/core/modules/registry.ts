@@ -85,6 +85,18 @@ const governanceRoles: readonly EnorsisRole[] = [
 ];
 
 const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
+  "/app/settings/tenants": {
+    id: "platform-tenant-administration",
+    featureKey: null,
+    roles: ["PLATFORM_SUPER_ADMIN"],
+    mobile: false,
+    api: false,
+    reporting: true,
+    searchable: true,
+    aiEligible: false,
+    active: true,
+  },
+
   "/app/assets": { id: "assets-equipment", featureKey: FEATURE_KEYS.CORE_PROCUREMENT },
   "/app/claims": { id: "returns-claims-recovery", featureKey: FEATURE_KEYS.SUPPLIER_MANAGEMENT },
   "/app/logistics": { id: "logistics-freight", featureKey: FEATURE_KEYS.LOGISTICS },

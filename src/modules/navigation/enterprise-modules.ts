@@ -861,6 +861,15 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
 
   {
+    title: "Platform Tenant Administration",
+    description:
+      "Provision, activate, suspend and govern independent Enorsis customer tenants and their initial tenant-owner memberships.",
+    href: "/app/settings/tenants",
+    icon: Building2,
+    group: "Platform",
+  },
+
+  {
     title: "Platform Readiness",
     description: "Release checks, evidence, blockers and certification history.",
     href: "/app/settings/platform-readiness",
