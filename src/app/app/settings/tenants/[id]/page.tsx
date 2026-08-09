@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   assignPlatformTenantOwnerAction,
+  resendTenantOwnerActivationAction,
   updatePlatformTenantStatusAction,
 } from "@/modules/platform-tenants/actions";
 import { getPlatformTenantDetail } from "@/modules/platform-tenants/queries";
@@ -71,6 +72,59 @@ export default async function PlatformTenantDetailPage({
             Update status
           </button>
         </form>
+      </section>
+
+      <section className={`${card} mt-8`}>
+        <h2 className="text-xl font-black">Tenant Owner access</h2>
+
+        {owner ? (
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 p-4">
+              <p className="font-black">
+                {owner.user.name ?? owner.user.email}
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                {owner.user.email}
+              </p>
+              <p className="mt-3 text-xs font-bold uppercase text-slate-500">
+                Membership: {owner.status}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 p-4">
+              <p className="text-xs font-black uppercase text-slate-500">
+                Credential status
+              </p>
+              <p className="mt-2 text-lg font-black">
+                {owner.user.passwordHash
+                  ? "Password configured"
+                  : "Awaiting activation"}
+              </p>
+
+              {!owner.user.passwordHash ? (
+                <form
+                  action={resendTenantOwnerActivationAction}
+                  className="mt-4"
+                >
+                  <input
+                    type="hidden"
+                    name="tenantId"
+                    value={tenant.id}
+                  />
+                  <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">
+                    {owner.status === "INVITED"
+                      ? "Resend activation invitation"
+                      : "Send activation invitation"}
+                  </button>
+                </form>
+              ) : null}
+            </div>
+          </div>
+        ) : (
+          <p className="mt-4 text-sm text-slate-600">
+            No Tenant Owner is assigned.
+          </p>
+        )}
       </section>
 
       <section className={`${card} mt-8`}>

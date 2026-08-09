@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { issueTenantOwnerActivationInvitation } from "@/core/tenant-owner-activation/service";
 import {
   CurrencyPolicyMode,
   MembershipStatus,
@@ -27,7 +28,11 @@ async function requirePlatformSuperAdmin() {
     throw new Error("Platform Super Admin access is required.");
   }
 
-  return session.user;
+  return {
+    ...session.user,
+    id: session.user.id,
+    email: session.user.email,
+  };
 }
 
 function value(formData: FormData, key: string): string {
@@ -99,7 +104,14 @@ export async function createPlatformTenantAction(formData: FormData) {
         name: input.ownerName,
         isActive: true,
       },
+      select: {
+        id: true,
+        email: true,
+        passwordHash: true,
+      },
     });
+
+    const ownerNeedsActivation = !owner.passwordHash;
 
     await tx.membership.upsert({
       where: {
@@ -109,17 +121,21 @@ export async function createPlatformTenantAction(formData: FormData) {
         },
       },
       update: {
-        status: MembershipStatus.ACTIVE,
+        status: ownerNeedsActivation
+          ? MembershipStatus.INVITED
+          : MembershipStatus.ACTIVE,
         roles: [PlatformRole.TENANT_OWNER, PlatformRole.TENANT_ADMIN],
-        activatedAt: new Date(),
+        activatedAt: ownerNeedsActivation ? null : new Date(),
         invitedByUserId: actor.id,
       },
       create: {
         tenantId: tenant.id,
         userId: owner.id,
-        status: MembershipStatus.ACTIVE,
+        status: ownerNeedsActivation
+          ? MembershipStatus.INVITED
+          : MembershipStatus.ACTIVE,
         roles: [PlatformRole.TENANT_OWNER, PlatformRole.TENANT_ADMIN],
-        activatedAt: new Date(),
+        activatedAt: ownerNeedsActivation ? null : new Date(),
         invitedByUserId: actor.id,
       },
     });
@@ -144,11 +160,24 @@ export async function createPlatformTenantAction(formData: FormData) {
       },
     });
 
-    return tenant;
+    return {
+      tenant,
+      owner,
+      ownerNeedsActivation,
+    };
   });
 
+  if (result.ownerNeedsActivation) {
+    await issueTenantOwnerActivationInvitation({
+      tenantId: result.tenant.id,
+      userId: result.owner.id,
+      actorUserId: actor.id,
+      actorEmail: actor.email,
+    });
+  }
+
   revalidatePath("/app/settings/tenants");
-  redirect(`/app/settings/tenants/${result.id}`);
+  redirect(`/app/settings/tenants/${result.tenant.id}`);
 }
 
 export async function updatePlatformTenantStatusAction(formData: FormData) {
@@ -264,4 +293,56 @@ export async function assignPlatformTenantOwnerAction(formData: FormData) {
   });
 
   revalidatePath(`/app/settings/tenants/${input.tenantId}`);
+}
+
+
+export async function resendTenantOwnerActivationAction(
+  formData: FormData,
+) {
+  const actor = await requirePlatformSuperAdmin();
+  const tenantId = value(formData, "tenantId");
+
+  if (!tenantId) {
+    throw new Error("Tenant is required.");
+  }
+
+  const membership = await prisma.membership.findFirst({
+    where: {
+      tenantId,
+      roles: { has: PlatformRole.TENANT_OWNER },
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          email: true,
+          passwordHash: true,
+        },
+      },
+    },
+    orderBy: { createdAt: "asc" },
+  });
+
+  if (!membership) {
+    throw new Error(
+      "No Tenant Owner membership exists for this tenant.",
+    );
+  }
+
+  if (membership.user.passwordHash) {
+    throw new Error(
+      "The Tenant Owner already has login credentials.",
+    );
+  }
+
+  await issueTenantOwnerActivationInvitation({
+    tenantId,
+    userId: membership.user.id,
+    actorUserId: actor.id,
+    actorEmail: actor.email,
+  });
+
+  revalidatePath(
+    `/app/settings/tenants/${tenantId}`,
+  );
 }
