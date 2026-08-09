@@ -713,7 +713,9 @@ export const ModelName = {
   FinalEnterpriseReleaseCertificationGate: 'FinalEnterpriseReleaseCertificationGate',
   PublicSitePublication: 'PublicSitePublication',
   PublicSiteGuide: 'PublicSiteGuide',
-  PublicSiteJobOpening: 'PublicSiteJobOpening'
+  PublicSiteJobOpening: 'PublicSiteJobOpening',
+  EndToEndCommerceCertificationRun: 'EndToEndCommerceCertificationRun',
+  EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -729,7 +731,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering" | "supplierMarketplaceVerification" | "supplierMarketplaceRating" | "supplierMarketplaceMatchRun" | "supplierMarketplaceMatchResult" | "predictiveProcurementForecastRun" | "predictiveProcurementForecastSignal" | "predictiveInventoryOptimizationRun" | "predictiveInventoryOptimizationSignal" | "predictiveCapacityPlanningRun" | "predictiveCapacityPlanningSignal" | "procurementDigitalTwinScenario" | "procurementDigitalTwinRun" | "procurementDigitalTwinImpact" | "autonomousProcurementPlan" | "autonomousProcurementPlanAction" | "autonomousProcurementPlanDecision" | "autonomousProcurementRecommendationSet" | "autonomousProcurementRecommendation" | "autonomousProcurementRecommendationDecision" | "autonomousExecutionEnvelope" | "autonomousExecutionPolicyCheck" | "autonomousExecutionDecision" | "autonomousExecutionHandoff" | "autonomousExecutionAdapterJob" | "autonomousExecutionAdapterDecision" | "autonomousNativeWorkflowDraft" | "autonomousNativeWorkflowDraftDecision" | "autonomousProcurementOrchestrationRun" | "autonomousProcurementOrchestrationEvent" | "autonomousProcurementOrchestrationEscalation" | "autonomousProcurementOrchestrationSignal" | "closedLoopProcurementOutcome" | "closedLoopProcurementOutcomeMetric" | "closedLoopLearningProposal" | "closedLoopLearningPolicy" | "closedLoopLearningPolicyEvent" | "closedLoopRuntimePolicyDecisionTrace" | "closedLoopRuntimePolicyAdoption" | "closedLoopRuntimePolicyAdoptionEvent" | "closedLoopRuntimePromotionAssessment" | "closedLoopRuntimeRollbackRule" | "aiRuntimeCertificationRun" | "aiRuntimeCertificationResult" | "aiRuntimeHealthSnapshot" | "crossEngineGovernanceAssessment" | "crossEngineGovernanceConflict" | "enterprisePerformanceCertificationRun" | "enterprisePerformanceCertificationResult" | "securityGovernanceCertificationRun" | "securityGovernanceCertificationResult" | "finalEnterpriseReleaseCertificationRun" | "finalEnterpriseReleaseCertificationGate" | "publicSitePublication" | "publicSiteGuide" | "publicSiteJobOpening"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering" | "supplierMarketplaceVerification" | "supplierMarketplaceRating" | "supplierMarketplaceMatchRun" | "supplierMarketplaceMatchResult" | "predictiveProcurementForecastRun" | "predictiveProcurementForecastSignal" | "predictiveInventoryOptimizationRun" | "predictiveInventoryOptimizationSignal" | "predictiveCapacityPlanningRun" | "predictiveCapacityPlanningSignal" | "procurementDigitalTwinScenario" | "procurementDigitalTwinRun" | "procurementDigitalTwinImpact" | "autonomousProcurementPlan" | "autonomousProcurementPlanAction" | "autonomousProcurementPlanDecision" | "autonomousProcurementRecommendationSet" | "autonomousProcurementRecommendation" | "autonomousProcurementRecommendationDecision" | "autonomousExecutionEnvelope" | "autonomousExecutionPolicyCheck" | "autonomousExecutionDecision" | "autonomousExecutionHandoff" | "autonomousExecutionAdapterJob" | "autonomousExecutionAdapterDecision" | "autonomousNativeWorkflowDraft" | "autonomousNativeWorkflowDraftDecision" | "autonomousProcurementOrchestrationRun" | "autonomousProcurementOrchestrationEvent" | "autonomousProcurementOrchestrationEscalation" | "autonomousProcurementOrchestrationSignal" | "closedLoopProcurementOutcome" | "closedLoopProcurementOutcomeMetric" | "closedLoopLearningProposal" | "closedLoopLearningPolicy" | "closedLoopLearningPolicyEvent" | "closedLoopRuntimePolicyDecisionTrace" | "closedLoopRuntimePolicyAdoption" | "closedLoopRuntimePolicyAdoptionEvent" | "closedLoopRuntimePromotionAssessment" | "closedLoopRuntimeRollbackRule" | "aiRuntimeCertificationRun" | "aiRuntimeCertificationResult" | "aiRuntimeHealthSnapshot" | "crossEngineGovernanceAssessment" | "crossEngineGovernanceConflict" | "enterprisePerformanceCertificationRun" | "enterprisePerformanceCertificationResult" | "securityGovernanceCertificationRun" | "securityGovernanceCertificationResult" | "finalEnterpriseReleaseCertificationRun" | "finalEnterpriseReleaseCertificationGate" | "publicSitePublication" | "publicSiteGuide" | "publicSiteJobOpening" | "endToEndCommerceCertificationRun" | "endToEndCommerceCertificationCheck"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -24191,6 +24193,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EndToEndCommerceCertificationRun: {
+      payload: Prisma.$EndToEndCommerceCertificationRunPayload<ExtArgs>
+      fields: Prisma.EndToEndCommerceCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EndToEndCommerceCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EndToEndCommerceCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.EndToEndCommerceCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EndToEndCommerceCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.EndToEndCommerceCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.EndToEndCommerceCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.EndToEndCommerceCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EndToEndCommerceCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.EndToEndCommerceCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.EndToEndCommerceCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.EndToEndCommerceCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EndToEndCommerceCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EndToEndCommerceCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.EndToEndCommerceCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.EndToEndCommerceCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEndToEndCommerceCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.EndToEndCommerceCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EndToEndCommerceCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EndToEndCommerceCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EndToEndCommerceCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    EndToEndCommerceCertificationCheck: {
+      payload: Prisma.$EndToEndCommerceCertificationCheckPayload<ExtArgs>
+      fields: Prisma.EndToEndCommerceCertificationCheckFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EndToEndCommerceCertificationCheckFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EndToEndCommerceCertificationCheckFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        findFirst: {
+          args: Prisma.EndToEndCommerceCertificationCheckFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EndToEndCommerceCertificationCheckFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        findMany: {
+          args: Prisma.EndToEndCommerceCertificationCheckFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>[]
+        }
+        create: {
+          args: Prisma.EndToEndCommerceCertificationCheckCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        createMany: {
+          args: Prisma.EndToEndCommerceCertificationCheckCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EndToEndCommerceCertificationCheckCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>[]
+        }
+        delete: {
+          args: Prisma.EndToEndCommerceCertificationCheckDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        update: {
+          args: Prisma.EndToEndCommerceCertificationCheckUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        deleteMany: {
+          args: Prisma.EndToEndCommerceCertificationCheckDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EndToEndCommerceCertificationCheckUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EndToEndCommerceCertificationCheckUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>[]
+        }
+        upsert: {
+          args: Prisma.EndToEndCommerceCertificationCheckUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EndToEndCommerceCertificationCheckPayload>
+        }
+        aggregate: {
+          args: Prisma.EndToEndCommerceCertificationCheckAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEndToEndCommerceCertificationCheck>
+        }
+        groupBy: {
+          args: Prisma.EndToEndCommerceCertificationCheckGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EndToEndCommerceCertificationCheckGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EndToEndCommerceCertificationCheckCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EndToEndCommerceCertificationCheckCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -31089,6 +31239,43 @@ export const PublicSiteJobOpeningScalarFieldEnum = {
 export type PublicSiteJobOpeningScalarFieldEnum = (typeof PublicSiteJobOpeningScalarFieldEnum)[keyof typeof PublicSiteJobOpeningScalarFieldEnum]
 
 
+export const EndToEndCommerceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  certificationScore: 'certificationScore',
+  totalChecks: 'totalChecks',
+  passedChecks: 'passedChecks',
+  warningChecks: 'warningChecks',
+  failedChecks: 'failedChecks',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EndToEndCommerceCertificationRunScalarFieldEnum = (typeof EndToEndCommerceCertificationRunScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationRunScalarFieldEnum]
+
+
+export const EndToEndCommerceCertificationCheckScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  checkKey: 'checkKey',
+  checkLabel: 'checkLabel',
+  lifecycleStage: 'lifecycleStage',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type EndToEndCommerceCertificationCheckScalarFieldEnum = (typeof EndToEndCommerceCertificationCheckScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationCheckScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -35677,6 +35864,8 @@ export type GlobalOmitConfig = {
   publicSitePublication?: Prisma.PublicSitePublicationOmit
   publicSiteGuide?: Prisma.PublicSiteGuideOmit
   publicSiteJobOpening?: Prisma.PublicSiteJobOpeningOmit
+  endToEndCommerceCertificationRun?: Prisma.EndToEndCommerceCertificationRunOmit
+  endToEndCommerceCertificationCheck?: Prisma.EndToEndCommerceCertificationCheckOmit
 }
 
 /* Types for Logging */

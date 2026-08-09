@@ -10147,3 +10147,41 @@ model PublicSiteJobOpening {
   @@index([status, publishedAt], map: "PublicJob_status_idx")
   @@index([department, status], map: "PublicJob_department_idx")
 }
+
+model EndToEndCommerceCertificationRun {
+  id                 String    @id @default(cuid())
+  tenantId           String
+  status             String    @default("RUNNING")
+  triggeredByUserId  String?
+  certificationScore Float     @default(0)
+  totalChecks        Int       @default(0)
+  passedChecks       Int       @default(0)
+  warningChecks      Int       @default(0)
+  failedChecks       Int       @default(0)
+  summary            Json?
+  startedAt          DateTime  @default(now())
+  completedAt        DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "E2ECommerceCert_created_idx")
+  @@index([tenantId, status], map: "E2ECommerceCert_status_idx")
+}
+
+model EndToEndCommerceCertificationCheck {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  certificationRunId String
+  checkKey           String
+  checkLabel         String
+  lifecycleStage     String
+  status             String
+  severity           String   @default("HIGH")
+  message            String
+  evidence           Json
+  createdAt          DateTime @default(now())
+
+  @@unique([certificationRunId, checkKey], map: "E2ECommerceCheck_run_key")
+  @@index([tenantId, certificationRunId], map: "E2ECommerceCheck_run_idx")
+  @@index([tenantId, status, lifecycleStage], map: "E2ECommerceCheck_status_idx")
+}

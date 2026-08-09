@@ -1626,3 +1626,13 @@ export type PublicSiteGuide = Prisma.PublicSiteGuideModel
  * 
  */
 export type PublicSiteJobOpening = Prisma.PublicSiteJobOpeningModel
+/**
+ * Model EndToEndCommerceCertificationRun
+ * 
+ */
+export type EndToEndCommerceCertificationRun = Prisma.EndToEndCommerceCertificationRunModel
+/**
+ * Model EndToEndCommerceCertificationCheck
+ * 
+ */
+export type EndToEndCommerceCertificationCheck = Prisma.EndToEndCommerceCertificationCheckModel

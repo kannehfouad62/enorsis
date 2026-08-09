@@ -367,7 +367,9 @@ export const ModelName = {
   FinalEnterpriseReleaseCertificationGate: 'FinalEnterpriseReleaseCertificationGate',
   PublicSitePublication: 'PublicSitePublication',
   PublicSiteGuide: 'PublicSiteGuide',
-  PublicSiteJobOpening: 'PublicSiteJobOpening'
+  PublicSiteJobOpening: 'PublicSiteJobOpening',
+  EndToEndCommerceCertificationRun: 'EndToEndCommerceCertificationRun',
+  EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -7243,6 +7245,43 @@ export const PublicSiteJobOpeningScalarFieldEnum = {
 } as const
 
 export type PublicSiteJobOpeningScalarFieldEnum = (typeof PublicSiteJobOpeningScalarFieldEnum)[keyof typeof PublicSiteJobOpeningScalarFieldEnum]
+
+
+export const EndToEndCommerceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  certificationScore: 'certificationScore',
+  totalChecks: 'totalChecks',
+  passedChecks: 'passedChecks',
+  warningChecks: 'warningChecks',
+  failedChecks: 'failedChecks',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EndToEndCommerceCertificationRunScalarFieldEnum = (typeof EndToEndCommerceCertificationRunScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationRunScalarFieldEnum]
+
+
+export const EndToEndCommerceCertificationCheckScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  checkKey: 'checkKey',
+  checkLabel: 'checkLabel',
+  lifecycleStage: 'lifecycleStage',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type EndToEndCommerceCertificationCheckScalarFieldEnum = (typeof EndToEndCommerceCertificationCheckScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationCheckScalarFieldEnum]
 
 
 export const SortOrder = {

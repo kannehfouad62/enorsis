@@ -780,6 +780,15 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
 
   {
+    title: "End-to-End Commerce Certification",
+    description:
+      "Certify the buyer-supplier transaction lifecycle from tenant governance and catalog through purchase order, receiving, warehouse, inventory, invoice, matching and payment.",
+    href: "/app/settings/platform-readiness/end-to-end-commerce",
+    icon: Activity,
+    group: "Governance",
+  },
+
+  {
     title: "Final Enterprise Release Certification",
     description:
       "Aggregate AI runtime, performance, security, runtime-health and cross-engine governance evidence into a final enterprise release decision.",

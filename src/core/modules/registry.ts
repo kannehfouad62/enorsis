@@ -288,6 +288,11 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/supplier-portal/collaboration": { id: "supplier-collaboration-operations", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/supplier-portal/collaboration/requests": { id: "supplier-documents-action-requests", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/supplier-portal/access": { id: "supplier-self-service-access", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
+  "/app/settings/platform-readiness/end-to-end-commerce": {
+    id: "end-to-end-commerce-certification",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
   "/app/settings/platform-readiness/final-release-certification": {
     id: "final-enterprise-release-certification",
     featureKey: FEATURE_KEYS.AI_PLATFORM,
