@@ -144,6 +144,26 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },
+  "/app/automation/orchestrator": {
+    id: "autonomous-procurement-orchestrator",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/automation/orchestrator/escalations": {
+    id: "autonomous-orchestration-escalation-recovery",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/automation/orchestrator/signals": {
+    id: "autonomous-orchestration-resume-signals",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/automation/orchestrator/observability": {
+    id: "autonomous-orchestration-observability",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
   "/app/automation/autonomous-recommendations": {
     id: "autonomous-strategy-savings-risk",
     featureKey: FEATURE_KEYS.AI_PLATFORM,
@@ -159,8 +179,83 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },
+  "/app/governance/autonomous-execution/native-drafts": {
+    id: "governed-native-workflow-drafts",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/native-drafts/purchase-requests": {
+    id: "native-purchase-request-adapter",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/native-drafts/sourcing": {
+    id: "native-strategic-sourcing-adapter",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/native-drafts/resilience": {
+    id: "native-risk-resilience-adapter",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/native-drafts/value-realization": {
+    id: "native-value-realization-adapter",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/governance/autonomous-execution/native-drafts/inventory": {
+    id: "native-inventory-rebalancing-adapter",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
   "/app/analytics/process-mining": {
     id: "enterprise-process-mining",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning": {
+    id: "closed-loop-outcome-learning",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/reconciliation": {
+    id: "closed-loop-native-outcome-reconciliation",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/calibration": {
+    id: "closed-loop-prediction-calibration",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/proposals": {
+    id: "closed-loop-learning-proposals",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/policies": {
+    id: "closed-loop-learning-policy-versioning",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/runtime-policy": {
+    id: "closed-loop-runtime-policy-guardrails",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/runtime-traces": {
+    id: "closed-loop-runtime-policy-traces",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/runtime-adoption": {
+    id: "closed-loop-runtime-policy-adoption",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: true,
+  },
+  "/app/analytics/outcome-learning/runtime-promotion": {
+    id: "closed-loop-runtime-promotion-governance",
     featureKey: FEATURE_KEYS.AI_PLATFORM,
     aiEligible: true,
   },
@@ -193,6 +288,46 @@ const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
   "/app/supplier-portal/collaboration": { id: "supplier-collaboration-operations", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/supplier-portal/collaboration/requests": { id: "supplier-documents-action-requests", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
   "/app/supplier-portal/access": { id: "supplier-self-service-access", featureKey: FEATURE_KEYS.SUPPLIER_PORTAL },
+  "/app/settings/platform-readiness/final-release-certification": {
+    id: "final-enterprise-release-certification",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/security-certification": {
+    id: "security-governance-certification",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/performance-certification": {
+    id: "enterprise-scale-performance-certification",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/ai-control-center": {
+    id: "enterprise-ai-control-center",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/cross-engine-governance": {
+    id: "cross-engine-intelligence-governance",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/ai-engine-adoption": {
+    id: "governed-intelligence-engine-adoption",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/ai-runtime-health": {
+    id: "ai-runtime-health-monitoring",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
+  "/app/settings/platform-readiness/ai-runtime-certification": {
+    id: "governed-ai-runtime-certification",
+    featureKey: FEATURE_KEYS.AI_PLATFORM,
+    aiEligible: false,
+  },
   "/app/settings/licensing": {
     id: "licensing-entitlements",
     featureKey: null,

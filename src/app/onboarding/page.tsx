@@ -1,2 +1,185 @@
-"use client";import {useState} from 'react';
-export default function Page(){const [done,setDone]=useState(false);return <main className="shell py-20"><div className="mx-auto max-w-3xl"><p className="text-xs font-bold uppercase tracking-[.22em] text-cyan-300">Tenant onboarding</p><h1 className="mt-3 text-5xl font-black">Create your Enorsis workspace.</h1>{done?<div className="glass mt-10 rounded-3xl p-8"><h2 className="text-2xl font-bold">Workspace configuration captured.</h2><p className="mt-3 text-slate-400">The production version will create the tenant, organization, initial administrator, base ledger and policy defaults in PostgreSQL.</p></div>:<form onSubmit={e=>{e.preventDefault();setDone(true)}} className="glass mt-10 grid gap-5 rounded-3xl p-8 md:grid-cols-2"><label className="text-sm">Company name<input required className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 p-3"/></label><label className="text-sm">Country<select className="mt-2 w-full rounded-xl border border-white/10 bg-[#111933] p-3"><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Nigeria</option><option>Ghana</option><option>Kenya</option><option>South Africa</option><option>United Arab Emirates</option></select></label><label className="text-sm">Default currency<select className="mt-2 w-full rounded-xl border border-white/10 bg-[#111933] p-3"><option>USD</option><option>EUR</option><option>GBP</option><option>CAD</option><option>NGN</option><option>GHS</option><option>KES</option><option>ZAR</option><option>AED</option></select></label><label className="text-sm">Administrator email<input type="email" required className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 p-3"/></label><label className="md:col-span-2 flex items-center gap-3 text-sm"><input type="checkbox" defaultChecked/> Keep USD as reporting currency while displaying transactions in the selected company currency.</label><button className="md:col-span-2 rounded-xl bg-cyan-300 py-3 font-bold text-slate-950">Create secure workspace</button></form>}</div></main>}
+"use client";
+
+import { useState } from "react";
+import {
+  Building2,
+  CheckCircle2,
+  Globe2,
+  Mail,
+  ShieldCheck,
+  WalletCards,
+} from "lucide-react";
+
+const countries = [
+  "United States",
+  "United Kingdom",
+  "Canada",
+  "Nigeria",
+  "Ghana",
+  "Kenya",
+  "South Africa",
+  "United Arab Emirates",
+];
+
+const currencies = [
+  "USD",
+  "EUR",
+  "GBP",
+  "CAD",
+  "NGN",
+  "GHS",
+  "KES",
+  "ZAR",
+  "AED",
+];
+
+export default function Page() {
+  const [done, setDone] = useState(false);
+
+  return (
+    <main className="demo-page">
+      <div className="shell py-16 md:py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="max-w-3xl">
+            <p className="eyebrow-blue">Request a demo · Workspace discovery</p>
+            <h1 className="mt-3 text-4xl font-black tracking-[-.04em] text-slate-950 sm:text-5xl">
+              See how Enorsis can transform your procurement operating model.
+            </h1>
+            <p className="mt-5 text-base leading-7 text-slate-600">
+              Tell us where your organization operates and how you want to manage
+              currencies. This information helps tailor your Enorsis demonstration.
+            </p>
+          </div>
+
+          {done ? (
+            <div className="public-form-card mt-10">
+              <div className="flex items-start gap-4">
+                <div className="form-success-icon">
+                  <CheckCircle2 size={22} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-black text-slate-950">
+                    Demo request captured.
+                  </h2>
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Your organization and regional configuration have been recorded
+                    for the Enorsis demonstration workflow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                setDone(true);
+              }}
+              className="public-form-card mt-10 grid gap-6 md:grid-cols-2"
+            >
+              <FormField
+                label="Company name"
+                icon={<Building2 size={16} />}
+              >
+                <input
+                  required
+                  name="companyName"
+                  autoComplete="organization"
+                  className="public-form-control"
+                  placeholder="Organization name"
+                />
+              </FormField>
+
+              <FormField
+                label="Country"
+                icon={<Globe2 size={16} />}
+              >
+                <select
+                  required
+                  name="country"
+                  className="public-form-control public-select"
+                  defaultValue="United States"
+                >
+                  {countries.map((country) => (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
+                  ))}
+                </select>
+              </FormField>
+
+              <FormField
+                label="Default currency"
+                icon={<WalletCards size={16} />}
+              >
+                <select
+                  required
+                  name="currency"
+                  className="public-form-control public-select"
+                  defaultValue="USD"
+                >
+                  {currencies.map((currency) => (
+                    <option key={currency} value={currency}>
+                      {currency}
+                    </option>
+                  ))}
+                </select>
+              </FormField>
+
+              <FormField
+                label="Administrator email"
+                icon={<Mail size={16} />}
+              >
+                <input
+                  type="email"
+                  required
+                  name="email"
+                  autoComplete="email"
+                  className="public-form-control"
+                  placeholder="you@company.com"
+                />
+              </FormField>
+
+              <label className="form-checkbox-row md:col-span-2">
+                <input type="checkbox" defaultChecked />
+                <span>
+                  Keep USD as the reporting currency while displaying transactions
+                  in the selected company currency.
+                </span>
+              </label>
+
+              <div className="md:col-span-2 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                  <ShieldCheck size={15} className="text-blue-600" />
+                  Secure, auditable and tenant-isolated configuration.
+                </div>
+                <button className="button-primary min-h-12 px-7" type="submit">
+                  Request tailored demo
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function FormField({
+  label,
+  icon,
+  children,
+}: {
+  label: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="public-form-field">
+      <span className="public-form-label">
+        {icon}
+        {label}
+      </span>
+      {children}
+    </label>
+  );
+}

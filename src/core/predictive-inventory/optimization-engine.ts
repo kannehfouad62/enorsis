@@ -1,5 +1,6 @@
 import { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { evaluateMultiEngineControlledConfidence, MULTI_ENGINE_DECISION_PATHS } from "@/core/ai-runtime/multi-engine-adoption";
 
 const num = (value: unknown) => value === null || value === undefined ? 0 : Number(value);
 const round = (value: number, digits = 2) => { const m = 10 ** digits; return Math.round(value * m) / m; };
@@ -160,6 +161,44 @@ export async function generatePredictiveInventoryOptimization(input: { tenantId:
     });
   }
 
-  if (signals.length > 0) await prisma.predictiveInventoryOptimizationSignal.createMany({ data: signals });
-  return { run, signalCount: signals.length };
+  const runtimeAcceptedSignals: typeof signals = [];
+
+  for (const signal of signals) {
+    const decision =
+      await evaluateMultiEngineControlledConfidence({
+        tenantId: input.tenantId,
+        decisionPath:
+          MULTI_ENGINE_DECISION_PATHS.PREDICTIVE_INVENTORY,
+        confidence: num(signal.confidence),
+        actorUserId: input.createdByUserId,
+        correlationId: run.id,
+        extraEvidence: {
+          optimizationRunId: run.id,
+          inventoryItemId: signal.inventoryItemId,
+          sku: signal.sku,
+          itemName: signal.itemName,
+          category: signal.category,
+          riskLevel: signal.riskLevel,
+          recommendation: signal.recommendation,
+        },
+      });
+
+    if (decision.effectiveAllowed) {
+      runtimeAcceptedSignals.push(signal);
+    }
+  }
+
+  if (runtimeAcceptedSignals.length > 0) {
+    await prisma.predictiveInventoryOptimizationSignal.createMany({
+      data: runtimeAcceptedSignals,
+    });
+  }
+
+  return {
+    run,
+    signalCount: runtimeAcceptedSignals.length,
+    candidateSignalCount: signals.length,
+    suppressedSignalCount:
+      signals.length - runtimeAcceptedSignals.length,
+  };
 }

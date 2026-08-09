@@ -1476,3 +1476,153 @@ export type AutonomousExecutionAdapterJob = Prisma.AutonomousExecutionAdapterJob
  * 
  */
 export type AutonomousExecutionAdapterDecision = Prisma.AutonomousExecutionAdapterDecisionModel
+/**
+ * Model AutonomousNativeWorkflowDraft
+ * 
+ */
+export type AutonomousNativeWorkflowDraft = Prisma.AutonomousNativeWorkflowDraftModel
+/**
+ * Model AutonomousNativeWorkflowDraftDecision
+ * 
+ */
+export type AutonomousNativeWorkflowDraftDecision = Prisma.AutonomousNativeWorkflowDraftDecisionModel
+/**
+ * Model AutonomousProcurementOrchestrationRun
+ * 
+ */
+export type AutonomousProcurementOrchestrationRun = Prisma.AutonomousProcurementOrchestrationRunModel
+/**
+ * Model AutonomousProcurementOrchestrationEvent
+ * 
+ */
+export type AutonomousProcurementOrchestrationEvent = Prisma.AutonomousProcurementOrchestrationEventModel
+/**
+ * Model AutonomousProcurementOrchestrationEscalation
+ * 
+ */
+export type AutonomousProcurementOrchestrationEscalation = Prisma.AutonomousProcurementOrchestrationEscalationModel
+/**
+ * Model AutonomousProcurementOrchestrationSignal
+ * 
+ */
+export type AutonomousProcurementOrchestrationSignal = Prisma.AutonomousProcurementOrchestrationSignalModel
+/**
+ * Model ClosedLoopProcurementOutcome
+ * 
+ */
+export type ClosedLoopProcurementOutcome = Prisma.ClosedLoopProcurementOutcomeModel
+/**
+ * Model ClosedLoopProcurementOutcomeMetric
+ * 
+ */
+export type ClosedLoopProcurementOutcomeMetric = Prisma.ClosedLoopProcurementOutcomeMetricModel
+/**
+ * Model ClosedLoopLearningProposal
+ * 
+ */
+export type ClosedLoopLearningProposal = Prisma.ClosedLoopLearningProposalModel
+/**
+ * Model ClosedLoopLearningPolicy
+ * 
+ */
+export type ClosedLoopLearningPolicy = Prisma.ClosedLoopLearningPolicyModel
+/**
+ * Model ClosedLoopLearningPolicyEvent
+ * 
+ */
+export type ClosedLoopLearningPolicyEvent = Prisma.ClosedLoopLearningPolicyEventModel
+/**
+ * Model ClosedLoopRuntimePolicyDecisionTrace
+ * 
+ */
+export type ClosedLoopRuntimePolicyDecisionTrace = Prisma.ClosedLoopRuntimePolicyDecisionTraceModel
+/**
+ * Model ClosedLoopRuntimePolicyAdoption
+ * 
+ */
+export type ClosedLoopRuntimePolicyAdoption = Prisma.ClosedLoopRuntimePolicyAdoptionModel
+/**
+ * Model ClosedLoopRuntimePolicyAdoptionEvent
+ * 
+ */
+export type ClosedLoopRuntimePolicyAdoptionEvent = Prisma.ClosedLoopRuntimePolicyAdoptionEventModel
+/**
+ * Model ClosedLoopRuntimePromotionAssessment
+ * 
+ */
+export type ClosedLoopRuntimePromotionAssessment = Prisma.ClosedLoopRuntimePromotionAssessmentModel
+/**
+ * Model ClosedLoopRuntimeRollbackRule
+ * 
+ */
+export type ClosedLoopRuntimeRollbackRule = Prisma.ClosedLoopRuntimeRollbackRuleModel
+/**
+ * Model AiRuntimeCertificationRun
+ * 
+ */
+export type AiRuntimeCertificationRun = Prisma.AiRuntimeCertificationRunModel
+/**
+ * Model AiRuntimeCertificationResult
+ * 
+ */
+export type AiRuntimeCertificationResult = Prisma.AiRuntimeCertificationResultModel
+/**
+ * Model AiRuntimeHealthSnapshot
+ * 
+ */
+export type AiRuntimeHealthSnapshot = Prisma.AiRuntimeHealthSnapshotModel
+/**
+ * Model CrossEngineGovernanceAssessment
+ * 
+ */
+export type CrossEngineGovernanceAssessment = Prisma.CrossEngineGovernanceAssessmentModel
+/**
+ * Model CrossEngineGovernanceConflict
+ * 
+ */
+export type CrossEngineGovernanceConflict = Prisma.CrossEngineGovernanceConflictModel
+/**
+ * Model EnterprisePerformanceCertificationRun
+ * 
+ */
+export type EnterprisePerformanceCertificationRun = Prisma.EnterprisePerformanceCertificationRunModel
+/**
+ * Model EnterprisePerformanceCertificationResult
+ * 
+ */
+export type EnterprisePerformanceCertificationResult = Prisma.EnterprisePerformanceCertificationResultModel
+/**
+ * Model SecurityGovernanceCertificationRun
+ * 
+ */
+export type SecurityGovernanceCertificationRun = Prisma.SecurityGovernanceCertificationRunModel
+/**
+ * Model SecurityGovernanceCertificationResult
+ * 
+ */
+export type SecurityGovernanceCertificationResult = Prisma.SecurityGovernanceCertificationResultModel
+/**
+ * Model FinalEnterpriseReleaseCertificationRun
+ * 
+ */
+export type FinalEnterpriseReleaseCertificationRun = Prisma.FinalEnterpriseReleaseCertificationRunModel
+/**
+ * Model FinalEnterpriseReleaseCertificationGate
+ * 
+ */
+export type FinalEnterpriseReleaseCertificationGate = Prisma.FinalEnterpriseReleaseCertificationGateModel
+/**
+ * Model PublicSitePublication
+ * 
+ */
+export type PublicSitePublication = Prisma.PublicSitePublicationModel
+/**
+ * Model PublicSiteGuide
+ * 
+ */
+export type PublicSiteGuide = Prisma.PublicSiteGuideModel
+/**
+ * Model PublicSiteJobOpening
+ * 
+ */
+export type PublicSiteJobOpening = Prisma.PublicSiteJobOpeningModel

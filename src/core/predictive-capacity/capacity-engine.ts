@@ -1,5 +1,6 @@
 import { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { evaluateMultiEngineControlledConfidence, MULTI_ENGINE_DECISION_PATHS } from "@/core/ai-runtime/multi-engine-adoption";
 
 const num = (value: unknown) =>
   value === null || value === undefined ? 0 : Number(value);
@@ -347,14 +348,43 @@ export async function generatePredictiveCapacityPlan(input: {
     },
   });
 
-  if (signals.length > 0) {
+  const runtimeAcceptedSignals: typeof signals = [];
+
+  for (const signal of signals) {
+    const decision =
+      await evaluateMultiEngineControlledConfidence({
+        tenantId: input.tenantId,
+        decisionPath:
+          MULTI_ENGINE_DECISION_PATHS.PREDICTIVE_CAPACITY,
+        confidence: signal.confidence,
+        actorUserId: input.createdByUserId,
+        correlationId: run.id,
+        extraEvidence: {
+          capacityRunId: run.id,
+          scopeType: signal.scopeType,
+          scopeKey: signal.scopeKey,
+          scopeLabel: signal.scopeLabel,
+          riskLevel: signal.riskLevel,
+          recommendation: signal.recommendation,
+        },
+      });
+
+    if (decision.effectiveAllowed) {
+      runtimeAcceptedSignals.push(signal);
+    }
+  }
+
+  if (runtimeAcceptedSignals.length > 0) {
     await prisma.predictiveCapacityPlanningSignal.createMany({
-      data: signals,
+      data: runtimeAcceptedSignals,
     });
   }
 
   return {
     run,
-    signalCount: signals.length,
+    signalCount: runtimeAcceptedSignals.length,
+    candidateSignalCount: signals.length,
+    suppressedSignalCount:
+      signals.length - runtimeAcceptedSignals.length,
   };
 }

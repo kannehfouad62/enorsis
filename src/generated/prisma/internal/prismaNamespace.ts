@@ -683,7 +683,37 @@ export const ModelName = {
   AutonomousExecutionDecision: 'AutonomousExecutionDecision',
   AutonomousExecutionHandoff: 'AutonomousExecutionHandoff',
   AutonomousExecutionAdapterJob: 'AutonomousExecutionAdapterJob',
-  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision'
+  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision',
+  AutonomousNativeWorkflowDraft: 'AutonomousNativeWorkflowDraft',
+  AutonomousNativeWorkflowDraftDecision: 'AutonomousNativeWorkflowDraftDecision',
+  AutonomousProcurementOrchestrationRun: 'AutonomousProcurementOrchestrationRun',
+  AutonomousProcurementOrchestrationEvent: 'AutonomousProcurementOrchestrationEvent',
+  AutonomousProcurementOrchestrationEscalation: 'AutonomousProcurementOrchestrationEscalation',
+  AutonomousProcurementOrchestrationSignal: 'AutonomousProcurementOrchestrationSignal',
+  ClosedLoopProcurementOutcome: 'ClosedLoopProcurementOutcome',
+  ClosedLoopProcurementOutcomeMetric: 'ClosedLoopProcurementOutcomeMetric',
+  ClosedLoopLearningProposal: 'ClosedLoopLearningProposal',
+  ClosedLoopLearningPolicy: 'ClosedLoopLearningPolicy',
+  ClosedLoopLearningPolicyEvent: 'ClosedLoopLearningPolicyEvent',
+  ClosedLoopRuntimePolicyDecisionTrace: 'ClosedLoopRuntimePolicyDecisionTrace',
+  ClosedLoopRuntimePolicyAdoption: 'ClosedLoopRuntimePolicyAdoption',
+  ClosedLoopRuntimePolicyAdoptionEvent: 'ClosedLoopRuntimePolicyAdoptionEvent',
+  ClosedLoopRuntimePromotionAssessment: 'ClosedLoopRuntimePromotionAssessment',
+  ClosedLoopRuntimeRollbackRule: 'ClosedLoopRuntimeRollbackRule',
+  AiRuntimeCertificationRun: 'AiRuntimeCertificationRun',
+  AiRuntimeCertificationResult: 'AiRuntimeCertificationResult',
+  AiRuntimeHealthSnapshot: 'AiRuntimeHealthSnapshot',
+  CrossEngineGovernanceAssessment: 'CrossEngineGovernanceAssessment',
+  CrossEngineGovernanceConflict: 'CrossEngineGovernanceConflict',
+  EnterprisePerformanceCertificationRun: 'EnterprisePerformanceCertificationRun',
+  EnterprisePerformanceCertificationResult: 'EnterprisePerformanceCertificationResult',
+  SecurityGovernanceCertificationRun: 'SecurityGovernanceCertificationRun',
+  SecurityGovernanceCertificationResult: 'SecurityGovernanceCertificationResult',
+  FinalEnterpriseReleaseCertificationRun: 'FinalEnterpriseReleaseCertificationRun',
+  FinalEnterpriseReleaseCertificationGate: 'FinalEnterpriseReleaseCertificationGate',
+  PublicSitePublication: 'PublicSitePublication',
+  PublicSiteGuide: 'PublicSiteGuide',
+  PublicSiteJobOpening: 'PublicSiteJobOpening'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -699,7 +729,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering" | "supplierMarketplaceVerification" | "supplierMarketplaceRating" | "supplierMarketplaceMatchRun" | "supplierMarketplaceMatchResult" | "predictiveProcurementForecastRun" | "predictiveProcurementForecastSignal" | "predictiveInventoryOptimizationRun" | "predictiveInventoryOptimizationSignal" | "predictiveCapacityPlanningRun" | "predictiveCapacityPlanningSignal" | "procurementDigitalTwinScenario" | "procurementDigitalTwinRun" | "procurementDigitalTwinImpact" | "autonomousProcurementPlan" | "autonomousProcurementPlanAction" | "autonomousProcurementPlanDecision" | "autonomousProcurementRecommendationSet" | "autonomousProcurementRecommendation" | "autonomousProcurementRecommendationDecision" | "autonomousExecutionEnvelope" | "autonomousExecutionPolicyCheck" | "autonomousExecutionDecision" | "autonomousExecutionHandoff" | "autonomousExecutionAdapterJob" | "autonomousExecutionAdapterDecision"
+    modelProps: "user" | "passwordResetToken" | "tenant" | "membership" | "legalEntity" | "site" | "department" | "exchangeRate" | "auditEvent" | "aiAgent" | "purchaseRequest" | "purchaseRequestLine" | "purchaseRequestApproval" | "supplier" | "supplierContact" | "supplierDocument" | "sourcingEvent" | "sourcingCriterion" | "sourcingInvitation" | "sourcingResponse" | "sourcingScore" | "sourcingAward" | "sourcingEvaluator" | "sourcingRound" | "sourcingQuestion" | "sourcingAttachment" | "sealedBidOpening" | "contract" | "clauseTemplate" | "contractClause" | "contractApproval" | "contractObligation" | "contractDocument" | "contractRiskReview" | "contractAmendment" | "aiPromptTemplate" | "aiExecution" | "supplierRiskAssessment" | "supplierRiskFinding" | "supplierEsgAssessment" | "purchaseOrder" | "purchaseOrderLine" | "procurementReceipt" | "procurementReceiptLine" | "supplierInvoice" | "supplierInvoiceLine" | "invoiceMatchException" | "paymentBatch" | "paymentBatchItem" | "aiAgentTask" | "aiAgentTaskApproval" | "aiAgentTaskAttempt" | "integrationConnection" | "integrationMapping" | "integrationJob" | "integrationEvent" | "workflowDefinition" | "workflowStep" | "workflowInstance" | "workflowTask" | "workflowDelegation" | "workflowEscalation" | "workflowNotification" | "apiClient" | "apiCredential" | "apiRequestLog" | "accessReviewCampaign" | "accessReviewItem" | "sodRule" | "sodViolation" | "supplierScorecard" | "supplierKpiResult" | "supplierDevelopmentPlan" | "supplierCorrectiveAction" | "procurementPlan" | "categoryStrategy" | "savingsInitiative" | "savingsMilestone" | "procurementReview" | "procurementReviewMetric" | "procurementReviewAction" | "procurementPolicy" | "procurementPolicyRule" | "procurementComplianceTest" | "procurementRemediation" | "supplyRiskEvent" | "supplyRiskExposure" | "resiliencePlan" | "procurementCatalog" | "procurementCatalogItem" | "guidedCart" | "guidedCartItem" | "inventoryLocation" | "inventoryItem" | "inventoryBalance" | "inventoryTransaction" | "cycleCount" | "cycleCountLine" | "statementOfWork" | "serviceMilestone" | "serviceWorker" | "serviceTimeEntry" | "demandPlan" | "demandForecast" | "replenishmentRecommendation" | "logisticsCarrier" | "logisticsShipment" | "logisticsTrackingEvent" | "supplierClaim" | "supplierClaimEvidence" | "supplierRecovery" | "procurementAsset" | "assetAssignment" | "assetMaintenancePlan" | "assetMaintenanceRecord" | "supplierEsgProfile" | "responsibleSourcingAssessment" | "sustainabilityImprovementPlan" | "procurementValueInitiative" | "procurementBenefit" | "procurementValueMilestone" | "categoryOpportunity" | "categoryMarketSignal" | "supplierPortalInvitation" | "supplierPortalUser" | "supplierOnboardingQuestionnaire" | "supplierPortalTask" | "supplierPortalMessage" | "commercialEdition" | "platformFeature" | "editionFeature" | "tenantSubscription" | "tenantEntitlement" | "usagePolicy" | "usageCounter" | "tenantConfiguration" | "platformJobDefinition" | "platformJobExecution" | "platformJobAttempt" | "platformEvent" | "platformEventSubscription" | "platformEventDelivery" | "enterpriseConnectorDefinition" | "enterpriseConnectorConnection" | "enterpriseConnectorCredential" | "enterpriseConnectorMapping" | "enterpriseIntegrationSyncRun" | "enterpriseWebhookEndpoint" | "vaultSecret" | "vaultSecretVersion" | "vaultSecretAccessPolicy" | "vaultSecretAccessLog" | "enterpriseNotificationTemplate" | "enterpriseNotificationPreference" | "enterpriseNotification" | "enterpriseNotificationDelivery" | "enterpriseActivity" | "enterpriseActivityAccessRule" | "enterprisePolicyDefinition" | "enterpriseTenantPolicy" | "enterpriseFeatureFlag" | "enterpriseTenantFeatureFlag" | "platformCertificationRun" | "platformReadinessCheck" | "requisitionOrderJourney" | "requisitionOrderMilestone" | "requisitionOrderException" | "requisitionSubmissionAssessment" | "requisitionSubmissionCheck" | "requisitionApprovalRoute" | "requisitionApprovalStep" | "requisitionApprovalDecision" | "purchaseOrderExecution" | "purchaseOrderRevision" | "purchaseOrderValidation" | "goodsReceiptSession" | "goodsReceiptLine" | "goodsReceiptException" | "threeWayMatchCase" | "threeWayMatchLine" | "threeWayMatchException" | "apPaymentReadinessCase" | "apPaymentReadinessCheck" | "apPaymentHold" | "procurementProcessCertification" | "procurementProcessCheck" | "inventoryMovementLedger" | "inventoryAvailabilitySnapshot" | "inventoryReservation" | "inventoryOperationException" | "warehouseReceivingSession" | "warehouseReceiptLine" | "warehouseLocationControl" | "putawayTask" | "warehouseDiscrepancy" | "warehouseFulfillmentOrder" | "warehouseFulfillmentLine" | "warehousePickTask" | "warehousePackage" | "warehouseFulfillmentException" | "inventoryCountSession" | "inventoryCountLine" | "inventoryReconciliation" | "inventoryTraceUnit" | "inventoryTraceEvent" | "inventoryTraceHold" | "replenishmentPolicy" | "stockReplenishmentRecommendation" | "stockTransferOrder" | "stockTransferException" | "inventoryFinancialValuationPolicy" | "inventoryFinancialCostLayer" | "inventoryFinancialValuationSnapshot" | "inventoryFinancialReconciliation" | "enterpriseAnalyticsMetricDefinition" | "enterpriseAnalyticsMetricSnapshot" | "enterpriseAnalyticsAggregationRun" | "enterpriseAnalyticsAggregationFailure" | "governedExecutiveInsightRun" | "governedExecutiveInsight" | "governedExecutiveInsightEvidence" | "governedExecutiveInsightFeedback" | "governedExecutiveInsightApproval" | "governedExecutiveInsightApprovalDecision" | "governedExecutiveInsightApprovalAuditEvent" | "executiveSynthesisRun" | "executiveSynthesis" | "executiveBoardPackDefinition" | "executiveBoardPack" | "executiveBoardPackExport" | "executiveBoardReportSchedule" | "executiveBoardReportScheduleRun" | "executiveBoardRecipientGroup" | "executiveBoardRecipient" | "executiveBoardDistribution" | "executiveBoardDelivery" | "executiveBoardDeliveryAccessEvent" | "enterpriseAutomationRule" | "enterpriseAutomationTrigger" | "enterpriseAutomationAction" | "enterpriseAutomationRun" | "enterpriseAutomationActionRun" | "enterpriseAutomationRuleVersion" | "enterpriseAutomationTemplate" | "enterpriseAutomationSimulation" | "enterpriseAutomationRuntimeExecution" | "enterpriseAutomationRuntimeNode" | "enterpriseAutomationRuntimeSignal" | "enterpriseAutomationRuntimeAction" | "enterpriseAutomationRuntimeCallback" | "enterpriseAutomationConnector" | "enterpriseAutomationConnectorAudit" | "enterpriseKnowledgeSource" | "enterpriseKnowledgeChunk" | "supplierCollaborationInvoice" | "supplierCollaborationShipment" | "supplierConversationThread" | "supplierConversationMessage" | "supplierSharedDocument" | "supplierActionRequest" | "supplierMarketplaceProfile" | "supplierMarketplaceOffering" | "supplierMarketplaceVerification" | "supplierMarketplaceRating" | "supplierMarketplaceMatchRun" | "supplierMarketplaceMatchResult" | "predictiveProcurementForecastRun" | "predictiveProcurementForecastSignal" | "predictiveInventoryOptimizationRun" | "predictiveInventoryOptimizationSignal" | "predictiveCapacityPlanningRun" | "predictiveCapacityPlanningSignal" | "procurementDigitalTwinScenario" | "procurementDigitalTwinRun" | "procurementDigitalTwinImpact" | "autonomousProcurementPlan" | "autonomousProcurementPlanAction" | "autonomousProcurementPlanDecision" | "autonomousProcurementRecommendationSet" | "autonomousProcurementRecommendation" | "autonomousProcurementRecommendationDecision" | "autonomousExecutionEnvelope" | "autonomousExecutionPolicyCheck" | "autonomousExecutionDecision" | "autonomousExecutionHandoff" | "autonomousExecutionAdapterJob" | "autonomousExecutionAdapterDecision" | "autonomousNativeWorkflowDraft" | "autonomousNativeWorkflowDraftDecision" | "autonomousProcurementOrchestrationRun" | "autonomousProcurementOrchestrationEvent" | "autonomousProcurementOrchestrationEscalation" | "autonomousProcurementOrchestrationSignal" | "closedLoopProcurementOutcome" | "closedLoopProcurementOutcomeMetric" | "closedLoopLearningProposal" | "closedLoopLearningPolicy" | "closedLoopLearningPolicyEvent" | "closedLoopRuntimePolicyDecisionTrace" | "closedLoopRuntimePolicyAdoption" | "closedLoopRuntimePolicyAdoptionEvent" | "closedLoopRuntimePromotionAssessment" | "closedLoopRuntimeRollbackRule" | "aiRuntimeCertificationRun" | "aiRuntimeCertificationResult" | "aiRuntimeHealthSnapshot" | "crossEngineGovernanceAssessment" | "crossEngineGovernanceConflict" | "enterprisePerformanceCertificationRun" | "enterprisePerformanceCertificationResult" | "securityGovernanceCertificationRun" | "securityGovernanceCertificationResult" | "finalEnterpriseReleaseCertificationRun" | "finalEnterpriseReleaseCertificationGate" | "publicSitePublication" | "publicSiteGuide" | "publicSiteJobOpening"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -21941,6 +21971,2226 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AutonomousNativeWorkflowDraft: {
+      payload: Prisma.$AutonomousNativeWorkflowDraftPayload<ExtArgs>
+      fields: Prisma.AutonomousNativeWorkflowDraftFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousNativeWorkflowDraftFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousNativeWorkflowDraftFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousNativeWorkflowDraftFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousNativeWorkflowDraftFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousNativeWorkflowDraftCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousNativeWorkflowDraftCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousNativeWorkflowDraftDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        update: {
+          args: Prisma.AutonomousNativeWorkflowDraftUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousNativeWorkflowDraftUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousNativeWorkflowDraftUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousNativeWorkflowDraftAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousNativeWorkflowDraft>
+        }
+        groupBy: {
+          args: Prisma.AutonomousNativeWorkflowDraftGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousNativeWorkflowDraftGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousNativeWorkflowDraftCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousNativeWorkflowDraftCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousNativeWorkflowDraftDecision: {
+      payload: Prisma.$AutonomousNativeWorkflowDraftDecisionPayload<ExtArgs>
+      fields: Prisma.AutonomousNativeWorkflowDraftDecisionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        update: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousNativeWorkflowDraftDecisionPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousNativeWorkflowDraftDecision>
+        }
+        groupBy: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousNativeWorkflowDraftDecisionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousNativeWorkflowDraftDecisionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousNativeWorkflowDraftDecisionCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementOrchestrationRun: {
+      payload: Prisma.$AutonomousProcurementOrchestrationRunPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementOrchestrationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementOrchestrationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementOrchestrationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementOrchestrationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementOrchestrationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementOrchestrationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementOrchestrationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementOrchestrationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementOrchestrationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementOrchestrationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementOrchestrationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementOrchestrationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementOrchestrationRun>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementOrchestrationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementOrchestrationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementOrchestrationEvent: {
+      payload: Prisma.$AutonomousProcurementOrchestrationEventPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementOrchestrationEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementOrchestrationEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementOrchestrationEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementOrchestrationEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementOrchestrationEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementOrchestrationEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementOrchestrationEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEventPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementOrchestrationEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementOrchestrationEvent>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementOrchestrationEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementOrchestrationEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementOrchestrationEscalation: {
+      payload: Prisma.$AutonomousProcurementOrchestrationEscalationPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementOrchestrationEscalationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationEscalationPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementOrchestrationEscalation>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationEscalationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementOrchestrationEscalationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationEscalationCountAggregateOutputType> | number
+        }
+      }
+    }
+    AutonomousProcurementOrchestrationSignal: {
+      payload: Prisma.$AutonomousProcurementOrchestrationSignalPayload<ExtArgs>
+      fields: Prisma.AutonomousProcurementOrchestrationSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        findMany: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>[]
+        }
+        create: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        createMany: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        update: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AutonomousProcurementOrchestrationSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAutonomousProcurementOrchestrationSignal>
+        }
+        groupBy: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AutonomousProcurementOrchestrationSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AutonomousProcurementOrchestrationSignalCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopProcurementOutcome: {
+      payload: Prisma.$ClosedLoopProcurementOutcomePayload<ExtArgs>
+      fields: Prisma.ClosedLoopProcurementOutcomeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopProcurementOutcomeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopProcurementOutcomeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopProcurementOutcomeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopProcurementOutcomeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopProcurementOutcomeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopProcurementOutcomeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopProcurementOutcomeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopProcurementOutcomeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopProcurementOutcomeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopProcurementOutcomeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomePayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopProcurementOutcomeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopProcurementOutcome>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopProcurementOutcomeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopProcurementOutcomeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopProcurementOutcomeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopProcurementOutcomeCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopProcurementOutcomeMetric: {
+      payload: Prisma.$ClosedLoopProcurementOutcomeMetricPayload<ExtArgs>
+      fields: Prisma.ClosedLoopProcurementOutcomeMetricFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopProcurementOutcomeMetricPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopProcurementOutcomeMetric>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopProcurementOutcomeMetricGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopProcurementOutcomeMetricCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopProcurementOutcomeMetricCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopLearningProposal: {
+      payload: Prisma.$ClosedLoopLearningProposalPayload<ExtArgs>
+      fields: Prisma.ClosedLoopLearningProposalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopLearningProposalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopLearningProposalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopLearningProposalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopLearningProposalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopLearningProposalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopLearningProposalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopLearningProposalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopLearningProposalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopLearningProposalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopLearningProposalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopLearningProposalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopLearningProposalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopLearningProposalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopLearningProposalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningProposalPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopLearningProposalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopLearningProposal>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopLearningProposalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningProposalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopLearningProposalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningProposalCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopLearningPolicy: {
+      payload: Prisma.$ClosedLoopLearningPolicyPayload<ExtArgs>
+      fields: Prisma.ClosedLoopLearningPolicyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopLearningPolicyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopLearningPolicyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopLearningPolicyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopLearningPolicyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopLearningPolicyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopLearningPolicyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopLearningPolicyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopLearningPolicyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopLearningPolicyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopLearningPolicyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopLearningPolicyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopLearningPolicyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopLearningPolicyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopLearningPolicyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopLearningPolicyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopLearningPolicy>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopLearningPolicyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningPolicyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopLearningPolicyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningPolicyCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopLearningPolicyEvent: {
+      payload: Prisma.$ClosedLoopLearningPolicyEventPayload<ExtArgs>
+      fields: Prisma.ClosedLoopLearningPolicyEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopLearningPolicyEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopLearningPolicyEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopLearningPolicyEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopLearningPolicyEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopLearningPolicyEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopLearningPolicyEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopLearningPolicyEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopLearningPolicyEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopLearningPolicyEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopLearningPolicyEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopLearningPolicyEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopLearningPolicyEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopLearningPolicyEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopLearningPolicyEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopLearningPolicyEventPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopLearningPolicyEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopLearningPolicyEvent>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopLearningPolicyEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningPolicyEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopLearningPolicyEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopLearningPolicyEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopRuntimePolicyDecisionTrace: {
+      payload: Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload<ExtArgs>
+      fields: Prisma.ClosedLoopRuntimePolicyDecisionTraceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyDecisionTracePayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopRuntimePolicyDecisionTrace>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyDecisionTraceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopRuntimePolicyDecisionTraceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyDecisionTraceCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopRuntimePolicyAdoption: {
+      payload: Prisma.$ClosedLoopRuntimePolicyAdoptionPayload<ExtArgs>
+      fields: Prisma.ClosedLoopRuntimePolicyAdoptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopRuntimePolicyAdoption>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyAdoptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyAdoptionCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopRuntimePolicyAdoptionEvent: {
+      payload: Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload<ExtArgs>
+      fields: Prisma.ClosedLoopRuntimePolicyAdoptionEventFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePolicyAdoptionEventPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopRuntimePolicyAdoptionEvent>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyAdoptionEventGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopRuntimePolicyAdoptionEventCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePolicyAdoptionEventCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopRuntimePromotionAssessment: {
+      payload: Prisma.$ClosedLoopRuntimePromotionAssessmentPayload<ExtArgs>
+      fields: Prisma.ClosedLoopRuntimePromotionAssessmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimePromotionAssessmentPayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopRuntimePromotionAssessment>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePromotionAssessmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopRuntimePromotionAssessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimePromotionAssessmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClosedLoopRuntimeRollbackRule: {
+      payload: Prisma.$ClosedLoopRuntimeRollbackRulePayload<ExtArgs>
+      fields: Prisma.ClosedLoopRuntimeRollbackRuleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        findFirst: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        findMany: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>[]
+        }
+        create: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        createMany: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>[]
+        }
+        delete: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        update: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        deleteMany: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>[]
+        }
+        upsert: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClosedLoopRuntimeRollbackRulePayload>
+        }
+        aggregate: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClosedLoopRuntimeRollbackRule>
+        }
+        groupBy: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimeRollbackRuleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClosedLoopRuntimeRollbackRuleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClosedLoopRuntimeRollbackRuleCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiRuntimeCertificationRun: {
+      payload: Prisma.$AiRuntimeCertificationRunPayload<ExtArgs>
+      fields: Prisma.AiRuntimeCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiRuntimeCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiRuntimeCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.AiRuntimeCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiRuntimeCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.AiRuntimeCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.AiRuntimeCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.AiRuntimeCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiRuntimeCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.AiRuntimeCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.AiRuntimeCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiRuntimeCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiRuntimeCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiRuntimeCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiRuntimeCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.AiRuntimeCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiRuntimeCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.AiRuntimeCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiRuntimeCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiRuntimeCertificationResult: {
+      payload: Prisma.$AiRuntimeCertificationResultPayload<ExtArgs>
+      fields: Prisma.AiRuntimeCertificationResultFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiRuntimeCertificationResultFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiRuntimeCertificationResultFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        findFirst: {
+          args: Prisma.AiRuntimeCertificationResultFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiRuntimeCertificationResultFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        findMany: {
+          args: Prisma.AiRuntimeCertificationResultFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>[]
+        }
+        create: {
+          args: Prisma.AiRuntimeCertificationResultCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        createMany: {
+          args: Prisma.AiRuntimeCertificationResultCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiRuntimeCertificationResultCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>[]
+        }
+        delete: {
+          args: Prisma.AiRuntimeCertificationResultDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        update: {
+          args: Prisma.AiRuntimeCertificationResultUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiRuntimeCertificationResultDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiRuntimeCertificationResultUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiRuntimeCertificationResultUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiRuntimeCertificationResultUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeCertificationResultPayload>
+        }
+        aggregate: {
+          args: Prisma.AiRuntimeCertificationResultAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiRuntimeCertificationResult>
+        }
+        groupBy: {
+          args: Prisma.AiRuntimeCertificationResultGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeCertificationResultGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiRuntimeCertificationResultCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeCertificationResultCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiRuntimeHealthSnapshot: {
+      payload: Prisma.$AiRuntimeHealthSnapshotPayload<ExtArgs>
+      fields: Prisma.AiRuntimeHealthSnapshotFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiRuntimeHealthSnapshotFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiRuntimeHealthSnapshotFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        findFirst: {
+          args: Prisma.AiRuntimeHealthSnapshotFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiRuntimeHealthSnapshotFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        findMany: {
+          args: Prisma.AiRuntimeHealthSnapshotFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>[]
+        }
+        create: {
+          args: Prisma.AiRuntimeHealthSnapshotCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        createMany: {
+          args: Prisma.AiRuntimeHealthSnapshotCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiRuntimeHealthSnapshotCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>[]
+        }
+        delete: {
+          args: Prisma.AiRuntimeHealthSnapshotDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        update: {
+          args: Prisma.AiRuntimeHealthSnapshotUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiRuntimeHealthSnapshotDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiRuntimeHealthSnapshotUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiRuntimeHealthSnapshotUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiRuntimeHealthSnapshotUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiRuntimeHealthSnapshotPayload>
+        }
+        aggregate: {
+          args: Prisma.AiRuntimeHealthSnapshotAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiRuntimeHealthSnapshot>
+        }
+        groupBy: {
+          args: Prisma.AiRuntimeHealthSnapshotGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeHealthSnapshotGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiRuntimeHealthSnapshotCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiRuntimeHealthSnapshotCountAggregateOutputType> | number
+        }
+      }
+    }
+    CrossEngineGovernanceAssessment: {
+      payload: Prisma.$CrossEngineGovernanceAssessmentPayload<ExtArgs>
+      fields: Prisma.CrossEngineGovernanceAssessmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CrossEngineGovernanceAssessmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CrossEngineGovernanceAssessmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        findFirst: {
+          args: Prisma.CrossEngineGovernanceAssessmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CrossEngineGovernanceAssessmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        findMany: {
+          args: Prisma.CrossEngineGovernanceAssessmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>[]
+        }
+        create: {
+          args: Prisma.CrossEngineGovernanceAssessmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        createMany: {
+          args: Prisma.CrossEngineGovernanceAssessmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CrossEngineGovernanceAssessmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>[]
+        }
+        delete: {
+          args: Prisma.CrossEngineGovernanceAssessmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        update: {
+          args: Prisma.CrossEngineGovernanceAssessmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.CrossEngineGovernanceAssessmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CrossEngineGovernanceAssessmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CrossEngineGovernanceAssessmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.CrossEngineGovernanceAssessmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceAssessmentPayload>
+        }
+        aggregate: {
+          args: Prisma.CrossEngineGovernanceAssessmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCrossEngineGovernanceAssessment>
+        }
+        groupBy: {
+          args: Prisma.CrossEngineGovernanceAssessmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CrossEngineGovernanceAssessmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CrossEngineGovernanceAssessmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CrossEngineGovernanceAssessmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    CrossEngineGovernanceConflict: {
+      payload: Prisma.$CrossEngineGovernanceConflictPayload<ExtArgs>
+      fields: Prisma.CrossEngineGovernanceConflictFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CrossEngineGovernanceConflictFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CrossEngineGovernanceConflictFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        findFirst: {
+          args: Prisma.CrossEngineGovernanceConflictFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CrossEngineGovernanceConflictFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        findMany: {
+          args: Prisma.CrossEngineGovernanceConflictFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>[]
+        }
+        create: {
+          args: Prisma.CrossEngineGovernanceConflictCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        createMany: {
+          args: Prisma.CrossEngineGovernanceConflictCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CrossEngineGovernanceConflictCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>[]
+        }
+        delete: {
+          args: Prisma.CrossEngineGovernanceConflictDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        update: {
+          args: Prisma.CrossEngineGovernanceConflictUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        deleteMany: {
+          args: Prisma.CrossEngineGovernanceConflictDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CrossEngineGovernanceConflictUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CrossEngineGovernanceConflictUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>[]
+        }
+        upsert: {
+          args: Prisma.CrossEngineGovernanceConflictUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CrossEngineGovernanceConflictPayload>
+        }
+        aggregate: {
+          args: Prisma.CrossEngineGovernanceConflictAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCrossEngineGovernanceConflict>
+        }
+        groupBy: {
+          args: Prisma.CrossEngineGovernanceConflictGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CrossEngineGovernanceConflictGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CrossEngineGovernanceConflictCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CrossEngineGovernanceConflictCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterprisePerformanceCertificationRun: {
+      payload: Prisma.$EnterprisePerformanceCertificationRunPayload<ExtArgs>
+      fields: Prisma.EnterprisePerformanceCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterprisePerformanceCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterprisePerformanceCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterprisePerformanceCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterprisePerformanceCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.EnterprisePerformanceCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.EnterprisePerformanceCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.EnterprisePerformanceCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterprisePerformanceCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterprisePerformanceCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.EnterprisePerformanceCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterprisePerformanceCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterprisePerformanceCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterprisePerformanceCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterprisePerformanceCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterprisePerformanceCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterprisePerformanceCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.EnterprisePerformanceCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePerformanceCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterprisePerformanceCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePerformanceCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    EnterprisePerformanceCertificationResult: {
+      payload: Prisma.$EnterprisePerformanceCertificationResultPayload<ExtArgs>
+      fields: Prisma.EnterprisePerformanceCertificationResultFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EnterprisePerformanceCertificationResultFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EnterprisePerformanceCertificationResultFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        findFirst: {
+          args: Prisma.EnterprisePerformanceCertificationResultFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EnterprisePerformanceCertificationResultFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        findMany: {
+          args: Prisma.EnterprisePerformanceCertificationResultFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>[]
+        }
+        create: {
+          args: Prisma.EnterprisePerformanceCertificationResultCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        createMany: {
+          args: Prisma.EnterprisePerformanceCertificationResultCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EnterprisePerformanceCertificationResultCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>[]
+        }
+        delete: {
+          args: Prisma.EnterprisePerformanceCertificationResultDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        update: {
+          args: Prisma.EnterprisePerformanceCertificationResultUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        deleteMany: {
+          args: Prisma.EnterprisePerformanceCertificationResultDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EnterprisePerformanceCertificationResultUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EnterprisePerformanceCertificationResultUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>[]
+        }
+        upsert: {
+          args: Prisma.EnterprisePerformanceCertificationResultUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EnterprisePerformanceCertificationResultPayload>
+        }
+        aggregate: {
+          args: Prisma.EnterprisePerformanceCertificationResultAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEnterprisePerformanceCertificationResult>
+        }
+        groupBy: {
+          args: Prisma.EnterprisePerformanceCertificationResultGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePerformanceCertificationResultGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EnterprisePerformanceCertificationResultCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EnterprisePerformanceCertificationResultCountAggregateOutputType> | number
+        }
+      }
+    }
+    SecurityGovernanceCertificationRun: {
+      payload: Prisma.$SecurityGovernanceCertificationRunPayload<ExtArgs>
+      fields: Prisma.SecurityGovernanceCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SecurityGovernanceCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SecurityGovernanceCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.SecurityGovernanceCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SecurityGovernanceCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.SecurityGovernanceCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.SecurityGovernanceCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.SecurityGovernanceCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SecurityGovernanceCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.SecurityGovernanceCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.SecurityGovernanceCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.SecurityGovernanceCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SecurityGovernanceCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SecurityGovernanceCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.SecurityGovernanceCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.SecurityGovernanceCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSecurityGovernanceCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.SecurityGovernanceCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SecurityGovernanceCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SecurityGovernanceCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SecurityGovernanceCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    SecurityGovernanceCertificationResult: {
+      payload: Prisma.$SecurityGovernanceCertificationResultPayload<ExtArgs>
+      fields: Prisma.SecurityGovernanceCertificationResultFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SecurityGovernanceCertificationResultFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SecurityGovernanceCertificationResultFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        findFirst: {
+          args: Prisma.SecurityGovernanceCertificationResultFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SecurityGovernanceCertificationResultFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        findMany: {
+          args: Prisma.SecurityGovernanceCertificationResultFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>[]
+        }
+        create: {
+          args: Prisma.SecurityGovernanceCertificationResultCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        createMany: {
+          args: Prisma.SecurityGovernanceCertificationResultCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SecurityGovernanceCertificationResultCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>[]
+        }
+        delete: {
+          args: Prisma.SecurityGovernanceCertificationResultDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        update: {
+          args: Prisma.SecurityGovernanceCertificationResultUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        deleteMany: {
+          args: Prisma.SecurityGovernanceCertificationResultDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SecurityGovernanceCertificationResultUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SecurityGovernanceCertificationResultUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>[]
+        }
+        upsert: {
+          args: Prisma.SecurityGovernanceCertificationResultUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SecurityGovernanceCertificationResultPayload>
+        }
+        aggregate: {
+          args: Prisma.SecurityGovernanceCertificationResultAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSecurityGovernanceCertificationResult>
+        }
+        groupBy: {
+          args: Prisma.SecurityGovernanceCertificationResultGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SecurityGovernanceCertificationResultGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SecurityGovernanceCertificationResultCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SecurityGovernanceCertificationResultCountAggregateOutputType> | number
+        }
+      }
+    }
+    FinalEnterpriseReleaseCertificationRun: {
+      payload: Prisma.$FinalEnterpriseReleaseCertificationRunPayload<ExtArgs>
+      fields: Prisma.FinalEnterpriseReleaseCertificationRunFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        findFirst: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        findMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>[]
+        }
+        create: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        createMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>[]
+        }
+        delete: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        update: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        deleteMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>[]
+        }
+        upsert: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationRunPayload>
+        }
+        aggregate: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFinalEnterpriseReleaseCertificationRun>
+        }
+        groupBy: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FinalEnterpriseReleaseCertificationRunGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FinalEnterpriseReleaseCertificationRunCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FinalEnterpriseReleaseCertificationRunCountAggregateOutputType> | number
+        }
+      }
+    }
+    FinalEnterpriseReleaseCertificationGate: {
+      payload: Prisma.$FinalEnterpriseReleaseCertificationGatePayload<ExtArgs>
+      fields: Prisma.FinalEnterpriseReleaseCertificationGateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        findFirst: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        findMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>[]
+        }
+        create: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        createMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>[]
+        }
+        delete: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        update: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        deleteMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>[]
+        }
+        upsert: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$FinalEnterpriseReleaseCertificationGatePayload>
+        }
+        aggregate: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateFinalEnterpriseReleaseCertificationGate>
+        }
+        groupBy: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FinalEnterpriseReleaseCertificationGateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.FinalEnterpriseReleaseCertificationGateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.FinalEnterpriseReleaseCertificationGateCountAggregateOutputType> | number
+        }
+      }
+    }
+    PublicSitePublication: {
+      payload: Prisma.$PublicSitePublicationPayload<ExtArgs>
+      fields: Prisma.PublicSitePublicationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PublicSitePublicationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PublicSitePublicationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        findFirst: {
+          args: Prisma.PublicSitePublicationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PublicSitePublicationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        findMany: {
+          args: Prisma.PublicSitePublicationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>[]
+        }
+        create: {
+          args: Prisma.PublicSitePublicationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        createMany: {
+          args: Prisma.PublicSitePublicationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PublicSitePublicationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>[]
+        }
+        delete: {
+          args: Prisma.PublicSitePublicationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        update: {
+          args: Prisma.PublicSitePublicationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        deleteMany: {
+          args: Prisma.PublicSitePublicationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PublicSitePublicationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PublicSitePublicationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>[]
+        }
+        upsert: {
+          args: Prisma.PublicSitePublicationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSitePublicationPayload>
+        }
+        aggregate: {
+          args: Prisma.PublicSitePublicationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePublicSitePublication>
+        }
+        groupBy: {
+          args: Prisma.PublicSitePublicationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSitePublicationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PublicSitePublicationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSitePublicationCountAggregateOutputType> | number
+        }
+      }
+    }
+    PublicSiteGuide: {
+      payload: Prisma.$PublicSiteGuidePayload<ExtArgs>
+      fields: Prisma.PublicSiteGuideFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PublicSiteGuideFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PublicSiteGuideFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        findFirst: {
+          args: Prisma.PublicSiteGuideFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PublicSiteGuideFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        findMany: {
+          args: Prisma.PublicSiteGuideFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>[]
+        }
+        create: {
+          args: Prisma.PublicSiteGuideCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        createMany: {
+          args: Prisma.PublicSiteGuideCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PublicSiteGuideCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>[]
+        }
+        delete: {
+          args: Prisma.PublicSiteGuideDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        update: {
+          args: Prisma.PublicSiteGuideUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        deleteMany: {
+          args: Prisma.PublicSiteGuideDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PublicSiteGuideUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PublicSiteGuideUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>[]
+        }
+        upsert: {
+          args: Prisma.PublicSiteGuideUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteGuidePayload>
+        }
+        aggregate: {
+          args: Prisma.PublicSiteGuideAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePublicSiteGuide>
+        }
+        groupBy: {
+          args: Prisma.PublicSiteGuideGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSiteGuideGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PublicSiteGuideCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSiteGuideCountAggregateOutputType> | number
+        }
+      }
+    }
+    PublicSiteJobOpening: {
+      payload: Prisma.$PublicSiteJobOpeningPayload<ExtArgs>
+      fields: Prisma.PublicSiteJobOpeningFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PublicSiteJobOpeningFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PublicSiteJobOpeningFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        findFirst: {
+          args: Prisma.PublicSiteJobOpeningFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PublicSiteJobOpeningFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        findMany: {
+          args: Prisma.PublicSiteJobOpeningFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>[]
+        }
+        create: {
+          args: Prisma.PublicSiteJobOpeningCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        createMany: {
+          args: Prisma.PublicSiteJobOpeningCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PublicSiteJobOpeningCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>[]
+        }
+        delete: {
+          args: Prisma.PublicSiteJobOpeningDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        update: {
+          args: Prisma.PublicSiteJobOpeningUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        deleteMany: {
+          args: Prisma.PublicSiteJobOpeningDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PublicSiteJobOpeningUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PublicSiteJobOpeningUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>[]
+        }
+        upsert: {
+          args: Prisma.PublicSiteJobOpeningUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PublicSiteJobOpeningPayload>
+        }
+        aggregate: {
+          args: Prisma.PublicSiteJobOpeningAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePublicSiteJobOpening>
+        }
+        groupBy: {
+          args: Prisma.PublicSiteJobOpeningGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSiteJobOpeningGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PublicSiteJobOpeningCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PublicSiteJobOpeningCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -28171,6 +30421,674 @@ export const AutonomousExecutionAdapterDecisionScalarFieldEnum = {
 export type AutonomousExecutionAdapterDecisionScalarFieldEnum = (typeof AutonomousExecutionAdapterDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterDecisionScalarFieldEnum]
 
 
+export const AutonomousNativeWorkflowDraftScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adapterJobId: 'adapterJobId',
+  executionHandoffId: 'executionHandoffId',
+  targetWorkflow: 'targetWorkflow',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeRoute: 'nativeRoute',
+  status: 'status',
+  draftTitle: 'draftTitle',
+  draftPayload: 'draftPayload',
+  validationSnapshot: 'validationSnapshot',
+  requiresNativeReview: 'requiresNativeReview',
+  openedByUserId: 'openedByUserId',
+  openedAt: 'openedAt',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  completedByUserId: 'completedByUserId',
+  completedAt: 'completedAt',
+  completionNote: 'completionNote',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousNativeWorkflowDraftScalarFieldEnum = (typeof AutonomousNativeWorkflowDraftScalarFieldEnum)[keyof typeof AutonomousNativeWorkflowDraftScalarFieldEnum]
+
+
+export const AutonomousNativeWorkflowDraftDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  nativeDraftId: 'nativeDraftId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousNativeWorkflowDraftDecisionScalarFieldEnum = (typeof AutonomousNativeWorkflowDraftDecisionScalarFieldEnum)[keyof typeof AutonomousNativeWorkflowDraftDecisionScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionHandoffId: 'executionHandoffId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  status: 'status',
+  stage: 'stage',
+  pauseReason: 'pauseReason',
+  adapterJobId: 'adapterJobId',
+  nativeDraftId: 'nativeDraftId',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  attemptCount: 'attemptCount',
+  lastAttemptAt: 'lastAttemptAt',
+  nextAttemptAt: 'nextAttemptAt',
+  lastError: 'lastError',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationRunScalarFieldEnum = (typeof AutonomousProcurementOrchestrationRunScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationRunScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  eventType: 'eventType',
+  fromStage: 'fromStage',
+  toStage: 'toStage',
+  actorUserId: 'actorUserId',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementOrchestrationEventScalarFieldEnum = (typeof AutonomousProcurementOrchestrationEventScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationEventScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationEscalationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  escalationType: 'escalationType',
+  severity: 'severity',
+  status: 'status',
+  stage: 'stage',
+  runStatus: 'runStatus',
+  ageMinutes: 'ageMinutes',
+  thresholdMinutes: 'thresholdMinutes',
+  summary: 'summary',
+  details: 'details',
+  firstDetectedAt: 'firstDetectedAt',
+  lastDetectedAt: 'lastDetectedAt',
+  occurrenceCount: 'occurrenceCount',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  resolutionNote: 'resolutionNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationEscalationScalarFieldEnum = (typeof AutonomousProcurementOrchestrationEscalationScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationEscalationScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  signalType: 'signalType',
+  idempotencyKey: 'idempotencyKey',
+  status: 'status',
+  actorUserId: 'actorUserId',
+  source: 'source',
+  payload: 'payload',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt',
+  processingResult: 'processingResult',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationSignalScalarFieldEnum = (typeof AutonomousProcurementOrchestrationSignalScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationSignalScalarFieldEnum]
+
+
+export const ClosedLoopProcurementOutcomeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  executionHandoffId: 'executionHandoffId',
+  targetWorkflow: 'targetWorkflow',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  status: 'status',
+  sourceConfidence: 'sourceConfidence',
+  outcomeQuality: 'outcomeQuality',
+  openedAt: 'openedAt',
+  observedAt: 'observedAt',
+  validatedAt: 'validatedAt',
+  validatedByUserId: 'validatedByUserId',
+  validationNote: 'validationNote',
+  sourceSnapshot: 'sourceSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopProcurementOutcomeScalarFieldEnum = (typeof ClosedLoopProcurementOutcomeScalarFieldEnum)[keyof typeof ClosedLoopProcurementOutcomeScalarFieldEnum]
+
+
+export const ClosedLoopProcurementOutcomeMetricScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  outcomeId: 'outcomeId',
+  metricKey: 'metricKey',
+  metricLabel: 'metricLabel',
+  unit: 'unit',
+  predictedValue: 'predictedValue',
+  actualValue: 'actualValue',
+  varianceValue: 'varianceValue',
+  variancePercent: 'variancePercent',
+  confidence: 'confidence',
+  status: 'status',
+  evidence: 'evidence',
+  observedByUserId: 'observedByUserId',
+  observedAt: 'observedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopProcurementOutcomeMetricScalarFieldEnum = (typeof ClosedLoopProcurementOutcomeMetricScalarFieldEnum)[keyof typeof ClosedLoopProcurementOutcomeMetricScalarFieldEnum]
+
+
+export const ClosedLoopLearningProposalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  proposalType: 'proposalType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  status: 'status',
+  priority: 'priority',
+  title: 'title',
+  rationale: 'rationale',
+  currentValue: 'currentValue',
+  proposedValue: 'proposedValue',
+  confidence: 'confidence',
+  evidenceCount: 'evidenceCount',
+  evidenceSnapshot: 'evidenceSnapshot',
+  createdBySystem: 'createdBySystem',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  decisionNote: 'decisionNote',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  supersededAt: 'supersededAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopLearningProposalScalarFieldEnum = (typeof ClosedLoopLearningProposalScalarFieldEnum)[keyof typeof ClosedLoopLearningProposalScalarFieldEnum]
+
+
+export const ClosedLoopLearningPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  proposalId: 'proposalId',
+  policyKey: 'policyKey',
+  policyType: 'policyType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  version: 'version',
+  status: 'status',
+  currentValue: 'currentValue',
+  proposedValue: 'proposedValue',
+  effectiveValue: 'effectiveValue',
+  configuration: 'configuration',
+  rationale: 'rationale',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  deactivatedByUserId: 'deactivatedByUserId',
+  deactivatedAt: 'deactivatedAt',
+  supersedesPolicyId: 'supersedesPolicyId',
+  rollbackOfPolicyId: 'rollbackOfPolicyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopLearningPolicyScalarFieldEnum = (typeof ClosedLoopLearningPolicyScalarFieldEnum)[keyof typeof ClosedLoopLearningPolicyScalarFieldEnum]
+
+
+export const ClosedLoopLearningPolicyEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  eventType: 'eventType',
+  actorUserId: 'actorUserId',
+  fromStatus: 'fromStatus',
+  toStatus: 'toStatus',
+  message: 'message',
+  snapshot: 'snapshot',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopLearningPolicyEventScalarFieldEnum = (typeof ClosedLoopLearningPolicyEventScalarFieldEnum)[keyof typeof ClosedLoopLearningPolicyEventScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  decisionType: 'decisionType',
+  scopeKey: 'scopeKey',
+  policyType: 'policyType',
+  policyKey: 'policyKey',
+  policyId: 'policyId',
+  proposalId: 'proposalId',
+  policyVersion: 'policyVersion',
+  policySource: 'policySource',
+  requestedDefault: 'requestedDefault',
+  effectiveValue: 'effectiveValue',
+  boundedValue: 'boundedValue',
+  wasClamped: 'wasClamped',
+  inputValue: 'inputValue',
+  decisionResult: 'decisionResult',
+  rationale: 'rationale',
+  evidence: 'evidence',
+  actorUserId: 'actorUserId',
+  correlationId: 'correlationId',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum = (typeof ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyAdoptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  decisionPath: 'decisionPath',
+  policyType: 'policyType',
+  scopeStrategy: 'scopeStrategy',
+  mode: 'mode',
+  defaultThreshold: 'defaultThreshold',
+  minimumValue: 'minimumValue',
+  maximumValue: 'maximumValue',
+  status: 'status',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  updatedByUserId: 'updatedByUserId',
+  lastDecisionAt: 'lastDecisionAt',
+  decisionCount: 'decisionCount',
+  shadowDifferenceCount: 'shadowDifferenceCount',
+  rationale: 'rationale',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimePolicyAdoptionScalarFieldEnum = (typeof ClosedLoopRuntimePolicyAdoptionScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyAdoptionScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  eventType: 'eventType',
+  actorUserId: 'actorUserId',
+  fromMode: 'fromMode',
+  toMode: 'toMode',
+  message: 'message',
+  snapshot: 'snapshot',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum = (typeof ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePromotionAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  decisionPath: 'decisionPath',
+  status: 'status',
+  currentMode: 'currentMode',
+  recommendedMode: 'recommendedMode',
+  readinessScore: 'readinessScore',
+  minimumDecisionCount: 'minimumDecisionCount',
+  observedDecisionCount: 'observedDecisionCount',
+  maximumDivergenceRate: 'maximumDivergenceRate',
+  observedDivergenceRate: 'observedDivergenceRate',
+  fallbackRate: 'fallbackRate',
+  clampedDecisionCount: 'clampedDecisionCount',
+  deniedDecisionCount: 'deniedDecisionCount',
+  eligible: 'eligible',
+  blockers: 'blockers',
+  evidenceSnapshot: 'evidenceSnapshot',
+  generatedAt: 'generatedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  decisionNote: 'decisionNote',
+  promotedAt: 'promotedAt',
+  rejectedAt: 'rejectedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimePromotionAssessmentScalarFieldEnum = (typeof ClosedLoopRuntimePromotionAssessmentScalarFieldEnum)[keyof typeof ClosedLoopRuntimePromotionAssessmentScalarFieldEnum]
+
+
+export const ClosedLoopRuntimeRollbackRuleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  decisionPath: 'decisionPath',
+  status: 'status',
+  maximumDivergenceRate: 'maximumDivergenceRate',
+  maximumFallbackRate: 'maximumFallbackRate',
+  maximumDeniedRate: 'maximumDeniedRate',
+  minimumDecisionCount: 'minimumDecisionCount',
+  autoRollbackEnabled: 'autoRollbackEnabled',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimeRollbackRuleScalarFieldEnum = (typeof ClosedLoopRuntimeRollbackRuleScalarFieldEnum)[keyof typeof ClosedLoopRuntimeRollbackRuleScalarFieldEnum]
+
+
+export const AiRuntimeCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationKey: 'certificationKey',
+  status: 'status',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  triggeredByUserId: 'triggeredByUserId',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  certificationScore: 'certificationScore',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiRuntimeCertificationRunScalarFieldEnum = (typeof AiRuntimeCertificationRunScalarFieldEnum)[keyof typeof AiRuntimeCertificationRunScalarFieldEnum]
+
+
+export const AiRuntimeCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  durationMs: 'durationMs',
+  createdAt: 'createdAt'
+} as const
+
+export type AiRuntimeCertificationResultScalarFieldEnum = (typeof AiRuntimeCertificationResultScalarFieldEnum)[keyof typeof AiRuntimeCertificationResultScalarFieldEnum]
+
+
+export const AiRuntimeHealthSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  healthScore: 'healthScore',
+  decisionCount: 'decisionCount',
+  activePolicyRate: 'activePolicyRate',
+  fallbackRate: 'fallbackRate',
+  deniedRate: 'deniedRate',
+  clampedRate: 'clampedRate',
+  traceIntegrityRate: 'traceIntegrityRate',
+  activePolicyCount: 'activePolicyCount',
+  advisoryPolicyCount: 'advisoryPolicyCount',
+  certificationStatus: 'certificationStatus',
+  certificationScore: 'certificationScore',
+  adoptionMode: 'adoptionMode',
+  anomalyCount: 'anomalyCount',
+  metrics: 'metrics',
+  anomalies: 'anomalies',
+  capturedAt: 'capturedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AiRuntimeHealthSnapshotScalarFieldEnum = (typeof AiRuntimeHealthSnapshotScalarFieldEnum)[keyof typeof AiRuntimeHealthSnapshotScalarFieldEnum]
+
+
+export const CrossEngineGovernanceAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  createdByUserId: 'createdByUserId',
+  procurementRunId: 'procurementRunId',
+  inventoryRunId: 'inventoryRunId',
+  capacityRunId: 'capacityRunId',
+  conflictCount: 'conflictCount',
+  criticalCount: 'criticalCount',
+  highCount: 'highCount',
+  mediumCount: 'mediumCount',
+  alignmentScore: 'alignmentScore',
+  summary: 'summary',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type CrossEngineGovernanceAssessmentScalarFieldEnum = (typeof CrossEngineGovernanceAssessmentScalarFieldEnum)[keyof typeof CrossEngineGovernanceAssessmentScalarFieldEnum]
+
+
+export const CrossEngineGovernanceConflictScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  assessmentId: 'assessmentId',
+  conflictType: 'conflictType',
+  severity: 'severity',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  status: 'status',
+  title: 'title',
+  rationale: 'rationale',
+  precedenceRule: 'precedenceRule',
+  recommendedAction: 'recommendedAction',
+  evidence: 'evidence',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  resolutionNote: 'resolutionNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CrossEngineGovernanceConflictScalarFieldEnum = (typeof CrossEngineGovernanceConflictScalarFieldEnum)[keyof typeof CrossEngineGovernanceConflictScalarFieldEnum]
+
+
+export const EnterprisePerformanceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  certificationScore: 'certificationScore',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  averageLatencyMs: 'averageLatencyMs',
+  p95LatencyMs: 'p95LatencyMs',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterprisePerformanceCertificationRunScalarFieldEnum = (typeof EnterprisePerformanceCertificationRunScalarFieldEnum)[keyof typeof EnterprisePerformanceCertificationRunScalarFieldEnum]
+
+
+export const EnterprisePerformanceCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  latencyMs: 'latencyMs',
+  thresholdMs: 'thresholdMs',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterprisePerformanceCertificationResultScalarFieldEnum = (typeof EnterprisePerformanceCertificationResultScalarFieldEnum)[keyof typeof EnterprisePerformanceCertificationResultScalarFieldEnum]
+
+
+export const SecurityGovernanceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  certificationScore: 'certificationScore',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SecurityGovernanceCertificationRunScalarFieldEnum = (typeof SecurityGovernanceCertificationRunScalarFieldEnum)[keyof typeof SecurityGovernanceCertificationRunScalarFieldEnum]
+
+
+export const SecurityGovernanceCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type SecurityGovernanceCertificationResultScalarFieldEnum = (typeof SecurityGovernanceCertificationResultScalarFieldEnum)[keyof typeof SecurityGovernanceCertificationResultScalarFieldEnum]
+
+
+export const FinalEnterpriseReleaseCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  releaseKey: 'releaseKey',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  readinessScore: 'readinessScore',
+  totalGates: 'totalGates',
+  passedGates: 'passedGates',
+  warningGates: 'warningGates',
+  failedGates: 'failedGates',
+  decision: 'decision',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FinalEnterpriseReleaseCertificationRunScalarFieldEnum = (typeof FinalEnterpriseReleaseCertificationRunScalarFieldEnum)[keyof typeof FinalEnterpriseReleaseCertificationRunScalarFieldEnum]
+
+
+export const FinalEnterpriseReleaseCertificationGateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  gateKey: 'gateKey',
+  gateLabel: 'gateLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type FinalEnterpriseReleaseCertificationGateScalarFieldEnum = (typeof FinalEnterpriseReleaseCertificationGateScalarFieldEnum)[keyof typeof FinalEnterpriseReleaseCertificationGateScalarFieldEnum]
+
+
+export const PublicSitePublicationScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  category: 'category',
+  title: 'title',
+  summary: 'summary',
+  body: 'body',
+  readTime: 'readTime',
+  status: 'status',
+  featured: 'featured',
+  publishedAt: 'publishedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSitePublicationScalarFieldEnum = (typeof PublicSitePublicationScalarFieldEnum)[keyof typeof PublicSitePublicationScalarFieldEnum]
+
+
+export const PublicSiteGuideScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  summary: 'summary',
+  resourceType: 'resourceType',
+  pageCount: 'pageCount',
+  fileUrl: 'fileUrl',
+  fileName: 'fileName',
+  status: 'status',
+  featured: 'featured',
+  publishedAt: 'publishedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSiteGuideScalarFieldEnum = (typeof PublicSiteGuideScalarFieldEnum)[keyof typeof PublicSiteGuideScalarFieldEnum]
+
+
+export const PublicSiteJobOpeningScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  department: 'department',
+  location: 'location',
+  employmentType: 'employmentType',
+  workArrangement: 'workArrangement',
+  summary: 'summary',
+  description: 'description',
+  applyUrl: 'applyUrl',
+  applyEmail: 'applyEmail',
+  status: 'status',
+  publishedAt: 'publishedAt',
+  closesAt: 'closesAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSiteJobOpeningScalarFieldEnum = (typeof PublicSiteJobOpeningScalarFieldEnum)[keyof typeof PublicSiteJobOpeningScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -32729,6 +35647,36 @@ export type GlobalOmitConfig = {
   autonomousExecutionHandoff?: Prisma.AutonomousExecutionHandoffOmit
   autonomousExecutionAdapterJob?: Prisma.AutonomousExecutionAdapterJobOmit
   autonomousExecutionAdapterDecision?: Prisma.AutonomousExecutionAdapterDecisionOmit
+  autonomousNativeWorkflowDraft?: Prisma.AutonomousNativeWorkflowDraftOmit
+  autonomousNativeWorkflowDraftDecision?: Prisma.AutonomousNativeWorkflowDraftDecisionOmit
+  autonomousProcurementOrchestrationRun?: Prisma.AutonomousProcurementOrchestrationRunOmit
+  autonomousProcurementOrchestrationEvent?: Prisma.AutonomousProcurementOrchestrationEventOmit
+  autonomousProcurementOrchestrationEscalation?: Prisma.AutonomousProcurementOrchestrationEscalationOmit
+  autonomousProcurementOrchestrationSignal?: Prisma.AutonomousProcurementOrchestrationSignalOmit
+  closedLoopProcurementOutcome?: Prisma.ClosedLoopProcurementOutcomeOmit
+  closedLoopProcurementOutcomeMetric?: Prisma.ClosedLoopProcurementOutcomeMetricOmit
+  closedLoopLearningProposal?: Prisma.ClosedLoopLearningProposalOmit
+  closedLoopLearningPolicy?: Prisma.ClosedLoopLearningPolicyOmit
+  closedLoopLearningPolicyEvent?: Prisma.ClosedLoopLearningPolicyEventOmit
+  closedLoopRuntimePolicyDecisionTrace?: Prisma.ClosedLoopRuntimePolicyDecisionTraceOmit
+  closedLoopRuntimePolicyAdoption?: Prisma.ClosedLoopRuntimePolicyAdoptionOmit
+  closedLoopRuntimePolicyAdoptionEvent?: Prisma.ClosedLoopRuntimePolicyAdoptionEventOmit
+  closedLoopRuntimePromotionAssessment?: Prisma.ClosedLoopRuntimePromotionAssessmentOmit
+  closedLoopRuntimeRollbackRule?: Prisma.ClosedLoopRuntimeRollbackRuleOmit
+  aiRuntimeCertificationRun?: Prisma.AiRuntimeCertificationRunOmit
+  aiRuntimeCertificationResult?: Prisma.AiRuntimeCertificationResultOmit
+  aiRuntimeHealthSnapshot?: Prisma.AiRuntimeHealthSnapshotOmit
+  crossEngineGovernanceAssessment?: Prisma.CrossEngineGovernanceAssessmentOmit
+  crossEngineGovernanceConflict?: Prisma.CrossEngineGovernanceConflictOmit
+  enterprisePerformanceCertificationRun?: Prisma.EnterprisePerformanceCertificationRunOmit
+  enterprisePerformanceCertificationResult?: Prisma.EnterprisePerformanceCertificationResultOmit
+  securityGovernanceCertificationRun?: Prisma.SecurityGovernanceCertificationRunOmit
+  securityGovernanceCertificationResult?: Prisma.SecurityGovernanceCertificationResultOmit
+  finalEnterpriseReleaseCertificationRun?: Prisma.FinalEnterpriseReleaseCertificationRunOmit
+  finalEnterpriseReleaseCertificationGate?: Prisma.FinalEnterpriseReleaseCertificationGateOmit
+  publicSitePublication?: Prisma.PublicSitePublicationOmit
+  publicSiteGuide?: Prisma.PublicSiteGuideOmit
+  publicSiteJobOpening?: Prisma.PublicSiteJobOpeningOmit
 }
 
 /* Types for Logging */

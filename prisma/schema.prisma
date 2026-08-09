@@ -9465,3 +9465,685 @@ model AutonomousExecutionAdapterDecision {
   @@index([tenantId, adapterJobId, createdAt], map: "AutoAdapterDecision_job_idx")
   @@index([tenantId, decision], map: "AutoAdapterDecision_type_idx")
 }
+
+model AutonomousNativeWorkflowDraft {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  adapterJobId         String
+  executionHandoffId   String
+  targetWorkflow       String
+  nativeReferenceType  String
+  nativeRoute          String
+  status               String    @default("DRAFT_MATERIALIZED")
+  draftTitle           String
+  draftPayload         Json
+  validationSnapshot   Json
+  requiresNativeReview Boolean   @default(true)
+  openedByUserId       String?
+  openedAt             DateTime?
+  nativeReferenceId    String?
+  nativeReferenceUrl   String?
+  completedByUserId    String?
+  completedAt          DateTime?
+  completionNote       String?
+  createdByUserId      String
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@unique([tenantId, adapterJobId], map: "AutoNativeDraft_adapter_key")
+  @@index([tenantId, status], map: "AutoNativeDraft_status_idx")
+  @@index([tenantId, targetWorkflow], map: "AutoNativeDraft_workflow_idx")
+}
+
+model AutonomousNativeWorkflowDraftDecision {
+  id              String   @id @default(cuid())
+  tenantId        String
+  nativeDraftId   String
+  decision        String
+  decidedByUserId String
+  reason          String?
+  evidence        Json?
+  createdAt       DateTime @default(now())
+
+  @@index([tenantId, nativeDraftId, createdAt], map: "AutoNativeDecision_draft_idx")
+  @@index([tenantId, decision], map: "AutoNativeDecision_type_idx")
+}
+
+model AutonomousProcurementOrchestrationRun {
+  id                  String    @id @default(cuid())
+  tenantId            String
+  executionHandoffId  String
+  executionEnvelopeId String
+  targetWorkflow      String
+  status              String    @default("DISCOVERED")
+  stage               String    @default("RELEASED_HANDOFF")
+  pauseReason         String?
+  adapterJobId        String?
+  nativeDraftId       String?
+  nativeReferenceType String?
+  nativeReferenceId   String?
+  nativeReferenceUrl  String?
+  attemptCount        Int       @default(0)
+  lastAttemptAt       DateTime?
+  nextAttemptAt       DateTime?
+  lastError           String?
+  startedAt           DateTime  @default(now())
+  completedAt         DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@unique([tenantId, executionHandoffId], map: "AutoOrch_handoff_key")
+  @@index([tenantId, status, nextAttemptAt], map: "AutoOrch_status_retry_idx")
+  @@index([tenantId, stage], map: "AutoOrch_stage_idx")
+}
+
+model AutonomousProcurementOrchestrationEvent {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  orchestrationRunId String
+  eventType          String
+  fromStage          String?
+  toStage            String?
+  actorUserId        String?
+  message            String?
+  evidence           Json?
+  createdAt          DateTime @default(now())
+
+  @@index([tenantId, orchestrationRunId, createdAt], map: "AutoOrchEvent_run_idx")
+  @@index([tenantId, eventType], map: "AutoOrchEvent_type_idx")
+}
+
+model AutonomousProcurementOrchestrationEscalation {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  orchestrationRunId   String
+  escalationType       String
+  severity             String
+  status               String    @default("OPEN")
+  stage                String
+  runStatus            String
+  ageMinutes           Int
+  thresholdMinutes     Int
+  summary              String
+  details              Json
+  firstDetectedAt      DateTime  @default(now())
+  lastDetectedAt       DateTime  @default(now())
+  occurrenceCount      Int       @default(1)
+  acknowledgedByUserId String?
+  acknowledgedAt       DateTime?
+  resolvedByUserId     String?
+  resolvedAt           DateTime?
+  resolutionNote       String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@unique([tenantId, orchestrationRunId, escalationType], map: "AutoOrchEsc_run_type_key")
+  @@index([tenantId, status, severity], map: "AutoOrchEsc_status_sev_idx")
+  @@index([tenantId, orchestrationRunId], map: "AutoOrchEsc_run_idx")
+}
+
+model AutonomousProcurementOrchestrationSignal {
+  id                 String    @id @default(cuid())
+  tenantId           String
+  orchestrationRunId String
+  signalType         String
+  idempotencyKey     String
+  status             String    @default("RECEIVED")
+  actorUserId        String?
+  source             String    @default("INTERNAL")
+  payload            Json?
+  receivedAt         DateTime  @default(now())
+  processedAt        DateTime?
+  processingResult   String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@unique([tenantId, idempotencyKey], map: "AutoOrchSignal_idem_key")
+  @@index([tenantId, orchestrationRunId, receivedAt], map: "AutoOrchSignal_run_idx")
+  @@index([tenantId, status, receivedAt], map: "AutoOrchSignal_status_idx")
+}
+
+model ClosedLoopProcurementOutcome {
+  id                  String    @id @default(cuid())
+  tenantId            String
+  orchestrationRunId  String
+  executionHandoffId  String
+  targetWorkflow      String
+  nativeReferenceType String?
+  nativeReferenceId   String?
+  nativeReferenceUrl  String?
+  status              String    @default("OPEN")
+  sourceConfidence    Float?
+  outcomeQuality      String    @default("UNVERIFIED")
+  openedAt            DateTime  @default(now())
+  observedAt          DateTime?
+  validatedAt         DateTime?
+  validatedByUserId   String?
+  validationNote      String?
+  sourceSnapshot      Json
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@unique([tenantId, orchestrationRunId], map: "ClosedOutcome_run_key")
+  @@index([tenantId, status], map: "ClosedOutcome_status_idx")
+  @@index([tenantId, targetWorkflow], map: "ClosedOutcome_workflow_idx")
+}
+
+model ClosedLoopProcurementOutcomeMetric {
+  id               String    @id @default(cuid())
+  tenantId         String
+  outcomeId        String
+  metricKey        String
+  metricLabel      String
+  unit             String?
+  predictedValue   Float?
+  actualValue      Float?
+  varianceValue    Float?
+  variancePercent  Float?
+  confidence       Float?
+  status           String    @default("PREDICTED")
+  evidence         Json?
+  observedByUserId String?
+  observedAt       DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@unique([tenantId, outcomeId, metricKey], map: "ClosedMetric_outcome_key")
+  @@index([tenantId, metricKey, status], map: "ClosedMetric_metric_idx")
+  @@index([tenantId, outcomeId], map: "ClosedMetric_outcome_idx")
+}
+
+model ClosedLoopLearningProposal {
+  id               String    @id @default(cuid())
+  tenantId         String
+  proposalType     String
+  scopeKey         String
+  scopeLabel       String
+  status           String    @default("DRAFT")
+  priority         String    @default("MEDIUM")
+  title            String
+  rationale        String
+  currentValue     Float?
+  proposedValue    Float?
+  confidence       Float?
+  evidenceCount    Int       @default(0)
+  evidenceSnapshot Json
+  createdBySystem  Boolean   @default(true)
+  reviewedByUserId String?
+  reviewedAt       DateTime?
+  decisionNote     String?
+  approvedAt       DateTime?
+  rejectedAt       DateTime?
+  supersededAt     DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@unique([tenantId, proposalType, scopeKey, status], map: "LearnProposal_scope_status_key")
+  @@index([tenantId, status, priority], map: "LearnProposal_status_idx")
+  @@index([tenantId, proposalType], map: "LearnProposal_type_idx")
+}
+
+model ClosedLoopLearningPolicy {
+  id                  String    @id @default(cuid())
+  tenantId            String
+  proposalId          String
+  policyKey           String
+  policyType          String
+  scopeKey            String
+  scopeLabel          String
+  version             Int
+  status              String    @default("CANDIDATE")
+  currentValue        Float?
+  proposedValue       Float?
+  effectiveValue      Float?
+  configuration       Json
+  rationale           String
+  activatedByUserId   String?
+  activatedAt         DateTime?
+  deactivatedByUserId String?
+  deactivatedAt       DateTime?
+  supersedesPolicyId  String?
+  rollbackOfPolicyId  String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@unique([tenantId, policyKey, version], map: "LearnPolicy_key_ver_key")
+  @@index([tenantId, policyKey, status], map: "LearnPolicy_key_status_idx")
+  @@index([tenantId, proposalId], map: "LearnPolicy_proposal_idx")
+}
+
+model ClosedLoopLearningPolicyEvent {
+  id          String   @id @default(cuid())
+  tenantId    String
+  policyId    String
+  eventType   String
+  actorUserId String?
+  fromStatus  String?
+  toStatus    String?
+  message     String?
+  snapshot    Json
+  createdAt   DateTime @default(now())
+
+  @@index([tenantId, policyId, createdAt], map: "LearnPolicyEvent_policy_idx")
+  @@index([tenantId, eventType], map: "LearnPolicyEvent_type_idx")
+}
+
+model ClosedLoopRuntimePolicyDecisionTrace {
+  id               String   @id @default(cuid())
+  tenantId         String
+  decisionType     String
+  scopeKey         String
+  policyType       String
+  policyKey        String
+  policyId         String?
+  proposalId       String?
+  policyVersion    Int?
+  policySource     String
+  requestedDefault Float
+  effectiveValue   Float
+  boundedValue     Float
+  wasClamped       Boolean  @default(false)
+  inputValue       Float?
+  decisionResult   Boolean?
+  rationale        String?
+  evidence         Json
+  actorUserId      String?
+  correlationId    String?
+  createdAt        DateTime @default(now())
+
+  @@index([tenantId, createdAt], map: "RuntimeTrace_created_idx")
+  @@index([tenantId, decisionType, createdAt], map: "RuntimeTrace_type_idx")
+  @@index([tenantId, policyKey, createdAt], map: "RuntimeTrace_policy_idx")
+  @@index([tenantId, policySource], map: "RuntimeTrace_source_idx")
+}
+
+model ClosedLoopRuntimePolicyAdoption {
+  id                    String    @id @default(cuid())
+  tenantId              String
+  decisionPath          String
+  policyType            String
+  scopeStrategy         String
+  mode                  String    @default("OFF")
+  defaultThreshold      Float
+  minimumValue          Float     @default(0)
+  maximumValue          Float     @default(100)
+  status                String    @default("ACTIVE")
+  activatedByUserId     String?
+  activatedAt           DateTime?
+  updatedByUserId       String?
+  lastDecisionAt        DateTime?
+  decisionCount         Int       @default(0)
+  shadowDifferenceCount Int       @default(0)
+  rationale             String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@unique([tenantId, decisionPath], map: "RuntimeAdopt_path_key")
+  @@index([tenantId, mode, status], map: "RuntimeAdopt_mode_idx")
+}
+
+model ClosedLoopRuntimePolicyAdoptionEvent {
+  id          String   @id @default(cuid())
+  tenantId    String
+  adoptionId  String
+  eventType   String
+  actorUserId String?
+  fromMode    String?
+  toMode      String?
+  message     String?
+  snapshot    Json
+  createdAt   DateTime @default(now())
+
+  @@index([tenantId, adoptionId, createdAt], map: "RuntimeAdoptEvent_idx")
+}
+
+model ClosedLoopRuntimePromotionAssessment {
+  id                     String    @id @default(cuid())
+  tenantId               String
+  adoptionId             String
+  decisionPath           String
+  status                 String    @default("DRAFT")
+  currentMode            String
+  recommendedMode        String
+  readinessScore         Float
+  minimumDecisionCount   Int
+  observedDecisionCount  Int
+  maximumDivergenceRate  Float
+  observedDivergenceRate Float
+  fallbackRate           Float
+  clampedDecisionCount   Int
+  deniedDecisionCount    Int
+  eligible               Boolean   @default(false)
+  blockers               Json
+  evidenceSnapshot       Json
+  generatedAt            DateTime  @default(now())
+  reviewedByUserId       String?
+  reviewedAt             DateTime?
+  decisionNote           String?
+  promotedAt             DateTime?
+  rejectedAt             DateTime?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+
+  @@index([tenantId, adoptionId, createdAt], map: "RuntimePromote_adopt_idx")
+  @@index([tenantId, status, eligible], map: "RuntimePromote_status_idx")
+}
+
+model ClosedLoopRuntimeRollbackRule {
+  id                    String   @id @default(cuid())
+  tenantId              String
+  adoptionId            String
+  decisionPath          String
+  status                String   @default("ACTIVE")
+  maximumDivergenceRate Float    @default(20)
+  maximumFallbackRate   Float    @default(25)
+  maximumDeniedRate     Float    @default(50)
+  minimumDecisionCount  Int      @default(20)
+  autoRollbackEnabled   Boolean  @default(false)
+  createdByUserId       String?
+  updatedByUserId       String?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@unique([tenantId, adoptionId], map: "RuntimeRollback_adopt_key")
+  @@index([tenantId, status], map: "RuntimeRollback_status_idx")
+}
+
+model AiRuntimeCertificationRun {
+  id                 String    @id @default(cuid())
+  tenantId           String
+  certificationKey   String
+  status             String    @default("RUNNING")
+  startedAt          DateTime  @default(now())
+  completedAt        DateTime?
+  triggeredByUserId  String?
+  totalScenarios     Int       @default(0)
+  passedScenarios    Int       @default(0)
+  warningScenarios   Int       @default(0)
+  failedScenarios    Int       @default(0)
+  certificationScore Float     @default(0)
+  summary            Json?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "AiCertRun_created_idx")
+  @@index([tenantId, status], map: "AiCertRun_status_idx")
+}
+
+model AiRuntimeCertificationResult {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  certificationRunId String
+  scenarioKey        String
+  scenarioLabel      String
+  category           String
+  status             String
+  severity           String   @default("MEDIUM")
+  message            String
+  evidence           Json
+  durationMs         Int      @default(0)
+  createdAt          DateTime @default(now())
+
+  @@unique([certificationRunId, scenarioKey], map: "AiCertResult_run_scenario_key")
+  @@index([tenantId, certificationRunId], map: "AiCertResult_run_idx")
+  @@index([tenantId, status, category], map: "AiCertResult_status_idx")
+}
+
+model AiRuntimeHealthSnapshot {
+  id                  String   @id @default(cuid())
+  tenantId            String
+  status              String
+  healthScore         Float
+  decisionCount       Int      @default(0)
+  activePolicyRate    Float    @default(0)
+  fallbackRate        Float    @default(0)
+  deniedRate          Float    @default(0)
+  clampedRate         Float    @default(0)
+  traceIntegrityRate  Float    @default(100)
+  activePolicyCount   Int      @default(0)
+  advisoryPolicyCount Int      @default(0)
+  certificationStatus String?
+  certificationScore  Float?
+  adoptionMode        String?
+  anomalyCount        Int      @default(0)
+  metrics             Json
+  anomalies           Json
+  capturedAt          DateTime @default(now())
+  createdAt           DateTime @default(now())
+
+  @@index([tenantId, capturedAt], map: "AiHealth_captured_idx")
+  @@index([tenantId, status], map: "AiHealth_status_idx")
+}
+
+model CrossEngineGovernanceAssessment {
+  id               String   @id @default(cuid())
+  tenantId         String
+  status           String   @default("COMPLETED")
+  createdByUserId  String?
+  procurementRunId String?
+  inventoryRunId   String?
+  capacityRunId    String?
+  conflictCount    Int      @default(0)
+  criticalCount    Int      @default(0)
+  highCount        Int      @default(0)
+  mediumCount      Int      @default(0)
+  alignmentScore   Float    @default(100)
+  summary          Json
+  generatedAt      DateTime @default(now())
+  createdAt        DateTime @default(now())
+
+  @@index([tenantId, generatedAt], map: "CrossGovAssess_generated_idx")
+  @@index([tenantId, status], map: "CrossGovAssess_status_idx")
+}
+
+model CrossEngineGovernanceConflict {
+  id                   String    @id @default(cuid())
+  tenantId             String
+  assessmentId         String
+  conflictType         String
+  severity             String
+  scopeKey             String
+  scopeLabel           String
+  status               String    @default("OPEN")
+  title                String
+  rationale            String
+  precedenceRule       String
+  recommendedAction    String
+  evidence             Json
+  acknowledgedByUserId String?
+  acknowledgedAt       DateTime?
+  resolvedByUserId     String?
+  resolvedAt           DateTime?
+  resolutionNote       String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([tenantId, assessmentId], map: "CrossGovConflict_assess_idx")
+  @@index([tenantId, status, severity], map: "CrossGovConflict_status_idx")
+  @@index([tenantId, conflictType], map: "CrossGovConflict_type_idx")
+}
+
+model EnterprisePerformanceCertificationRun {
+  id                 String    @id @default(cuid())
+  tenantId           String
+  status             String    @default("RUNNING")
+  triggeredByUserId  String?
+  certificationScore Float     @default(0)
+  totalScenarios     Int       @default(0)
+  passedScenarios    Int       @default(0)
+  warningScenarios   Int       @default(0)
+  failedScenarios    Int       @default(0)
+  averageLatencyMs   Float     @default(0)
+  p95LatencyMs       Float     @default(0)
+  summary            Json?
+  startedAt          DateTime  @default(now())
+  completedAt        DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "PerfCertRun_created_idx")
+  @@index([tenantId, status], map: "PerfCertRun_status_idx")
+}
+
+model EnterprisePerformanceCertificationResult {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  certificationRunId String
+  scenarioKey        String
+  scenarioLabel      String
+  category           String
+  status             String
+  severity           String   @default("MEDIUM")
+  latencyMs          Float
+  thresholdMs        Float
+  message            String
+  evidence           Json
+  createdAt          DateTime @default(now())
+
+  @@unique([certificationRunId, scenarioKey], map: "PerfCertResult_run_key")
+  @@index([tenantId, certificationRunId], map: "PerfCertResult_run_idx")
+  @@index([tenantId, status, category], map: "PerfCertResult_status_idx")
+}
+
+model SecurityGovernanceCertificationRun {
+  id                 String    @id @default(cuid())
+  tenantId           String
+  status             String    @default("RUNNING")
+  triggeredByUserId  String?
+  totalScenarios     Int       @default(0)
+  passedScenarios    Int       @default(0)
+  warningScenarios   Int       @default(0)
+  failedScenarios    Int       @default(0)
+  certificationScore Float     @default(0)
+  summary            Json?
+  startedAt          DateTime  @default(now())
+  completedAt        DateTime?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "SecGovCertRun_created_idx")
+  @@index([tenantId, status], map: "SecGovCertRun_status_idx")
+}
+
+model SecurityGovernanceCertificationResult {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  certificationRunId String
+  scenarioKey        String
+  scenarioLabel      String
+  category           String
+  status             String
+  severity           String   @default("MEDIUM")
+  message            String
+  evidence           Json
+  createdAt          DateTime @default(now())
+
+  @@unique([certificationRunId, scenarioKey], map: "SecGovCertResult_run_key")
+  @@index([tenantId, certificationRunId], map: "SecGovCertResult_run_idx")
+  @@index([tenantId, status, category], map: "SecGovCertResult_status_idx")
+}
+
+model FinalEnterpriseReleaseCertificationRun {
+  id                String    @id @default(cuid())
+  tenantId          String
+  releaseKey        String
+  status            String    @default("RUNNING")
+  triggeredByUserId String?
+  readinessScore    Float     @default(0)
+  totalGates        Int       @default(0)
+  passedGates       Int       @default(0)
+  warningGates      Int       @default(0)
+  failedGates       Int       @default(0)
+  decision          String    @default("HOLD")
+  summary           Json?
+  startedAt         DateTime  @default(now())
+  completedAt       DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([tenantId, createdAt], map: "FinalReleaseCert_created_idx")
+  @@index([tenantId, status], map: "FinalReleaseCert_status_idx")
+}
+
+model FinalEnterpriseReleaseCertificationGate {
+  id                 String   @id @default(cuid())
+  tenantId           String
+  certificationRunId String
+  gateKey            String
+  gateLabel          String
+  category           String
+  status             String
+  severity           String   @default("HIGH")
+  message            String
+  evidence           Json
+  createdAt          DateTime @default(now())
+
+  @@unique([certificationRunId, gateKey], map: "FinalReleaseGate_run_key")
+  @@index([tenantId, certificationRunId], map: "FinalReleaseGate_run_idx")
+  @@index([tenantId, status, category], map: "FinalReleaseGate_status_idx")
+}
+
+model PublicSitePublication {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  category        String
+  title           String
+  summary         String
+  body            String
+  readTime        String?
+  status          String    @default("DRAFT")
+  featured        Boolean   @default(false)
+  publishedAt     DateTime?
+  createdByUserId String
+  updatedByUserId String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([status, publishedAt], map: "PublicPublication_status_idx")
+  @@index([featured, status], map: "PublicPublication_featured_idx")
+}
+
+model PublicSiteGuide {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  summary         String
+  resourceType    String
+  pageCount       Int?
+  fileUrl         String
+  fileName        String
+  status          String    @default("DRAFT")
+  featured        Boolean   @default(false)
+  publishedAt     DateTime?
+  createdByUserId String
+  updatedByUserId String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([status, publishedAt], map: "PublicGuide_status_idx")
+  @@index([featured, status], map: "PublicGuide_featured_idx")
+}
+
+model PublicSiteJobOpening {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  department      String
+  location        String
+  employmentType  String
+  workArrangement String?
+  summary         String
+  description     String
+  applyUrl        String?
+  applyEmail      String?
+  status          String    @default("DRAFT")
+  publishedAt     DateTime?
+  closesAt        DateTime?
+  createdByUserId String
+  updatedByUserId String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([status, publishedAt], map: "PublicJob_status_idx")
+  @@index([department, status], map: "PublicJob_department_idx")
+}

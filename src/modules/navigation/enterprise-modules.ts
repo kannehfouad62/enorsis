@@ -1,8 +1,11 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Activity,
+  BrainCircuit,
+  DatabaseZap,
   Bot,
   BadgeDollarSign,
+  ArrowLeftRight,
   BookOpenCheck,
   Boxes,
   BriefcaseBusiness,
@@ -18,6 +21,7 @@ import {
   FileScan,
   FileText,
   GitBranch,
+  GitMerge,
   Handshake,
   KeyRound,
   Landmark,
@@ -34,7 +38,12 @@ import {
   Settings2,
   ShieldCheck,
   Cable,
+  FileInput,
+  FilePlus2,
+  FileSearch2,
+  ShieldPlus,
   ShieldAlert,
+  BellRing,
   ShoppingCart,
   Store,
   Truck,
@@ -61,12 +70,12 @@ export interface EnterpriseModuleLink {
   description: string;
   href: string;
   icon: LucideIcon;
-  group:
-    | "Procurement"
+  group: | "Procurement"
     | "Suppliers"
     | "Governance"
     | "Intelligence"
-    | "Platform";
+    | "Platform"
+    | "Automation";
 }
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
@@ -348,6 +357,87 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
 
   {
+    title: "Governed Runtime Promotion & Rollback",
+    description:
+      "Assess SHADOW evidence, require human approval for ENFORCED promotion, and monitor divergence, fallback and denial rollback triggers.",
+    href: "/app/analytics/outcome-learning/runtime-promotion",
+    icon: ShieldCheck,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Predictive Procurement Policy Adoption",
+    description:
+      "Control live learning-policy adoption for predictive procurement through OFF, SHADOW and ENFORCED runtime modes.",
+    href: "/app/analytics/outcome-learning/runtime-adoption",
+    icon: Activity,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Runtime Policy Decision Traceability",
+    description:
+      "Audit runtime learning-policy decisions with policy version, fallback source, resolved threshold, input value and decision result.",
+    href: "/app/analytics/outcome-learning/runtime-traces",
+    icon: Activity,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Runtime Policy Consumption & Guardrails",
+    description:
+      "Resolve selected ACTIVE learning policies through bounded defaults, allowlists and audit-aware runtime guardrails.",
+    href: "/app/analytics/outcome-learning/runtime-policy",
+    icon: SlidersHorizontal,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Learning Policy Activation & Versioning",
+    description:
+      "Materialize approved learning proposals into versioned policy candidates with explicit activation, supersession and rollback controls.",
+    href: "/app/analytics/outcome-learning/policies",
+    icon: GitBranch,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Learning Recommendations & Calibration Proposals",
+    description:
+      "Generate evidence-backed AI calibration and recommendation-rule proposals for explicit human governance review.",
+    href: "/app/analytics/outcome-learning/proposals",
+    icon: Lightbulb,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Prediction Accuracy & Calibration",
+    description:
+      "Measure validated prediction error, recommendation effectiveness, workflow performance and confidence calibration from closed-loop procurement outcomes.",
+    href: "/app/analytics/outcome-learning/calibration",
+    icon: Gauge,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Native Outcome Reconciliation",
+    description:
+      "Automatically reconcile observable native procurement facts into closed-loop outcome metrics without inferring unsupported business results.",
+    href: "/app/analytics/outcome-learning/reconciliation",
+    icon: DatabaseZap,
+    group: "Intelligence",
+  },
+
+  {
+    title: "Closed-Loop Outcome Learning",
+    description:
+      "Compare autonomous procurement predictions with observed outcomes, calculate variance, preserve evidence and validate learning-quality results.",
+    href: "/app/analytics/outcome-learning",
+    icon: BrainCircuit,
+    group: "Intelligence",
+  },
+
+  {
     title: "Predictive Procurement Forecasting",
     description:
       "Forecast spend direction, demand shifts and supplier risk using explainable procurement evidence.",
@@ -411,6 +501,60 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Intelligence",
   },
   {
+    title: "Native Inventory Rebalancing Adapter",
+    description:
+      "Convert approved autonomous inventory recommendations into real Enorsis TRANSFER movements in DRAFT status without changing stock until native posting.",
+    href: "/app/governance/autonomous-execution/native-drafts/inventory",
+    icon: ArrowLeftRight,
+    group: "Governance",
+  },
+
+  {
+    title: "Native Value Realization Adapter",
+    description:
+      "Convert approved autonomous savings opportunities into real Enorsis Procurement Value Initiatives in QUALIFYING status while preserving finance validation.",
+    href: "/app/governance/autonomous-execution/native-drafts/value-realization",
+    icon: BadgeDollarSign,
+    group: "Governance",
+  },
+
+  {
+    title: "Native Risk & Resilience Adapter",
+    description:
+      "Convert approved autonomous risk-mitigation recommendations into real Enorsis Resilience Plans in DRAFT status while preserving native activation controls.",
+    href: "/app/governance/autonomous-execution/native-drafts/resilience",
+    icon: ShieldPlus,
+    group: "Governance",
+  },
+
+  {
+    title: "Native Strategic Sourcing Adapter",
+    description:
+      "Convert approved autonomous sourcing recommendations into real Enorsis RFP events in DRAFT status while preserving native sourcing governance.",
+    href: "/app/governance/autonomous-execution/native-drafts/sourcing",
+    icon: FileSearch2,
+    group: "Governance",
+  },
+
+  {
+    title: "Native Purchase Request Adapter",
+    description:
+      "Convert approved autonomous procurement handoffs into real Enorsis Purchase Requests in DRAFT status while preserving native approvals.",
+    href: "/app/governance/autonomous-execution/native-drafts/purchase-requests",
+    icon: FilePlus2,
+    group: "Governance",
+  },
+
+  {
+    title: "Governed Native Workflow Drafts",
+    description:
+      "Materialize activated autonomous transaction adapters into governed native draft objects and bind them to confirmed Enorsis workflow records.",
+    href: "/app/governance/autonomous-execution/native-drafts",
+    icon: FileInput,
+    group: "Governance",
+  },
+
+  {
     title: "Controlled Transaction Adapters",
     description:
       "Prepare idempotent operator-controlled handoffs from released autonomous execution envelopes into native Enorsis workflows.",
@@ -435,6 +579,42 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     href: "/app/automation/autonomous-recommendations",
     icon: Lightbulb,
     group: "Intelligence",
+  },
+
+  {
+    title: "Orchestration Observability",
+    description:
+      "Monitor autonomous procurement run traces, cycle time, completion rates, human-gate aging, escalations and event-driven resume performance.",
+    href: "/app/automation/orchestrator/observability",
+    icon: Activity,
+    group: "Automation",
+  },
+
+  {
+    title: "Orchestration Resume Signals",
+    description:
+      "Receive idempotent internal lifecycle signals and resume autonomous procurement only after persisted governance conditions are independently verified.",
+    href: "/app/automation/orchestrator/signals",
+    icon: BellRing,
+    group: "Automation",
+  },
+
+  {
+    title: "Orchestration SLA, Escalation & Recovery",
+    description:
+      "Detect aging autonomous-procurement runs, manage escalations, and recover failed orchestration without bypassing human governance gates.",
+    href: "/app/automation/orchestrator/escalations",
+    icon: ShieldAlert,
+    group: "Automation",
+  },
+
+  {
+    title: "Autonomous Procurement Orchestrator",
+    description:
+      "Coordinate human-released autonomous procurement decisions through controlled adapters and governed native draft execution with pause/resume controls.",
+    href: "/app/automation/orchestrator",
+    icon: Workflow,
+    group: "Automation",
   },
 
   {
@@ -597,6 +777,78 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     href: "/app/settings/policies",
     icon: SlidersHorizontal,
     group: "Platform",
+  },
+
+  {
+    title: "Final Enterprise Release Certification",
+    description:
+      "Aggregate AI runtime, performance, security, runtime-health and cross-engine governance evidence into a final enterprise release decision.",
+    href: "/app/settings/platform-readiness/final-release-certification",
+    icon: ShieldCheck,
+    group: "Governance",
+  },
+
+  {
+    title: "Security & Governance Certification",
+    description:
+      "Certify tenant isolation, human governance, runtime transition boundaries, audit provenance, secret handling and autonomous-execution controls.",
+    href: "/app/settings/platform-readiness/security-certification",
+    icon: ShieldCheck,
+    group: "Governance",
+  },
+
+  {
+    title: "Enterprise Scale & Performance Certification",
+    description:
+      "Certify critical database, governance, observability and AI aggregation paths with bounded read-only latency and concurrency probes.",
+    href: "/app/settings/platform-readiness/performance-certification",
+    icon: Activity,
+    group: "Governance",
+  },
+
+  {
+    title: "Enterprise AI Control Center",
+    description:
+      "Centralize AI provider readiness, certification, runtime health, engine adoption, policies, traces, promotion state and cross-engine governance.",
+    href: "/app/settings/platform-readiness/ai-control-center",
+    icon: Activity,
+    group: "Governance",
+  },
+
+  {
+    title: "Cross-Engine Intelligence Governance",
+    description:
+      "Detect and govern conflicts across predictive procurement, inventory and capacity intelligence using explicit precedence and human resolution.",
+    href: "/app/settings/platform-readiness/cross-engine-governance",
+    icon: GitMerge,
+    group: "Governance",
+  },
+
+  {
+    title: "Governed Intelligence Engine Adoption",
+    description:
+      "Control OFF, SHADOW and ENFORCED runtime-policy adoption independently across predictive procurement, inventory and capacity intelligence.",
+    href: "/app/settings/platform-readiness/ai-engine-adoption",
+    icon: Activity,
+    group: "Governance",
+  },
+
+  {
+    title: "AI Runtime Health & Production Monitoring",
+    description:
+      "Monitor governed AI runtime health, policy usage, fallback, denials, clamping, trace integrity, certification state and adoption mode.",
+    href: "/app/settings/platform-readiness/ai-runtime-health",
+    icon: Activity,
+    group: "Governance",
+  },
+
+  {
+    title: "Governed AI Runtime Certification",
+    description:
+      "Run formal non-destructive certification across AI runtime policies, fallbacks, traces, SHADOW behavior, promotion guardrails and human governance.",
+    href: "/app/settings/platform-readiness/ai-runtime-certification",
+    icon: ShieldCheck,
+    group: "Governance",
   },
 
   {

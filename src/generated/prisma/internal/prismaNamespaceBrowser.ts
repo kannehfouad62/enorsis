@@ -337,7 +337,37 @@ export const ModelName = {
   AutonomousExecutionDecision: 'AutonomousExecutionDecision',
   AutonomousExecutionHandoff: 'AutonomousExecutionHandoff',
   AutonomousExecutionAdapterJob: 'AutonomousExecutionAdapterJob',
-  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision'
+  AutonomousExecutionAdapterDecision: 'AutonomousExecutionAdapterDecision',
+  AutonomousNativeWorkflowDraft: 'AutonomousNativeWorkflowDraft',
+  AutonomousNativeWorkflowDraftDecision: 'AutonomousNativeWorkflowDraftDecision',
+  AutonomousProcurementOrchestrationRun: 'AutonomousProcurementOrchestrationRun',
+  AutonomousProcurementOrchestrationEvent: 'AutonomousProcurementOrchestrationEvent',
+  AutonomousProcurementOrchestrationEscalation: 'AutonomousProcurementOrchestrationEscalation',
+  AutonomousProcurementOrchestrationSignal: 'AutonomousProcurementOrchestrationSignal',
+  ClosedLoopProcurementOutcome: 'ClosedLoopProcurementOutcome',
+  ClosedLoopProcurementOutcomeMetric: 'ClosedLoopProcurementOutcomeMetric',
+  ClosedLoopLearningProposal: 'ClosedLoopLearningProposal',
+  ClosedLoopLearningPolicy: 'ClosedLoopLearningPolicy',
+  ClosedLoopLearningPolicyEvent: 'ClosedLoopLearningPolicyEvent',
+  ClosedLoopRuntimePolicyDecisionTrace: 'ClosedLoopRuntimePolicyDecisionTrace',
+  ClosedLoopRuntimePolicyAdoption: 'ClosedLoopRuntimePolicyAdoption',
+  ClosedLoopRuntimePolicyAdoptionEvent: 'ClosedLoopRuntimePolicyAdoptionEvent',
+  ClosedLoopRuntimePromotionAssessment: 'ClosedLoopRuntimePromotionAssessment',
+  ClosedLoopRuntimeRollbackRule: 'ClosedLoopRuntimeRollbackRule',
+  AiRuntimeCertificationRun: 'AiRuntimeCertificationRun',
+  AiRuntimeCertificationResult: 'AiRuntimeCertificationResult',
+  AiRuntimeHealthSnapshot: 'AiRuntimeHealthSnapshot',
+  CrossEngineGovernanceAssessment: 'CrossEngineGovernanceAssessment',
+  CrossEngineGovernanceConflict: 'CrossEngineGovernanceConflict',
+  EnterprisePerformanceCertificationRun: 'EnterprisePerformanceCertificationRun',
+  EnterprisePerformanceCertificationResult: 'EnterprisePerformanceCertificationResult',
+  SecurityGovernanceCertificationRun: 'SecurityGovernanceCertificationRun',
+  SecurityGovernanceCertificationResult: 'SecurityGovernanceCertificationResult',
+  FinalEnterpriseReleaseCertificationRun: 'FinalEnterpriseReleaseCertificationRun',
+  FinalEnterpriseReleaseCertificationGate: 'FinalEnterpriseReleaseCertificationGate',
+  PublicSitePublication: 'PublicSitePublication',
+  PublicSiteGuide: 'PublicSiteGuide',
+  PublicSiteJobOpening: 'PublicSiteJobOpening'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -6545,6 +6575,674 @@ export const AutonomousExecutionAdapterDecisionScalarFieldEnum = {
 } as const
 
 export type AutonomousExecutionAdapterDecisionScalarFieldEnum = (typeof AutonomousExecutionAdapterDecisionScalarFieldEnum)[keyof typeof AutonomousExecutionAdapterDecisionScalarFieldEnum]
+
+
+export const AutonomousNativeWorkflowDraftScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adapterJobId: 'adapterJobId',
+  executionHandoffId: 'executionHandoffId',
+  targetWorkflow: 'targetWorkflow',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeRoute: 'nativeRoute',
+  status: 'status',
+  draftTitle: 'draftTitle',
+  draftPayload: 'draftPayload',
+  validationSnapshot: 'validationSnapshot',
+  requiresNativeReview: 'requiresNativeReview',
+  openedByUserId: 'openedByUserId',
+  openedAt: 'openedAt',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  completedByUserId: 'completedByUserId',
+  completedAt: 'completedAt',
+  completionNote: 'completionNote',
+  createdByUserId: 'createdByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousNativeWorkflowDraftScalarFieldEnum = (typeof AutonomousNativeWorkflowDraftScalarFieldEnum)[keyof typeof AutonomousNativeWorkflowDraftScalarFieldEnum]
+
+
+export const AutonomousNativeWorkflowDraftDecisionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  nativeDraftId: 'nativeDraftId',
+  decision: 'decision',
+  decidedByUserId: 'decidedByUserId',
+  reason: 'reason',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousNativeWorkflowDraftDecisionScalarFieldEnum = (typeof AutonomousNativeWorkflowDraftDecisionScalarFieldEnum)[keyof typeof AutonomousNativeWorkflowDraftDecisionScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  executionHandoffId: 'executionHandoffId',
+  executionEnvelopeId: 'executionEnvelopeId',
+  targetWorkflow: 'targetWorkflow',
+  status: 'status',
+  stage: 'stage',
+  pauseReason: 'pauseReason',
+  adapterJobId: 'adapterJobId',
+  nativeDraftId: 'nativeDraftId',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  attemptCount: 'attemptCount',
+  lastAttemptAt: 'lastAttemptAt',
+  nextAttemptAt: 'nextAttemptAt',
+  lastError: 'lastError',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationRunScalarFieldEnum = (typeof AutonomousProcurementOrchestrationRunScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationRunScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  eventType: 'eventType',
+  fromStage: 'fromStage',
+  toStage: 'toStage',
+  actorUserId: 'actorUserId',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type AutonomousProcurementOrchestrationEventScalarFieldEnum = (typeof AutonomousProcurementOrchestrationEventScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationEventScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationEscalationScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  escalationType: 'escalationType',
+  severity: 'severity',
+  status: 'status',
+  stage: 'stage',
+  runStatus: 'runStatus',
+  ageMinutes: 'ageMinutes',
+  thresholdMinutes: 'thresholdMinutes',
+  summary: 'summary',
+  details: 'details',
+  firstDetectedAt: 'firstDetectedAt',
+  lastDetectedAt: 'lastDetectedAt',
+  occurrenceCount: 'occurrenceCount',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  resolutionNote: 'resolutionNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationEscalationScalarFieldEnum = (typeof AutonomousProcurementOrchestrationEscalationScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationEscalationScalarFieldEnum]
+
+
+export const AutonomousProcurementOrchestrationSignalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  signalType: 'signalType',
+  idempotencyKey: 'idempotencyKey',
+  status: 'status',
+  actorUserId: 'actorUserId',
+  source: 'source',
+  payload: 'payload',
+  receivedAt: 'receivedAt',
+  processedAt: 'processedAt',
+  processingResult: 'processingResult',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AutonomousProcurementOrchestrationSignalScalarFieldEnum = (typeof AutonomousProcurementOrchestrationSignalScalarFieldEnum)[keyof typeof AutonomousProcurementOrchestrationSignalScalarFieldEnum]
+
+
+export const ClosedLoopProcurementOutcomeScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  orchestrationRunId: 'orchestrationRunId',
+  executionHandoffId: 'executionHandoffId',
+  targetWorkflow: 'targetWorkflow',
+  nativeReferenceType: 'nativeReferenceType',
+  nativeReferenceId: 'nativeReferenceId',
+  nativeReferenceUrl: 'nativeReferenceUrl',
+  status: 'status',
+  sourceConfidence: 'sourceConfidence',
+  outcomeQuality: 'outcomeQuality',
+  openedAt: 'openedAt',
+  observedAt: 'observedAt',
+  validatedAt: 'validatedAt',
+  validatedByUserId: 'validatedByUserId',
+  validationNote: 'validationNote',
+  sourceSnapshot: 'sourceSnapshot',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopProcurementOutcomeScalarFieldEnum = (typeof ClosedLoopProcurementOutcomeScalarFieldEnum)[keyof typeof ClosedLoopProcurementOutcomeScalarFieldEnum]
+
+
+export const ClosedLoopProcurementOutcomeMetricScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  outcomeId: 'outcomeId',
+  metricKey: 'metricKey',
+  metricLabel: 'metricLabel',
+  unit: 'unit',
+  predictedValue: 'predictedValue',
+  actualValue: 'actualValue',
+  varianceValue: 'varianceValue',
+  variancePercent: 'variancePercent',
+  confidence: 'confidence',
+  status: 'status',
+  evidence: 'evidence',
+  observedByUserId: 'observedByUserId',
+  observedAt: 'observedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopProcurementOutcomeMetricScalarFieldEnum = (typeof ClosedLoopProcurementOutcomeMetricScalarFieldEnum)[keyof typeof ClosedLoopProcurementOutcomeMetricScalarFieldEnum]
+
+
+export const ClosedLoopLearningProposalScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  proposalType: 'proposalType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  status: 'status',
+  priority: 'priority',
+  title: 'title',
+  rationale: 'rationale',
+  currentValue: 'currentValue',
+  proposedValue: 'proposedValue',
+  confidence: 'confidence',
+  evidenceCount: 'evidenceCount',
+  evidenceSnapshot: 'evidenceSnapshot',
+  createdBySystem: 'createdBySystem',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  decisionNote: 'decisionNote',
+  approvedAt: 'approvedAt',
+  rejectedAt: 'rejectedAt',
+  supersededAt: 'supersededAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopLearningProposalScalarFieldEnum = (typeof ClosedLoopLearningProposalScalarFieldEnum)[keyof typeof ClosedLoopLearningProposalScalarFieldEnum]
+
+
+export const ClosedLoopLearningPolicyScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  proposalId: 'proposalId',
+  policyKey: 'policyKey',
+  policyType: 'policyType',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  version: 'version',
+  status: 'status',
+  currentValue: 'currentValue',
+  proposedValue: 'proposedValue',
+  effectiveValue: 'effectiveValue',
+  configuration: 'configuration',
+  rationale: 'rationale',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  deactivatedByUserId: 'deactivatedByUserId',
+  deactivatedAt: 'deactivatedAt',
+  supersedesPolicyId: 'supersedesPolicyId',
+  rollbackOfPolicyId: 'rollbackOfPolicyId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopLearningPolicyScalarFieldEnum = (typeof ClosedLoopLearningPolicyScalarFieldEnum)[keyof typeof ClosedLoopLearningPolicyScalarFieldEnum]
+
+
+export const ClosedLoopLearningPolicyEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  policyId: 'policyId',
+  eventType: 'eventType',
+  actorUserId: 'actorUserId',
+  fromStatus: 'fromStatus',
+  toStatus: 'toStatus',
+  message: 'message',
+  snapshot: 'snapshot',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopLearningPolicyEventScalarFieldEnum = (typeof ClosedLoopLearningPolicyEventScalarFieldEnum)[keyof typeof ClosedLoopLearningPolicyEventScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  decisionType: 'decisionType',
+  scopeKey: 'scopeKey',
+  policyType: 'policyType',
+  policyKey: 'policyKey',
+  policyId: 'policyId',
+  proposalId: 'proposalId',
+  policyVersion: 'policyVersion',
+  policySource: 'policySource',
+  requestedDefault: 'requestedDefault',
+  effectiveValue: 'effectiveValue',
+  boundedValue: 'boundedValue',
+  wasClamped: 'wasClamped',
+  inputValue: 'inputValue',
+  decisionResult: 'decisionResult',
+  rationale: 'rationale',
+  evidence: 'evidence',
+  actorUserId: 'actorUserId',
+  correlationId: 'correlationId',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum = (typeof ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyDecisionTraceScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyAdoptionScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  decisionPath: 'decisionPath',
+  policyType: 'policyType',
+  scopeStrategy: 'scopeStrategy',
+  mode: 'mode',
+  defaultThreshold: 'defaultThreshold',
+  minimumValue: 'minimumValue',
+  maximumValue: 'maximumValue',
+  status: 'status',
+  activatedByUserId: 'activatedByUserId',
+  activatedAt: 'activatedAt',
+  updatedByUserId: 'updatedByUserId',
+  lastDecisionAt: 'lastDecisionAt',
+  decisionCount: 'decisionCount',
+  shadowDifferenceCount: 'shadowDifferenceCount',
+  rationale: 'rationale',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimePolicyAdoptionScalarFieldEnum = (typeof ClosedLoopRuntimePolicyAdoptionScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyAdoptionScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  eventType: 'eventType',
+  actorUserId: 'actorUserId',
+  fromMode: 'fromMode',
+  toMode: 'toMode',
+  message: 'message',
+  snapshot: 'snapshot',
+  createdAt: 'createdAt'
+} as const
+
+export type ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum = (typeof ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum)[keyof typeof ClosedLoopRuntimePolicyAdoptionEventScalarFieldEnum]
+
+
+export const ClosedLoopRuntimePromotionAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  decisionPath: 'decisionPath',
+  status: 'status',
+  currentMode: 'currentMode',
+  recommendedMode: 'recommendedMode',
+  readinessScore: 'readinessScore',
+  minimumDecisionCount: 'minimumDecisionCount',
+  observedDecisionCount: 'observedDecisionCount',
+  maximumDivergenceRate: 'maximumDivergenceRate',
+  observedDivergenceRate: 'observedDivergenceRate',
+  fallbackRate: 'fallbackRate',
+  clampedDecisionCount: 'clampedDecisionCount',
+  deniedDecisionCount: 'deniedDecisionCount',
+  eligible: 'eligible',
+  blockers: 'blockers',
+  evidenceSnapshot: 'evidenceSnapshot',
+  generatedAt: 'generatedAt',
+  reviewedByUserId: 'reviewedByUserId',
+  reviewedAt: 'reviewedAt',
+  decisionNote: 'decisionNote',
+  promotedAt: 'promotedAt',
+  rejectedAt: 'rejectedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimePromotionAssessmentScalarFieldEnum = (typeof ClosedLoopRuntimePromotionAssessmentScalarFieldEnum)[keyof typeof ClosedLoopRuntimePromotionAssessmentScalarFieldEnum]
+
+
+export const ClosedLoopRuntimeRollbackRuleScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  adoptionId: 'adoptionId',
+  decisionPath: 'decisionPath',
+  status: 'status',
+  maximumDivergenceRate: 'maximumDivergenceRate',
+  maximumFallbackRate: 'maximumFallbackRate',
+  maximumDeniedRate: 'maximumDeniedRate',
+  minimumDecisionCount: 'minimumDecisionCount',
+  autoRollbackEnabled: 'autoRollbackEnabled',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClosedLoopRuntimeRollbackRuleScalarFieldEnum = (typeof ClosedLoopRuntimeRollbackRuleScalarFieldEnum)[keyof typeof ClosedLoopRuntimeRollbackRuleScalarFieldEnum]
+
+
+export const AiRuntimeCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationKey: 'certificationKey',
+  status: 'status',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  triggeredByUserId: 'triggeredByUserId',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  certificationScore: 'certificationScore',
+  summary: 'summary',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AiRuntimeCertificationRunScalarFieldEnum = (typeof AiRuntimeCertificationRunScalarFieldEnum)[keyof typeof AiRuntimeCertificationRunScalarFieldEnum]
+
+
+export const AiRuntimeCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  durationMs: 'durationMs',
+  createdAt: 'createdAt'
+} as const
+
+export type AiRuntimeCertificationResultScalarFieldEnum = (typeof AiRuntimeCertificationResultScalarFieldEnum)[keyof typeof AiRuntimeCertificationResultScalarFieldEnum]
+
+
+export const AiRuntimeHealthSnapshotScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  healthScore: 'healthScore',
+  decisionCount: 'decisionCount',
+  activePolicyRate: 'activePolicyRate',
+  fallbackRate: 'fallbackRate',
+  deniedRate: 'deniedRate',
+  clampedRate: 'clampedRate',
+  traceIntegrityRate: 'traceIntegrityRate',
+  activePolicyCount: 'activePolicyCount',
+  advisoryPolicyCount: 'advisoryPolicyCount',
+  certificationStatus: 'certificationStatus',
+  certificationScore: 'certificationScore',
+  adoptionMode: 'adoptionMode',
+  anomalyCount: 'anomalyCount',
+  metrics: 'metrics',
+  anomalies: 'anomalies',
+  capturedAt: 'capturedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type AiRuntimeHealthSnapshotScalarFieldEnum = (typeof AiRuntimeHealthSnapshotScalarFieldEnum)[keyof typeof AiRuntimeHealthSnapshotScalarFieldEnum]
+
+
+export const CrossEngineGovernanceAssessmentScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  createdByUserId: 'createdByUserId',
+  procurementRunId: 'procurementRunId',
+  inventoryRunId: 'inventoryRunId',
+  capacityRunId: 'capacityRunId',
+  conflictCount: 'conflictCount',
+  criticalCount: 'criticalCount',
+  highCount: 'highCount',
+  mediumCount: 'mediumCount',
+  alignmentScore: 'alignmentScore',
+  summary: 'summary',
+  generatedAt: 'generatedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type CrossEngineGovernanceAssessmentScalarFieldEnum = (typeof CrossEngineGovernanceAssessmentScalarFieldEnum)[keyof typeof CrossEngineGovernanceAssessmentScalarFieldEnum]
+
+
+export const CrossEngineGovernanceConflictScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  assessmentId: 'assessmentId',
+  conflictType: 'conflictType',
+  severity: 'severity',
+  scopeKey: 'scopeKey',
+  scopeLabel: 'scopeLabel',
+  status: 'status',
+  title: 'title',
+  rationale: 'rationale',
+  precedenceRule: 'precedenceRule',
+  recommendedAction: 'recommendedAction',
+  evidence: 'evidence',
+  acknowledgedByUserId: 'acknowledgedByUserId',
+  acknowledgedAt: 'acknowledgedAt',
+  resolvedByUserId: 'resolvedByUserId',
+  resolvedAt: 'resolvedAt',
+  resolutionNote: 'resolutionNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CrossEngineGovernanceConflictScalarFieldEnum = (typeof CrossEngineGovernanceConflictScalarFieldEnum)[keyof typeof CrossEngineGovernanceConflictScalarFieldEnum]
+
+
+export const EnterprisePerformanceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  certificationScore: 'certificationScore',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  averageLatencyMs: 'averageLatencyMs',
+  p95LatencyMs: 'p95LatencyMs',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type EnterprisePerformanceCertificationRunScalarFieldEnum = (typeof EnterprisePerformanceCertificationRunScalarFieldEnum)[keyof typeof EnterprisePerformanceCertificationRunScalarFieldEnum]
+
+
+export const EnterprisePerformanceCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  latencyMs: 'latencyMs',
+  thresholdMs: 'thresholdMs',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type EnterprisePerformanceCertificationResultScalarFieldEnum = (typeof EnterprisePerformanceCertificationResultScalarFieldEnum)[keyof typeof EnterprisePerformanceCertificationResultScalarFieldEnum]
+
+
+export const SecurityGovernanceCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  totalScenarios: 'totalScenarios',
+  passedScenarios: 'passedScenarios',
+  warningScenarios: 'warningScenarios',
+  failedScenarios: 'failedScenarios',
+  certificationScore: 'certificationScore',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SecurityGovernanceCertificationRunScalarFieldEnum = (typeof SecurityGovernanceCertificationRunScalarFieldEnum)[keyof typeof SecurityGovernanceCertificationRunScalarFieldEnum]
+
+
+export const SecurityGovernanceCertificationResultScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  scenarioKey: 'scenarioKey',
+  scenarioLabel: 'scenarioLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type SecurityGovernanceCertificationResultScalarFieldEnum = (typeof SecurityGovernanceCertificationResultScalarFieldEnum)[keyof typeof SecurityGovernanceCertificationResultScalarFieldEnum]
+
+
+export const FinalEnterpriseReleaseCertificationRunScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  releaseKey: 'releaseKey',
+  status: 'status',
+  triggeredByUserId: 'triggeredByUserId',
+  readinessScore: 'readinessScore',
+  totalGates: 'totalGates',
+  passedGates: 'passedGates',
+  warningGates: 'warningGates',
+  failedGates: 'failedGates',
+  decision: 'decision',
+  summary: 'summary',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type FinalEnterpriseReleaseCertificationRunScalarFieldEnum = (typeof FinalEnterpriseReleaseCertificationRunScalarFieldEnum)[keyof typeof FinalEnterpriseReleaseCertificationRunScalarFieldEnum]
+
+
+export const FinalEnterpriseReleaseCertificationGateScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  certificationRunId: 'certificationRunId',
+  gateKey: 'gateKey',
+  gateLabel: 'gateLabel',
+  category: 'category',
+  status: 'status',
+  severity: 'severity',
+  message: 'message',
+  evidence: 'evidence',
+  createdAt: 'createdAt'
+} as const
+
+export type FinalEnterpriseReleaseCertificationGateScalarFieldEnum = (typeof FinalEnterpriseReleaseCertificationGateScalarFieldEnum)[keyof typeof FinalEnterpriseReleaseCertificationGateScalarFieldEnum]
+
+
+export const PublicSitePublicationScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  category: 'category',
+  title: 'title',
+  summary: 'summary',
+  body: 'body',
+  readTime: 'readTime',
+  status: 'status',
+  featured: 'featured',
+  publishedAt: 'publishedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSitePublicationScalarFieldEnum = (typeof PublicSitePublicationScalarFieldEnum)[keyof typeof PublicSitePublicationScalarFieldEnum]
+
+
+export const PublicSiteGuideScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  summary: 'summary',
+  resourceType: 'resourceType',
+  pageCount: 'pageCount',
+  fileUrl: 'fileUrl',
+  fileName: 'fileName',
+  status: 'status',
+  featured: 'featured',
+  publishedAt: 'publishedAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSiteGuideScalarFieldEnum = (typeof PublicSiteGuideScalarFieldEnum)[keyof typeof PublicSiteGuideScalarFieldEnum]
+
+
+export const PublicSiteJobOpeningScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  department: 'department',
+  location: 'location',
+  employmentType: 'employmentType',
+  workArrangement: 'workArrangement',
+  summary: 'summary',
+  description: 'description',
+  applyUrl: 'applyUrl',
+  applyEmail: 'applyEmail',
+  status: 'status',
+  publishedAt: 'publishedAt',
+  closesAt: 'closesAt',
+  createdByUserId: 'createdByUserId',
+  updatedByUserId: 'updatedByUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PublicSiteJobOpeningScalarFieldEnum = (typeof PublicSiteJobOpeningScalarFieldEnum)[keyof typeof PublicSiteJobOpeningScalarFieldEnum]
 
 
 export const SortOrder = {

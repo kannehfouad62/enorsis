@@ -1,5 +1,6 @@
 import { Prisma } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
+import { evaluateControlledRuntimeConfidence } from "@/core/closed-loop-procurement/runtime-adoption";
 
 const num = (value: unknown) =>
   value === null || value === undefined ? 0 : Number(value);
@@ -392,14 +393,49 @@ export async function generatePredictiveProcurementForecast(input: {
     }
   }
 
-  if (signals.length > 0) {
+  // B12.8 controlled runtime adoption.
+  //
+  // OFF     -> preserve every generated signal (legacy behavior).
+  // SHADOW  -> preserve every generated signal, but trace how the governed
+  //            confidence policy would differ.
+  // ENFORCED -> only persist signals allowed by the governed confidence gate.
+  //
+  // Each candidate signal is evaluated independently so B12.7 receives a
+  // trace correlated to the forecast run and signal scope.
+  const runtimeAcceptedSignals: typeof signals = [];
+
+  for (const signal of signals) {
+    const decision =
+      await evaluateControlledRuntimeConfidence({
+        tenantId: input.tenantId,
+        confidence: signal.confidence,
+        actorUserId: input.createdByUserId,
+        correlationId: run.id,
+        extraEvidence: {
+          forecastRunId: run.id,
+          signalType: signal.signalType,
+          scopeKey: signal.scopeKey,
+          scopeLabel: signal.scopeLabel,
+          riskLevel: signal.riskLevel,
+        },
+      });
+
+    if (decision.effectiveAllowed) {
+      runtimeAcceptedSignals.push(signal);
+    }
+  }
+
+  if (runtimeAcceptedSignals.length > 0) {
     await prisma.predictiveProcurementForecastSignal.createMany({
-      data: signals,
+      data: runtimeAcceptedSignals,
     });
   }
 
   return {
     run,
-    signalCount: signals.length,
+    signalCount: runtimeAcceptedSignals.length,
+    candidateSignalCount: signals.length,
+    suppressedSignalCount:
+      signals.length - runtimeAcceptedSignals.length,
   };
 }

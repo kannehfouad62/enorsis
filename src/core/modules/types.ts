@@ -7,7 +7,8 @@ export type ModuleGroup =
   | "Suppliers"
   | "Governance"
   | "Intelligence"
-  | "Platform";
+  | "Platform"
+  | "Automation";
 
 export type ModuleRegistryEntry = {
   id: string;
