@@ -780,9 +780,9 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   },
 
   {
-    title: "End-to-End Commerce Certification",
+    title: "End-to-End Commerce & Transaction Lifecycle",
     description:
-      "Certify the buyer-supplier transaction lifecycle from tenant governance and catalog through purchase order, receiving, warehouse, inventory, invoice, matching and payment.",
+      "Govern and certify the complete buyer-supplier lifecycle across tenant administration, supplier onboarding, marketplace catalog, purchase requests, approvals, purchase orders, supplier fulfillment, receiving, warehouse, inventory, invoicing, three-way matching and payment.",
     href: "/app/settings/platform-readiness/end-to-end-commerce",
     icon: Activity,
     group: "Governance",
