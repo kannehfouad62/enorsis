@@ -63,7 +63,7 @@ export async function submitPricingInquiryAction(
 
   if (!fromEmail) {
     throw new Error(
-      "RESEND_FROM_EMAIL is not configured. Use a verified Enorsis sender, for example Enorsis Sales <sales@enorsis.org>.",
+      "RESEND_FROM_EMAIL is not configured. Use a verified Enorsis sender, for example Enorsis <info@enorsis.com>.",
     );
   }
 

@@ -27,7 +27,8 @@ function senderAddress() {
   return (
     process.env.BOARD_REPORT_FROM_EMAIL ??
     process.env.RESEND_FROM_EMAIL ??
-    "Enorsis Board Reporting <no-reply@enorsis.com>"
+    process.env.WORKFLOW_EMAIL_FROM ??
+    "Enorsis <info@enorsis.com>"
   );
 }
 
