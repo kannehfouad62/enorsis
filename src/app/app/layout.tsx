@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
 import { AppShell } from "@/components/app-shell/AppShell";
+import { prisma } from "@/lib/prisma";
 
 export default async function ProductLayout({
   children,
@@ -14,6 +15,17 @@ export default async function ProductLayout({
     redirect("/login");
   }
 
+  const tenant = session.user.tenantId
+    ? await prisma.tenant.findUnique({
+        where: {
+          id: session.user.tenantId,
+        },
+        select: {
+          commercialPersona: true,
+        },
+      })
+    : null;
+
   return (
     <AppShell
       user={{
@@ -22,6 +34,8 @@ export default async function ProductLayout({
         tenantName: session.user.tenantName,
         roles: session.user.roles,
         mustChangePassword: session.user.mustChangePassword,
+        commercialPersona:
+          tenant?.commercialPersona ?? "BUYER",
       }}
     >
       {children}

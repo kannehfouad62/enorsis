@@ -15,6 +15,7 @@ const countryCode = z
 export const createPlatformTenantSchema = z.object({
   name: z.string().trim().min(2).max(160),
   legalName: z.string().trim().min(2).max(200),
+  commercialPersona: z.enum(["BUYER", "SUPPLIER", "BUYER_SUPPLIER"]),
   slug: z
     .string()
     .trim()
@@ -52,4 +53,10 @@ export const assignPlatformTenantOwnerSchema = z.object({
   tenantId: z.string().trim().min(1),
   ownerName: z.string().trim().min(2).max(160),
   ownerEmail: z.string().trim().email().transform((value) => value.toLowerCase()),
+});
+
+
+export const updatePlatformTenantCommercialPersonaSchema = z.object({
+  tenantId: z.string().trim().min(1),
+  commercialPersona: z.enum(["BUYER", "SUPPLIER", "BUYER_SUPPLIER"]),
 });

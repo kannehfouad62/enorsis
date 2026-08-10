@@ -61,6 +61,7 @@ export default async function PlatformTenantAdministrationPage() {
               <tr>
                 <th className="px-3 py-3">Tenant</th>
                 <th className="px-3 py-3">Status</th>
+                <th className="px-3 py-3">Persona</th>
                 <th className="px-3 py-3">Country</th>
                 <th className="px-3 py-3">Currency</th>
                 <th className="px-3 py-3">Members</th>
@@ -76,6 +77,9 @@ export default async function PlatformTenantAdministrationPage() {
                     <p className="mt-1 text-xs text-slate-500">{tenant.slug}</p>
                   </td>
                   <td className="px-3 py-4">{tenant.status}</td>
+                  <td className="px-3 py-4">
+                    {tenant.commercialPersona.replaceAll("_", " + ")}
+                  </td>
                   <td className="px-3 py-4">{tenant.countryCode ?? "—"}</td>
                   <td className="px-3 py-4">{tenant.baseCurrencyCode}</td>
                   <td className="px-3 py-4">{tenant._count.memberships}</td>
@@ -107,6 +111,19 @@ export default async function PlatformTenantAdministrationPage() {
         <form action={createPlatformTenantAction} className="mt-6 grid gap-5 md:grid-cols-2">
           <Field label="Organization name" name="name" required />
           <Field label="Legal name" name="legalName" required />
+          <label className="text-sm font-bold text-slate-700">
+            Commercial classification
+            <select
+              name="commercialPersona"
+              defaultValue="BUYER"
+              required
+              className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-slate-950"
+            >
+              <option value="BUYER">Buyer</option>
+              <option value="SUPPLIER">Supplier</option>
+              <option value="BUYER_SUPPLIER">Buyer + Supplier</option>
+            </select>
+          </label>
           <Field label="Tenant slug" name="slug" placeholder="atlas-global-industries" required />
           <Field label="Country code" name="countryCode" placeholder="US" required />
           <Field label="Default locale" name="defaultLocale" defaultValue="en-US" required />

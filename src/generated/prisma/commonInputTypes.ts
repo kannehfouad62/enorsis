@@ -182,6 +182,13 @@ export type EnumTenantStatusFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel> | $Enums.TenantStatus
 }
 
+export type EnumTenantCommercialPersonaFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantCommercialPersona | Prisma.EnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel> | $Enums.TenantCommercialPersona
+}
+
 export type EnumCurrencyPolicyModeFilter<$PrismaModel = never> = {
   equals?: $Enums.CurrencyPolicyMode | Prisma.EnumCurrencyPolicyModeFieldRefInput<$PrismaModel>
   in?: $Enums.CurrencyPolicyMode[] | Prisma.ListEnumCurrencyPolicyModeFieldRefInput<$PrismaModel>
@@ -197,6 +204,16 @@ export type EnumTenantStatusWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel>
+}
+
+export type EnumTenantCommercialPersonaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantCommercialPersona | Prisma.EnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantCommercialPersonaWithAggregatesFilter<$PrismaModel> | $Enums.TenantCommercialPersona
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel>
 }
 
 export type EnumCurrencyPolicyModeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5454,6 +5471,13 @@ export type NestedEnumTenantStatusFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel> | $Enums.TenantStatus
 }
 
+export type NestedEnumTenantCommercialPersonaFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantCommercialPersona | Prisma.EnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel> | $Enums.TenantCommercialPersona
+}
+
 export type NestedEnumCurrencyPolicyModeFilter<$PrismaModel = never> = {
   equals?: $Enums.CurrencyPolicyMode | Prisma.EnumCurrencyPolicyModeFieldRefInput<$PrismaModel>
   in?: $Enums.CurrencyPolicyMode[] | Prisma.ListEnumCurrencyPolicyModeFieldRefInput<$PrismaModel>
@@ -5469,6 +5493,16 @@ export type NestedEnumTenantStatusWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumTenantStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumTenantCommercialPersonaWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TenantCommercialPersona | Prisma.EnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  in?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TenantCommercialPersona[] | Prisma.ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTenantCommercialPersonaWithAggregatesFilter<$PrismaModel> | $Enums.TenantCommercialPersona
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTenantCommercialPersonaFilter<$PrismaModel>
 }
 
 export type NestedEnumCurrencyPolicyModeWithAggregatesFilter<$PrismaModel = never> = {

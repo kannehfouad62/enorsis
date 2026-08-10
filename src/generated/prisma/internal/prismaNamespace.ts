@@ -24418,6 +24418,7 @@ export const TenantScalarFieldEnum = {
   name: 'name',
   legalName: 'legalName',
   status: 'status',
+  commercialPersona: 'commercialPersona',
   countryCode: 'countryCode',
   defaultLocale: 'defaultLocale',
   defaultTimeZone: 'defaultTimeZone',
@@ -31390,6 +31391,20 @@ export type EnumTenantStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Pri
  * Reference to a field of type 'TenantStatus[]'
  */
 export type ListEnumTenantStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TenantCommercialPersona'
+ */
+export type EnumTenantCommercialPersonaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantCommercialPersona'>
+    
+
+
+/**
+ * Reference to a field of type 'TenantCommercialPersona[]'
+ */
+export type ListEnumTenantCommercialPersonaFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TenantCommercialPersona[]'>
     
 
 

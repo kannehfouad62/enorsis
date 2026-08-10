@@ -4,6 +4,7 @@ import {
   sendTenantMemberActivationAction,
   resendTenantOwnerActivationAction,
   updatePlatformTenantStatusAction,
+  updatePlatformTenantCommercialPersonaAction,
 } from "@/modules/platform-tenants/actions";
 import { getPlatformTenantDetail } from "@/modules/platform-tenants/queries";
 
@@ -46,6 +47,10 @@ export default async function PlatformTenantDetailPage({
         <dl className="mt-5 grid gap-4 md:grid-cols-2">
           <Item label="Legal name" value={tenant.legalName ?? "—"} />
           <Item label="Country" value={tenant.countryCode ?? "—"} />
+          <Item
+            label="Commercial persona"
+            value={tenant.commercialPersona.replaceAll("_", " + ")}
+          />
           <Item label="Locale" value={tenant.defaultLocale} />
           <Item label="Time zone" value={tenant.defaultTimeZone} />
           <Item label="Currency policy" value={tenant.currencyPolicyMode} />
@@ -53,6 +58,32 @@ export default async function PlatformTenantDetailPage({
           <Item label="Tenant owner" value={owner?.user.email ?? "Not assigned"} />
           <Item label="Created" value={tenant.createdAt.toLocaleString()} />
         </dl>
+      </section>
+
+      <section className={`${card} mt-8`}>
+        <h2 className="text-xl font-black">Update commercial classification</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          Classification controls the tenant's commercial workspace,
+          module visibility and protected buyer/supplier route access.
+        </p>
+        <form
+          action={updatePlatformTenantCommercialPersonaAction}
+          className="mt-5 flex flex-wrap gap-3"
+        >
+          <input type="hidden" name="tenantId" value={tenant.id} />
+          <select
+            name="commercialPersona"
+            defaultValue={tenant.commercialPersona}
+            className="rounded-xl border border-slate-300 bg-white px-3 py-3"
+          >
+            <option value="BUYER">Buyer</option>
+            <option value="SUPPLIER">Supplier</option>
+            <option value="BUYER_SUPPLIER">Buyer + Supplier</option>
+          </select>
+          <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">
+            Update classification
+          </button>
+        </form>
       </section>
 
       <section className={`${card} mt-8`}>

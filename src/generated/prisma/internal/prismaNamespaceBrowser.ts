@@ -426,6 +426,7 @@ export const TenantScalarFieldEnum = {
   name: 'name',
   legalName: 'legalName',
   status: 'status',
+  commercialPersona: 'commercialPersona',
   countryCode: 'countryCode',
   defaultLocale: 'defaultLocale',
   defaultTimeZone: 'defaultTimeZone',

@@ -1,3 +1,7 @@
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
+import { prisma } from "@/lib/prisma";
+import { SupplierCommandCenter } from "@/components/command-center/SupplierCommandCenter";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -33,7 +37,20 @@ const regions = [
   { name: "Africa & Middle East", spend: "$3.5M", suppliers: 163, risk: "Low" },
 ];
 
-export default function CommandCenterPage() {
+export default async function CommandCenterPage() {
+  const session = await auth();
+
+  if (!session?.user?.tenantId) redirect("/login");
+
+  const tenant = await prisma.tenant.findUnique({
+    where: { id: session.user.tenantId },
+    select: { name: true, commercialPersona: true },
+  });
+
+  if (tenant?.commercialPersona === "SUPPLIER") {
+    return <SupplierCommandCenter tenantName={tenant.name} />;
+  }
+
   return (
     <div className="mx-auto max-w-[1600px] px-4 py-7 sm:px-6 xl:px-10 xl:py-10">
       <section className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">

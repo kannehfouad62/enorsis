@@ -2420,12 +2420,19 @@ model PasswordResetToken {
   @@index([userId, expiresAt])
 }
 
+enum TenantCommercialPersona {
+  BUYER
+  SUPPLIER
+  BUYER_SUPPLIER
+}
+
 model Tenant {
   id                                          String                                       @id @default(cuid())
   slug                                        String                                       @unique
   name                                        String
   legalName                                   String?
   status                                      TenantStatus                                 @default(PROVISIONING)
+  commercialPersona                           TenantCommercialPersona                      @default(BUYER)
   countryCode                                 String?
   defaultLocale                               String                                       @default("en-US")
   defaultTimeZone                             String                                       @default("UTC")
@@ -2586,6 +2593,7 @@ model Tenant {
 
   @@index([status])
   @@index([countryCode])
+  @@index([commercialPersona])
 }
 
 model Membership {

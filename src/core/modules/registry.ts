@@ -9,6 +9,11 @@ import {
   type FeatureKey,
 } from "@/core/licensing";
 import type { ModuleRegistryEntry } from "./types";
+import { prisma } from "@/lib/prisma";
+import {
+  isHrefAllowedForCommercialPersona,
+  type TenantCommercialPersonaValue,
+} from "@/core/tenancy/commercial-persona";
 
 type RegistryMetadata = Pick<
   ModuleRegistryEntry,
@@ -416,10 +421,24 @@ export async function getAccessibleModules({
     platformRoles.includes(role as EnorsisRole),
   );
 
+  const tenantCommercialPersona: TenantCommercialPersonaValue =
+    isPlatformOperator
+      ? "BUYER_SUPPLIER"
+      : (((await prisma.tenant.findUnique({
+          where: { id: tenantId },
+          select: { commercialPersona: true },
+        }))?.commercialPersona ?? "BUYER") as TenantCommercialPersonaValue);
+
   const decisions = await Promise.all(
     moduleRegistry.map(async (module) => {
       if (!module.active) return null;
       if (isPlatformOperator) return module;
+      if (
+        !isHrefAllowedForCommercialPersona(
+          module.href,
+          tenantCommercialPersona,
+        )
+      ) return null;
       if (!hasAnyRole(userRoles, module.roles)) return null;
       if (!module.featureKey) return module;
 

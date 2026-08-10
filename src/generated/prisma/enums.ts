@@ -3229,3 +3229,12 @@ export const AiAutonomyLevel = {
 } as const
 
 export type AiAutonomyLevel = (typeof AiAutonomyLevel)[keyof typeof AiAutonomyLevel]
+
+
+export const TenantCommercialPersona = {
+  BUYER: 'BUYER',
+  SUPPLIER: 'SUPPLIER',
+  BUYER_SUPPLIER: 'BUYER_SUPPLIER'
+} as const
+
+export type TenantCommercialPersona = (typeof TenantCommercialPersona)[keyof typeof TenantCommercialPersona]

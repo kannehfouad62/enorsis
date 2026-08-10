@@ -25,6 +25,11 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { enterpriseModules } from "@/modules/navigation/enterprise-modules";
+import {
+  commercialPersonaLabel,
+  isHrefAllowedForCommercialPersona,
+  type TenantCommercialPersonaValue,
+} from "@/core/tenancy/commercial-persona";
 import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
@@ -55,6 +60,7 @@ interface AppShellProps {
     tenantName: string;
     roles: string[];
     mustChangePassword: boolean;
+    commercialPersona: TenantCommercialPersonaValue;
   };
 }
 
@@ -68,6 +74,10 @@ export function AppShell({ children, user }: AppShellProps) {
   const [searching, setSearching] = useState(false);
   const [recordResults, setRecordResults] = useState<SearchResult[]>([]);
 
+  const isPlatformOperator = user.roles.some((role) =>
+    role.startsWith("PLATFORM_"),
+  );
+
   const workspaceResults = useMemo(() => {
     const normalized = query.trim().toLowerCase();
 
@@ -76,13 +86,21 @@ export function AppShell({ children, user }: AppShellProps) {
     }
 
     return enterpriseModules
+      .filter(
+        (module) =>
+          isPlatformOperator ||
+          isHrefAllowedForCommercialPersona(
+            module.href,
+            user.commercialPersona,
+          ),
+      )
       .filter((module) =>
         `${module.title} ${module.description} ${module.group}`
           .toLowerCase()
           .includes(normalized),
       )
       .slice(0, 6);
-  }, [query]);
+  }, [isPlatformOperator, query, user.commercialPersona]);
 
   useEffect(() => {
     if (
@@ -335,7 +353,17 @@ export function AppShell({ children, user }: AppShellProps) {
   );
 }
 
-function SidebarContent({ pathname, user }: { pathname: string; user: AppShellProps["user"] }) {
+function SidebarContent({
+  pathname,
+  user,
+}: {
+  pathname: string;
+  user: AppShellProps["user"];
+}) {
+  const isPlatformOperator = user.roles.some((role) =>
+    role.startsWith("PLATFORM_"),
+  );
+
   return (
     <>
       <div className="flex h-20 items-center gap-3 border-b border-white/10 px-6">
@@ -355,7 +383,9 @@ function SidebarContent({ pathname, user }: { pathname: string; user: AppShellPr
           </span>
           <span className="min-w-0 flex-1">
             <span className="block truncate text-sm font-bold">{user.tenantName}</span>
-            <span className="block text-xs text-slate-500">USD · Global tenant</span>
+            <span className="block text-xs text-slate-500">
+              {commercialPersonaLabel(user.commercialPersona)} tenant
+            </span>
           </span>
           <ChevronDown className="h-4 w-4 text-slate-500" />
         </button>
@@ -365,6 +395,14 @@ function SidebarContent({ pathname, user }: { pathname: string; user: AppShellPr
         <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Workspace</p>
         <div className="space-y-1">
           {navigation
+            .filter(
+              (item) =>
+                isPlatformOperator ||
+                isHrefAllowedForCommercialPersona(
+                  item.href,
+                  user.commercialPersona,
+                ),
+            )
             .filter((item) =>
               item.roles.length === 0 ||
               item.roles.some((role) => user.roles.includes(role)),

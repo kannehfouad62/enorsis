@@ -30,6 +30,7 @@ export type TenantMinAggregateOutputType = {
   name: string | null
   legalName: string | null
   status: $Enums.TenantStatus | null
+  commercialPersona: $Enums.TenantCommercialPersona | null
   countryCode: string | null
   defaultLocale: string | null
   defaultTimeZone: string | null
@@ -48,6 +49,7 @@ export type TenantMaxAggregateOutputType = {
   name: string | null
   legalName: string | null
   status: $Enums.TenantStatus | null
+  commercialPersona: $Enums.TenantCommercialPersona | null
   countryCode: string | null
   defaultLocale: string | null
   defaultTimeZone: string | null
@@ -66,6 +68,7 @@ export type TenantCountAggregateOutputType = {
   name: number
   legalName: number
   status: number
+  commercialPersona: number
   countryCode: number
   defaultLocale: number
   defaultTimeZone: number
@@ -86,6 +89,7 @@ export type TenantMinAggregateInputType = {
   name?: true
   legalName?: true
   status?: true
+  commercialPersona?: true
   countryCode?: true
   defaultLocale?: true
   defaultTimeZone?: true
@@ -104,6 +108,7 @@ export type TenantMaxAggregateInputType = {
   name?: true
   legalName?: true
   status?: true
+  commercialPersona?: true
   countryCode?: true
   defaultLocale?: true
   defaultTimeZone?: true
@@ -122,6 +127,7 @@ export type TenantCountAggregateInputType = {
   name?: true
   legalName?: true
   status?: true
+  commercialPersona?: true
   countryCode?: true
   defaultLocale?: true
   defaultTimeZone?: true
@@ -213,6 +219,7 @@ export type TenantGroupByOutputType = {
   name: string
   legalName: string | null
   status: $Enums.TenantStatus
+  commercialPersona: $Enums.TenantCommercialPersona
   countryCode: string | null
   defaultLocale: string
   defaultTimeZone: string
@@ -252,6 +259,7 @@ export type TenantWhereInput = {
   name?: Prisma.StringFilter<"Tenant"> | string
   legalName?: Prisma.StringNullableFilter<"Tenant"> | string | null
   status?: Prisma.EnumTenantStatusFilter<"Tenant"> | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFilter<"Tenant"> | $Enums.TenantCommercialPersona
   countryCode?: Prisma.StringNullableFilter<"Tenant"> | string | null
   defaultLocale?: Prisma.StringFilter<"Tenant"> | string
   defaultTimeZone?: Prisma.StringFilter<"Tenant"> | string
@@ -417,6 +425,7 @@ export type TenantOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   legalName?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  commercialPersona?: Prisma.SortOrder
   countryCode?: Prisma.SortOrderInput | Prisma.SortOrder
   defaultLocale?: Prisma.SortOrder
   defaultTimeZone?: Prisma.SortOrder
@@ -585,6 +594,7 @@ export type TenantWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Tenant"> | string
   legalName?: Prisma.StringNullableFilter<"Tenant"> | string | null
   status?: Prisma.EnumTenantStatusFilter<"Tenant"> | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFilter<"Tenant"> | $Enums.TenantCommercialPersona
   countryCode?: Prisma.StringNullableFilter<"Tenant"> | string | null
   defaultLocale?: Prisma.StringFilter<"Tenant"> | string
   defaultTimeZone?: Prisma.StringFilter<"Tenant"> | string
@@ -750,6 +760,7 @@ export type TenantOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   legalName?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
+  commercialPersona?: Prisma.SortOrder
   countryCode?: Prisma.SortOrderInput | Prisma.SortOrder
   defaultLocale?: Prisma.SortOrder
   defaultTimeZone?: Prisma.SortOrder
@@ -774,6 +785,7 @@ export type TenantScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
   legalName?: Prisma.StringNullableWithAggregatesFilter<"Tenant"> | string | null
   status?: Prisma.EnumTenantStatusWithAggregatesFilter<"Tenant"> | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaWithAggregatesFilter<"Tenant"> | $Enums.TenantCommercialPersona
   countryCode?: Prisma.StringNullableWithAggregatesFilter<"Tenant"> | string | null
   defaultLocale?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
   defaultTimeZone?: Prisma.StringWithAggregatesFilter<"Tenant"> | string
@@ -792,6 +804,7 @@ export type TenantCreateInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -957,6 +970,7 @@ export type TenantUncheckedCreateInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -1122,6 +1136,7 @@ export type TenantUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1287,6 +1302,7 @@ export type TenantUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1452,6 +1468,7 @@ export type TenantCreateManyInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -1470,6 +1487,7 @@ export type TenantUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1488,6 +1506,7 @@ export type TenantUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1506,6 +1525,7 @@ export type TenantCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   legalName?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  commercialPersona?: Prisma.SortOrder
   countryCode?: Prisma.SortOrder
   defaultLocale?: Prisma.SortOrder
   defaultTimeZone?: Prisma.SortOrder
@@ -1524,6 +1544,7 @@ export type TenantMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   legalName?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  commercialPersona?: Prisma.SortOrder
   countryCode?: Prisma.SortOrder
   defaultLocale?: Prisma.SortOrder
   defaultTimeZone?: Prisma.SortOrder
@@ -1542,6 +1563,7 @@ export type TenantMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   legalName?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  commercialPersona?: Prisma.SortOrder
   countryCode?: Prisma.SortOrder
   defaultLocale?: Prisma.SortOrder
   defaultTimeZone?: Prisma.SortOrder
@@ -1566,6 +1588,10 @@ export type TenantNullableScalarRelationFilter = {
 
 export type EnumTenantStatusFieldUpdateOperationsInput = {
   set?: $Enums.TenantStatus
+}
+
+export type EnumTenantCommercialPersonaFieldUpdateOperationsInput = {
+  set?: $Enums.TenantCommercialPersona
 }
 
 export type EnumCurrencyPolicyModeFieldUpdateOperationsInput = {
@@ -3654,6 +3680,7 @@ export type TenantCreateWithoutMembershipsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -3818,6 +3845,7 @@ export type TenantUncheckedCreateWithoutMembershipsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -3998,6 +4026,7 @@ export type TenantUpdateWithoutMembershipsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4162,6 +4191,7 @@ export type TenantUncheckedUpdateWithoutMembershipsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4326,6 +4356,7 @@ export type TenantCreateWithoutLegalEntitiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -4490,6 +4521,7 @@ export type TenantUncheckedCreateWithoutLegalEntitiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -4670,6 +4702,7 @@ export type TenantUpdateWithoutLegalEntitiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4834,6 +4867,7 @@ export type TenantUncheckedUpdateWithoutLegalEntitiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -4998,6 +5032,7 @@ export type TenantCreateWithoutSitesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -5162,6 +5197,7 @@ export type TenantUncheckedCreateWithoutSitesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -5342,6 +5378,7 @@ export type TenantUpdateWithoutSitesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -5506,6 +5543,7 @@ export type TenantUncheckedUpdateWithoutSitesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -5670,6 +5708,7 @@ export type TenantCreateWithoutDepartmentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -5834,6 +5873,7 @@ export type TenantUncheckedCreateWithoutDepartmentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -6014,6 +6054,7 @@ export type TenantUpdateWithoutDepartmentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -6178,6 +6219,7 @@ export type TenantUncheckedUpdateWithoutDepartmentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -6342,6 +6384,7 @@ export type TenantCreateWithoutExchangeRatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -6506,6 +6549,7 @@ export type TenantUncheckedCreateWithoutExchangeRatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -6686,6 +6730,7 @@ export type TenantUpdateWithoutExchangeRatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -6850,6 +6895,7 @@ export type TenantUncheckedUpdateWithoutExchangeRatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -7014,6 +7060,7 @@ export type TenantCreateWithoutAuditEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -7178,6 +7225,7 @@ export type TenantUncheckedCreateWithoutAuditEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -7358,6 +7406,7 @@ export type TenantUpdateWithoutAuditEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -7522,6 +7571,7 @@ export type TenantUncheckedUpdateWithoutAuditEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -7686,6 +7736,7 @@ export type TenantCreateWithoutAiAgentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -7850,6 +7901,7 @@ export type TenantUncheckedCreateWithoutAiAgentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -8030,6 +8082,7 @@ export type TenantUpdateWithoutAiAgentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -8194,6 +8247,7 @@ export type TenantUncheckedUpdateWithoutAiAgentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -8358,6 +8412,7 @@ export type TenantCreateWithoutPurchaseRequestsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -8522,6 +8577,7 @@ export type TenantUncheckedCreateWithoutPurchaseRequestsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -8702,6 +8758,7 @@ export type TenantUpdateWithoutPurchaseRequestsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -8866,6 +8923,7 @@ export type TenantUncheckedUpdateWithoutPurchaseRequestsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -9030,6 +9088,7 @@ export type TenantCreateWithoutSuppliersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -9194,6 +9253,7 @@ export type TenantUncheckedCreateWithoutSuppliersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -9374,6 +9434,7 @@ export type TenantUpdateWithoutSuppliersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -9538,6 +9599,7 @@ export type TenantUncheckedUpdateWithoutSuppliersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -9702,6 +9764,7 @@ export type TenantCreateWithoutSourcingEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -9866,6 +9929,7 @@ export type TenantUncheckedCreateWithoutSourcingEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -10046,6 +10110,7 @@ export type TenantUpdateWithoutSourcingEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -10210,6 +10275,7 @@ export type TenantUncheckedUpdateWithoutSourcingEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -10374,6 +10440,7 @@ export type TenantCreateWithoutContractsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -10538,6 +10605,7 @@ export type TenantUncheckedCreateWithoutContractsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -10718,6 +10786,7 @@ export type TenantUpdateWithoutContractsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -10882,6 +10951,7 @@ export type TenantUncheckedUpdateWithoutContractsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -11046,6 +11116,7 @@ export type TenantCreateWithoutClauseTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -11210,6 +11281,7 @@ export type TenantUncheckedCreateWithoutClauseTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -11390,6 +11462,7 @@ export type TenantUpdateWithoutClauseTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -11554,6 +11627,7 @@ export type TenantUncheckedUpdateWithoutClauseTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -11718,6 +11792,7 @@ export type TenantCreateWithoutPurchaseOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -11882,6 +11957,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -12062,6 +12138,7 @@ export type TenantUpdateWithoutPurchaseOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -12226,6 +12303,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -12390,6 +12468,7 @@ export type TenantCreateWithoutReceiptsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -12554,6 +12633,7 @@ export type TenantUncheckedCreateWithoutReceiptsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -12734,6 +12814,7 @@ export type TenantUpdateWithoutReceiptsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -12898,6 +12979,7 @@ export type TenantUncheckedUpdateWithoutReceiptsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -13062,6 +13144,7 @@ export type TenantCreateWithoutSupplierInvoicesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -13226,6 +13309,7 @@ export type TenantUncheckedCreateWithoutSupplierInvoicesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -13406,6 +13490,7 @@ export type TenantUpdateWithoutSupplierInvoicesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -13570,6 +13655,7 @@ export type TenantUncheckedUpdateWithoutSupplierInvoicesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -13734,6 +13820,7 @@ export type TenantCreateWithoutPaymentBatchesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -13898,6 +13985,7 @@ export type TenantUncheckedCreateWithoutPaymentBatchesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -14078,6 +14166,7 @@ export type TenantUpdateWithoutPaymentBatchesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -14242,6 +14331,7 @@ export type TenantUncheckedUpdateWithoutPaymentBatchesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -14406,6 +14496,7 @@ export type TenantCreateWithoutAiAgentTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -14570,6 +14661,7 @@ export type TenantUncheckedCreateWithoutAiAgentTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -14750,6 +14842,7 @@ export type TenantUpdateWithoutAiAgentTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -14914,6 +15007,7 @@ export type TenantUncheckedUpdateWithoutAiAgentTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -15078,6 +15172,7 @@ export type TenantCreateWithoutIntegrationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -15242,6 +15337,7 @@ export type TenantUncheckedCreateWithoutIntegrationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -15422,6 +15518,7 @@ export type TenantUpdateWithoutIntegrationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -15586,6 +15683,7 @@ export type TenantUncheckedUpdateWithoutIntegrationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -15750,6 +15848,7 @@ export type TenantCreateWithoutWorkflowDefinitionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -15914,6 +16013,7 @@ export type TenantUncheckedCreateWithoutWorkflowDefinitionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -16094,6 +16194,7 @@ export type TenantUpdateWithoutWorkflowDefinitionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -16258,6 +16359,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDefinitionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -16422,6 +16524,7 @@ export type TenantCreateWithoutWorkflowInstancesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -16586,6 +16689,7 @@ export type TenantUncheckedCreateWithoutWorkflowInstancesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -16766,6 +16870,7 @@ export type TenantUpdateWithoutWorkflowInstancesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -16930,6 +17035,7 @@ export type TenantUncheckedUpdateWithoutWorkflowInstancesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -17094,6 +17200,7 @@ export type TenantCreateWithoutWorkflowDelegationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -17258,6 +17365,7 @@ export type TenantUncheckedCreateWithoutWorkflowDelegationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -17438,6 +17546,7 @@ export type TenantUpdateWithoutWorkflowDelegationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -17602,6 +17711,7 @@ export type TenantUncheckedUpdateWithoutWorkflowDelegationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -17766,6 +17876,7 @@ export type TenantCreateWithoutWorkflowNotificationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -17930,6 +18041,7 @@ export type TenantUncheckedCreateWithoutWorkflowNotificationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -18110,6 +18222,7 @@ export type TenantUpdateWithoutWorkflowNotificationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -18274,6 +18387,7 @@ export type TenantUncheckedUpdateWithoutWorkflowNotificationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -18438,6 +18552,7 @@ export type TenantCreateWithoutApiClientsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -18602,6 +18717,7 @@ export type TenantUncheckedCreateWithoutApiClientsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -18782,6 +18898,7 @@ export type TenantUpdateWithoutApiClientsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -18946,6 +19063,7 @@ export type TenantUncheckedUpdateWithoutApiClientsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -19110,6 +19228,7 @@ export type TenantCreateWithoutAccessReviewCampaignsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -19274,6 +19393,7 @@ export type TenantUncheckedCreateWithoutAccessReviewCampaignsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -19454,6 +19574,7 @@ export type TenantUpdateWithoutAccessReviewCampaignsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -19618,6 +19739,7 @@ export type TenantUncheckedUpdateWithoutAccessReviewCampaignsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -19782,6 +19904,7 @@ export type TenantCreateWithoutSodRulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -19946,6 +20069,7 @@ export type TenantUncheckedCreateWithoutSodRulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -20126,6 +20250,7 @@ export type TenantUpdateWithoutSodRulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -20290,6 +20415,7 @@ export type TenantUncheckedUpdateWithoutSodRulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -20454,6 +20580,7 @@ export type TenantCreateWithoutSodViolationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -20618,6 +20745,7 @@ export type TenantUncheckedCreateWithoutSodViolationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -20798,6 +20926,7 @@ export type TenantUpdateWithoutSodViolationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -20962,6 +21091,7 @@ export type TenantUncheckedUpdateWithoutSodViolationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -21126,6 +21256,7 @@ export type TenantCreateWithoutSupplierScorecardsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -21290,6 +21421,7 @@ export type TenantUncheckedCreateWithoutSupplierScorecardsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -21470,6 +21602,7 @@ export type TenantUpdateWithoutSupplierScorecardsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -21634,6 +21767,7 @@ export type TenantUncheckedUpdateWithoutSupplierScorecardsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -21798,6 +21932,7 @@ export type TenantCreateWithoutSupplierDevelopmentPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -21962,6 +22097,7 @@ export type TenantUncheckedCreateWithoutSupplierDevelopmentPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -22142,6 +22278,7 @@ export type TenantUpdateWithoutSupplierDevelopmentPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -22306,6 +22443,7 @@ export type TenantUncheckedUpdateWithoutSupplierDevelopmentPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -22470,6 +22608,7 @@ export type TenantCreateWithoutSupplierCorrectiveActionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -22634,6 +22773,7 @@ export type TenantUncheckedCreateWithoutSupplierCorrectiveActionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -22814,6 +22954,7 @@ export type TenantUpdateWithoutSupplierCorrectiveActionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -22978,6 +23119,7 @@ export type TenantUncheckedUpdateWithoutSupplierCorrectiveActionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -23142,6 +23284,7 @@ export type TenantCreateWithoutProcurementPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -23306,6 +23449,7 @@ export type TenantUncheckedCreateWithoutProcurementPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -23486,6 +23630,7 @@ export type TenantUpdateWithoutProcurementPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -23650,6 +23795,7 @@ export type TenantUncheckedUpdateWithoutProcurementPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -23814,6 +23960,7 @@ export type TenantCreateWithoutCategoryStrategiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -23978,6 +24125,7 @@ export type TenantUncheckedCreateWithoutCategoryStrategiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -24158,6 +24306,7 @@ export type TenantUpdateWithoutCategoryStrategiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -24322,6 +24471,7 @@ export type TenantUncheckedUpdateWithoutCategoryStrategiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -24486,6 +24636,7 @@ export type TenantCreateWithoutSavingsInitiativesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -24650,6 +24801,7 @@ export type TenantUncheckedCreateWithoutSavingsInitiativesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -24830,6 +24982,7 @@ export type TenantUpdateWithoutSavingsInitiativesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -24994,6 +25147,7 @@ export type TenantUncheckedUpdateWithoutSavingsInitiativesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -25158,6 +25312,7 @@ export type TenantCreateWithoutProcurementReviewsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -25322,6 +25477,7 @@ export type TenantUncheckedCreateWithoutProcurementReviewsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -25502,6 +25658,7 @@ export type TenantUpdateWithoutProcurementReviewsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -25666,6 +25823,7 @@ export type TenantUncheckedUpdateWithoutProcurementReviewsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -25830,6 +25988,7 @@ export type TenantCreateWithoutProcurementPoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -25994,6 +26153,7 @@ export type TenantUncheckedCreateWithoutProcurementPoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -26174,6 +26334,7 @@ export type TenantUpdateWithoutProcurementPoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -26338,6 +26499,7 @@ export type TenantUncheckedUpdateWithoutProcurementPoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -26502,6 +26664,7 @@ export type TenantCreateWithoutProcurementComplianceTestsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -26666,6 +26829,7 @@ export type TenantUncheckedCreateWithoutProcurementComplianceTestsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -26846,6 +27010,7 @@ export type TenantUpdateWithoutProcurementComplianceTestsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -27010,6 +27175,7 @@ export type TenantUncheckedUpdateWithoutProcurementComplianceTestsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -27174,6 +27340,7 @@ export type TenantCreateWithoutProcurementRemediationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -27338,6 +27505,7 @@ export type TenantUncheckedCreateWithoutProcurementRemediationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -27518,6 +27686,7 @@ export type TenantUpdateWithoutProcurementRemediationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -27682,6 +27851,7 @@ export type TenantUncheckedUpdateWithoutProcurementRemediationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -27846,6 +28016,7 @@ export type TenantCreateWithoutSupplyRiskEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -28010,6 +28181,7 @@ export type TenantUncheckedCreateWithoutSupplyRiskEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -28190,6 +28362,7 @@ export type TenantUpdateWithoutSupplyRiskEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -28354,6 +28527,7 @@ export type TenantUncheckedUpdateWithoutSupplyRiskEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -28518,6 +28692,7 @@ export type TenantCreateWithoutResiliencePlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -28682,6 +28857,7 @@ export type TenantUncheckedCreateWithoutResiliencePlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -28862,6 +29038,7 @@ export type TenantUpdateWithoutResiliencePlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -29026,6 +29203,7 @@ export type TenantUncheckedUpdateWithoutResiliencePlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -29190,6 +29368,7 @@ export type TenantCreateWithoutProcurementCatalogsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -29354,6 +29533,7 @@ export type TenantUncheckedCreateWithoutProcurementCatalogsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -29534,6 +29714,7 @@ export type TenantUpdateWithoutProcurementCatalogsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -29698,6 +29879,7 @@ export type TenantUncheckedUpdateWithoutProcurementCatalogsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -29862,6 +30044,7 @@ export type TenantCreateWithoutGuidedCartsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -30026,6 +30209,7 @@ export type TenantUncheckedCreateWithoutGuidedCartsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -30206,6 +30390,7 @@ export type TenantUpdateWithoutGuidedCartsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -30370,6 +30555,7 @@ export type TenantUncheckedUpdateWithoutGuidedCartsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -30534,6 +30720,7 @@ export type TenantCreateWithoutInventoryLocationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -30698,6 +30885,7 @@ export type TenantUncheckedCreateWithoutInventoryLocationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -30878,6 +31066,7 @@ export type TenantUpdateWithoutInventoryLocationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -31042,6 +31231,7 @@ export type TenantUncheckedUpdateWithoutInventoryLocationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -31206,6 +31396,7 @@ export type TenantCreateWithoutInventoryItemsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -31370,6 +31561,7 @@ export type TenantUncheckedCreateWithoutInventoryItemsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -31550,6 +31742,7 @@ export type TenantUpdateWithoutInventoryItemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -31714,6 +31907,7 @@ export type TenantUncheckedUpdateWithoutInventoryItemsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -31878,6 +32072,7 @@ export type TenantCreateWithoutInventoryTransactionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -32042,6 +32237,7 @@ export type TenantUncheckedCreateWithoutInventoryTransactionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -32222,6 +32418,7 @@ export type TenantUpdateWithoutInventoryTransactionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -32386,6 +32583,7 @@ export type TenantUncheckedUpdateWithoutInventoryTransactionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -32550,6 +32748,7 @@ export type TenantCreateWithoutCycleCountsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -32714,6 +32913,7 @@ export type TenantUncheckedCreateWithoutCycleCountsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -32894,6 +33094,7 @@ export type TenantUpdateWithoutCycleCountsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -33058,6 +33259,7 @@ export type TenantUncheckedUpdateWithoutCycleCountsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -33222,6 +33424,7 @@ export type TenantCreateWithoutStatementsOfWorkInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -33386,6 +33589,7 @@ export type TenantUncheckedCreateWithoutStatementsOfWorkInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -33566,6 +33770,7 @@ export type TenantUpdateWithoutStatementsOfWorkInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -33730,6 +33935,7 @@ export type TenantUncheckedUpdateWithoutStatementsOfWorkInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -33894,6 +34100,7 @@ export type TenantCreateWithoutServiceWorkersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -34058,6 +34265,7 @@ export type TenantUncheckedCreateWithoutServiceWorkersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -34238,6 +34446,7 @@ export type TenantUpdateWithoutServiceWorkersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -34402,6 +34611,7 @@ export type TenantUncheckedUpdateWithoutServiceWorkersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -34566,6 +34776,7 @@ export type TenantCreateWithoutServiceTimeEntriesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -34730,6 +34941,7 @@ export type TenantUncheckedCreateWithoutServiceTimeEntriesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -34910,6 +35122,7 @@ export type TenantUpdateWithoutServiceTimeEntriesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -35074,6 +35287,7 @@ export type TenantUncheckedUpdateWithoutServiceTimeEntriesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -35238,6 +35452,7 @@ export type TenantCreateWithoutDemandPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -35402,6 +35617,7 @@ export type TenantUncheckedCreateWithoutDemandPlansInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -35582,6 +35798,7 @@ export type TenantUpdateWithoutDemandPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -35746,6 +35963,7 @@ export type TenantUncheckedUpdateWithoutDemandPlansInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -35910,6 +36128,7 @@ export type TenantCreateWithoutReplenishmentRecommendationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -36074,6 +36293,7 @@ export type TenantUncheckedCreateWithoutReplenishmentRecommendationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -36254,6 +36474,7 @@ export type TenantUpdateWithoutReplenishmentRecommendationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -36418,6 +36639,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentRecommendationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -36582,6 +36804,7 @@ export type TenantCreateWithoutLogisticsCarriersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -36746,6 +36969,7 @@ export type TenantUncheckedCreateWithoutLogisticsCarriersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -36926,6 +37150,7 @@ export type TenantUpdateWithoutLogisticsCarriersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -37090,6 +37315,7 @@ export type TenantUncheckedUpdateWithoutLogisticsCarriersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -37254,6 +37480,7 @@ export type TenantCreateWithoutLogisticsShipmentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -37418,6 +37645,7 @@ export type TenantUncheckedCreateWithoutLogisticsShipmentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -37598,6 +37826,7 @@ export type TenantUpdateWithoutLogisticsShipmentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -37762,6 +37991,7 @@ export type TenantUncheckedUpdateWithoutLogisticsShipmentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -37926,6 +38156,7 @@ export type TenantCreateWithoutSupplierClaimsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -38090,6 +38321,7 @@ export type TenantUncheckedCreateWithoutSupplierClaimsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -38270,6 +38502,7 @@ export type TenantUpdateWithoutSupplierClaimsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -38434,6 +38667,7 @@ export type TenantUncheckedUpdateWithoutSupplierClaimsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -38598,6 +38832,7 @@ export type TenantCreateWithoutProcurementAssetsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -38762,6 +38997,7 @@ export type TenantUncheckedCreateWithoutProcurementAssetsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -38942,6 +39178,7 @@ export type TenantUpdateWithoutProcurementAssetsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -39106,6 +39343,7 @@ export type TenantUncheckedUpdateWithoutProcurementAssetsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -39270,6 +39508,7 @@ export type TenantCreateWithoutSupplierEsgProfilesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -39434,6 +39673,7 @@ export type TenantUncheckedCreateWithoutSupplierEsgProfilesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -39614,6 +39854,7 @@ export type TenantUpdateWithoutSupplierEsgProfilesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -39778,6 +40019,7 @@ export type TenantUncheckedUpdateWithoutSupplierEsgProfilesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -39942,6 +40184,7 @@ export type TenantCreateWithoutProcurementValueInitiativesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -40106,6 +40349,7 @@ export type TenantUncheckedCreateWithoutProcurementValueInitiativesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -40286,6 +40530,7 @@ export type TenantUpdateWithoutProcurementValueInitiativesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -40450,6 +40695,7 @@ export type TenantUncheckedUpdateWithoutProcurementValueInitiativesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -40614,6 +40860,7 @@ export type TenantCreateWithoutSupplierPortalInvitationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -40778,6 +41025,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalInvitationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -40958,6 +41206,7 @@ export type TenantUpdateWithoutSupplierPortalInvitationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -41122,6 +41371,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalInvitationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -41286,6 +41536,7 @@ export type TenantCreateWithoutSupplierPortalUsersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -41450,6 +41701,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalUsersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -41630,6 +41882,7 @@ export type TenantUpdateWithoutSupplierPortalUsersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -41794,6 +42047,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalUsersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -41958,6 +42212,7 @@ export type TenantCreateWithoutSupplierOnboardingQuestionnairesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -42122,6 +42377,7 @@ export type TenantUncheckedCreateWithoutSupplierOnboardingQuestionnairesInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -42302,6 +42558,7 @@ export type TenantUpdateWithoutSupplierOnboardingQuestionnairesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -42466,6 +42723,7 @@ export type TenantUncheckedUpdateWithoutSupplierOnboardingQuestionnairesInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -42630,6 +42888,7 @@ export type TenantCreateWithoutSupplierPortalTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -42794,6 +43053,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -42974,6 +43234,7 @@ export type TenantUpdateWithoutSupplierPortalTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -43138,6 +43399,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -43302,6 +43564,7 @@ export type TenantCreateWithoutSupplierPortalMessagesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -43466,6 +43729,7 @@ export type TenantUncheckedCreateWithoutSupplierPortalMessagesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -43646,6 +43910,7 @@ export type TenantUpdateWithoutSupplierPortalMessagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -43810,6 +44075,7 @@ export type TenantUncheckedUpdateWithoutSupplierPortalMessagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -43974,6 +44240,7 @@ export type TenantCreateWithoutSubscriptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -44138,6 +44405,7 @@ export type TenantUncheckedCreateWithoutSubscriptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -44318,6 +44586,7 @@ export type TenantUpdateWithoutSubscriptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -44482,6 +44751,7 @@ export type TenantUncheckedUpdateWithoutSubscriptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -44646,6 +44916,7 @@ export type TenantCreateWithoutEntitlementsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -44810,6 +45081,7 @@ export type TenantUncheckedCreateWithoutEntitlementsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -44990,6 +45262,7 @@ export type TenantUpdateWithoutEntitlementsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -45154,6 +45427,7 @@ export type TenantUncheckedUpdateWithoutEntitlementsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -45318,6 +45592,7 @@ export type TenantCreateWithoutUsageCountersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -45482,6 +45757,7 @@ export type TenantUncheckedCreateWithoutUsageCountersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -45662,6 +45938,7 @@ export type TenantUpdateWithoutUsageCountersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -45826,6 +46103,7 @@ export type TenantUncheckedUpdateWithoutUsageCountersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -45990,6 +46268,7 @@ export type TenantCreateWithoutConfigurationProfileInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -46154,6 +46433,7 @@ export type TenantUncheckedCreateWithoutConfigurationProfileInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -46334,6 +46614,7 @@ export type TenantUpdateWithoutConfigurationProfileInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -46498,6 +46779,7 @@ export type TenantUncheckedUpdateWithoutConfigurationProfileInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -46662,6 +46944,7 @@ export type TenantCreateWithoutPlatformJobExecutionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -46826,6 +47109,7 @@ export type TenantUncheckedCreateWithoutPlatformJobExecutionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -47006,6 +47290,7 @@ export type TenantUpdateWithoutPlatformJobExecutionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -47170,6 +47455,7 @@ export type TenantUncheckedUpdateWithoutPlatformJobExecutionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -47334,6 +47620,7 @@ export type TenantCreateWithoutPlatformEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -47498,6 +47785,7 @@ export type TenantUncheckedCreateWithoutPlatformEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -47678,6 +47966,7 @@ export type TenantUpdateWithoutPlatformEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -47842,6 +48131,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -48006,6 +48296,7 @@ export type TenantCreateWithoutPlatformEventSubscriptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -48170,6 +48461,7 @@ export type TenantUncheckedCreateWithoutPlatformEventSubscriptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -48350,6 +48642,7 @@ export type TenantUpdateWithoutPlatformEventSubscriptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -48514,6 +48807,7 @@ export type TenantUncheckedUpdateWithoutPlatformEventSubscriptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -48678,6 +48972,7 @@ export type TenantCreateWithoutEnterpriseConnectorConnectionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -48842,6 +49137,7 @@ export type TenantUncheckedCreateWithoutEnterpriseConnectorConnectionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -49022,6 +49318,7 @@ export type TenantUpdateWithoutEnterpriseConnectorConnectionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -49186,6 +49483,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseConnectorConnectionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -49350,6 +49648,7 @@ export type TenantCreateWithoutVaultSecretsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -49514,6 +49813,7 @@ export type TenantUncheckedCreateWithoutVaultSecretsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -49694,6 +49994,7 @@ export type TenantUpdateWithoutVaultSecretsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -49858,6 +50159,7 @@ export type TenantUncheckedUpdateWithoutVaultSecretsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -50022,6 +50324,7 @@ export type TenantCreateWithoutEnterpriseNotificationTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -50186,6 +50489,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -50366,6 +50670,7 @@ export type TenantUpdateWithoutEnterpriseNotificationTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -50530,6 +50835,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -50694,6 +51000,7 @@ export type TenantCreateWithoutEnterpriseNotificationPreferencesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -50858,6 +51165,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationPreferencesInput =
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -51038,6 +51346,7 @@ export type TenantUpdateWithoutEnterpriseNotificationPreferencesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -51202,6 +51511,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationPreferencesInput =
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -51366,6 +51676,7 @@ export type TenantCreateWithoutEnterpriseNotificationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -51530,6 +51841,7 @@ export type TenantUncheckedCreateWithoutEnterpriseNotificationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -51710,6 +52022,7 @@ export type TenantUpdateWithoutEnterpriseNotificationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -51874,6 +52187,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseNotificationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -52038,6 +52352,7 @@ export type TenantCreateWithoutEnterpriseActivitiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -52202,6 +52517,7 @@ export type TenantUncheckedCreateWithoutEnterpriseActivitiesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -52382,6 +52698,7 @@ export type TenantUpdateWithoutEnterpriseActivitiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -52546,6 +52863,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseActivitiesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -52710,6 +53028,7 @@ export type TenantCreateWithoutEnterprisePoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -52874,6 +53193,7 @@ export type TenantUncheckedCreateWithoutEnterprisePoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -53054,6 +53374,7 @@ export type TenantUpdateWithoutEnterprisePoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -53218,6 +53539,7 @@ export type TenantUncheckedUpdateWithoutEnterprisePoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -53382,6 +53704,7 @@ export type TenantCreateWithoutEnterpriseFeatureFlagsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -53546,6 +53869,7 @@ export type TenantUncheckedCreateWithoutEnterpriseFeatureFlagsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -53726,6 +54050,7 @@ export type TenantUpdateWithoutEnterpriseFeatureFlagsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -53890,6 +54215,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseFeatureFlagsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -54054,6 +54380,7 @@ export type TenantCreateWithoutPlatformCertificationRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -54218,6 +54545,7 @@ export type TenantUncheckedCreateWithoutPlatformCertificationRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -54398,6 +54726,7 @@ export type TenantUpdateWithoutPlatformCertificationRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -54562,6 +54891,7 @@ export type TenantUncheckedUpdateWithoutPlatformCertificationRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -54726,6 +55056,7 @@ export type TenantCreateWithoutRequisitionOrderJourneysInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -54890,6 +55221,7 @@ export type TenantUncheckedCreateWithoutRequisitionOrderJourneysInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -55070,6 +55402,7 @@ export type TenantUpdateWithoutRequisitionOrderJourneysInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -55234,6 +55567,7 @@ export type TenantUncheckedUpdateWithoutRequisitionOrderJourneysInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -55398,6 +55732,7 @@ export type TenantCreateWithoutRequisitionSubmissionAssessmentsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -55562,6 +55897,7 @@ export type TenantUncheckedCreateWithoutRequisitionSubmissionAssessmentsInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -55742,6 +56078,7 @@ export type TenantUpdateWithoutRequisitionSubmissionAssessmentsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -55906,6 +56243,7 @@ export type TenantUncheckedUpdateWithoutRequisitionSubmissionAssessmentsInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -56070,6 +56408,7 @@ export type TenantCreateWithoutRequisitionApprovalRoutesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -56234,6 +56573,7 @@ export type TenantUncheckedCreateWithoutRequisitionApprovalRoutesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -56414,6 +56754,7 @@ export type TenantUpdateWithoutRequisitionApprovalRoutesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -56578,6 +56919,7 @@ export type TenantUncheckedUpdateWithoutRequisitionApprovalRoutesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -56742,6 +57084,7 @@ export type TenantCreateWithoutPurchaseOrderExecutionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -56906,6 +57249,7 @@ export type TenantUncheckedCreateWithoutPurchaseOrderExecutionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -57086,6 +57430,7 @@ export type TenantUpdateWithoutPurchaseOrderExecutionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -57250,6 +57595,7 @@ export type TenantUncheckedUpdateWithoutPurchaseOrderExecutionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -57414,6 +57760,7 @@ export type TenantCreateWithoutGoodsReceiptSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -57578,6 +57925,7 @@ export type TenantUncheckedCreateWithoutGoodsReceiptSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -57758,6 +58106,7 @@ export type TenantUpdateWithoutGoodsReceiptSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -57922,6 +58271,7 @@ export type TenantUncheckedUpdateWithoutGoodsReceiptSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -58086,6 +58436,7 @@ export type TenantCreateWithoutThreeWayMatchCasesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -58250,6 +58601,7 @@ export type TenantUncheckedCreateWithoutThreeWayMatchCasesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -58430,6 +58782,7 @@ export type TenantUpdateWithoutThreeWayMatchCasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -58594,6 +58947,7 @@ export type TenantUncheckedUpdateWithoutThreeWayMatchCasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -58758,6 +59112,7 @@ export type TenantCreateWithoutApPaymentReadinessCasesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -58922,6 +59277,7 @@ export type TenantUncheckedCreateWithoutApPaymentReadinessCasesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -59102,6 +59458,7 @@ export type TenantUpdateWithoutApPaymentReadinessCasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -59266,6 +59623,7 @@ export type TenantUncheckedUpdateWithoutApPaymentReadinessCasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -59430,6 +59788,7 @@ export type TenantCreateWithoutProcurementProcessCertificationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -59594,6 +59953,7 @@ export type TenantUncheckedCreateWithoutProcurementProcessCertificationsInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -59774,6 +60134,7 @@ export type TenantUpdateWithoutProcurementProcessCertificationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -59938,6 +60299,7 @@ export type TenantUncheckedUpdateWithoutProcurementProcessCertificationsInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -60102,6 +60464,7 @@ export type TenantCreateWithoutInventoryMovementLedgersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -60266,6 +60629,7 @@ export type TenantUncheckedCreateWithoutInventoryMovementLedgersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -60446,6 +60810,7 @@ export type TenantUpdateWithoutInventoryMovementLedgersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -60610,6 +60975,7 @@ export type TenantUncheckedUpdateWithoutInventoryMovementLedgersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -60774,6 +61140,7 @@ export type TenantCreateWithoutInventoryAvailabilitySnapshotsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -60938,6 +61305,7 @@ export type TenantUncheckedCreateWithoutInventoryAvailabilitySnapshotsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -61118,6 +61486,7 @@ export type TenantUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -61282,6 +61651,7 @@ export type TenantUncheckedUpdateWithoutInventoryAvailabilitySnapshotsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -61446,6 +61816,7 @@ export type TenantCreateWithoutInventoryReservationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -61610,6 +61981,7 @@ export type TenantUncheckedCreateWithoutInventoryReservationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -61790,6 +62162,7 @@ export type TenantUpdateWithoutInventoryReservationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -61954,6 +62327,7 @@ export type TenantUncheckedUpdateWithoutInventoryReservationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -62118,6 +62492,7 @@ export type TenantCreateWithoutInventoryOperationExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -62282,6 +62657,7 @@ export type TenantUncheckedCreateWithoutInventoryOperationExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -62462,6 +62838,7 @@ export type TenantUpdateWithoutInventoryOperationExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -62626,6 +63003,7 @@ export type TenantUncheckedUpdateWithoutInventoryOperationExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -62790,6 +63168,7 @@ export type TenantCreateWithoutWarehouseReceivingSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -62954,6 +63333,7 @@ export type TenantUncheckedCreateWithoutWarehouseReceivingSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -63134,6 +63514,7 @@ export type TenantUpdateWithoutWarehouseReceivingSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -63298,6 +63679,7 @@ export type TenantUncheckedUpdateWithoutWarehouseReceivingSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -63462,6 +63844,7 @@ export type TenantCreateWithoutWarehouseLocationControlsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -63626,6 +64009,7 @@ export type TenantUncheckedCreateWithoutWarehouseLocationControlsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -63806,6 +64190,7 @@ export type TenantUpdateWithoutWarehouseLocationControlsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -63970,6 +64355,7 @@ export type TenantUncheckedUpdateWithoutWarehouseLocationControlsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -64134,6 +64520,7 @@ export type TenantCreateWithoutPutawayTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -64298,6 +64685,7 @@ export type TenantUncheckedCreateWithoutPutawayTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -64478,6 +64866,7 @@ export type TenantUpdateWithoutPutawayTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -64642,6 +65031,7 @@ export type TenantUncheckedUpdateWithoutPutawayTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -64806,6 +65196,7 @@ export type TenantCreateWithoutWarehouseDiscrepanciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -64970,6 +65361,7 @@ export type TenantUncheckedCreateWithoutWarehouseDiscrepanciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -65150,6 +65542,7 @@ export type TenantUpdateWithoutWarehouseDiscrepanciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -65314,6 +65707,7 @@ export type TenantUncheckedUpdateWithoutWarehouseDiscrepanciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -65478,6 +65872,7 @@ export type TenantCreateWithoutWarehouseFulfillmentOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -65642,6 +66037,7 @@ export type TenantUncheckedCreateWithoutWarehouseFulfillmentOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -65822,6 +66218,7 @@ export type TenantUpdateWithoutWarehouseFulfillmentOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -65986,6 +66383,7 @@ export type TenantUncheckedUpdateWithoutWarehouseFulfillmentOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -66150,6 +66548,7 @@ export type TenantCreateWithoutWarehousePickTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -66314,6 +66713,7 @@ export type TenantUncheckedCreateWithoutWarehousePickTasksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -66494,6 +66894,7 @@ export type TenantUpdateWithoutWarehousePickTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -66658,6 +67059,7 @@ export type TenantUncheckedUpdateWithoutWarehousePickTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -66822,6 +67224,7 @@ export type TenantCreateWithoutWarehousePackagesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -66986,6 +67389,7 @@ export type TenantUncheckedCreateWithoutWarehousePackagesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -67166,6 +67570,7 @@ export type TenantUpdateWithoutWarehousePackagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -67330,6 +67735,7 @@ export type TenantUncheckedUpdateWithoutWarehousePackagesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -67494,6 +67900,7 @@ export type TenantCreateWithoutWarehouseFulfillmentExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -67658,6 +68065,7 @@ export type TenantUncheckedCreateWithoutWarehouseFulfillmentExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -67838,6 +68246,7 @@ export type TenantUpdateWithoutWarehouseFulfillmentExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -68002,6 +68411,7 @@ export type TenantUncheckedUpdateWithoutWarehouseFulfillmentExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -68166,6 +68576,7 @@ export type TenantCreateWithoutInventoryCountSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -68330,6 +68741,7 @@ export type TenantUncheckedCreateWithoutInventoryCountSessionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -68510,6 +68922,7 @@ export type TenantUpdateWithoutInventoryCountSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -68674,6 +69087,7 @@ export type TenantUncheckedUpdateWithoutInventoryCountSessionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -68838,6 +69252,7 @@ export type TenantCreateWithoutInventoryReconciliationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -69002,6 +69417,7 @@ export type TenantUncheckedCreateWithoutInventoryReconciliationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -69182,6 +69598,7 @@ export type TenantUpdateWithoutInventoryReconciliationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -69346,6 +69763,7 @@ export type TenantUncheckedUpdateWithoutInventoryReconciliationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -69510,6 +69928,7 @@ export type TenantCreateWithoutInventoryTraceUnitsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -69674,6 +70093,7 @@ export type TenantUncheckedCreateWithoutInventoryTraceUnitsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -69854,6 +70274,7 @@ export type TenantUpdateWithoutInventoryTraceUnitsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -70018,6 +70439,7 @@ export type TenantUncheckedUpdateWithoutInventoryTraceUnitsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -70182,6 +70604,7 @@ export type TenantCreateWithoutInventoryTraceEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -70346,6 +70769,7 @@ export type TenantUncheckedCreateWithoutInventoryTraceEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -70526,6 +70950,7 @@ export type TenantUpdateWithoutInventoryTraceEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -70690,6 +71115,7 @@ export type TenantUncheckedUpdateWithoutInventoryTraceEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -70854,6 +71280,7 @@ export type TenantCreateWithoutInventoryTraceHoldsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -71018,6 +71445,7 @@ export type TenantUncheckedCreateWithoutInventoryTraceHoldsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -71198,6 +71626,7 @@ export type TenantUpdateWithoutInventoryTraceHoldsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -71362,6 +71791,7 @@ export type TenantUncheckedUpdateWithoutInventoryTraceHoldsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -71526,6 +71956,7 @@ export type TenantCreateWithoutReplenishmentPoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -71690,6 +72121,7 @@ export type TenantUncheckedCreateWithoutReplenishmentPoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -71870,6 +72302,7 @@ export type TenantUpdateWithoutReplenishmentPoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -72034,6 +72467,7 @@ export type TenantUncheckedUpdateWithoutReplenishmentPoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -72198,6 +72632,7 @@ export type TenantCreateWithoutStockReplenishmentRecommendationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -72362,6 +72797,7 @@ export type TenantUncheckedCreateWithoutStockReplenishmentRecommendationsInput =
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -72542,6 +72978,7 @@ export type TenantUpdateWithoutStockReplenishmentRecommendationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -72706,6 +73143,7 @@ export type TenantUncheckedUpdateWithoutStockReplenishmentRecommendationsInput =
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -72870,6 +73308,7 @@ export type TenantCreateWithoutStockTransferOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -73034,6 +73473,7 @@ export type TenantUncheckedCreateWithoutStockTransferOrdersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -73214,6 +73654,7 @@ export type TenantUpdateWithoutStockTransferOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -73378,6 +73819,7 @@ export type TenantUncheckedUpdateWithoutStockTransferOrdersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -73542,6 +73984,7 @@ export type TenantCreateWithoutStockTransferExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -73706,6 +74149,7 @@ export type TenantUncheckedCreateWithoutStockTransferExceptionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -73886,6 +74330,7 @@ export type TenantUpdateWithoutStockTransferExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -74050,6 +74495,7 @@ export type TenantUncheckedUpdateWithoutStockTransferExceptionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -74214,6 +74660,7 @@ export type TenantCreateWithoutInventoryFinancialValuationPoliciesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -74378,6 +74825,7 @@ export type TenantUncheckedCreateWithoutInventoryFinancialValuationPoliciesInput
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -74558,6 +75006,7 @@ export type TenantUpdateWithoutInventoryFinancialValuationPoliciesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -74722,6 +75171,7 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialValuationPoliciesInput
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -74886,6 +75336,7 @@ export type TenantCreateWithoutInventoryFinancialCostLayersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -75050,6 +75501,7 @@ export type TenantUncheckedCreateWithoutInventoryFinancialCostLayersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -75230,6 +75682,7 @@ export type TenantUpdateWithoutInventoryFinancialCostLayersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -75394,6 +75847,7 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialCostLayersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -75558,6 +76012,7 @@ export type TenantCreateWithoutInventoryFinancialValuationSnapshotsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -75722,6 +76177,7 @@ export type TenantUncheckedCreateWithoutInventoryFinancialValuationSnapshotsInpu
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -75902,6 +76358,7 @@ export type TenantUpdateWithoutInventoryFinancialValuationSnapshotsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -76066,6 +76523,7 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialValuationSnapshotsInpu
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -76230,6 +76688,7 @@ export type TenantCreateWithoutInventoryFinancialReconciliationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -76394,6 +76853,7 @@ export type TenantUncheckedCreateWithoutInventoryFinancialReconciliationsInput =
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -76574,6 +77034,7 @@ export type TenantUpdateWithoutInventoryFinancialReconciliationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -76738,6 +77199,7 @@ export type TenantUncheckedUpdateWithoutInventoryFinancialReconciliationsInput =
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -76902,6 +77364,7 @@ export type TenantCreateWithoutEnterpriseAnalyticsMetricDefinitionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -77066,6 +77529,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsMetricDefinitionsInpu
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -77246,6 +77710,7 @@ export type TenantUpdateWithoutEnterpriseAnalyticsMetricDefinitionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -77410,6 +77875,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsMetricDefinitionsInpu
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -77574,6 +78040,7 @@ export type TenantCreateWithoutEnterpriseAnalyticsMetricSnapshotsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -77738,6 +78205,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsMetricSnapshotsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -77918,6 +78386,7 @@ export type TenantUpdateWithoutEnterpriseAnalyticsMetricSnapshotsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -78082,6 +78551,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsMetricSnapshotsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -78246,6 +78716,7 @@ export type TenantCreateWithoutEnterpriseAnalyticsAggregationRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -78410,6 +78881,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsAggregationRunsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -78590,6 +79062,7 @@ export type TenantUpdateWithoutEnterpriseAnalyticsAggregationRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -78754,6 +79227,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsAggregationRunsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -78918,6 +79392,7 @@ export type TenantCreateWithoutEnterpriseAnalyticsAggregationFailuresInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -79082,6 +79557,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAnalyticsAggregationFailuresIn
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -79262,6 +79738,7 @@ export type TenantUpdateWithoutEnterpriseAnalyticsAggregationFailuresInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -79426,6 +79903,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAnalyticsAggregationFailuresIn
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -79590,6 +80068,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -79754,6 +80233,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -79934,6 +80414,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -80098,6 +80579,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -80262,6 +80744,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -80426,6 +80909,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -80606,6 +81090,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -80770,6 +81255,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -80934,6 +81420,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightEvidenceInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -81098,6 +81585,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightEvidenceInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -81278,6 +81766,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightEvidenceInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -81442,6 +81931,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightEvidenceInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -81606,6 +82096,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightFeedbackInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -81770,6 +82261,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightFeedbackInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -81950,6 +82442,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightFeedbackInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -82114,6 +82607,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightFeedbackInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -82278,6 +82772,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -82442,6 +82937,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalsInput =
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -82622,6 +83118,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -82786,6 +83283,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalsInput =
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -82950,6 +83448,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalDecisionsInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -83114,6 +83613,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalDecision
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -83294,6 +83794,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalDecisionsInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -83458,6 +83959,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalDecision
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -83622,6 +84124,7 @@ export type TenantCreateWithoutGovernedExecutiveInsightApprovalAuditEventsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -83786,6 +84289,7 @@ export type TenantUncheckedCreateWithoutGovernedExecutiveInsightApprovalAuditEve
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -83966,6 +84470,7 @@ export type TenantUpdateWithoutGovernedExecutiveInsightApprovalAuditEventsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -84130,6 +84635,7 @@ export type TenantUncheckedUpdateWithoutGovernedExecutiveInsightApprovalAuditEve
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -84294,6 +84800,7 @@ export type TenantCreateWithoutExecutiveSynthesisRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -84458,6 +84965,7 @@ export type TenantUncheckedCreateWithoutExecutiveSynthesisRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -84638,6 +85146,7 @@ export type TenantUpdateWithoutExecutiveSynthesisRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -84802,6 +85311,7 @@ export type TenantUncheckedUpdateWithoutExecutiveSynthesisRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -84966,6 +85476,7 @@ export type TenantCreateWithoutExecutiveSynthesesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -85130,6 +85641,7 @@ export type TenantUncheckedCreateWithoutExecutiveSynthesesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -85310,6 +85822,7 @@ export type TenantUpdateWithoutExecutiveSynthesesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -85474,6 +85987,7 @@ export type TenantUncheckedUpdateWithoutExecutiveSynthesesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -85638,6 +86152,7 @@ export type TenantCreateWithoutExecutiveBoardPackDefinitionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -85802,6 +86317,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardPackDefinitionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -85982,6 +86498,7 @@ export type TenantUpdateWithoutExecutiveBoardPackDefinitionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -86146,6 +86663,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardPackDefinitionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -86310,6 +86828,7 @@ export type TenantCreateWithoutExecutiveBoardPacksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -86474,6 +86993,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardPacksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -86654,6 +87174,7 @@ export type TenantUpdateWithoutExecutiveBoardPacksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -86818,6 +87339,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardPacksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -86982,6 +87504,7 @@ export type TenantCreateWithoutExecutiveBoardPackExportsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -87146,6 +87669,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardPackExportsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -87326,6 +87850,7 @@ export type TenantUpdateWithoutExecutiveBoardPackExportsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -87490,6 +88015,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardPackExportsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -87654,6 +88180,7 @@ export type TenantCreateWithoutExecutiveBoardReportSchedulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -87818,6 +88345,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardReportSchedulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -87998,6 +88526,7 @@ export type TenantUpdateWithoutExecutiveBoardReportSchedulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -88162,6 +88691,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardReportSchedulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -88326,6 +88856,7 @@ export type TenantCreateWithoutExecutiveBoardReportScheduleRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -88490,6 +89021,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardReportScheduleRunsInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -88670,6 +89202,7 @@ export type TenantUpdateWithoutExecutiveBoardReportScheduleRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -88834,6 +89367,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardReportScheduleRunsInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -88998,6 +89532,7 @@ export type TenantCreateWithoutExecutiveBoardRecipientGroupsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -89162,6 +89697,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardRecipientGroupsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -89342,6 +89878,7 @@ export type TenantUpdateWithoutExecutiveBoardRecipientGroupsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -89506,6 +90043,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardRecipientGroupsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -89670,6 +90208,7 @@ export type TenantCreateWithoutExecutiveBoardRecipientsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -89834,6 +90373,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardRecipientsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -90014,6 +90554,7 @@ export type TenantUpdateWithoutExecutiveBoardRecipientsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -90178,6 +90719,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardRecipientsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -90342,6 +90884,7 @@ export type TenantCreateWithoutExecutiveBoardDistributionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -90506,6 +91049,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardDistributionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -90686,6 +91230,7 @@ export type TenantUpdateWithoutExecutiveBoardDistributionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -90850,6 +91395,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardDistributionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -91014,6 +91560,7 @@ export type TenantCreateWithoutExecutiveBoardDeliveriesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -91178,6 +91725,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardDeliveriesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -91358,6 +91906,7 @@ export type TenantUpdateWithoutExecutiveBoardDeliveriesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -91522,6 +92071,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardDeliveriesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -91686,6 +92236,7 @@ export type TenantCreateWithoutExecutiveBoardDeliveryAccessEventsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -91850,6 +92401,7 @@ export type TenantUncheckedCreateWithoutExecutiveBoardDeliveryAccessEventsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -92030,6 +92582,7 @@ export type TenantUpdateWithoutExecutiveBoardDeliveryAccessEventsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -92194,6 +92747,7 @@ export type TenantUncheckedUpdateWithoutExecutiveBoardDeliveryAccessEventsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -92358,6 +92912,7 @@ export type TenantCreateWithoutEnterpriseAutomationRulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -92522,6 +93077,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRulesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -92702,6 +93258,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -92866,6 +93423,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRulesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -93030,6 +93588,7 @@ export type TenantCreateWithoutEnterpriseAutomationTriggersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -93194,6 +93753,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationTriggersInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -93374,6 +93934,7 @@ export type TenantUpdateWithoutEnterpriseAutomationTriggersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -93538,6 +94099,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationTriggersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -93702,6 +94264,7 @@ export type TenantCreateWithoutEnterpriseAutomationActionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -93866,6 +94429,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationActionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -94046,6 +94610,7 @@ export type TenantUpdateWithoutEnterpriseAutomationActionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -94210,6 +94775,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationActionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -94374,6 +94940,7 @@ export type TenantCreateWithoutEnterpriseAutomationRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -94538,6 +95105,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -94718,6 +95286,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -94882,6 +95451,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -95046,6 +95616,7 @@ export type TenantCreateWithoutEnterpriseAutomationActionRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -95210,6 +95781,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationActionRunsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -95390,6 +95962,7 @@ export type TenantUpdateWithoutEnterpriseAutomationActionRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -95554,6 +96127,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationActionRunsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -95718,6 +96292,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuleVersionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -95882,6 +96457,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuleVersionsInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -96062,6 +96638,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuleVersionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -96226,6 +96803,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuleVersionsInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -96390,6 +96968,7 @@ export type TenantCreateWithoutEnterpriseAutomationTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -96554,6 +97133,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationTemplatesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -96734,6 +97314,7 @@ export type TenantUpdateWithoutEnterpriseAutomationTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -96898,6 +97479,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationTemplatesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -97062,6 +97644,7 @@ export type TenantCreateWithoutEnterpriseAutomationSimulationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -97226,6 +97809,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationSimulationsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -97406,6 +97990,7 @@ export type TenantUpdateWithoutEnterpriseAutomationSimulationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -97570,6 +98155,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationSimulationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -97734,6 +98320,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuntimeExecutionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -97898,6 +98485,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuntimeExecutionsInp
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -98078,6 +98666,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuntimeExecutionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -98242,6 +98831,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuntimeExecutionsInp
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -98406,6 +98996,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuntimeNodesInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -98570,6 +99161,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuntimeNodesInput = 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -98750,6 +99342,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuntimeNodesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -98914,6 +99507,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuntimeNodesInput = 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -99078,6 +99672,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuntimeSignalsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -99242,6 +99837,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuntimeSignalsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -99422,6 +100018,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuntimeSignalsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -99586,6 +100183,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuntimeSignalsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -99750,6 +100348,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuntimeActionsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -99914,6 +100513,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuntimeActionsInput 
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -100094,6 +100694,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuntimeActionsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -100258,6 +100859,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuntimeActionsInput 
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -100422,6 +101024,7 @@ export type TenantCreateWithoutEnterpriseAutomationRuntimeCallbacksInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -100586,6 +101189,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationRuntimeCallbacksInpu
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -100766,6 +101370,7 @@ export type TenantUpdateWithoutEnterpriseAutomationRuntimeCallbacksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -100930,6 +101535,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationRuntimeCallbacksInpu
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -101094,6 +101700,7 @@ export type TenantCreateWithoutEnterpriseAutomationConnectorsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -101258,6 +101865,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationConnectorsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -101438,6 +102046,7 @@ export type TenantUpdateWithoutEnterpriseAutomationConnectorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -101602,6 +102211,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationConnectorsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -101766,6 +102376,7 @@ export type TenantCreateWithoutEnterpriseAutomationConnectorAuditsInput = {
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -101930,6 +102541,7 @@ export type TenantUncheckedCreateWithoutEnterpriseAutomationConnectorAuditsInput
   name: string
   legalName?: string | null
   status?: $Enums.TenantStatus
+  commercialPersona?: $Enums.TenantCommercialPersona
   countryCode?: string | null
   defaultLocale?: string
   defaultTimeZone?: string
@@ -102110,6 +102722,7 @@ export type TenantUpdateWithoutEnterpriseAutomationConnectorAuditsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -102274,6 +102887,7 @@ export type TenantUncheckedUpdateWithoutEnterpriseAutomationConnectorAuditsInput
   name?: Prisma.StringFieldUpdateOperationsInput | string
   legalName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumTenantStatusFieldUpdateOperationsInput | $Enums.TenantStatus
+  commercialPersona?: Prisma.EnumTenantCommercialPersonaFieldUpdateOperationsInput | $Enums.TenantCommercialPersona
   countryCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   defaultLocale?: Prisma.StringFieldUpdateOperationsInput | string
   defaultTimeZone?: Prisma.StringFieldUpdateOperationsInput | string
@@ -103774,6 +104388,7 @@ export type TenantSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name?: boolean
   legalName?: boolean
   status?: boolean
+  commercialPersona?: boolean
   countryCode?: boolean
   defaultLocale?: boolean
   defaultTimeZone?: boolean
@@ -103940,6 +104555,7 @@ export type TenantSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   name?: boolean
   legalName?: boolean
   status?: boolean
+  commercialPersona?: boolean
   countryCode?: boolean
   defaultLocale?: boolean
   defaultTimeZone?: boolean
@@ -103958,6 +104574,7 @@ export type TenantSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   name?: boolean
   legalName?: boolean
   status?: boolean
+  commercialPersona?: boolean
   countryCode?: boolean
   defaultLocale?: boolean
   defaultTimeZone?: boolean
@@ -103976,6 +104593,7 @@ export type TenantSelectScalar = {
   name?: boolean
   legalName?: boolean
   status?: boolean
+  commercialPersona?: boolean
   countryCode?: boolean
   defaultLocale?: boolean
   defaultTimeZone?: boolean
@@ -103988,7 +104606,7 @@ export type TenantSelectScalar = {
   archivedAt?: boolean
 }
 
-export type TenantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "legalName" | "status" | "countryCode" | "defaultLocale" | "defaultTimeZone" | "currencyPolicyMode" | "baseCurrencyCode" | "localDisplayCurrency" | "usdReportingEnabled" | "createdAt" | "updatedAt" | "archivedAt", ExtArgs["result"]["tenant"]>
+export type TenantOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "legalName" | "status" | "commercialPersona" | "countryCode" | "defaultLocale" | "defaultTimeZone" | "currencyPolicyMode" | "baseCurrencyCode" | "localDisplayCurrency" | "usdReportingEnabled" | "createdAt" | "updatedAt" | "archivedAt", ExtArgs["result"]["tenant"]>
 export type TenantInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memberships?: boolean | Prisma.Tenant$membershipsArgs<ExtArgs>
   legalEntities?: boolean | Prisma.Tenant$legalEntitiesArgs<ExtArgs>
@@ -104299,6 +104917,7 @@ export type $TenantPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     name: string
     legalName: string | null
     status: $Enums.TenantStatus
+    commercialPersona: $Enums.TenantCommercialPersona
     countryCode: string | null
     defaultLocale: string
     defaultTimeZone: string
@@ -104884,6 +105503,7 @@ export interface TenantFieldRefs {
   readonly name: Prisma.FieldRef<"Tenant", 'String'>
   readonly legalName: Prisma.FieldRef<"Tenant", 'String'>
   readonly status: Prisma.FieldRef<"Tenant", 'TenantStatus'>
+  readonly commercialPersona: Prisma.FieldRef<"Tenant", 'TenantCommercialPersona'>
   readonly countryCode: Prisma.FieldRef<"Tenant", 'String'>
   readonly defaultLocale: Prisma.FieldRef<"Tenant", 'String'>
   readonly defaultTimeZone: Prisma.FieldRef<"Tenant", 'String'>

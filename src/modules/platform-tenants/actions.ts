@@ -10,12 +10,14 @@ import {
   MembershipStatus,
   PlatformRole,
   TenantStatus,
+  TenantCommercialPersona,
 } from "@/generated/prisma/enums";
 import { prisma } from "@/lib/prisma";
 import {
   assignPlatformTenantOwnerSchema,
   createPlatformTenantSchema,
   updatePlatformTenantStatusSchema,
+  updatePlatformTenantCommercialPersonaSchema,
 } from "./schemas";
 
 async function requirePlatformSuperAdmin() {
@@ -50,6 +52,7 @@ export async function createPlatformTenantAction(formData: FormData) {
   const input = createPlatformTenantSchema.parse({
     name: value(formData, "name"),
     legalName: value(formData, "legalName"),
+    commercialPersona: value(formData, "commercialPersona"),
     slug: value(formData, "slug"),
     countryCode: value(formData, "countryCode"),
     defaultLocale: value(formData, "defaultLocale") || "en-US",
@@ -77,6 +80,8 @@ export async function createPlatformTenantAction(formData: FormData) {
         slug: input.slug,
         name: input.name,
         legalName: input.legalName,
+        commercialPersona:
+          input.commercialPersona as TenantCommercialPersona,
         status: input.activateImmediately
           ? TenantStatus.ACTIVE
           : TenantStatus.PROVISIONING,
@@ -387,4 +392,52 @@ export async function sendTenantMemberActivationAction(formData: FormData) {
   });
 
   revalidatePath(`/app/settings/tenants/${tenantId}`);
+}
+
+
+export async function updatePlatformTenantCommercialPersonaAction(formData: FormData) {
+  const actor = await requirePlatformSuperAdmin();
+
+  const input = updatePlatformTenantCommercialPersonaSchema.parse({
+    tenantId: value(formData, "tenantId"),
+    commercialPersona: value(formData, "commercialPersona"),
+  });
+
+  const before = await prisma.tenant.findUniqueOrThrow({
+    where: { id: input.tenantId },
+    select: { commercialPersona: true, name: true },
+  });
+
+  const updated = await prisma.tenant.update({
+    where: { id: input.tenantId },
+    data: {
+      commercialPersona:
+        input.commercialPersona as TenantCommercialPersona,
+    },
+    select: { id: true, name: true, commercialPersona: true },
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: updated.id,
+      userId: actor.id,
+      actorType: "USER",
+      actorId: actor.id,
+      actorLabel: actor.email,
+      action: "platform.tenant.commercial-persona.update",
+      resourceType: "Tenant",
+      resourceId: updated.id,
+      before: {
+        name: before.name,
+        commercialPersona: before.commercialPersona,
+      },
+      after: {
+        name: updated.name,
+        commercialPersona: updated.commercialPersona,
+      },
+    },
+  });
+
+  revalidatePath("/app/settings/tenants");
+  revalidatePath(`/app/settings/tenants/${updated.id}`);
 }
