@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { requireAnyRole } from "@/core/auth/authorization";
 import { prisma } from "@/lib/prisma";
+import { deleteMarketplaceImage, MAX_OFFERING_IMAGES, uploadMarketplaceImage } from "@/modules/marketplace-catalog/media";
 
 const roles = [
   "TENANT_OWNER",
@@ -102,6 +103,16 @@ export async function createMarketplaceOfferingAction(
       },
     });
 
+  const images = data.getAll("images").filter((value): value is File => value instanceof File && value.size > 0);
+  if (images.length > MAX_OFFERING_IMAGES) throw new Error(`Upload no more than ${MAX_OFFERING_IMAGES} images per offering.`);
+  for (const [position, image] of images.entries()) {
+    const blob = await uploadMarketplaceImage(user.tenantId, offering.id, image);
+    const media = await prisma.supplierMarketplaceOfferingMedia.create({
+      data: { tenantId: user.tenantId, offeringId: offering.id, pathname: blob.pathname, contentType: image.type, sizeBytes: image.size, altText: offering.name, position, isPrimary: position === 0, uploadedByUserId: user.id },
+    });
+    if (position === 0) await prisma.supplierMarketplaceOffering.update({ where: { id: offering.id }, data: { imageRef: media.pathname } });
+  }
+
   await prisma.auditEvent.create({
     data: {
       tenantId: user.tenantId,
@@ -148,5 +159,48 @@ export async function updateMarketplaceOfferingStatusAction(
     },
   });
 
+  revalidatePath("/app/marketplace/catalog");
+}
+
+
+export async function addMarketplaceOfferingImagesAction(data: FormData) {
+  const user = await requireAnyRole([...roles]);
+  const offeringId = field(data, "offeringId");
+  const offering = await prisma.supplierMarketplaceOffering.findFirstOrThrow({ where: { id: offeringId, tenantId: user.tenantId } });
+  const existing = await prisma.supplierMarketplaceOfferingMedia.count({ where: { offeringId, tenantId: user.tenantId } });
+  const images = data.getAll("images").filter((value): value is File => value instanceof File && value.size > 0);
+  if (!images.length) throw new Error("Select at least one image.");
+  if (existing + images.length > MAX_OFFERING_IMAGES) throw new Error(`An offering can contain up to ${MAX_OFFERING_IMAGES} images.`);
+  for (const [offset, image] of images.entries()) {
+    const blob = await uploadMarketplaceImage(user.tenantId, offeringId, image);
+    const media = await prisma.supplierMarketplaceOfferingMedia.create({ data: { tenantId: user.tenantId, offeringId, pathname: blob.pathname, contentType: image.type, sizeBytes: image.size, altText: offering.name, position: existing + offset, isPrimary: existing === 0 && offset === 0, uploadedByUserId: user.id } });
+    if (existing === 0 && offset === 0) await prisma.supplierMarketplaceOffering.update({ where: { id: offeringId }, data: { imageRef: media.pathname } });
+  }
+  revalidatePath("/app/marketplace/catalog");
+}
+
+export async function setMarketplaceOfferingPrimaryImageAction(data: FormData) {
+  const user = await requireAnyRole([...roles]);
+  const mediaId = field(data, "mediaId");
+  const media = await prisma.supplierMarketplaceOfferingMedia.findFirstOrThrow({ where: { id: mediaId, tenantId: user.tenantId } });
+  await prisma.$transaction([
+    prisma.supplierMarketplaceOfferingMedia.updateMany({ where: { offeringId: media.offeringId, tenantId: user.tenantId }, data: { isPrimary: false } }),
+    prisma.supplierMarketplaceOfferingMedia.update({ where: { id: media.id }, data: { isPrimary: true } }),
+    prisma.supplierMarketplaceOffering.update({ where: { id: media.offeringId }, data: { imageRef: media.pathname } }),
+  ]);
+  revalidatePath("/app/marketplace/catalog");
+}
+
+export async function deleteMarketplaceOfferingImageAction(data: FormData) {
+  const user = await requireAnyRole([...roles]);
+  const mediaId = field(data, "mediaId");
+  const media = await prisma.supplierMarketplaceOfferingMedia.findFirstOrThrow({ where: { id: mediaId, tenantId: user.tenantId } });
+  await deleteMarketplaceImage(media.pathname);
+  await prisma.supplierMarketplaceOfferingMedia.delete({ where: { id: media.id } });
+  if (media.isPrimary) {
+    const next = await prisma.supplierMarketplaceOfferingMedia.findFirst({ where: { offeringId: media.offeringId, tenantId: user.tenantId }, orderBy: [{ position: "asc" }, { createdAt: "asc" }] });
+    if (next) await prisma.supplierMarketplaceOfferingMedia.update({ where: { id: next.id }, data: { isPrimary: true } });
+    await prisma.supplierMarketplaceOffering.update({ where: { id: media.offeringId }, data: { imageRef: next?.pathname ?? null } });
+  }
   revalidatePath("/app/marketplace/catalog");
 }

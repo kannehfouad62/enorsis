@@ -369,7 +369,8 @@ export const ModelName = {
   PublicSiteGuide: 'PublicSiteGuide',
   PublicSiteJobOpening: 'PublicSiteJobOpening',
   EndToEndCommerceCertificationRun: 'EndToEndCommerceCertificationRun',
-  EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck'
+  EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck',
+  SupplierMarketplaceOfferingMedia: 'SupplierMarketplaceOfferingMedia'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -7283,6 +7284,23 @@ export const EndToEndCommerceCertificationCheckScalarFieldEnum = {
 } as const
 
 export type EndToEndCommerceCertificationCheckScalarFieldEnum = (typeof EndToEndCommerceCertificationCheckScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationCheckScalarFieldEnum]
+
+
+export const SupplierMarketplaceOfferingMediaScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  offeringId: 'offeringId',
+  pathname: 'pathname',
+  contentType: 'contentType',
+  sizeBytes: 'sizeBytes',
+  altText: 'altText',
+  position: 'position',
+  isPrimary: 'isPrimary',
+  uploadedByUserId: 'uploadedByUserId',
+  createdAt: 'createdAt'
+} as const
+
+export type SupplierMarketplaceOfferingMediaScalarFieldEnum = (typeof SupplierMarketplaceOfferingMediaScalarFieldEnum)[keyof typeof SupplierMarketplaceOfferingMediaScalarFieldEnum]
 
 
 export const SortOrder = {

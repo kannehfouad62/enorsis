@@ -432,6 +432,7 @@ export type SupplierMarketplaceOfferingWhereInput = {
   createdByUserId?: Prisma.StringNullableFilter<"SupplierMarketplaceOffering"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierMarketplaceOffering"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierMarketplaceOffering"> | Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaListRelationFilter
 }
 
 export type SupplierMarketplaceOfferingOrderByWithRelationInput = {
@@ -468,6 +469,7 @@ export type SupplierMarketplaceOfferingOrderByWithRelationInput = {
   createdByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  media?: Prisma.SupplierMarketplaceOfferingMediaOrderByRelationAggregateInput
 }
 
 export type SupplierMarketplaceOfferingWhereUniqueInput = Prisma.AtLeast<{
@@ -508,6 +510,7 @@ export type SupplierMarketplaceOfferingWhereUniqueInput = Prisma.AtLeast<{
   createdByUserId?: Prisma.StringNullableFilter<"SupplierMarketplaceOffering"> | string | null
   createdAt?: Prisma.DateTimeFilter<"SupplierMarketplaceOffering"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SupplierMarketplaceOffering"> | Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaListRelationFilter
 }, "id" | "tenantId_supplierId_sku">
 
 export type SupplierMarketplaceOfferingOrderByWithAggregationInput = {
@@ -624,6 +627,7 @@ export type SupplierMarketplaceOfferingCreateInput = {
   createdByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaCreateNestedManyWithoutOfferingInput
 }
 
 export type SupplierMarketplaceOfferingUncheckedCreateInput = {
@@ -660,6 +664,7 @@ export type SupplierMarketplaceOfferingUncheckedCreateInput = {
   createdByUserId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaUncheckedCreateNestedManyWithoutOfferingInput
 }
 
 export type SupplierMarketplaceOfferingUpdateInput = {
@@ -696,6 +701,7 @@ export type SupplierMarketplaceOfferingUpdateInput = {
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaUpdateManyWithoutOfferingNestedInput
 }
 
 export type SupplierMarketplaceOfferingUncheckedUpdateInput = {
@@ -732,6 +738,7 @@ export type SupplierMarketplaceOfferingUncheckedUpdateInput = {
   createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  media?: Prisma.SupplierMarketplaceOfferingMediaUncheckedUpdateManyWithoutOfferingNestedInput
 }
 
 export type SupplierMarketplaceOfferingCreateManyInput = {
@@ -960,6 +967,214 @@ export type SupplierMarketplaceOfferingSumOrderByAggregateInput = {
   leadTimeDays?: Prisma.SortOrder
 }
 
+export type SupplierMarketplaceOfferingScalarRelationFilter = {
+  is?: Prisma.SupplierMarketplaceOfferingWhereInput
+  isNot?: Prisma.SupplierMarketplaceOfferingWhereInput
+}
+
+export type SupplierMarketplaceOfferingCreateNestedOneWithoutMediaInput = {
+  create?: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput>
+  connectOrCreate?: Prisma.SupplierMarketplaceOfferingCreateOrConnectWithoutMediaInput
+  connect?: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
+}
+
+export type SupplierMarketplaceOfferingUpdateOneRequiredWithoutMediaNestedInput = {
+  create?: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput>
+  connectOrCreate?: Prisma.SupplierMarketplaceOfferingCreateOrConnectWithoutMediaInput
+  upsert?: Prisma.SupplierMarketplaceOfferingUpsertWithoutMediaInput
+  connect?: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SupplierMarketplaceOfferingUpdateToOneWithWhereWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUpdateWithoutMediaInput>, Prisma.SupplierMarketplaceOfferingUncheckedUpdateWithoutMediaInput>
+}
+
+export type SupplierMarketplaceOfferingCreateWithoutMediaInput = {
+  id?: string
+  tenantId: string
+  supplierId: string
+  marketplaceProfileId?: string | null
+  offeringType?: string
+  sku?: string | null
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  category?: string | null
+  subcategory?: string | null
+  manufacturer?: string | null
+  brand?: string | null
+  modelNumber?: string | null
+  unitOfMeasure?: string | null
+  currencyCode?: string
+  unitPrice?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  leadTimeDays?: number | null
+  availabilityStatus?: string
+  countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  keywords?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  imageRef?: string | null
+  documentRef?: string | null
+  externalUrl?: string | null
+  marketplaceVisible?: boolean
+  featured?: boolean
+  publishedAt?: Date | string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput = {
+  id?: string
+  tenantId: string
+  supplierId: string
+  marketplaceProfileId?: string | null
+  offeringType?: string
+  sku?: string | null
+  name: string
+  shortDescription?: string | null
+  description?: string | null
+  category?: string | null
+  subcategory?: string | null
+  manufacturer?: string | null
+  brand?: string | null
+  modelNumber?: string | null
+  unitOfMeasure?: string | null
+  currencyCode?: string
+  unitPrice?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  leadTimeDays?: number | null
+  availabilityStatus?: string
+  countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  keywords?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  imageRef?: string | null
+  documentRef?: string | null
+  externalUrl?: string | null
+  marketplaceVisible?: boolean
+  featured?: boolean
+  publishedAt?: Date | string | null
+  createdByUserId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type SupplierMarketplaceOfferingCreateOrConnectWithoutMediaInput = {
+  where: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
+  create: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput>
+}
+
+export type SupplierMarketplaceOfferingUpsertWithoutMediaInput = {
+  update: Prisma.XOR<Prisma.SupplierMarketplaceOfferingUpdateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedUpdateWithoutMediaInput>
+  create: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput>
+  where?: Prisma.SupplierMarketplaceOfferingWhereInput
+}
+
+export type SupplierMarketplaceOfferingUpdateToOneWithWhereWithoutMediaInput = {
+  where?: Prisma.SupplierMarketplaceOfferingWhereInput
+  data: Prisma.XOR<Prisma.SupplierMarketplaceOfferingUpdateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedUpdateWithoutMediaInput>
+}
+
+export type SupplierMarketplaceOfferingUpdateWithoutMediaInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  marketplaceProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offeringType?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  brand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitOfMeasure?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  unitPrice?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  keywords?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documentRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type SupplierMarketplaceOfferingUncheckedUpdateWithoutMediaInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  tenantId?: Prisma.StringFieldUpdateOperationsInput | string
+  supplierId?: Prisma.StringFieldUpdateOperationsInput | string
+  marketplaceProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  offeringType?: Prisma.StringFieldUpdateOperationsInput | string
+  sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  shortDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subcategory?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  manufacturer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  brand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  modelNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  unitOfMeasure?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
+  unitPrice?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  keywords?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  documentRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  externalUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceVisible?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  publishedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type SupplierMarketplaceOfferingCountOutputType
+ */
+
+export type SupplierMarketplaceOfferingCountOutputType = {
+  media: number
+}
+
+export type SupplierMarketplaceOfferingCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  media?: boolean | SupplierMarketplaceOfferingCountOutputTypeCountMediaArgs
+}
+
+/**
+ * SupplierMarketplaceOfferingCountOutputType without action
+ */
+export type SupplierMarketplaceOfferingCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierMarketplaceOfferingCountOutputType
+   */
+  select?: Prisma.SupplierMarketplaceOfferingCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * SupplierMarketplaceOfferingCountOutputType without action
+ */
+export type SupplierMarketplaceOfferingCountOutputTypeCountMediaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SupplierMarketplaceOfferingMediaWhereInput
+}
 
 
 export type SupplierMarketplaceOfferingSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -996,6 +1211,8 @@ export type SupplierMarketplaceOfferingSelect<ExtArgs extends runtime.Types.Exte
   createdByUserId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  media?: boolean | Prisma.SupplierMarketplaceOffering$mediaArgs<ExtArgs>
+  _count?: boolean | Prisma.SupplierMarketplaceOfferingCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["supplierMarketplaceOffering"]>
 
 export type SupplierMarketplaceOfferingSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1107,10 +1324,18 @@ export type SupplierMarketplaceOfferingSelectScalar = {
 }
 
 export type SupplierMarketplaceOfferingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierId" | "marketplaceProfileId" | "offeringType" | "sku" | "name" | "shortDescription" | "description" | "category" | "subcategory" | "manufacturer" | "brand" | "modelNumber" | "unitOfMeasure" | "currencyCode" | "unitPrice" | "minimumOrderQty" | "leadTimeDays" | "availabilityStatus" | "countriesAvailable" | "certifications" | "attributes" | "keywords" | "imageRef" | "documentRef" | "externalUrl" | "marketplaceVisible" | "featured" | "publishedAt" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierMarketplaceOffering"]>
+export type SupplierMarketplaceOfferingInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  media?: boolean | Prisma.SupplierMarketplaceOffering$mediaArgs<ExtArgs>
+  _count?: boolean | Prisma.SupplierMarketplaceOfferingCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type SupplierMarketplaceOfferingIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type SupplierMarketplaceOfferingIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $SupplierMarketplaceOfferingPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "SupplierMarketplaceOffering"
-  objects: {}
+  objects: {
+    media: Prisma.$SupplierMarketplaceOfferingMediaPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     tenantId: string
@@ -1539,6 +1764,7 @@ readonly fields: SupplierMarketplaceOfferingFieldRefs;
  */
 export interface Prisma__SupplierMarketplaceOfferingClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  media<T extends Prisma.SupplierMarketplaceOffering$mediaArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SupplierMarketplaceOffering$mediaArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SupplierMarketplaceOfferingMediaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1618,6 +1844,10 @@ export type SupplierMarketplaceOfferingFindUniqueArgs<ExtArgs extends runtime.Ty
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * Filter, which SupplierMarketplaceOffering to fetch.
    */
   where: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
@@ -1636,6 +1866,10 @@ export type SupplierMarketplaceOfferingFindUniqueOrThrowArgs<ExtArgs extends run
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * Filter, which SupplierMarketplaceOffering to fetch.
    */
   where: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
@@ -1653,6 +1887,10 @@ export type SupplierMarketplaceOfferingFindFirstArgs<ExtArgs extends runtime.Typ
    * Omit specific fields from the SupplierMarketplaceOffering
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
   /**
    * Filter, which SupplierMarketplaceOffering to fetch.
    */
@@ -1702,6 +1940,10 @@ export type SupplierMarketplaceOfferingFindFirstOrThrowArgs<ExtArgs extends runt
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * Filter, which SupplierMarketplaceOffering to fetch.
    */
   where?: Prisma.SupplierMarketplaceOfferingWhereInput
@@ -1749,6 +1991,10 @@ export type SupplierMarketplaceOfferingFindManyArgs<ExtArgs extends runtime.Type
    * Omit specific fields from the SupplierMarketplaceOffering
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
   /**
    * Filter, which SupplierMarketplaceOfferings to fetch.
    */
@@ -1798,6 +2044,10 @@ export type SupplierMarketplaceOfferingCreateArgs<ExtArgs extends runtime.Types.
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * The data needed to create a SupplierMarketplaceOffering.
    */
   data: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateInput>
@@ -1845,6 +2095,10 @@ export type SupplierMarketplaceOfferingUpdateArgs<ExtArgs extends runtime.Types.
    * Omit specific fields from the SupplierMarketplaceOffering
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
   /**
    * The data needed to update a SupplierMarketplaceOffering.
    */
@@ -1912,6 +2166,10 @@ export type SupplierMarketplaceOfferingUpsertArgs<ExtArgs extends runtime.Types.
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * The filter to search for the SupplierMarketplaceOffering to update in case it exists.
    */
   where: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
@@ -1938,6 +2196,10 @@ export type SupplierMarketplaceOfferingDeleteArgs<ExtArgs extends runtime.Types.
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
+  /**
    * Filter which SupplierMarketplaceOffering to delete.
    */
   where: Prisma.SupplierMarketplaceOfferingWhereUniqueInput
@@ -1958,6 +2220,30 @@ export type SupplierMarketplaceOfferingDeleteManyArgs<ExtArgs extends runtime.Ty
 }
 
 /**
+ * SupplierMarketplaceOffering.media
+ */
+export type SupplierMarketplaceOffering$mediaArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SupplierMarketplaceOfferingMedia
+   */
+  select?: Prisma.SupplierMarketplaceOfferingMediaSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SupplierMarketplaceOfferingMedia
+   */
+  omit?: Prisma.SupplierMarketplaceOfferingMediaOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingMediaInclude<ExtArgs> | null
+  where?: Prisma.SupplierMarketplaceOfferingMediaWhereInput
+  orderBy?: Prisma.SupplierMarketplaceOfferingMediaOrderByWithRelationInput | Prisma.SupplierMarketplaceOfferingMediaOrderByWithRelationInput[]
+  cursor?: Prisma.SupplierMarketplaceOfferingMediaWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SupplierMarketplaceOfferingMediaScalarFieldEnum | Prisma.SupplierMarketplaceOfferingMediaScalarFieldEnum[]
+}
+
+/**
  * SupplierMarketplaceOffering without action
  */
 export type SupplierMarketplaceOfferingDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1969,4 +2255,8 @@ export type SupplierMarketplaceOfferingDefaultArgs<ExtArgs extends runtime.Types
    * Omit specific fields from the SupplierMarketplaceOffering
    */
   omit?: Prisma.SupplierMarketplaceOfferingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SupplierMarketplaceOfferingInclude<ExtArgs> | null
 }

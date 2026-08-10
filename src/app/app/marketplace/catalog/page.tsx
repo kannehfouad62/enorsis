@@ -7,9 +7,13 @@ import {
   Star,
 } from "lucide-react";
 import {
+  addMarketplaceOfferingImagesAction,
   createMarketplaceOfferingAction,
+  deleteMarketplaceOfferingImageAction,
+  setMarketplaceOfferingPrimaryImageAction,
   updateMarketplaceOfferingStatusAction,
 } from "@/modules/marketplace-catalog/actions";
+import { MarketplaceComparisonResults } from "@/components/marketplace/MarketplaceComparisonResults";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -69,7 +73,7 @@ export default async function MarketplaceCatalogPage({
             className={`${input} w-full pl-9`}
             name="q"
             defaultValue={params.q}
-            placeholder="Product, service, SKU..."
+            placeholder="Search product, brand, model, SKU or supplier..."
           />
         </div>
         <input
@@ -103,99 +107,107 @@ export default async function MarketplaceCatalogPage({
         </button>
       </form>
 
-      <section className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {data.results.map((result) => {
-          if (!result) return null;
-          const { offering, supplier } = result;
+      {data.commercialPersona === "SUPPLIER" ? (
+        <section className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {data.results.map((result) => {
+            const {
+              offering,
+              supplier,
+              media,
+            } = result;
+            const primaryImage =
+              media.find(
+                (item) =>
+                  item.isPrimary,
+              ) ?? media[0];
 
-          return (
-            <article key={offering.id} className={card}>
-              <div className="flex items-start justify-between gap-3">
-                {offering.offeringType === "SERVICE" ? (
-                  <Boxes className="h-6 w-6 text-blue-700" />
-                ) : (
-                  <PackageSearch className="h-6 w-6 text-blue-700" />
-                )}
-                {offering.featured ? (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-black text-amber-700">
-                    <Star className="h-3.5 w-3.5" />
-                    Featured
-                  </span>
-                ) : null}
-              </div>
-
-              <h2 className="mt-4 text-xl font-black">
-                {offering.name}
-              </h2>
-              <p className="mt-1 text-xs text-slate-500">
-                {offering.sku ?? "No SKU"} ·{" "}
-                {supplier.tradingName ??
-                  supplier.legalName}
-              </p>
-
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {offering.shortDescription ??
-                  offering.description ??
-                  "No description available."}
-              </p>
-
-              <div className="mt-4 flex flex-wrap gap-2 text-xs">
-                {offering.category ? (
-                  <span className="rounded-full bg-slate-100 px-2.5 py-1 font-bold text-slate-600">
-                    {offering.category}
-                  </span>
-                ) : null}
-                <span className="rounded-full bg-slate-100 px-2.5 py-1 font-bold text-slate-600">
-                  {offering.availabilityStatus}
-                </span>
-                <span className="rounded-full bg-slate-100 px-2.5 py-1 font-bold text-slate-600">
-                  {offering.offeringType}
-                </span>
-              </div>
-
-              <div className="mt-5 flex items-center justify-between rounded-2xl bg-slate-50 p-4">
-                <div>
-                  <p className="text-xs font-black uppercase text-slate-500">
-                    Unit price
-                  </p>
-                  <p className="mt-1 text-lg font-black">
-                    {offering.unitPrice
-                      ? `${offering.currencyCode} ${Number(
-                          offering.unitPrice,
-                        ).toLocaleString()}`
-                      : "Request quote"}
-                  </p>
-                </div>
-                <BadgeDollarSign className="h-5 w-5 text-blue-700" />
-              </div>
-
-              <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-slate-500">
-                <span>
-                  MOQ{" "}
-                  {offering.minimumOrderQty
-                    ? Number(
-                        offering.minimumOrderQty,
-                      ).toLocaleString()
-                    : "—"}{" "}
-                  {offering.unitOfMeasure ?? ""}
-                </span>
-                <span>
-                  Lead time{" "}
-                  {offering.leadTimeDays ?? "—"} days
-                </span>
-              </div>
-
-              <Link
-                href={`/app/suppliers/${supplier.id}`}
-                className="mt-5 block rounded-xl border border-slate-200 px-4 py-2.5 text-center text-sm font-black"
+            return (
+              <article
+                key={offering.id}
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
               >
-                View supplier
-              </Link>
-            </article>
-          );
-        })}
-      </section>
+                <div className="aspect-[4/3] bg-slate-100">
+                  {primaryImage ? (
+                    <img
+                      src={`/api/marketplace/catalog/media/${primaryImage.id}`}
+                      alt={
+                        primaryImage.altText ??
+                        offering.name
+                      }
+                      className="h-full w-full object-contain p-4"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center text-slate-400">
+                      <PackageSearch className="h-14 w-14" />
+                    </div>
+                  )}
+                </div>
 
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    {offering.offeringType ===
+                    "SERVICE" ? (
+                      <Boxes className="h-6 w-6 text-blue-700" />
+                    ) : (
+                      <PackageSearch className="h-6 w-6 text-blue-700" />
+                    )}
+
+                    {offering.featured ? (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-black text-amber-700">
+                        <Star className="h-3.5 w-3.5" />
+                        Featured
+                      </span>
+                    ) : null}
+                  </div>
+
+                  <h2 className="mt-4 text-xl font-black">
+                    {offering.name}
+                  </h2>
+
+                  <p className="mt-1 text-xs text-slate-500">
+                    {offering.sku ??
+                      "No SKU"}{" "}
+                    ·{" "}
+                    {supplier.tradingName ??
+                      supplier.legalName}
+                  </p>
+
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {offering.shortDescription ??
+                      offering.description ??
+                      "No description available."}
+                  </p>
+
+                  <div className="mt-5 flex items-center justify-between rounded-2xl bg-slate-50 p-4">
+                    <div>
+                      <p className="text-xs font-black uppercase text-slate-500">
+                        Unit price
+                      </p>
+                      <p className="mt-1 text-lg font-black">
+                        {offering.unitPrice
+                          ? `${offering.currencyCode} ${Number(
+                              offering.unitPrice,
+                            ).toLocaleString()}`
+                          : "Request quote"}
+                      </p>
+                    </div>
+                    <BadgeDollarSign className="h-5 w-5 text-blue-700" />
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      ) : (
+        <MarketplaceComparisonResults
+          groups={
+            data.comparisonGroups
+          }
+        />
+      )}
+
+      {data.canManageCatalog ? (
+        <>
       <section className={`${card} mt-8`}>
         <h2 className="text-xl font-black">
           Publish supplier offering
@@ -249,7 +261,11 @@ export default async function MarketplaceCatalogPage({
           <input className={input} name="countriesAvailable" placeholder="Countries available, comma separated" />
           <input className={input} name="certifications" placeholder="Certifications, comma separated" />
           <input className={input} name="keywords" placeholder="Search keywords, comma separated" />
-          <input className={input} name="imageRef" placeholder="Image reference" />
+          <label className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 md:col-span-2">
+            <span className="block text-sm font-black text-slate-800">Product / service images</span>
+            <span className="mt-1 block text-xs text-slate-500">Upload up to 8 JPG, PNG or WebP images. The first image becomes the primary marketplace image.</span>
+            <input className="mt-3 block w-full text-sm" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple />
+          </label>
           <input className={input} name="documentRef" placeholder="Document reference" />
           <input className={input} name="externalUrl" placeholder="External product/service URL" />
           <select className={input} name="marketplaceVisible" defaultValue="true">
@@ -276,8 +292,7 @@ export default async function MarketplaceCatalogPage({
           Offering visibility controls
         </h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {data.results.map((result) => {
-            if (!result) return null;
+          {data.managementResults.map((result) => {
 
             return (
               <form
@@ -297,6 +312,23 @@ export default async function MarketplaceCatalogPage({
                   {result.supplier.tradingName ??
                     result.supplier.legalName}
                 </p>
+                {result.media.length ? (
+                  <div className="mt-3 grid grid-cols-4 gap-2">
+                    {result.media.map((item) => (
+                      <div key={item.id} className="rounded-xl border border-slate-200 bg-white p-2">
+                        <img src={`/api/marketplace/catalog/media/${item.id}`} alt={item.altText ?? result.offering.name} className="aspect-square w-full rounded-lg object-contain" />
+                        <div className="mt-2 flex flex-col gap-1">
+                          {!item.isPrimary ? <button formAction={setMarketplaceOfferingPrimaryImageAction} name="mediaId" value={item.id} className="text-[10px] font-black text-blue-700">Make primary</button> : <span className="text-[10px] font-black text-emerald-700">Primary</span>}
+                          <button formAction={deleteMarketplaceOfferingImageAction} name="mediaId" value={item.id} className="text-[10px] font-black text-rose-700">Remove</button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+                <div className="mt-3 rounded-xl border border-dashed border-slate-300 bg-white p-3">
+                  <input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple className="block w-full text-xs" />
+                  <button formAction={addMarketplaceOfferingImagesAction} className="mt-2 rounded-lg bg-slate-900 px-3 py-2 text-xs font-black text-white">Upload images</button>
+                </div>
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   <select
                     className={input}
@@ -327,6 +359,8 @@ export default async function MarketplaceCatalogPage({
           })}
         </div>
       </section>
+        </>
+      ) : null}
     </div>
   );
 }

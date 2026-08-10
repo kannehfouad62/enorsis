@@ -8861,11 +8861,11 @@ model SupplierMarketplaceProfile {
 }
 
 model SupplierMarketplaceOffering {
-  id                   String    @id @default(cuid())
+  id                   String                             @id @default(cuid())
   tenantId             String
   supplierId           String
   marketplaceProfileId String?
-  offeringType         String    @default("PRODUCT")
+  offeringType         String                             @default("PRODUCT")
   sku                  String?
   name                 String
   shortDescription     String?
@@ -8876,11 +8876,11 @@ model SupplierMarketplaceOffering {
   brand                String?
   modelNumber          String?
   unitOfMeasure        String?
-  currencyCode         String    @default("USD")
-  unitPrice            Decimal?  @db.Decimal(18, 4)
-  minimumOrderQty      Decimal?  @db.Decimal(18, 4)
+  currencyCode         String                             @default("USD")
+  unitPrice            Decimal?                           @db.Decimal(18, 4)
+  minimumOrderQty      Decimal?                           @db.Decimal(18, 4)
   leadTimeDays         Int?
-  availabilityStatus   String    @default("AVAILABLE")
+  availabilityStatus   String                             @default("AVAILABLE")
   countriesAvailable   Json?
   certifications       Json?
   attributes           Json?
@@ -8888,12 +8888,13 @@ model SupplierMarketplaceOffering {
   imageRef             String?
   documentRef          String?
   externalUrl          String?
-  marketplaceVisible   Boolean   @default(false)
-  featured             Boolean   @default(false)
+  marketplaceVisible   Boolean                            @default(false)
+  featured             Boolean                            @default(false)
   publishedAt          DateTime?
   createdByUserId      String?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
+  createdAt            DateTime                           @default(now())
+  updatedAt            DateTime                           @updatedAt
+  media                SupplierMarketplaceOfferingMedia[]
 
   @@unique([tenantId, supplierId, sku])
   @@index([tenantId, marketplaceVisible, offeringType])
@@ -10192,4 +10193,22 @@ model EndToEndCommerceCertificationCheck {
   @@unique([certificationRunId, checkKey], map: "E2ECommerceCheck_run_key")
   @@index([tenantId, certificationRunId], map: "E2ECommerceCheck_run_idx")
   @@index([tenantId, status, lifecycleStage], map: "E2ECommerceCheck_status_idx")
+}
+
+model SupplierMarketplaceOfferingMedia {
+  id               String                      @id @default(cuid())
+  tenantId         String
+  offeringId       String
+  pathname         String
+  contentType      String
+  sizeBytes        Int
+  altText          String?
+  position         Int                         @default(0)
+  isPrimary        Boolean                     @default(false)
+  uploadedByUserId String?
+  createdAt        DateTime                    @default(now())
+  offering         SupplierMarketplaceOffering @relation(fields: [offeringId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, offeringId, position])
+  @@index([offeringId, isPrimary])
 }

@@ -1636,3 +1636,8 @@ export type EndToEndCommerceCertificationRun = Prisma.EndToEndCommerceCertificat
  * 
  */
 export type EndToEndCommerceCertificationCheck = Prisma.EndToEndCommerceCertificationCheckModel
+/**
+ * Model SupplierMarketplaceOfferingMedia
+ * 
+ */
+export type SupplierMarketplaceOfferingMedia = Prisma.SupplierMarketplaceOfferingMediaModel
