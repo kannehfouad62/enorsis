@@ -2881,6 +2881,7 @@ model Supplier {
   portalMessages           SupplierPortalMessage[]
   createdAt                DateTime                          @default(now())
   updatedAt                DateTime                          @updatedAt
+  isTenantSelfProfile      Boolean                           @default(false)
   sourcingQuestions        SourcingQuestion[]
   contracts                Contract[]
   riskAssessments          SupplierRiskAssessment[]
@@ -2901,6 +2902,7 @@ model Supplier {
   @@index([tenantId, status])
   @@index([tenantId, riskTier])
   @@index([tenantId, qualificationStatus])
+  @@index([tenantId, isTenantSelfProfile])
 }
 
 model SupplierContact {

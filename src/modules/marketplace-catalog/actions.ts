@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { requireAnyRole } from "@/core/auth/authorization";
 import { prisma } from "@/lib/prisma";
+import { ensureTenantSelfSupplierProfile } from "@/core/marketplace/tenant-self-supplier";
 import { deleteMarketplaceImage, MAX_OFFERING_IMAGES, uploadMarketplaceImage } from "@/modules/marketplace-catalog/media";
 
 const roles = [
@@ -27,18 +28,15 @@ export async function createMarketplaceOfferingAction(
   data: FormData,
 ) {
   const user = await requireAnyRole([...roles]);
-  const supplierId = field(data, "supplierId");
 
-  const supplier = await prisma.supplier.findFirstOrThrow({
-    where: {
-      id: supplierId,
+  const supplier =
+    await ensureTenantSelfSupplierProfile({
       tenantId: user.tenantId,
-    },
-    select: {
-      id: true,
-      supplierNumber: true,
-    },
-  });
+      actorUserId: user.id,
+      actorEmail: user.email,
+    });
+
+  const supplierId = supplier.id;
 
   const profile =
     await prisma.supplierMarketplaceProfile.findFirst({

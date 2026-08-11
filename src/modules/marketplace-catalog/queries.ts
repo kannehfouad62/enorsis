@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { ensureTenantSelfSupplierProfile } from "@/core/marketplace/tenant-self-supplier";
 
 const roles = new Set([
   "TENANT_OWNER",
@@ -107,23 +108,31 @@ export async function getMarketplaceCatalog(input: {
     commercialPersona === "SUPPLIER" ||
     commercialPersona === "BUYER_SUPPLIER";
 
-  const suppliers = await prisma.supplier.findMany({
-    where: { tenantId },
-    select: {
-      id: true,
-      supplierNumber: true,
-      legalName: true,
-      tradingName: true,
-    },
-    orderBy: { legalName: "asc" },
-    take: 1000,
-  });
+  const selfSupplier = canManageCatalog
+    ? await ensureTenantSelfSupplierProfile({
+        tenantId,
+        actorUserId: session.user.id,
+        actorEmail: session.user.email,
+      })
+    : null;
+
+  const suppliers = selfSupplier
+    ? [{
+        id: selfSupplier.id,
+        supplierNumber: selfSupplier.supplierNumber,
+        legalName: selfSupplier.legalName,
+        tradingName: selfSupplier.tradingName,
+      }]
+    : [];
 
   const offerings =
     await prisma.supplierMarketplaceOffering.findMany({
       where: {
         ...(isSupplierOnly
-          ? { tenantId }
+          ? {
+              tenantId,
+              supplierId: selfSupplier?.id,
+            }
           : { marketplaceVisible: true }),
         ...(type
           ? { offeringType: type }
@@ -431,9 +440,18 @@ export async function getMarketplaceCatalog(input: {
     managementResults:
       results.filter(
         (result) =>
-          result.offering.tenantId ===
-          tenantId,
+          result.offering.tenantId === tenantId &&
+          result.offering.supplierId === selfSupplier?.id,
       ),
+    selfSupplier:
+      selfSupplier
+        ? {
+            id: selfSupplier.id,
+            supplierNumber: selfSupplier.supplierNumber,
+            legalName: selfSupplier.legalName,
+            tradingName: selfSupplier.tradingName,
+          }
+        : null,
     comparisonGroups,
   };
 }

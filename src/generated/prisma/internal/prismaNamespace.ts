@@ -24737,7 +24737,8 @@ export const SupplierScalarFieldEnum = {
   suspendedAt: 'suspendedAt',
   rejectionReason: 'rejectionReason',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  isTenantSelfProfile: 'isTenantSelfProfile'
 } as const
 
 export type SupplierScalarFieldEnum = (typeof SupplierScalarFieldEnum)[keyof typeof SupplierScalarFieldEnum]

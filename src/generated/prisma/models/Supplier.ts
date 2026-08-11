@@ -46,6 +46,7 @@ export type SupplierMinAggregateOutputType = {
   rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  isTenantSelfProfile: boolean | null
 }
 
 export type SupplierMaxAggregateOutputType = {
@@ -70,6 +71,7 @@ export type SupplierMaxAggregateOutputType = {
   rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  isTenantSelfProfile: boolean | null
 }
 
 export type SupplierCountAggregateOutputType = {
@@ -95,6 +97,7 @@ export type SupplierCountAggregateOutputType = {
   rejectionReason: number
   createdAt: number
   updatedAt: number
+  isTenantSelfProfile: number
   _all: number
 }
 
@@ -121,6 +124,7 @@ export type SupplierMinAggregateInputType = {
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
+  isTenantSelfProfile?: true
 }
 
 export type SupplierMaxAggregateInputType = {
@@ -145,6 +149,7 @@ export type SupplierMaxAggregateInputType = {
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
+  isTenantSelfProfile?: true
 }
 
 export type SupplierCountAggregateInputType = {
@@ -170,6 +175,7 @@ export type SupplierCountAggregateInputType = {
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
+  isTenantSelfProfile?: true
   _all?: true
 }
 
@@ -268,6 +274,7 @@ export type SupplierGroupByOutputType = {
   rejectionReason: string | null
   createdAt: Date
   updatedAt: Date
+  isTenantSelfProfile: boolean
   _count: SupplierCountAggregateOutputType | null
   _min: SupplierMinAggregateOutputType | null
   _max: SupplierMaxAggregateOutputType | null
@@ -314,6 +321,7 @@ export type SupplierWhereInput = {
   rejectionReason?: Prisma.StringNullableFilter<"Supplier"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
+  isTenantSelfProfile?: Prisma.BoolFilter<"Supplier"> | boolean
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   contacts?: Prisma.SupplierContactListRelationFilter
   documents?: Prisma.SupplierDocumentListRelationFilter
@@ -363,6 +371,7 @@ export type SupplierOrderByWithRelationInput = {
   rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isTenantSelfProfile?: Prisma.SortOrder
   tenant?: Prisma.TenantOrderByWithRelationInput
   contacts?: Prisma.SupplierContactOrderByRelationAggregateInput
   documents?: Prisma.SupplierDocumentOrderByRelationAggregateInput
@@ -417,6 +426,7 @@ export type SupplierWhereUniqueInput = Prisma.AtLeast<{
   rejectionReason?: Prisma.StringNullableFilter<"Supplier"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
+  isTenantSelfProfile?: Prisma.BoolFilter<"Supplier"> | boolean
   tenant?: Prisma.XOR<Prisma.TenantScalarRelationFilter, Prisma.TenantWhereInput>
   contacts?: Prisma.SupplierContactListRelationFilter
   documents?: Prisma.SupplierDocumentListRelationFilter
@@ -466,6 +476,7 @@ export type SupplierOrderByWithAggregationInput = {
   rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isTenantSelfProfile?: Prisma.SortOrder
   _count?: Prisma.SupplierCountOrderByAggregateInput
   _max?: Prisma.SupplierMaxOrderByAggregateInput
   _min?: Prisma.SupplierMinOrderByAggregateInput
@@ -497,6 +508,7 @@ export type SupplierScalarWhereWithAggregatesInput = {
   rejectionReason?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Supplier"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Supplier"> | Date | string
+  isTenantSelfProfile?: Prisma.BoolWithAggregatesFilter<"Supplier"> | boolean
 }
 
 export type SupplierCreateInput = {
@@ -521,6 +533,7 @@ export type SupplierCreateInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -570,6 +583,7 @@ export type SupplierUncheckedCreateInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -617,6 +631,7 @@ export type SupplierUpdateInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -666,6 +681,7 @@ export type SupplierUncheckedUpdateInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -714,6 +730,7 @@ export type SupplierCreateManyInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
 }
 
 export type SupplierUpdateManyMutationInput = {
@@ -738,6 +755,7 @@ export type SupplierUpdateManyMutationInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type SupplierUncheckedUpdateManyInput = {
@@ -763,6 +781,7 @@ export type SupplierUncheckedUpdateManyInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type SupplierListRelationFilter = {
@@ -809,6 +828,7 @@ export type SupplierCountOrderByAggregateInput = {
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isTenantSelfProfile?: Prisma.SortOrder
 }
 
 export type SupplierMaxOrderByAggregateInput = {
@@ -833,6 +853,7 @@ export type SupplierMaxOrderByAggregateInput = {
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isTenantSelfProfile?: Prisma.SortOrder
 }
 
 export type SupplierMinOrderByAggregateInput = {
@@ -857,6 +878,7 @@ export type SupplierMinOrderByAggregateInput = {
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  isTenantSelfProfile?: Prisma.SortOrder
 }
 
 export type SupplierScalarRelationFilter = {
@@ -1280,6 +1302,7 @@ export type SupplierCreateWithoutTenantInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
@@ -1327,6 +1350,7 @@ export type SupplierUncheckedCreateWithoutTenantInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -1404,6 +1428,7 @@ export type SupplierScalarWhereInput = {
   rejectionReason?: Prisma.StringNullableFilter<"Supplier"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Supplier"> | Date | string
+  isTenantSelfProfile?: Prisma.BoolFilter<"Supplier"> | boolean
 }
 
 export type SupplierCreateWithoutContactsInput = {
@@ -1428,6 +1453,7 @@ export type SupplierCreateWithoutContactsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
@@ -1476,6 +1502,7 @@ export type SupplierUncheckedCreateWithoutContactsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
@@ -1538,6 +1565,7 @@ export type SupplierUpdateWithoutContactsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
@@ -1586,6 +1614,7 @@ export type SupplierUncheckedUpdateWithoutContactsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1632,6 +1661,7 @@ export type SupplierCreateWithoutDocumentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationCreateNestedManyWithoutSupplierInput
@@ -1680,6 +1710,7 @@ export type SupplierUncheckedCreateWithoutDocumentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
@@ -1742,6 +1773,7 @@ export type SupplierUpdateWithoutDocumentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
@@ -1790,6 +1822,7 @@ export type SupplierUncheckedUpdateWithoutDocumentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
@@ -1836,6 +1869,7 @@ export type SupplierCreateWithoutSourcingInvitationsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -1884,6 +1918,7 @@ export type SupplierUncheckedCreateWithoutSourcingInvitationsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedCreateNestedManyWithoutSupplierInput
@@ -1946,6 +1981,7 @@ export type SupplierUpdateWithoutSourcingInvitationsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -1994,6 +2030,7 @@ export type SupplierUncheckedUpdateWithoutSourcingInvitationsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingResponses?: Prisma.SourcingResponseUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2040,6 +2077,7 @@ export type SupplierCreateWithoutSourcingResponsesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -2088,6 +2126,7 @@ export type SupplierUncheckedCreateWithoutSourcingResponsesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -2150,6 +2189,7 @@ export type SupplierUpdateWithoutSourcingResponsesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -2198,6 +2238,7 @@ export type SupplierUncheckedUpdateWithoutSourcingResponsesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2244,6 +2285,7 @@ export type SupplierCreateWithoutSourcingQuestionsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -2292,6 +2334,7 @@ export type SupplierUncheckedCreateWithoutSourcingQuestionsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -2354,6 +2397,7 @@ export type SupplierUpdateWithoutSourcingQuestionsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -2402,6 +2446,7 @@ export type SupplierUncheckedUpdateWithoutSourcingQuestionsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2448,6 +2493,7 @@ export type SupplierCreateWithoutContractsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -2496,6 +2542,7 @@ export type SupplierUncheckedCreateWithoutContractsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -2558,6 +2605,7 @@ export type SupplierUpdateWithoutContractsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -2606,6 +2654,7 @@ export type SupplierUncheckedUpdateWithoutContractsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2652,6 +2701,7 @@ export type SupplierCreateWithoutRiskAssessmentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -2700,6 +2750,7 @@ export type SupplierUncheckedCreateWithoutRiskAssessmentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -2762,6 +2813,7 @@ export type SupplierUpdateWithoutRiskAssessmentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -2810,6 +2862,7 @@ export type SupplierUncheckedUpdateWithoutRiskAssessmentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -2856,6 +2909,7 @@ export type SupplierCreateWithoutRiskFindingsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -2904,6 +2958,7 @@ export type SupplierUncheckedCreateWithoutRiskFindingsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -2966,6 +3021,7 @@ export type SupplierUpdateWithoutRiskFindingsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -3014,6 +3070,7 @@ export type SupplierUncheckedUpdateWithoutRiskFindingsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3060,6 +3117,7 @@ export type SupplierCreateWithoutEsgAssessmentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -3108,6 +3166,7 @@ export type SupplierUncheckedCreateWithoutEsgAssessmentsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -3170,6 +3229,7 @@ export type SupplierUpdateWithoutEsgAssessmentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -3218,6 +3278,7 @@ export type SupplierUncheckedUpdateWithoutEsgAssessmentsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3264,6 +3325,7 @@ export type SupplierCreateWithoutPurchaseOrdersInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -3312,6 +3374,7 @@ export type SupplierUncheckedCreateWithoutPurchaseOrdersInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -3374,6 +3437,7 @@ export type SupplierUpdateWithoutPurchaseOrdersInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -3422,6 +3486,7 @@ export type SupplierUncheckedUpdateWithoutPurchaseOrdersInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3468,6 +3533,7 @@ export type SupplierCreateWithoutSupplierInvoicesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -3516,6 +3582,7 @@ export type SupplierUncheckedCreateWithoutSupplierInvoicesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -3578,6 +3645,7 @@ export type SupplierUpdateWithoutSupplierInvoicesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -3626,6 +3694,7 @@ export type SupplierUncheckedUpdateWithoutSupplierInvoicesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3672,6 +3741,7 @@ export type SupplierCreateWithoutScorecardsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -3720,6 +3790,7 @@ export type SupplierUncheckedCreateWithoutScorecardsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -3782,6 +3853,7 @@ export type SupplierUpdateWithoutScorecardsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -3830,6 +3902,7 @@ export type SupplierUncheckedUpdateWithoutScorecardsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -3876,6 +3949,7 @@ export type SupplierCreateWithoutDevelopmentPlansInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -3924,6 +3998,7 @@ export type SupplierUncheckedCreateWithoutDevelopmentPlansInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -3986,6 +4061,7 @@ export type SupplierUpdateWithoutDevelopmentPlansInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -4034,6 +4110,7 @@ export type SupplierUncheckedUpdateWithoutDevelopmentPlansInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4080,6 +4157,7 @@ export type SupplierCreateWithoutCorrectiveActionsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -4128,6 +4206,7 @@ export type SupplierUncheckedCreateWithoutCorrectiveActionsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -4190,6 +4269,7 @@ export type SupplierUpdateWithoutCorrectiveActionsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -4238,6 +4318,7 @@ export type SupplierUncheckedUpdateWithoutCorrectiveActionsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4284,6 +4365,7 @@ export type SupplierCreateWithoutProcurementCatalogsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -4332,6 +4414,7 @@ export type SupplierUncheckedCreateWithoutProcurementCatalogsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -4394,6 +4477,7 @@ export type SupplierUpdateWithoutProcurementCatalogsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -4442,6 +4526,7 @@ export type SupplierUncheckedUpdateWithoutProcurementCatalogsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4488,6 +4573,7 @@ export type SupplierCreateWithoutStatementsOfWorkInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -4536,6 +4622,7 @@ export type SupplierUncheckedCreateWithoutStatementsOfWorkInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -4598,6 +4685,7 @@ export type SupplierUpdateWithoutStatementsOfWorkInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -4646,6 +4734,7 @@ export type SupplierUncheckedUpdateWithoutStatementsOfWorkInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4692,6 +4781,7 @@ export type SupplierCreateWithoutSupplierClaimsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -4740,6 +4830,7 @@ export type SupplierUncheckedCreateWithoutSupplierClaimsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -4802,6 +4893,7 @@ export type SupplierUpdateWithoutSupplierClaimsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -4850,6 +4942,7 @@ export type SupplierUncheckedUpdateWithoutSupplierClaimsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -4896,6 +4989,7 @@ export type SupplierCreateWithoutEsgProfileInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -4944,6 +5038,7 @@ export type SupplierUncheckedCreateWithoutEsgProfileInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -5006,6 +5101,7 @@ export type SupplierUpdateWithoutEsgProfileInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -5054,6 +5150,7 @@ export type SupplierUncheckedUpdateWithoutEsgProfileInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -5100,6 +5197,7 @@ export type SupplierCreateWithoutPortalInvitationsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -5148,6 +5246,7 @@ export type SupplierUncheckedCreateWithoutPortalInvitationsInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -5210,6 +5309,7 @@ export type SupplierUpdateWithoutPortalInvitationsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -5258,6 +5358,7 @@ export type SupplierUncheckedUpdateWithoutPortalInvitationsInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -5304,6 +5405,7 @@ export type SupplierCreateWithoutPortalUsersInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -5352,6 +5454,7 @@ export type SupplierUncheckedCreateWithoutPortalUsersInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -5414,6 +5517,7 @@ export type SupplierUpdateWithoutPortalUsersInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -5462,6 +5566,7 @@ export type SupplierUncheckedUpdateWithoutPortalUsersInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -5508,6 +5613,7 @@ export type SupplierCreateWithoutOnboardingQuestionnairesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -5556,6 +5662,7 @@ export type SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -5618,6 +5725,7 @@ export type SupplierUpdateWithoutOnboardingQuestionnairesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -5666,6 +5774,7 @@ export type SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -5712,6 +5821,7 @@ export type SupplierCreateWithoutPortalTasksInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -5760,6 +5870,7 @@ export type SupplierUncheckedCreateWithoutPortalTasksInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -5822,6 +5933,7 @@ export type SupplierUpdateWithoutPortalTasksInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -5870,6 +5982,7 @@ export type SupplierUncheckedUpdateWithoutPortalTasksInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -5916,6 +6029,7 @@ export type SupplierCreateWithoutPortalMessagesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   tenant: Prisma.TenantCreateNestedOneWithoutSuppliersInput
   contacts?: Prisma.SupplierContactCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentCreateNestedManyWithoutSupplierInput
@@ -5964,6 +6078,7 @@ export type SupplierUncheckedCreateWithoutPortalMessagesInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
   contacts?: Prisma.SupplierContactUncheckedCreateNestedManyWithoutSupplierInput
   documents?: Prisma.SupplierDocumentUncheckedCreateNestedManyWithoutSupplierInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedCreateNestedManyWithoutSupplierInput
@@ -6026,6 +6141,7 @@ export type SupplierUpdateWithoutPortalMessagesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   tenant?: Prisma.TenantUpdateOneRequiredWithoutSuppliersNestedInput
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
@@ -6074,6 +6190,7 @@ export type SupplierUncheckedUpdateWithoutPortalMessagesInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -6120,6 +6237,7 @@ export type SupplierCreateManyTenantInput = {
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  isTenantSelfProfile?: boolean
 }
 
 export type SupplierUpdateWithoutTenantInput = {
@@ -6144,6 +6262,7 @@ export type SupplierUpdateWithoutTenantInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUpdateManyWithoutSupplierNestedInput
@@ -6191,6 +6310,7 @@ export type SupplierUncheckedUpdateWithoutTenantInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
   contacts?: Prisma.SupplierContactUncheckedUpdateManyWithoutSupplierNestedInput
   documents?: Prisma.SupplierDocumentUncheckedUpdateManyWithoutSupplierNestedInput
   sourcingInvitations?: Prisma.SourcingInvitationUncheckedUpdateManyWithoutSupplierNestedInput
@@ -6238,6 +6358,7 @@ export type SupplierUncheckedUpdateManyWithoutTenantInput = {
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  isTenantSelfProfile?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 
@@ -6483,6 +6604,7 @@ export type SupplierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isTenantSelfProfile?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   contacts?: boolean | Prisma.Supplier$contactsArgs<ExtArgs>
   documents?: boolean | Prisma.Supplier$documentsArgs<ExtArgs>
@@ -6533,6 +6655,7 @@ export type SupplierSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isTenantSelfProfile?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["supplier"]>
 
@@ -6559,6 +6682,7 @@ export type SupplierSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isTenantSelfProfile?: boolean
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["supplier"]>
 
@@ -6585,9 +6709,10 @@ export type SupplierSelectScalar = {
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  isTenantSelfProfile?: boolean
 }
 
-export type SupplierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierNumber" | "legalName" | "tradingName" | "countryCode" | "taxIdentificationNo" | "website" | "primaryEmail" | "primaryPhone" | "categories" | "status" | "riskTier" | "qualificationStatus" | "diversityOwned" | "esgCommitted" | "sanctionsScreenedAt" | "approvedAt" | "suspendedAt" | "rejectionReason" | "createdAt" | "updatedAt", ExtArgs["result"]["supplier"]>
+export type SupplierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierNumber" | "legalName" | "tradingName" | "countryCode" | "taxIdentificationNo" | "website" | "primaryEmail" | "primaryPhone" | "categories" | "status" | "riskTier" | "qualificationStatus" | "diversityOwned" | "esgCommitted" | "sanctionsScreenedAt" | "approvedAt" | "suspendedAt" | "rejectionReason" | "createdAt" | "updatedAt" | "isTenantSelfProfile", ExtArgs["result"]["supplier"]>
 export type SupplierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   contacts?: boolean | Prisma.Supplier$contactsArgs<ExtArgs>
@@ -6673,6 +6798,7 @@ export type $SupplierPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     rejectionReason: string | null
     createdAt: Date
     updatedAt: Date
+    isTenantSelfProfile: boolean
   }, ExtArgs["result"]["supplier"]>
   composites: {}
 }
@@ -7142,6 +7268,7 @@ export interface SupplierFieldRefs {
   readonly rejectionReason: Prisma.FieldRef<"Supplier", 'String'>
   readonly createdAt: Prisma.FieldRef<"Supplier", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Supplier", 'DateTime'>
+  readonly isTenantSelfProfile: Prisma.FieldRef<"Supplier", 'Boolean'>
 }
     
 

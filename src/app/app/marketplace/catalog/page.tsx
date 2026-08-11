@@ -50,20 +50,22 @@ export default async function MarketplaceCatalogPage({
             master.
           </p>
         </div>
-        <div className="flex gap-2">
-          <Link
-            href="/app/marketplace/suppliers"
-            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
-          >
-            Supplier Discovery
-          </Link>
-          <Link
-            href="/app/buying"
-            className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white"
-          >
-            Guided Buying
-          </Link>
-        </div>
+        {data.commercialPersona !== "SUPPLIER" ? (
+          <div className="flex gap-2">
+            <Link
+              href="/app/marketplace/suppliers"
+              className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
+            >
+              Supplier Discovery
+            </Link>
+            <Link
+              href="/app/buying"
+              className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white"
+            >
+              Guided Buying
+            </Link>
+          </div>
+        ) : null}
       </div>
 
       <form className={`${card} mt-8 grid gap-3 md:grid-cols-4`}>
@@ -213,24 +215,35 @@ export default async function MarketplaceCatalogPage({
           Publish supplier offering
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          Create a marketplace product or service listing linked
-          to an existing supplier.
+          Publish products and services under your organization's
+          Enorsis marketplace supplier identity.
         </p>
+
+        {data.selfSupplier ? (
+          <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/70 p-4">
+            <p className="text-xs font-black uppercase tracking-[.16em] text-blue-700">
+              Marketplace seller
+            </p>
+            <p className="mt-2 font-black text-slate-950">
+              {data.selfSupplier.tradingName ??
+                data.selfSupplier.legalName}
+            </p>
+            <p className="mt-1 text-xs text-slate-600">
+              Supplier identity · {data.selfSupplier.supplierNumber}
+            </p>
+          </div>
+        ) : null}
 
         <form
           action={createMarketplaceOfferingAction}
           className="mt-5 grid gap-3 md:grid-cols-2"
         >
-          <select className={input} name="supplierId" required>
-            <option value="">Select supplier</option>
-            {data.suppliers.map((supplier) => (
-              <option key={supplier.id} value={supplier.id}>
-                {supplier.tradingName ??
-                  supplier.legalName}{" "}
-                · {supplier.supplierNumber}
-              </option>
-            ))}
-          </select>
+          <div className={`${input} flex items-center font-bold text-slate-700`}>
+            Seller:{" "}
+            {data.selfSupplier?.tradingName ??
+              data.selfSupplier?.legalName ??
+              "Supplier identity unavailable"}
+          </div>
           <select
             className={input}
             name="offeringType"
