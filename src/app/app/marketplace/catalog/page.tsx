@@ -68,6 +68,17 @@ export default async function MarketplaceCatalogPage({
         ) : null}
       </div>
 
+      {data.canManageCatalog ? (
+        <div className="mt-6 flex justify-end">
+          <Link
+            href="/app/marketplace/catalog/new"
+            className="inline-flex items-center rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white shadow-sm transition hover:bg-blue-800"
+          >
+            Publish Offering
+          </Link>
+        </div>
+      ) : null}
+
       <form className={`${card} mt-8 grid gap-3 md:grid-cols-4`}>
         <div className="relative">
           <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
@@ -212,98 +223,7 @@ export default async function MarketplaceCatalogPage({
         <>
       <section className={`${card} mt-8`}>
         <h2 className="text-xl font-black">
-          Publish supplier offering
-        </h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Publish products and services under your organization's
-          Enorsis marketplace supplier identity.
-        </p>
-
-        {data.selfSupplier ? (
-          <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/70 p-4">
-            <p className="text-xs font-black uppercase tracking-[.16em] text-blue-700">
-              Marketplace seller
-            </p>
-            <p className="mt-2 font-black text-slate-950">
-              {data.selfSupplier.tradingName ??
-                data.selfSupplier.legalName}
-            </p>
-            <p className="mt-1 text-xs text-slate-600">
-              Supplier identity · {data.selfSupplier.supplierNumber}
-            </p>
-          </div>
-        ) : null}
-
-        <form
-          action={createMarketplaceOfferingAction}
-          className="mt-5 grid gap-3 md:grid-cols-2"
-        >
-          <div className={`${input} flex items-center font-bold text-slate-700`}>
-            Seller:{" "}
-            {data.selfSupplier?.tradingName ??
-              data.selfSupplier?.legalName ??
-              "Supplier identity unavailable"}
-          </div>
-          <select
-            className={input}
-            name="offeringType"
-            defaultValue="PRODUCT"
-          >
-            <option value="PRODUCT">Product</option>
-            <option value="SERVICE">Service</option>
-          </select>
-          <input className={input} name="sku" placeholder="SKU / service code" />
-          <input className={input} name="name" placeholder="Offering name" required />
-          <input className={input} name="shortDescription" placeholder="Short description" />
-          <input className={input} name="category" placeholder="Category" />
-          <input className={input} name="subcategory" placeholder="Subcategory" />
-          <input className={input} name="manufacturer" placeholder="Manufacturer" />
-          <input className={input} name="brand" placeholder="Brand" />
-          <input className={input} name="modelNumber" placeholder="Model number" />
-          <input className={input} name="unitOfMeasure" placeholder="Unit of measure" />
-          <input className={input} name="currencyCode" defaultValue="USD" maxLength={3} />
-          <input className={input} name="unitPrice" type="number" step="0.0001" min="0" placeholder="Unit price" />
-          <input className={input} name="minimumOrderQty" type="number" step="0.0001" min="0" placeholder="Minimum order quantity" />
-          <input className={input} name="leadTimeDays" type="number" min="0" placeholder="Lead time days" />
-          <select className={input} name="availabilityStatus" defaultValue="AVAILABLE">
-            <option value="AVAILABLE">Available</option>
-            <option value="LIMITED">Limited</option>
-            <option value="BACKORDER">Backorder</option>
-            <option value="UNAVAILABLE">Unavailable</option>
-          </select>
-          <input className={input} name="countriesAvailable" placeholder="Countries available, comma separated" />
-          <input className={input} name="certifications" placeholder="Certifications, comma separated" />
-          <input className={input} name="keywords" placeholder="Search keywords, comma separated" />
-          <div className="rounded-xl border border-blue-100 bg-blue-50/60 p-4 text-sm text-slate-700 md:col-span-2">
-            <p className="font-black text-slate-900">Product gallery</p>
-            <p className="mt-1 text-xs leading-5 text-slate-600">
-              Publish the offering first, then upload up to 8 product images directly to Private Vercel Blob from the listing controls below.
-            </p>
-          </div>
-          <input className={input} name="documentRef" placeholder="Document reference" />
-          <input className={input} name="externalUrl" placeholder="External product/service URL" />
-          <select className={input} name="marketplaceVisible" defaultValue="true">
-            <option value="true">Marketplace visible</option>
-            <option value="false">Hidden</option>
-          </select>
-          <select className={input} name="featured" defaultValue="false">
-            <option value="false">Standard</option>
-            <option value="true">Featured</option>
-          </select>
-          <textarea
-            className={`${input} min-h-28 md:col-span-2`}
-            name="description"
-            placeholder="Full product or service description"
-          />
-          <button className="rounded-xl bg-slate-950 px-4 py-3 text-sm font-black text-white md:col-span-2">
-            Publish offering
-          </button>
-        </form>
-      </section>
-
-      <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">
-          Offering visibility controls
+          Manage supplier listings
         </h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           {data.managementResults.map((result) => {

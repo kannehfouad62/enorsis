@@ -4,6 +4,7 @@ import {
   Boxes,
   FileText,
   PackageCheck,
+  PlusCircle,
   Store,
   Truck,
 } from "lucide-react";
@@ -12,9 +13,16 @@ const workspaces = [
   {
     title: "Product & Service Catalog",
     description:
-      "Publish and maintain marketplace offerings, commercial details and availability.",
+      "View and manage marketplace listings, product media, visibility and availability.",
     href: "/app/marketplace/catalog",
     icon: Store,
+  },
+  {
+    title: "Publish Offering",
+    description:
+      "Create a new product or service listing for buyers across the Enorsis marketplace.",
+    href: "/app/marketplace/catalog/new",
+    icon: PlusCircle,
   },
   {
     title: "Supplier Portal",
