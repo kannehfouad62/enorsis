@@ -7,13 +7,13 @@ import {
   Star,
 } from "lucide-react";
 import {
-  addMarketplaceOfferingImagesAction,
   createMarketplaceOfferingAction,
   deleteMarketplaceOfferingImageAction,
   setMarketplaceOfferingPrimaryImageAction,
   updateMarketplaceOfferingStatusAction,
 } from "@/modules/marketplace-catalog/actions";
 import { MarketplaceComparisonResults } from "@/components/marketplace/MarketplaceComparisonResults";
+import { MarketplaceDirectImageUpload } from "@/components/marketplace/MarketplaceDirectImageUpload";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -274,11 +274,12 @@ export default async function MarketplaceCatalogPage({
           <input className={input} name="countriesAvailable" placeholder="Countries available, comma separated" />
           <input className={input} name="certifications" placeholder="Certifications, comma separated" />
           <input className={input} name="keywords" placeholder="Search keywords, comma separated" />
-          <label className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 md:col-span-2">
-            <span className="block text-sm font-black text-slate-800">Product / service images</span>
-            <span className="mt-1 block text-xs text-slate-500">Upload up to 8 JPG, PNG or WebP images. The first image becomes the primary marketplace image.</span>
-            <input className="mt-3 block w-full text-sm" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple />
-          </label>
+          <div className="rounded-xl border border-blue-100 bg-blue-50/60 p-4 text-sm text-slate-700 md:col-span-2">
+            <p className="font-black text-slate-900">Product gallery</p>
+            <p className="mt-1 text-xs leading-5 text-slate-600">
+              Publish the offering first, then upload up to 8 product images directly to Private Vercel Blob from the listing controls below.
+            </p>
+          </div>
           <input className={input} name="documentRef" placeholder="Document reference" />
           <input className={input} name="externalUrl" placeholder="External product/service URL" />
           <select className={input} name="marketplaceVisible" defaultValue="true">
@@ -338,10 +339,11 @@ export default async function MarketplaceCatalogPage({
                     ))}
                   </div>
                 ) : null}
-                <div className="mt-3 rounded-xl border border-dashed border-slate-300 bg-white p-3">
-                  <input name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple className="block w-full text-xs" />
-                  <button formAction={addMarketplaceOfferingImagesAction} className="mt-2 rounded-lg bg-slate-900 px-3 py-2 text-xs font-black text-white">Upload images</button>
-                </div>
+                <MarketplaceDirectImageUpload
+                  offeringId={result.offering.id}
+                  offeringName={result.offering.name}
+                  existingCount={result.media.length}
+                />
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   <select
                     className={input}
