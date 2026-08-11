@@ -129,6 +129,14 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
     group: "Procurement",
   },
   {
+    title: "Marketplace Purchase Cart",
+    description:
+      "Review selected marketplace offers and submit them as governed Purchase Requests.",
+    href: "/app/marketplace/cart",
+    icon: ShoppingCart,
+    group: "Procurement",
+  },
+  {
     title: "Purchase Requests",
     description: "Create, route and approve internal procurement demand.",
     href: "/app/requests",
@@ -185,10 +193,10 @@ export const enterpriseModules: EnterpriseModuleLink[] = [
   {
     title: "Marketplace Product Catalog",
     description:
-      "Publish and discover supplier products and services with pricing, availability, category and regional metadata.",
+      "Discover supplier products and services, compare offers and submit governed marketplace Purchase Requests.",
     href: "/app/marketplace/catalog",
     icon: PackageSearch,
-    group: "Suppliers",
+    group: "Procurement",
   },
 
   {

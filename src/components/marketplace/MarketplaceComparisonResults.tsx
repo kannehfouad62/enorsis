@@ -4,6 +4,7 @@ import {
   PackageSearch,
   Store,
 } from "lucide-react";
+import { MarketplaceAddToCartButton } from "@/components/marketplace/MarketplaceAddToCartButton";
 
 type CatalogData = Awaited<
   ReturnType<
@@ -195,6 +196,7 @@ export function MarketplaceComparisonResults({
                           <th className="px-4 py-3">
                             SKU
                           </th>
+                          <th className="px-4 py-3">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -260,6 +262,37 @@ export function MarketplaceComparisonResults({
                               <td className="px-4 py-4 text-slate-500">
                                 {offer.offering
                                   .sku ?? "—"}
+                              </td>
+                              <td className="px-4 py-4">
+                                {offer.offering.unitPrice != null &&
+                                offer.offering.availabilityStatus !== "UNAVAILABLE" ? (
+                                  <MarketplaceAddToCartButton
+                                    item={{
+                                      offeringId: offer.offering.id,
+                                      sellerTenantId: offer.offering.tenantId,
+                                      sellerSupplierId: offer.offering.supplierId,
+                                      supplierName:
+                                        offer.supplier.tradingName ??
+                                        offer.supplier.legalName,
+                                      offeringName: offer.offering.name,
+                                      sku: offer.offering.sku,
+                                      category: offer.offering.category,
+                                      unitOfMeasure: offer.offering.unitOfMeasure ?? "EA",
+                                      unitPrice: Number(offer.offering.unitPrice),
+                                      currencyCode: offer.offering.currencyCode,
+                                      minimumOrderQty:
+                                        offer.offering.minimumOrderQty == null
+                                          ? null
+                                          : Number(offer.offering.minimumOrderQty),
+                                      leadTimeDays: offer.offering.leadTimeDays,
+                                      imageRef: offer.offering.imageRef,
+                                    }}
+                                  />
+                                ) : (
+                                  <span className="text-xs font-semibold text-slate-500">
+                                    Request quote
+                                  </span>
+                                )}
                               </td>
                             </tr>
                           ),

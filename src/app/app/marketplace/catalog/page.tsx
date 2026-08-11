@@ -14,6 +14,7 @@ import {
 } from "@/modules/marketplace-catalog/actions";
 import { MarketplaceComparisonResults } from "@/components/marketplace/MarketplaceComparisonResults";
 import { MarketplaceDirectImageUpload } from "@/components/marketplace/MarketplaceDirectImageUpload";
+import { MarketplaceCartLink } from "@/components/marketplace/MarketplaceCartLink";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -51,7 +52,8 @@ export default async function MarketplaceCatalogPage({
           </p>
         </div>
         {data.commercialPersona !== "SUPPLIER" ? (
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
+            <MarketplaceCartLink />
             <Link
               href="/app/marketplace/suppliers"
               className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"

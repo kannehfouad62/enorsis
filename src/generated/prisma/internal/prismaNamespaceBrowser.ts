@@ -370,6 +370,8 @@ export const ModelName = {
   PublicSiteJobOpening: 'PublicSiteJobOpening',
   EndToEndCommerceCertificationRun: 'EndToEndCommerceCertificationRun',
   EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck',
+  MarketplacePurchaseRequestLineBinding: 'MarketplacePurchaseRequestLineBinding',
+  MarketplaceSellerOrder: 'MarketplaceSellerOrder',
   SupplierMarketplaceOfferingMedia: 'SupplierMarketplaceOfferingMedia'
 } as const
 
@@ -7285,6 +7287,61 @@ export const EndToEndCommerceCertificationCheckScalarFieldEnum = {
 } as const
 
 export type EndToEndCommerceCertificationCheckScalarFieldEnum = (typeof EndToEndCommerceCertificationCheckScalarFieldEnum)[keyof typeof EndToEndCommerceCertificationCheckScalarFieldEnum]
+
+
+export const MarketplacePurchaseRequestLineBindingScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  purchaseRequestId: 'purchaseRequestId',
+  purchaseRequestLineId: 'purchaseRequestLineId',
+  marketplaceOfferingId: 'marketplaceOfferingId',
+  sellerTenantId: 'sellerTenantId',
+  sellerSupplierId: 'sellerSupplierId',
+  offeringName: 'offeringName',
+  sku: 'sku',
+  imageRef: 'imageRef',
+  currencyCode: 'currencyCode',
+  unitPrice: 'unitPrice',
+  quantity: 'quantity',
+  unitOfMeasure: 'unitOfMeasure',
+  leadTimeDays: 'leadTimeDays',
+  createdAt: 'createdAt'
+} as const
+
+export type MarketplacePurchaseRequestLineBindingScalarFieldEnum = (typeof MarketplacePurchaseRequestLineBindingScalarFieldEnum)[keyof typeof MarketplacePurchaseRequestLineBindingScalarFieldEnum]
+
+
+export const MarketplaceSellerOrderScalarFieldEnum = {
+  id: 'id',
+  buyerTenantId: 'buyerTenantId',
+  sellerTenantId: 'sellerTenantId',
+  purchaseRequestId: 'purchaseRequestId',
+  buyerSupplierId: 'buyerSupplierId',
+  sellerSupplierId: 'sellerSupplierId',
+  journeyId: 'journeyId',
+  purchaseOrderExecutionId: 'purchaseOrderExecutionId',
+  orderNumber: 'orderNumber',
+  status: 'status',
+  currencyCode: 'currencyCode',
+  totalAmount: 'totalAmount',
+  lineSnapshot: 'lineSnapshot',
+  buyerRequesterUserId: 'buyerRequesterUserId',
+  buyerTenantName: 'buyerTenantName',
+  acceptedByUserId: 'acceptedByUserId',
+  acceptedAt: 'acceptedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  carrier: 'carrier',
+  trackingNumber: 'trackingNumber',
+  expectedDeliveryAt: 'expectedDeliveryAt',
+  shippedByUserId: 'shippedByUserId',
+  shippedAt: 'shippedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MarketplaceSellerOrderScalarFieldEnum = (typeof MarketplaceSellerOrderScalarFieldEnum)[keyof typeof MarketplaceSellerOrderScalarFieldEnum]
 
 
 export const SupplierMarketplaceOfferingMediaScalarFieldEnum = {

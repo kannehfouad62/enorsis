@@ -1,0 +1,82 @@
+import {
+  acceptMarketplaceSellerOrderAction,
+  rejectMarketplaceSellerOrderAction,
+  shipMarketplaceSellerOrderAction,
+} from "@/modules/marketplace-commerce/actions";
+import { getMarketplaceSellerOrders } from "@/modules/marketplace-commerce/queries";
+
+type SnapshotLine = {
+  offeringName?: string;
+  sku?: string | null;
+  quantity?: number;
+  unitOfMeasure?: string;
+  unitPrice?: number;
+};
+
+export default async function MarketplaceSellerOrdersPage() {
+  const { orders } = await getMarketplaceSellerOrders();
+
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+      <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">Seller Marketplace</p>
+      <h1 className="mt-3 text-4xl font-black">Marketplace Orders</h1>
+      <p className="mt-3 max-w-4xl leading-7 text-slate-600">
+        Review buyer purchase orders, accept or reject them, and record shipment details. Goods receipt remains buyer-controlled.
+      </p>
+      <div className="mt-8 space-y-5">
+        {orders.length === 0 ? <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm"><p className="font-black">No marketplace orders yet.</p></div> : null}
+        {orders.map((order) => {
+          const lines = Array.isArray(order.lineSnapshot) ? (order.lineSnapshot as SnapshotLine[]) : [];
+          return (
+            <article key={order.id} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div><p className="text-xs font-black uppercase text-slate-500">{order.orderNumber ?? "Order preparing"}</p><h2 className="mt-2 text-xl font-black">{order.buyerTenantName ?? "Marketplace buyer"}</h2></div>
+                <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">{order.status.replaceAll("_", " ")}</span>
+              </div>
+              <div className="mt-5 space-y-2">
+                {lines.map((line, index) => (
+                  <div key={index} className="flex justify-between rounded-xl bg-slate-50 p-3 text-sm">
+                    <span>{line.offeringName ?? "Marketplace item"}{line.sku ? ` · ${line.sku}` : ""}</span>
+                    <span className="font-black">{line.quantity ?? 0} {line.unitOfMeasure ?? ""} · {order.currencyCode} {Number(line.unitPrice ?? 0).toLocaleString()}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-right text-lg font-black">Total: {order.currencyCode} {Number(order.totalAmount).toLocaleString()}</p>
+
+              {order.status === "PLACED" ? (
+                <div className="mt-5 grid gap-3 md:grid-cols-2">
+                  <form action={acceptMarketplaceSellerOrderAction}>
+                    <input type="hidden" name="orderId" value={order.id} />
+                    <button className="w-full rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">Accept order</button>
+                  </form>
+                  <form action={rejectMarketplaceSellerOrderAction} className="flex gap-2">
+                    <input type="hidden" name="orderId" value={order.id} />
+                    <input name="reason" required placeholder="Rejection reason" className="min-w-0 flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+                    <button className="rounded-xl border border-rose-200 px-4 py-3 text-sm font-black text-rose-700">Reject</button>
+                  </form>
+                </div>
+              ) : null}
+
+              {order.status === "ACCEPTED" ? (
+                <form action={shipMarketplaceSellerOrderAction} className="mt-5 grid gap-3 md:grid-cols-4">
+                  <input type="hidden" name="orderId" value={order.id} />
+                  <input name="carrier" required placeholder="Carrier" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+                  <input name="trackingNumber" required placeholder="Tracking number" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+                  <input name="expectedDeliveryAt" type="date" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+                  <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Mark shipped</button>
+                </form>
+              ) : null}
+
+              {order.status === "SHIPPED" ? (
+                <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm">
+                  <p><strong>Carrier:</strong> {order.carrier}</p>
+                  <p className="mt-1"><strong>Tracking:</strong> {order.trackingNumber}</p>
+                </div>
+              ) : null}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

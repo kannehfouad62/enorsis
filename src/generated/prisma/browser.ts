@@ -1613,6 +1613,16 @@ export type EndToEndCommerceCertificationRun = Prisma.EndToEndCommerceCertificat
  */
 export type EndToEndCommerceCertificationCheck = Prisma.EndToEndCommerceCertificationCheckModel
 /**
+ * Model MarketplacePurchaseRequestLineBinding
+ * 
+ */
+export type MarketplacePurchaseRequestLineBinding = Prisma.MarketplacePurchaseRequestLineBindingModel
+/**
+ * Model MarketplaceSellerOrder
+ * 
+ */
+export type MarketplaceSellerOrder = Prisma.MarketplaceSellerOrderModel
+/**
  * Model SupplierMarketplaceOfferingMedia
  * 
  */

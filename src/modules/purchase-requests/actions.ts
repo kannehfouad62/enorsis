@@ -12,6 +12,7 @@ import {
   hasResourceScope,
   requireAnyRole,
 } from "@/core/auth/authorization";
+import { handleMarketplacePurchaseRequestDecision } from "@/core/marketplace-commerce/orchestration";
 import {
   approvalDecisionSchema,
   cancelRequestSchema,
@@ -302,6 +303,14 @@ export async function decidePurchaseRequestAction(formData: FormData) {
         after: { status: nextStatus, comments: input.comments },
       },
     });
+  });
+
+  await handleMarketplacePurchaseRequestDecision({
+    purchaseRequestId: request.id,
+    nextStatus,
+    decision: input.decision,
+    comments: input.comments,
+    actorUserId: user.id,
   });
 
   revalidatePath("/app/requests");

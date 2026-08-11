@@ -18,6 +18,13 @@ const workspaces = [
     icon: Store,
   },
   {
+    title: "Marketplace Orders",
+    description:
+      "Review buyer purchase orders, accept or reject orders, and record shipment tracking.",
+    href: "/app/marketplace/orders",
+    icon: PackageCheck,
+  },
+  {
     title: "Publish Offering",
     description:
       "Create a new product or service listing for buyers across the Enorsis marketplace.",
