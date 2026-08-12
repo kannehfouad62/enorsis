@@ -18,6 +18,7 @@ import {
   createPlatformTenantSchema,
   updatePlatformTenantStatusSchema,
   updatePlatformTenantCommercialPersonaSchema,
+  updatePlatformTenantMemberRolesSchema,
 } from "./schemas";
 
 async function requirePlatformSuperAdmin() {
@@ -384,6 +385,21 @@ export async function sendTenantMemberActivationAction(formData: FormData) {
     throw new Error("This user already has login credentials.");
   }
 
+  if (membership.roles.length === 0) {
+    throw new Error(
+      "Assign at least one tenant role before sending the activation invitation.",
+    );
+  }
+
+  if (
+    membership.roles.includes(PlatformRole.PLATFORM_SUPER_ADMIN) ||
+    membership.roles.includes(PlatformRole.PLATFORM_SUPPORT)
+  ) {
+    throw new Error(
+      "Platform-level roles cannot be activated through tenant member provisioning.",
+    );
+  }
+
   await issueTenantUserActivationInvitation({
     tenantId,
     userId,
@@ -440,4 +456,73 @@ export async function updatePlatformTenantCommercialPersonaAction(formData: Form
 
   revalidatePath("/app/settings/tenants");
   revalidatePath(`/app/settings/tenants/${updated.id}`);
+}
+
+
+export async function updatePlatformTenantMemberRolesAction(
+  formData: FormData,
+) {
+  const actor = await requirePlatformSuperAdmin();
+
+  const input = updatePlatformTenantMemberRolesSchema.parse({
+    tenantId: value(formData, "tenantId"),
+    userId: value(formData, "userId"),
+    roles: formData.getAll("roles").map((role) => String(role)),
+  });
+
+  const membership = await prisma.membership.findUnique({
+    where: {
+      tenantId_userId: {
+        tenantId: input.tenantId,
+        userId: input.userId,
+      },
+    },
+    include: {
+      user: {
+        select: { email: true },
+      },
+    },
+  });
+
+  if (!membership) {
+    throw new Error("The selected user is not a member of this tenant.");
+  }
+
+  if (membership.roles.includes(PlatformRole.TENANT_OWNER)) {
+    throw new Error(
+      "Tenant Owner roles are managed through the Tenant Owner controls.",
+    );
+  }
+
+  const updated = await prisma.membership.update({
+    where: {
+      tenantId_userId: {
+        tenantId: input.tenantId,
+        userId: input.userId,
+      },
+    },
+    data: {
+      roles: input.roles as PlatformRole[],
+    },
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: input.tenantId,
+      userId: actor.id,
+      actorType: "USER",
+      actorId: actor.id,
+      actorLabel: actor.email,
+      action: "platform.tenant.member.roles.update",
+      resourceType: "Membership",
+      resourceId: membership.id,
+      before: { roles: membership.roles },
+      after: {
+        roles: updated.roles,
+        memberEmail: membership.user.email,
+      },
+    },
+  });
+
+  revalidatePath(`/app/settings/tenants/${input.tenantId}`);
 }

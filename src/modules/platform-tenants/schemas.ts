@@ -60,3 +60,27 @@ export const updatePlatformTenantCommercialPersonaSchema = z.object({
   tenantId: z.string().trim().min(1),
   commercialPersona: z.enum(["BUYER", "SUPPLIER", "BUYER_SUPPLIER"]),
 });
+
+
+const tenantAssignableRole = z.enum([
+  "TENANT_ADMIN",
+  "PROCUREMENT_EXECUTIVE",
+  "PROCUREMENT_MANAGER",
+  "BUYER",
+  "REQUESTER",
+  "APPROVER",
+  "FINANCE",
+  "SUPPLIER_MANAGER",
+  "RISK_COMPLIANCE",
+  "AUDITOR",
+  "VIEWER",
+]);
+
+export const updatePlatformTenantMemberRolesSchema = z.object({
+  tenantId: z.string().trim().min(1),
+  userId: z.string().trim().min(1),
+  roles: z.array(tenantAssignableRole).min(
+    1,
+    "Assign at least one tenant role before activation.",
+  ),
+});

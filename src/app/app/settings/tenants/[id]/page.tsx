@@ -5,11 +5,26 @@ import {
   resendTenantOwnerActivationAction,
   updatePlatformTenantStatusAction,
   updatePlatformTenantCommercialPersonaAction,
+  updatePlatformTenantMemberRolesAction,
 } from "@/modules/platform-tenants/actions";
 import { getPlatformTenantDetail } from "@/modules/platform-tenants/queries";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
+
+const TENANT_ASSIGNABLE_ROLES = [
+  ["TENANT_ADMIN", "Tenant Admin"],
+  ["PROCUREMENT_EXECUTIVE", "Procurement Executive"],
+  ["PROCUREMENT_MANAGER", "Procurement Manager"],
+  ["BUYER", "Buyer"],
+  ["REQUESTER", "Requester"],
+  ["APPROVER", "Approver"],
+  ["FINANCE", "Finance / Accounts Payable"],
+  ["SUPPLIER_MANAGER", "Supplier Manager"],
+  ["RISK_COMPLIANCE", "Risk & Compliance"],
+  ["AUDITOR", "Auditor"],
+  ["VIEWER", "Viewer"],
+] as const;
 
 export default async function PlatformTenantDetailPage({
   params,
@@ -199,11 +214,57 @@ export default async function PlatformTenantDetailPage({
                   </p>
                 </div>
 
+                {!membership.roles.includes("TENANT_OWNER") ? (
+                  <div className="w-full border-t border-slate-100 pt-4">
+                    <p className="text-xs font-black uppercase tracking-wide text-slate-500">
+                      Tenant access roles
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-slate-500">
+                      Assign one or more roles before sending the activation invitation.
+                    </p>
+
+                    <form
+                      action={updatePlatformTenantMemberRolesAction}
+                      className="mt-3"
+                    >
+                      <input type="hidden" name="tenantId" value={tenant.id} />
+                      <input type="hidden" name="userId" value={membership.user.id} />
+
+                      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                        {TENANT_ASSIGNABLE_ROLES.map(([role, label]) => (
+                          <label
+                            key={role}
+                            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold text-slate-700"
+                          >
+                            <input
+                              type="checkbox"
+                              name="roles"
+                              value={role}
+                              defaultChecked={membership.roles.includes(role)}
+                            />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+
+                      <button className="mt-3 rounded-xl bg-slate-950 px-4 py-3 text-xs font-black text-white">
+                        Save assigned roles
+                      </button>
+                    </form>
+                  </div>
+                ) : null}
+
                 {!membership.user.passwordHash ? (
-                  <form action={sendTenantMemberActivationAction}>
+                  <form action={sendTenantMemberActivationAction} className="mt-3">
                     <input type="hidden" name="tenantId" value={tenant.id} />
                     <input type="hidden" name="userId" value={membership.user.id} />
-                    <button className="rounded-xl bg-blue-700 px-4 py-3 text-xs font-black text-white">
+                    <button
+                      disabled={
+                        !membership.roles.includes("TENANT_OWNER") &&
+                        membership.roles.length === 0
+                      }
+                      className="rounded-xl bg-blue-700 px-4 py-3 text-xs font-black text-white disabled:cursor-not-allowed disabled:opacity-50"
+                    >
                       {membership.status === "INVITED"
                         ? "Resend activation invitation"
                         : "Send activation invitation"}
