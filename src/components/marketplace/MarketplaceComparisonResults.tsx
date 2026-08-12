@@ -3,6 +3,8 @@ import {
   Clock3,
   PackageSearch,
   Store,
+  MapPin,
+  Truck,
 } from "lucide-react";
 import { MarketplaceAddToCartButton } from "@/components/marketplace/MarketplaceAddToCartButton";
 import { MarketplaceProductGallery } from "@/components/marketplace/MarketplaceProductGallery";
@@ -145,6 +147,46 @@ export function MarketplaceComparisonResults({
                       ? ""
                       : "s"}
                   </span>
+                </div>
+
+                <div className="mt-4 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <div className="flex items-center gap-2 text-slate-500">
+                      <MapPin className="h-4 w-4" />
+                      <span className="text-xs font-black uppercase">
+                        Seller location
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm font-black text-slate-800">
+                      {[
+                        representative.sellerLocation.city,
+                        representative.sellerLocation.region,
+                        representative.sellerLocation.countryCode,
+                      ]
+                        .filter(Boolean)
+                        .join(", ") ||
+                        "Location not specified"}
+                    </p>
+                    {representative.sellerLocation.siteName ? (
+                      <p className="mt-1 text-xs text-slate-500">
+                        {representative.sellerLocation.siteName}
+                      </p>
+                    ) : null}
+                  </div>
+
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <div className="flex items-center gap-2 text-slate-500">
+                      <Truck className="h-4 w-4" />
+                      <span className="text-xs font-black uppercase">
+                        Sells / ships to
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm font-black text-slate-800">
+                      {representative.countries.length > 0
+                        ? representative.countries.join(", ")
+                        : "Shipping coverage not specified"}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="mt-5 grid gap-3 sm:grid-cols-3">

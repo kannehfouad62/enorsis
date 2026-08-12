@@ -288,9 +288,17 @@ export default async function MarketplaceCatalogPage({
                     <option value="true">Featured</option>
                   </select>
                 </div>
-                <button className="mt-3 rounded-xl border border-slate-200 px-3 py-2 text-xs font-black">
-                  Update listing
-                </button>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Link
+                    href={`/app/marketplace/catalog/${result.offering.id}/edit`}
+                    className="rounded-xl bg-blue-700 px-3 py-2 text-xs font-black text-white"
+                  >
+                    Edit offering
+                  </Link>
+                  <button className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-black">
+                    Update visibility
+                  </button>
+                </div>
               </form>
             );
           })}

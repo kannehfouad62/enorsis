@@ -178,3 +178,135 @@ export async function deleteMarketplaceOfferingImageAction(data: FormData) {
   }
   revalidatePath("/app/marketplace/catalog");
 }
+
+
+export async function updateMarketplaceOfferingDetailsAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...roles]);
+  const offeringId = field(data, "offeringId");
+
+  const current =
+    await prisma.supplierMarketplaceOffering.findFirst({
+      where: {
+        id: offeringId,
+        tenantId: user.tenantId,
+      },
+    });
+
+  if (!current) {
+    throw new Error(
+      "Marketplace offering was not found for this tenant.",
+    );
+  }
+
+  const marketplaceVisible =
+    field(data, "marketplaceVisible") === "true";
+
+  const updated =
+    await prisma.supplierMarketplaceOffering.update({
+      where: { id: current.id },
+      data: {
+        offeringType:
+          field(data, "offeringType") || current.offeringType,
+        sku: field(data, "sku") || null,
+        name: field(data, "name"),
+        shortDescription:
+          field(data, "shortDescription") || null,
+        description:
+          field(data, "description") || null,
+        category:
+          field(data, "category") || null,
+        subcategory:
+          field(data, "subcategory") || null,
+        manufacturer:
+          field(data, "manufacturer") || null,
+        brand:
+          field(data, "brand") || null,
+        modelNumber:
+          field(data, "modelNumber") || null,
+        unitOfMeasure:
+          field(data, "unitOfMeasure") || null,
+        currencyCode:
+          field(data, "currencyCode").toUpperCase() ||
+          current.currencyCode,
+        unitPrice:
+          field(data, "unitPrice") || null,
+        minimumOrderQty:
+          field(data, "minimumOrderQty") || null,
+        leadTimeDays:
+          field(data, "leadTimeDays")
+            ? Number(field(data, "leadTimeDays"))
+            : null,
+        availabilityStatus:
+          field(data, "availabilityStatus") ||
+          current.availabilityStatus,
+        countriesAvailable: list(
+          field(data, "countriesAvailable"),
+        ),
+        certifications: list(
+          field(data, "certifications"),
+        ),
+        keywords: list(
+          field(data, "keywords"),
+        ),
+        documentRef:
+          field(data, "documentRef") || null,
+        externalUrl:
+          field(data, "externalUrl") || null,
+        marketplaceVisible,
+        featured:
+          field(data, "featured") === "true",
+        publishedAt:
+          marketplaceVisible
+            ? current.publishedAt ?? new Date()
+            : null,
+      },
+    });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: user.tenantId,
+      userId: user.id,
+      actorType: "USER",
+      actorId: user.id,
+      actorLabel:
+        user.email ?? "Marketplace administrator",
+      action: "supplier_marketplace.offering.update",
+      resourceType: "SupplierMarketplaceOffering",
+      resourceId: current.id,
+      before: {
+        name: current.name,
+        sku: current.sku,
+        unitPrice: current.unitPrice,
+        currencyCode: current.currencyCode,
+        availabilityStatus:
+          current.availabilityStatus,
+        marketplaceVisible:
+          current.marketplaceVisible,
+        featured: current.featured,
+        countriesAvailable:
+          current.countriesAvailable,
+      },
+      after: {
+        name: updated.name,
+        sku: updated.sku,
+        unitPrice: updated.unitPrice,
+        currencyCode: updated.currencyCode,
+        availabilityStatus:
+          updated.availabilityStatus,
+        marketplaceVisible:
+          updated.marketplaceVisible,
+        featured: updated.featured,
+        countriesAvailable:
+          updated.countriesAvailable,
+      },
+    },
+  });
+
+  revalidatePath("/app/marketplace/catalog");
+  revalidatePath(
+    `/app/marketplace/catalog/${current.id}/edit`,
+  );
+  redirect("/app/marketplace/catalog?updated=1");
+}

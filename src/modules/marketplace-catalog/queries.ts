@@ -174,6 +174,44 @@ export async function getMarketplaceCatalog(input: {
       })
     : [];
 
+  const marketplaceSellerTenants = offerings.length
+    ? await prisma.tenant.findMany({
+        where: {
+          id: {
+            in: [
+              ...new Set(
+                offerings.map(
+                  (offering) => offering.tenantId,
+                ),
+              ),
+            ],
+          },
+        },
+        select: {
+          id: true,
+          countryCode: true,
+          sites: {
+            where: { status: "ACTIVE" },
+            orderBy: { createdAt: "asc" },
+            take: 1,
+            select: {
+              name: true,
+              city: true,
+              region: true,
+              countryCode: true,
+            },
+          },
+        },
+      })
+    : [];
+
+  const sellerTenantMap = new Map(
+    marketplaceSellerTenants.map((tenant) => [
+      tenant.id,
+      tenant,
+    ]),
+  );
+
   const media = offerings.length
     ? await prisma.supplierMarketplaceOfferingMedia.findMany({
         where: {
@@ -278,12 +316,26 @@ export async function getMarketplaceCatalog(input: {
         return null;
       }
 
+      const sellerTenant = sellerTenantMap.get(
+        offering.tenantId,
+      );
+      const sellerSite = sellerTenant?.sites[0];
+
       return {
         offering,
         supplier,
         keywords,
         countries,
         certifications,
+        sellerLocation: {
+          city: sellerSite?.city ?? null,
+          region: sellerSite?.region ?? null,
+          countryCode:
+            sellerSite?.countryCode ??
+            sellerTenant?.countryCode ??
+            null,
+          siteName: sellerSite?.name ?? null,
+        },
         media:
           mediaByOffering.get(
             offering.id,
@@ -453,5 +505,52 @@ export async function getMarketplaceCatalog(input: {
           }
         : null,
     comparisonGroups,
+  };
+}
+
+
+export async function getMarketplaceOfferingForEdit(
+  offeringId: string,
+) {
+  const session = await auth();
+  if (!session?.user) redirect("/login");
+
+  const tenant = await prisma.tenant.findUnique({
+    where: { id: session.user.tenantId },
+    select: { commercialPersona: true },
+  });
+
+  if (
+    !tenant ||
+    !["SUPPLIER", "BUYER_SUPPLIER"].includes(
+      tenant.commercialPersona,
+    )
+  ) {
+    redirect("/app/unauthorized");
+  }
+
+  const offering =
+    await prisma.supplierMarketplaceOffering.findFirst({
+      where: {
+        id: offeringId,
+        tenantId: session.user.tenantId,
+      },
+    });
+
+  if (!offering) {
+    redirect("/app/unauthorized");
+  }
+
+  return {
+    ...offering,
+    countriesAvailable: asArray(
+      offering.countriesAvailable,
+    ),
+    certifications: asArray(
+      offering.certifications,
+    ),
+    keywords: asArray(
+      offering.keywords,
+    ),
   };
 }
