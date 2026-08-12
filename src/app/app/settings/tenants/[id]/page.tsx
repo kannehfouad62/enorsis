@@ -5,9 +5,11 @@ import {
   resendTenantOwnerActivationAction,
   updatePlatformTenantStatusAction,
   updatePlatformTenantCommercialPersonaAction,
+  runPlatformTenantAccessAuditAction,
   updatePlatformTenantMemberRolesAction,
 } from "@/modules/platform-tenants/actions";
 import { getPlatformTenantDetail } from "@/modules/platform-tenants/queries";
+import { auditTenantAccess } from "@/core/access-governance/tenant-role-audit";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -41,6 +43,18 @@ export default async function PlatformTenantDetailPage({
   const owner = tenant.memberships.find((membership) =>
     membership.roles.includes("TENANT_OWNER"),
   );
+
+  const accessAudit = auditTenantAccess({
+    commercialPersona: tenant.commercialPersona,
+    members: tenant.memberships.map((membership) => ({
+      userId: membership.user.id,
+      email: membership.user.email,
+      name: membership.user.name,
+      status: membership.status,
+      roles: membership.roles,
+      hasPassword: Boolean(membership.user.passwordHash),
+    })),
+  });
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -273,6 +287,82 @@ export default async function PlatformTenantDetailPage({
                 ) : null}
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={`${card} mt-8`}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black">User access & role audit</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              Review the access posture of all existing tenant members. This audit
+              is non-destructive: findings identify role and activation risks but
+              never change access automatically.
+            </p>
+          </div>
+
+          <form action={runPlatformTenantAccessAuditAction}>
+            <input type="hidden" name="tenantId" value={tenant.id} />
+            <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">
+              Record access audit
+            </button>
+          </form>
+        </div>
+
+        <div className="mt-5 grid gap-3 sm:grid-cols-4">
+          <Metric label="Reviewed" value={String(accessAudit.reviewed)} />
+          <Metric label="Passed" value={String(accessAudit.passed)} />
+          <Metric label="Warnings" value={String(accessAudit.warnings)} />
+          <Metric label="Failed" value={String(accessAudit.failed)} />
+        </div>
+
+        <div className="mt-6 space-y-3">
+          {accessAudit.results.map((result) => (
+            <article
+              key={result.userId}
+              className="rounded-2xl border border-slate-200 p-4"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <p className="font-black">
+                    {result.name ?? result.email ?? result.userId}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {result.email ?? "No email"} · {result.status}
+                  </p>
+                  <p className="mt-2 text-xs font-bold text-slate-600">
+                    {result.roles.length > 0
+                      ? result.roles.join(" · ")
+                      : "No roles assigned"}
+                  </p>
+                </div>
+
+                <span
+                  className={
+                    result.severity === "PASS"
+                      ? "rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700"
+                      : result.severity === "WARN"
+                        ? "rounded-full bg-amber-50 px-3 py-1 text-xs font-black text-amber-700"
+                        : "rounded-full bg-rose-50 px-3 py-1 text-xs font-black text-rose-700"
+                  }
+                >
+                  {result.severity}
+                </span>
+              </div>
+
+              <div className="mt-3 space-y-2">
+                {result.findings.map((finding) => (
+                  <p
+                    key={finding.code}
+                    className="rounded-xl bg-slate-50 px-3 py-2 text-xs leading-5 text-slate-700"
+                  >
+                    <strong>{finding.code.replaceAll("_", " ")}:</strong>{" "}
+                    {finding.message}
+                  </p>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </section>

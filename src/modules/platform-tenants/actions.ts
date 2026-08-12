@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { auditTenantAccess } from "@/core/access-governance/tenant-role-audit";
 import { issueTenantUserActivationInvitation } from "@/core/tenant-user-activation/service";
 import { issueTenantOwnerActivationInvitation } from "@/core/tenant-owner-activation/service";
 import {
@@ -525,4 +526,85 @@ export async function updatePlatformTenantMemberRolesAction(
   });
 
   revalidatePath(`/app/settings/tenants/${input.tenantId}`);
+}
+
+
+export async function runPlatformTenantAccessAuditAction(
+  formData: FormData,
+) {
+  const actor = await requirePlatformSuperAdmin();
+  const tenantId = value(formData, "tenantId");
+
+  if (!tenantId) {
+    throw new Error("Tenant is required.");
+  }
+
+  const tenant = await prisma.tenant.findUnique({
+    where: { id: tenantId },
+    select: {
+      id: true,
+      name: true,
+      commercialPersona: true,
+      memberships: {
+        orderBy: { createdAt: "asc" },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              passwordHash: true,
+            },
+          },
+        },
+      },
+    },
+  });
+
+  if (!tenant) {
+    throw new Error("Tenant was not found.");
+  }
+
+  const audit = auditTenantAccess({
+    commercialPersona: tenant.commercialPersona,
+    members: tenant.memberships.map((membership) => ({
+      userId: membership.user.id,
+      email: membership.user.email,
+      name: membership.user.name,
+      status: membership.status,
+      roles: membership.roles,
+      hasPassword: Boolean(membership.user.passwordHash),
+    })),
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: tenant.id,
+      userId: actor.id,
+      actorType: "USER",
+      actorId: actor.id,
+      actorLabel: actor.email,
+      action: "platform.tenant.access-role.audit",
+      resourceType: "Tenant",
+      resourceId: tenant.id,
+      after: {
+        tenantName: tenant.name,
+        commercialPersona: tenant.commercialPersona,
+        reviewed: audit.reviewed,
+        passed: audit.passed,
+        warnings: audit.warnings,
+        failed: audit.failed,
+        results: audit.results.map((result) => ({
+          userId: result.userId,
+          email: result.email,
+          status: result.status,
+          roles: result.roles,
+          severity: result.severity,
+          findings: result.findings,
+        })),
+      },
+    },
+  });
+
+  revalidatePath(`/app/settings/tenants/${tenant.id}`);
 }

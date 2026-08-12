@@ -5,6 +5,7 @@ import {
   Store,
 } from "lucide-react";
 import { MarketplaceAddToCartButton } from "@/components/marketplace/MarketplaceAddToCartButton";
+import { MarketplaceProductGallery } from "@/components/marketplace/MarketplaceProductGallery";
 
 type CatalogData = Awaited<
   ReturnType<
@@ -53,35 +54,22 @@ export function MarketplaceComparisonResults({
       {groups.map((group) => {
         const representative =
           group.representative;
-        const primaryImage =
-          representative.media.find(
-            (item) => item.isPrimary,
-          ) ?? representative.media[0];
-
         return (
           <article
             key={group.key}
             className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
           >
-            <div className="grid gap-0 lg:grid-cols-[280px_1fr]">
+            <div className="grid gap-0 lg:grid-cols-[320px_1fr]">
               <div className="bg-slate-50 p-5">
-                <div className="aspect-square rounded-2xl bg-white">
-                  {primaryImage ? (
-                    <img
-                      src={`/api/marketplace/catalog/media/${primaryImage.id}`}
-                      alt={
-                        primaryImage.altText ??
-                        representative.offering
-                          .name
-                      }
-                      className="h-full w-full object-contain p-4"
-                    />
-                  ) : (
-                    <div className="flex h-full items-center justify-center text-slate-300">
-                      <PackageSearch className="h-14 w-14" />
-                    </div>
-                  )}
-                </div>
+                <MarketplaceProductGallery
+                  media={representative.media.map((item) => ({
+                    id: item.id,
+                    altText: item.altText,
+                    isPrimary: item.isPrimary,
+                    position: item.position,
+                  }))}
+                  offeringName={representative.offering.name}
+                />
               </div>
 
               <div className="p-6">
@@ -112,6 +100,35 @@ export function MarketplaceComparisonResults({
                             .modelNumber
                         }
                       </p>
+                    ) : null}
+
+                    {representative.offering
+                      .shortDescription ? (
+                      <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
+                        {
+                          representative
+                            .offering
+                            .shortDescription
+                        }
+                      </p>
+                    ) : null}
+
+                    {representative.offering
+                      .description ? (
+                      <details className="mt-3 max-w-3xl">
+                        <summary className="cursor-pointer text-sm font-black text-blue-700 hover:text-blue-800">
+                          View full description
+                        </summary>
+                        <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                          <p className="whitespace-pre-wrap text-sm leading-7 text-slate-700">
+                            {
+                              representative
+                                .offering
+                                .description
+                            }
+                          </p>
+                        </div>
+                      </details>
                     ) : null}
                   </div>
 
