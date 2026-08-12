@@ -1,5 +1,10 @@
 import { BadgeDollarSign, ShieldCheck, UserPlus, Users } from "lucide-react";
-import { inviteMemberAction, updateMembershipAction } from "@/modules/access/actions";
+import {
+  inviteMemberAction,
+  resendMemberActivationAction,
+  resetAndResendMemberActivationAction,
+  updateMembershipAction,
+} from "@/modules/access/actions";
 import { assignableRoles } from "@/modules/access/schemas";
 import { getAccessAdministrationWorkspace } from "@/modules/access/queries";
 
@@ -17,7 +22,7 @@ export default async function AccessAdministrationPage() {
       <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">Identity and access</p>
       <h1 className="mt-3 text-4xl font-black tracking-tight">Enterprise access administration</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-        Govern who can request, source, approve, contract and audit procurement activity across the organization.
+        Govern who can request, source, approve, contract and audit procurement activity across the organization. New users receive a secure single-use activation email and create their own password.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-3">
@@ -33,7 +38,6 @@ export default async function AccessAdministrationPage() {
           <Field label="Email"><input className={inputClass} name="email" type="email" required /></Field>
           <Field label="Job title"><input className={inputClass} name="jobTitle" /></Field>
           <Field label="Employee ID"><input className={inputClass} name="employeeId" /></Field>
-          <Field label="Temporary password"><input className={inputClass} name="temporaryPassword" type="password" minLength={12} required /></Field>
           <Field label="Approval limit (USD)"><input className={inputClass} name="approvalLimitUsd" type="number" min="0" step="0.01" /></Field>
           <ScopeSelect name="legalEntityScopeIds" label="Legal entity scope" options={tenant.legalEntities} />
           <ScopeSelect name="siteScopeIds" label="Site scope" options={tenant.sites} />
@@ -95,6 +99,37 @@ export default async function AccessAdministrationPage() {
               <ScopeSelect name="siteScopeIds" label="Site scope" options={tenant.sites} selected={membership.siteScopeIds} />
               <ScopeSelect name="departmentScopeIds" label="Department scope" options={tenant.departments} selected={membership.departmentScopeIds} />
             </div>
+
+            {membership.status === "INVITED" ? (
+              <div className="mt-5 border-t border-slate-100 pt-5">
+                <p className="text-xs font-black uppercase tracking-wide text-slate-500">
+                  Secure activation
+                </p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">
+                  {membership.user.passwordHash
+                    ? "This invited membership already has credentials. Reset the inconsistent credential state and send a fresh activation link."
+                    : "The user has not activated yet. Send a fresh single-use activation link."}
+                </p>
+
+                {membership.user.passwordHash ? (
+                  <button
+                    formAction={resetAndResendMemberActivationAction}
+                    className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs font-black text-amber-800"
+                    type="submit"
+                  >
+                    Reset & resend activation
+                  </button>
+                ) : (
+                  <button
+                    formAction={resendMemberActivationAction}
+                    className="mt-3 rounded-xl bg-blue-700 px-4 py-3 text-xs font-black text-white"
+                    type="submit"
+                  >
+                    Resend activation
+                  </button>
+                )}
+              </div>
+            ) : null}
           </form>
         ))}
       </div>

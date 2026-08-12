@@ -21,7 +21,6 @@ export const inviteMemberSchema = z.object({
   name: z.string().trim().min(2).max(160),
   jobTitle: z.string().trim().max(160).optional(),
   employeeId: z.string().trim().max(80).optional(),
-  temporaryPassword: z.string().min(12).max(128),
   roles: z.array(z.enum(assignableRoles)).min(1),
   approvalLimitUsd: z.coerce.number().min(0).max(1_000_000_000).optional(),
   legalEntityScopeIds: z.array(z.string().min(1)),
@@ -32,7 +31,6 @@ export const inviteMemberSchema = z.object({
 export const updateMembershipSchema = inviteMemberSchema.omit({
   email: true,
   name: true,
-  temporaryPassword: true,
 }).extend({
   membershipId: z.string().min(1),
   status: z.enum(["INVITED", "ACTIVE", "SUSPENDED", "REVOKED"]),

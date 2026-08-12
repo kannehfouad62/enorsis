@@ -1,10 +1,12 @@
 "use server";
 
-import { hash } from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { MembershipStatus, PlatformRole } from "@/generated/prisma/enums";
 import { prisma } from "@/lib/prisma";
+import {
+  issueTenantUserActivationInvitation,
+} from "@/core/tenant-user-activation/service";
 import { inviteMemberSchema, updateMembershipSchema } from "./schemas";
 
 async function requireAccessAdministrator() {
@@ -50,92 +52,147 @@ function assertSegregationOfDuties(roles: readonly string[]) {
 
 export async function inviteMemberAction(formData: FormData) {
   const actor = await requireAccessAdministrator();
+
   const input = inviteMemberSchema.parse({
     email: value(formData, "email"),
     name: value(formData, "name"),
     jobTitle: value(formData, "jobTitle"),
     employeeId: value(formData, "employeeId"),
-    temporaryPassword: value(formData, "temporaryPassword"),
     roles: values(formData, "roles"),
-    approvalLimitUsd: value(formData, "approvalLimitUsd") || undefined,
-    legalEntityScopeIds: values(formData, "legalEntityScopeIds"),
+    approvalLimitUsd:
+      value(formData, "approvalLimitUsd") || undefined,
+    legalEntityScopeIds: values(
+      formData,
+      "legalEntityScopeIds",
+    ),
     siteScopeIds: values(formData, "siteScopeIds"),
-    departmentScopeIds: values(formData, "departmentScopeIds"),
+    departmentScopeIds: values(
+      formData,
+      "departmentScopeIds",
+    ),
   });
 
   assertSegregationOfDuties(input.roles);
-  const passwordHash = await hash(input.temporaryPassword, 12);
 
-  await prisma.$transaction(async (tx) => {
-    const user = await tx.user.upsert({
-      where: { email: input.email },
-      update: {
-        name: input.name,
-        passwordHash,
-        passwordChangedAt: new Date(),
-        mustChangePassword: true,
-        sessionVersion: { increment: 1 },
-        isActive: true,
-      },
-      create: {
-        email: input.email,
-        name: input.name,
-        passwordHash,
-        passwordChangedAt: new Date(),
-        mustChangePassword: true,
-        isActive: true,
-      },
-    });
-
-    const membership = await tx.membership.upsert({
-      where: {
-        tenantId_userId: { tenantId: actor.tenantId, userId: user.id },
-      },
-      update: {
-        status: MembershipStatus.INVITED,
-        roles: input.roles as PlatformRole[],
-        jobTitle: input.jobTitle || null,
-        employeeId: input.employeeId || null,
-        approvalLimitUsd: input.approvalLimitUsd,
-        legalEntityScopeIds: input.legalEntityScopeIds,
-        siteScopeIds: input.siteScopeIds,
-        departmentScopeIds: input.departmentScopeIds,
-        invitedByUserId: actor.id,
-        invitedAt: new Date(),
-      },
-      create: {
-        tenantId: actor.tenantId,
-        userId: user.id,
-        status: MembershipStatus.INVITED,
-        roles: input.roles as PlatformRole[],
-        jobTitle: input.jobTitle || null,
-        employeeId: input.employeeId || null,
-        approvalLimitUsd: input.approvalLimitUsd,
-        legalEntityScopeIds: input.legalEntityScopeIds,
-        siteScopeIds: input.siteScopeIds,
-        departmentScopeIds: input.departmentScopeIds,
-        invitedByUserId: actor.id,
-      },
-    });
-
-    await tx.auditEvent.create({
-      data: {
-        tenantId: actor.tenantId,
-        userId: actor.id,
-        actorType: "USER",
-        actorId: actor.id,
-        actorLabel: actor.email,
-        action: "membership.invite",
-        resourceType: "Membership",
-        resourceId: membership.id,
-        after: {
-          email: input.email,
-          roles: input.roles,
-          approvalLimitUsd: input.approvalLimitUsd,
-        },
-      },
-    });
+  const existingUser = await prisma.user.findUnique({
+    where: { email: input.email },
+    select: {
+      id: true,
+      passwordHash: true,
+    },
   });
+
+  const result = await prisma.$transaction(
+    async (tx) => {
+      const user = await tx.user.upsert({
+        where: { email: input.email },
+        update: {
+          name: input.name,
+          isActive: true,
+        },
+        create: {
+          email: input.email,
+          name: input.name,
+          mustChangePassword: false,
+          isActive: true,
+        },
+      });
+
+      const hasExistingCredentials = Boolean(
+        existingUser?.passwordHash,
+      );
+
+      const membership =
+        await tx.membership.upsert({
+          where: {
+            tenantId_userId: {
+              tenantId: actor.tenantId,
+              userId: user.id,
+            },
+          },
+          update: {
+            status: hasExistingCredentials
+              ? MembershipStatus.ACTIVE
+              : MembershipStatus.INVITED,
+            roles: input.roles as PlatformRole[],
+            jobTitle: input.jobTitle || null,
+            employeeId: input.employeeId || null,
+            approvalLimitUsd:
+              input.approvalLimitUsd,
+            legalEntityScopeIds:
+              input.legalEntityScopeIds,
+            siteScopeIds: input.siteScopeIds,
+            departmentScopeIds:
+              input.departmentScopeIds,
+            invitedByUserId: actor.id,
+            invitedAt: new Date(),
+            activatedAt: hasExistingCredentials
+              ? new Date()
+              : null,
+          },
+          create: {
+            tenantId: actor.tenantId,
+            userId: user.id,
+            status: hasExistingCredentials
+              ? MembershipStatus.ACTIVE
+              : MembershipStatus.INVITED,
+            roles: input.roles as PlatformRole[],
+            jobTitle: input.jobTitle || null,
+            employeeId: input.employeeId || null,
+            approvalLimitUsd:
+              input.approvalLimitUsd,
+            legalEntityScopeIds:
+              input.legalEntityScopeIds,
+            siteScopeIds: input.siteScopeIds,
+            departmentScopeIds:
+              input.departmentScopeIds,
+            invitedByUserId: actor.id,
+            invitedAt: new Date(),
+            activatedAt: hasExistingCredentials
+              ? new Date()
+              : null,
+          },
+        });
+
+      await tx.auditEvent.create({
+        data: {
+          tenantId: actor.tenantId,
+          userId: actor.id,
+          actorType: "USER",
+          actorId: actor.id,
+          actorLabel: actor.email,
+          action: hasExistingCredentials
+            ? "membership.access_added_existing_user"
+            : "membership.invite",
+          resourceType: "Membership",
+          resourceId: membership.id,
+          after: {
+            email: input.email,
+            roles: input.roles,
+            approvalLimitUsd:
+              input.approvalLimitUsd,
+            status: membership.status,
+            secureActivationRequired:
+              !hasExistingCredentials,
+          },
+        },
+      });
+
+      return {
+        userId: user.id,
+        hasExistingCredentials,
+      };
+    },
+  );
+
+  if (!result.hasExistingCredentials) {
+    await issueTenantUserActivationInvitation({
+      tenantId: actor.tenantId,
+      userId: result.userId,
+      actorUserId: actor.id,
+      actorEmail: actor.email,
+    });
+  }
 
   revalidatePath("/app/settings/access");
 }
@@ -219,6 +276,108 @@ export async function updateMembershipAction(formData: FormData) {
         approvalLimitUsd: updated.approvalLimitUsd?.toString(),
       },
     },
+  });
+
+  revalidatePath("/app/settings/access");
+}
+
+
+export async function resendMemberActivationAction(
+  formData: FormData,
+) {
+  const actor = await requireAccessAdministrator();
+  const membershipId = value(
+    formData,
+    "membershipId",
+  );
+
+  const membership = await prisma.membership.findFirst({
+    where: {
+      id: membershipId,
+      tenantId: actor.tenantId,
+      status: MembershipStatus.INVITED,
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          passwordHash: true,
+        },
+      },
+    },
+  });
+
+  if (!membership) {
+    throw new Error(
+      "Invited tenant membership was not found.",
+    );
+  }
+
+  if (membership.user.passwordHash) {
+    throw new Error(
+      "This invited user already has credentials. Use Reset & resend activation.",
+    );
+  }
+
+  await issueTenantUserActivationInvitation({
+    tenantId: actor.tenantId,
+    userId: membership.user.id,
+    actorUserId: actor.id,
+    actorEmail: actor.email,
+  });
+
+  revalidatePath("/app/settings/access");
+}
+
+export async function resetAndResendMemberActivationAction(
+  formData: FormData,
+) {
+  const actor = await requireAccessAdministrator();
+  const membershipId = value(
+    formData,
+    "membershipId",
+  );
+
+  const membership = await prisma.membership.findFirst({
+    where: {
+      id: membershipId,
+      tenantId: actor.tenantId,
+      status: MembershipStatus.INVITED,
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          passwordHash: true,
+        },
+      },
+    },
+  });
+
+  if (!membership) {
+    throw new Error(
+      "Invited tenant membership was not found.",
+    );
+  }
+
+  if (!membership.user.passwordHash) {
+    throw new Error(
+      "This invited user has no credentials to reset. Use Resend activation.",
+    );
+  }
+
+  if (membership.user.id === actor.id) {
+    throw new Error(
+      "You cannot reset your own credentials through tenant invitation recovery.",
+    );
+  }
+
+  await issueTenantUserActivationInvitation({
+    tenantId: actor.tenantId,
+    userId: membership.user.id,
+    actorUserId: actor.id,
+    actorEmail: actor.email,
+    resetCredentials: true,
   });
 
   revalidatePath("/app/settings/access");

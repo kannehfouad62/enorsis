@@ -49,38 +49,101 @@ export async function issueTenantUserActivationInvitation(input: {
   userId: string;
   actorUserId: string;
   actorEmail: string;
+  resetCredentials?: boolean;
 }) {
-  const membership = await prisma.membership.findUnique({
-    where: {
-      tenantId_userId: {
-        tenantId: input.tenantId,
-        userId: input.userId,
-      },
-    },
-    include: {
-      tenant: { select: { id: true, name: true, slug: true } },
-      user: {
-        select: {
-          id: true,
-          email: true,
-          name: true,
-          passwordHash: true,
+  const membership =
+    await prisma.membership.findUnique({
+      where: {
+        tenantId_userId: {
+          tenantId: input.tenantId,
+          userId: input.userId,
         },
       },
-    },
-  });
+      include: {
+        tenant: {
+          select: {
+            id: true,
+            name: true,
+            slug: true,
+          },
+        },
+        user: {
+          select: {
+            id: true,
+            email: true,
+            name: true,
+            passwordHash: true,
+          },
+        },
+      },
+    });
 
   if (!membership) {
-    throw new Error("Tenant membership was not found.");
-  }
-  if (membership.user.passwordHash) {
-    throw new Error("This user already has login credentials.");
+    throw new Error(
+      "Tenant membership was not found.",
+    );
   }
 
-  const rawToken = randomBytes(32).toString("base64url");
-  const expiresAt = new Date(Date.now() + TTL_HOURS * 60 * 60 * 1000);
+  if (membership.roles.length === 0) {
+    throw new Error(
+      "Assign at least one tenant role before sending activation.",
+    );
+  }
+
+  if (
+    membership.user.passwordHash &&
+    !input.resetCredentials
+  ) {
+    throw new Error(
+      "This user already has login credentials. Use Reset & resend activation only for an inconsistent invited account.",
+    );
+  }
+
+  if (
+    input.resetCredentials &&
+    membership.status !== "INVITED"
+  ) {
+    throw new Error(
+      "Credential reset is allowed only for an invited membership.",
+    );
+  }
+
+  const rawToken =
+    randomBytes(32).toString("base64url");
+  const expiresAt = new Date(
+    Date.now() +
+      TTL_HOURS * 60 * 60 * 1000,
+  );
+  const now = new Date();
 
   await prisma.$transaction(async (tx) => {
+    // Every resend invalidates prior unused activation/reset tokens.
+    await tx.passwordResetToken.updateMany({
+      where: {
+        userId: membership.user.id,
+        usedAt: null,
+      },
+      data: {
+        usedAt: now,
+      },
+    });
+
+    if (input.resetCredentials) {
+      await tx.user.update({
+        where: {
+          id: membership.user.id,
+        },
+        data: {
+          passwordHash: null,
+          passwordChangedAt: null,
+          mustChangePassword: false,
+          sessionVersion: {
+            increment: 1,
+          },
+        },
+      });
+    }
+
     await tx.passwordResetToken.create({
       data: {
         userId: membership.user.id,
@@ -99,8 +162,9 @@ export async function issueTenantUserActivationInvitation(input: {
       data: {
         status: "INVITED",
         activatedAt: null,
-        invitedAt: new Date(),
-        invitedByUserId: input.actorUserId,
+        invitedAt: now,
+        invitedByUserId:
+          input.actorUserId,
       },
     });
 
@@ -111,47 +175,120 @@ export async function issueTenantUserActivationInvitation(input: {
         actorType: "USER",
         actorId: input.actorUserId,
         actorLabel: input.actorEmail,
-        action: "platform.tenant.user.activation.invited",
+        action: input.resetCredentials
+          ? "tenant.member.activation.reset_invited"
+          : "tenant.member.activation.invited",
         resourceType: "User",
         resourceId: membership.user.id,
         after: {
-          userEmail: membership.user.email,
+          userEmail:
+            membership.user.email,
           roles: membership.roles,
-          expiresAt: expiresAt.toISOString(),
+          expiresAt:
+            expiresAt.toISOString(),
+          credentialReset: Boolean(
+            input.resetCredentials,
+          ),
         },
       },
     });
   });
 
   const url =
-    `${baseUrl()}/activate-user-account?tenant=${encodeURIComponent(membership.tenant.id)}` +
-    `&token=${encodeURIComponent(rawToken)}`;
+    `${baseUrl()}/activate-user-account?tenant=${encodeURIComponent(
+      membership.tenant.id,
+    )}&token=${encodeURIComponent(rawToken)}`;
 
-  const result = await resendClient().emails.send({
-    from: fromAddress(),
-    to: membership.user.email,
-    subject: `Activate your Enorsis account for ${membership.tenant.name}`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;padding:24px;color:#102a43">
-        <p style="font-size:12px;font-weight:700;letter-spacing:.12em;color:#1f5eff;text-transform:uppercase">Enorsis</p>
-        <h1>Activate your account</h1>
-        <p>Hello ${escapeHtml(membership.user.name ?? "Enorsis User")},</p>
-        <p>You have been added to <strong>${escapeHtml(membership.tenant.name)}</strong> on Enorsis.</p>
-        <p>Your assigned roles: <strong>${escapeHtml(membership.roles.join(", "))}</strong></p>
-        <p style="margin:28px 0"><a href="${escapeHtml(url)}" style="background:#102a43;color:#fff;text-decoration:none;padding:13px 20px;border-radius:10px;font-weight:700">Activate Enorsis Account</a></p>
-        <p>This secure link expires in ${TTL_HOURS} hours and can be used only once.</p>
-      </div>
-    `,
-    text: `Activate your Enorsis account for ${membership.tenant.name}\n\n${url}\n\nThis link expires in ${TTL_HOURS} hours.`,
-  });
+  const result =
+    await resendClient().emails.send({
+      from: fromAddress(),
+      to: membership.user.email,
+      subject:
+        `Activate your Enorsis account for ${membership.tenant.name}`,
+      html: `
+        <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;padding:24px;color:#102a43">
+          <p style="font-size:12px;font-weight:700;letter-spacing:.12em;color:#1f5eff;text-transform:uppercase">Enorsis</p>
+          <h1>Activate your account</h1>
+          <p>Hello ${escapeHtml(
+            membership.user.name ??
+              "Enorsis User",
+          )},</p>
+          <p>You have been added to <strong>${escapeHtml(
+            membership.tenant.name,
+          )}</strong> on Enorsis.</p>
+          <p>Your assigned roles: <strong>${escapeHtml(
+            membership.roles.join(", "),
+          )}</strong></p>
+          <p style="margin:28px 0">
+            <a href="${escapeHtml(url)}"
+               style="background:#102a43;color:#fff;text-decoration:none;padding:13px 20px;border-radius:10px;font-weight:700">
+              Activate Enorsis Account
+            </a>
+          </p>
+          <p>This secure link expires in ${TTL_HOURS} hours and can be used only once.</p>
+        </div>
+      `,
+      text:
+        `Activate your Enorsis account for ${membership.tenant.name}\n\n` +
+        `${url}\n\nThis link expires in ${TTL_HOURS} hours.`,
+    });
 
   if (result.error) {
-    throw new Error(result.error.message || "Resend failed to deliver the activation email.");
+    await prisma.auditEvent.create({
+      data: {
+        tenantId: membership.tenant.id,
+        userId: input.actorUserId,
+        actorType: "USER",
+        actorId: input.actorUserId,
+        actorLabel: input.actorEmail,
+        action:
+          "tenant.member.activation.email.failed",
+        resourceType: "User",
+        resourceId: membership.user.id,
+        outcome: "FAILURE",
+        reason:
+          result.error.message ||
+          "Resend failed to deliver the activation email.",
+        after: {
+          userEmail:
+            membership.user.email,
+          expiresAt:
+            expiresAt.toISOString(),
+        },
+      },
+    });
+
+    throw new Error(
+      result.error.message ||
+        "Resend failed to deliver the activation email.",
+    );
   }
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: membership.tenant.id,
+      userId: input.actorUserId,
+      actorType: "USER",
+      actorId: input.actorUserId,
+      actorLabel: input.actorEmail,
+      action:
+        "tenant.member.activation.email.sent",
+      resourceType: "User",
+      resourceId: membership.user.id,
+      after: {
+        userEmail: membership.user.email,
+        providerMessageId:
+          result.data?.id ?? null,
+        expiresAt:
+          expiresAt.toISOString(),
+      },
+    },
+  });
 
   return {
     expiresAt,
-    providerMessageId: result.data?.id ?? null,
+    providerMessageId:
+      result.data?.id ?? null,
   };
 }
 
@@ -268,7 +405,7 @@ export async function consumeTenantUserActivation(input: {
         actorType: "USER",
         actorId: context.userId,
         actorLabel: context.userEmail,
-        action: "platform.tenant.user.activation.completed",
+        action: "tenant.member.activation.completed",
         resourceType: "User",
         resourceId: context.userId,
         after: {
