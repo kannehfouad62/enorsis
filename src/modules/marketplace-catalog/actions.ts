@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { getAuditRequestContext } from "@/core/audit/request-context";
 import { redirect } from "next/navigation";
 import { requireAnyRole } from "@/core/auth/authorization";
 import { prisma } from "@/lib/prisma";
@@ -29,6 +30,7 @@ export async function createMarketplaceOfferingAction(
   data: FormData,
 ) {
   const user = await requireAnyRole([...roles]);
+  const auditContext = await getAuditRequestContext();
 
   const supplier =
     await ensureTenantSelfSupplierProfile({
@@ -116,6 +118,8 @@ export async function createMarketplaceOfferingAction(
         supplierId,
         supplierNumber: supplier.supplierNumber,
         offeringType: offering.offeringType,
+        name: offering.name,
+        shortDescription: offering.shortDescription,
         sku: offering.sku,
         marketplaceVisible,
       },
@@ -184,6 +188,7 @@ export async function updateMarketplaceOfferingDetailsAction(
   data: FormData,
 ) {
   const user = await requireAnyRole([...roles]);
+  const updateAuditContext = await getAuditRequestContext();
   const offeringId = field(data, "offeringId");
 
   const current =
@@ -272,6 +277,7 @@ export async function updateMarketplaceOfferingDetailsAction(
       actorId: user.id,
       actorLabel:
         user.email ?? "Marketplace administrator",
+      ...updateAuditContext,
       action: "supplier_marketplace.offering.update",
       resourceType: "SupplierMarketplaceOffering",
       resourceId: current.id,

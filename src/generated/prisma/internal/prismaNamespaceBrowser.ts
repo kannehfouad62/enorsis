@@ -557,6 +557,7 @@ export const AuditEventScalarFieldEnum = {
   before: 'before',
   after: 'after',
   metadata: 'metadata',
+  searchText: 'searchText',
   occurredAt: 'occurredAt'
 } as const
 

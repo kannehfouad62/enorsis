@@ -80,6 +80,14 @@ export interface EnterpriseModuleLink {
 
 export const enterpriseModules: EnterpriseModuleLink[] = [
   {
+    title: "Activity Log",
+    description:
+      "Search tenant-scoped governance evidence across users, products, approvals and major business actions.",
+    href: "/app/activity-log",
+    icon: Activity,
+    group: "Governance",
+  },
+  {
     title: "Assets & Equipment",
     description: "Asset custody, warranties, maintenance and retirement.",
     href: "/app/assets",

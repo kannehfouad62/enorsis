@@ -90,6 +90,22 @@ const governanceRoles: readonly EnorsisRole[] = [
 ];
 
 const metadataByHref: Record<string, Partial<RegistryMetadata>> = {
+  "/app/activity-log": {
+    id: "governed-activity-log",
+    featureKey: null,
+    roles: [
+      "PLATFORM_SUPER_ADMIN",
+      "TENANT_OWNER",
+      "TENANT_ADMIN",
+    ],
+    mobile: false,
+    api: false,
+    reporting: true,
+    searchable: true,
+    aiEligible: false,
+    active: true,
+  },
+
   "/app/settings/tenants": {
     id: "platform-tenant-administration",
     featureKey: null,

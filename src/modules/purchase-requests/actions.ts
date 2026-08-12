@@ -7,6 +7,7 @@ import {
   PurchaseRequestStatus,
 } from "@/generated/prisma/enums";
 import { prisma } from "@/lib/prisma";
+import { getAuditRequestContext } from "@/core/audit/request-context";
 import {
   assertApprovalAuthority,
   hasResourceScope,
@@ -76,6 +77,7 @@ export async function savePurchaseRequestAction(formData: FormData) {
     "TENANT_ADMIN",
     "TENANT_OWNER",
   ]);
+  const saveAuditContext = await getAuditRequestContext();
 
   const input = purchaseRequestInputSchema.parse({
     purchaseRequestId: value(formData, "purchaseRequestId") || undefined,
@@ -207,6 +209,7 @@ export async function savePurchaseRequestAction(formData: FormData) {
         actorType: "USER",
         actorId: user.id,
         actorLabel: user.email,
+        ...saveAuditContext,
         action: isSubmit ? "purchase_request.submit" : "purchase_request.save_draft",
         resourceType: "PurchaseRequest",
         resourceId: saved.id,
@@ -224,6 +227,7 @@ export async function savePurchaseRequestAction(formData: FormData) {
 
 export async function decidePurchaseRequestAction(formData: FormData) {
   const user = await requireAnyRole(["APPROVER", "TENANT_ADMIN", "TENANT_OWNER"]);
+  const decisionAuditContext = await getAuditRequestContext();
   const input = approvalDecisionSchema.parse({
     purchaseRequestId: value(formData, "purchaseRequestId"),
     decision: value(formData, "decision"),
@@ -296,6 +300,7 @@ export async function decidePurchaseRequestAction(formData: FormData) {
         actorType: "USER",
         actorId: user.id,
         actorLabel: user.email,
+        ...decisionAuditContext,
         action: `purchase_request.${input.decision.toLowerCase()}`,
         resourceType: "PurchaseRequest",
         resourceId: request.id,

@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { getAuditRequestContext } from "@/core/audit/request-context";
 import { auditTenantAccess } from "@/core/access-governance/tenant-role-audit";
 import { issueTenantUserActivationInvitation } from "@/core/tenant-user-activation/service";
 import { issueTenantOwnerActivationInvitation } from "@/core/tenant-owner-activation/service";
@@ -464,6 +465,7 @@ export async function updatePlatformTenantMemberRolesAction(
   formData: FormData,
 ) {
   const actor = await requirePlatformSuperAdmin();
+  const roleAuditContext = await getAuditRequestContext();
 
   const input = updatePlatformTenantMemberRolesSchema.parse({
     tenantId: value(formData, "tenantId"),
@@ -514,6 +516,7 @@ export async function updatePlatformTenantMemberRolesAction(
       actorType: "USER",
       actorId: actor.id,
       actorLabel: actor.email,
+      ...roleAuditContext,
       action: "platform.tenant.member.roles.update",
       resourceType: "Membership",
       resourceId: membership.id,

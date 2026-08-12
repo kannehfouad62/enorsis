@@ -2730,6 +2730,7 @@ model AuditEvent {
   before       Json?
   after        Json?
   metadata     Json?
+  searchText   String         @default("") @db.Text
   occurredAt   DateTime       @default(now())
   tenant       Tenant?        @relation(fields: [tenantId], references: [id], onDelete: SetNull)
   user         User?          @relation("AuditEventUser", fields: [userId], references: [id], onDelete: SetNull)
@@ -2738,6 +2739,7 @@ model AuditEvent {
   @@index([tenantId, resourceType, resourceId])
   @@index([userId, occurredAt])
   @@index([action, occurredAt])
+  @@index([tenantId, action, occurredAt])
 }
 
 model AiAgent {
