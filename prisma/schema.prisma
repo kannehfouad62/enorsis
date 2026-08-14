@@ -2849,51 +2849,54 @@ model PurchaseRequestApproval {
 }
 
 model Supplier {
-  id                       String                            @id @default(cuid())
-  tenantId                 String
-  supplierNumber           String
-  legalName                String
-  tradingName              String?
-  countryCode              String
-  taxIdentificationNo      String?
-  website                  String?
-  primaryEmail             String?
-  primaryPhone             String?
-  categories               String[]
-  status                   SupplierStatus                    @default(PROSPECT)
-  riskTier                 SupplierRiskTier                  @default(MODERATE)
-  qualificationStatus      SupplierQualificationStatus       @default(NOT_STARTED)
-  diversityOwned           Boolean                           @default(false)
-  esgCommitted             Boolean                           @default(false)
-  sanctionsScreenedAt      DateTime?
-  approvedAt               DateTime?
-  suspendedAt              DateTime?
-  rejectionReason          String?
-  tenant                   Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  contacts                 SupplierContact[]
-  documents                SupplierDocument[]
-  sourcingInvitations      SourcingInvitation[]
-  sourcingResponses        SourcingResponse[]
-  supplierClaims           SupplierClaim[]
-  esgProfile               SupplierEsgProfile?
-  portalInvitations        SupplierPortalInvitation[]
-  portalUsers              SupplierPortalUser[]
-  onboardingQuestionnaires SupplierOnboardingQuestionnaire[]
-  portalTasks              SupplierPortalTask[]
-  portalMessages           SupplierPortalMessage[]
-  createdAt                DateTime                          @default(now())
-  updatedAt                DateTime                          @updatedAt
-  isTenantSelfProfile      Boolean                           @default(false)
-  sourcingQuestions        SourcingQuestion[]
-  contracts                Contract[]
-  riskAssessments          SupplierRiskAssessment[]
-  riskFindings             SupplierRiskFinding[]
-  esgAssessments           SupplierEsgAssessment[]
-  purchaseOrders           PurchaseOrder[]
-  supplierInvoices         SupplierInvoice[]
-  scorecards               SupplierScorecard[]
-  developmentPlans         SupplierDevelopmentPlan[]
-  correctiveActions        SupplierCorrectiveAction[]
+  id                         String                            @id @default(cuid())
+  tenantId                   String
+  supplierNumber             String
+  legalName                  String
+  tradingName                String?
+  countryCode                String
+  taxIdentificationNo        String?
+  website                    String?
+  primaryEmail               String?
+  primaryPhone               String?
+  marketplaceLogoPathname    String?
+  marketplaceLogoContentType String?
+  marketplaceLogoUpdatedAt   DateTime?
+  categories                 String[]
+  status                     SupplierStatus                    @default(PROSPECT)
+  riskTier                   SupplierRiskTier                  @default(MODERATE)
+  qualificationStatus        SupplierQualificationStatus       @default(NOT_STARTED)
+  diversityOwned             Boolean                           @default(false)
+  esgCommitted               Boolean                           @default(false)
+  sanctionsScreenedAt        DateTime?
+  approvedAt                 DateTime?
+  suspendedAt                DateTime?
+  rejectionReason            String?
+  tenant                     Tenant                            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  contacts                   SupplierContact[]
+  documents                  SupplierDocument[]
+  sourcingInvitations        SourcingInvitation[]
+  sourcingResponses          SourcingResponse[]
+  supplierClaims             SupplierClaim[]
+  esgProfile                 SupplierEsgProfile?
+  portalInvitations          SupplierPortalInvitation[]
+  portalUsers                SupplierPortalUser[]
+  onboardingQuestionnaires   SupplierOnboardingQuestionnaire[]
+  portalTasks                SupplierPortalTask[]
+  portalMessages             SupplierPortalMessage[]
+  createdAt                  DateTime                          @default(now())
+  updatedAt                  DateTime                          @updatedAt
+  isTenantSelfProfile        Boolean                           @default(false)
+  sourcingQuestions          SourcingQuestion[]
+  contracts                  Contract[]
+  riskAssessments            SupplierRiskAssessment[]
+  riskFindings               SupplierRiskFinding[]
+  esgAssessments             SupplierEsgAssessment[]
+  purchaseOrders             PurchaseOrder[]
+  supplierInvoices           SupplierInvoice[]
+  scorecards                 SupplierScorecard[]
+  developmentPlans           SupplierDevelopmentPlan[]
+  correctiveActions          SupplierCorrectiveAction[]
 
   procurementCatalogs ProcurementCatalog[]
 

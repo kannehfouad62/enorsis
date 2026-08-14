@@ -173,6 +173,7 @@ export async function getMarketplaceCatalog(input: {
           supplierNumber: true,
           legalName: true,
           tradingName: true,
+          marketplaceLogoPathname: true,
         },
       })
     : [];
@@ -365,6 +366,7 @@ export async function getMarketplaceCatalog(input: {
       categories: Set<string>;
       countries: Set<string>;
       location: (typeof results)[number]["sellerLocation"];
+      hasLogo: boolean;
     }
   >();
 
@@ -384,6 +386,9 @@ export async function getMarketplaceCatalog(input: {
         categories: new Set<string>(),
         countries: new Set<string>(),
         location: result.sellerLocation,
+        hasLogo: Boolean(
+          result.supplier.marketplaceLogoPathname,
+        ),
       };
 
     current.offeringCount += 1;
@@ -571,6 +576,9 @@ export async function getMarketplaceCatalog(input: {
             supplierNumber: selfSupplier.supplierNumber,
             legalName: selfSupplier.legalName,
             tradingName: selfSupplier.tradingName,
+            hasLogo: Boolean(
+              selfSupplier.marketplaceLogoPathname,
+            ),
           }
         : null,
     comparisonGroups,

@@ -10,6 +10,7 @@ export type MarketplaceVendorDirectoryItem = {
   serviceCount: number;
   categories: string[];
   countries: string[];
+  hasLogo: boolean;
   location: {
     city: string | null;
     region: string | null;
@@ -41,8 +42,16 @@ export function MarketplaceVendorDirectory({
           className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
         >
           <div className="flex items-start justify-between gap-3">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-blue-700">
-              <Building2 className="h-6 w-6" />
+            <div className="grid h-16 w-16 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-white text-blue-700 shadow-sm">
+              {vendor.hasLogo ? (
+                <img
+                  src={`/api/marketplace/supplier-logo/${vendor.supplierId}`}
+                  alt={`${vendor.supplierName} logo`}
+                  className="h-full w-full object-contain p-2"
+                />
+              ) : (
+                <Building2 className="h-7 w-7" />
+              )}
             </div>
             <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
               {vendor.offeringCount} offering{vendor.offeringCount === 1 ? "" : "s"}

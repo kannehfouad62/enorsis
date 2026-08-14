@@ -35,6 +35,9 @@ export type SupplierMinAggregateOutputType = {
   website: string | null
   primaryEmail: string | null
   primaryPhone: string | null
+  marketplaceLogoPathname: string | null
+  marketplaceLogoContentType: string | null
+  marketplaceLogoUpdatedAt: Date | null
   status: $Enums.SupplierStatus | null
   riskTier: $Enums.SupplierRiskTier | null
   qualificationStatus: $Enums.SupplierQualificationStatus | null
@@ -60,6 +63,9 @@ export type SupplierMaxAggregateOutputType = {
   website: string | null
   primaryEmail: string | null
   primaryPhone: string | null
+  marketplaceLogoPathname: string | null
+  marketplaceLogoContentType: string | null
+  marketplaceLogoUpdatedAt: Date | null
   status: $Enums.SupplierStatus | null
   riskTier: $Enums.SupplierRiskTier | null
   qualificationStatus: $Enums.SupplierQualificationStatus | null
@@ -85,6 +91,9 @@ export type SupplierCountAggregateOutputType = {
   website: number
   primaryEmail: number
   primaryPhone: number
+  marketplaceLogoPathname: number
+  marketplaceLogoContentType: number
+  marketplaceLogoUpdatedAt: number
   categories: number
   status: number
   riskTier: number
@@ -113,6 +122,9 @@ export type SupplierMinAggregateInputType = {
   website?: true
   primaryEmail?: true
   primaryPhone?: true
+  marketplaceLogoPathname?: true
+  marketplaceLogoContentType?: true
+  marketplaceLogoUpdatedAt?: true
   status?: true
   riskTier?: true
   qualificationStatus?: true
@@ -138,6 +150,9 @@ export type SupplierMaxAggregateInputType = {
   website?: true
   primaryEmail?: true
   primaryPhone?: true
+  marketplaceLogoPathname?: true
+  marketplaceLogoContentType?: true
+  marketplaceLogoUpdatedAt?: true
   status?: true
   riskTier?: true
   qualificationStatus?: true
@@ -163,6 +178,9 @@ export type SupplierCountAggregateInputType = {
   website?: true
   primaryEmail?: true
   primaryPhone?: true
+  marketplaceLogoPathname?: true
+  marketplaceLogoContentType?: true
+  marketplaceLogoUpdatedAt?: true
   categories?: true
   status?: true
   riskTier?: true
@@ -262,6 +280,9 @@ export type SupplierGroupByOutputType = {
   website: string | null
   primaryEmail: string | null
   primaryPhone: string | null
+  marketplaceLogoPathname: string | null
+  marketplaceLogoContentType: string | null
+  marketplaceLogoUpdatedAt: Date | null
   categories: string[]
   status: $Enums.SupplierStatus
   riskTier: $Enums.SupplierRiskTier
@@ -309,6 +330,9 @@ export type SupplierWhereInput = {
   website?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryEmail?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryPhone?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoPathname?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoContentType?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoUpdatedAt?: Prisma.DateTimeNullableFilter<"Supplier"> | Date | string | null
   categories?: Prisma.StringNullableListFilter<"Supplier">
   status?: Prisma.EnumSupplierStatusFilter<"Supplier"> | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFilter<"Supplier"> | $Enums.SupplierRiskTier
@@ -359,6 +383,9 @@ export type SupplierOrderByWithRelationInput = {
   website?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryPhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoPathname?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoContentType?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   categories?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskTier?: Prisma.SortOrder
@@ -414,6 +441,9 @@ export type SupplierWhereUniqueInput = Prisma.AtLeast<{
   website?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryEmail?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryPhone?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoPathname?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoContentType?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoUpdatedAt?: Prisma.DateTimeNullableFilter<"Supplier"> | Date | string | null
   categories?: Prisma.StringNullableListFilter<"Supplier">
   status?: Prisma.EnumSupplierStatusFilter<"Supplier"> | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFilter<"Supplier"> | $Enums.SupplierRiskTier
@@ -464,6 +494,9 @@ export type SupplierOrderByWithAggregationInput = {
   website?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   primaryPhone?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoPathname?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoContentType?: Prisma.SortOrderInput | Prisma.SortOrder
+  marketplaceLogoUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   categories?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskTier?: Prisma.SortOrder
@@ -496,6 +529,9 @@ export type SupplierScalarWhereWithAggregatesInput = {
   website?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
   primaryEmail?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
   primaryPhone?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
+  marketplaceLogoPathname?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
+  marketplaceLogoContentType?: Prisma.StringNullableWithAggregatesFilter<"Supplier"> | string | null
+  marketplaceLogoUpdatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Supplier"> | Date | string | null
   categories?: Prisma.StringNullableListFilter<"Supplier">
   status?: Prisma.EnumSupplierStatusWithAggregatesFilter<"Supplier"> | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierWithAggregatesFilter<"Supplier"> | $Enums.SupplierRiskTier
@@ -521,6 +557,9 @@ export type SupplierCreateInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -571,6 +610,9 @@ export type SupplierUncheckedCreateInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -619,6 +661,9 @@ export type SupplierUpdateInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -669,6 +714,9 @@ export type SupplierUncheckedUpdateInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -718,6 +766,9 @@ export type SupplierCreateManyInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -743,6 +794,9 @@ export type SupplierUpdateManyMutationInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -769,6 +823,9 @@ export type SupplierUncheckedUpdateManyInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -816,6 +873,9 @@ export type SupplierCountOrderByAggregateInput = {
   website?: Prisma.SortOrder
   primaryEmail?: Prisma.SortOrder
   primaryPhone?: Prisma.SortOrder
+  marketplaceLogoPathname?: Prisma.SortOrder
+  marketplaceLogoContentType?: Prisma.SortOrder
+  marketplaceLogoUpdatedAt?: Prisma.SortOrder
   categories?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskTier?: Prisma.SortOrder
@@ -842,6 +902,9 @@ export type SupplierMaxOrderByAggregateInput = {
   website?: Prisma.SortOrder
   primaryEmail?: Prisma.SortOrder
   primaryPhone?: Prisma.SortOrder
+  marketplaceLogoPathname?: Prisma.SortOrder
+  marketplaceLogoContentType?: Prisma.SortOrder
+  marketplaceLogoUpdatedAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskTier?: Prisma.SortOrder
   qualificationStatus?: Prisma.SortOrder
@@ -867,6 +930,9 @@ export type SupplierMinOrderByAggregateInput = {
   website?: Prisma.SortOrder
   primaryEmail?: Prisma.SortOrder
   primaryPhone?: Prisma.SortOrder
+  marketplaceLogoPathname?: Prisma.SortOrder
+  marketplaceLogoContentType?: Prisma.SortOrder
+  marketplaceLogoUpdatedAt?: Prisma.SortOrder
   status?: Prisma.SortOrder
   riskTier?: Prisma.SortOrder
   qualificationStatus?: Prisma.SortOrder
@@ -1290,6 +1356,9 @@ export type SupplierCreateWithoutTenantInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1338,6 +1407,9 @@ export type SupplierUncheckedCreateWithoutTenantInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1416,6 +1488,9 @@ export type SupplierScalarWhereInput = {
   website?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryEmail?: Prisma.StringNullableFilter<"Supplier"> | string | null
   primaryPhone?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoPathname?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoContentType?: Prisma.StringNullableFilter<"Supplier"> | string | null
+  marketplaceLogoUpdatedAt?: Prisma.DateTimeNullableFilter<"Supplier"> | Date | string | null
   categories?: Prisma.StringNullableListFilter<"Supplier">
   status?: Prisma.EnumSupplierStatusFilter<"Supplier"> | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFilter<"Supplier"> | $Enums.SupplierRiskTier
@@ -1441,6 +1516,9 @@ export type SupplierCreateWithoutContactsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1490,6 +1568,9 @@ export type SupplierUncheckedCreateWithoutContactsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1553,6 +1634,9 @@ export type SupplierUpdateWithoutContactsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -1602,6 +1686,9 @@ export type SupplierUncheckedUpdateWithoutContactsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -1649,6 +1736,9 @@ export type SupplierCreateWithoutDocumentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1698,6 +1788,9 @@ export type SupplierUncheckedCreateWithoutDocumentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1761,6 +1854,9 @@ export type SupplierUpdateWithoutDocumentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -1810,6 +1906,9 @@ export type SupplierUncheckedUpdateWithoutDocumentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -1857,6 +1956,9 @@ export type SupplierCreateWithoutSourcingInvitationsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1906,6 +2008,9 @@ export type SupplierUncheckedCreateWithoutSourcingInvitationsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -1969,6 +2074,9 @@ export type SupplierUpdateWithoutSourcingInvitationsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2018,6 +2126,9 @@ export type SupplierUncheckedUpdateWithoutSourcingInvitationsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2065,6 +2176,9 @@ export type SupplierCreateWithoutSourcingResponsesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2114,6 +2228,9 @@ export type SupplierUncheckedCreateWithoutSourcingResponsesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2177,6 +2294,9 @@ export type SupplierUpdateWithoutSourcingResponsesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2226,6 +2346,9 @@ export type SupplierUncheckedUpdateWithoutSourcingResponsesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2273,6 +2396,9 @@ export type SupplierCreateWithoutSourcingQuestionsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2322,6 +2448,9 @@ export type SupplierUncheckedCreateWithoutSourcingQuestionsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2385,6 +2514,9 @@ export type SupplierUpdateWithoutSourcingQuestionsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2434,6 +2566,9 @@ export type SupplierUncheckedUpdateWithoutSourcingQuestionsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2481,6 +2616,9 @@ export type SupplierCreateWithoutContractsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2530,6 +2668,9 @@ export type SupplierUncheckedCreateWithoutContractsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2593,6 +2734,9 @@ export type SupplierUpdateWithoutContractsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2642,6 +2786,9 @@ export type SupplierUncheckedUpdateWithoutContractsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2689,6 +2836,9 @@ export type SupplierCreateWithoutRiskAssessmentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2738,6 +2888,9 @@ export type SupplierUncheckedCreateWithoutRiskAssessmentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2801,6 +2954,9 @@ export type SupplierUpdateWithoutRiskAssessmentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2850,6 +3006,9 @@ export type SupplierUncheckedUpdateWithoutRiskAssessmentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -2897,6 +3056,9 @@ export type SupplierCreateWithoutRiskFindingsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -2946,6 +3108,9 @@ export type SupplierUncheckedCreateWithoutRiskFindingsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3009,6 +3174,9 @@ export type SupplierUpdateWithoutRiskFindingsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3058,6 +3226,9 @@ export type SupplierUncheckedUpdateWithoutRiskFindingsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3105,6 +3276,9 @@ export type SupplierCreateWithoutEsgAssessmentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3154,6 +3328,9 @@ export type SupplierUncheckedCreateWithoutEsgAssessmentsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3217,6 +3394,9 @@ export type SupplierUpdateWithoutEsgAssessmentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3266,6 +3446,9 @@ export type SupplierUncheckedUpdateWithoutEsgAssessmentsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3313,6 +3496,9 @@ export type SupplierCreateWithoutPurchaseOrdersInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3362,6 +3548,9 @@ export type SupplierUncheckedCreateWithoutPurchaseOrdersInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3425,6 +3614,9 @@ export type SupplierUpdateWithoutPurchaseOrdersInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3474,6 +3666,9 @@ export type SupplierUncheckedUpdateWithoutPurchaseOrdersInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3521,6 +3716,9 @@ export type SupplierCreateWithoutSupplierInvoicesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3570,6 +3768,9 @@ export type SupplierUncheckedCreateWithoutSupplierInvoicesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3633,6 +3834,9 @@ export type SupplierUpdateWithoutSupplierInvoicesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3682,6 +3886,9 @@ export type SupplierUncheckedUpdateWithoutSupplierInvoicesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3729,6 +3936,9 @@ export type SupplierCreateWithoutScorecardsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3778,6 +3988,9 @@ export type SupplierUncheckedCreateWithoutScorecardsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3841,6 +4054,9 @@ export type SupplierUpdateWithoutScorecardsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3890,6 +4106,9 @@ export type SupplierUncheckedUpdateWithoutScorecardsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -3937,6 +4156,9 @@ export type SupplierCreateWithoutDevelopmentPlansInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -3986,6 +4208,9 @@ export type SupplierUncheckedCreateWithoutDevelopmentPlansInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4049,6 +4274,9 @@ export type SupplierUpdateWithoutDevelopmentPlansInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4098,6 +4326,9 @@ export type SupplierUncheckedUpdateWithoutDevelopmentPlansInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4145,6 +4376,9 @@ export type SupplierCreateWithoutCorrectiveActionsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4194,6 +4428,9 @@ export type SupplierUncheckedCreateWithoutCorrectiveActionsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4257,6 +4494,9 @@ export type SupplierUpdateWithoutCorrectiveActionsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4306,6 +4546,9 @@ export type SupplierUncheckedUpdateWithoutCorrectiveActionsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4353,6 +4596,9 @@ export type SupplierCreateWithoutProcurementCatalogsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4402,6 +4648,9 @@ export type SupplierUncheckedCreateWithoutProcurementCatalogsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4465,6 +4714,9 @@ export type SupplierUpdateWithoutProcurementCatalogsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4514,6 +4766,9 @@ export type SupplierUncheckedUpdateWithoutProcurementCatalogsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4561,6 +4816,9 @@ export type SupplierCreateWithoutStatementsOfWorkInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4610,6 +4868,9 @@ export type SupplierUncheckedCreateWithoutStatementsOfWorkInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4673,6 +4934,9 @@ export type SupplierUpdateWithoutStatementsOfWorkInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4722,6 +4986,9 @@ export type SupplierUncheckedUpdateWithoutStatementsOfWorkInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4769,6 +5036,9 @@ export type SupplierCreateWithoutSupplierClaimsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4818,6 +5088,9 @@ export type SupplierUncheckedCreateWithoutSupplierClaimsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -4881,6 +5154,9 @@ export type SupplierUpdateWithoutSupplierClaimsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4930,6 +5206,9 @@ export type SupplierUncheckedUpdateWithoutSupplierClaimsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -4977,6 +5256,9 @@ export type SupplierCreateWithoutEsgProfileInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5026,6 +5308,9 @@ export type SupplierUncheckedCreateWithoutEsgProfileInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5089,6 +5374,9 @@ export type SupplierUpdateWithoutEsgProfileInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5138,6 +5426,9 @@ export type SupplierUncheckedUpdateWithoutEsgProfileInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5185,6 +5476,9 @@ export type SupplierCreateWithoutPortalInvitationsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5234,6 +5528,9 @@ export type SupplierUncheckedCreateWithoutPortalInvitationsInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5297,6 +5594,9 @@ export type SupplierUpdateWithoutPortalInvitationsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5346,6 +5646,9 @@ export type SupplierUncheckedUpdateWithoutPortalInvitationsInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5393,6 +5696,9 @@ export type SupplierCreateWithoutPortalUsersInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5442,6 +5748,9 @@ export type SupplierUncheckedCreateWithoutPortalUsersInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5505,6 +5814,9 @@ export type SupplierUpdateWithoutPortalUsersInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5554,6 +5866,9 @@ export type SupplierUncheckedUpdateWithoutPortalUsersInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5601,6 +5916,9 @@ export type SupplierCreateWithoutOnboardingQuestionnairesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5650,6 +5968,9 @@ export type SupplierUncheckedCreateWithoutOnboardingQuestionnairesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5713,6 +6034,9 @@ export type SupplierUpdateWithoutOnboardingQuestionnairesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5762,6 +6086,9 @@ export type SupplierUncheckedUpdateWithoutOnboardingQuestionnairesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5809,6 +6136,9 @@ export type SupplierCreateWithoutPortalTasksInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5858,6 +6188,9 @@ export type SupplierUncheckedCreateWithoutPortalTasksInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -5921,6 +6254,9 @@ export type SupplierUpdateWithoutPortalTasksInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -5970,6 +6306,9 @@ export type SupplierUncheckedUpdateWithoutPortalTasksInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6017,6 +6356,9 @@ export type SupplierCreateWithoutPortalMessagesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -6066,6 +6408,9 @@ export type SupplierUncheckedCreateWithoutPortalMessagesInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -6129,6 +6474,9 @@ export type SupplierUpdateWithoutPortalMessagesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6178,6 +6526,9 @@ export type SupplierUncheckedUpdateWithoutPortalMessagesInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6225,6 +6576,9 @@ export type SupplierCreateManyTenantInput = {
   website?: string | null
   primaryEmail?: string | null
   primaryPhone?: string | null
+  marketplaceLogoPathname?: string | null
+  marketplaceLogoContentType?: string | null
+  marketplaceLogoUpdatedAt?: Date | string | null
   categories?: Prisma.SupplierCreatecategoriesInput | string[]
   status?: $Enums.SupplierStatus
   riskTier?: $Enums.SupplierRiskTier
@@ -6250,6 +6604,9 @@ export type SupplierUpdateWithoutTenantInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6298,6 +6655,9 @@ export type SupplierUncheckedUpdateWithoutTenantInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6346,6 +6706,9 @@ export type SupplierUncheckedUpdateManyWithoutTenantInput = {
   website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   primaryPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoContentType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marketplaceLogoUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   categories?: Prisma.SupplierUpdatecategoriesInput | string[]
   status?: Prisma.EnumSupplierStatusFieldUpdateOperationsInput | $Enums.SupplierStatus
   riskTier?: Prisma.EnumSupplierRiskTierFieldUpdateOperationsInput | $Enums.SupplierRiskTier
@@ -6592,6 +6955,9 @@ export type SupplierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   website?: boolean
   primaryEmail?: boolean
   primaryPhone?: boolean
+  marketplaceLogoPathname?: boolean
+  marketplaceLogoContentType?: boolean
+  marketplaceLogoUpdatedAt?: boolean
   categories?: boolean
   status?: boolean
   riskTier?: boolean
@@ -6643,6 +7009,9 @@ export type SupplierSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   website?: boolean
   primaryEmail?: boolean
   primaryPhone?: boolean
+  marketplaceLogoPathname?: boolean
+  marketplaceLogoContentType?: boolean
+  marketplaceLogoUpdatedAt?: boolean
   categories?: boolean
   status?: boolean
   riskTier?: boolean
@@ -6670,6 +7039,9 @@ export type SupplierSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   website?: boolean
   primaryEmail?: boolean
   primaryPhone?: boolean
+  marketplaceLogoPathname?: boolean
+  marketplaceLogoContentType?: boolean
+  marketplaceLogoUpdatedAt?: boolean
   categories?: boolean
   status?: boolean
   riskTier?: boolean
@@ -6697,6 +7069,9 @@ export type SupplierSelectScalar = {
   website?: boolean
   primaryEmail?: boolean
   primaryPhone?: boolean
+  marketplaceLogoPathname?: boolean
+  marketplaceLogoContentType?: boolean
+  marketplaceLogoUpdatedAt?: boolean
   categories?: boolean
   status?: boolean
   riskTier?: boolean
@@ -6712,7 +7087,7 @@ export type SupplierSelectScalar = {
   isTenantSelfProfile?: boolean
 }
 
-export type SupplierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierNumber" | "legalName" | "tradingName" | "countryCode" | "taxIdentificationNo" | "website" | "primaryEmail" | "primaryPhone" | "categories" | "status" | "riskTier" | "qualificationStatus" | "diversityOwned" | "esgCommitted" | "sanctionsScreenedAt" | "approvedAt" | "suspendedAt" | "rejectionReason" | "createdAt" | "updatedAt" | "isTenantSelfProfile", ExtArgs["result"]["supplier"]>
+export type SupplierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierNumber" | "legalName" | "tradingName" | "countryCode" | "taxIdentificationNo" | "website" | "primaryEmail" | "primaryPhone" | "marketplaceLogoPathname" | "marketplaceLogoContentType" | "marketplaceLogoUpdatedAt" | "categories" | "status" | "riskTier" | "qualificationStatus" | "diversityOwned" | "esgCommitted" | "sanctionsScreenedAt" | "approvedAt" | "suspendedAt" | "rejectionReason" | "createdAt" | "updatedAt" | "isTenantSelfProfile", ExtArgs["result"]["supplier"]>
 export type SupplierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   contacts?: boolean | Prisma.Supplier$contactsArgs<ExtArgs>
@@ -6786,6 +7161,9 @@ export type $SupplierPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     website: string | null
     primaryEmail: string | null
     primaryPhone: string | null
+    marketplaceLogoPathname: string | null
+    marketplaceLogoContentType: string | null
+    marketplaceLogoUpdatedAt: Date | null
     categories: string[]
     status: $Enums.SupplierStatus
     riskTier: $Enums.SupplierRiskTier
@@ -7256,6 +7634,9 @@ export interface SupplierFieldRefs {
   readonly website: Prisma.FieldRef<"Supplier", 'String'>
   readonly primaryEmail: Prisma.FieldRef<"Supplier", 'String'>
   readonly primaryPhone: Prisma.FieldRef<"Supplier", 'String'>
+  readonly marketplaceLogoPathname: Prisma.FieldRef<"Supplier", 'String'>
+  readonly marketplaceLogoContentType: Prisma.FieldRef<"Supplier", 'String'>
+  readonly marketplaceLogoUpdatedAt: Prisma.FieldRef<"Supplier", 'DateTime'>
   readonly categories: Prisma.FieldRef<"Supplier", 'String[]'>
   readonly status: Prisma.FieldRef<"Supplier", 'SupplierStatus'>
   readonly riskTier: Prisma.FieldRef<"Supplier", 'SupplierRiskTier'>

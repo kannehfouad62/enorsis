@@ -16,6 +16,7 @@ import { MarketplaceComparisonResults } from "@/components/marketplace/Marketpla
 import { MarketplaceDirectImageUpload } from "@/components/marketplace/MarketplaceDirectImageUpload";
 import { MarketplaceCartLink } from "@/components/marketplace/MarketplaceCartLink";
 import { MarketplaceVendorDirectory } from "@/components/marketplace/MarketplaceVendorDirectory";
+import { SupplierMarketplaceLogoUpload } from "@/components/marketplace/SupplierMarketplaceLogoUpload";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -80,6 +81,19 @@ export default async function MarketplaceCatalogPage({
           >
             Publish Offering
           </Link>
+        </div>
+      ) : null}
+
+      {data.canManageCatalog && data.selfSupplier ? (
+        <div className="mt-8">
+          <SupplierMarketplaceLogoUpload
+            supplierId={data.selfSupplier.id}
+            supplierName={
+              data.selfSupplier.tradingName ??
+              data.selfSupplier.legalName
+            }
+            hasLogo={data.selfSupplier.hasLogo}
+          />
         </div>
       ) : null}
 
@@ -229,10 +243,19 @@ export default async function MarketplaceCatalogPage({
               <p className="text-xs font-black uppercase tracking-wide text-blue-700">
                 Vendor offerings
               </p>
-              <h2 className="mt-1 text-2xl font-black">
-                {data.selectedVendor?.supplierName ??
-                  "Marketplace vendor"}
-              </h2>
+              <div className="mt-2 flex items-center gap-3">
+                {data.selectedVendor?.hasLogo ? (
+                  <img
+                    src={`/api/marketplace/supplier-logo/${data.selectedVendor.supplierId}`}
+                    alt={`${data.selectedVendor.supplierName} logo`}
+                    className="h-14 w-14 rounded-xl border border-slate-200 bg-white object-contain p-1.5"
+                  />
+                ) : null}
+                <h2 className="text-2xl font-black">
+                  {data.selectedVendor?.supplierName ??
+                    "Marketplace vendor"}
+                </h2>
+              </div>
             </div>
             <Link
               href="/app/marketplace/catalog"
