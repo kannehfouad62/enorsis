@@ -5,6 +5,7 @@ import {
   PackageSearch,
   Search,
   Star,
+  Store,
 } from "lucide-react";
 import {
   createMarketplaceOfferingAction,
@@ -16,7 +17,6 @@ import { MarketplaceComparisonResults } from "@/components/marketplace/Marketpla
 import { MarketplaceDirectImageUpload } from "@/components/marketplace/MarketplaceDirectImageUpload";
 import { MarketplaceCartLink } from "@/components/marketplace/MarketplaceCartLink";
 import { MarketplaceVendorDirectory } from "@/components/marketplace/MarketplaceVendorDirectory";
-import { SupplierMarketplaceLogoUpload } from "@/components/marketplace/SupplierMarketplaceLogoUpload";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -85,16 +85,42 @@ export default async function MarketplaceCatalogPage({
       ) : null}
 
       {data.canManageCatalog && data.selfSupplier ? (
-        <div className="mt-8">
-          <SupplierMarketplaceLogoUpload
-            supplierId={data.selfSupplier.id}
-            supplierName={
-              data.selfSupplier.tradingName ??
-              data.selfSupplier.legalName
-            }
-            hasLogo={data.selfSupplier.hasLogo}
-          />
-        </div>
+        <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="grid h-16 w-16 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                {data.selfSupplier.hasLogo ? (
+                  <img
+                    src={`/api/marketplace/supplier-logo/${data.selfSupplier.id}`}
+                    alt={`${data.selfSupplier.tradingName ?? data.selfSupplier.legalName} logo`}
+                    className="h-full w-full object-contain p-2"
+                  />
+                ) : (
+                  <Store className="h-7 w-7 text-slate-300" />
+                )}
+              </div>
+              <div>
+                <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                  Marketplace Seller Profile
+                </p>
+                <h2 className="mt-1 text-lg font-black">
+                  {data.selfSupplier.tradingName ??
+                    data.selfSupplier.legalName}
+                </h2>
+                <p className="mt-1 text-xs text-slate-500">
+                  Manage business information, contact details, categories and logo.
+                </p>
+              </div>
+            </div>
+
+            <Link
+              href="/app/marketplace/seller-profile"
+              className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+            >
+              Edit seller profile →
+            </Link>
+          </div>
+        </section>
       ) : null}
 
       <form className={`${card} mt-8 grid gap-3 md:grid-cols-4`}>

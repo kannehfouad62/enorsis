@@ -53,14 +53,12 @@ export async function ensureTenantSelfSupplierProfile(input: {
   if (existing) {
     if (
       existing.legalName !== legalName ||
-      existing.tradingName !== tenant.name ||
       existing.countryCode !== countryCode
     ) {
       return prisma.supplier.update({
         where: { id: existing.id },
         data: {
           legalName,
-          tradingName: tenant.name,
           countryCode,
         },
       });
