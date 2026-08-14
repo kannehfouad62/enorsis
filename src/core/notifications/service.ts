@@ -282,3 +282,54 @@ export async function notifyFromDomainEvent({
 
   return notification;
 }
+
+
+export async function deliverEnterpriseNotificationNow(
+  notificationId: string,
+) {
+  const deliveries =
+    await prisma.enterpriseNotificationDelivery.findMany({
+      where: {
+        notificationId,
+        status: "PENDING",
+        availableAt: { lte: new Date() },
+      },
+      select: { id: true },
+      orderBy: { createdAt: "asc" },
+    });
+
+  const results = [];
+
+  for (const delivery of deliveries) {
+    const claimed =
+      await prisma.enterpriseNotificationDelivery.updateMany({
+        where: {
+          id: delivery.id,
+          status: "PENDING",
+        },
+        data: {
+          status: "PROCESSING",
+          processingAt: new Date(),
+          attemptCount: { increment: 1 },
+        },
+      });
+
+    if (!claimed.count) continue;
+    results.push(await deliverNotification(delivery.id));
+  }
+
+  return results;
+}
+
+export async function createAndDeliverEnterpriseNotification(
+  input: CreateNotificationInput,
+) {
+  const notification =
+    await createEnterpriseNotification(input);
+
+  await deliverEnterpriseNotificationNow(
+    notification.id,
+  );
+
+  return notification;
+}

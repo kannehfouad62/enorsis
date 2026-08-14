@@ -6,6 +6,7 @@ import {
   resolveWarehouseDiscrepancyAction,
 } from "@/modules/warehouse-operations/actions";
 import { getWarehouseOperationsWorkspace } from "@/modules/warehouse-operations/queries";
+import { MarketplaceInboundReceivingForm } from "@/components/warehouse/MarketplaceInboundReceivingForm";
 
 const input =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
@@ -25,7 +26,20 @@ export default async function WarehouseOperationsPage() {
       </h1>
 
       <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">Receive shipment</h2>
+        <h2 className="text-xl font-black">Marketplace accepted orders</h2>
+        <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
+          Accepted and shipped marketplace product lines are handed off here
+          automatically from Procurement. Select the inbound product to prefill
+          order, supplier, product, expected quantity and shipment information,
+          then record what physically arrived.
+        </p>
+        <MarketplaceInboundReceivingForm
+          lines={data.marketplaceInboundLines}
+        />
+      </section>
+
+      <section className={`${card} mt-6`}>
+        <h2 className="text-xl font-black">Manual / non-marketplace receiving</h2>
         <form
           action={createWarehouseReceivingSessionAction}
           className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4"

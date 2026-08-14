@@ -9,10 +9,13 @@ import {
   hasResourceScope,
   requireAnyRole,
 } from "@/core/auth/authorization";
-import { createEnterpriseNotification } from "@/core/notifications";
+import { createAndDeliverEnterpriseNotification } from "@/core/notifications";
 import { prisma } from "@/lib/prisma";
 import type { MarketplaceCheckoutInput } from "@/core/marketplace-commerce/types";
-import { notifyUser } from "@/core/marketplace-commerce/notifications";
+import {
+  notifyBuyerWarehouseTeam,
+  notifyUser,
+} from "@/core/marketplace-commerce/notifications";
 import {
   acknowledgePurchaseOrderExecution,
   raiseRequisitionOrderException,
@@ -332,7 +335,7 @@ export async function submitMarketplaceCartAction(
 
   const firstApprover = approvalChain[0];
   if (firstApprover) {
-    await createEnterpriseNotification({
+    await createAndDeliverEnterpriseNotification({
       tenantId: user.tenantId,
       eventType: "MarketplacePurchaseRequest.ApprovalRequired",
       recipientUserId: firstApprover.user.id,
@@ -401,6 +404,37 @@ export async function acceptMarketplaceSellerOrderAction(data: FormData) {
       actionUrl: `/app/requests/${order.purchaseRequestId}`,
     });
   }
+
+  await notifyBuyerWarehouseTeam({
+    buyerTenantId: order.buyerTenantId,
+    eventType: "MarketplaceOrder.ReadyForReceiving",
+    title: "Supplier order accepted — prepare receiving",
+    message:
+      `${order.orderNumber ?? "Marketplace order"} was accepted by the supplier. The ordered product lines are now available in Warehouse Operations for receiving preparation.`,
+    actionUrl: "/app/warehouse-operations",
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: order.buyerTenantId,
+      userId: user.id,
+      actorType: "USER",
+      actorId: user.id,
+      actorLabel: user.email,
+      action: "marketplace.order.accepted_for_receiving",
+      resourceType: "MarketplaceSellerOrder",
+      resourceId: order.id,
+      after: {
+        orderNumber: order.orderNumber,
+        purchaseRequestId: order.purchaseRequestId,
+        purchaseOrderExecutionId:
+          order.purchaseOrderExecutionId,
+        sellerTenantId: order.sellerTenantId,
+        status: "ACCEPTED",
+        warehouseRoute: "/app/warehouse-operations",
+      },
+    },
+  });
   revalidatePath("/app/marketplace/orders");
 }
 
@@ -481,5 +515,14 @@ export async function shipMarketplaceSellerOrderAction(data: FormData) {
       priority: "HIGH",
     });
   }
+
+  await notifyBuyerWarehouseTeam({
+    buyerTenantId: order.buyerTenantId,
+    eventType: "MarketplaceOrder.InboundShipment",
+    title: "Marketplace shipment inbound",
+    message:
+      `${order.orderNumber ?? "Marketplace order"} shipped via ${carrier}. Tracking: ${trackingNumber}. Receive the accepted product lines in Warehouse Operations when physically delivered.`,
+    actionUrl: "/app/warehouse-operations",
+  });
   revalidatePath("/app/marketplace/orders");
 }

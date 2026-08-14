@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { requireAnyRole } from "@/core/auth/authorization";
+import { prisma } from "@/lib/prisma";
 import {
   completePutawayTask,
   configureWarehouseLocation,
@@ -25,7 +26,7 @@ const roles = [
 export async function createWarehouseReceivingSessionAction(data: FormData) {
   const user = await requireAnyRole([...roles]);
 
-  await createWarehouseReceivingSession({
+  const receiving = await createWarehouseReceivingSession({
     tenantId: user.tenantId,
     sourceType: field(data, "sourceType") || null,
     sourceId: field(data, "sourceId") || null,
@@ -51,6 +52,40 @@ export async function createWarehouseReceivingSessionAction(data: FormData) {
       serialLotReference: field(data, "serialLotReference") || null,
     },
   });
+
+  if (field(data, "sourceType") === "MARKETPLACE_ORDER") {
+    await prisma.auditEvent.create({
+      data: {
+        tenantId: user.tenantId,
+        userId: user.id,
+        actorType: "USER",
+        actorId: user.id,
+        actorLabel: user.email,
+        action: "warehouse.marketplace_receiving.recorded",
+        resourceType: "WarehouseReceivingSession",
+        resourceId: receiving.id,
+        after: {
+          receivingNumber: receiving.receivingNumber,
+          marketplaceSellerOrderId: field(data, "sourceId"),
+          purchaseOrderExecutionId:
+            field(data, "purchaseOrderId") || null,
+          supplierId: field(data, "supplierId") || null,
+          lineReference: field(data, "lineReference"),
+          inventoryItemId: field(data, "inventoryItemId"),
+          description: field(data, "description"),
+          expectedQuantity: Number(field(data, "expectedQuantity")),
+          receivedQuantity: Number(field(data, "receivedQuantity")),
+          condition: field(data, "condition"),
+          serialLotReference:
+            field(data, "serialLotReference") || null,
+          carrierReference:
+            field(data, "carrierReference") || null,
+          deliveryReference:
+            field(data, "deliveryReference") || null,
+        },
+      },
+    });
+  }
 
   revalidatePath("/app/warehouse-operations");
 }

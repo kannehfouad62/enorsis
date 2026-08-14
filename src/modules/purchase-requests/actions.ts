@@ -8,7 +8,7 @@ import {
 } from "@/generated/prisma/enums";
 import { prisma } from "@/lib/prisma";
 import { getAuditRequestContext } from "@/core/audit/request-context";
-import { createEnterpriseNotification } from "@/core/notifications";
+import { createAndDeliverEnterpriseNotification } from "@/core/notifications";
 import {
   assertApprovalAuthority,
   hasResourceScope,
@@ -474,7 +474,7 @@ export async function escalatePurchaseRequestApprovalAction(
     });
   });
 
-  await createEnterpriseNotification({
+  await createAndDeliverEnterpriseNotification({
     tenantId: user.tenantId,
     eventType: "PurchaseRequest.ApprovalEscalated",
     recipientUserId: target.user.id,
