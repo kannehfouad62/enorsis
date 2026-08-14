@@ -15,6 +15,7 @@ import {
 import { MarketplaceComparisonResults } from "@/components/marketplace/MarketplaceComparisonResults";
 import { MarketplaceDirectImageUpload } from "@/components/marketplace/MarketplaceDirectImageUpload";
 import { MarketplaceCartLink } from "@/components/marketplace/MarketplaceCartLink";
+import { MarketplaceVendorDirectory } from "@/components/marketplace/MarketplaceVendorDirectory";
 import { getMarketplaceCatalog } from "@/modules/marketplace-catalog/queries";
 
 const card =
@@ -30,6 +31,7 @@ export default async function MarketplaceCatalogPage({
     category?: string;
     type?: string;
     availability?: string;
+    vendor?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -82,6 +84,13 @@ export default async function MarketplaceCatalogPage({
       ) : null}
 
       <form className={`${card} mt-8 grid gap-3 md:grid-cols-4`}>
+        {params.vendor ? (
+          <input
+            type="hidden"
+            name="vendor"
+            value={params.vendor}
+          />
+        ) : null}
         <div className="relative">
           <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
           <input
@@ -213,12 +222,46 @@ export default async function MarketplaceCatalogPage({
             );
           })}
         </section>
+      ) : params.vendor ? (
+        <section className="mt-8">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                Vendor offerings
+              </p>
+              <h2 className="mt-1 text-2xl font-black">
+                {data.selectedVendor?.supplierName ??
+                  "Marketplace vendor"}
+              </h2>
+            </div>
+            <Link
+              href="/app/marketplace/catalog"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-black"
+            >
+              ← All vendors
+            </Link>
+          </div>
+          <MarketplaceComparisonResults
+            groups={data.comparisonGroups}
+          />
+        </section>
       ) : (
-        <MarketplaceComparisonResults
-          groups={
-            data.comparisonGroups
-          }
-        />
+        <section className="mt-8">
+          <div className="mb-5">
+            <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+              Marketplace vendors
+            </p>
+            <h2 className="mt-1 text-2xl font-black">
+              Browse by supplier
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Select a vendor to view the products and services that supplier offers.
+            </p>
+          </div>
+          <MarketplaceVendorDirectory
+            vendors={data.vendorDirectory}
+          />
+        </section>
       )}
 
       {data.canManageCatalog ? (

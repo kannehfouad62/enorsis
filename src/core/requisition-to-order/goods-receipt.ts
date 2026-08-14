@@ -2,6 +2,9 @@ import { prisma } from "@/lib/prisma";
 import { publishDomainEvent } from "@/core/events";
 import { recordEnterpriseActivity } from "@/core/activity";
 import { transitionRequisitionOrderJourney } from "./service";
+import {
+  advanceGovernedRtoAfterReceipt,
+} from "@/core/finance-automation/receipt-finance-orchestration";
 
 export async function createGoodsReceiptSession({
   purchaseOrderExecutionId,
@@ -280,6 +283,14 @@ export async function postGoodsReceiptSession({
     actionUrl: "/app/requisition-to-order/receipts",
     correlationId: session.journey.correlationId,
   });
+
+  if (sessionStatus === "FULLY_ACCEPTED") {
+    await advanceGovernedRtoAfterReceipt({
+      purchaseOrderExecutionId:
+        session.purchaseOrderExecutionId,
+      actorUserId,
+    });
+  }
 
   return prisma.goodsReceiptSession.findUniqueOrThrow({
     where: { id: session.id },

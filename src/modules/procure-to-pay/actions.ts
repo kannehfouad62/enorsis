@@ -4,6 +4,9 @@ import { revalidatePath } from "next/cache";
 import { requireAnyRole } from "@/core/auth/authorization";
 import { prisma } from "@/lib/prisma";
 import { evaluateThreeWayMatch } from "./matching";
+import {
+  advanceClassicProcureToPayAfterReceipt,
+} from "@/core/finance-automation/receipt-finance-orchestration";
 
 const field = (formData: FormData, key: string) =>
   String(formData.get(key) ?? "").trim();
@@ -220,8 +223,14 @@ export async function postReceiptAction(formData: FormData) {
     return created;
   });
 
+  await advanceClassicProcureToPayAfterReceipt({
+    purchaseOrderId: purchaseOrder.id,
+    actorUserId: user.id,
+  });
+
   revalidatePath(`/app/purchasing/orders/${purchaseOrder.id}`);
   revalidatePath(`/app/purchasing/receipts/${receipt.id}`);
+  revalidatePath("/app/purchasing/invoices");
 }
 
 export async function submitSupplierInvoiceAction(formData: FormData) {

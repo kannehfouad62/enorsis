@@ -79,6 +79,7 @@ export async function getMarketplaceCatalog(input: {
   category?: string;
   type?: string;
   availability?: string;
+  vendor?: string;
 }) {
   const session = await auth();
   if (!session?.user) redirect("/login");
@@ -94,6 +95,8 @@ export async function getMarketplaceCatalog(input: {
   const type = input.type?.trim() ?? "";
   const availability =
     input.availability?.trim() ?? "";
+  const vendor =
+    input.vendor?.trim() ?? "";
 
   const tenant = await prisma.tenant.findUnique({
     where: { id: tenantId },
@@ -350,12 +353,78 @@ export async function getMarketplaceCatalog(input: {
       > => result !== null,
     );
 
+  const vendorDirectoryMap = new Map<
+    string,
+    {
+      supplierId: string;
+      supplierName: string;
+      supplierNumber: string;
+      offeringCount: number;
+      productCount: number;
+      serviceCount: number;
+      categories: Set<string>;
+      countries: Set<string>;
+      location: (typeof results)[number]["sellerLocation"];
+    }
+  >();
+
+  for (const result of results) {
+    const existing = vendorDirectoryMap.get(result.supplier.id);
+    const current =
+      existing ?? {
+        supplierId: result.supplier.id,
+        supplierName:
+          result.supplier.tradingName ??
+          result.supplier.legalName,
+        supplierNumber:
+          result.supplier.supplierNumber,
+        offeringCount: 0,
+        productCount: 0,
+        serviceCount: 0,
+        categories: new Set<string>(),
+        countries: new Set<string>(),
+        location: result.sellerLocation,
+      };
+
+    current.offeringCount += 1;
+    if (result.offering.offeringType === "SERVICE") {
+      current.serviceCount += 1;
+    } else {
+      current.productCount += 1;
+    }
+
+    if (result.offering.category) {
+      current.categories.add(result.offering.category);
+    }
+    for (const country of result.countries) {
+      current.countries.add(country);
+    }
+
+    vendorDirectoryMap.set(result.supplier.id, current);
+  }
+
+  const vendorDirectory = [...vendorDirectoryMap.values()]
+    .map((item) => ({
+      ...item,
+      categories: [...item.categories].sort(),
+      countries: [...item.countries].sort(),
+    }))
+    .sort((left, right) =>
+      left.supplierName.localeCompare(right.supplierName),
+    );
+
+  const displayResults = vendor
+    ? results.filter(
+        (result) => result.supplier.id === vendor,
+      )
+    : results;
+
   const groupMap = new Map<
     string,
     typeof results
   >();
 
-  for (const result of results) {
+  for (const result of displayResults) {
     const key = productFamilyKey(
       result.offering,
     );
@@ -505,6 +574,11 @@ export async function getMarketplaceCatalog(input: {
           }
         : null,
     comparisonGroups,
+    vendorDirectory,
+    selectedVendor:
+      vendorDirectory.find(
+        (item) => item.supplierId === vendor,
+      ) ?? null,
   };
 }
 
