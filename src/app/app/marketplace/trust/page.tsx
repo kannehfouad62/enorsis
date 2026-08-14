@@ -39,12 +39,14 @@ export default async function MarketplaceTrustPage() {
           </p>
         </div>
         <div className="flex gap-2">
-          <Link
-            href="/app/marketplace/suppliers"
-            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
-          >
-            Supplier Discovery
-          </Link>
+          {data.commercialPersona !== "SUPPLIER" ? (
+            <Link
+              href="/app/marketplace/suppliers"
+              className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-black"
+            >
+              Supplier Discovery
+            </Link>
+          ) : null}
           <Link
             href="/app/marketplace/catalog"
             className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white"

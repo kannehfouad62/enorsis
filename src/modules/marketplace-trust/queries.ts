@@ -26,6 +26,17 @@ export async function getMarketplaceTrustWorkspace() {
 
   const tenantId = session.user.tenantId;
 
+  const tenant = await prisma.tenant.findUnique({
+    where: { id: tenantId },
+    select: {
+      commercialPersona: true,
+    },
+  });
+
+  if (!tenant) {
+    redirect("/app/unauthorized");
+  }
+
   const [
     suppliers,
     profiles,
@@ -112,6 +123,7 @@ export async function getMarketplaceTrustWorkspace() {
   });
 
   return {
+    commercialPersona: tenant.commercialPersona,
     suppliers,
     trustPortfolio,
     verifications: verifications.map((item) => ({
