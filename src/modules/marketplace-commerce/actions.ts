@@ -9,7 +9,6 @@ import {
   hasResourceScope,
   requireAnyRole,
 } from "@/core/auth/authorization";
-import { createAndDeliverEnterpriseNotification } from "@/core/notifications";
 import { prisma } from "@/lib/prisma";
 import type { MarketplaceCheckoutInput } from "@/core/marketplace-commerce/types";
 import {
@@ -371,19 +370,107 @@ export async function submitMarketplaceCartAction(
     return saved;
   });
 
-  const firstApprover = approvalChain[0];
-  if (firstApprover) {
-    await createAndDeliverEnterpriseNotification({
-      tenantId: user.tenantId,
-      eventType: "MarketplacePurchaseRequest.ApprovalRequired",
-      recipientUserId: firstApprover.user.id,
-      recipientAddress: firstApprover.user.email ?? undefined,
-      title: "Marketplace purchase request approval required",
-      message: `${requestNumber} for ${originalCurrency} ${totalAmount.toLocaleString()} is awaiting your approval.`,
-      actionUrl: `/app/requests/${request.id}`,
-      channels: firstApprover.user.email ? ["IN_APP", "EMAIL"] : ["IN_APP"],
-      priority: "HIGH",
+  const persistedApproval =
+    await prisma.purchaseRequestApproval.findFirst({
+      where: {
+        purchaseRequestId: request.id,
+      },
+      orderBy: {
+        sequence: "asc",
+      },
+      select: {
+        id: true,
+        approverId: true,
+        sequence: true,
+      },
     });
+
+  if (persistedApproval) {
+    const approver =
+      await prisma.user.findUnique({
+        where: {
+          id: persistedApproval.approverId,
+        },
+        select: {
+          id: true,
+          email: true,
+          name: true,
+          isActive: true,
+        },
+      });
+
+    if (!approver || !approver.isActive) {
+      await prisma.auditEvent.create({
+        data: {
+          tenantId: user.tenantId,
+          userId: user.id,
+          actorType: "SYSTEM",
+          actorId: user.id,
+          actorLabel: user.email,
+          action:
+            "marketplace.purchase_request.approval_notification.failed",
+          resourceType:
+            "PurchaseRequestApproval",
+          resourceId:
+            persistedApproval.id,
+          outcome: "FAILURE",
+          reason:
+            "Persisted approver user is missing or inactive.",
+          after: {
+            purchaseRequestId:
+              request.id,
+            requestNumber,
+            approverId:
+              persistedApproval.approverId,
+          },
+        },
+      });
+    } else {
+      await notifyUser({
+        tenantId: user.tenantId,
+        userId: approver.id,
+        eventType:
+          "MarketplacePurchaseRequest.ApprovalRequired",
+        title:
+          "Marketplace purchase request approval required",
+        message:
+          `${requestNumber} for ${originalCurrency} ${totalAmount.toLocaleString()} is awaiting your approval.`,
+        actionUrl:
+          `/app/requests/${request.id}`,
+        priority: "HIGH",
+      });
+
+      await prisma.auditEvent.create({
+        data: {
+          tenantId: user.tenantId,
+          userId: user.id,
+          actorType: "SYSTEM",
+          actorId: user.id,
+          actorLabel: user.email,
+          action:
+            "marketplace.purchase_request.approval_notification.sent",
+          resourceType:
+            "PurchaseRequestApproval",
+          resourceId:
+            persistedApproval.id,
+          after: {
+            purchaseRequestId:
+              request.id,
+            requestNumber,
+            approverId:
+              approver.id,
+            approverEmail:
+              approver.email,
+            sequence:
+              persistedApproval.sequence,
+            channels:
+              approver.email
+                ? ["IN_APP", "EMAIL"]
+                : ["IN_APP"],
+          },
+        },
+      });
+    }
   }
 
   await notifyUser({

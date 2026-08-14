@@ -22,6 +22,36 @@ export function registerNotificationProvider(
   providers.set(channel, provider);
 }
 
-export function getNotificationProvider(channel: string) {
-  return providers.get(channel) ?? null;
+export async function getNotificationProvider(
+  channel: string,
+) {
+  const registered =
+    providers.get(channel);
+
+  if (registered) {
+    return registered;
+  }
+
+  if (channel === "EMAIL") {
+    return getBuiltInEmailProvider();
+  }
+
+  return null;
+}
+
+
+let builtInEmailProvider:
+  | NotificationProvider
+  | null = null;
+
+async function getBuiltInEmailProvider() {
+  if (!builtInEmailProvider) {
+    const module = await import(
+      "./resend-email-provider"
+    );
+    builtInEmailProvider =
+      module.resendEmailNotificationProvider;
+  }
+
+  return builtInEmailProvider;
 }

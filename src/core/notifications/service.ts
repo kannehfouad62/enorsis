@@ -98,7 +98,10 @@ async function deliverNotification(deliveryId: string) {
         provider: "ENORSIS_IN_APP",
       });
     } else {
-      const provider = getNotificationProvider(delivery.channel);
+      const provider =
+        await getNotificationProvider(
+          delivery.channel,
+        );
 
       if (!provider) {
         throw new Error(
