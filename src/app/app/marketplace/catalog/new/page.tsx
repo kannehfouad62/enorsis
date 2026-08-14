@@ -192,6 +192,22 @@ export default async function PublishMarketplaceOfferingPage() {
 
           <label className="rounded-xl border border-slate-200 bg-white px-3 py-2.5">
             <span className="block text-xs font-black uppercase tracking-wide text-slate-500">
+              Available sizes
+            </span>
+            <span className="mt-1 block text-[11px] leading-5 text-slate-500">
+              Optional. For wearable products such as safety vests, gloves,
+              footwear or uniforms, enter every size currently available.
+              Separate sizes with commas.
+            </span>
+            <input
+              className="mt-2 w-full border-0 p-0 text-sm text-slate-950 outline-none"
+              name="availableSizes"
+              placeholder="XS, S, M, L, XL, 2XL"
+            />
+          </label>
+
+          <label className="rounded-xl border border-slate-200 bg-white px-3 py-2.5">
+            <span className="block text-xs font-black uppercase tracking-wide text-slate-500">
               Countries you sell / ship to
             </span>
             <span className="mt-1 block text-[11px] leading-5 text-slate-500">

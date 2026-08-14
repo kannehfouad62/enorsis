@@ -12,6 +12,8 @@ export type MarketplaceCartItem = {
   currencyCode: string;
   minimumOrderQty: number | null;
   leadTimeDays: number | null;
+  availableSizes: string[];
+  selectedSize: string | null;
   imageRef: string | null;
 };
 

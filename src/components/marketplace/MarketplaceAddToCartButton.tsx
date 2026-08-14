@@ -24,12 +24,35 @@ export function MarketplaceAddToCartButton({
 }) {
   const minimum = Math.max(1, item.minimumOrderQty ?? 1);
   const [quantity, setQuantity] = useState(minimum);
+  const [selectedSize, setSelectedSize] = useState(
+    item.availableSizes.length === 1
+      ? item.availableSizes[0]
+      : "",
+  );
   const [message, setMessage] = useState<string | null>(null);
 
   function addToCart() {
+    if (
+      item.availableSizes.length > 0 &&
+      !selectedSize
+    ) {
+      setMessage("Select a size before adding this item.");
+      return;
+    }
+
     const cart = readCart();
-    const index = cart.findIndex((entry) => entry.offeringId === item.offeringId);
-    const next = { ...item, quantity };
+    const normalizedSize =
+      selectedSize || null;
+    const index = cart.findIndex(
+      (entry) =>
+        entry.offeringId === item.offeringId &&
+        entry.selectedSize === normalizedSize,
+    );
+    const next = {
+      ...item,
+      quantity,
+      selectedSize: normalizedSize,
+    };
     if (index >= 0) cart[index] = next;
     else cart.push(next);
     localStorage.setItem(MARKETPLACE_CART_KEY, JSON.stringify(cart));
@@ -39,6 +62,27 @@ export function MarketplaceAddToCartButton({
 
   return (
     <div className="flex flex-wrap items-center gap-2">
+      {item.availableSizes.length > 0 ? (
+        <select
+          aria-label={`Size for ${item.offeringName}`}
+          value={selectedSize}
+          onChange={(event) => {
+            setSelectedSize(event.target.value);
+            setMessage(null);
+          }}
+          className="min-w-28 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm"
+        >
+          {item.availableSizes.length > 1 ? (
+            <option value="">Select size</option>
+          ) : null}
+          {item.availableSizes.map((size) => (
+            <option key={size} value={size}>
+              {size}
+            </option>
+          ))}
+        </select>
+      ) : null}
+
       <input
         aria-label={`Quantity for ${item.offeringName}`}
         type="number"

@@ -385,7 +385,8 @@ function SidebarContent({
       </div>
 
       <div className="px-4 py-4">
-        {["SUPPLIER", "BUYER_SUPPLIER"].includes(
+        {!isPlatformOperator &&
+        ["SUPPLIER", "BUYER_SUPPLIER"].includes(
           user.commercialPersona,
         ) ? (
           <Link
@@ -439,21 +440,28 @@ function SidebarContent({
         <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Workspace</p>
         <div className="space-y-1">
           {navigation
-            .filter(
-              (item) =>
-                isPlatformOperator ||
-                (
-                  (!("sellerOnly" in item) ||
-                    !item.sellerOnly ||
-                    ["SUPPLIER", "BUYER_SUPPLIER"].includes(
-                      user.commercialPersona,
-                    )) &&
-                  isHrefAllowedForCommercialPersona(
-                    item.href,
+            .filter((item) => {
+              const sellerOnly =
+                "sellerOnly" in item &&
+                item.sellerOnly === true;
+
+              if (sellerOnly) {
+                return (
+                  !isPlatformOperator &&
+                  ["SUPPLIER", "BUYER_SUPPLIER"].includes(
                     user.commercialPersona,
                   )
-                ),
-            )
+                );
+              }
+
+              return (
+                isPlatformOperator ||
+                isHrefAllowedForCommercialPersona(
+                  item.href,
+                  user.commercialPersona,
+                )
+              );
+            })
             .filter((item) =>
               item.roles.length === 0 ||
               item.roles.some((role) => user.roles.includes(role)),

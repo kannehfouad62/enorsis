@@ -313,10 +313,17 @@ export function MarketplaceComparisonResults({
                                   : `${offer.offering.leadTimeDays} days`}
                               </td>
                               <td className="px-4 py-4">
-                                {
-                                  offer.offering
-                                    .availabilityStatus
-                                }
+                                <p>
+                                  {
+                                    offer.offering
+                                      .availabilityStatus
+                                  }
+                                </p>
+                                {offer.offering.availableSizes.length > 0 ? (
+                                  <p className="mt-1 max-w-56 text-xs text-slate-500">
+                                    Sizes: {offer.offering.availableSizes.join(", ")}
+                                  </p>
+                                ) : null}
                               </td>
                               <td className="px-4 py-4 text-slate-500">
                                 {offer.offering
@@ -344,6 +351,9 @@ export function MarketplaceComparisonResults({
                                           ? null
                                           : Number(offer.offering.minimumOrderQty),
                                       leadTimeDays: offer.offering.leadTimeDays,
+                                      availableSizes:
+                                        offer.offering.availableSizes,
+                                      selectedSize: null,
                                       imageRef: offer.offering.imageRef,
                                     }}
                                   />

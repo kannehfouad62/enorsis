@@ -123,6 +123,7 @@ export type SupplierMarketplaceOfferingCountAggregateOutputType = {
   minimumOrderQty: number
   leadTimeDays: number
   availabilityStatus: number
+  availableSizes: number
   countriesAvailable: number
   certifications: number
   attributes: number
@@ -237,6 +238,7 @@ export type SupplierMarketplaceOfferingCountAggregateInputType = {
   minimumOrderQty?: true
   leadTimeDays?: true
   availabilityStatus?: true
+  availableSizes?: true
   countriesAvailable?: true
   certifications?: true
   attributes?: true
@@ -360,6 +362,7 @@ export type SupplierMarketplaceOfferingGroupByOutputType = {
   minimumOrderQty: runtime.Decimal | null
   leadTimeDays: number | null
   availabilityStatus: string
+  availableSizes: string[]
   countriesAvailable: runtime.JsonValue | null
   certifications: runtime.JsonValue | null
   attributes: runtime.JsonValue | null
@@ -419,6 +422,7 @@ export type SupplierMarketplaceOfferingWhereInput = {
   minimumOrderQty?: Prisma.DecimalNullableFilter<"SupplierMarketplaceOffering"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.IntNullableFilter<"SupplierMarketplaceOffering"> | number | null
   availabilityStatus?: Prisma.StringFilter<"SupplierMarketplaceOffering"> | string
+  availableSizes?: Prisma.StringNullableListFilter<"SupplierMarketplaceOffering">
   countriesAvailable?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
   certifications?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
   attributes?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
@@ -456,6 +460,7 @@ export type SupplierMarketplaceOfferingOrderByWithRelationInput = {
   minimumOrderQty?: Prisma.SortOrderInput | Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrderInput | Prisma.SortOrder
   availabilityStatus?: Prisma.SortOrder
+  availableSizes?: Prisma.SortOrder
   countriesAvailable?: Prisma.SortOrderInput | Prisma.SortOrder
   certifications?: Prisma.SortOrderInput | Prisma.SortOrder
   attributes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -497,6 +502,7 @@ export type SupplierMarketplaceOfferingWhereUniqueInput = Prisma.AtLeast<{
   minimumOrderQty?: Prisma.DecimalNullableFilter<"SupplierMarketplaceOffering"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.IntNullableFilter<"SupplierMarketplaceOffering"> | number | null
   availabilityStatus?: Prisma.StringFilter<"SupplierMarketplaceOffering"> | string
+  availableSizes?: Prisma.StringNullableListFilter<"SupplierMarketplaceOffering">
   countriesAvailable?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
   certifications?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
   attributes?: Prisma.JsonNullableFilter<"SupplierMarketplaceOffering">
@@ -534,6 +540,7 @@ export type SupplierMarketplaceOfferingOrderByWithAggregationInput = {
   minimumOrderQty?: Prisma.SortOrderInput | Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrderInput | Prisma.SortOrder
   availabilityStatus?: Prisma.SortOrder
+  availableSizes?: Prisma.SortOrder
   countriesAvailable?: Prisma.SortOrderInput | Prisma.SortOrder
   certifications?: Prisma.SortOrderInput | Prisma.SortOrder
   attributes?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -578,6 +585,7 @@ export type SupplierMarketplaceOfferingScalarWhereWithAggregatesInput = {
   minimumOrderQty?: Prisma.DecimalNullableWithAggregatesFilter<"SupplierMarketplaceOffering"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.IntNullableWithAggregatesFilter<"SupplierMarketplaceOffering"> | number | null
   availabilityStatus?: Prisma.StringWithAggregatesFilter<"SupplierMarketplaceOffering"> | string
+  availableSizes?: Prisma.StringNullableListFilter<"SupplierMarketplaceOffering">
   countriesAvailable?: Prisma.JsonNullableWithAggregatesFilter<"SupplierMarketplaceOffering">
   certifications?: Prisma.JsonNullableWithAggregatesFilter<"SupplierMarketplaceOffering">
   attributes?: Prisma.JsonNullableWithAggregatesFilter<"SupplierMarketplaceOffering">
@@ -614,6 +622,7 @@ export type SupplierMarketplaceOfferingCreateInput = {
   minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: number | null
   availabilityStatus?: string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingCreateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -651,6 +660,7 @@ export type SupplierMarketplaceOfferingUncheckedCreateInput = {
   minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: number | null
   availabilityStatus?: string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingCreateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -688,6 +698,7 @@ export type SupplierMarketplaceOfferingUpdateInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -725,6 +736,7 @@ export type SupplierMarketplaceOfferingUncheckedUpdateInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -762,6 +774,7 @@ export type SupplierMarketplaceOfferingCreateManyInput = {
   minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: number | null
   availabilityStatus?: string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingCreateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -798,6 +811,7 @@ export type SupplierMarketplaceOfferingUpdateManyMutationInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -834,6 +848,7 @@ export type SupplierMarketplaceOfferingUncheckedUpdateManyInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -876,6 +891,7 @@ export type SupplierMarketplaceOfferingCountOrderByAggregateInput = {
   minimumOrderQty?: Prisma.SortOrder
   leadTimeDays?: Prisma.SortOrder
   availabilityStatus?: Prisma.SortOrder
+  availableSizes?: Prisma.SortOrder
   countriesAvailable?: Prisma.SortOrder
   certifications?: Prisma.SortOrder
   attributes?: Prisma.SortOrder
@@ -972,6 +988,15 @@ export type SupplierMarketplaceOfferingScalarRelationFilter = {
   isNot?: Prisma.SupplierMarketplaceOfferingWhereInput
 }
 
+export type SupplierMarketplaceOfferingCreateavailableSizesInput = {
+  set: string[]
+}
+
+export type SupplierMarketplaceOfferingUpdateavailableSizesInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
 export type SupplierMarketplaceOfferingCreateNestedOneWithoutMediaInput = {
   create?: Prisma.XOR<Prisma.SupplierMarketplaceOfferingCreateWithoutMediaInput, Prisma.SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput>
   connectOrCreate?: Prisma.SupplierMarketplaceOfferingCreateOrConnectWithoutMediaInput
@@ -1007,6 +1032,7 @@ export type SupplierMarketplaceOfferingCreateWithoutMediaInput = {
   minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: number | null
   availabilityStatus?: string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingCreateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1043,6 +1069,7 @@ export type SupplierMarketplaceOfferingUncheckedCreateWithoutMediaInput = {
   minimumOrderQty?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: number | null
   availabilityStatus?: string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingCreateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1095,6 +1122,7 @@ export type SupplierMarketplaceOfferingUpdateWithoutMediaInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1131,6 +1159,7 @@ export type SupplierMarketplaceOfferingUncheckedUpdateWithoutMediaInput = {
   minimumOrderQty?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   leadTimeDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   availabilityStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  availableSizes?: Prisma.SupplierMarketplaceOfferingUpdateavailableSizesInput | string[]
   countriesAvailable?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   certifications?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   attributes?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1198,6 +1227,7 @@ export type SupplierMarketplaceOfferingSelect<ExtArgs extends runtime.Types.Exte
   minimumOrderQty?: boolean
   leadTimeDays?: boolean
   availabilityStatus?: boolean
+  availableSizes?: boolean
   countriesAvailable?: boolean
   certifications?: boolean
   attributes?: boolean
@@ -1236,6 +1266,7 @@ export type SupplierMarketplaceOfferingSelectCreateManyAndReturn<ExtArgs extends
   minimumOrderQty?: boolean
   leadTimeDays?: boolean
   availabilityStatus?: boolean
+  availableSizes?: boolean
   countriesAvailable?: boolean
   certifications?: boolean
   attributes?: boolean
@@ -1272,6 +1303,7 @@ export type SupplierMarketplaceOfferingSelectUpdateManyAndReturn<ExtArgs extends
   minimumOrderQty?: boolean
   leadTimeDays?: boolean
   availabilityStatus?: boolean
+  availableSizes?: boolean
   countriesAvailable?: boolean
   certifications?: boolean
   attributes?: boolean
@@ -1308,6 +1340,7 @@ export type SupplierMarketplaceOfferingSelectScalar = {
   minimumOrderQty?: boolean
   leadTimeDays?: boolean
   availabilityStatus?: boolean
+  availableSizes?: boolean
   countriesAvailable?: boolean
   certifications?: boolean
   attributes?: boolean
@@ -1323,7 +1356,7 @@ export type SupplierMarketplaceOfferingSelectScalar = {
   updatedAt?: boolean
 }
 
-export type SupplierMarketplaceOfferingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierId" | "marketplaceProfileId" | "offeringType" | "sku" | "name" | "shortDescription" | "description" | "category" | "subcategory" | "manufacturer" | "brand" | "modelNumber" | "unitOfMeasure" | "currencyCode" | "unitPrice" | "minimumOrderQty" | "leadTimeDays" | "availabilityStatus" | "countriesAvailable" | "certifications" | "attributes" | "keywords" | "imageRef" | "documentRef" | "externalUrl" | "marketplaceVisible" | "featured" | "publishedAt" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierMarketplaceOffering"]>
+export type SupplierMarketplaceOfferingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierId" | "marketplaceProfileId" | "offeringType" | "sku" | "name" | "shortDescription" | "description" | "category" | "subcategory" | "manufacturer" | "brand" | "modelNumber" | "unitOfMeasure" | "currencyCode" | "unitPrice" | "minimumOrderQty" | "leadTimeDays" | "availabilityStatus" | "availableSizes" | "countriesAvailable" | "certifications" | "attributes" | "keywords" | "imageRef" | "documentRef" | "externalUrl" | "marketplaceVisible" | "featured" | "publishedAt" | "createdByUserId" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierMarketplaceOffering"]>
 export type SupplierMarketplaceOfferingInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   media?: boolean | Prisma.SupplierMarketplaceOffering$mediaArgs<ExtArgs>
   _count?: boolean | Prisma.SupplierMarketplaceOfferingCountOutputTypeDefaultArgs<ExtArgs>
@@ -1357,6 +1390,7 @@ export type $SupplierMarketplaceOfferingPayload<ExtArgs extends runtime.Types.Ex
     minimumOrderQty: runtime.Decimal | null
     leadTimeDays: number | null
     availabilityStatus: string
+    availableSizes: string[]
     countriesAvailable: runtime.JsonValue | null
     certifications: runtime.JsonValue | null
     attributes: runtime.JsonValue | null
@@ -1814,6 +1848,7 @@ export interface SupplierMarketplaceOfferingFieldRefs {
   readonly minimumOrderQty: Prisma.FieldRef<"SupplierMarketplaceOffering", 'Decimal'>
   readonly leadTimeDays: Prisma.FieldRef<"SupplierMarketplaceOffering", 'Int'>
   readonly availabilityStatus: Prisma.FieldRef<"SupplierMarketplaceOffering", 'String'>
+  readonly availableSizes: Prisma.FieldRef<"SupplierMarketplaceOffering", 'String[]'>
   readonly countriesAvailable: Prisma.FieldRef<"SupplierMarketplaceOffering", 'Json'>
   readonly certifications: Prisma.FieldRef<"SupplierMarketplaceOffering", 'Json'>
   readonly attributes: Prisma.FieldRef<"SupplierMarketplaceOffering", 'Json'>

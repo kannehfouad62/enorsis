@@ -85,6 +85,9 @@ export async function createMarketplaceOfferingAction(
         availabilityStatus:
           field(data, "availabilityStatus") ||
           "AVAILABLE",
+        availableSizes: list(
+          field(data, "availableSizes"),
+        ),
         countriesAvailable: list(
           field(data, "countriesAvailable"),
         ),
@@ -122,6 +125,7 @@ export async function createMarketplaceOfferingAction(
         shortDescription: offering.shortDescription,
         sku: offering.sku,
         marketplaceVisible,
+        availableSizes: offering.availableSizes,
       },
     },
   });
@@ -250,6 +254,9 @@ export async function updateMarketplaceOfferingDetailsAction(
         availabilityStatus:
           field(data, "availabilityStatus") ||
           current.availabilityStatus,
+        availableSizes: list(
+          field(data, "availableSizes"),
+        ),
         countriesAvailable: list(
           field(data, "countriesAvailable"),
         ),
@@ -297,6 +304,8 @@ export async function updateMarketplaceOfferingDetailsAction(
         featured: current.featured,
         countriesAvailable:
           current.countriesAvailable,
+        availableSizes:
+          current.availableSizes,
       },
       after: {
         name: updated.name,
@@ -310,6 +319,8 @@ export async function updateMarketplaceOfferingDetailsAction(
         featured: updated.featured,
         countriesAvailable:
           updated.countriesAvailable,
+        availableSizes:
+          updated.availableSizes,
       },
     },
   });

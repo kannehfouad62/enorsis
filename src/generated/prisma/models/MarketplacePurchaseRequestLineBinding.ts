@@ -47,6 +47,7 @@ export type MarketplacePurchaseRequestLineBindingMinAggregateOutputType = {
   sellerTenantId: string | null
   sellerSupplierId: string | null
   offeringName: string | null
+  selectedSize: string | null
   sku: string | null
   imageRef: string | null
   currencyCode: string | null
@@ -66,6 +67,7 @@ export type MarketplacePurchaseRequestLineBindingMaxAggregateOutputType = {
   sellerTenantId: string | null
   sellerSupplierId: string | null
   offeringName: string | null
+  selectedSize: string | null
   sku: string | null
   imageRef: string | null
   currencyCode: string | null
@@ -85,6 +87,7 @@ export type MarketplacePurchaseRequestLineBindingCountAggregateOutputType = {
   sellerTenantId: number
   sellerSupplierId: number
   offeringName: number
+  selectedSize: number
   sku: number
   imageRef: number
   currencyCode: number
@@ -118,6 +121,7 @@ export type MarketplacePurchaseRequestLineBindingMinAggregateInputType = {
   sellerTenantId?: true
   sellerSupplierId?: true
   offeringName?: true
+  selectedSize?: true
   sku?: true
   imageRef?: true
   currencyCode?: true
@@ -137,6 +141,7 @@ export type MarketplacePurchaseRequestLineBindingMaxAggregateInputType = {
   sellerTenantId?: true
   sellerSupplierId?: true
   offeringName?: true
+  selectedSize?: true
   sku?: true
   imageRef?: true
   currencyCode?: true
@@ -156,6 +161,7 @@ export type MarketplacePurchaseRequestLineBindingCountAggregateInputType = {
   sellerTenantId?: true
   sellerSupplierId?: true
   offeringName?: true
+  selectedSize?: true
   sku?: true
   imageRef?: true
   currencyCode?: true
@@ -262,6 +268,7 @@ export type MarketplacePurchaseRequestLineBindingGroupByOutputType = {
   sellerTenantId: string
   sellerSupplierId: string
   offeringName: string
+  selectedSize: string | null
   sku: string | null
   imageRef: string | null
   currencyCode: string
@@ -304,6 +311,7 @@ export type MarketplacePurchaseRequestLineBindingWhereInput = {
   sellerTenantId?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
   sellerSupplierId?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
   offeringName?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
+  selectedSize?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   sku?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   imageRef?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   currencyCode?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
@@ -323,6 +331,7 @@ export type MarketplacePurchaseRequestLineBindingOrderByWithRelationInput = {
   sellerTenantId?: Prisma.SortOrder
   sellerSupplierId?: Prisma.SortOrder
   offeringName?: Prisma.SortOrder
+  selectedSize?: Prisma.SortOrderInput | Prisma.SortOrder
   sku?: Prisma.SortOrderInput | Prisma.SortOrder
   imageRef?: Prisma.SortOrderInput | Prisma.SortOrder
   currencyCode?: Prisma.SortOrder
@@ -345,6 +354,7 @@ export type MarketplacePurchaseRequestLineBindingWhereUniqueInput = Prisma.AtLea
   sellerTenantId?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
   sellerSupplierId?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
   offeringName?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
+  selectedSize?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   sku?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   imageRef?: Prisma.StringNullableFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   currencyCode?: Prisma.StringFilter<"MarketplacePurchaseRequestLineBinding"> | string
@@ -364,6 +374,7 @@ export type MarketplacePurchaseRequestLineBindingOrderByWithAggregationInput = {
   sellerTenantId?: Prisma.SortOrder
   sellerSupplierId?: Prisma.SortOrder
   offeringName?: Prisma.SortOrder
+  selectedSize?: Prisma.SortOrderInput | Prisma.SortOrder
   sku?: Prisma.SortOrderInput | Prisma.SortOrder
   imageRef?: Prisma.SortOrderInput | Prisma.SortOrder
   currencyCode?: Prisma.SortOrder
@@ -391,6 +402,7 @@ export type MarketplacePurchaseRequestLineBindingScalarWhereWithAggregatesInput 
   sellerTenantId?: Prisma.StringWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string
   sellerSupplierId?: Prisma.StringWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string
   offeringName?: Prisma.StringWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string
+  selectedSize?: Prisma.StringNullableWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   sku?: Prisma.StringNullableWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   imageRef?: Prisma.StringNullableWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string | null
   currencyCode?: Prisma.StringWithAggregatesFilter<"MarketplacePurchaseRequestLineBinding"> | string
@@ -410,6 +422,7 @@ export type MarketplacePurchaseRequestLineBindingCreateInput = {
   sellerTenantId: string
   sellerSupplierId: string
   offeringName: string
+  selectedSize?: string | null
   sku?: string | null
   imageRef?: string | null
   currencyCode?: string
@@ -429,6 +442,7 @@ export type MarketplacePurchaseRequestLineBindingUncheckedCreateInput = {
   sellerTenantId: string
   sellerSupplierId: string
   offeringName: string
+  selectedSize?: string | null
   sku?: string | null
   imageRef?: string | null
   currencyCode?: string
@@ -448,6 +462,7 @@ export type MarketplacePurchaseRequestLineBindingUpdateInput = {
   sellerTenantId?: Prisma.StringFieldUpdateOperationsInput | string
   sellerSupplierId?: Prisma.StringFieldUpdateOperationsInput | string
   offeringName?: Prisma.StringFieldUpdateOperationsInput | string
+  selectedSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -467,6 +482,7 @@ export type MarketplacePurchaseRequestLineBindingUncheckedUpdateInput = {
   sellerTenantId?: Prisma.StringFieldUpdateOperationsInput | string
   sellerSupplierId?: Prisma.StringFieldUpdateOperationsInput | string
   offeringName?: Prisma.StringFieldUpdateOperationsInput | string
+  selectedSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -486,6 +502,7 @@ export type MarketplacePurchaseRequestLineBindingCreateManyInput = {
   sellerTenantId: string
   sellerSupplierId: string
   offeringName: string
+  selectedSize?: string | null
   sku?: string | null
   imageRef?: string | null
   currencyCode?: string
@@ -505,6 +522,7 @@ export type MarketplacePurchaseRequestLineBindingUpdateManyMutationInput = {
   sellerTenantId?: Prisma.StringFieldUpdateOperationsInput | string
   sellerSupplierId?: Prisma.StringFieldUpdateOperationsInput | string
   offeringName?: Prisma.StringFieldUpdateOperationsInput | string
+  selectedSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -524,6 +542,7 @@ export type MarketplacePurchaseRequestLineBindingUncheckedUpdateManyInput = {
   sellerTenantId?: Prisma.StringFieldUpdateOperationsInput | string
   sellerSupplierId?: Prisma.StringFieldUpdateOperationsInput | string
   offeringName?: Prisma.StringFieldUpdateOperationsInput | string
+  selectedSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sku?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   imageRef?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   currencyCode?: Prisma.StringFieldUpdateOperationsInput | string
@@ -543,6 +562,7 @@ export type MarketplacePurchaseRequestLineBindingCountOrderByAggregateInput = {
   sellerTenantId?: Prisma.SortOrder
   sellerSupplierId?: Prisma.SortOrder
   offeringName?: Prisma.SortOrder
+  selectedSize?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   imageRef?: Prisma.SortOrder
   currencyCode?: Prisma.SortOrder
@@ -568,6 +588,7 @@ export type MarketplacePurchaseRequestLineBindingMaxOrderByAggregateInput = {
   sellerTenantId?: Prisma.SortOrder
   sellerSupplierId?: Prisma.SortOrder
   offeringName?: Prisma.SortOrder
+  selectedSize?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   imageRef?: Prisma.SortOrder
   currencyCode?: Prisma.SortOrder
@@ -587,6 +608,7 @@ export type MarketplacePurchaseRequestLineBindingMinOrderByAggregateInput = {
   sellerTenantId?: Prisma.SortOrder
   sellerSupplierId?: Prisma.SortOrder
   offeringName?: Prisma.SortOrder
+  selectedSize?: Prisma.SortOrder
   sku?: Prisma.SortOrder
   imageRef?: Prisma.SortOrder
   currencyCode?: Prisma.SortOrder
@@ -614,6 +636,7 @@ export type MarketplacePurchaseRequestLineBindingSelect<ExtArgs extends runtime.
   sellerTenantId?: boolean
   sellerSupplierId?: boolean
   offeringName?: boolean
+  selectedSize?: boolean
   sku?: boolean
   imageRef?: boolean
   currencyCode?: boolean
@@ -633,6 +656,7 @@ export type MarketplacePurchaseRequestLineBindingSelectCreateManyAndReturn<ExtAr
   sellerTenantId?: boolean
   sellerSupplierId?: boolean
   offeringName?: boolean
+  selectedSize?: boolean
   sku?: boolean
   imageRef?: boolean
   currencyCode?: boolean
@@ -652,6 +676,7 @@ export type MarketplacePurchaseRequestLineBindingSelectUpdateManyAndReturn<ExtAr
   sellerTenantId?: boolean
   sellerSupplierId?: boolean
   offeringName?: boolean
+  selectedSize?: boolean
   sku?: boolean
   imageRef?: boolean
   currencyCode?: boolean
@@ -671,6 +696,7 @@ export type MarketplacePurchaseRequestLineBindingSelectScalar = {
   sellerTenantId?: boolean
   sellerSupplierId?: boolean
   offeringName?: boolean
+  selectedSize?: boolean
   sku?: boolean
   imageRef?: boolean
   currencyCode?: boolean
@@ -681,7 +707,7 @@ export type MarketplacePurchaseRequestLineBindingSelectScalar = {
   createdAt?: boolean
 }
 
-export type MarketplacePurchaseRequestLineBindingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "purchaseRequestId" | "purchaseRequestLineId" | "marketplaceOfferingId" | "sellerTenantId" | "sellerSupplierId" | "offeringName" | "sku" | "imageRef" | "currencyCode" | "unitPrice" | "quantity" | "unitOfMeasure" | "leadTimeDays" | "createdAt", ExtArgs["result"]["marketplacePurchaseRequestLineBinding"]>
+export type MarketplacePurchaseRequestLineBindingOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "purchaseRequestId" | "purchaseRequestLineId" | "marketplaceOfferingId" | "sellerTenantId" | "sellerSupplierId" | "offeringName" | "selectedSize" | "sku" | "imageRef" | "currencyCode" | "unitPrice" | "quantity" | "unitOfMeasure" | "leadTimeDays" | "createdAt", ExtArgs["result"]["marketplacePurchaseRequestLineBinding"]>
 
 export type $MarketplacePurchaseRequestLineBindingPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MarketplacePurchaseRequestLineBinding"
@@ -695,6 +721,7 @@ export type $MarketplacePurchaseRequestLineBindingPayload<ExtArgs extends runtim
     sellerTenantId: string
     sellerSupplierId: string
     offeringName: string
+    selectedSize: string | null
     sku: string | null
     imageRef: string | null
     currencyCode: string
@@ -1134,6 +1161,7 @@ export interface MarketplacePurchaseRequestLineBindingFieldRefs {
   readonly sellerTenantId: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
   readonly sellerSupplierId: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
   readonly offeringName: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
+  readonly selectedSize: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
   readonly sku: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
   readonly imageRef: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>
   readonly currencyCode: Prisma.FieldRef<"MarketplacePurchaseRequestLineBinding", 'String'>

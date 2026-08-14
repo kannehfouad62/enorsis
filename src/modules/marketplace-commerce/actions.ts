@@ -169,7 +169,33 @@ export async function submitMarketplaceCartAction(
     }
 
     const quantity = Number(cartItem.quantity);
-    const minimum = offering.minimumOrderQty == null ? 0 : Number(offering.minimumOrderQty);
+    const minimum =
+      offering.minimumOrderQty == null
+        ? 0
+        : Number(offering.minimumOrderQty);
+
+    const selectedSize =
+      cartItem.selectedSize?.trim() || null;
+
+    if (
+      offering.availableSizes.length > 0 &&
+      !selectedSize
+    ) {
+      throw new Error(
+        `Select a size for ${offering.name}.`,
+      );
+    }
+
+    if (
+      selectedSize &&
+      !offering.availableSizes.includes(
+        selectedSize,
+      )
+    ) {
+      throw new Error(
+        `${selectedSize} is no longer an available size for ${offering.name}.`,
+      );
+    }
 
     if (!Number.isFinite(quantity) || quantity <= 0) {
       throw new Error(`Enter a valid quantity for ${offering.name}.`);
@@ -191,6 +217,7 @@ export async function submitMarketplaceCartAction(
     return {
       offering,
       quantity,
+      selectedSize,
       unitPrice: Number(offering.unitPrice),
       unitOfMeasure: offering.unitOfMeasure || "EA",
       supplierName:
@@ -253,7 +280,9 @@ export async function submitMarketplaceCartAction(
         lines: {
           create: trustedLines.map((line, index) => ({
             lineNumber: index + 1,
-            description: line.offering.name,
+            description: line.selectedSize
+              ? `${line.offering.name} · Size ${line.selectedSize}`
+              : line.offering.name,
             category: line.offering.category || null,
             quantity: line.quantity,
             unitOfMeasure: line.unitOfMeasure,
@@ -289,6 +318,7 @@ export async function submitMarketplaceCartAction(
           sellerTenantId: line.offering.tenantId,
           sellerSupplierId: line.offering.supplierId,
           offeringName: line.offering.name,
+          selectedSize: line.selectedSize,
           sku: line.offering.sku,
           imageRef: line.primaryImage,
           currencyCode: line.offering.currencyCode,
@@ -315,6 +345,14 @@ export async function submitMarketplaceCartAction(
           requestNumber,
           totalAmount,
           marketplaceLineCount: trustedLines.length,
+          selectedSizes: trustedLines
+            .filter((line) => line.selectedSize)
+            .map((line) => ({
+              offeringId: line.offering.id,
+              offeringName: line.offering.name,
+              selectedSize: line.selectedSize,
+              quantity: line.quantity,
+            })),
           selectedApproverId: approvalChain[0]?.userId ?? null,
           selectedApproverEmail: approvalChain[0]?.user.email ?? null,
           selectedApproverLimitUsd:

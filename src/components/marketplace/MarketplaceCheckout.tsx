@@ -8,6 +8,10 @@ import type { MarketplaceCartItem } from "@/core/marketplace-commerce/types";
 
 type Option = { id: string; name: string };
 
+function cartLineKey(item: MarketplaceCartItem) {
+  return `${item.offeringId}::${item.selectedSize ?? ""}`;
+}
+
 type ApproverOption = {
   userId: string;
   name: string;
@@ -46,18 +50,29 @@ export function MarketplaceCheckout({
     [items],
   );
 
-  function updateQuantity(offeringId: string, quantity: number) {
+  function updateQuantity(
+    lineKey: string,
+    quantity: number,
+  ) {
     const next = items.map((item) =>
-      item.offeringId === offeringId
-        ? { ...item, quantity: Math.max(item.minimumOrderQty ?? 1, quantity || 1) }
+      cartLineKey(item) === lineKey
+        ? {
+            ...item,
+            quantity: Math.max(
+              item.minimumOrderQty ?? 1,
+              quantity || 1,
+            ),
+          }
         : item,
     );
     setItems(next);
     localStorage.setItem(MARKETPLACE_CART_KEY, JSON.stringify(next));
   }
 
-  function remove(offeringId: string) {
-    const next = items.filter((item) => item.offeringId !== offeringId);
+  function remove(lineKey: string) {
+    const next = items.filter(
+      (item) => cartLineKey(item) !== lineKey,
+    );
     setItems(next);
     localStorage.setItem(MARKETPLACE_CART_KEY, JSON.stringify(next));
   }
@@ -117,22 +132,33 @@ export function MarketplaceCheckout({
         <h2 className="text-xl font-black">Marketplace items</h2>
         <div className="mt-4 space-y-3">
           {items.map((item) => (
-            <div key={item.offeringId} className="grid gap-3 rounded-2xl bg-slate-50 p-4 md:grid-cols-[1fr_120px_150px_auto]">
+            <div key={cartLineKey(item)} className="grid gap-3 rounded-2xl bg-slate-50 p-4 md:grid-cols-[1fr_120px_150px_auto]">
               <div>
                 <p className="font-black">{item.offeringName}</p>
-                <p className="mt-1 text-xs text-slate-500">{item.supplierName}{item.sku ? ` · ${item.sku}` : ""}</p>
+                <p className="mt-1 text-xs text-slate-500">
+                  {item.supplierName}
+                  {item.sku ? ` · ${item.sku}` : ""}
+                  {item.selectedSize
+                    ? ` · Size ${item.selectedSize}`
+                    : ""}
+                </p>
               </div>
               <input
                 type="number"
                 min={item.minimumOrderQty ?? 1}
                 value={item.quantity}
-                onChange={(event) => updateQuantity(item.offeringId, Number(event.target.value))}
+                onChange={(event) =>
+                  updateQuantity(
+                    cartLineKey(item),
+                    Number(event.target.value),
+                  )
+                }
                 className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
               />
               <div className="flex items-center font-black">
                 {item.currencyCode} {(item.quantity * item.unitPrice).toLocaleString()}
               </div>
-              <button type="button" onClick={() => remove(item.offeringId)} className="text-sm font-black text-rose-700">Remove</button>
+              <button type="button" onClick={() => remove(cartLineKey(item))} className="text-sm font-black text-rose-700">Remove</button>
             </div>
           ))}
         </div>

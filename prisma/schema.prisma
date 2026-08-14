@@ -8888,6 +8888,7 @@ model SupplierMarketplaceOffering {
   minimumOrderQty      Decimal?                           @db.Decimal(18, 4)
   leadTimeDays         Int?
   availabilityStatus   String                             @default("AVAILABLE")
+  availableSizes       String[]                           @default([])
   countriesAvailable   Json?
   certifications       Json?
   attributes           Json?
@@ -10211,6 +10212,7 @@ model MarketplacePurchaseRequestLineBinding {
   sellerTenantId        String
   sellerSupplierId      String
   offeringName          String
+  selectedSize          String?
   sku                   String?
   imageRef              String?
   currencyCode          String   @default("USD")
