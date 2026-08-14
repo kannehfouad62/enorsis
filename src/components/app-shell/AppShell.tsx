@@ -17,6 +17,7 @@ import {
   Settings2,
   ShieldCheck,
   Sparkles,
+  Store,
   UsersRound,
   X,
 } from "lucide-react";
@@ -34,6 +35,13 @@ import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
   { href: "/app", label: "Command center", icon: Gauge, roles: [] },
+  {
+    href: "/app/marketplace/seller-profile",
+    label: "Seller profile",
+    icon: Store,
+    roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+    sellerOnly: true,
+  },
   { href: "/app/modules", label: "Enterprise modules", icon: LayoutGrid, roles: [] },
   { href: "/app/requests", label: "Purchase requests", icon: Boxes, roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
   { href: "/app/sourcing", label: "Strategic sourcing", icon: Network, roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"] },
@@ -377,18 +385,54 @@ function SidebarContent({
       </div>
 
       <div className="px-4 py-4">
-        <button className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300">
-            <Building2 className="h-4 w-4" />
-          </span>
-          <span className="min-w-0 flex-1">
-            <span className="block truncate text-sm font-bold">{user.tenantName}</span>
-            <span className="block text-xs text-slate-500">
-              {commercialPersonaLabel(user.commercialPersona)} tenant
+        {["SUPPLIER", "BUYER_SUPPLIER"].includes(
+          user.commercialPersona,
+        ) ? (
+          <Link
+            href="/app/marketplace/seller-profile"
+            aria-label={`Open seller profile for ${user.tenantName}`}
+            title="Open seller profile"
+            className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:border-cyan-300/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300 transition group-hover:bg-cyan-300/20">
+              <Building2 className="h-4 w-4" />
             </span>
-          </span>
-          <ChevronDown className="h-4 w-4 text-slate-500" />
-        </button>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-sm font-bold">
+                {user.tenantName}
+              </span>
+              <span className="block text-xs text-slate-400">
+                {commercialPersonaLabel(user.commercialPersona)} tenant
+              </span>
+              <span className="mt-1 block text-[10px] font-black uppercase tracking-wide text-cyan-300">
+                Open seller profile
+              </span>
+            </span>
+            <span className="text-lg font-black text-cyan-300 transition group-hover:translate-x-0.5">
+              →
+            </span>
+          </Link>
+        ) : (
+          <Link
+            href="/app/settings/organization"
+            aria-label={`Open organization settings for ${user.tenantName}`}
+            title="Open organization settings"
+            className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300">
+              <Building2 className="h-4 w-4" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-sm font-bold">
+                {user.tenantName}
+              </span>
+              <span className="block text-xs text-slate-500">
+                {commercialPersonaLabel(user.commercialPersona)} tenant
+              </span>
+            </span>
+            <ChevronDown className="h-4 w-4 text-slate-500" />
+          </Link>
+        )}
       </div>
 
       <nav className="flex-1 overflow-y-auto px-4 pb-4">
@@ -398,9 +442,16 @@ function SidebarContent({
             .filter(
               (item) =>
                 isPlatformOperator ||
-                isHrefAllowedForCommercialPersona(
-                  item.href,
-                  user.commercialPersona,
+                (
+                  (!("sellerOnly" in item) ||
+                    !item.sellerOnly ||
+                    ["SUPPLIER", "BUYER_SUPPLIER"].includes(
+                      user.commercialPersona,
+                    )) &&
+                  isHrefAllowedForCommercialPersona(
+                    item.href,
+                    user.commercialPersona,
+                  )
                 ),
             )
             .filter((item) =>

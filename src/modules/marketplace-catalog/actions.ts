@@ -157,9 +157,11 @@ export async function updateMarketplaceOfferingStatusAction(
 }
 
 
-export async function setMarketplaceOfferingPrimaryImageAction(data: FormData) {
+export async function setMarketplaceOfferingPrimaryImageAction(
+  mediaId: string,
+  _data: FormData,
+) {
   const user = await requireAnyRole([...roles]);
-  const mediaId = field(data, "mediaId");
   const media = await prisma.supplierMarketplaceOfferingMedia.findFirstOrThrow({ where: { id: mediaId, tenantId: user.tenantId } });
   await prisma.$transaction([
     prisma.supplierMarketplaceOfferingMedia.updateMany({ where: { offeringId: media.offeringId, tenantId: user.tenantId }, data: { isPrimary: false } }),
@@ -169,9 +171,11 @@ export async function setMarketplaceOfferingPrimaryImageAction(data: FormData) {
   revalidatePath("/app/marketplace/catalog");
 }
 
-export async function deleteMarketplaceOfferingImageAction(data: FormData) {
+export async function deleteMarketplaceOfferingImageAction(
+  mediaId: string,
+  _data: FormData,
+) {
   const user = await requireAnyRole([...roles]);
-  const mediaId = field(data, "mediaId");
   const media = await prisma.supplierMarketplaceOfferingMedia.findFirstOrThrow({ where: { id: mediaId, tenantId: user.tenantId } });
   await deleteMarketplaceImage(media.pathname);
   await prisma.supplierMarketplaceOfferingMedia.delete({ where: { id: media.id } });

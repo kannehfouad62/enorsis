@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   BadgeCheck,
+  Building2,
   Boxes,
   FileText,
   PackageCheck,
@@ -10,6 +11,13 @@ import {
 } from "lucide-react";
 
 const workspaces = [
+  {
+    title: "Seller Business Profile",
+    description:
+      "Manage your marketplace business identity, logo, trading name, website, contact information and categories.",
+    href: "/app/marketplace/seller-profile",
+    icon: Building2,
+  },
   {
     title: "Product & Service Catalog",
     description:

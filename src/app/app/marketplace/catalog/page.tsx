@@ -85,10 +85,14 @@ export default async function MarketplaceCatalogPage({
       ) : null}
 
       {data.canManageCatalog && data.selfSupplier ? (
-        <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+        <Link
+          href="/app/marketplace/seller-profile"
+          aria-label="Open Marketplace Seller Profile"
+          className="group mt-8 block rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
+        >
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="grid h-16 w-16 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+              <div className="grid h-16 w-16 place-items-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition group-hover:border-blue-200">
                 {data.selfSupplier.hasLogo ? (
                   <img
                     src={`/api/marketplace/supplier-logo/${data.selfSupplier.id}`}
@@ -96,31 +100,32 @@ export default async function MarketplaceCatalogPage({
                     className="h-full w-full object-contain p-2"
                   />
                 ) : (
-                  <Store className="h-7 w-7 text-slate-300" />
+                  <Store className="h-7 w-7 text-slate-300 transition group-hover:text-blue-500" />
                 )}
               </div>
+
               <div>
                 <p className="text-xs font-black uppercase tracking-wide text-blue-700">
                   Marketplace Seller Profile
                 </p>
-                <h2 className="mt-1 text-lg font-black">
+                <h2 className="mt-1 text-lg font-black transition group-hover:text-blue-700">
                   {data.selfSupplier.tradingName ??
                     data.selfSupplier.legalName}
                 </h2>
                 <p className="mt-1 text-xs text-slate-500">
                   Manage business information, contact details, categories and logo.
                 </p>
+                <p className="mt-2 text-xs font-black text-blue-700">
+                  Click anywhere on this profile card to edit
+                </p>
               </div>
             </div>
 
-            <Link
-              href="/app/marketplace/seller-profile"
-              className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
-            >
-              Edit seller profile →
-            </Link>
+            <span className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white transition group-hover:bg-blue-800">
+              Open seller profile →
+            </span>
           </div>
-        </section>
+        </Link>
       ) : null}
 
       <form className={`${card} mt-8 grid gap-3 md:grid-cols-4`}>
@@ -346,8 +351,30 @@ export default async function MarketplaceCatalogPage({
                       <div key={item.id} className="rounded-xl border border-slate-200 bg-white p-2">
                         <img src={`/api/marketplace/catalog/media/${item.id}`} alt={item.altText ?? result.offering.name} className="aspect-square w-full rounded-lg object-contain" />
                         <div className="mt-2 flex flex-col gap-1">
-                          {!item.isPrimary ? <button formAction={setMarketplaceOfferingPrimaryImageAction} name="mediaId" value={item.id} className="text-[10px] font-black text-blue-700">Make primary</button> : <span className="text-[10px] font-black text-emerald-700">Primary</span>}
-                          <button formAction={deleteMarketplaceOfferingImageAction} name="mediaId" value={item.id} className="text-[10px] font-black text-rose-700">Remove</button>
+                          {!item.isPrimary ? (
+                            <button
+                              formAction={setMarketplaceOfferingPrimaryImageAction.bind(
+                                null,
+                                item.id,
+                              )}
+                              className="text-[10px] font-black text-blue-700"
+                            >
+                              Make primary
+                            </button>
+                          ) : (
+                            <span className="text-[10px] font-black text-emerald-700">
+                              Primary
+                            </span>
+                          )}
+                          <button
+                            formAction={deleteMarketplaceOfferingImageAction.bind(
+                              null,
+                              item.id,
+                            )}
+                            className="text-[10px] font-black text-rose-700"
+                          >
+                            Remove
+                          </button>
                         </div>
                       </div>
                     ))}
