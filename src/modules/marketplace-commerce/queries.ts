@@ -12,6 +12,24 @@ export async function getMarketplaceCartCheckoutContext() {
       legalEntities: { orderBy: { name: "asc" } },
       sites: { orderBy: { name: "asc" } },
       departments: { orderBy: { name: "asc" } },
+      memberships: {
+        where: {
+          status: "ACTIVE",
+          roles: { has: "APPROVER" },
+          approvalLimitUsd: { not: null },
+          userId: { not: session.user.id },
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+            },
+          },
+        },
+        orderBy: { approvalLimitUsd: "asc" },
+      },
     },
   });
 
@@ -26,6 +44,15 @@ export async function getMarketplaceCartCheckoutContext() {
       legalEntities: tenant.legalEntities.map((item) => ({ id: item.id, name: item.name })),
       sites: tenant.sites.map((item) => ({ id: item.id, name: item.name })),
       departments: tenant.departments.map((item) => ({ id: item.id, name: item.name })),
+      approvers: tenant.memberships.map((membership) => ({
+        userId: membership.userId,
+        name: membership.user.name ?? membership.user.email,
+        email: membership.user.email,
+        approvalLimitUsd:
+          membership.approvalLimitUsd == null
+            ? null
+            : Number(membership.approvalLimitUsd),
+      })),
     },
   };
 }

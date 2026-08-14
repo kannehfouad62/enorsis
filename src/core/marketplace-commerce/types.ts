@@ -26,5 +26,6 @@ export type MarketplaceCheckoutInput = {
   legalEntityId?: string;
   siteId?: string;
   departmentId?: string;
+  preferredApproverId?: string;
   items: MarketplaceCartItem[];
 };

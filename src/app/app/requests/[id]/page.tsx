@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   cancelPurchaseRequestAction,
   decidePurchaseRequestAction,
+  escalatePurchaseRequestApprovalAction,
 } from "@/modules/purchase-requests/actions";
 import { getPurchaseRequestDetail } from "@/modules/purchase-requests/queries";
 
@@ -11,12 +12,29 @@ export default async function PurchaseRequestDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const { session, request } = await getPurchaseRequestDetail(id);
+  const {
+    session,
+    request,
+    currentApprovalLimitUsd,
+    escalationApprovers,
+  } = await getPurchaseRequestDetail(id);
   const pending = request.approvals.find((item) => item.decision === "PENDING");
   const canDecide =
     pending &&
     (pending.approverId === session.user.id ||
       session.user.roles.some((role) => ["TENANT_ADMIN", "TENANT_OWNER"].includes(role)));
+
+  const isAssignedApprover =
+    Boolean(
+      pending &&
+        pending.approverId === session.user.id,
+    );
+
+  const requiresEscalation =
+    isAssignedApprover &&
+    (currentApprovalLimitUsd == null ||
+      currentApprovalLimitUsd <
+        Number(request.usdEquivalent));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 xl:px-10 xl:py-12">
@@ -51,12 +69,64 @@ export default async function PurchaseRequestDetailPage({
           ))}
         </div>
 
+        {requiresEscalation ? (
+          <form
+            action={escalatePurchaseRequestApprovalAction}
+            className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4"
+          >
+            <input type="hidden" name="purchaseRequestId" value={request.id} />
+            <p className="text-sm font-black text-amber-900">
+              Approval authority exceeded
+            </p>
+            <p className="mt-1 text-sm leading-6 text-amber-800">
+              This request requires USD{" "}
+              {Number(request.usdEquivalent).toLocaleString()} of approval authority.
+              Your configured limit is{" "}
+              {currentApprovalLimitUsd == null
+                ? "not configured"
+                : `USD ${currentApprovalLimitUsd.toLocaleString()}`}.
+              Select an approver with sufficient authority and escalate it.
+            </p>
+
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              <select
+                name="escalationApproverId"
+                required
+                defaultValue=""
+                className="rounded-xl border border-amber-200 bg-white px-3 py-2.5 text-sm"
+              >
+                <option value="" disabled>Select escalation approver</option>
+                {escalationApprovers.map((approver) => (
+                  <option key={approver.userId} value={approver.userId}>
+                    {approver.name} · {approver.email} · Limit USD{" "}
+                    {approver.approvalLimitUsd.toLocaleString()}
+                  </option>
+                ))}
+              </select>
+
+              <input
+                name="escalationComments"
+                placeholder="Escalation comments (optional)"
+                className="rounded-xl border border-amber-200 bg-white px-3 py-2.5 text-sm"
+              />
+            </div>
+
+            <button className="mt-3 rounded-xl bg-amber-700 px-4 py-2.5 text-sm font-black text-white">
+              Escalate approval
+            </button>
+          </form>
+        ) : null}
+
         {canDecide ? (
           <form action={decidePurchaseRequestAction} className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-4">
             <input type="hidden" name="purchaseRequestId" value={request.id} />
             <textarea className="w-full rounded-xl border border-blue-200 bg-white p-3" name="comments" placeholder="Decision comments" />
             <div className="mt-3 flex gap-3">
-              <button className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="APPROVED">Approve</button>
+              {!requiresEscalation ? (
+                <button className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="APPROVED">
+                  Approve
+                </button>
+              ) : null}
               <button className="rounded-xl bg-amber-600 px-4 py-2.5 text-sm font-black text-white" name="decision" value="RETURNED">Return</button>
               <button className="rounded-xl bg-red-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="REJECTED">Reject</button>
             </div>

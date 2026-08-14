@@ -28,6 +28,7 @@ export default async function MarketplaceCartPage() {
           legalEntities={tenant.legalEntities}
           sites={tenant.sites}
           departments={tenant.departments}
+          approvers={tenant.approvers}
         />
       </div>
     </div>

@@ -71,5 +71,53 @@ export async function getPurchaseRequestDetail(id: string) {
     );
 
   if (!canView) redirect("/app/unauthorized");
-  return { session, request };
+
+  const currentMembership = await prisma.membership.findUnique({
+    where: {
+      tenantId_userId: {
+        tenantId: session.user.tenantId,
+        userId: session.user.id,
+      },
+    },
+    select: {
+      approvalLimitUsd: true,
+    },
+  });
+
+  const escalationApprovers = await prisma.membership.findMany({
+    where: {
+      tenantId: session.user.tenantId,
+      status: "ACTIVE",
+      roles: { has: "APPROVER" },
+      userId: { not: session.user.id },
+      approvalLimitUsd: {
+        gte: request.usdEquivalent,
+      },
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
+    },
+    orderBy: { approvalLimitUsd: "asc" },
+  });
+
+  return {
+    session,
+    request,
+    currentApprovalLimitUsd:
+      currentMembership?.approvalLimitUsd == null
+        ? null
+        : Number(currentMembership.approvalLimitUsd),
+    escalationApprovers: escalationApprovers.map((membership) => ({
+      userId: membership.userId,
+      name: membership.user.name ?? membership.user.email,
+      email: membership.user.email,
+      approvalLimitUsd: Number(membership.approvalLimitUsd),
+    })),
+  };
 }

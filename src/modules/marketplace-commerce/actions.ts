@@ -40,6 +40,7 @@ async function buildApprovalChain(
   tenantId: string,
   requesterId: string,
   amountUsd: number,
+  preferredApproverId?: string,
 ) {
   const approvers = await prisma.membership.findMany({
     where: {
@@ -50,24 +51,37 @@ async function buildApprovalChain(
       approvalLimitUsd: { not: null },
     },
     include: {
-      user: { select: { id: true, email: true } },
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
     },
     orderBy: { approvalLimitUsd: "asc" },
   });
 
+  if (preferredApproverId) {
+    const selected = approvers.find(
+      (membership) => membership.userId === preferredApproverId,
+    );
+
+    if (!selected) {
+      throw new Error(
+        "The selected approver is not an active Purchase Request approver for this tenant.",
+      );
+    }
+
+    return [selected];
+  }
+
   const eligible = approvers.filter(
-    (membership) => Number(membership.approvalLimitUsd) >= amountUsd,
+    (membership) =>
+      Number(membership.approvalLimitUsd) >= amountUsd,
   );
-  if (!eligible.length) return [];
 
-  const first = approvers.find(
-    (membership) => Number(membership.approvalLimitUsd) < amountUsd,
-  );
-  const chain = first ? [first, eligible[0]] : [eligible[0]];
-
-  return Array.from(
-    new Map(chain.map((item) => [item.userId, item])).values(),
-  ).slice(0, 3);
+  return eligible.length ? [eligible[0]] : [];
 }
 
 export async function submitMarketplaceCartAction(
@@ -200,6 +214,7 @@ export async function submitMarketplaceCartAction(
     user.tenantId,
     user.id,
     usdEquivalent,
+    input.preferredApproverId,
   );
 
   const status = approvalChain.length
@@ -297,6 +312,17 @@ export async function submitMarketplaceCartAction(
           requestNumber,
           totalAmount,
           marketplaceLineCount: trustedLines.length,
+          selectedApproverId: approvalChain[0]?.userId ?? null,
+          selectedApproverEmail: approvalChain[0]?.user.email ?? null,
+          selectedApproverLimitUsd:
+            approvalChain[0]?.approvalLimitUsd == null
+              ? null
+              : Number(approvalChain[0].approvalLimitUsd),
+          requiredAmountUsd: usdEquivalent,
+          requiresApprovalEscalation:
+            approvalChain[0]?.approvalLimitUsd == null
+              ? true
+              : Number(approvalChain[0].approvalLimitUsd) < usdEquivalent,
         },
       },
     });

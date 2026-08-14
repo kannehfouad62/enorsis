@@ -8,6 +8,7 @@ import {
 } from "@/generated/prisma/enums";
 import { prisma } from "@/lib/prisma";
 import { getAuditRequestContext } from "@/core/audit/request-context";
+import { createEnterpriseNotification } from "@/core/notifications";
 import {
   assertApprovalAuthority,
   hasResourceScope,
@@ -248,7 +249,12 @@ export async function decidePurchaseRequestAction(formData: FormData) {
     throw new Error("This approval step is not assigned to the current user.");
   }
 
-  assertApprovalAuthority(user.approvalLimitUsd, Number(request.usdEquivalent));
+  if (input.decision === "APPROVED") {
+    assertApprovalAuthority(
+      user.approvalLimitUsd,
+      Number(request.usdEquivalent),
+    );
+  }
 
   const laterApproval = request.approvals.find(
     (item) => item.sequence > pending.sequence && item.decision === ApprovalDecision.PENDING,
@@ -316,6 +322,169 @@ export async function decidePurchaseRequestAction(formData: FormData) {
     decision: input.decision,
     comments: input.comments,
     actorUserId: user.id,
+  });
+
+  revalidatePath("/app/requests");
+  revalidatePath(`/app/requests/${request.id}`);
+}
+
+export async function escalatePurchaseRequestApprovalAction(
+  formData: FormData,
+) {
+  const user = await requireAnyRole(["APPROVER"]);
+  const auditContext = await getAuditRequestContext();
+
+  const purchaseRequestId = value(formData, "purchaseRequestId");
+  const escalationApproverId = value(formData, "escalationApproverId");
+  const comments = value(formData, "escalationComments");
+
+  if (!purchaseRequestId || !escalationApproverId) {
+    throw new Error("Purchase Request and escalation approver are required.");
+  }
+
+  const request = await prisma.purchaseRequest.findFirstOrThrow({
+    where: {
+      id: purchaseRequestId,
+      tenantId: user.tenantId,
+    },
+    include: {
+      approvals: {
+        orderBy: { sequence: "asc" },
+      },
+    },
+  });
+
+  const pending = request.approvals.find(
+    (item) => item.decision === ApprovalDecision.PENDING,
+  );
+
+  if (!pending || pending.approverId !== user.id) {
+    throw new Error(
+      "Only the currently assigned approver may escalate this approval.",
+    );
+  }
+
+  const currentMembership = await prisma.membership.findUnique({
+    where: {
+      tenantId_userId: {
+        tenantId: user.tenantId,
+        userId: user.id,
+      },
+    },
+    select: { approvalLimitUsd: true },
+  });
+
+  const requiredAmount = Number(request.usdEquivalent);
+  const currentLimit =
+    currentMembership?.approvalLimitUsd == null
+      ? null
+      : Number(currentMembership.approvalLimitUsd);
+
+  if (currentLimit != null && currentLimit >= requiredAmount) {
+    throw new Error(
+      "Your approval authority covers this request. Approve, return, or reject it directly.",
+    );
+  }
+
+  const target = await prisma.membership.findFirst({
+    where: {
+      tenantId: user.tenantId,
+      userId: escalationApproverId,
+      status: "ACTIVE",
+      roles: { has: "APPROVER" },
+      approvalLimitUsd: {
+        gte: request.usdEquivalent,
+      },
+    },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
+    },
+  });
+
+  if (!target) {
+    throw new Error(
+      "The selected escalation approver does not have sufficient approval authority.",
+    );
+  }
+
+  const nextSequence =
+    Math.max(0, ...request.approvals.map((item) => item.sequence)) + 1;
+
+  await prisma.$transaction(async (tx) => {
+    await tx.purchaseRequestApproval.update({
+      where: { id: pending.id },
+      data: {
+        decision: ApprovalDecision.RETURNED,
+        comments:
+          comments ||
+          `Escalated to ${target.user.email} because the assigned approval limit was insufficient.`,
+        decidedAt: new Date(),
+      },
+    });
+
+    await tx.purchaseRequestApproval.create({
+      data: {
+        purchaseRequestId: request.id,
+        approverId: target.userId,
+        sequence: nextSequence,
+      },
+    });
+
+    await tx.purchaseRequest.update({
+      where: { id: request.id },
+      data: {
+        status: PurchaseRequestStatus.UNDER_REVIEW,
+      },
+    });
+
+    await tx.auditEvent.create({
+      data: {
+        tenantId: user.tenantId,
+        userId: user.id,
+        actorType: "USER",
+        actorId: user.id,
+        actorLabel: user.email,
+        ...auditContext,
+        action: "purchase_request.approval_escalated",
+        resourceType: "PurchaseRequest",
+        resourceId: request.id,
+        before: {
+          status: request.status,
+          approverId: user.id,
+          approverEmail: user.email,
+          approvalLimitUsd: currentLimit,
+          requiredAmountUsd: requiredAmount,
+          approvalSequence: pending.sequence,
+        },
+        after: {
+          status: "UNDER_REVIEW",
+          escalatedToUserId: target.userId,
+          escalatedToEmail: target.user.email,
+          escalatedToLimitUsd: Number(target.approvalLimitUsd),
+          newApprovalSequence: nextSequence,
+          comments: comments || null,
+        },
+      },
+    });
+  });
+
+  await createEnterpriseNotification({
+    tenantId: user.tenantId,
+    eventType: "PurchaseRequest.ApprovalEscalated",
+    recipientUserId: target.user.id,
+    recipientAddress: target.user.email ?? undefined,
+    title: "Escalated purchase request approval",
+    message:
+      `${request.requestNumber} was escalated to you because the prior approver's authority was below the required USD ${requiredAmount.toLocaleString()}.`,
+    actionUrl: `/app/requests/${request.id}`,
+    channels: target.user.email ? ["IN_APP", "EMAIL"] : ["IN_APP"],
+    priority: "HIGH",
   });
 
   revalidatePath("/app/requests");

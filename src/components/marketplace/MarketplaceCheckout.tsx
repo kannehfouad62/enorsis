@@ -8,14 +8,23 @@ import type { MarketplaceCartItem } from "@/core/marketplace-commerce/types";
 
 type Option = { id: string; name: string };
 
+type ApproverOption = {
+  userId: string;
+  name: string;
+  email: string;
+  approvalLimitUsd: number | null;
+};
+
 export function MarketplaceCheckout({
   legalEntities,
   sites,
   departments,
+  approvers,
 }: {
   legalEntities: Option[];
   sites: Option[];
   departments: Option[];
+  approvers: ApproverOption[];
 }) {
   const router = useRouter();
   const [items, setItems] = useState<MarketplaceCartItem[]>([]);
@@ -76,6 +85,8 @@ export function MarketplaceCheckout({
         legalEntityId: String(data.get("legalEntityId") ?? "") || undefined,
         siteId: String(data.get("siteId") ?? "") || undefined,
         departmentId: String(data.get("departmentId") ?? "") || undefined,
+        preferredApproverId:
+          String(data.get("preferredApproverId") ?? "") || undefined,
         items,
       });
       localStorage.removeItem(MARKETPLACE_CART_KEY);
@@ -151,6 +162,32 @@ export function MarketplaceCheckout({
           </select>
           <input name="exchangeRateToUsd" type="number" step="0.000001" min="0.000001" defaultValue="1" required className="rounded-xl border border-slate-200 px-3 py-2.5 text-sm" />
           <input name="exchangeRateSource" defaultValue={currency === "USD" ? "USD base currency" : "Marketplace checkout"} required className="rounded-xl border border-slate-200 px-3 py-2.5 text-sm" />
+          <label className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 md:col-span-2">
+            <span className="block text-xs font-black uppercase tracking-wide text-slate-500">
+              Send approval request to
+            </span>
+            <span className="mt-1 block text-[11px] leading-5 text-slate-500">
+              Select an active Purchase Request approver. Their approval limit remains enforced.
+              If the request exceeds their authority, they must escalate it to an approver with sufficient authority.
+            </span>
+            <select
+              name="preferredApproverId"
+              required
+              defaultValue=""
+              className="mt-2 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              <option value="" disabled>Select approver</option>
+              {approvers.map((approver) => (
+                <option key={approver.userId} value={approver.userId}>
+                  {approver.name} · {approver.email} · Limit USD{" "}
+                  {approver.approvalLimitUsd == null
+                    ? "Not configured"
+                    : approver.approvalLimitUsd.toLocaleString()}
+                </option>
+              ))}
+            </select>
+          </label>
+
           <textarea name="businessJustification" required minLength={10} placeholder="Business justification" className="min-h-32 rounded-xl border border-slate-200 px-3 py-2.5 text-sm md:col-span-2" />
         </div>
       </section>
