@@ -417,6 +417,16 @@ export function AppShell({
               title="Notifications"
             >
               <Bell className="h-5 w-5" />
+              {(actionCounts["/app/notifications"] ?? 0) > 0 ? (
+                <span
+                  className="absolute -right-2 -top-2 inline-flex min-w-5 items-center justify-center rounded-full bg-rose-500 px-1.5 py-0.5 text-[10px] font-black leading-none text-white shadow-sm"
+                  aria-label={`${actionCounts["/app/notifications"] ?? 0} unread notifications`}
+                >
+                  {(actionCounts["/app/notifications"] ?? 0) > 99
+                    ? "99+"
+                    : actionCounts["/app/notifications"]}
+                </span>
+              ) : null}
             </Link>
             <Link
               href="/app/settings/organization"

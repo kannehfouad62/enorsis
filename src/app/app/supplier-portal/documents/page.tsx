@@ -6,6 +6,7 @@ import {
   UploadCloud,
 } from "lucide-react";
 
+import { SupplierDocumentStatusRefresh } from "@/components/supplier-portal/SupplierDocumentStatusRefresh";
 import { uploadSupplierQualificationDocumentAction } from "@/modules/supplier-portal/document-actions";
 import { getSupplierPortalWorkspace } from "@/modules/supplier-portal/queries";
 
@@ -25,6 +26,7 @@ export default async function SupplierQualificationDocumentsPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
+      <SupplierDocumentStatusRefresh />
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
