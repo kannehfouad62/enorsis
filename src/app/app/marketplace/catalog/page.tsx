@@ -305,6 +305,43 @@ export default async function MarketplaceCatalogPage({
             <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                  Marketplace suppliers
+                </p>
+                <h2 className="mt-1 text-2xl font-black">
+                  Browse trusted suppliers
+                </h2>
+                <p className="mt-2 max-w-3xl text-sm text-slate-600">
+                  Start with suppliers currently publishing products and
+                  services in the Enorsis marketplace.
+                </p>
+              </div>
+
+              {data.vendorDirectory.length > 5 ? (
+                <Link
+                  href="/app/marketplace/suppliers"
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-blue-700 transition hover:border-blue-300 hover:bg-blue-50"
+                >
+                  View more suppliers
+                </Link>
+              ) : null}
+            </div>
+
+            <MarketplaceVendorDirectory
+              vendors={data.vendorDirectory.slice(0, 5)}
+            />
+
+            {data.vendorDirectory.length === 0 ? (
+              <div className="rounded-3xl border border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
+                No marketplace suppliers are currently publishing
+                offerings.
+              </div>
+            ) : null}
+          </section>
+
+          <section className="mt-10">
+            <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-wide text-blue-700">
                   Published marketplace offerings
                 </p>
                 <h2 className="mt-1 text-2xl font-black">
@@ -332,24 +369,6 @@ export default async function MarketplaceCatalogPage({
                 search and filter criteria.
               </div>
             )}
-          </section>
-
-          <section className="mt-10">
-            <div className="mb-5">
-              <p className="text-xs font-black uppercase tracking-wide text-blue-700">
-                Marketplace vendors
-              </p>
-              <h2 className="mt-1 text-2xl font-black">
-                Browse by supplier
-              </h2>
-              <p className="mt-2 text-sm text-slate-600">
-                Prefer vendor-led discovery? Select a supplier to view
-                only that supplier&apos;s published products and services.
-              </p>
-            </div>
-            <MarketplaceVendorDirectory
-              vendors={data.vendorDirectory}
-            />
           </section>
         </>
       )}
