@@ -70,9 +70,14 @@ interface AppShellProps {
     mustChangePassword: boolean;
     commercialPersona: TenantCommercialPersonaValue;
   };
+  actionCounts?: Record<string, number>;
 }
 
-export function AppShell({ children, user }: AppShellProps) {
+export function AppShell({
+  children,
+  user,
+  actionCounts: initialActionCounts = {},
+}: AppShellProps) {
   const pathname = usePathname();
   const router = useRouter();
   const searchRef = useRef<HTMLDivElement>(null);
@@ -81,6 +86,7 @@ export function AppShell({ children, user }: AppShellProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searching, setSearching] = useState(false);
   const [recordResults, setRecordResults] = useState<SearchResult[]>([]);
+  const [actionCounts, setActionCounts] = useState(initialActionCounts);
 
   const isPlatformOperator = user.roles.some((role) =>
     role.startsWith("PLATFORM_"),
@@ -185,13 +191,58 @@ export function AppShell({ children, user }: AppShellProps) {
     };
   }, []);
 
+  useEffect(() => {
+    let active = true;
+
+    const refreshActionCounts = async () => {
+      try {
+        const response = await fetch("/api/sidebar-action-counts", {
+          cache: "no-store",
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = (await response.json()) as {
+          counts?: Record<string, number>;
+        };
+
+        if (active) {
+          setActionCounts(payload.counts ?? {});
+        }
+      } catch {
+        // Sidebar badges are supplemental. Preserve the most recent counts
+        // if the lightweight refresh endpoint is temporarily unavailable.
+      }
+    };
+
+    const interval = window.setInterval(refreshActionCounts, 30_000);
+    const handleFocus = () => {
+      void refreshActionCounts();
+    };
+
+    window.addEventListener("focus", handleFocus);
+
+    return () => {
+      active = false;
+      window.clearInterval(interval);
+      window.removeEventListener("focus", handleFocus);
+    };
+  }, []);
+
   const hasSearchResults =
     workspaceResults.length > 0 || recordResults.length > 0;
 
   return (
     <div className="min-h-screen bg-[#f4f7fb] text-slate-950">
       <aside className="fixed inset-y-0 left-0 z-50 hidden w-72 flex-col border-r border-white/10 bg-slate-950 text-white lg:flex">
-        <SidebarContent pathname={pathname} user={user} />
+        <SidebarContent
+          pathname={pathname}
+          user={user}
+          actionCounts={actionCounts}
+        />
       </aside>
 
       {mobileOpen ? (
@@ -209,7 +260,11 @@ export function AppShell({ children, user }: AppShellProps) {
             >
               <X className="h-5 w-5" />
             </button>
-            <SidebarContent pathname={pathname} user={user} />
+            <SidebarContent
+              pathname={pathname}
+              user={user}
+              actionCounts={actionCounts}
+            />
           </aside>
         </div>
       ) : null}
@@ -364,9 +419,11 @@ export function AppShell({ children, user }: AppShellProps) {
 function SidebarContent({
   pathname,
   user,
+  actionCounts,
 }: {
   pathname: string;
   user: AppShellProps["user"];
+  actionCounts: Record<string, number>;
 }) {
   const isPlatformOperator = user.roles.some((role) =>
     role.startsWith("PLATFORM_"),
@@ -468,6 +525,7 @@ function SidebarContent({
             )
             .map(({ href, label, icon: Icon }) => {
             const active = href === "/app" ? pathname === href : pathname.startsWith(href);
+            const actionCount = actionCounts[href] ?? 0;
             return (
               <Link
                 key={href}
@@ -475,7 +533,8 @@ function SidebarContent({
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${active ? "bg-blue-600 text-white shadow-lg shadow-blue-950/40" : "text-slate-400 hover:bg-white/10 hover:text-white"}`}
               >
                 <Icon className="h-4 w-4" />
-                {label}
+                <span className="min-w-0 flex-1 truncate">{label}</span>
+                <ActionBadge count={actionCount} active={active} />
               </Link>
             );
           })}
@@ -484,8 +543,26 @@ function SidebarContent({
         {user.roles.some((role) => ["PLATFORM_SUPER_ADMIN", "TENANT_OWNER", "TENANT_ADMIN"].includes(role)) ? (
           <>
             {user.roles.includes("PLATFORM_SUPER_ADMIN") ? (
-              <Link href="/app/platform/supplier-verification" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
-                <FileCheck2 className="h-4 w-4" /> Supplier verification
+              <Link
+                href="/app/platform/supplier-verification"
+                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+                  pathname.startsWith("/app/platform/supplier-verification")
+                    ? "bg-blue-600 text-white shadow-lg shadow-blue-950/40"
+                    : "text-slate-400 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <FileCheck2 className="h-4 w-4" />
+                <span className="min-w-0 flex-1 truncate">
+                  Supplier verification
+                </span>
+                <ActionBadge
+                  count={
+                    actionCounts["/app/platform/supplier-verification"] ?? 0
+                  }
+                  active={pathname.startsWith(
+                    "/app/platform/supplier-verification",
+                  )}
+                />
               </Link>
             ) : null}
             <Link href="/app/settings/organization" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
@@ -507,3 +584,32 @@ function SidebarContent({
     </>
   );
 }
+
+function ActionBadge({
+  count,
+  active = false,
+}: {
+  count: number;
+  active?: boolean;
+}) {
+  if (count <= 0) {
+    return null;
+  }
+
+  const label = `${count} item${count === 1 ? "" : "s"} requiring action`;
+
+  return (
+    <span
+      aria-label={label}
+      title={label}
+      className={`ml-auto inline-flex min-w-5 shrink-0 items-center justify-center rounded-full px-1.5 py-0.5 text-[10px] font-black leading-none ${
+        active
+          ? "bg-white text-blue-700"
+          : "bg-rose-500 text-white shadow-sm shadow-rose-950/30"
+      }`}
+    >
+      {count > 99 ? "99+" : count}
+    </span>
+  );
+}
+

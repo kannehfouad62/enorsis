@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { AppShell } from "@/components/app-shell/AppShell";
 import { prisma } from "@/lib/prisma";
+import { getSidebarActionCountsForUser } from "@/modules/navigation/sidebar-action-counts";
 
 export default async function ProductLayout({
   children,
@@ -26,6 +27,12 @@ export default async function ProductLayout({
       })
     : null;
 
+  const sidebarActionCounts = await getSidebarActionCountsForUser({
+    id: session.user.id,
+    tenantId: session.user.tenantId,
+    roles: session.user.roles,
+  });
+
   return (
     <AppShell
       user={{
@@ -37,6 +44,7 @@ export default async function ProductLayout({
         commercialPersona:
           tenant?.commercialPersona ?? "BUYER",
       }}
+      actionCounts={sidebarActionCounts}
     >
       {children}
     </AppShell>
