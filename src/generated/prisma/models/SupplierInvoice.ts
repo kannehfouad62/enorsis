@@ -61,6 +61,14 @@ export type SupplierInvoiceMinAggregateOutputType = {
   exchangeRateSource: string | null
   exchangeRateDate: Date | null
   paymentReference: string | null
+  sourceMarketplaceOrderId: string | null
+  sourcePurchaseOrderExecutionId: string | null
+  generatedBySellerTenantId: string | null
+  pdfBlobPathname: string | null
+  pdfFileName: string | null
+  pdfGeneratedAt: Date | null
+  buyerAcknowledgedAt: Date | null
+  buyerAcknowledgedByUserId: string | null
   submittedAt: Date | null
   approvedAt: Date | null
   paymentReadyAt: Date | null
@@ -88,6 +96,14 @@ export type SupplierInvoiceMaxAggregateOutputType = {
   exchangeRateSource: string | null
   exchangeRateDate: Date | null
   paymentReference: string | null
+  sourceMarketplaceOrderId: string | null
+  sourcePurchaseOrderExecutionId: string | null
+  generatedBySellerTenantId: string | null
+  pdfBlobPathname: string | null
+  pdfFileName: string | null
+  pdfGeneratedAt: Date | null
+  buyerAcknowledgedAt: Date | null
+  buyerAcknowledgedByUserId: string | null
   submittedAt: Date | null
   approvedAt: Date | null
   paymentReadyAt: Date | null
@@ -115,6 +131,14 @@ export type SupplierInvoiceCountAggregateOutputType = {
   exchangeRateSource: number
   exchangeRateDate: number
   paymentReference: number
+  sourceMarketplaceOrderId: number
+  sourcePurchaseOrderExecutionId: number
+  generatedBySellerTenantId: number
+  pdfBlobPathname: number
+  pdfFileName: number
+  pdfGeneratedAt: number
+  buyerAcknowledgedAt: number
+  buyerAcknowledgedByUserId: number
   submittedAt: number
   approvedAt: number
   paymentReadyAt: number
@@ -160,6 +184,14 @@ export type SupplierInvoiceMinAggregateInputType = {
   exchangeRateSource?: true
   exchangeRateDate?: true
   paymentReference?: true
+  sourceMarketplaceOrderId?: true
+  sourcePurchaseOrderExecutionId?: true
+  generatedBySellerTenantId?: true
+  pdfBlobPathname?: true
+  pdfFileName?: true
+  pdfGeneratedAt?: true
+  buyerAcknowledgedAt?: true
+  buyerAcknowledgedByUserId?: true
   submittedAt?: true
   approvedAt?: true
   paymentReadyAt?: true
@@ -187,6 +219,14 @@ export type SupplierInvoiceMaxAggregateInputType = {
   exchangeRateSource?: true
   exchangeRateDate?: true
   paymentReference?: true
+  sourceMarketplaceOrderId?: true
+  sourcePurchaseOrderExecutionId?: true
+  generatedBySellerTenantId?: true
+  pdfBlobPathname?: true
+  pdfFileName?: true
+  pdfGeneratedAt?: true
+  buyerAcknowledgedAt?: true
+  buyerAcknowledgedByUserId?: true
   submittedAt?: true
   approvedAt?: true
   paymentReadyAt?: true
@@ -214,6 +254,14 @@ export type SupplierInvoiceCountAggregateInputType = {
   exchangeRateSource?: true
   exchangeRateDate?: true
   paymentReference?: true
+  sourceMarketplaceOrderId?: true
+  sourcePurchaseOrderExecutionId?: true
+  generatedBySellerTenantId?: true
+  pdfBlobPathname?: true
+  pdfFileName?: true
+  pdfGeneratedAt?: true
+  buyerAcknowledgedAt?: true
+  buyerAcknowledgedByUserId?: true
   submittedAt?: true
   approvedAt?: true
   paymentReadyAt?: true
@@ -328,6 +376,14 @@ export type SupplierInvoiceGroupByOutputType = {
   exchangeRateSource: string
   exchangeRateDate: Date
   paymentReference: string | null
+  sourceMarketplaceOrderId: string | null
+  sourcePurchaseOrderExecutionId: string | null
+  generatedBySellerTenantId: string | null
+  pdfBlobPathname: string | null
+  pdfFileName: string | null
+  pdfGeneratedAt: Date | null
+  buyerAcknowledgedAt: Date | null
+  buyerAcknowledgedByUserId: string | null
   submittedAt: Date | null
   approvedAt: Date | null
   paymentReadyAt: Date | null
@@ -378,6 +434,14 @@ export type SupplierInvoiceWhereInput = {
   exchangeRateSource?: Prisma.StringFilter<"SupplierInvoice"> | string
   exchangeRateDate?: Prisma.DateTimeFilter<"SupplierInvoice"> | Date | string
   paymentReference?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  sourceMarketplaceOrderId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  generatedBySellerTenantId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfBlobPathname?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfFileName?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfGeneratedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   paymentReadyAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
@@ -411,6 +475,14 @@ export type SupplierInvoiceOrderByWithRelationInput = {
   exchangeRateSource?: Prisma.SortOrder
   exchangeRateDate?: Prisma.SortOrder
   paymentReference?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourceMarketplaceOrderId?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourcePurchaseOrderExecutionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  generatedBySellerTenantId?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfBlobPathname?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfFileName?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfGeneratedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  buyerAcknowledgedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  buyerAcknowledgedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentReadyAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -427,6 +499,7 @@ export type SupplierInvoiceOrderByWithRelationInput = {
 
 export type SupplierInvoiceWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  sourceMarketplaceOrderId?: string
   tenantId_supplierId_invoiceNumber?: Prisma.SupplierInvoiceTenantIdSupplierIdInvoiceNumberCompoundUniqueInput
   AND?: Prisma.SupplierInvoiceWhereInput | Prisma.SupplierInvoiceWhereInput[]
   OR?: Prisma.SupplierInvoiceWhereInput[]
@@ -448,6 +521,13 @@ export type SupplierInvoiceWhereUniqueInput = Prisma.AtLeast<{
   exchangeRateSource?: Prisma.StringFilter<"SupplierInvoice"> | string
   exchangeRateDate?: Prisma.DateTimeFilter<"SupplierInvoice"> | Date | string
   paymentReference?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  generatedBySellerTenantId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfBlobPathname?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfFileName?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfGeneratedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   paymentReadyAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
@@ -460,7 +540,7 @@ export type SupplierInvoiceWhereUniqueInput = Prisma.AtLeast<{
   lines?: Prisma.SupplierInvoiceLineListRelationFilter
   exceptions?: Prisma.InvoiceMatchExceptionListRelationFilter
   paymentBatchItems?: Prisma.PaymentBatchItemListRelationFilter
-}, "id" | "tenantId_supplierId_invoiceNumber">
+}, "id" | "sourceMarketplaceOrderId" | "tenantId_supplierId_invoiceNumber">
 
 export type SupplierInvoiceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -481,6 +561,14 @@ export type SupplierInvoiceOrderByWithAggregationInput = {
   exchangeRateSource?: Prisma.SortOrder
   exchangeRateDate?: Prisma.SortOrder
   paymentReference?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourceMarketplaceOrderId?: Prisma.SortOrderInput | Prisma.SortOrder
+  sourcePurchaseOrderExecutionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  generatedBySellerTenantId?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfBlobPathname?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfFileName?: Prisma.SortOrderInput | Prisma.SortOrder
+  pdfGeneratedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  buyerAcknowledgedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  buyerAcknowledgedByUserId?: Prisma.SortOrderInput | Prisma.SortOrder
   submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentReadyAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -516,6 +604,14 @@ export type SupplierInvoiceScalarWhereWithAggregatesInput = {
   exchangeRateSource?: Prisma.StringWithAggregatesFilter<"SupplierInvoice"> | string
   exchangeRateDate?: Prisma.DateTimeWithAggregatesFilter<"SupplierInvoice"> | Date | string
   paymentReference?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  sourceMarketplaceOrderId?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  generatedBySellerTenantId?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  pdfBlobPathname?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  pdfFileName?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
+  pdfGeneratedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.StringNullableWithAggregatesFilter<"SupplierInvoice"> | string | null
   submittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierInvoice"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierInvoice"> | Date | string | null
   paymentReadyAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SupplierInvoice"> | Date | string | null
@@ -540,6 +636,14 @@ export type SupplierInvoiceCreateInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -573,6 +677,14 @@ export type SupplierInvoiceUncheckedCreateInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -600,6 +712,14 @@ export type SupplierInvoiceUpdateInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -633,6 +753,14 @@ export type SupplierInvoiceUncheckedUpdateInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -663,6 +791,14 @@ export type SupplierInvoiceCreateManyInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -687,6 +823,14 @@ export type SupplierInvoiceUpdateManyMutationInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -714,6 +858,14 @@ export type SupplierInvoiceUncheckedUpdateManyInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -757,6 +909,14 @@ export type SupplierInvoiceCountOrderByAggregateInput = {
   exchangeRateSource?: Prisma.SortOrder
   exchangeRateDate?: Prisma.SortOrder
   paymentReference?: Prisma.SortOrder
+  sourceMarketplaceOrderId?: Prisma.SortOrder
+  sourcePurchaseOrderExecutionId?: Prisma.SortOrder
+  generatedBySellerTenantId?: Prisma.SortOrder
+  pdfBlobPathname?: Prisma.SortOrder
+  pdfFileName?: Prisma.SortOrder
+  pdfGeneratedAt?: Prisma.SortOrder
+  buyerAcknowledgedAt?: Prisma.SortOrder
+  buyerAcknowledgedByUserId?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   paymentReadyAt?: Prisma.SortOrder
@@ -792,6 +952,14 @@ export type SupplierInvoiceMaxOrderByAggregateInput = {
   exchangeRateSource?: Prisma.SortOrder
   exchangeRateDate?: Prisma.SortOrder
   paymentReference?: Prisma.SortOrder
+  sourceMarketplaceOrderId?: Prisma.SortOrder
+  sourcePurchaseOrderExecutionId?: Prisma.SortOrder
+  generatedBySellerTenantId?: Prisma.SortOrder
+  pdfBlobPathname?: Prisma.SortOrder
+  pdfFileName?: Prisma.SortOrder
+  pdfGeneratedAt?: Prisma.SortOrder
+  buyerAcknowledgedAt?: Prisma.SortOrder
+  buyerAcknowledgedByUserId?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   paymentReadyAt?: Prisma.SortOrder
@@ -819,6 +987,14 @@ export type SupplierInvoiceMinOrderByAggregateInput = {
   exchangeRateSource?: Prisma.SortOrder
   exchangeRateDate?: Prisma.SortOrder
   paymentReference?: Prisma.SortOrder
+  sourceMarketplaceOrderId?: Prisma.SortOrder
+  sourcePurchaseOrderExecutionId?: Prisma.SortOrder
+  generatedBySellerTenantId?: Prisma.SortOrder
+  pdfBlobPathname?: Prisma.SortOrder
+  pdfFileName?: Prisma.SortOrder
+  pdfGeneratedAt?: Prisma.SortOrder
+  buyerAcknowledgedAt?: Prisma.SortOrder
+  buyerAcknowledgedByUserId?: Prisma.SortOrder
   submittedAt?: Prisma.SortOrder
   approvedAt?: Prisma.SortOrder
   paymentReadyAt?: Prisma.SortOrder
@@ -1032,6 +1208,14 @@ export type SupplierInvoiceCreateWithoutTenantInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1063,6 +1247,14 @@ export type SupplierInvoiceUncheckedCreateWithoutTenantInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1122,6 +1314,14 @@ export type SupplierInvoiceScalarWhereInput = {
   exchangeRateSource?: Prisma.StringFilter<"SupplierInvoice"> | string
   exchangeRateDate?: Prisma.DateTimeFilter<"SupplierInvoice"> | Date | string
   paymentReference?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  sourceMarketplaceOrderId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  generatedBySellerTenantId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfBlobPathname?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfFileName?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
+  pdfGeneratedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.StringNullableFilter<"SupplierInvoice"> | string | null
   submittedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   approvedAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
   paymentReadyAt?: Prisma.DateTimeNullableFilter<"SupplierInvoice"> | Date | string | null
@@ -1146,6 +1346,14 @@ export type SupplierInvoiceCreateWithoutSupplierInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1177,6 +1385,14 @@ export type SupplierInvoiceUncheckedCreateWithoutSupplierInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1230,6 +1446,14 @@ export type SupplierInvoiceCreateWithoutPurchaseOrderInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1261,6 +1485,14 @@ export type SupplierInvoiceUncheckedCreateWithoutPurchaseOrderInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1314,6 +1546,14 @@ export type SupplierInvoiceCreateWithoutLinesInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1346,6 +1586,14 @@ export type SupplierInvoiceUncheckedCreateWithoutLinesInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1388,6 +1636,14 @@ export type SupplierInvoiceUpdateWithoutLinesInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1420,6 +1676,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutLinesInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1446,6 +1710,14 @@ export type SupplierInvoiceCreateWithoutExceptionsInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1478,6 +1750,14 @@ export type SupplierInvoiceUncheckedCreateWithoutExceptionsInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1520,6 +1800,14 @@ export type SupplierInvoiceUpdateWithoutExceptionsInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1552,6 +1840,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutExceptionsInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1578,6 +1874,14 @@ export type SupplierInvoiceCreateWithoutPaymentBatchItemsInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1610,6 +1914,14 @@ export type SupplierInvoiceUncheckedCreateWithoutPaymentBatchItemsInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1652,6 +1964,14 @@ export type SupplierInvoiceUpdateWithoutPaymentBatchItemsInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1684,6 +2004,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutPaymentBatchItemsInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1712,6 +2040,14 @@ export type SupplierInvoiceCreateManyTenantInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1736,6 +2072,14 @@ export type SupplierInvoiceUpdateWithoutTenantInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1767,6 +2111,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutTenantInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1796,6 +2148,14 @@ export type SupplierInvoiceUncheckedUpdateManyWithoutTenantInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1822,6 +2182,14 @@ export type SupplierInvoiceCreateManySupplierInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1846,6 +2214,14 @@ export type SupplierInvoiceUpdateWithoutSupplierInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1877,6 +2253,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutSupplierInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1906,6 +2290,14 @@ export type SupplierInvoiceUncheckedUpdateManyWithoutSupplierInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1932,6 +2324,14 @@ export type SupplierInvoiceCreateManyPurchaseOrderInput = {
   exchangeRateSource: string
   exchangeRateDate: Date | string
   paymentReference?: string | null
+  sourceMarketplaceOrderId?: string | null
+  sourcePurchaseOrderExecutionId?: string | null
+  generatedBySellerTenantId?: string | null
+  pdfBlobPathname?: string | null
+  pdfFileName?: string | null
+  pdfGeneratedAt?: Date | string | null
+  buyerAcknowledgedAt?: Date | string | null
+  buyerAcknowledgedByUserId?: string | null
   submittedAt?: Date | string | null
   approvedAt?: Date | string | null
   paymentReadyAt?: Date | string | null
@@ -1956,6 +2356,14 @@ export type SupplierInvoiceUpdateWithoutPurchaseOrderInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -1987,6 +2395,14 @@ export type SupplierInvoiceUncheckedUpdateWithoutPurchaseOrderInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2016,6 +2432,14 @@ export type SupplierInvoiceUncheckedUpdateManyWithoutPurchaseOrderInput = {
   exchangeRateSource?: Prisma.StringFieldUpdateOperationsInput | string
   exchangeRateDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   paymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourceMarketplaceOrderId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sourcePurchaseOrderExecutionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  generatedBySellerTenantId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfBlobPathname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfFileName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  pdfGeneratedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  buyerAcknowledgedByUserId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   paymentReadyAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -2092,6 +2516,14 @@ export type SupplierInvoiceSelect<ExtArgs extends runtime.Types.Extensions.Inter
   exchangeRateSource?: boolean
   exchangeRateDate?: boolean
   paymentReference?: boolean
+  sourceMarketplaceOrderId?: boolean
+  sourcePurchaseOrderExecutionId?: boolean
+  generatedBySellerTenantId?: boolean
+  pdfBlobPathname?: boolean
+  pdfFileName?: boolean
+  pdfGeneratedAt?: boolean
+  buyerAcknowledgedAt?: boolean
+  buyerAcknowledgedByUserId?: boolean
   submittedAt?: boolean
   approvedAt?: boolean
   paymentReadyAt?: boolean
@@ -2126,6 +2558,14 @@ export type SupplierInvoiceSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   exchangeRateSource?: boolean
   exchangeRateDate?: boolean
   paymentReference?: boolean
+  sourceMarketplaceOrderId?: boolean
+  sourcePurchaseOrderExecutionId?: boolean
+  generatedBySellerTenantId?: boolean
+  pdfBlobPathname?: boolean
+  pdfFileName?: boolean
+  pdfGeneratedAt?: boolean
+  buyerAcknowledgedAt?: boolean
+  buyerAcknowledgedByUserId?: boolean
   submittedAt?: boolean
   approvedAt?: boolean
   paymentReadyAt?: boolean
@@ -2156,6 +2596,14 @@ export type SupplierInvoiceSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   exchangeRateSource?: boolean
   exchangeRateDate?: boolean
   paymentReference?: boolean
+  sourceMarketplaceOrderId?: boolean
+  sourcePurchaseOrderExecutionId?: boolean
+  generatedBySellerTenantId?: boolean
+  pdfBlobPathname?: boolean
+  pdfFileName?: boolean
+  pdfGeneratedAt?: boolean
+  buyerAcknowledgedAt?: boolean
+  buyerAcknowledgedByUserId?: boolean
   submittedAt?: boolean
   approvedAt?: boolean
   paymentReadyAt?: boolean
@@ -2186,6 +2634,14 @@ export type SupplierInvoiceSelectScalar = {
   exchangeRateSource?: boolean
   exchangeRateDate?: boolean
   paymentReference?: boolean
+  sourceMarketplaceOrderId?: boolean
+  sourcePurchaseOrderExecutionId?: boolean
+  generatedBySellerTenantId?: boolean
+  pdfBlobPathname?: boolean
+  pdfFileName?: boolean
+  pdfGeneratedAt?: boolean
+  buyerAcknowledgedAt?: boolean
+  buyerAcknowledgedByUserId?: boolean
   submittedAt?: boolean
   approvedAt?: boolean
   paymentReadyAt?: boolean
@@ -2194,7 +2650,7 @@ export type SupplierInvoiceSelectScalar = {
   updatedAt?: boolean
 }
 
-export type SupplierInvoiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierId" | "purchaseOrderId" | "invoiceNumber" | "status" | "matchStatus" | "invoiceDate" | "dueDate" | "currencyCode" | "subtotal" | "taxAmount" | "totalAmount" | "usdEquivalent" | "exchangeRateToUsd" | "exchangeRateSource" | "exchangeRateDate" | "paymentReference" | "submittedAt" | "approvedAt" | "paymentReadyAt" | "paidAt" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierInvoice"]>
+export type SupplierInvoiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "tenantId" | "supplierId" | "purchaseOrderId" | "invoiceNumber" | "status" | "matchStatus" | "invoiceDate" | "dueDate" | "currencyCode" | "subtotal" | "taxAmount" | "totalAmount" | "usdEquivalent" | "exchangeRateToUsd" | "exchangeRateSource" | "exchangeRateDate" | "paymentReference" | "sourceMarketplaceOrderId" | "sourcePurchaseOrderExecutionId" | "generatedBySellerTenantId" | "pdfBlobPathname" | "pdfFileName" | "pdfGeneratedAt" | "buyerAcknowledgedAt" | "buyerAcknowledgedByUserId" | "submittedAt" | "approvedAt" | "paymentReadyAt" | "paidAt" | "createdAt" | "updatedAt", ExtArgs["result"]["supplierInvoice"]>
 export type SupplierInvoiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tenant?: boolean | Prisma.TenantDefaultArgs<ExtArgs>
   supplier?: boolean | Prisma.SupplierDefaultArgs<ExtArgs>
@@ -2244,6 +2700,14 @@ export type $SupplierInvoicePayload<ExtArgs extends runtime.Types.Extensions.Int
     exchangeRateSource: string
     exchangeRateDate: Date
     paymentReference: string | null
+    sourceMarketplaceOrderId: string | null
+    sourcePurchaseOrderExecutionId: string | null
+    generatedBySellerTenantId: string | null
+    pdfBlobPathname: string | null
+    pdfFileName: string | null
+    pdfGeneratedAt: Date | null
+    buyerAcknowledgedAt: Date | null
+    buyerAcknowledgedByUserId: string | null
     submittedAt: Date | null
     approvedAt: Date | null
     paymentReadyAt: Date | null
@@ -2697,6 +3161,14 @@ export interface SupplierInvoiceFieldRefs {
   readonly exchangeRateSource: Prisma.FieldRef<"SupplierInvoice", 'String'>
   readonly exchangeRateDate: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>
   readonly paymentReference: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly sourceMarketplaceOrderId: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly sourcePurchaseOrderExecutionId: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly generatedBySellerTenantId: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly pdfBlobPathname: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly pdfFileName: Prisma.FieldRef<"SupplierInvoice", 'String'>
+  readonly pdfGeneratedAt: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>
+  readonly buyerAcknowledgedAt: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>
+  readonly buyerAcknowledgedByUserId: Prisma.FieldRef<"SupplierInvoice", 'String'>
   readonly submittedAt: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>
   readonly approvedAt: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>
   readonly paymentReadyAt: Prisma.FieldRef<"SupplierInvoice", 'DateTime'>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   approvePaymentReadinessAction,
   assessPaymentReadinessAction,
@@ -15,7 +17,10 @@ export default async function PaymentReadinessPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">Phase B1.7</p>
-      <h1 className="mt-3 text-4xl font-black">Accounts Payable & Payment Readiness</h1>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h1 className="mt-3 text-4xl font-black">Accounts Payable & Payment Readiness</h1>
+        <Link href="/app/requisition-to-order/banking-verification" className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Supplier banking verification</Link>
+      </div>
 
       <section className={`${card} mt-8`}>
         <h2 className="text-xl font-black">Assess invoice readiness</h2>

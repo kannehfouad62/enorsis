@@ -709,13 +709,22 @@ export async function acknowledgeAndAdvanceMarketplaceInvoice(
       },
     });
 
+    const bankingVerification = await prisma.supplierBankingVerification.findFirst({
+      where: {
+        buyerTenantId: invoice.tenantId,
+        sellerTenantId: invoice.generatedBySellerTenantId ?? undefined,
+        buyerSupplierId: invoice.supplierId,
+        status: "VERIFIED",
+      },
+    });
+
     const readiness = await assessPaymentReadiness({
       threeWayMatchCaseId: approvedMatch.id,
       supplierInvoiceId: invoice.id,
       invoiceNumber: invoice.invoiceNumber,
       supplierId: invoice.supplierId,
       dueDate: invoice.dueDate,
-      bankDetailsVerified: false,
+      bankDetailsVerified: Boolean(bankingVerification),
       supplierCompliant:
         invoice.supplier.status === "APPROVED",
       taxValidated: Boolean(

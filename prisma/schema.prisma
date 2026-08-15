@@ -10288,3 +10288,65 @@ model SupplierMarketplaceOfferingMedia {
   @@index([tenantId, offeringId, position], map: "MktOfferingMedia_tenant_offer_pos_idx")
   @@index([offeringId, isPrimary])
 }
+
+
+enum SupplierBankingProfileStatus {
+  DRAFT
+  SUBMITTED
+  CHANGE_PENDING
+  SUSPENDED
+}
+
+enum SupplierBankingVerificationStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+  REVOKED
+}
+
+model SupplierBankingProfile {
+  id String @id @default(cuid())
+  sellerTenantId String @unique
+  status SupplierBankingProfileStatus @default(DRAFT)
+  accountHolderName String
+  bankName String
+  bankCountryCode String
+  currencyCode String @default("USD")
+  accountType String?
+  accountNumberLast4 String
+  routingNumberLast4 String?
+  swiftBic String?
+  ibanLast4 String?
+  encryptedAccountData String
+  submittedByUserId String?
+  submittedAt DateTime?
+  lastChangedByUserId String?
+  lastChangedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, updatedAt])
+}
+
+model SupplierBankingVerification {
+  id String @id @default(cuid())
+  buyerTenantId String
+  sellerTenantId String
+  buyerSupplierId String
+  bankingProfileId String
+  status SupplierBankingVerificationStatus @default(PENDING)
+  verifiedByUserId String?
+  verifiedAt DateTime?
+  rejectedByUserId String?
+  rejectedAt DateTime?
+  rejectionReason String?
+  revokedByUserId String?
+  revokedAt DateTime?
+  revocationReason String?
+  profileFingerprint String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([buyerTenantId, sellerTenantId])
+  @@index([buyerTenantId, status, updatedAt])
+  @@index([buyerSupplierId, status])
+  @@index([sellerTenantId, status])
+}

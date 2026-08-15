@@ -3,6 +3,7 @@ import {
   BadgeCheck,
   Bell,
   Building2,
+  CircleDollarSign,
   Boxes,
   FileText,
   PackageCheck,
@@ -18,6 +19,13 @@ const workspaces = [
       "Review unread Enorsis alerts and open the related supplier workspace.",
     href: "/app/notifications",
     icon: Bell,
+  },
+  {
+    title: "Payment & Banking Profile",
+    description:
+      "Maintain secure payment instructions for independent buyer Finance/AP verification.",
+    href: "/app/supplier-portal/banking",
+    icon: CircleDollarSign,
   },
   {
     title: "Seller Business Profile",

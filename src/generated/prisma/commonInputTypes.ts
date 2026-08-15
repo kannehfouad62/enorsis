@@ -5290,6 +5290,40 @@ export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedFloatNullableFilter<$PrismaModel>
 }
 
+export type EnumSupplierBankingProfileStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingProfileStatus | Prisma.EnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel> | $Enums.SupplierBankingProfileStatus
+}
+
+export type EnumSupplierBankingProfileStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingProfileStatus | Prisma.EnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingProfileStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierBankingProfileStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel>
+}
+
+export type EnumSupplierBankingVerificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingVerificationStatus | Prisma.EnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel> | $Enums.SupplierBankingVerificationStatus
+}
+
+export type EnumSupplierBankingVerificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingVerificationStatus | Prisma.EnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingVerificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierBankingVerificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -10501,6 +10535,40 @@ export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedFloatNullableFilter<$PrismaModel>
   _min?: Prisma.NestedFloatNullableFilter<$PrismaModel>
   _max?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingProfileStatus | Prisma.EnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel> | $Enums.SupplierBankingProfileStatus
+}
+
+export type NestedEnumSupplierBankingProfileStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingProfileStatus | Prisma.EnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingProfileStatus[] | Prisma.ListEnumSupplierBankingProfileStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingProfileStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierBankingProfileStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierBankingProfileStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingVerificationStatus | Prisma.EnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel> | $Enums.SupplierBankingVerificationStatus
+}
+
+export type NestedEnumSupplierBankingVerificationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.SupplierBankingVerificationStatus | Prisma.EnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.SupplierBankingVerificationStatus[] | Prisma.ListEnumSupplierBankingVerificationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSupplierBankingVerificationStatusWithAggregatesFilter<$PrismaModel> | $Enums.SupplierBankingVerificationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSupplierBankingVerificationStatusFilter<$PrismaModel>
 }
 
 

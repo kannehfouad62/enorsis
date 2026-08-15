@@ -1,0 +1,18 @@
+import { submitSupplierBankingProfileAction } from "@/modules/banking-verification/actions";
+import { getSupplierBankingWorkspace } from "@/modules/banking-verification/queries";
+const input = "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
+export default async function SupplierBankingPage({ searchParams }: { searchParams: Promise<{ saved?: string; error?: string }> }) {
+  const { profile } = await getSupplierBankingWorkspace();
+  const params = await searchParams;
+  return <div className="mx-auto max-w-5xl px-4 py-10">
+    <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">Supplier payment controls</p>
+    <h1 className="mt-3 text-4xl font-black">Payment & Banking Profile</h1>
+    <p className="mt-3 max-w-3xl leading-7 text-slate-600">Submit payment instructions for independent verification by buyer Finance/AP teams. Sensitive account data is encrypted and masked after submission.</p>
+    {params.saved === "1" ? <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">Banking profile submitted successfully. Independent buyer Finance/AP verification is required.</div> : null}
+    {params.error ? <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-900">{params.error}</div> : null}
+    {profile ? <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><p className="text-xs font-black uppercase text-slate-500">Current submitted profile</p><div className="mt-4 grid gap-4 md:grid-cols-2"><Summary label="Status" value={profile.status}/><Summary label="Bank" value={profile.bankName}/><Summary label="Account holder" value={profile.accountHolderName}/><Summary label="Account" value={profile.accountNumberMasked}/><Summary label="Routing" value={profile.routingNumberMasked ?? "Not provided"}/><Summary label="IBAN" value={profile.ibanMasked ?? "Not provided"}/></div><p className="mt-4 text-xs text-amber-700">Changing payment instructions invalidates prior buyer verification.</p></section> : null}
+    <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><h2 className="text-xl font-black">{profile ? "Update banking instructions" : "Submit banking instructions"}</h2><form action={submitSupplierBankingProfileAction} className="mt-5 grid gap-4 md:grid-cols-2"><Field name="accountHolderName" label="Account holder name" required/><Field name="bankName" label="Bank name" required/><Field name="bankCountryCode" label="Bank country code" required/><Field name="currencyCode" label="Settlement currency" defaultValue="USD" required/><Field name="accountType" label="Account type"/><Field name="accountNumber" label="Account number" required/><Field name="routingNumber" label="Routing / ABA number"/><Field name="swiftBic" label="SWIFT / BIC"/><Field name="iban" label="IBAN"/><button className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white md:col-span-2">Submit for independent verification</button></form></section>
+  </div>;
+}
+function Field({ name, label, required = false, defaultValue }: { name: string; label: string; required?: boolean; defaultValue?: string }) { return <label className="text-sm font-bold">{label}<input className={input} name={name} required={required} defaultValue={defaultValue} autoComplete="off"/></label>; }
+function Summary({ label, value }: { label: string; value: string }) { return <div className="rounded-2xl bg-slate-50 p-4"><p className="text-xs font-black uppercase text-slate-400">{label}</p><p className="mt-2 font-black">{value}</p></div>; }

@@ -372,7 +372,9 @@ export const ModelName = {
   EndToEndCommerceCertificationCheck: 'EndToEndCommerceCertificationCheck',
   MarketplacePurchaseRequestLineBinding: 'MarketplacePurchaseRequestLineBinding',
   MarketplaceSellerOrder: 'MarketplaceSellerOrder',
-  SupplierMarketplaceOfferingMedia: 'SupplierMarketplaceOfferingMedia'
+  SupplierMarketplaceOfferingMedia: 'SupplierMarketplaceOfferingMedia',
+  SupplierBankingProfile: 'SupplierBankingProfile',
+  SupplierBankingVerification: 'SupplierBankingVerification'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1296,6 +1298,14 @@ export const SupplierInvoiceScalarFieldEnum = {
   exchangeRateSource: 'exchangeRateSource',
   exchangeRateDate: 'exchangeRateDate',
   paymentReference: 'paymentReference',
+  sourceMarketplaceOrderId: 'sourceMarketplaceOrderId',
+  sourcePurchaseOrderExecutionId: 'sourcePurchaseOrderExecutionId',
+  generatedBySellerTenantId: 'generatedBySellerTenantId',
+  pdfBlobPathname: 'pdfBlobPathname',
+  pdfFileName: 'pdfFileName',
+  pdfGeneratedAt: 'pdfGeneratedAt',
+  buyerAcknowledgedAt: 'buyerAcknowledgedAt',
+  buyerAcknowledgedByUserId: 'buyerAcknowledgedByUserId',
   submittedAt: 'submittedAt',
   approvedAt: 'approvedAt',
   paymentReadyAt: 'paymentReadyAt',
@@ -7368,6 +7378,54 @@ export const SupplierMarketplaceOfferingMediaScalarFieldEnum = {
 } as const
 
 export type SupplierMarketplaceOfferingMediaScalarFieldEnum = (typeof SupplierMarketplaceOfferingMediaScalarFieldEnum)[keyof typeof SupplierMarketplaceOfferingMediaScalarFieldEnum]
+
+
+export const SupplierBankingProfileScalarFieldEnum = {
+  id: 'id',
+  sellerTenantId: 'sellerTenantId',
+  status: 'status',
+  accountHolderName: 'accountHolderName',
+  bankName: 'bankName',
+  bankCountryCode: 'bankCountryCode',
+  currencyCode: 'currencyCode',
+  accountType: 'accountType',
+  accountNumberLast4: 'accountNumberLast4',
+  routingNumberLast4: 'routingNumberLast4',
+  swiftBic: 'swiftBic',
+  ibanLast4: 'ibanLast4',
+  encryptedAccountData: 'encryptedAccountData',
+  submittedByUserId: 'submittedByUserId',
+  submittedAt: 'submittedAt',
+  lastChangedByUserId: 'lastChangedByUserId',
+  lastChangedAt: 'lastChangedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierBankingProfileScalarFieldEnum = (typeof SupplierBankingProfileScalarFieldEnum)[keyof typeof SupplierBankingProfileScalarFieldEnum]
+
+
+export const SupplierBankingVerificationScalarFieldEnum = {
+  id: 'id',
+  buyerTenantId: 'buyerTenantId',
+  sellerTenantId: 'sellerTenantId',
+  buyerSupplierId: 'buyerSupplierId',
+  bankingProfileId: 'bankingProfileId',
+  status: 'status',
+  verifiedByUserId: 'verifiedByUserId',
+  verifiedAt: 'verifiedAt',
+  rejectedByUserId: 'rejectedByUserId',
+  rejectedAt: 'rejectedAt',
+  rejectionReason: 'rejectionReason',
+  revokedByUserId: 'revokedByUserId',
+  revokedAt: 'revokedAt',
+  revocationReason: 'revocationReason',
+  profileFingerprint: 'profileFingerprint',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SupplierBankingVerificationScalarFieldEnum = (typeof SupplierBankingVerificationScalarFieldEnum)[keyof typeof SupplierBankingVerificationScalarFieldEnum]
 
 
 export const SortOrder = {

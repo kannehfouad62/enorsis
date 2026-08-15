@@ -3238,3 +3238,23 @@ export const TenantCommercialPersona = {
 } as const
 
 export type TenantCommercialPersona = (typeof TenantCommercialPersona)[keyof typeof TenantCommercialPersona]
+
+
+export const SupplierBankingProfileStatus = {
+  DRAFT: 'DRAFT',
+  SUBMITTED: 'SUBMITTED',
+  CHANGE_PENDING: 'CHANGE_PENDING',
+  SUSPENDED: 'SUSPENDED'
+} as const
+
+export type SupplierBankingProfileStatus = (typeof SupplierBankingProfileStatus)[keyof typeof SupplierBankingProfileStatus]
+
+
+export const SupplierBankingVerificationStatus = {
+  PENDING: 'PENDING',
+  VERIFIED: 'VERIFIED',
+  REJECTED: 'REJECTED',
+  REVOKED: 'REVOKED'
+} as const
+
+export type SupplierBankingVerificationStatus = (typeof SupplierBankingVerificationStatus)[keyof typeof SupplierBankingVerificationStatus]

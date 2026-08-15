@@ -1651,3 +1651,13 @@ export type MarketplaceSellerOrder = Prisma.MarketplaceSellerOrderModel
  * 
  */
 export type SupplierMarketplaceOfferingMedia = Prisma.SupplierMarketplaceOfferingMediaModel
+/**
+ * Model SupplierBankingProfile
+ * 
+ */
+export type SupplierBankingProfile = Prisma.SupplierBankingProfileModel
+/**
+ * Model SupplierBankingVerification
+ * 
+ */
+export type SupplierBankingVerification = Prisma.SupplierBankingVerificationModel
