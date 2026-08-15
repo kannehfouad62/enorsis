@@ -1,6 +1,7 @@
 import {
   addTrackingEventAction,
   createCarrierAction,
+  createMarketplaceShipmentAction,
   createShipmentAction,
   updateProofOfDeliveryAction,
 } from "@/modules/logistics/actions";
@@ -46,13 +47,14 @@ export default async function LogisticsPage() {
               Accepted marketplace orders
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-              Stage 1 is read-only. Accepted supplier marketplace orders
-              appear here automatically so Logistics can see the governed
-              purchase context before shipment configuration is enabled.
+              Accepted marketplace orders are linked through their
+              governed purchase-order execution. Configure shipment details
+              here once; later stages will synchronize these details back to
+              Marketplace Orders and invoice freight.
             </p>
           </div>
           <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
-            READ-ONLY LINKAGE
+            STAGE 2 - SHIPMENT SETUP
           </span>
         </div>
 
@@ -89,6 +91,204 @@ export default async function LogisticsPage() {
                   </p>
                 </div>
               </div>
+
+              {order.logisticsShipment ? (
+                <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+                  <p className="text-xs font-black uppercase text-emerald-700">
+                    Shipment configured
+                  </p>
+                  <div className="mt-3 grid gap-3 text-sm md:grid-cols-3">
+                    <p>
+                      <strong>Shipment:</strong>{" "}
+                      {order.logisticsShipment.shipmentNumber}
+                    </p>
+                    <p>
+                      <strong>Tracking:</strong>{" "}
+                      {order.logisticsShipment.trackingNumber ??
+                        "Pending"}
+                    </p>
+                    <p>
+                      <strong>Freight:</strong>{" "}
+                      {order.logisticsShipment.currencyCode}{" "}
+                      {Number(
+                        order.logisticsShipment.freightCost ?? 0,
+                      ).toLocaleString()}
+                    </p>
+                  </div>
+                  <p className="mt-3 text-xs text-emerald-800">
+                    Stage 2 stores this shipment against the governed
+                    purchase-order execution. Marketplace shipping is
+                    not yet automatically advanced.
+                  </p>
+                </div>
+              ) : order.purchaseOrderExecutionId ? (
+                <form
+                  action={createMarketplaceShipmentAction}
+                  className="mt-5 grid gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 md:grid-cols-2 xl:grid-cols-4"
+                >
+                  <input
+                    type="hidden"
+                    name="marketplaceOrderId"
+                    value={order.id}
+                  />
+
+                  <label className="text-xs font-black text-slate-600">
+                    Carrier
+                    <select
+                      className={input}
+                      name="carrierId"
+                      required
+                    >
+                      <option value="">Select carrier</option>
+                      {data.carriers.map((carrier) => (
+                        <option
+                          key={carrier.id}
+                          value={carrier.id}
+                        >
+                          {carrier.name}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Mode
+                    <select className={input} name="mode">
+                      <option>ROAD</option>
+                      <option>AIR</option>
+                      <option>OCEAN</option>
+                      <option>RAIL</option>
+                      <option>COURIER</option>
+                      <option>MULTIMODAL</option>
+                    </select>
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Origin
+                    <input
+                      className={input}
+                      name="origin"
+                      required
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Destination
+                    <input
+                      className={input}
+                      name="destination"
+                      required
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Tracking number
+                    <input
+                      className={input}
+                      name="trackingNumber"
+                      required
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Freight / shipping cost
+                    <input
+                      className={input}
+                      name="freightCost"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Currency
+                    <input
+                      className={input}
+                      name="currencyCode"
+                      defaultValue={order.currencyCode}
+                      required
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Incoterm
+                    <input className={input} name="incoterm" />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Pickup
+                    <input
+                      className={input}
+                      name="pickupAt"
+                      type="datetime-local"
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Estimated delivery
+                    <input
+                      className={input}
+                      name="estimatedDeliveryAt"
+                      type="datetime-local"
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Weight
+                    <input
+                      className={input}
+                      name="weight"
+                      type="number"
+                      min="0"
+                      step="0.0001"
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Weight unit
+                    <input
+                      className={input}
+                      name="weightUnit"
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Packages
+                    <input
+                      className={input}
+                      name="packageCount"
+                      type="number"
+                      min="0"
+                      defaultValue="0"
+                    />
+                  </label>
+
+                  <label className="text-xs font-black text-slate-600">
+                    Delay risk %
+                    <input
+                      className={input}
+                      name="delayRiskPercent"
+                      type="number"
+                      min="0"
+                      max="100"
+                      defaultValue="0"
+                    />
+                  </label>
+
+                  <div className="flex items-end md:col-span-2">
+                    <button className="w-full rounded-xl bg-blue-700 px-5 py-3 font-black text-white">
+                      Save marketplace shipment
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-semibold text-amber-900">
+                  Shipment setup will become available after the
+                  governed purchase-order execution is linked.
+                </div>
+              )}
             </article>
           ))}
 

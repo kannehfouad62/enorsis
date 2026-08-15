@@ -52,13 +52,34 @@ export async function getLogisticsWorkspace() {
     }),
   ]);
 
+  const shipmentByPurchaseOrderId = new Map(
+    shipments
+      .filter((shipment) => shipment.purchaseOrderId)
+      .map((shipment) => [
+        shipment.purchaseOrderId as string,
+        shipment,
+      ]),
+  );
+
+  const marketplaceOrdersWithShipment =
+    marketplaceOrders.map((order) => ({
+      ...order,
+      logisticsShipment:
+        order.purchaseOrderExecutionId
+          ? shipmentByPurchaseOrderId.get(
+              order.purchaseOrderExecutionId,
+            ) ?? null
+          : null,
+    }));
+
   const now = new Date();
 
   return {
     carriers,
     shipments,
     suppliers,
-    marketplaceOrders,
+    marketplaceOrders:
+      marketplaceOrdersWithShipment,
     metrics: {
       activeShipments: shipments.filter((item) =>
         ["BOOKED", "IN_TRANSIT", "DELAYED"].includes(item.status),
