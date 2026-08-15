@@ -86,7 +86,9 @@ export async function getSupplierPortalWorkspace() {
     Boolean(supplier.website),
     Boolean(supplier.primaryEmail),
     Boolean(supplier.primaryPhone),
-    supplier.categories.length > 0,
+    supplier.products.length > 0,
+    supplier.services.length > 0,
+    supplier.capabilities.length > 0,
     supplier.documents.length > 0,
   ];
   const profileCompletion = Math.round(

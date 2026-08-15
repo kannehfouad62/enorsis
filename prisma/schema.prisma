@@ -2863,6 +2863,9 @@ model Supplier {
   marketplaceLogoContentType String?
   marketplaceLogoUpdatedAt   DateTime?
   categories                 String[]
+  products                   String[]                          @default([])
+  services                   String[]                          @default([])
+  capabilities               String[]                          @default([])
   status                     SupplierStatus                    @default(PROSPECT)
   riskTier                   SupplierRiskTier                  @default(MODERATE)
   qualificationStatus        SupplierQualificationStatus       @default(NOT_STARTED)

@@ -163,24 +163,25 @@ export default async function SupplierPortalPage() {
             Maintain the categories and capabilities that support supplier
             discovery, sourcing and buyer evaluation.
           </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            {supplier.categories.length > 0 ? (
-              supplier.categories.map((category) => (
-                <span
-                  key={category}
-                  className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-800"
-                >
-                  {category}
-                </span>
-              ))
-            ) : (
-              <p className="text-sm font-semibold text-amber-700">
-                No business categories have been added yet.
-              </p>
-            )}
+          <div className="mt-5 space-y-5">
+            <CapabilityGroup
+              label="Products"
+              items={supplier.products}
+              emptyText="No products have been added yet."
+            />
+            <CapabilityGroup
+              label="Services"
+              items={supplier.services}
+              emptyText="No services have been added yet."
+            />
+            <CapabilityGroup
+              label="Capabilities"
+              items={supplier.capabilities}
+              emptyText="No capabilities have been added yet."
+            />
           </div>
           <Link
-            href="/app/marketplace/seller-profile"
+            href="/app/marketplace/seller-profile#capabilities"
             className="mt-6 inline-flex text-sm font-black text-blue-700"
           >
             Manage capabilities →
@@ -382,6 +383,40 @@ function EmptyState({ text }: { text: string }) {
   return (
     <div className="rounded-2xl bg-slate-50 px-4 py-5 text-sm font-semibold text-slate-500">
       {text}
+    </div>
+  );
+}
+
+function CapabilityGroup({
+  label,
+  items,
+  emptyText,
+}: {
+  label: string;
+  items: string[];
+  emptyText: string;
+}) {
+  return (
+    <div>
+      <p className="text-[11px] font-black uppercase tracking-[.14em] text-slate-500">
+        {label}
+      </p>
+      {items.length > 0 ? (
+        <div className="mt-2 flex flex-wrap gap-2">
+          {items.slice(0, 8).map((item) => (
+            <span
+              key={`${label}:${item}`}
+              className="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-800"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-2 text-sm font-semibold text-amber-700">
+          {emptyText}
+        </p>
+      )}
     </div>
   );
 }

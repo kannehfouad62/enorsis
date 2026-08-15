@@ -4,6 +4,7 @@ import {
   Building2,
   Globe2,
   Mail,
+  BadgeCheck,
   MapPin,
   Phone,
   Store,
@@ -139,6 +140,22 @@ export default async function MarketplaceSellerProfilePage() {
 
             <label>
               <span className="flex items-center gap-2 text-xs font-black uppercase tracking-wide text-slate-500">
+                <BadgeCheck className="h-3.5 w-3.5" />
+                Tax identification number
+              </span>
+              <input
+                className={`${input} mt-1`}
+                name="taxIdentificationNo"
+                defaultValue={supplier.taxIdentificationNo ?? ""}
+                placeholder="EIN, VAT, TIN or local tax identifier"
+              />
+              <span className="mt-1 block text-xs text-slate-500">
+                Enter the official tax identifier used by your legal entity.
+              </span>
+            </label>
+
+            <label>
+              <span className="flex items-center gap-2 text-xs font-black uppercase tracking-wide text-slate-500">
                 <Globe2 className="h-3.5 w-3.5" />
                 Website
               </span>
@@ -197,12 +214,73 @@ export default async function MarketplaceSellerProfilePage() {
                 placeholder="Industrial Safety, PPE, Logistics"
               />
               <span className="mt-1 block text-xs text-slate-500">
-                Separate multiple categories with commas.
+                High-level marketplace categories. Separate multiple categories with commas.
               </span>
             </label>
 
+            <div id="capabilities" className="scroll-mt-28 border-t border-slate-200 pt-6">
+              <p className="text-xs font-black uppercase tracking-[.18em] text-blue-700">
+                Products, Services & Capabilities
+              </p>
+              <h3 className="mt-2 text-lg font-black text-slate-950">
+                Supplier capability profile
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Describe what your company sells, the services it provides, and
+                the operational or technical capabilities buyers can evaluate.
+                Enter one item per line.
+              </p>
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-3">
+              <label>
+                <span className="text-xs font-black uppercase tracking-wide text-slate-500">
+                  Products
+                </span>
+                <textarea
+                  className={`${input} mt-1 min-h-44`}
+                  name="products"
+                  defaultValue={supplier.products.join("\n")}
+                  placeholder={"Safety helmets\nIndustrial gloves\nElectrical components"}
+                />
+                <span className="mt-1 block text-xs text-slate-500">
+                  Physical or digital products supplied by your company.
+                </span>
+              </label>
+
+              <label>
+                <span className="text-xs font-black uppercase tracking-wide text-slate-500">
+                  Services
+                </span>
+                <textarea
+                  className={`${input} mt-1 min-h-44`}
+                  name="services"
+                  defaultValue={supplier.services.join("\n")}
+                  placeholder={"Equipment maintenance\nLogistics support\nTechnical consulting"}
+                />
+                <span className="mt-1 block text-xs text-slate-500">
+                  Professional, operational, or managed services you provide.
+                </span>
+              </label>
+
+              <label>
+                <span className="text-xs font-black uppercase tracking-wide text-slate-500">
+                  Capabilities
+                </span>
+                <textarea
+                  className={`${input} mt-1 min-h-44`}
+                  name="capabilities"
+                  defaultValue={supplier.capabilities.join("\n")}
+                  placeholder={"24-hour fulfillment\nCustom fabrication\nNationwide distribution"}
+                />
+                <span className="mt-1 block text-xs text-slate-500">
+                  Distinct competencies, capacity, technology, or delivery strengths.
+                </span>
+              </label>
+            </div>
+
             <button className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white">
-              Save seller profile
+              Save company & capability profile
             </button>
           </form>
         </section>
