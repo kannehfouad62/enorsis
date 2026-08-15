@@ -16,7 +16,31 @@ export function LoginForm() {
     setIsPending(true);
 
     const data = new FormData(event.currentTarget);
-    const callbackUrl = searchParams.get("callbackUrl") ?? "/app";
+
+    const requestedCallbackUrl =
+      searchParams.get("callbackUrl");
+
+    let callbackUrl = "/app";
+
+    if (requestedCallbackUrl) {
+      try {
+        const parsed = new URL(
+          requestedCallbackUrl,
+          window.location.origin,
+        );
+
+        if (
+          parsed.origin === window.location.origin &&
+          parsed.pathname.startsWith("/app")
+        ) {
+          callbackUrl =
+            `${parsed.pathname}${parsed.search}${parsed.hash}`;
+        }
+      } catch {
+        callbackUrl = "/app";
+      }
+    }
+
     const result = await signIn("credentials", {
       email: data.get("email"),
       password: data.get("password"),
