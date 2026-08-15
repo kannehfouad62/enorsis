@@ -16,21 +16,37 @@ const requestInclude = {
 
 export async function getPurchaseRequestWorkspace() {
   const session = await auth();
-  if (!session?.user) throw new Error("Authentication is required.");
+  if (!session?.user) redirect("/login");
+
+  const canViewAllTenantRequests = session.user.roles.some((role) =>
+    [
+      "TENANT_OWNER",
+      "TENANT_ADMIN",
+      "PROCUREMENT_MANAGER",
+      "PROCUREMENT_EXECUTIVE",
+    ].includes(role),
+  );
 
   const requests = await prisma.purchaseRequest.findMany({
-    where: {
-      tenantId: session.user.tenantId,
-      OR: [
-        { requesterId: session.user.id },
-        { approvals: { some: { approverId: session.user.id } } },
-        ...(session.user.roles.some((role) =>
-          ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE"].includes(role)
-        )
-          ? [{}]
-          : []),
-      ],
-    },
+    where: canViewAllTenantRequests
+      ? {
+          tenantId: session.user.tenantId,
+        }
+      : {
+          tenantId: session.user.tenantId,
+          OR: [
+            {
+              requesterId: session.user.id,
+            },
+            {
+              approvals: {
+                some: {
+                  approverId: session.user.id,
+                },
+              },
+            },
+          ],
+        },
     include: requestInclude,
     orderBy: { createdAt: "desc" },
   });
