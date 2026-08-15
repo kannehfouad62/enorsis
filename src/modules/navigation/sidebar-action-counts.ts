@@ -284,7 +284,9 @@ export async function getSidebarActionCountsForUser(
     );
   }
 
-  await Promise.all(jobs);
+  // Action badges are supplemental UI. A failed count query must never
+  // take down an operational workspace.
+  await Promise.allSettled(jobs);
 
   return counts;
 }
