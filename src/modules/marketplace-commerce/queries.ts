@@ -76,5 +76,55 @@ export async function getMarketplaceSellerOrders() {
     take: 200,
   });
 
-  return { orders };
+  const purchaseOrderExecutionIds = orders
+    .map((order) => order.purchaseOrderExecutionId)
+    .filter((id): id is string => Boolean(id));
+
+  const shipments = purchaseOrderExecutionIds.length
+    ? await prisma.logisticsShipment.findMany({
+        where: {
+          tenantId: session.user.tenantId,
+          purchaseOrderId: {
+            in: purchaseOrderExecutionIds,
+          },
+        },
+        include: {
+          carrier: true,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      })
+    : [];
+
+  const shipmentByPurchaseOrderId = new Map<
+    string,
+    (typeof shipments)[number]
+  >();
+
+  for (const shipment of shipments) {
+    if (
+      shipment.purchaseOrderId &&
+      !shipmentByPurchaseOrderId.has(
+        shipment.purchaseOrderId,
+      )
+    ) {
+      shipmentByPurchaseOrderId.set(
+        shipment.purchaseOrderId,
+        shipment,
+      );
+    }
+  }
+
+  return {
+    orders: orders.map((order) => ({
+      ...order,
+      logisticsShipment:
+        order.purchaseOrderExecutionId
+          ? shipmentByPurchaseOrderId.get(
+              order.purchaseOrderExecutionId,
+            ) ?? null
+          : null,
+    })),
+  };
 }
