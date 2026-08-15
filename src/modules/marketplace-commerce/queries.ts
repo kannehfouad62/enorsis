@@ -76,5 +76,37 @@ export async function getMarketplaceSellerOrders() {
     take: 200,
   });
 
-  return { orders };
+  const poExecutionIds = orders
+    .map((order) => order.purchaseOrderExecutionId)
+    .filter((id): id is string => Boolean(id));
+  const orderIds = orders.map((order) => order.id);
+
+  const [shipments, invoices] = await Promise.all([
+    prisma.logisticsShipment.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+        purchaseOrderId: { in: poExecutionIds },
+      },
+      include: { carrier: true },
+    }),
+    prisma.supplierInvoice.findMany({
+      where: {
+        sourceMarketplaceOrderId: { in: orderIds },
+        generatedBySellerTenantId: session.user.tenantId,
+      },
+    }),
+  ]);
+
+  const shipmentMap = new Map(shipments.map((shipment) => [shipment.purchaseOrderId, shipment]));
+  const invoiceMap = new Map(invoices.map((invoice) => [invoice.sourceMarketplaceOrderId, invoice]));
+
+  return {
+    orders: orders.map((order) => ({
+      ...order,
+      logisticsShipment: order.purchaseOrderExecutionId
+        ? shipmentMap.get(order.purchaseOrderExecutionId) ?? null
+        : null,
+      generatedInvoice: invoiceMap.get(order.id) ?? null,
+    })),
+  };
 }

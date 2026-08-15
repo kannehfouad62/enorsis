@@ -39,11 +39,36 @@ export async function createShipmentAction(formData: FormData) {
     where: { tenantId: user.tenantId },
   });
 
+  const marketplaceOrderId = field(formData, "marketplaceOrderId") || null;
+  const marketplaceOrder = marketplaceOrderId
+    ? await prisma.marketplaceSellerOrder.findFirstOrThrow({
+        where: {
+          id: marketplaceOrderId,
+          sellerTenantId: user.tenantId,
+          status: "ACCEPTED",
+        },
+      })
+    : null;
+
+  if (marketplaceOrder?.purchaseOrderExecutionId) {
+    const existing = await prisma.logisticsShipment.findFirst({
+      where: {
+        tenantId: user.tenantId,
+        purchaseOrderId: marketplaceOrder.purchaseOrderExecutionId,
+      },
+    });
+    if (existing) {
+      throw new Error("A logistics shipment is already configured for this marketplace order.");
+    }
+  }
+
   await prisma.logisticsShipment.create({
     data: {
       tenantId: user.tenantId,
       shipmentNumber: `SHIP-${new Date().getFullYear()}-${String(count + 1).padStart(6, "0")}`,
-      purchaseOrderId: field(formData, "purchaseOrderId") || null,
+      purchaseOrderId:
+        marketplaceOrder?.purchaseOrderExecutionId ??
+        (field(formData, "purchaseOrderId") || null),
       supplierId: field(formData, "supplierId") || null,
       carrierId: field(formData, "carrierId") || null,
       mode: field(formData, "mode") as

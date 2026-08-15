@@ -7,7 +7,7 @@ export async function getLogisticsWorkspace() {
   if (!session?.user) redirect("/login");
 
   const tenantId = session.user.tenantId;
-  const [carriers, shipments, suppliers] = await Promise.all([
+  const [carriers, shipments, suppliers, acceptedMarketplaceOrders] = await Promise.all([
     prisma.logisticsCarrier.findMany({
       where: { tenantId },
       orderBy: { name: "asc" },
@@ -28,7 +28,29 @@ export async function getLogisticsWorkspace() {
       where: { tenantId },
       orderBy: { legalName: "asc" },
     }),
+    prisma.marketplaceSellerOrder.findMany({
+      where: {
+        sellerTenantId: tenantId,
+        status: "ACCEPTED",
+        purchaseOrderExecutionId: { not: null },
+      },
+      orderBy: { acceptedAt: "desc" },
+      take: 200,
+    }),
   ]);
+
+  const shipmentByPoExecutionId = new Map(
+    shipments
+      .filter((shipment) => shipment.purchaseOrderId)
+      .map((shipment) => [shipment.purchaseOrderId as string, shipment]),
+  );
+
+  const marketplaceOrders = acceptedMarketplaceOrders.map((order) => ({
+    ...order,
+    logisticsShipment: order.purchaseOrderExecutionId
+      ? shipmentByPoExecutionId.get(order.purchaseOrderExecutionId) ?? null
+      : null,
+  }));
 
   const now = new Date();
 
@@ -36,6 +58,7 @@ export async function getLogisticsWorkspace() {
     carriers,
     shipments,
     suppliers,
+    marketplaceOrders,
     metrics: {
       activeShipments: shipments.filter((item) =>
         ["BOOKED", "IN_TRANSIT", "DELAYED"].includes(item.status),

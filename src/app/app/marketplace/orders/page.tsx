@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   acceptMarketplaceSellerOrderAction,
   rejectMarketplaceSellerOrderAction,
@@ -5,6 +7,7 @@ import {
 } from "@/modules/marketplace-commerce/actions";
 import {
   generateMarketplaceSupplierInvoiceAction,
+  submitMarketplaceSupplierInvoiceAction,
 } from "@/modules/marketplace-invoice-automation/actions";
 import { getMarketplaceSellerOrders } from "@/modules/marketplace-commerce/queries";
 
@@ -21,6 +24,7 @@ export default async function MarketplaceSellerOrdersPage({
 }: {
   searchParams: Promise<{
     invoiceGenerated?: string;
+    invoiceSubmitted?: string;
     invoiceError?: string;
   }>;
 }) {
@@ -37,7 +41,13 @@ export default async function MarketplaceSellerOrdersPage({
 
       {params.invoiceGenerated ? (
         <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">
-          Invoice {params.invoiceGenerated} was generated and submitted to the buyer.
+          Draft invoice {params.invoiceGenerated} was generated. Review the PDF before submitting it to the buyer.
+        </div>
+      ) : null}
+
+      {params.invoiceSubmitted ? (
+        <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-900">
+          Invoice {params.invoiceSubmitted} was submitted to the buyer.
         </div>
       ) : null}
 
@@ -81,31 +91,59 @@ export default async function MarketplaceSellerOrdersPage({
               ) : null}
 
               {order.status === "ACCEPTED" ? (
-                <form action={shipMarketplaceSellerOrderAction} className="mt-5 grid gap-3 md:grid-cols-4">
-                  <input type="hidden" name="orderId" value={order.id} />
-                  <input name="carrier" required placeholder="Carrier" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  <input name="trackingNumber" required placeholder="Tracking number" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  <input name="expectedDeliveryAt" type="date" className="rounded-xl border border-slate-200 px-3 py-2 text-sm" />
-                  <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Mark shipped</button>
-                </form>
+                <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50 p-4">
+                  {order.logisticsShipment ? (
+                    <>
+                      <p className="text-sm font-semibold text-blue-950">
+                        Shipment {order.logisticsShipment.shipmentNumber} configured · {order.logisticsShipment.currencyCode} {Number(order.logisticsShipment.freightCost ?? 0).toLocaleString()}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-3">
+                        <Link href="/app/logistics" className="rounded-xl border border-blue-200 bg-white px-4 py-3 text-sm font-black text-blue-700">Review logistics</Link>
+                        <form action={shipMarketplaceSellerOrderAction}>
+                          <input type="hidden" name="orderId" value={order.id} />
+                          <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Mark shipped using logistics</button>
+                        </form>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-sm font-semibold text-blue-950">Shipment configuration is required before this order can be marked shipped.</p>
+                      <Link href="/app/logistics" className="mt-3 inline-flex rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Configure shipment in Logistics</Link>
+                    </>
+                  )}
+                </div>
               ) : null}
 
               {order.status === "SHIPPED" ? (
                 <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm">
                   <p><strong>Carrier:</strong> {order.carrier}</p>
                   <p className="mt-1"><strong>Tracking:</strong> {order.trackingNumber}</p>
-                  <form
-                    action={generateMarketplaceSupplierInvoiceAction}
-                    className="mt-4"
-                  >
-                    <input type="hidden" name="orderId" value={order.id} />
-                    <button className="rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">
-                      Generate invoice from received order
-                    </button>
-                    <p className="mt-2 text-xs text-slate-500">
-                      Enorsis will generate the invoice only after the buyer has fully received and accepted the shipment.
-                    </p>
-                  </form>
+                  {order.logisticsShipment ? (
+                    <p className="mt-2"><strong>Freight:</strong> {order.logisticsShipment.currencyCode} {Number(order.logisticsShipment.freightCost ?? 0).toLocaleString()}</p>
+                  ) : null}
+
+                  {!order.generatedInvoice ? (
+                    <form action={generateMarketplaceSupplierInvoiceAction} className="mt-4">
+                      <input type="hidden" name="orderId" value={order.id} />
+                      <button className="rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">Generate draft invoice</button>
+                      <p className="mt-2 text-xs text-slate-500">The invoice is generated as a draft. It is not sent to the buyer until you review and submit it.</p>
+                    </form>
+                  ) : (
+                    <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
+                      <p className="text-sm font-black">{order.generatedInvoice.invoiceNumber} · {order.generatedInvoice.status}</p>
+                      <div className="mt-3 flex flex-wrap gap-3">
+                        {order.generatedInvoice.pdfBlobPathname ? (
+                          <Link href={`/api/invoices/${order.generatedInvoice.id}/pdf`} target="_blank" className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-black text-blue-700">Preview PDF invoice</Link>
+                        ) : null}
+                        {order.generatedInvoice.status === "DRAFT" ? (
+                          <form action={submitMarketplaceSupplierInvoiceAction}>
+                            <input type="hidden" name="invoiceId" value={order.generatedInvoice.id} />
+                            <button className="rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-black text-white">Submit invoice to buyer</button>
+                          </form>
+                        ) : null}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : null}
             </article>
