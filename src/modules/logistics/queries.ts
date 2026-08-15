@@ -6,7 +6,34 @@ export async function getLogisticsWorkspace() {
   const session = await auth();
   if (!session?.user) redirect("/login");
 
+  const allowedRoles = new Set([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "PROCUREMENT_MANAGER",
+    "BUYER",
+    "SUPPLIER_MANAGER",
+    "LOGISTICS_MONITOR",
+    "PLATFORM_SUPER_ADMIN",
+    "PLATFORM_SUPPORT",
+  ]);
+
+  if (
+    !session.user.roles.some((role) =>
+      allowedRoles.has(role),
+    )
+  ) {
+    redirect("/app/unauthorized");
+  }
+
   const tenantId = session.user.tenantId;
+
+  const tenant = await prisma.tenant.findUnique({
+    where: { id: tenantId },
+    select: { commercialPersona: true },
+  });
+
+  const buyerOnlyView =
+    tenant?.commercialPersona === "BUYER";
   const [carriers, shipments, suppliers, marketplaceOrders] =
     await Promise.all([
     prisma.logisticsCarrier.findMany({
@@ -30,10 +57,17 @@ export async function getLogisticsWorkspace() {
       orderBy: { legalName: "asc" },
     }),
     prisma.marketplaceSellerOrder.findMany({
-      where: {
-        sellerTenantId: tenantId,
-        status: "ACCEPTED",
-      },
+      where: buyerOnlyView
+        ? {
+            buyerTenantId: tenantId,
+            status: {
+              in: ["ACCEPTED", "SHIPPED", "DELIVERED"],
+            },
+          }
+        : {
+            sellerTenantId: tenantId,
+            status: "ACCEPTED",
+          },
       select: {
         id: true,
         orderNumber: true,
@@ -75,6 +109,7 @@ export async function getLogisticsWorkspace() {
   const now = new Date();
 
   return {
+    buyerOnlyView,
     carriers,
     shipments,
     suppliers,

@@ -6,6 +6,24 @@ export async function getWarehouseOperationsWorkspace() {
   const session = await auth();
   if (!session?.user) redirect("/login");
 
+  const allowedRoles = new Set([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "PROCUREMENT_MANAGER",
+    "BUYER",
+    "WAREHOUSE_OPERATOR",
+    "PLATFORM_SUPER_ADMIN",
+    "PLATFORM_SUPPORT",
+  ]);
+
+  if (
+    !session.user.roles.some((role) =>
+      allowedRoles.has(role),
+    )
+  ) {
+    redirect("/app/unauthorized");
+  }
+
   const tenantId = session.user.tenantId;
 
   const [sessions, locations, tasks, discrepancies, marketplaceOrders] =

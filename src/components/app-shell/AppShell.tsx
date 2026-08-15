@@ -63,7 +63,13 @@ const navigation = [
     href: "/app/warehouse-operations",
     label: "Inventory & receiving",
     icon: Boxes,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
+    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "WAREHOUSE_OPERATOR", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
+  },
+  {
+    href: "/app/logistics",
+    label: "Shipping monitor",
+    icon: Globe2,
+    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "LOGISTICS_MONITOR", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
   },
   {
     href: "/app/purchasing/invoices",

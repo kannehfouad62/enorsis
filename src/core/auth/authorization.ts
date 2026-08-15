@@ -17,6 +17,8 @@ export type EnorsisRole =
   | "LEGAL"
   | "RISK_COMPLIANCE"
   | "SUPPLIER_MANAGER"
+  | "WAREHOUSE_OPERATOR"
+  | "LOGISTICS_MONITOR"
   | "AUDITOR"
   | "VIEWER";
 
