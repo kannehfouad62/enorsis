@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { requireAnyRole } from "@/core/auth/authorization";
 import {
   approvePaymentReadiness,
@@ -52,13 +53,50 @@ export async function releasePaymentHoldAction(data: FormData) {
   revalidatePath("/app/requisition-to-order/payment-readiness");
 }
 
-export async function approvePaymentReadinessAction(data: FormData) {
+export async function approvePaymentReadinessAction(
+  data: FormData,
+) {
   const user = await requireAnyRole([...roles]);
-  await approvePaymentReadiness({
-    readinessCaseId: field(data, "readinessCaseId"),
-    actorUserId: user.id,
-  });
-  revalidatePath("/app/requisition-to-order/payment-readiness");
+  const readinessCaseId = field(
+    data,
+    "readinessCaseId",
+  );
+
+  let errorMessage: string | null = null;
+
+  try {
+    await approvePaymentReadiness({
+      readinessCaseId,
+      actorUserId: user.id,
+    });
+
+    revalidatePath(
+      "/app/requisition-to-order/payment-readiness",
+    );
+  } catch (error) {
+    console.error("Payment readiness approval failed", {
+      readinessCaseId,
+      actorUserId: user.id,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Payment readiness approval failed.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      `/app/requisition-to-order/payment-readiness?approvalError=${encodeURIComponent(
+        errorMessage,
+      )}`,
+    );
+  }
+
+  redirect(
+    "/app/requisition-to-order/payment-readiness?approved=1",
+  );
 }
 
 export async function assignPaymentBatchAction(data: FormData) {

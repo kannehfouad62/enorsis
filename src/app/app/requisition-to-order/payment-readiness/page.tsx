@@ -11,8 +11,16 @@ import { getPaymentReadinessWorkspace } from "@/modules/requisition-to-order/pay
 const input = "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
 const card = "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
 
-export default async function PaymentReadinessPage() {
+export default async function PaymentReadinessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    approvalError?: string;
+    approved?: string;
+  }>;
+}) {
   const data = await getPaymentReadinessWorkspace();
+  const params = await searchParams;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -21,6 +29,18 @@ export default async function PaymentReadinessPage() {
         <h1 className="mt-3 text-4xl font-black">Accounts Payable & Payment Readiness</h1>
         <Link href="/app/requisition-to-order/banking-verification" className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Supplier banking verification</Link>
       </div>
+
+      {params.approvalError ? (
+        <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-900">
+          {params.approvalError}
+        </div>
+      ) : null}
+
+      {params.approved === "1" ? (
+        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">
+          Payment readiness approved successfully.
+        </div>
+      ) : null}
 
       <section className={`${card} mt-8`}>
         <h2 className="text-xl font-black">Assess invoice readiness</h2>
@@ -88,7 +108,15 @@ export default async function PaymentReadinessPage() {
                 </div>
               </div>
 
-              {readinessCase.status === "READY" ? (
+              {readinessCase.status === "READY" &&
+              !readinessCase.holds.some(
+                (hold) => hold.status === "ACTIVE",
+              ) &&
+              !readinessCase.checks.some(
+                (check) =>
+                  check.releaseBlocking &&
+                  check.status === "FAIL",
+              ) ? (
                 <form action={approvePaymentReadinessAction} className="mt-5">
                   <input type="hidden" name="readinessCaseId" value={readinessCase.id} />
                   <button className="rounded-xl bg-blue-700 px-4 py-2 text-sm font-black text-white">Approve readiness</button>

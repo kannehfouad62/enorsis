@@ -148,36 +148,104 @@ export async function releasePaymentHold(input: {
     },
   });
 
-  const activeHolds = await prisma.apPaymentHold.count({
-    where: { readinessCaseId: hold.readinessCaseId, status: "ACTIVE" },
+  const [activeHolds, blockingFailures] = await Promise.all([
+    prisma.apPaymentHold.count({
+      where: {
+        readinessCaseId: hold.readinessCaseId,
+        status: "ACTIVE",
+      },
+    }),
+    prisma.apPaymentReadinessCheck.count({
+      where: {
+        readinessCaseId: hold.readinessCaseId,
+        status: "FAIL",
+        releaseBlocking: true,
+      },
+    }),
+  ]);
+
+  await prisma.apPaymentReadinessCase.update({
+    where: { id: hold.readinessCaseId },
+    data: {
+      status:
+        activeHolds === 0 && blockingFailures === 0
+          ? "READY"
+          : "BLOCKED",
+    },
   });
 
-  if (activeHolds === 0) {
-    await prisma.apPaymentReadinessCase.update({
-      where: { id: hold.readinessCaseId },
-      data: { status: "READY" },
+  return updated;
+}
+
+export async function reconcilePaymentReadinessCase(
+  readinessCaseId: string,
+) {
+  const readinessCase =
+    await prisma.apPaymentReadinessCase.findUniqueOrThrow({
+      where: { id: readinessCaseId },
+      include: { holds: true, checks: true },
+    });
+
+  const activeHolds = readinessCase.holds.some(
+    (hold) => hold.status === "ACTIVE",
+  );
+  const blockingFailure = readinessCase.checks.some(
+    (check) =>
+      check.status === "FAIL" && check.releaseBlocking,
+  );
+
+  const nextStatus =
+    activeHolds || blockingFailure ? "BLOCKED" : "READY";
+
+  if (
+    readinessCase.status !== "APPROVED" &&
+    readinessCase.status !== "BATCHED" &&
+    readinessCase.status !== nextStatus
+  ) {
+    return prisma.apPaymentReadinessCase.update({
+      where: { id: readinessCaseId },
+      data: { status: nextStatus },
+      include: { holds: true, checks: true },
     });
   }
 
-  return updated;
+  return readinessCase;
 }
 
 export async function approvePaymentReadiness(input: {
   readinessCaseId: string;
   actorUserId: string;
 }) {
-  const readinessCase = await prisma.apPaymentReadinessCase.findUniqueOrThrow({
-    where: { id: input.readinessCaseId },
-    include: { holds: true, checks: true },
-  });
+  const readinessCase =
+    await reconcilePaymentReadinessCase(
+      input.readinessCaseId,
+    );
 
-  const activeHolds = readinessCase.holds.some((hold) => hold.status === "ACTIVE");
+  const activeHolds = readinessCase.holds.some(
+    (hold) => hold.status === "ACTIVE",
+  );
   const blockingFailure = readinessCase.checks.some(
-    (check) => check.status === "FAIL" && check.releaseBlocking,
+    (check) =>
+      check.status === "FAIL" && check.releaseBlocking,
   );
 
-  if (readinessCase.status !== "READY" || activeHolds || blockingFailure) {
-    throw new Error("Payment readiness is still blocked.");
+  if (
+    readinessCase.status !== "READY" ||
+    activeHolds ||
+    blockingFailure
+  ) {
+    const reasons = [
+      activeHolds ? "one or more payment holds are active" : null,
+      blockingFailure
+        ? "one or more release-blocking readiness checks still fail"
+        : null,
+    ].filter(Boolean);
+
+    throw new Error(
+      `Payment readiness is still blocked: ${reasons.join(
+        "; ",
+      )}.`,
+    );
   }
 
   return prisma.apPaymentReadinessCase.update({
