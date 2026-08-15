@@ -119,7 +119,16 @@ export async function queueWorkflowTaskNotifications(taskId: string) {
     });
   }
 
-  return { recipients: recipients.length };
+  // Approval/task assignment emails should not wait for a
+  // separate cron invocation. Process the outbox immediately;
+  // failures remain retryable through the shared processor.
+  const delivery =
+    await processWorkflowNotificationOutbox(100);
+
+  return {
+    recipients: recipients.length,
+    delivery,
+  };
 }
 
 export async function queueWorkflowReminderNotifications() {

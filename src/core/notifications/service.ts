@@ -12,37 +12,63 @@ export async function createEnterpriseNotification(
       ? input.channels
       : (["IN_APP"] as const);
 
-  return prisma.$transaction(async (tx) => {
-    const notification = await tx.enterpriseNotification.create({
-      data: {
-        tenantId: input.tenantId,
-        templateId: input.templateId ?? null,
-        eventId: input.eventId ?? null,
-        eventType: input.eventType,
-        recipientUserId: input.recipientUserId ?? null,
-        recipientAddress: input.recipientAddress ?? null,
-        title: input.title,
-        message: input.message,
-        actionUrl: input.actionUrl ?? null,
-        priority: input.priority ?? "NORMAL",
-        data: toJson(input.data ?? {}),
-        correlationId: input.correlationId ?? null,
-      },
-    });
+  const notification = await prisma.$transaction(
+    async (tx) => {
+      const created =
+        await tx.enterpriseNotification.create({
+          data: {
+            tenantId: input.tenantId,
+            templateId: input.templateId ?? null,
+            eventId: input.eventId ?? null,
+            eventType: input.eventType,
+            recipientUserId:
+              input.recipientUserId ?? null,
+            recipientAddress:
+              input.recipientAddress ?? null,
+            title: input.title,
+            message: input.message,
+            actionUrl: input.actionUrl ?? null,
+            priority: input.priority ?? "NORMAL",
+            data: toJson(input.data ?? {}),
+            correlationId:
+              input.correlationId ?? null,
+          },
+        });
 
-    await tx.enterpriseNotificationDelivery.createMany({
-      data: channels.map((channel) => ({
+      await tx.enterpriseNotificationDelivery.createMany({
+        data: channels.map((channel) => ({
+          notificationId: created.id,
+          channel,
+          destination:
+            channel === "EMAIL"
+              ? input.recipientAddress ?? null
+              : input.recipientUserId ?? null,
+        })),
+      });
+
+      return created;
+    },
+  );
+
+  // Immediate delivery is best-effort. The delivery engine
+  // persists provider errors and schedules retries without
+  // rolling back the business action that created the notification.
+  try {
+    await deliverEnterpriseNotificationNow(
+      notification.id,
+    );
+  } catch (error) {
+    console.error(
+      "Immediate enterprise notification delivery failed",
+      {
         notificationId: notification.id,
-        channel,
-        destination:
-          channel === "EMAIL"
-            ? input.recipientAddress ?? null
-            : input.recipientUserId ?? null,
-      })),
-    });
+        eventType: notification.eventType,
+        error,
+      },
+    );
+  }
 
-    return notification;
-  });
+  return notification;
 }
 
 export async function processPendingNotificationDeliveries({
@@ -327,12 +353,7 @@ export async function deliverEnterpriseNotificationNow(
 export async function createAndDeliverEnterpriseNotification(
   input: CreateNotificationInput,
 ) {
-  const notification =
-    await createEnterpriseNotification(input);
-
-  await deliverEnterpriseNotificationNow(
-    notification.id,
-  );
-
-  return notification;
+  // createEnterpriseNotification now performs immediate
+  // best-effort dispatch itself and preserves retry semantics.
+  return createEnterpriseNotification(input);
 }
