@@ -611,42 +611,23 @@ export async function shipMarketplaceSellerOrderAction(data: FormData) {
   if (order.status !== "ACCEPTED") {
     throw new Error("The supplier must accept the order before recording shipment.");
   }
-  if (!order.purchaseOrderExecutionId) {
-    throw new Error("This order is missing its governed purchase-order execution link.");
-  }
 
-  const shipment = await prisma.logisticsShipment.findFirst({
-    where: {
-      tenantId: user.tenantId,
-      purchaseOrderId: order.purchaseOrderExecutionId,
+  const carrier = field(data, "carrier");
+  const trackingNumber = field(data, "trackingNumber");
+  const expectedDeliveryAt = field(data, "expectedDeliveryAt");
+  if (!carrier || !trackingNumber) throw new Error("Carrier and tracking number are required.");
+
+  await prisma.marketplaceSellerOrder.update({
+    where: { id: order.id },
+    data: {
+      status: "SHIPPED",
+      carrier,
+      trackingNumber,
+      expectedDeliveryAt: expectedDeliveryAt ? new Date(expectedDeliveryAt) : null,
+      shippedByUserId: user.id,
+      shippedAt: new Date(),
     },
-    include: { carrier: true },
   });
-
-  if (!shipment) {
-    throw new Error("Configure this marketplace order in Logistics before marking it shipped.");
-  }
-  if (!shipment.carrier || !shipment.trackingNumber || shipment.freightCost == null) {
-    throw new Error("Carrier, tracking number and freight cost must be completed in Logistics before shipment.");
-  }
-
-  await prisma.$transaction([
-    prisma.marketplaceSellerOrder.update({
-      where: { id: order.id },
-      data: {
-        status: "SHIPPED",
-        carrier: shipment.carrier.name,
-        trackingNumber: shipment.trackingNumber,
-        expectedDeliveryAt: shipment.estimatedDeliveryAt,
-        shippedByUserId: user.id,
-        shippedAt: new Date(),
-      },
-    }),
-    prisma.logisticsShipment.update({
-      where: { id: shipment.id },
-      data: { status: "IN_TRANSIT", pickupAt: shipment.pickupAt ?? new Date() },
-    }),
-  ]);
 
   if (order.buyerRequesterUserId) {
     await notifyUser({
@@ -654,7 +635,7 @@ export async function shipMarketplaceSellerOrderAction(data: FormData) {
       userId: order.buyerRequesterUserId,
       eventType: "MarketplaceOrder.Shipped",
       title: "Marketplace order shipped",
-      message: `${order.orderNumber ?? "Your order"} shipped via ${shipment.carrier.name}. Tracking: ${shipment.trackingNumber}.`,
+      message: `${order.orderNumber ?? "Your order"} shipped via ${carrier}. Tracking: ${trackingNumber}.`,
       actionUrl: "/app/requisition-to-order/receipts",
       priority: "HIGH",
     });
@@ -664,10 +645,9 @@ export async function shipMarketplaceSellerOrderAction(data: FormData) {
     buyerTenantId: order.buyerTenantId,
     eventType: "MarketplaceOrder.InboundShipment",
     title: "Marketplace shipment inbound",
-    message: `${order.orderNumber ?? "Marketplace order"} shipped via ${shipment.carrier.name}. Tracking: ${shipment.trackingNumber}. Freight: ${shipment.currencyCode} ${Number(shipment.freightCost).toLocaleString()}.`,
+    message:
+      `${order.orderNumber ?? "Marketplace order"} shipped via ${carrier}. Tracking: ${trackingNumber}. Receive the accepted product lines in Warehouse Operations when physically delivered.`,
     actionUrl: "/app/warehouse-operations",
   });
-
   revalidatePath("/app/marketplace/orders");
-  revalidatePath("/app/logistics");
 }

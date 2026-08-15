@@ -37,62 +37,66 @@ export default async function LogisticsPage() {
       </div>
 
       <section className={`${card} mt-6`}>
-        <h2 className="text-xl font-black">Marketplace orders awaiting shipment setup</h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Accepted marketplace orders arrive here automatically. Configure the shipment once;
-          Marketplace Orders and invoice generation will reuse the same carrier, tracking and freight data.
-        </p>
-        <div className="mt-5 space-y-4">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[.14em] text-blue-700">
+              Marketplace linkage
+            </p>
+            <h2 className="mt-2 text-xl font-black">
+              Accepted marketplace orders
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              Stage 1 is read-only. Accepted supplier marketplace orders
+              appear here automatically so Logistics can see the governed
+              purchase context before shipment configuration is enabled.
+            </p>
+          </div>
+          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
+            READ-ONLY LINKAGE
+          </span>
+        </div>
+
+        <div className="mt-5 space-y-3">
           {data.marketplaceOrders.map((order) => (
-            <article key={order.id} className="rounded-2xl bg-slate-50 p-5">
+            <article
+              key={order.id}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+            >
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-black uppercase text-blue-700">{order.orderNumber ?? "Marketplace order"}</p>
-                  <h3 className="mt-2 font-black">{order.buyerTenantName ?? "Marketplace buyer"}</h3>
+                  <p className="text-xs font-black uppercase text-slate-500">
+                    {order.orderNumber ?? "Order preparing"}
+                  </p>
+                  <h3 className="mt-2 font-black">
+                    {order.buyerTenantName ?? "Marketplace buyer"}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-500">
+                    Governed PO execution:{" "}
+                    {order.purchaseOrderExecutionId ?? "Not linked yet"}
+                  </p>
                 </div>
-                <span className="rounded-full bg-white px-3 py-1 text-xs font-black text-slate-700">
-                  {order.logisticsShipment ? "SHIPMENT CONFIGURED" : "SETUP REQUIRED"}
-                </span>
-              </div>
 
-              {order.logisticsShipment ? (
-                <div className="mt-4 grid gap-2 text-sm md:grid-cols-3">
-                  <p><strong>Shipment:</strong> {order.logisticsShipment.shipmentNumber}</p>
-                  <p><strong>Tracking:</strong> {order.logisticsShipment.trackingNumber ?? "Pending"}</p>
-                  <p><strong>Freight:</strong> {order.logisticsShipment.currencyCode} {Number(order.logisticsShipment.freightCost ?? 0).toLocaleString()}</p>
+                <div className="text-right">
+                  <p className="text-sm font-black">
+                    {order.currencyCode}{" "}
+                    {Number(order.totalAmount).toLocaleString()}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    Accepted{" "}
+                    {order.acceptedAt
+                      ? order.acceptedAt.toLocaleString()
+                      : "recently"}
+                  </p>
                 </div>
-              ) : (
-                <form action={createShipmentAction} className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-                  <input type="hidden" name="marketplaceOrderId" value={order.id} />
-                  <select className={input} name="carrierId" required>
-                    <option value="">Select carrier</option>
-                    {data.carriers.map((carrier) => (
-                      <option key={carrier.id} value={carrier.id}>{carrier.name}</option>
-                    ))}
-                  </select>
-                  <select className={input} name="mode">
-                    <option>ROAD</option><option>AIR</option><option>OCEAN</option>
-                    <option>RAIL</option><option>COURIER</option><option>MULTIMODAL</option>
-                  </select>
-                  <input className={input} name="origin" placeholder="Origin" required />
-                  <input className={input} name="destination" placeholder="Destination" required />
-                  <input className={input} name="trackingNumber" placeholder="Tracking number" required />
-                  <input className={input} name="incoterm" placeholder="Incoterm" />
-                  <input className={input} name="pickupAt" type="datetime-local" />
-                  <input className={input} name="estimatedDeliveryAt" type="datetime-local" />
-                  <input className={input} name="freightCost" type="number" step="0.01" min="0" placeholder="Freight / shipping cost" required />
-                  <input className={input} name="currencyCode" defaultValue={order.currencyCode} required />
-                  <input className={input} name="weight" type="number" step="0.0001" placeholder="Weight" />
-                  <input className={input} name="weightUnit" placeholder="Weight unit" />
-                  <input className={input} name="packageCount" type="number" min="0" defaultValue="0" />
-                  <input className={input} name="delayRiskPercent" type="number" min="0" max="100" defaultValue="0" />
-                  <button className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white">Save marketplace shipment</button>
-                </form>
-              )}
+              </div>
             </article>
           ))}
+
           {data.marketplaceOrders.length === 0 ? (
-            <p className="text-sm text-slate-500">No accepted marketplace orders are waiting for shipment setup.</p>
+            <div className="rounded-2xl bg-slate-50 p-5 text-sm text-slate-500">
+              No accepted marketplace orders are currently awaiting
+              logistics planning.
+            </div>
           ) : null}
         </div>
       </section>
