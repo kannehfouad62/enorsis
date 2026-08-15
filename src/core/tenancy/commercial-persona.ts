@@ -16,6 +16,7 @@ const supplierAllowedPrefixes = [
   "/app/notifications",
   "/app/marketplace/catalog",
   "/app/marketplace/trust",
+  "/app/marketplace/invoices",
   "/app/supplier-portal",
   "/app/logistics",
   "/app/claims",

@@ -8,6 +8,7 @@ import {
   issueTenantUserActivationInvitation,
 } from "@/core/tenant-user-activation/service";
 import { inviteMemberSchema, updateMembershipSchema } from "./schemas";
+import { assertRolesAllowedForPersona } from "./role-policy";
 
 async function requireAccessAdministrator() {
   const session = await auth();
@@ -20,10 +21,16 @@ async function requireAccessAdministrator() {
     throw new Error("Access administrator permission is required.");
   }
 
+  const tenant = await prisma.tenant.findUniqueOrThrow({
+    where: { id: session.user.tenantId },
+    select: { commercialPersona: true },
+  });
+
   return {
     id: session.user.id,
     email: session.user.email,
     tenantId: session.user.tenantId,
+    commercialPersona: tenant.commercialPersona,
   };
 }
 
@@ -72,6 +79,7 @@ export async function inviteMemberAction(formData: FormData) {
     ),
   });
 
+  assertRolesAllowedForPersona(actor.commercialPersona, input.roles);
   assertSegregationOfDuties(input.roles);
 
   const existingUser = await prisma.user.findUnique({
@@ -212,6 +220,7 @@ export async function updateMembershipAction(formData: FormData) {
     departmentScopeIds: values(formData, "departmentScopeIds"),
   });
 
+  assertRolesAllowedForPersona(actor.commercialPersona, input.roles);
   assertSegregationOfDuties(input.roles);
 
   const existing = await prisma.membership.findFirstOrThrow({

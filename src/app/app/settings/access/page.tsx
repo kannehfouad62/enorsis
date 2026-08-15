@@ -5,7 +5,7 @@ import {
   resetAndResendMemberActivationAction,
   updateMembershipAction,
 } from "@/modules/access/actions";
-import { assignableRoles } from "@/modules/access/schemas";
+import { getAssignableRolesForPersona } from "@/modules/access/role-policy";
 import { getAccessAdministrationWorkspace } from "@/modules/access/queries";
 
 const inputClass =
@@ -14,6 +14,7 @@ const cardClass = "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
 
 export default async function AccessAdministrationPage() {
   const { tenant } = await getAccessAdministrationWorkspace();
+  const visibleRoles = getAssignableRolesForPersona(tenant.commercialPersona);
   const active = tenant.memberships.filter((item) => item.status === "ACTIVE").length;
   const pending = tenant.memberships.filter((item) => item.status === "INVITED").length;
 
@@ -22,7 +23,7 @@ export default async function AccessAdministrationPage() {
       <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">Identity and access</p>
       <h1 className="mt-3 text-4xl font-black tracking-tight">Enterprise access administration</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-        Govern who can request, source, approve, contract and audit procurement activity across the organization. New users receive a secure single-use activation email and create their own password.
+        Govern access using roles appropriate to this tenant&apos;s commercial persona. Supplier tenants only see supplier, finance, legal, risk, audit and administrative roles; buyer procurement roles remain unavailable. New users receive a secure single-use activation email and create their own password.
       </p>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-3">
@@ -45,7 +46,7 @@ export default async function AccessAdministrationPage() {
           <div className="md:col-span-2 xl:col-span-4">
             <p className="text-sm font-bold text-slate-700">Roles</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {assignableRoles.map((role) => (
+              {visibleRoles.map((role) => (
                 <label key={role} className="rounded-full border border-slate-200 px-3 py-2 text-xs font-bold">
                   <input className="mr-2" type="checkbox" name="roles" value={role} />
                   {role.replaceAll("_", " ")}
@@ -87,7 +88,7 @@ export default async function AccessAdministrationPage() {
               <div className="flex items-end"><button className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white" type="submit">Save access</button></div>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
-              {assignableRoles.map((role) => (
+              {visibleRoles.map((role) => (
                 <label key={role} className="rounded-full border border-slate-200 px-3 py-2 text-xs font-bold">
                   <input className="mr-2" type="checkbox" name="roles" value={role} defaultChecked={membership.roles.includes(role)} />
                   {role.replaceAll("_", " ")}

@@ -53,6 +53,13 @@ const navigation = [
     sellerOnly: true,
   },
   {
+    href: "/app/marketplace/invoices",
+    label: "Supplier finance",
+    icon: CircleDollarSign,
+    roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "FINANCE"],
+    sellerOnly: true,
+  },
+  {
     href: "/app/warehouse-operations",
     label: "Inventory & receiving",
     icon: Boxes,
