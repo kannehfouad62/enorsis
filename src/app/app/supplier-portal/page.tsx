@@ -218,10 +218,10 @@ export default async function SupplierPortalPage() {
             )}
           </div>
           <Link
-            href="/app/marketplace/trust"
+            href="/app/supplier-portal/documents"
             className="mt-6 inline-flex text-sm font-black text-blue-700"
           >
-            Review trust & verification →
+            Manage qualification documents →
           </Link>
         </section>
       </div>
