@@ -4,6 +4,7 @@ import {
   Building2,
   Globe2,
   Mail,
+  CheckCircle2,
   BadgeCheck,
   MapPin,
   Phone,
@@ -17,7 +18,14 @@ import { getMarketplaceSellerProfile } from "@/modules/marketplace-seller-profil
 const input =
   "w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-950";
 
-export default async function MarketplaceSellerProfilePage() {
+export default async function MarketplaceSellerProfilePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ saved?: string }>;
+}) {
+  const params = await searchParams;
+  const saved = params.saved === "1";
+
   const data =
     await getMarketplaceSellerProfile();
 
@@ -48,6 +56,21 @@ export default async function MarketplaceSellerProfilePage() {
           Back to marketplace
         </Link>
       </div>
+
+      {saved ? (
+        <div
+          role="status"
+          className="mt-6 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-emerald-900 shadow-sm"
+        >
+          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
+          <div>
+            <p className="font-black">Profile saved successfully</p>
+            <p className="mt-1 text-sm">
+              Your company, tax and capability information has been updated.
+            </p>
+          </div>
+        </div>
+      ) : null}
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[360px_1fr]">
         <div className="space-y-6">

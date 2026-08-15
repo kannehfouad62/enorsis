@@ -168,4 +168,7 @@ export async function updateMarketplaceSellerProfileAction(
   );
   revalidatePath("/app/marketplace/catalog");
   revalidatePath("/app/supplier-portal");
+  redirect(
+    "/app/marketplace/seller-profile?saved=1",
+  );
 }
