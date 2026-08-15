@@ -78,6 +78,12 @@ const navigation = [
     roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "FINANCE", "ACCOUNTS_PAYABLE", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
   },
   {
+    href: "/app/requisition-to-order/payments",
+    label: "Payment operations",
+    icon: CircleDollarSign,
+    roles: ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE", "ACCOUNTS_PAYABLE", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
+  },
+  {
     href: "/app/requisition-to-order/receipts",
     label: "Goods receipts",
     icon: FileCheck2,
