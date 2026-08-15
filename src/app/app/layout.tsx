@@ -31,6 +31,8 @@ export default async function ProductLayout({
     id: session.user.id,
     tenantId: session.user.tenantId,
     roles: session.user.roles,
+    commercialPersona:
+      tenant?.commercialPersona ?? "BUYER",
   });
 
   return (

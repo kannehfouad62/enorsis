@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   BadgeCheck,
+  Bell,
   Building2,
   Boxes,
   FileText,
@@ -11,6 +12,13 @@ import {
 } from "lucide-react";
 
 const workspaces = [
+  {
+    title: "Notifications",
+    description:
+      "Review unread Enorsis alerts and open the related supplier workspace.",
+    href: "/app/notifications",
+    icon: Bell,
+  },
   {
     title: "Seller Business Profile",
     description:
@@ -78,8 +86,10 @@ const workspaces = [
 
 export function SupplierCommandCenter({
   tenantName,
+  actionCounts = {},
 }: {
   tenantName: string;
+  actionCounts?: Record<string, number>;
 }) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 xl:px-10">
@@ -96,15 +106,34 @@ export function SupplierCommandCenter({
       </p>
 
       <section className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {workspaces.map(({ title, description, href, icon: Icon }) => (
+        {workspaces.map(({ title, description, href, icon: Icon }) => {
+          const actionCount = Object.entries(actionCounts)
+            .filter(
+              ([actionHref]) =>
+                actionHref === href ||
+                actionHref.startsWith(`${href}/`),
+            )
+            .reduce((sum, [, count]) => sum + count, 0);
+
+          return (
           <Link
             key={href}
             href={href}
             className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
           >
-            <span className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-blue-700">
-              <Icon className="h-5 w-5" />
-            </span>
+            <div className="flex items-start justify-between gap-3">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-blue-700">
+                <Icon className="h-5 w-5" />
+              </span>
+              {actionCount > 0 ? (
+                <span
+                  className="inline-flex min-w-7 items-center justify-center rounded-full bg-rose-500 px-2 py-1 text-xs font-black text-white"
+                  title={`${actionCount} item${actionCount === 1 ? "" : "s"} requiring attention`}
+                >
+                  {actionCount > 99 ? "99+" : actionCount}
+                </span>
+              ) : null}
+            </div>
             <h2 className="mt-5 text-lg font-black">{title}</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               {description}
@@ -113,7 +142,8 @@ export function SupplierCommandCenter({
               Open workspace →
             </p>
           </Link>
-        ))}
+          );
+        })}
       </section>
 
       <section className="mt-8 rounded-3xl bg-slate-950 p-6 text-white">

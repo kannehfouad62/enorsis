@@ -1,10 +1,15 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
+import { prisma } from "@/lib/prisma";
 import {
   getAccessibleModules,
   moduleRegistryGroups,
 } from "@/core/modules";
+import {
+  getActionCountForHref,
+  getSidebarActionCountsForUser,
+} from "@/modules/navigation/sidebar-action-counts";
 
 export default async function EnterpriseModulesPage() {
   const session = await auth();
@@ -13,6 +18,23 @@ export default async function EnterpriseModulesPage() {
   const modules = await getAccessibleModules({
     tenantId: session.user.tenantId,
     userRoles: session.user.roles,
+  });
+
+  const tenant = await prisma.tenant.findUnique({
+    where: {
+      id: session.user.tenantId,
+    },
+    select: {
+      commercialPersona: true,
+    },
+  });
+
+  const actionCounts = await getSidebarActionCountsForUser({
+    id: session.user.id,
+    tenantId: session.user.tenantId,
+    roles: session.user.roles,
+    commercialPersona:
+      tenant?.commercialPersona ?? "BUYER",
   });
 
   return (
@@ -46,6 +68,10 @@ export default async function EnterpriseModulesPage() {
               <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                 {groupedModules.map((module) => {
                   const Icon = module.icon;
+                  const actionCount = getActionCountForHref(
+                    actionCounts,
+                    module.href,
+                  );
 
                   return (
                     <Link
@@ -57,9 +83,19 @@ export default async function EnterpriseModulesPage() {
                         <div className="rounded-2xl bg-blue-50 p-3 text-blue-700">
                           <Icon className="h-5 w-5" />
                         </div>
-                        <span className="text-sm font-black text-slate-400 transition group-hover:text-blue-700">
-                          Open →
-                        </span>
+                        <div className="flex items-center gap-2">
+                          {actionCount > 0 ? (
+                            <span
+                              className="inline-flex min-w-6 items-center justify-center rounded-full bg-rose-500 px-2 py-1 text-[11px] font-black text-white"
+                              title={`${actionCount} item${actionCount === 1 ? "" : "s"} requiring attention`}
+                            >
+                              {actionCount > 99 ? "99+" : actionCount}
+                            </span>
+                          ) : null}
+                          <span className="text-sm font-black text-slate-400 transition group-hover:text-blue-700">
+                            Open →
+                          </span>
+                        </div>
                       </div>
                       <h3 className="mt-5 text-lg font-black">{module.title}</h3>
                       <p className="mt-2 text-sm leading-6 text-slate-600">

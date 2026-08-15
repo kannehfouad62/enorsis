@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { SupplierCommandCenter } from "@/components/command-center/SupplierCommandCenter";
+import { getSidebarActionCountsForUser } from "@/modules/navigation/sidebar-action-counts";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -48,7 +49,19 @@ export default async function CommandCenterPage() {
   });
 
   if (tenant?.commercialPersona === "SUPPLIER") {
-    return <SupplierCommandCenter tenantName={tenant.name} />;
+    const actionCounts = await getSidebarActionCountsForUser({
+      id: session.user.id,
+      tenantId: session.user.tenantId,
+      roles: session.user.roles,
+      commercialPersona: tenant.commercialPersona,
+    });
+
+    return (
+      <SupplierCommandCenter
+        tenantName={tenant.name}
+        actionCounts={actionCounts}
+      />
+    );
   }
 
   return (
