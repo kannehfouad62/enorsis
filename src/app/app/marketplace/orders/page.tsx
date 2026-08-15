@@ -7,6 +7,7 @@ import {
 } from "@/modules/marketplace-commerce/actions";
 import {
   generateMarketplaceSupplierInvoiceAction,
+  submitMarketplaceSupplierInvoiceAction,
 } from "@/modules/marketplace-invoice-automation/actions";
 import { getMarketplaceSellerOrders } from "@/modules/marketplace-commerce/queries";
 
@@ -23,6 +24,7 @@ export default async function MarketplaceSellerOrdersPage({
 }: {
   searchParams: Promise<{
     invoiceGenerated?: string;
+    invoiceSubmitted?: string;
     invoiceError?: string;
   }>;
 }) {
@@ -39,9 +41,15 @@ export default async function MarketplaceSellerOrdersPage({
 
       {params.invoiceGenerated ? (
         <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">
-          Invoice {params.invoiceGenerated} was generated and submitted to the buyer.
+          Draft invoice {params.invoiceGenerated} was generated. Review the PDF before submitting it to the buyer.
         </div>
       ) : null}
+      {params.invoiceSubmitted ? (
+        <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-900">
+          Invoice {params.invoiceSubmitted} was submitted to the buyer.
+        </div>
+      ) : null}
+
 
       {params.invoiceError ? (
         <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-900">
@@ -165,18 +173,58 @@ export default async function MarketplaceSellerOrdersPage({
                       ).toLocaleString()}
                     </p>
                   ) : null}
-                  <form
-                    action={generateMarketplaceSupplierInvoiceAction}
-                    className="mt-4"
-                  >
-                    <input type="hidden" name="orderId" value={order.id} />
-                    <button className="rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">
-                      Generate invoice from received order
-                    </button>
-                    <p className="mt-2 text-xs text-slate-500">
-                      Enorsis will generate the invoice only after the buyer has fully received and accepted the shipment.
-                    </p>
-                  </form>
+                  {!order.generatedInvoice ? (
+                    <form
+                      action={generateMarketplaceSupplierInvoiceAction}
+                      className="mt-4"
+                    >
+                      <input type="hidden" name="orderId" value={order.id} />
+                      <button className="rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">
+                        Generate draft invoice
+                      </button>
+                      <p className="mt-2 text-xs text-slate-500">
+                        Enorsis uses the fully accepted receipt and linked
+                        Logistics freight cost. The buyer cannot see this
+                        draft until you explicitly submit it.
+                      </p>
+                    </form>
+                  ) : (
+                    <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4">
+                      <p className="text-sm font-black">
+                        {order.generatedInvoice.invoiceNumber} ·{" "}
+                        {order.generatedInvoice.status}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-3">
+                        {order.generatedInvoice.pdfBlobPathname ? (
+                          <a
+                            href={`/api/invoices/${order.generatedInvoice.id}/pdf`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-black text-blue-700"
+                          >
+                            Preview PDF invoice
+                          </a>
+                        ) : (
+                          <span className="rounded-xl bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-800">
+                            PDF generation pending
+                          </span>
+                        )}
+
+                        {order.generatedInvoice.status === "DRAFT" ? (
+                          <form action={submitMarketplaceSupplierInvoiceAction}>
+                            <input
+                              type="hidden"
+                              name="invoiceId"
+                              value={order.generatedInvoice.id}
+                            />
+                            <button className="rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-black text-white">
+                              Submit invoice to buyer
+                            </button>
+                          </form>
+                        ) : null}
+                      </div>
+                    </div>
+                  )}
                 </div>
               ) : null}
             </article>

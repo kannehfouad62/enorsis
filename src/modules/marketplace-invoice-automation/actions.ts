@@ -7,6 +7,7 @@ import { requireAnyRole } from "@/core/auth/authorization";
 import {
   acknowledgeAndAdvanceMarketplaceInvoice,
   generateMarketplaceInvoiceFromReceivedOrder,
+  submitMarketplaceInvoiceToBuyer,
 } from "@/core/finance-automation/marketplace-invoice-automation";
 
 const field = (data: FormData, key: string) =>
@@ -64,6 +65,57 @@ export async function generateMarketplaceSupplierInvoiceAction(
   redirect(
     `/app/marketplace/orders?invoiceGenerated=${encodeURIComponent(
       invoiceNumber,
+    )}`,
+  );
+}
+
+export async function submitMarketplaceSupplierInvoiceAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "SUPPLIER_MANAGER",
+  ]);
+
+  const invoiceId = field(data, "invoiceId");
+  let invoiceNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    const invoice = await submitMarketplaceInvoiceToBuyer({
+      invoiceId,
+      sellerTenantId: user.tenantId,
+      actorUserId: user.id,
+      actorEmail: user.email,
+    });
+
+    invoiceNumber = invoice.invoiceNumber;
+    revalidatePath("/app/marketplace/orders");
+  } catch (error) {
+    console.error("Marketplace invoice submission failed", {
+      invoiceId,
+      sellerTenantId: user.tenantId,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Invoice submission failed.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      `/app/marketplace/orders?invoiceError=${encodeURIComponent(
+        errorMessage,
+      )}`,
+    );
+  }
+
+  redirect(
+    `/app/marketplace/orders?invoiceSubmitted=${encodeURIComponent(
+      invoiceNumber ?? "Invoice",
     )}`,
   );
 }

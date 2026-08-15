@@ -330,7 +330,8 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
   });
   if (existing) return existing;
 
-  const [execution, request, seller, buyer] = await Promise.all([
+  const [execution, request, seller, buyer, shipment] =
+    await Promise.all([
     prisma.purchaseOrderExecution.findUniqueOrThrow({
       where: {
         id: order.purchaseOrderExecutionId,
@@ -368,6 +369,18 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
       },
       select: {
         name: true,
+      },
+    }),
+    prisma.logisticsShipment.findFirst({
+      where: {
+        tenantId: input.sellerTenantId,
+        purchaseOrderId: order.purchaseOrderExecutionId,
+      },
+      include: {
+        carrier: true,
+      },
+      orderBy: {
+        createdAt: "desc",
       },
     }),
   ]);
@@ -426,11 +439,30 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
     );
   }
 
+  if (!shipment) {
+    throw new Error(
+      "No Logistics shipment is linked to this marketplace order.",
+    );
+  }
+
+  if (shipment.freightCost == null) {
+    throw new Error(
+      "Complete the freight / shipping cost in Logistics before generating the invoice.",
+    );
+  }
+
+  if (shipment.currencyCode !== execution.currencyCode) {
+    throw new Error(
+      `Shipment currency ${shipment.currencyCode} does not match purchase-order currency ${execution.currencyCode}.`,
+    );
+  }
+
   const subtotal = Number(revision.subtotalAmount);
   const taxAmount = Number(execution.taxAmount);
-  const freightAmount = Number(execution.freightAmount);
+  const freightAmount = Number(shipment.freightCost);
   const discountAmount = Number(execution.discountAmount);
-  const totalAmount = Number(execution.totalAmount);
+  const totalAmount =
+    subtotal + taxAmount + freightAmount - discountAmount;
   const invoiceDate = new Date();
   const dueDate = new Date(
     invoiceDate.getTime() + 30 * 24 * 60 * 60 * 1000,
@@ -446,7 +478,7 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
       supplierId: order.buyerSupplierId,
       purchaseOrderId: null,
       invoiceNumber,
-      status: "SUBMITTED",
+      status: "DRAFT",
       matchStatus: "NOT_MATCHED",
       invoiceDate,
       dueDate,
@@ -462,7 +494,7 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
       sourceMarketplaceOrderId: order.id,
       sourcePurchaseOrderExecutionId: execution.id,
       generatedBySellerTenantId: input.sellerTenantId,
-      submittedAt: invoiceDate,
+      submittedAt: null,
       lines: {
         create: lines.map((line) => ({
           purchaseOrderLineId: null,
@@ -491,8 +523,10 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
       buyerName: buyer.name,
       orderNumber: execution.orderNumber,
       receiptNumber: receipt.receiptNumber,
-      carrier: order.carrier,
-      trackingNumber: order.trackingNumber,
+      carrier:
+        shipment.carrier?.name ?? order.carrier,
+      trackingNumber:
+        shipment.trackingNumber ?? order.trackingNumber,
       lines,
       subtotal,
       taxAmount,
@@ -548,24 +582,81 @@ export async function generateMarketplaceInvoiceFromReceivedOrder(
         receiptNumber: receipt.receiptNumber,
         freightAmount,
         totalAmount,
+        logisticsShipmentId: shipment.id,
+        shipmentNumber: shipment.shipmentNumber,
+        status: "DRAFT",
+      },
+    },
+  });
+return prisma.supplierInvoice.findUniqueOrThrow({
+    where: {
+      id: invoice.id,
+    },
+  });
+}
+
+export async function submitMarketplaceInvoiceToBuyer(
+  input: {
+    invoiceId: string;
+    sellerTenantId: string;
+    actorUserId: string;
+    actorEmail?: string | null;
+  },
+) {
+  const invoice = await prisma.supplierInvoice.findFirstOrThrow({
+    where: {
+      id: input.invoiceId,
+      generatedBySellerTenantId: input.sellerTenantId,
+    },
+  });
+
+  if (invoice.status !== "DRAFT") {
+    if (invoice.submittedAt) return invoice;
+    throw new Error("Only draft marketplace invoices can be submitted.");
+  }
+
+  if (!invoice.pdfBlobPathname) {
+    throw new Error(
+      "The draft PDF must be generated before submission.",
+    );
+  }
+
+  const submitted = await prisma.supplierInvoice.update({
+    where: { id: invoice.id },
+    data: {
+      status: "SUBMITTED",
+      submittedAt: new Date(),
+    },
+  });
+
+  await prisma.auditEvent.create({
+    data: {
+      tenantId: invoice.tenantId,
+      userId: input.actorUserId,
+      actorType: "USER",
+      actorId: input.actorUserId,
+      actorLabel: input.actorEmail ?? undefined,
+      action: "marketplace.invoice.submitted_to_buyer",
+      resourceType: "SupplierInvoice",
+      resourceId: invoice.id,
+      after: {
+        invoiceNumber: invoice.invoiceNumber,
+        sourceMarketplaceOrderId: invoice.sourceMarketplaceOrderId,
+        status: "SUBMITTED",
       },
     },
   });
 
   await notifyFinance({
-    tenantId: order.buyerTenantId,
+    tenantId: invoice.tenantId,
     eventType: "AccountsPayable.SupplierInvoiceSubmitted",
     title: "Supplier invoice submitted",
     message:
-      `${invoiceNumber} for ${execution.orderNumber} was generated from the verified receipt and submitted for acknowledgement.`,
+      `${invoice.invoiceNumber} was reviewed and submitted by the supplier for buyer acknowledgement.`,
     actionUrl: `/app/purchasing/invoices/${invoice.id}`,
   });
 
-  return prisma.supplierInvoice.findUniqueOrThrow({
-    where: {
-      id: invoice.id,
-    },
-  });
+  return submitted;
 }
 
 export async function acknowledgeAndAdvanceMarketplaceInvoice(

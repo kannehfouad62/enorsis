@@ -66,7 +66,13 @@ export async function getInvoiceWorkspace() {
   if (!session?.user) redirect("/login");
 
   const invoices = await prisma.supplierInvoice.findMany({
-    where: { tenantId: session.user.tenantId },
+    where: {
+      tenantId: session.user.tenantId,
+      NOT: {
+        status: "DRAFT",
+        sourceMarketplaceOrderId: { not: null },
+      },
+    },
     include: {
       supplier: true,
       purchaseOrder: true,
@@ -85,7 +91,14 @@ export async function getInvoiceDetail(id: string) {
   if (!session?.user) redirect("/login");
 
   const invoice = await prisma.supplierInvoice.findFirst({
-    where: { id, tenantId: session.user.tenantId },
+    where: {
+      id,
+      tenantId: session.user.tenantId,
+      NOT: {
+        status: "DRAFT",
+        sourceMarketplaceOrderId: { not: null },
+      },
+    },
     include: {
       supplier: true,
       purchaseOrder: true,

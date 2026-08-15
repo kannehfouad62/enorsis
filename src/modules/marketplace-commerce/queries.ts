@@ -97,6 +97,27 @@ export async function getMarketplaceSellerOrders() {
       })
     : [];
 
+  const generatedInvoices = orders.length
+    ? await prisma.supplierInvoice.findMany({
+        where: {
+          generatedBySellerTenantId: session.user.tenantId,
+          sourceMarketplaceOrderId: {
+            in: orders.map((order) => order.id),
+          },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      })
+    : [];
+
+  const invoiceByMarketplaceOrderId = new Map(
+    generatedInvoices.map((invoice) => [
+      invoice.sourceMarketplaceOrderId,
+      invoice,
+    ]),
+  );
+
   const shipmentByPurchaseOrderId = new Map<
     string,
     (typeof shipments)[number]
@@ -125,6 +146,8 @@ export async function getMarketplaceSellerOrders() {
               order.purchaseOrderExecutionId,
             ) ?? null
           : null,
+      generatedInvoice:
+        invoiceByMarketplaceOrderId.get(order.id) ?? null,
     })),
   };
 }
