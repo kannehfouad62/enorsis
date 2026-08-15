@@ -483,6 +483,11 @@ function SidebarContent({
         <p className="px-3 pb-2 pt-6 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Organization</p>
         {user.roles.some((role) => ["PLATFORM_SUPER_ADMIN", "TENANT_OWNER", "TENANT_ADMIN"].includes(role)) ? (
           <>
+            {user.roles.includes("PLATFORM_SUPER_ADMIN") ? (
+              <Link href="/app/platform/supplier-verification" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
+                <FileCheck2 className="h-4 w-4" /> Supplier verification
+              </Link>
+            ) : null}
             <Link href="/app/settings/organization" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
               <Globe2 className="h-4 w-4" /> Global configuration
             </Link>
