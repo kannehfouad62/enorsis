@@ -300,22 +300,58 @@ export default async function MarketplaceCatalogPage({
           />
         </section>
       ) : (
-        <section className="mt-8">
-          <div className="mb-5">
-            <p className="text-xs font-black uppercase tracking-wide text-blue-700">
-              Marketplace vendors
-            </p>
-            <h2 className="mt-1 text-2xl font-black">
-              Browse by supplier
-            </h2>
-            <p className="mt-2 text-sm text-slate-600">
-              Select a vendor to view the products and services that supplier offers.
-            </p>
-          </div>
-          <MarketplaceVendorDirectory
-            vendors={data.vendorDirectory}
-          />
-        </section>
+        <>
+          <section className="mt-8">
+            <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                  Published marketplace offerings
+                </p>
+                <h2 className="mt-1 text-2xl font-black">
+                  Products & services available to buy
+                </h2>
+                <p className="mt-2 max-w-3xl text-sm text-slate-600">
+                  Browse all supplier offerings currently published to the
+                  buyer marketplace. Use search and filters above to narrow
+                  by product, service, category, availability or supplier.
+                </p>
+              </div>
+              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
+                {data.comparisonGroups.length} offering group
+                {data.comparisonGroups.length === 1 ? "" : "s"}
+              </span>
+            </div>
+
+            {data.comparisonGroups.length > 0 ? (
+              <MarketplaceComparisonResults
+                groups={data.comparisonGroups}
+              />
+            ) : (
+              <div className="rounded-3xl border border-slate-200 bg-white p-8 text-sm text-slate-500 shadow-sm">
+                No published marketplace offerings match the current
+                search and filter criteria.
+              </div>
+            )}
+          </section>
+
+          <section className="mt-10">
+            <div className="mb-5">
+              <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                Marketplace vendors
+              </p>
+              <h2 className="mt-1 text-2xl font-black">
+                Browse by supplier
+              </h2>
+              <p className="mt-2 text-sm text-slate-600">
+                Prefer vendor-led discovery? Select a supplier to view
+                only that supplier&apos;s published products and services.
+              </p>
+            </div>
+            <MarketplaceVendorDirectory
+              vendors={data.vendorDirectory}
+            />
+          </section>
+        </>
       )}
 
       {data.canManageCatalog ? (
