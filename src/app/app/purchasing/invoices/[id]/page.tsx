@@ -3,6 +3,9 @@ import {
   markInvoicePaymentReadyAction,
   runThreeWayMatchAction,
 } from "@/modules/procure-to-pay/actions";
+import {
+  acknowledgeMarketplaceSupplierInvoiceAction,
+} from "@/modules/marketplace-invoice-automation/actions";
 import { getInvoiceDetail } from "@/modules/procure-to-pay/queries";
 
 const input =
@@ -10,10 +13,16 @@ const input =
 
 export default async function SupplierInvoiceDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{
+    acknowledged?: string;
+    error?: string;
+  }>;
 }) {
   const { id } = await params;
+  const statusParams = await searchParams;
   const { invoice } = await getInvoiceDetail(id);
 
   return (
@@ -29,6 +38,18 @@ export default async function SupplierInvoiceDetailPage({
         {invoice.status}
       </p>
 
+      {statusParams.acknowledged === "1" ? (
+        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">
+          Invoice acknowledged. Enorsis ran the governed match and created the payment-readiness handoff.
+        </div>
+      ) : null}
+
+      {statusParams.error ? (
+        <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-900">
+          {statusParams.error}
+        </div>
+      ) : null}
+
       <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="grid gap-4 md:grid-cols-4">
           <Summary label="Amount" value={`${invoice.currencyCode} ${invoice.totalAmount.toString()}`} />
@@ -37,7 +58,37 @@ export default async function SupplierInvoiceDetailPage({
           <Summary label="Open exceptions" value={String(invoice.exceptions.filter((item) => item.status === "OPEN").length)} />
         </div>
 
-        {invoice.status !== "PAYMENT_READY" && invoice.status !== "PAID" ? (
+        {invoice.pdfBlobPathname ? (
+          <div className="mt-6">
+            <Link
+              href={`/api/invoices/${invoice.id}/pdf`}
+              target="_blank"
+              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-blue-700"
+            >
+              View generated PDF invoice
+            </Link>
+          </div>
+        ) : null}
+
+        {invoice.sourceMarketplaceOrderId &&
+        !invoice.buyerAcknowledgedAt ? (
+          <form
+            action={acknowledgeMarketplaceSupplierInvoiceAction}
+            className="mt-6"
+          >
+            <input type="hidden" name="invoiceId" value={invoice.id} />
+            <button className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white">
+              Acknowledge invoice & run governed match
+            </button>
+            <p className="mt-2 text-xs text-slate-500">
+              This triggers three-way matching and payment-readiness checks.
+            </p>
+          </form>
+        ) : null}
+
+        {invoice.status !== "PAYMENT_READY" &&
+        invoice.status !== "PAID" &&
+        !invoice.sourceMarketplaceOrderId ? (
           <form action={runThreeWayMatchAction} className="mt-6 grid gap-4 md:grid-cols-3">
             <input type="hidden" name="invoiceId" value={invoice.id} />
             <label className="text-sm font-bold">

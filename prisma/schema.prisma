@@ -3583,6 +3583,14 @@ model SupplierInvoice {
   exchangeRateSource String
   exchangeRateDate   DateTime
   paymentReference   String?
+  sourceMarketplaceOrderId String?                 @unique
+  sourcePurchaseOrderExecutionId String?
+  generatedBySellerTenantId String?
+  pdfBlobPathname    String?
+  pdfFileName        String?
+  pdfGeneratedAt     DateTime?
+  buyerAcknowledgedAt DateTime?
+  buyerAcknowledgedByUserId String?
   submittedAt        DateTime?
   approvedAt         DateTime?
   paymentReadyAt     DateTime?

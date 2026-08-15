@@ -3,6 +3,9 @@ import {
   rejectMarketplaceSellerOrderAction,
   shipMarketplaceSellerOrderAction,
 } from "@/modules/marketplace-commerce/actions";
+import {
+  generateMarketplaceSupplierInvoiceAction,
+} from "@/modules/marketplace-invoice-automation/actions";
 import { getMarketplaceSellerOrders } from "@/modules/marketplace-commerce/queries";
 
 type SnapshotLine = {
@@ -13,8 +16,16 @@ type SnapshotLine = {
   unitPrice?: number;
 };
 
-export default async function MarketplaceSellerOrdersPage() {
+export default async function MarketplaceSellerOrdersPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    invoiceGenerated?: string;
+    invoiceError?: string;
+  }>;
+}) {
   const { orders } = await getMarketplaceSellerOrders();
+  const params = await searchParams;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
@@ -23,6 +34,18 @@ export default async function MarketplaceSellerOrdersPage() {
       <p className="mt-3 max-w-4xl leading-7 text-slate-600">
         Review buyer purchase orders, accept or reject them, and record shipment details. Goods receipt remains buyer-controlled.
       </p>
+
+      {params.invoiceGenerated ? (
+        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-semibold text-emerald-900">
+          Invoice {params.invoiceGenerated} was generated and submitted to the buyer.
+        </div>
+      ) : null}
+
+      {params.invoiceError ? (
+        <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-900">
+          {params.invoiceError}
+        </div>
+      ) : null}
       <div className="mt-8 space-y-5">
         {orders.length === 0 ? <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm"><p className="font-black">No marketplace orders yet.</p></div> : null}
         {orders.map((order) => {
@@ -71,6 +94,18 @@ export default async function MarketplaceSellerOrdersPage() {
                 <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm">
                   <p><strong>Carrier:</strong> {order.carrier}</p>
                   <p className="mt-1"><strong>Tracking:</strong> {order.trackingNumber}</p>
+                  <form
+                    action={generateMarketplaceSupplierInvoiceAction}
+                    className="mt-4"
+                  >
+                    <input type="hidden" name="orderId" value={order.id} />
+                    <button className="rounded-xl bg-emerald-700 px-4 py-3 text-sm font-black text-white">
+                      Generate invoice from received order
+                    </button>
+                    <p className="mt-2 text-xs text-slate-500">
+                      Enorsis will generate the invoice only after the buyer has fully received and accepted the shipment.
+                    </p>
+                  </form>
                 </div>
               ) : null}
             </article>
