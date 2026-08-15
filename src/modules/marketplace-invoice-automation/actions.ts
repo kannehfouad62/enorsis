@@ -21,7 +21,8 @@ export async function generateMarketplaceSupplierInvoiceAction(
     "SUPPLIER_MANAGER",
   ]);
 
-  let invoiceNumber: string;
+  let invoiceNumber: string | null = null;
+  let errorMessage: string | null = null;
 
   try {
     const invoice = await generateMarketplaceInvoiceFromReceivedOrder({
@@ -34,15 +35,29 @@ export async function generateMarketplaceSupplierInvoiceAction(
     invoiceNumber = invoice.invoiceNumber;
     revalidatePath("/app/marketplace/orders");
   } catch (error) {
-    const message =
+    console.error("Marketplace invoice generation failed", {
+      orderId: field(data, "orderId"),
+      sellerTenantId: user.tenantId,
+      error,
+    });
+
+    errorMessage =
       error instanceof Error
         ? error.message
         : "Invoice generation failed.";
+  }
 
+  if (errorMessage) {
     redirect(
       `/app/marketplace/orders?invoiceError=${encodeURIComponent(
-        message,
+        errorMessage,
       )}`,
+    );
+  }
+
+  if (!invoiceNumber) {
+    redirect(
+      "/app/marketplace/orders?invoiceError=Invoice%20generation%20did%20not%20return%20an%20invoice%20number.",
     );
   }
 
@@ -65,6 +80,7 @@ export async function acknowledgeMarketplaceSupplierInvoiceAction(
   ]);
 
   const invoiceId = field(data, "invoiceId");
+  let errorMessage: string | null = null;
 
   try {
     await acknowledgeAndAdvanceMarketplaceInvoice({
@@ -77,14 +93,22 @@ export async function acknowledgeMarketplaceSupplierInvoiceAction(
     revalidatePath("/app/purchasing/invoices");
     revalidatePath("/app/requisition-to-order/payment-readiness");
   } catch (error) {
-    const message =
+    console.error("Marketplace invoice acknowledgement failed", {
+      invoiceId,
+      buyerTenantId: user.tenantId,
+      error,
+    });
+
+    errorMessage =
       error instanceof Error
         ? error.message
         : "Invoice acknowledgement failed.";
+  }
 
+  if (errorMessage) {
     redirect(
       `/app/purchasing/invoices/${invoiceId}?error=${encodeURIComponent(
-        message,
+        errorMessage,
       )}`,
     );
   }
