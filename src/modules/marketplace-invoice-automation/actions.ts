@@ -21,6 +21,8 @@ export async function generateMarketplaceSupplierInvoiceAction(
     "SUPPLIER_MANAGER",
   ]);
 
+  let invoiceNumber: string;
+
   try {
     const invoice = await generateMarketplaceInvoiceFromReceivedOrder({
       orderId: field(data, "orderId"),
@@ -29,23 +31,26 @@ export async function generateMarketplaceSupplierInvoiceAction(
       actorEmail: user.email,
     });
 
+    invoiceNumber = invoice.invoiceNumber;
     revalidatePath("/app/marketplace/orders");
-    redirect(
-      `/app/marketplace/orders?invoiceGenerated=${encodeURIComponent(
-        invoice.invoiceNumber,
-      )}`,
-    );
   } catch (error) {
     const message =
       error instanceof Error
         ? error.message
         : "Invoice generation failed.";
+
     redirect(
       `/app/marketplace/orders?invoiceError=${encodeURIComponent(
         message,
       )}`,
     );
   }
+
+  redirect(
+    `/app/marketplace/orders?invoiceGenerated=${encodeURIComponent(
+      invoiceNumber,
+    )}`,
+  );
 }
 
 export async function acknowledgeMarketplaceSupplierInvoiceAction(
@@ -71,16 +76,18 @@ export async function acknowledgeMarketplaceSupplierInvoiceAction(
     revalidatePath(`/app/purchasing/invoices/${invoiceId}`);
     revalidatePath("/app/purchasing/invoices");
     revalidatePath("/app/requisition-to-order/payment-readiness");
-    redirect(`/app/purchasing/invoices/${invoiceId}?acknowledged=1`);
   } catch (error) {
     const message =
       error instanceof Error
         ? error.message
         : "Invoice acknowledgement failed.";
+
     redirect(
       `/app/purchasing/invoices/${invoiceId}?error=${encodeURIComponent(
         message,
       )}`,
     );
   }
+
+  redirect(`/app/purchasing/invoices/${invoiceId}?acknowledged=1`);
 }
