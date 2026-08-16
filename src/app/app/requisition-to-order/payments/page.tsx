@@ -1,3 +1,4 @@
+import { createDraftPaymentRunAction } from "@/modules/payment-operations/actions";
 import { getPaymentOperationsWorkspace } from "@/modules/payment-operations/queries";
 
 const card =
@@ -15,7 +16,7 @@ function money(value: unknown, currency: string) {
 export default async function PaymentOperationsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ view?: string }>;
+  searchParams: Promise<{ view?: string; message?: string; error?: string }>;
 }) {
   const data = await getPaymentOperationsWorkspace();
   const params = await searchParams;
@@ -61,12 +62,24 @@ export default async function PaymentOperationsPage({
         </h1>
 
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
-          Stage A is read-only. Review invoices that
-          have passed payment readiness and inspect
-          existing payment runs and settlement status.
-          No payment mutation is enabled.
+          Stage B enables one controlled action:
+          converting an APPROVED payment-readiness
+          case into a DRAFT payment run. Authorization,
+          execution and settlement remain disabled.
         </p>
       </header>
+
+      {params.message ? (
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-bold text-emerald-900">
+          {params.message}
+        </div>
+      ) : null}
+
+      {params.error ? (
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-bold text-rose-900">
+          {params.error}
+        </div>
+      ) : null}
 
       <section className="grid gap-4 md:grid-cols-4">
         {[
@@ -121,8 +134,8 @@ export default async function PaymentOperationsPage({
             </p>
           </div>
 
-          <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
-            READ ONLY
+          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
+            CREATE DRAFT ENABLED
           </span>
         </div>
 
@@ -152,6 +165,38 @@ export default async function PaymentOperationsPage({
                     ? item.dueDate.toLocaleDateString()
                     : "not specified"}
                 </p>
+
+                <form
+                  action={createDraftPaymentRunAction}
+                  className="mt-4 flex flex-wrap items-end gap-3 border-t border-slate-100 pt-4"
+                >
+                  <input
+                    type="hidden"
+                    name="readinessCaseId"
+                    value={item.id}
+                  />
+
+                  <label className="text-xs font-bold text-slate-600">
+                    Payment date
+                    <input
+                      type="date"
+                      name="paymentDate"
+                      defaultValue={
+                        item.dueDate
+                          ? item.dueDate.toISOString().slice(0, 10)
+                          : ""
+                      }
+                      className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                    />
+                  </label>
+
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-800"
+                  >
+                    Create draft payment run
+                  </button>
+                </form>
               </article>
             ))
           ) : (
