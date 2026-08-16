@@ -4,12 +4,20 @@ const input = "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2
 
 export function ApprovalPanel({
   currentUserId,
+  approverProfiles,
   journeyId,
   currencyCode,
   estimatedAmount,
   routes,
 }: {
   currentUserId: string;
+  approverProfiles: Array<{
+    userId: string;
+    name: string;
+    email: string;
+    roles: string[];
+    status: string;
+  }>;
   journeyId: string;
   currencyCode: string;
   estimatedAmount: string | null;
@@ -54,6 +62,12 @@ export function ApprovalPanel({
               const actionable =
                 assignedToCurrentUser &&
                 decision.status === "PENDING";
+              const approver =
+                approverProfiles.find(
+                  (profile) =>
+                    profile.userId ===
+                    decision.approverUserId,
+                );
 
               return (
                 <div
@@ -61,9 +75,30 @@ export function ApprovalPanel({
                   className="mt-3 rounded-xl border border-slate-200 bg-white p-3"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="text-sm">
-                      {decision.approverUserId} {"·"} {decision.status}
-                    </span>
+                    <div>
+                      <p className="text-sm font-black text-slate-900">
+                        {approver?.name ?? "Assigned approver"}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        {approver?.email ??
+                          "User profile unavailable"}
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {(approver?.roles ?? []).map(
+                          (role) => (
+                            <span
+                              key={role}
+                              className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-black text-slate-600"
+                            >
+                              {role.replaceAll("_", " ")}
+                            </span>
+                          ),
+                        )}
+                        <span className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-black text-slate-600">
+                          {decision.status}
+                        </span>
+                      </div>
+                    </div>
                     <span
                       className={
                         assignedToCurrentUser

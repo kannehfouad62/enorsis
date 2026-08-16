@@ -133,6 +133,7 @@ export default async function RequisitionToOrderPage({
 
               <ApprovalPanel
                 currentUserId={data.currentUserId}
+                approverProfiles={data.approverProfiles}
                 journeyId={journey.id}
                 currencyCode={journey.currencyCode}
                 estimatedAmount={journey.estimatedAmount?.toString() ?? null}

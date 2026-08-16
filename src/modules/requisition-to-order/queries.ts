@@ -40,8 +40,53 @@ export async function getRequisitionToOrderWorkspace() {
     take: 200,
   });
 
+  const approverUserIds = [
+    ...new Set(
+      journeys.flatMap((journey) =>
+        journey.approvalRoutes.flatMap((route) =>
+          route.steps.flatMap((step) =>
+            step.decisions.map(
+              (decision) => decision.approverUserId,
+            ),
+          ),
+        ),
+      ),
+    ),
+  ];
+
+  const approverMemberships =
+    approverUserIds.length > 0
+      ? await prisma.membership.findMany({
+          where: {
+            tenantId: session.user.tenantId,
+            userId: { in: approverUserIds },
+          },
+          include: {
+            user: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            },
+          },
+        })
+      : [];
+
+  const approverProfiles =
+    approverMemberships.map((membership) => ({
+      userId: membership.user.id,
+      name:
+        membership.user.name ??
+        membership.user.email,
+      email: membership.user.email,
+      roles: membership.roles,
+      status: membership.status,
+    }));
+
   return {
     currentUserId: session.user.id,
+    approverProfiles,
     journeys,
     totals: {
       all: journeys.length,
