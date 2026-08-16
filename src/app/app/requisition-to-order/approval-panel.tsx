@@ -6,6 +6,7 @@ export function ApprovalPanel({
   currentUserId,
   approverProfiles,
   journeyId,
+  journeyStatus,
   currencyCode,
   estimatedAmount,
   routes,
@@ -19,6 +20,7 @@ export function ApprovalPanel({
     status: string;
   }>;
   journeyId: string;
+  journeyStatus: string;
   currencyCode: string;
   estimatedAmount: string | null;
   routes: Array<{
@@ -36,30 +38,86 @@ export function ApprovalPanel({
     }>;
   }>;
 }) {
+  const activeRoutes = routes.filter(
+    (route) => route.status === "ACTIVE",
+  );
+
+  const approvalOpen =
+    journeyStatus === "REQUISITION_SUBMITTED" ||
+    journeyStatus === "APPROVAL_PENDING";
+
+  const canStartApproval =
+    approvalOpen && activeRoutes.length === 0;
+
+  const journeyCompletedApproval = [
+    "APPROVED",
+    "ORDER_PENDING",
+    "ORDER_ISSUED",
+    "PARTIALLY_RECEIVED",
+    "RECEIVED",
+    "CLOSED",
+  ].includes(journeyStatus);
+
   return (
     <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4">
       <h4 className="font-black">Approval orchestration</h4>
-      <form action={createApprovalRouteAction} className="mt-4 grid gap-3 md:grid-cols-2">
-        <input type="hidden" name="journeyId" value={journeyId} />
-        <input type="hidden" name="currencyCode" value={currencyCode} />
-        <input type="hidden" name="amount" value={estimatedAmount ?? ""} />
-        <Field name="name" label="Route name" value="Standard requisition approval" />
-        <Field name="stepName" label="Step name" value="Manager approval" />
-        <Field name="approverUserIds" label="Approver user IDs (comma separated)" required />
-        <Field name="requiredApprovals" label="Required approvals" type="number" value="1" />
-        <label><span className="text-sm font-bold">Mode</span><select className={input} name="mode"><option>SEQUENTIAL</option><option>PARALLEL</option></select></label>
-        <Field name="dueAt" label="Due date" type="date" />
-        <button className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white">Start approval</button>
-      </form>
+      {canStartApproval ? (
+        <form
+          action={createApprovalRouteAction}
+          className="mt-4 grid gap-3 md:grid-cols-2"
+        >
+          <input type="hidden" name="journeyId" value={journeyId} />
+          <input type="hidden" name="currencyCode" value={currencyCode} />
+          <input type="hidden" name="amount" value={estimatedAmount ?? ""} />
+          <Field name="name" label="Route name" value="Standard requisition approval" />
+          <Field name="stepName" label="Step name" value="Manager approval" />
+          <Field name="approverUserIds" label="Approver user IDs (comma separated)" required />
+          <Field name="requiredApprovals" label="Required approvals" type="number" value="1" />
+          <label>
+            <span className="text-sm font-bold">Mode</span>
+            <select className={input} name="mode">
+              <option>SEQUENTIAL</option>
+              <option>PARALLEL</option>
+            </select>
+          </label>
+          <Field name="dueAt" label="Due date" type="date" />
+          <button className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white">
+            Start approval
+          </button>
+        </form>
+      ) : (
+        <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+          {journeyCompletedApproval
+            ? "Approval is complete for this journey. Historical approval routes are retained below as audit evidence."
+            : activeRoutes.length > 0
+              ? "An active approval route already exists for this journey."
+              : "This journey is not currently awaiting an approval route."}
+        </div>
+      )}
 
       <div className="mt-5 space-y-4">
-        {routes.map((route) => (
-          <div key={route.id} className="rounded-xl bg-slate-50 p-4">
-            <p className="font-black">{route.name} · {route.status}</p>
+        {routes.map((route) => {
+          const staleActiveRoute =
+            journeyCompletedApproval &&
+            route.status === "ACTIVE";
+
+          return (
+            <div key={route.id} className="rounded-xl bg-slate-50 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="font-black">
+                  {route.name} {"·"} {route.status}
+                </p>
+                {staleActiveRoute ? (
+                  <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-black text-amber-800">
+                    Historical / stale route
+                  </span>
+                ) : null}
+              </div>
             {route.steps.flatMap((step) => step.decisions).map((decision) => {
               const assignedToCurrentUser =
                 decision.approverUserId === currentUserId;
               const actionable =
+                !staleActiveRoute &&
                 assignedToCurrentUser &&
                 decision.status === "PENDING";
               const approver =
@@ -77,11 +135,12 @@ export function ApprovalPanel({
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
                       <p className="text-sm font-black text-slate-900">
-                        {approver?.name ?? "Assigned approver"}
+                        {approver?.name ??
+                          "Unresolved approver assignment"}
                       </p>
                       <p className="mt-1 text-xs text-slate-500">
                         {approver?.email ??
-                          "User profile unavailable"}
+                          `User profile unavailable · ${decision.approverUserId}`}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         {(approver?.roles ?? []).map(
@@ -145,7 +204,8 @@ export function ApprovalPanel({
               );
             })}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

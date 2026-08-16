@@ -135,6 +135,7 @@ export default async function RequisitionToOrderPage({
                 currentUserId={data.currentUserId}
                 approverProfiles={data.approverProfiles}
                 journeyId={journey.id}
+                journeyStatus={journey.status}
                 currencyCode={journey.currencyCode}
                 estimatedAmount={journey.estimatedAmount?.toString() ?? null}
                 routes={journey.approvalRoutes}
