@@ -17,9 +17,6 @@ export default async function InventoryFinancialValuationPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-        Phase B2.7
-      </p>
       <h1 className="mt-3 text-4xl font-black">
         Inventory Valuation, Cost Layers & Financial Reconciliation
       </h1>

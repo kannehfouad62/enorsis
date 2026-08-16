@@ -34,9 +34,6 @@ export default async function ProcurementIntelligencePage() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
-          <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Phase B2.8.4 Revision 2
-          </p>
           <h1 className="mt-3 text-4xl font-black">
             Procurement Intelligence
           </h1>

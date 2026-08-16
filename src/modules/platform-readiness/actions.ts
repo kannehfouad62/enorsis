@@ -19,7 +19,7 @@ export async function runPlatformCertificationAction(data: FormData) {
 
   await runPlatformCertification({
     tenantId: null,
-    name: field(data, "name") || "Enterprise Foundation Certification",
+    name: field(data, "name") || "Platform Readiness Certification",
     releaseVersion: field(data, "releaseVersion") || null,
     environment: field(data, "environment") || undefined,
     userId: user.id,

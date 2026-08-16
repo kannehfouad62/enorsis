@@ -62,10 +62,10 @@ export default async function PaymentOperationsPage({
         </h1>
 
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
-          Stage B enables one controlled action:
-          converting an APPROVED payment-readiness
-          case into a DRAFT payment run. Authorization,
-          execution and settlement remain disabled.
+          Manage approved payment-readiness cases and create
+          draft payment runs for controlled accounts-payable processing.
+          Authorization, execution and settlement remain governed by
+          their respective workflow controls.
         </p>
       </header>
 

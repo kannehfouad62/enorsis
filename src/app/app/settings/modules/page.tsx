@@ -19,9 +19,6 @@ export default async function ModuleRegistryPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-        Enterprise Foundation 1.0
-      </p>
       <h1 className="mt-3 text-4xl font-black">Module Registry</h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
         Central metadata for navigation, roles, licensing, API,

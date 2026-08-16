@@ -22,9 +22,6 @@ export default async function IntegrationHubPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-        Phase B2.9.2.12
-      </p>
       <h1 className="mt-3 text-4xl font-black">
         Enterprise Integration Hub
       </h1>

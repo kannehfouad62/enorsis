@@ -17,9 +17,6 @@ export default async function ProcessMiningPage() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
-          <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            Phase B2.9.2.14
-          </p>
           <h1 className="mt-3 text-4xl font-black">
             Enterprise Process Mining
           </h1>

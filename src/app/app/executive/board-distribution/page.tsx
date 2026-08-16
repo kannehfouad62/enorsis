@@ -25,9 +25,6 @@ export default async function ExecutiveBoardDistributionPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div>
-        <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-          Phase B2.8.6.4
-        </p>
         <h1 className="mt-3 text-4xl font-black">
           Secure Board Distribution
         </h1>

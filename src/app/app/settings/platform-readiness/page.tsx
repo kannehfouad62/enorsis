@@ -15,9 +15,6 @@ export default async function PlatformReadinessPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-        Enterprise Foundation 1.0
-      </p>
       <h1 className="mt-3 text-4xl font-black">
         Release Hardening & Platform Certification
       </h1>
@@ -36,7 +33,7 @@ export default async function PlatformReadinessPage() {
           <Field
             name="name"
             label="Certification name"
-            value="Enterprise Foundation 1.0 Certification"
+            value="Platform Readiness Certification"
             required
           />
           <Field name="releaseVersion" label="Release version" value="1.0.0" />
