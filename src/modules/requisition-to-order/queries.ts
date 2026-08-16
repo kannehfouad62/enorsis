@@ -41,6 +41,7 @@ export async function getRequisitionToOrderWorkspace() {
   });
 
   return {
+    currentUserId: session.user.id,
     journeys,
     totals: {
       all: journeys.length,

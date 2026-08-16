@@ -3,11 +3,13 @@ import { createApprovalRouteAction, decideApprovalAction } from "@/modules/requi
 const input = "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
 
 export function ApprovalPanel({
+  currentUserId,
   journeyId,
   currencyCode,
   estimatedAmount,
   routes,
 }: {
+  currentUserId: string;
   journeyId: string;
   currencyCode: string;
   estimatedAmount: string | null;
@@ -46,15 +48,67 @@ export function ApprovalPanel({
         {routes.map((route) => (
           <div key={route.id} className="rounded-xl bg-slate-50 p-4">
             <p className="font-black">{route.name} · {route.status}</p>
-            {route.steps.flatMap((step) => step.decisions).map((decision) => (
-              <form key={decision.id} action={decideApprovalAction} className="mt-3 grid gap-2 md:grid-cols-4">
-                <input type="hidden" name="decisionId" value={decision.id} />
-                <span className="text-sm">{decision.approverUserId} · {decision.status}</span>
-                <input className={input} name="comments" placeholder="Comments" />
-                <button name="action" value="APPROVED" className="rounded-xl bg-emerald-700 px-3 py-2 text-sm font-black text-white">Approve</button>
-                <button name="action" value="REJECTED" className="rounded-xl bg-red-700 px-3 py-2 text-sm font-black text-white">Reject</button>
-              </form>
-            ))}
+            {route.steps.flatMap((step) => step.decisions).map((decision) => {
+              const assignedToCurrentUser =
+                decision.approverUserId === currentUserId;
+              const actionable =
+                assignedToCurrentUser &&
+                decision.status === "PENDING";
+
+              return (
+                <div
+                  key={decision.id}
+                  className="mt-3 rounded-xl border border-slate-200 bg-white p-3"
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="text-sm">
+                      {decision.approverUserId} {"·"} {decision.status}
+                    </span>
+                    <span
+                      className={
+                        assignedToCurrentUser
+                          ? "rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700"
+                          : "rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-500"
+                      }
+                    >
+                      {assignedToCurrentUser ? "Assigned to you" : "View only"}
+                    </span>
+                  </div>
+
+                  {actionable ? (
+                    <form
+                      action={decideApprovalAction}
+                      className="mt-3 grid gap-2 md:grid-cols-4"
+                    >
+                      <input
+                        type="hidden"
+                        name="decisionId"
+                        value={decision.id}
+                      />
+                      <input
+                        className={input}
+                        name="comments"
+                        placeholder="Comments"
+                      />
+                      <button
+                        name="action"
+                        value="APPROVED"
+                        className="rounded-xl bg-emerald-700 px-3 py-2 text-sm font-black text-white"
+                      >
+                        Approve
+                      </button>
+                      <button
+                        name="action"
+                        value="REJECTED"
+                        className="rounded-xl bg-red-700 px-3 py-2 text-sm font-black text-white"
+                      >
+                        Reject
+                      </button>
+                    </form>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

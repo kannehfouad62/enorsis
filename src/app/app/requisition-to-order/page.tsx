@@ -25,8 +25,16 @@ const statuses = [
   "EXCEPTION",
 ] as const;
 
-export default async function RequisitionToOrderPage() {
+export default async function RequisitionToOrderPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    approvalMessage?: string;
+    approvalError?: string;
+  }>;
+}) {
   const data = await getRequisitionToOrderWorkspace();
+  const params = await searchParams;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
@@ -36,6 +44,18 @@ export default async function RequisitionToOrderPage() {
       <h1 className="mt-3 text-4xl font-black">
         Requisition-to-Order Command Center
       </h1>
+
+      {params.approvalMessage ? (
+        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-bold text-emerald-900">
+          {params.approvalMessage}
+        </div>
+      ) : null}
+
+      {params.approvalError ? (
+        <div className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-bold text-rose-900">
+          {params.approvalError}
+        </div>
+      ) : null}
 
       <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         <Metric label="All journeys" value={data.totals.all} />
@@ -112,6 +132,7 @@ export default async function RequisitionToOrderPage() {
               </form>
 
               <ApprovalPanel
+                currentUserId={data.currentUserId}
                 journeyId={journey.id}
                 currencyCode={journey.currencyCode}
                 estimatedAmount={journey.estimatedAmount?.toString() ?? null}
