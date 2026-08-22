@@ -857,3 +857,384 @@ export async function importBankStatementCsvAction(
     ),
   );
 }
+
+export async function manuallyMatchBankStatementRowAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...reconciliationRoles]);
+
+  const statementRowId = field(
+    data,
+    "statementRowId",
+  );
+  const paymentBatchId = field(
+    data,
+    "paymentBatchId",
+  );
+  const reviewNote = field(
+    data,
+    "reviewNote",
+  );
+
+  let errorMessage: string | null = null;
+  let resultMessage: string | null = null;
+
+  try {
+    if (reviewNote.length < 5) {
+      throw new Error(
+        "Provide a short note explaining the manual match decision.",
+      );
+    }
+
+    const row =
+      await prisma.bankStatementImportRow.findFirst({
+        where: {
+          id: statementRowId,
+          tenantId: user.tenantId,
+          status: {
+            in: [
+              "UNMATCHED",
+              "INVALID",
+              "PARTIAL",
+            ],
+          },
+        },
+      });
+
+    if (!row) {
+      throw new Error(
+        "This statement row is not available for manual matching.",
+      );
+    }
+
+    if (row.reconciliationId) {
+      throw new Error(
+        "This statement row is already linked to a reconciliation record.",
+      );
+    }
+
+    if (row.amount === null) {
+      throw new Error(
+        "This row does not contain a valid amount and cannot be manually matched.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: {
+          in: ["PROCESSING", "COMPLETED"],
+        },
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "The selected payment run is not eligible for reconciliation.",
+      );
+    }
+
+    const existing =
+      await prisma.bankPaymentReconciliation.findUnique({
+        where: {
+          paymentBatchId: batch.id,
+        },
+      });
+
+    if (existing) {
+      throw new Error(
+        `Payment run ${batch.batchNumber} already has reconciliation evidence and cannot be matched to another statement row.`,
+      );
+    }
+
+    const statementImport =
+      await prisma.bankStatementImport.findFirst({
+        where: {
+          id: row.importId,
+          tenantId: user.tenantId,
+        },
+      });
+
+    if (!statementImport) {
+      throw new Error(
+        "The source bank statement import could not be verified.",
+      );
+    }
+
+    const settledAmount = Number(row.amount);
+    const expectedAmount = Number(batch.totalAmount);
+    const variance = Math.abs(
+      expectedAmount - settledAmount,
+    );
+
+    const classification =
+      variance <= 0.005
+        ? "MATCHED"
+        : settledAmount > 0 &&
+            settledAmount < expectedAmount
+          ? "PARTIAL"
+          : "UNMATCHED";
+
+    const now = new Date();
+
+    const reconciliation =
+      await prisma.$transaction(async (tx) => {
+        const created =
+          await tx.bankPaymentReconciliation.create({
+            data: {
+              tenantId: user.tenantId,
+              paymentBatchId: batch.id,
+              statementReference:
+                statementImport.statementReference,
+              bankReference: row.reference,
+              currencyCode:
+                row.currencyCode ??
+                batch.currencyCode,
+              expectedAmount:
+                batch.totalAmount,
+              settledAmount,
+              status: classification,
+              resolutionStatus:
+                classification === "MATCHED"
+                  ? "RESOLVED"
+                  : "OPEN",
+              reconciliationDate:
+                row.transactionDate ?? now,
+              notes:
+                `Manual statement-row match. ${reviewNote}`,
+              recordedByUserId: user.id,
+              resolvedByUserId:
+                classification === "MATCHED"
+                  ? user.id
+                  : null,
+              resolvedAt:
+                classification === "MATCHED"
+                  ? now
+                  : null,
+            },
+          });
+
+        await tx.bankStatementImportRow.update({
+          where: {
+            id: row.id,
+          },
+          data: {
+            paymentBatchId: batch.id,
+            reconciliationId: created.id,
+            status: classification,
+            exceptionReason:
+              classification === "MATCHED"
+                ? `Manually matched to ${batch.batchNumber}. ${reviewNote}`
+                : `Manually linked to ${batch.batchNumber}; reconciliation remains ${classification}. ${reviewNote}`,
+          },
+        });
+
+        const remainingExceptions =
+          await tx.bankStatementImportRow.count({
+            where: {
+              importId: row.importId,
+              tenantId: user.tenantId,
+              status: {
+                in: [
+                  "PARTIAL",
+                  "UNMATCHED",
+                  "DUPLICATE",
+                  "INVALID",
+                ],
+              },
+            },
+          });
+
+        const matchedRows =
+          await tx.bankStatementImportRow.count({
+            where: {
+              importId: row.importId,
+              tenantId: user.tenantId,
+              status: "MATCHED",
+            },
+          });
+
+        await tx.bankStatementImport.update({
+          where: {
+            id: row.importId,
+          },
+          data: {
+            matchedRows,
+            exceptionRows:
+              remainingExceptions,
+            status:
+              remainingExceptions === 0
+                ? "PROCESSED"
+                : matchedRows > 0
+                  ? "PARTIAL"
+                  : "FAILED",
+          },
+        });
+
+        return created;
+      });
+
+    await createEnterpriseNotification({
+      tenantId: user.tenantId,
+      eventType:
+        classification === "MATCHED"
+          ? "PaymentReconciliation.ManualMatch"
+          : "PaymentReconciliation.ManualExceptionLink",
+      recipientUserId: user.id,
+      recipientAddress: null,
+      title:
+        classification === "MATCHED"
+          ? "Bank row manually matched"
+          : "Bank row manually linked with exception",
+      message:
+        `Statement row ${row.rowNumber} was linked to payment run ${batch.batchNumber} as ${classification}.`,
+      actionUrl:
+        "/app/requisition-to-order/reconciliation",
+      priority:
+        classification === "MATCHED"
+          ? "NORMAL"
+          : "HIGH",
+      channels: ["IN_APP"],
+      data: {
+        statementRowId: row.id,
+        paymentBatchId: batch.id,
+        reconciliationId:
+          reconciliation.id,
+        classification,
+      },
+    });
+
+    revalidatePath(
+      "/app/requisition-to-order/reconciliation",
+    );
+
+    resultMessage =
+      `Statement row ${row.rowNumber} linked to ${batch.batchNumber} as ${classification}.`;
+  } catch (error) {
+    console.error(
+      "Manual bank statement row matching failed",
+      {
+        statementRowId,
+        paymentBatchId,
+        tenantId: user.tenantId,
+        actorUserId: user.id,
+        error,
+      },
+    );
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The statement row could not be manually matched.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      reconciliationPath(undefined, errorMessage),
+    );
+  }
+
+  redirect(
+    reconciliationPath(
+      resultMessage ??
+        "Statement row matched successfully.",
+    ),
+  );
+}
+
+export async function confirmDuplicateBankStatementRowAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...reconciliationRoles]);
+
+  const statementRowId = field(
+    data,
+    "statementRowId",
+  );
+  const reviewNote = field(
+    data,
+    "reviewNote",
+  );
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (reviewNote.length < 5) {
+      throw new Error(
+        "Provide a short note explaining why this row is a confirmed duplicate.",
+      );
+    }
+
+    const row =
+      await prisma.bankStatementImportRow.findFirst({
+        where: {
+          id: statementRowId,
+          tenantId: user.tenantId,
+          status: "DUPLICATE",
+        },
+      });
+
+    if (!row) {
+      throw new Error(
+        "This bank statement row is not available for duplicate confirmation.",
+      );
+    }
+
+    const marker =
+      `[DUPLICATE_CONFIRMED:${user.id}:${new Date().toISOString()}] ${reviewNote}`;
+
+    await prisma.bankStatementImportRow.update({
+      where: {
+        id: row.id,
+      },
+      data: {
+        exceptionReason: [
+          row.exceptionReason,
+          marker,
+        ]
+          .filter(Boolean)
+          .join("\n"),
+      },
+    });
+
+    await createEnterpriseNotification({
+      tenantId: user.tenantId,
+      eventType:
+        "PaymentReconciliation.DuplicateConfirmed",
+      recipientUserId: user.id,
+      recipientAddress: null,
+      title: "Duplicate bank transaction confirmed",
+      message:
+        `Statement row ${row.rowNumber} was confirmed as a duplicate. ${reviewNote}`,
+      actionUrl:
+        "/app/requisition-to-order/reconciliation",
+      priority: "NORMAL",
+      channels: ["IN_APP"],
+      data: {
+        statementRowId: row.id,
+      },
+    });
+
+    revalidatePath(
+      "/app/requisition-to-order/reconciliation",
+    );
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The duplicate transaction could not be confirmed.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      reconciliationPath(undefined, errorMessage),
+    );
+  }
+
+  redirect(
+    reconciliationPath(
+      "Duplicate bank transaction confirmed.",
+    ),
+  );
+}

@@ -20,8 +20,12 @@ export async function getPaymentReconciliationWorkspace() {
 
   if (!permitted) redirect("/app/unauthorized");
 
-  const [batches, reconciliations, statementImports] =
-    await Promise.all([
+  const [
+    batches,
+    reconciliations,
+    statementImports,
+    statementExceptionRows,
+  ] = await Promise.all([
     prisma.paymentBatch.findMany({
       where: {
         tenantId: session.user.tenantId,
@@ -43,6 +47,23 @@ export async function getPaymentReconciliationWorkspace() {
         createdAt: "desc",
       },
       take: 20,
+    }),
+    prisma.bankStatementImportRow.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+        status: {
+          in: [
+            "PARTIAL",
+            "UNMATCHED",
+            "DUPLICATE",
+            "INVALID",
+          ],
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: 200,
     }),
   ]);
 
@@ -79,6 +100,16 @@ export async function getPaymentReconciliationWorkspace() {
     unreconciled,
     reconciliations,
     statementImports,
+    statementExceptionRows,
+    candidatePaymentBatches:
+      unreconciled.map((batch) => ({
+        id: batch.id,
+        batchNumber: batch.batchNumber,
+        currencyCode: batch.currencyCode,
+        totalAmount: batch.totalAmount,
+        exportReference: batch.exportReference,
+        status: batch.status,
+      })),
     metrics: {
       unreconciledCount: unreconciled.length,
       matchedCount: matched.length,

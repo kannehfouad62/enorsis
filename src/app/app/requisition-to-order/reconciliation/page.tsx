@@ -1,5 +1,7 @@
 import {
+  confirmDuplicateBankStatementRowAction,
   importBankStatementCsvAction,
+  manuallyMatchBankStatementRowAction,
   recordBankReconciliationAction,
   updateReconciliationResolutionAction,
 } from "@/modules/payment-reconciliation/actions";
@@ -289,6 +291,166 @@ export default async function PaymentReconciliationPage({
               All eligible payment runs have reconciliation records.
             </p>
           )}
+        </div>
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Bank statement exception review
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Review imported rows that were not automatically
+              reconciled. Manually link a valid row to an eligible
+              payment run or confirm a true duplicate.
+            </p>
+          </div>
+          <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-black text-amber-700">
+            {data.statementExceptionRows.length} rows to review
+          </span>
+        </div>
+
+        <div className="mt-5 space-y-4">
+          {data.statementExceptionRows.map((row) => (
+            <article
+              key={row.id}
+              className="rounded-2xl border border-amber-200 bg-amber-50/40 p-5"
+            >
+              <div className="grid gap-4 lg:grid-cols-[1fr_auto]">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-black text-slate-950">
+                      Row {row.rowNumber}
+                    </p>
+                    <span className="rounded-full bg-white px-2.5 py-1 text-[11px] font-black text-amber-800 ring-1 ring-amber-200">
+                      {row.status}
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-sm text-slate-700">
+                    Reference:{" "}
+                    <span className="font-bold">
+                      {row.reference ?? "—"}
+                    </span>
+                  </p>
+                  <p className="mt-1 text-sm text-slate-700">
+                    Amount:{" "}
+                    {row.amount !== null
+                      ? money(
+                          row.amount,
+                          row.currencyCode ?? "USD",
+                        )
+                      : "Invalid / unavailable"}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {row.transactionDate
+                      ? row.transactionDate.toLocaleDateString()
+                      : "No valid transaction date"}
+                    {row.description
+                      ? ` · ${row.description}`
+                      : ""}
+                  </p>
+
+                  {row.exceptionReason ? (
+                    <p className="mt-3 whitespace-pre-line rounded-xl bg-white p-3 text-xs leading-5 text-rose-700">
+                      {row.exceptionReason}
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+
+              {row.status === "DUPLICATE" ? (
+                <form
+                  action={confirmDuplicateBankStatementRowAction}
+                  className="mt-4 flex flex-wrap gap-3 border-t border-amber-100 pt-4"
+                >
+                  <input
+                    type="hidden"
+                    name="statementRowId"
+                    value={row.id}
+                  />
+                  <input
+                    name="reviewNote"
+                    required
+                    minLength={5}
+                    placeholder="Why is this a confirmed duplicate?"
+                    className="min-w-[260px] flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-xl border border-amber-300 bg-white px-4 py-2.5 text-sm font-black text-amber-800"
+                  >
+                    Confirm duplicate
+                  </button>
+                </form>
+              ) : row.amount !== null ? (
+                <form
+                  action={manuallyMatchBankStatementRowAction}
+                  className="mt-4 grid gap-3 border-t border-amber-100 pt-4 lg:grid-cols-[minmax(240px,1fr)_minmax(260px,1fr)_auto]"
+                >
+                  <input
+                    type="hidden"
+                    name="statementRowId"
+                    value={row.id}
+                  />
+
+                  <select
+                    name="paymentBatchId"
+                    required
+                    defaultValue=""
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                  >
+                    <option value="" disabled>
+                      Select eligible payment run
+                    </option>
+                    {data.candidatePaymentBatches.map(
+                      (batch) => (
+                        <option
+                          key={batch.id}
+                          value={batch.id}
+                        >
+                          {batch.batchNumber} ·{" "}
+                          {money(
+                            batch.totalAmount,
+                            batch.currencyCode,
+                          )}
+                          {" · "}
+                          {batch.exportReference ?? "No ref"}
+                        </option>
+                      ),
+                    )}
+                  </select>
+
+                  <input
+                    name="reviewNote"
+                    required
+                    minLength={5}
+                    placeholder="Explain why this row belongs to the selected payment run"
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                  />
+
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+                  >
+                    Match row
+                  </button>
+                </form>
+              ) : (
+                <p className="mt-4 border-t border-amber-100 pt-4 text-xs font-bold text-slate-500">
+                  Correct the source data and re-import this row because
+                  it does not contain a valid amount.
+                </p>
+              )}
+            </article>
+          ))}
+
+          {data.statementExceptionRows.length === 0 ? (
+            <p className="text-sm text-slate-500">
+              No imported bank statement rows require manual review.
+            </p>
+          ) : null}
         </div>
       </section>
 
