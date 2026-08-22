@@ -33,6 +33,7 @@ export async function getTreasuryWorkspace() {
     savedScenarios,
     fxPolicy,
     fxRates,
+    liquidityAlerts,
   ] = await Promise.all([
     prisma.treasuryAccount.findMany({
       where: {
@@ -86,6 +87,15 @@ export async function getTreasuryWorkspace() {
       orderBy: {
         effectiveDate: "desc",
       },
+    }),
+    prisma.treasuryLiquidityAlert.findMany({
+      where: {
+        tenantId,
+      },
+      orderBy: {
+        firstDetectedAt: "desc",
+      },
+      take: 50,
     }),
   ]);
 
@@ -551,6 +561,7 @@ export async function getTreasuryWorkspace() {
     currencyExposures,
     missingFxCurrencies,
     fxRates: fxRates.slice(0, 50),
+    liquidityAlerts,
     liquidityPolicy: policy,
     scenarioSeries,
     liquidityStatus,

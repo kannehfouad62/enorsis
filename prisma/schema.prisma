@@ -10666,3 +10666,35 @@ model TreasuryFxRate {
   @@index([tenantId, fromCurrencyCode, toCurrencyCode, effectiveDate])
 }
 
+enum TreasuryLiquidityAlertSeverity {
+  WARNING
+  CRITICAL
+}
+
+enum TreasuryLiquidityAlertStatus {
+  OPEN
+  ESCALATED
+  RESOLVED
+}
+
+model TreasuryLiquidityAlert {
+  id                 String                         @id @default(cuid())
+  tenantId           String
+  alertKey           String                         @unique
+  severity           TreasuryLiquidityAlertSeverity
+  status             TreasuryLiquidityAlertStatus   @default(OPEN)
+  baseCurrencyCode   String
+  projectedCash      Decimal                        @db.Decimal(20, 4)
+  thresholdAmount    Decimal                        @db.Decimal(20, 4)
+  breachDate         DateTime
+  firstDetectedAt    DateTime                       @default(now())
+  lastDetectedAt     DateTime                       @default(now())
+  escalatedAt        DateTime?
+  resolvedAt         DateTime?
+  createdAt          DateTime                       @default(now())
+  updatedAt          DateTime                       @updatedAt
+
+  @@index([tenantId, status, severity])
+  @@index([tenantId, breachDate])
+}
+

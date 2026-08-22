@@ -140,6 +140,98 @@ export default async function TreasuryOperationsPage({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h2 className="text-xl font-black text-slate-950">
+              Liquidity alerts & escalation
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Warning and critical projected liquidity breaches are
+              evaluated by the protected treasury processor. Critical
+              alerts escalate after 24 hours if they remain unresolved.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 text-xs font-black">
+            <span className="rounded-full bg-rose-50 px-3 py-1 text-rose-700">
+              {data.liquidityAlerts.filter(
+                (alert) =>
+                  alert.status === "OPEN" ||
+                  alert.status === "ESCALATED",
+              ).length} active
+            </span>
+            <span className="rounded-full bg-violet-50 px-3 py-1 text-violet-700">
+              {data.liquidityAlerts.filter(
+                (alert) =>
+                  alert.status === "ESCALATED",
+              ).length} escalated
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full min-w-[860px] text-left text-sm">
+            <thead className="text-xs uppercase text-slate-400">
+              <tr>
+                <th className="pb-3">Detected</th>
+                <th className="pb-3">Severity</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3">Breach date</th>
+                <th className="pb-3 text-right">Projected cash</th>
+                <th className="pb-3 text-right">Threshold</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.liquidityAlerts.map((alert) => (
+                <tr
+                  key={alert.id}
+                  className="border-t border-slate-100"
+                >
+                  <td className="py-4">
+                    {alert.firstDetectedAt.toLocaleString()}
+                  </td>
+                  <td className="py-4 font-black">
+                    {alert.severity}
+                  </td>
+                  <td className="py-4">
+                    {alert.status}
+                  </td>
+                  <td className="py-4">
+                    {alert.breachDate.toLocaleDateString()}
+                  </td>
+                  <td className="py-4 text-right font-black">
+                    {money(
+                      Number(alert.projectedCash),
+                      alert.baseCurrencyCode,
+                    )}
+                  </td>
+                  <td className="py-4 text-right">
+                    {money(
+                      Number(alert.thresholdAmount),
+                      alert.baseCurrencyCode,
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {data.liquidityAlerts.length === 0 ? (
+            <p className="mt-4 text-sm text-slate-500">
+              No liquidity alert history has been recorded yet.
+            </p>
+          ) : null}
+        </div>
+
+        <p className="mt-4 text-xs text-slate-500">
+          Processor endpoint:
+          {" "}
+          /api/platform/treasury/liquidity/process
+          {" "}
+          (protected by CRON_SECRET).
+        </p>
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
               FX exposure & base currency
             </h2>
             <p className="mt-1 text-sm text-slate-600">
