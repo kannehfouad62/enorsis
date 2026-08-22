@@ -10540,3 +10540,78 @@ model ReconciliationClosePeriod {
   @@index([tenantId, status, periodEnd])
 }
 
+enum TreasuryAccountType {
+  OPERATING
+  PAYROLL
+  TAX
+  RESERVE
+  INVESTMENT
+  OTHER
+}
+
+enum TreasuryCashFlowType {
+  INFLOW
+  OUTFLOW
+}
+
+enum TreasuryCashFlowStatus {
+  EXPECTED
+  CONFIRMED
+  CANCELLED
+}
+
+model TreasuryAccount {
+  id              String              @id @default(cuid())
+  tenantId        String
+  name            String
+  institutionName String?
+  accountType     TreasuryAccountType @default(OPERATING)
+  currencyCode    String              @default("USD")
+  lastFour        String?
+  active          Boolean             @default(true)
+  createdByUserId String
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, active, accountType])
+}
+
+model TreasuryBalanceSnapshot {
+  id              String   @id @default(cuid())
+  tenantId        String
+  treasuryAccountId String
+  balanceDate     DateTime
+  availableBalance Decimal @db.Decimal(20, 4)
+  ledgerBalance   Decimal? @db.Decimal(20, 4)
+  sourceReference String?
+  recordedByUserId String
+  createdAt       DateTime @default(now())
+
+  @@unique([treasuryAccountId, balanceDate])
+  @@index([tenantId, balanceDate])
+  @@index([treasuryAccountId, balanceDate])
+}
+
+model TreasuryCashFlowForecast {
+  id               String                 @id @default(cuid())
+  tenantId         String
+  treasuryAccountId String?
+  type             TreasuryCashFlowType
+  status           TreasuryCashFlowStatus @default(EXPECTED)
+  title            String
+  description      String?
+  currencyCode     String                 @default("USD")
+  amount           Decimal                @db.Decimal(20, 4)
+  expectedDate     DateTime
+  sourceModule     String?
+  sourceRecordId   String?
+  createdByUserId  String
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+
+  @@index([tenantId, status, expectedDate])
+  @@index([treasuryAccountId, expectedDate])
+  @@index([sourceModule, sourceRecordId])
+}
+

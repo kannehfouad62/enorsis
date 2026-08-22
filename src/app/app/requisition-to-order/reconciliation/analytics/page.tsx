@@ -43,12 +43,20 @@ export default async function ReconciliationAnalyticsPage() {
           </p>
         </div>
 
-        <Link
-          href="/app/requisition-to-order/reconciliation"
-          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
-        >
-          Back to reconciliation
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="/app/requisition-to-order/treasury"
+            className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+          >
+            Treasury operations
+          </Link>
+          <Link
+            href="/app/requisition-to-order/reconciliation"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
+          >
+            Back to reconciliation
+          </Link>
+        </div>
       </header>
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
