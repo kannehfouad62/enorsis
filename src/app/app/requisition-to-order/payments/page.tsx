@@ -107,6 +107,101 @@ export default async function PaymentOperationsPage({
         </div>
       ) : null}
 
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-700">
+              Finance control center
+            </p>
+            <h2 className="mt-1 text-xl font-black text-slate-950">
+              Accounts payable command view
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Prioritize authorization, execution, settlement, upcoming
+              obligations, and supplier exposure from one governed view.
+            </p>
+          </div>
+          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-700">
+            USD operational view
+          </span>
+        </div>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+          {[
+            ["Awaiting authorization", data.financeMetrics.awaitingAuthorizationCount, data.financeMetrics.awaitingAuthorizationUsd],
+            ["Ready to execute", data.financeMetrics.awaitingExecutionCount, data.financeMetrics.awaitingExecutionUsd],
+            ["Settlement pending", data.financeMetrics.settlementPendingCount, data.financeMetrics.settlementPendingUsd],
+            ["Overdue invoices", data.financeMetrics.overdueInvoiceCount, data.financeMetrics.overdueInvoiceUsd],
+            ["Due next 7 days", data.financeMetrics.dueNextSevenDaysCount, data.financeMetrics.dueNextSevenDaysUsd],
+            ["Open payables", data.invoices.filter((invoice) => invoice.status !== "PAID").length, data.financeMetrics.openPayablesUsd],
+          ].map(([label, count, amount]) => (
+            <div key={String(label)} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-[11px] font-black uppercase tracking-wide text-slate-500">{label}</p>
+              <p className="mt-2 text-2xl font-black text-slate-950">{Number(count)}</p>
+              <p className="mt-1 text-xs font-bold text-slate-600">{money(amount, "USD")}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <div className="rounded-2xl border border-slate-200 p-5">
+            <h3 className="font-black text-slate-950">Payment pipeline</h3>
+            <div className="mt-4 space-y-4">
+              {[
+                ["Authorization", data.financeMetrics.awaitingAuthorizationUsd],
+                ["Execution", data.financeMetrics.awaitingExecutionUsd],
+                ["Settlement", data.financeMetrics.settlementPendingUsd],
+                ["Settled", data.financeMetrics.settledUsd],
+              ].map(([label, amount]) => {
+                const maxAmount = Math.max(
+                  data.financeMetrics.awaitingAuthorizationUsd,
+                  data.financeMetrics.awaitingExecutionUsd,
+                  data.financeMetrics.settlementPendingUsd,
+                  data.financeMetrics.settledUsd,
+                  1,
+                );
+                const width = Math.max(4, (Number(amount) / maxAmount) * 100);
+                return (
+                  <div key={String(label)}>
+                    <div className="flex justify-between gap-3 text-xs font-bold text-slate-600">
+                      <span>{label}</span>
+                      <span>{money(amount, "USD")}</span>
+                    </div>
+                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
+                      <div className="h-full rounded-full bg-slate-900" style={{ width: `${width}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-5">
+            <h3 className="font-black text-slate-950">Top supplier exposure</h3>
+            <p className="mt-1 text-xs text-slate-500">
+              Largest unpaid supplier balances currently visible to accounts payable.
+            </p>
+            <div className="mt-4 space-y-3">
+              {data.financeMetrics.topSupplierExposure.length ? (
+                data.financeMetrics.topSupplierExposure.map((supplier) => (
+                  <div key={supplier.supplierId} className="flex items-center justify-between gap-4 rounded-xl bg-slate-50 px-4 py-3">
+                    <div>
+                      <p className="text-sm font-black text-slate-900">{supplier.supplierName}</p>
+                      <p className="text-xs text-slate-500">
+                        {supplier.invoices} open invoice{supplier.invoices === 1 ? "" : "s"}
+                      </p>
+                    </div>
+                    <p className="text-sm font-black text-slate-950">{money(supplier.amount, "USD")}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-slate-500">No unpaid supplier exposure is currently recorded.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="grid gap-4 md:grid-cols-4">
         {[
           [
