@@ -10698,3 +10698,40 @@ model TreasuryLiquidityAlert {
   @@index([tenantId, breachDate])
 }
 
+enum TreasuryConnectivitySyncStatus {
+  SUCCEEDED
+  FAILED
+}
+
+model TreasuryExternalAccountLink {
+  id                String   @id @default(cuid())
+  tenantId          String
+  integrationId     String
+  treasuryAccountId String
+  externalAccountId String
+  externalAccountName String?
+  active            Boolean  @default(true)
+  createdByUserId   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([integrationId, externalAccountId])
+  @@index([tenantId, active])
+  @@index([treasuryAccountId, active])
+}
+
+model TreasuryConnectivitySyncLog {
+  id             String                         @id @default(cuid())
+  tenantId       String
+  integrationId  String
+  integrationEventId String                      @unique
+  eventType      String
+  status         TreasuryConnectivitySyncStatus
+  message        String?
+  processedAt    DateTime                       @default(now())
+  createdAt      DateTime                       @default(now())
+
+  @@index([tenantId, processedAt])
+  @@index([integrationId, status, processedAt])
+}
+

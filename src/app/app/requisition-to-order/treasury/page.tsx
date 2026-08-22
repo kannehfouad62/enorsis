@@ -56,6 +56,12 @@ export default async function TreasuryOperationsPage({
         </div>
 
         <div className="flex flex-wrap gap-2">
+          <Link
+            href="/app/requisition-to-order/treasury/connectivity"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
+          >
+            Bank & ERP connections
+          </Link>
           <form
             action={syncPaymentRunsToTreasuryForecastAction}
           >
