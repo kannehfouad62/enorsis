@@ -263,6 +263,46 @@ export async function createDraftPaymentRunAction(data: FormData) {
       },
     });
 
+    const priorPaymentItems =
+      await prisma.paymentBatchItem.findMany({
+        where: {
+          supplierInvoiceId: invoice.id,
+          paymentBatch: {
+            tenantId: user.tenantId,
+          },
+        },
+        include: {
+          paymentBatch: {
+            select: {
+              id: true,
+              batchNumber: true,
+              status: true,
+              createdAt: true,
+            },
+          },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+
+    const duplicateBlocker = priorPaymentItems.find(
+      (item) =>
+        item.paymentBatch.status !== "CANCELLED",
+    );
+
+    if (duplicateBlocker) {
+      throw new Error(
+        `Duplicate-payment protection blocked this invoice because it is already linked to payment run ${duplicateBlocker.paymentBatch.batchNumber} (${duplicateBlocker.paymentBatch.status}).`,
+      );
+    }
+
+    const retrySource =
+      priorPaymentItems.find(
+        (item) =>
+          item.paymentBatch.status === "CANCELLED",
+      )?.paymentBatch ?? null;
+
     const paymentDate = paymentDateRaw
       ? new Date(`${paymentDateRaw}T12:00:00`)
       : readiness.dueDate;
@@ -304,8 +344,9 @@ export async function createDraftPaymentRunAction(data: FormData) {
           totalAmount: readiness.invoiceAmount,
           totalUsdEquivalent: readiness.invoiceAmount,
           paymentDate,
-          description:
-            `Draft payment run for ${readiness.invoiceNumber ?? invoice.invoiceNumber}`,
+          description: retrySource
+            ? `Draft payment run for ${readiness.invoiceNumber ?? invoice.invoiceNumber}\n[RETRY_OF:${retrySource.batchNumber}:${retrySource.id}]`
+            : `Draft payment run for ${readiness.invoiceNumber ?? invoice.invoiceNumber}`,
           createdByUserId: user.id,
           items: {
             create: {
@@ -390,6 +431,12 @@ export async function submitPaymentRunForApprovalAction(
     if (!batch) {
       throw new Error(
         "This payment run is no longer a draft or is not available to your organization.",
+      );
+    }
+
+    if (batch.description?.includes("[HOLD:")) {
+      throw new Error(
+        "This payment run is on hold and cannot be submitted until the hold is released.",
       );
     }
 
@@ -556,6 +603,12 @@ export async function authorizePaymentRunAction(
       );
     }
 
+    if (batch.description?.includes("[HOLD:")) {
+      throw new Error(
+        "This payment run is on hold and cannot be authorized until the hold is released.",
+      );
+    }
+
     const includedItems = batch.items.filter(
       (item) => item.status === "INCLUDED",
     );
@@ -693,6 +746,12 @@ export async function executePaymentRunAction(
     if (batch.approvedByUserId === user.id) {
       throw new Error(
         "Segregation of duties prevents the payment authorizer from executing the same payment run.",
+      );
+    }
+
+    if (batch.description?.includes("[HOLD:")) {
+      throw new Error(
+        "This payment run is on hold and cannot be executed until the hold is released.",
       );
     }
 
@@ -1293,5 +1352,165 @@ export async function recordPaymentExecutionFailureAction(
       `Payment run ${batchNumber ?? ""} recorded as failed. The affected invoices can be re-batched after correction.`,
     ),
   );
+}
+
+export async function placePaymentRunHoldAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...paymentExecutionRoles]);
+  const paymentBatchId = field(data, "paymentBatchId");
+  const holdCode = field(data, "holdCode");
+  const reason = field(data, "reason");
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (!holdCode || reason.length < 5) {
+      throw new Error(
+        "Select a hold reason and provide a short explanation.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: {
+          in: ["DRAFT", "PENDING_APPROVAL", "APPROVED"],
+        },
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "Only a payment run that has not entered execution can be placed on hold.",
+      );
+    }
+
+    if (batch.description?.includes("[HOLD:")) {
+      throw new Error("This payment run already has an active hold.");
+    }
+
+    const holdLine =
+      `[HOLD:${holdCode}:${user.id}:${new Date().toISOString()}] ${reason}`;
+
+    await prisma.paymentBatch.update({
+      where: { id: batch.id },
+      data: {
+        description: [batch.description, holdLine]
+          .filter(Boolean)
+          .join("\n"),
+      },
+    });
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.HoldPlaced",
+      title: "Payment run placed on hold",
+      message:
+        `Payment run ${batch.batchNumber} was placed on hold. ${holdCode}: ${reason}`,
+      priority: "HIGH",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+    });
+
+    revalidatePath("/app/requisition-to-order/payments");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment hold could not be applied.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(paymentPath("Payment hold applied successfully."));
+}
+
+export async function releasePaymentRunHoldAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "FINANCE",
+  ]);
+
+  const paymentBatchId = field(data, "paymentBatchId");
+  const releaseReason = field(data, "releaseReason");
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (releaseReason.length < 5) {
+      throw new Error(
+        "Provide a short explanation for releasing the hold.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: {
+          in: ["DRAFT", "PENDING_APPROVAL", "APPROVED"],
+        },
+      },
+    });
+
+    if (!batch || !batch.description?.includes("[HOLD:")) {
+      throw new Error(
+        "No active payment hold was found for this run.",
+      );
+    }
+
+    const lines = batch.description
+      .split("\n")
+      .filter((line) => !line.startsWith("[HOLD:"));
+
+    lines.push(
+      `[HOLD_RELEASED:${user.id}:${new Date().toISOString()}] ${releaseReason}`,
+    );
+
+    await prisma.paymentBatch.update({
+      where: { id: batch.id },
+      data: {
+        description: lines.join("\n"),
+      },
+    });
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.HoldReleased",
+      title: "Payment run hold released",
+      message:
+        `The hold on payment run ${batch.batchNumber} was released. ${releaseReason}`,
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+    });
+
+    revalidatePath("/app/requisition-to-order/payments");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment hold could not be released.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(paymentPath("Payment hold released successfully."));
 }
 

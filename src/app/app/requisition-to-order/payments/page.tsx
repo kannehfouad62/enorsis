@@ -3,7 +3,9 @@ import {
   cancelPaymentRunAction,
   createDraftPaymentRunAction,
   executePaymentRunAction,
+  placePaymentRunHoldAction,
   recordPaymentExecutionFailureAction,
+  releasePaymentRunHoldAction,
   settlePaymentRunAction,
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
@@ -51,6 +53,13 @@ export default async function PaymentOperationsPage({
 
   const canManagePaymentRecovery =
     canExecutePaymentRun;
+
+  const canReleasePaymentHold =
+    data.currentUserRoles.some((role) =>
+      ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE"].includes(
+        role,
+      ),
+    );
 
   const invoiceMap = new Map(
     data.invoices.map((item) => [item.id, item]),
@@ -399,6 +408,73 @@ export default async function PaymentOperationsPage({
                       ? batch.paymentDate.toLocaleDateString()
                       : "not scheduled"}
                   </p>
+
+                  {batch.description?.includes("[HOLD:") ? (
+                    <div className="mt-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+                      <p className="font-black">Payment hold active</p>
+                      <p className="mt-1 whitespace-pre-line text-xs leading-5">
+                        {batch.description
+                          .split("\n")
+                          .filter((line) => line.startsWith("[HOLD:"))
+                          .join("\n")}
+                      </p>
+                      {canReleasePaymentHold ? (
+                        <form
+                          action={releasePaymentRunHoldAction}
+                          className="mt-3 flex flex-wrap gap-2"
+                        >
+                          <input type="hidden" name="paymentBatchId" value={batch.id} />
+                          <input
+                            name="releaseReason"
+                            required
+                            minLength={5}
+                            placeholder="Explain why the hold can be released"
+                            className="min-w-[260px] flex-1 rounded-lg border border-amber-300 bg-white px-3 py-2 text-xs"
+                          />
+                          <button
+                            type="submit"
+                            className="rounded-lg bg-amber-700 px-3 py-2 text-xs font-black text-white"
+                          >
+                            Release hold
+                          </button>
+                        </form>
+                      ) : null}
+                    </div>
+                  ) : canManagePaymentRecovery &&
+                    ["DRAFT", "PENDING_APPROVAL", "APPROVED"].includes(batch.status) ? (
+                    <form
+                      action={placePaymentRunHoldAction}
+                      className="mt-4 grid gap-2 rounded-xl border border-amber-200 bg-amber-50 p-3 md:grid-cols-[180px_1fr_auto]"
+                    >
+                      <input type="hidden" name="paymentBatchId" value={batch.id} />
+                      <select
+                        name="holdCode"
+                        required
+                        className="rounded-lg border border-amber-300 bg-white px-3 py-2 text-xs"
+                      >
+                        <option value="">Place hold...</option>
+                        <option value="BANKING_REVIEW">Banking review</option>
+                        <option value="COMPLIANCE_REVIEW">Compliance review</option>
+                        <option value="TAX_REVIEW">Tax review</option>
+                        <option value="SUPPLIER_DISPUTE">Supplier dispute</option>
+                        <option value="CASH_MANAGEMENT">Cash management</option>
+                        <option value="OTHER">Other</option>
+                      </select>
+                      <input
+                        name="reason"
+                        required
+                        minLength={5}
+                        placeholder="Reason for payment hold"
+                        className="rounded-lg border border-amber-300 bg-white px-3 py-2 text-xs"
+                      />
+                      <button
+                        type="submit"
+                        className="rounded-lg border border-amber-400 bg-white px-3 py-2 text-xs font-black text-amber-800"
+                      >
+                        Place hold
+                      </button>
+                    </form>
+                  ) : null}
 
                   <div className="mt-4 space-y-2">
                     {batchItems.map((item) => {
