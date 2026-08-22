@@ -1013,3 +1013,285 @@ export async function settlePaymentRunAction(
   );
 }
 
+export async function cancelPaymentRunAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...paymentExecutionRoles]);
+
+  const paymentBatchId = field(data, "paymentBatchId");
+  const reasonCode = field(data, "reasonCode");
+  const reason = field(data, "reason");
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    if (!reasonCode || reason.length < 5) {
+      throw new Error(
+        "Select a cancellation reason and provide a short explanation.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: {
+          in: ["DRAFT", "PENDING_APPROVAL", "APPROVED"],
+        },
+      },
+      include: {
+        items: true,
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "Only draft, awaiting-authorization, or authorized payment runs can be cancelled before execution.",
+      );
+    }
+
+    const note =
+      `[CANCELLED:${reasonCode}] ${reason}`;
+    const description = [
+      batch.description,
+      note,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    await prisma.$transaction(async (tx) => {
+      const updatedBatch =
+        await tx.paymentBatch.updateMany({
+          where: {
+            id: batch.id,
+            tenantId: user.tenantId,
+            status: batch.status,
+          },
+          data: {
+            status: "CANCELLED",
+            description,
+          },
+        });
+
+      if (updatedBatch.count !== 1) {
+        throw new Error(
+          "The payment run changed while cancellation was being recorded. Refresh and try again.",
+        );
+      }
+
+      await tx.paymentBatchItem.updateMany({
+        where: {
+          paymentBatchId: batch.id,
+          status: {
+            in: ["PENDING", "INCLUDED"],
+          },
+        },
+        data: {
+          status: "REJECTED",
+        },
+      });
+
+      await tx.apPaymentReadinessCase.updateMany({
+        where: {
+          tenantId: user.tenantId,
+          paymentBatchId: batch.id,
+          status: "BATCHED",
+        },
+        data: {
+          status: "APPROVED",
+          paymentBatchId: null,
+          batchedAt: null,
+        },
+      });
+    });
+
+    batchNumber = batch.batchNumber;
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.Cancelled",
+      title: "Payment run cancelled",
+      message:
+        `Payment run ${batch.batchNumber} was cancelled before execution. Reason: ${reasonCode} — ${reason}`,
+      priority: "HIGH",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+    });
+
+    revalidatePath("/app/requisition-to-order/payments");
+    revalidatePath("/app/requisition-to-order/payment-readiness");
+  } catch (error) {
+    console.error("Payment run cancellation failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      reasonCode,
+      reason,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment run could not be cancelled.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} cancelled. Its readiness cases are available for re-batching.`,
+    ),
+  );
+}
+
+
+export async function recordPaymentExecutionFailureAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...paymentExecutionRoles]);
+
+  const paymentBatchId = field(data, "paymentBatchId");
+  const reasonCode = field(data, "reasonCode");
+  const reason = field(data, "reason");
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    if (!reasonCode || reason.length < 5) {
+      throw new Error(
+        "Select a failure reason and provide a short explanation.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: "PROCESSING",
+      },
+      include: {
+        items: true,
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "Only a payment run currently in processing can be recorded as failed.",
+      );
+    }
+
+    const note =
+      `[EXECUTION_FAILED:${reasonCode}] ${reason}`;
+    const description = [
+      batch.description,
+      note,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    await prisma.$transaction(async (tx) => {
+      const updatedBatch =
+        await tx.paymentBatch.updateMany({
+          where: {
+            id: batch.id,
+            tenantId: user.tenantId,
+            status: "PROCESSING",
+          },
+          data: {
+            status: "CANCELLED",
+            description,
+          },
+        });
+
+      if (updatedBatch.count !== 1) {
+        throw new Error(
+          "The payment run changed while the failure was being recorded. Refresh and try again.",
+        );
+      }
+
+      const failedItems =
+        await tx.paymentBatchItem.updateMany({
+          where: {
+            paymentBatchId: batch.id,
+            status: "INCLUDED",
+          },
+          data: {
+            status: "FAILED",
+          },
+        });
+
+      if (failedItems.count !== batch.items.length) {
+        throw new Error(
+          "Not all payment items could be marked as failed.",
+        );
+      }
+
+      await tx.apPaymentReadinessCase.updateMany({
+        where: {
+          tenantId: user.tenantId,
+          paymentBatchId: batch.id,
+          status: "BATCHED",
+        },
+        data: {
+          status: "APPROVED",
+          paymentBatchId: null,
+          batchedAt: null,
+        },
+      });
+    });
+
+    batchNumber = batch.batchNumber;
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.ExecutionFailed",
+      title: "Payment execution failed",
+      message:
+        `Payment run ${batch.batchNumber} failed during execution. Reason: ${reasonCode} — ${reason}. The affected readiness cases are available for controlled retry.`,
+      priority: "URGENT",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+    });
+
+    revalidatePath("/app/requisition-to-order/payments");
+    revalidatePath("/app/requisition-to-order/payment-readiness");
+  } catch (error) {
+    console.error("Payment execution failure recording failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      reasonCode,
+      reason,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment execution failure could not be recorded.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} recorded as failed. The affected invoices can be re-batched after correction.`,
+    ),
+  );
+}
+

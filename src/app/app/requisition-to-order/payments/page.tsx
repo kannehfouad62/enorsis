@@ -1,7 +1,9 @@
 import {
   authorizePaymentRunAction,
+  cancelPaymentRunAction,
   createDraftPaymentRunAction,
   executePaymentRunAction,
+  recordPaymentExecutionFailureAction,
   settlePaymentRunAction,
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
@@ -45,6 +47,9 @@ export default async function PaymentOperationsPage({
     );
 
   const canSettlePaymentRun =
+    canExecutePaymentRun;
+
+  const canManagePaymentRecovery =
     canExecutePaymentRun;
 
   const invoiceMap = new Map(
@@ -457,6 +462,44 @@ export default async function PaymentOperationsPage({
                           Submit for authorization
                         </button>
                       </form>
+
+                      {canManagePaymentRecovery ? (
+                        <form
+                          action={cancelPaymentRunAction}
+                          className="mt-3 grid gap-2 rounded-xl border border-rose-100 bg-rose-50 p-3 md:grid-cols-[180px_1fr_auto]"
+                        >
+                          <input
+                            type="hidden"
+                            name="paymentBatchId"
+                            value={batch.id}
+                          />
+                          <select
+                            name="reasonCode"
+                            required
+                            className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs"
+                          >
+                            <option value="">Cancel reason</option>
+                            <option value="DUPLICATE_BATCH">Duplicate batch</option>
+                            <option value="INCORRECT_AMOUNT">Incorrect amount</option>
+                            <option value="INCORRECT_PAYMENT_DATE">Incorrect payment date</option>
+                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
+                            <option value="OTHER">Other</option>
+                          </select>
+                          <input
+                            name="reason"
+                            required
+                            minLength={5}
+                            placeholder="Explain why this run is being cancelled"
+                            className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs"
+                          />
+                          <button
+                            type="submit"
+                            className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-xs font-black text-rose-700"
+                          >
+                            Cancel run
+                          </button>
+                        </form>
+                      ) : null}
                     </div>
                   ) : batch.status === "PENDING_APPROVAL" ? (
                     <div className="mt-5 border-t border-slate-100 pt-4">
@@ -497,6 +540,26 @@ export default async function PaymentOperationsPage({
                             : "Your current role can review this payment run but cannot authorize it."}
                         </p>
                       )}
+
+                      {canManagePaymentRecovery ? (
+                        <form
+                          action={cancelPaymentRunAction}
+                          className="mt-3 grid gap-2 rounded-xl border border-rose-100 bg-rose-50 p-3 md:grid-cols-[180px_1fr_auto]"
+                        >
+                          <input type="hidden" name="paymentBatchId" value={batch.id} />
+                          <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
+                            <option value="">Cancel reason</option>
+                            <option value="APPROVAL_WITHDRAWN">Approval withdrawn</option>
+                            <option value="INCORRECT_AMOUNT">Incorrect amount</option>
+                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
+                            <option value="OTHER">Other</option>
+                          </select>
+                          <input name="reason" required minLength={5} placeholder="Explain cancellation" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
+                          <button type="submit" className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-xs font-black text-rose-700">
+                            Cancel run
+                          </button>
+                        </form>
+                      ) : null}
                     </div>
                   ) : batch.status === "APPROVED" ? (
                     <div className="mt-5 border-t border-slate-100 pt-4">
@@ -547,6 +610,26 @@ export default async function PaymentOperationsPage({
                             : "Your current role can review this authorized payment run but cannot execute it."}
                         </p>
                       )}
+
+                      {canManagePaymentRecovery ? (
+                        <form
+                          action={cancelPaymentRunAction}
+                          className="mt-3 grid gap-2 rounded-xl border border-rose-100 bg-rose-50 p-3 md:grid-cols-[180px_1fr_auto]"
+                        >
+                          <input type="hidden" name="paymentBatchId" value={batch.id} />
+                          <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
+                            <option value="">Cancel reason</option>
+                            <option value="EXECUTION_WITHDRAWN">Execution withdrawn</option>
+                            <option value="BANKING_DETAILS_CHANGED">Banking details changed</option>
+                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
+                            <option value="OTHER">Other</option>
+                          </select>
+                          <input name="reason" required minLength={5} placeholder="Explain cancellation" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
+                          <button type="submit" className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-xs font-black text-rose-700">
+                            Cancel before execution
+                          </button>
+                        </form>
+                      ) : null}
                     </div>
                   ) : batch.status === "PROCESSING" ? (
                     <div className="mt-5 border-t border-slate-100 pt-4">
@@ -592,6 +675,40 @@ export default async function PaymentOperationsPage({
                             : "Your current role can review this payment run but cannot confirm settlement."}
                         </p>
                       )}
+
+                      {canManagePaymentRecovery ? (
+                        <form
+                          action={recordPaymentExecutionFailureAction}
+                          className="mt-3 grid gap-2 rounded-xl border border-rose-200 bg-rose-50 p-3 md:grid-cols-[180px_1fr_auto]"
+                        >
+                          <input type="hidden" name="paymentBatchId" value={batch.id} />
+                          <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
+                            <option value="">Failure reason</option>
+                            <option value="BANK_REJECTED">Bank rejected payment</option>
+                            <option value="INVALID_BANK_DETAILS">Invalid banking details</option>
+                            <option value="INSUFFICIENT_FUNDS">Insufficient funds</option>
+                            <option value="PROVIDER_ERROR">Payment provider error</option>
+                            <option value="COMPLIANCE_HOLD">Compliance hold</option>
+                            <option value="OTHER">Other</option>
+                          </select>
+                          <input name="reason" required minLength={5} placeholder="Describe the confirmed execution failure" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
+                          <button type="submit" className="rounded-lg bg-rose-700 px-3 py-2 text-xs font-black text-white">
+                            Record failure
+                          </button>
+                        </form>
+                      ) : null}
+                    </div>
+                  ) : batch.status === "CANCELLED" ? (
+                    <div className="mt-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900">
+                      <p className="font-black">Payment run closed</p>
+                      <p className="mt-1 text-xs leading-5">
+                        This run was cancelled or recorded as failed. Its linked readiness cases were released for controlled re-batching after correction.
+                      </p>
+                      {batch.description ? (
+                        <p className="mt-2 whitespace-pre-line text-xs text-rose-700">
+                          {batch.description}
+                        </p>
+                      ) : null}
                     </div>
                   ) : batch.status === "COMPLETED" ? (
                     <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
