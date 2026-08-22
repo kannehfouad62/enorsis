@@ -25,7 +25,8 @@ export async function getTreasuryWorkspace() {
   const horizon = new Date(today);
   horizon.setDate(horizon.getDate() + 30);
 
-  const [accounts, forecasts] = await Promise.all([
+  const [accounts, forecasts, liquidityPolicy, savedScenarios] =
+    await Promise.all([
     prisma.treasuryAccount.findMany({
       where: {
         tenantId,
@@ -49,6 +50,18 @@ export async function getTreasuryWorkspace() {
       },
       orderBy: {
         expectedDate: "asc",
+      },
+    }),
+    prisma.treasuryLiquidityPolicy.findUnique({
+      where: { tenantId },
+    }),
+    prisma.treasuryForecastScenario.findMany({
+      where: {
+        tenantId,
+        active: true,
+      },
+      orderBy: {
+        name: "asc",
       },
     }),
   ]);
@@ -178,9 +191,103 @@ export async function getTreasuryWorkspace() {
     forecasts.length -
     automatedForecastCount;
 
+  const policy = liquidityPolicy
+    ? {
+        minimumCashBuffer: Number(liquidityPolicy.minimumCashBuffer),
+        warningThreshold: Number(liquidityPolicy.warningThreshold),
+        criticalThreshold: Number(liquidityPolicy.criticalThreshold),
+        alertEnabled: liquidityPolicy.alertEnabled,
+      }
+    : {
+        minimumCashBuffer: 0,
+        warningThreshold: 0,
+        criticalThreshold: 0,
+        alertEnabled: true,
+      };
+
+  const scenarioDefinitions = [
+    {
+      name: "Base",
+      inflowMultiplier: 1,
+      outflowMultiplier: 1,
+    },
+    {
+      name: "Upside",
+      inflowMultiplier: 1.1,
+      outflowMultiplier: 0.95,
+    },
+    {
+      name: "Downside",
+      inflowMultiplier: 0.9,
+      outflowMultiplier: 1.1,
+    },
+    ...savedScenarios.map((scenario) => ({
+      name: scenario.name,
+      inflowMultiplier: Number(scenario.inflowMultiplier),
+      outflowMultiplier: Number(scenario.outflowMultiplier),
+    })),
+  ];
+
+  const scenarioSeries = scenarioDefinitions.map((scenario) => {
+    let running = totalAvailableCash;
+
+    const series = [...daily.values()].map((item) => {
+      running +=
+        item.inflows * scenario.inflowMultiplier -
+        item.outflows * scenario.outflowMultiplier;
+
+      return {
+        date: item.date,
+        projectedCash: running,
+      };
+    });
+
+    const firstWarning = series.find(
+      (item) =>
+        policy.warningThreshold > 0 &&
+        item.projectedCash < policy.warningThreshold,
+    );
+
+    const firstCritical = series.find(
+      (item) =>
+        policy.criticalThreshold > 0 &&
+        item.projectedCash < policy.criticalThreshold,
+    );
+
+    const lowestCash = Math.min(
+      totalAvailableCash,
+      ...series.map((item) => item.projectedCash),
+    );
+
+    return {
+      ...scenario,
+      series,
+      lowestCash,
+      firstWarningDate: firstWarning?.date ?? null,
+      firstCriticalDate: firstCritical?.date ?? null,
+    };
+  });
+
+  const baseScenario = scenarioSeries[0];
+
+  const liquidityStatus =
+    policy.criticalThreshold > 0 &&
+    baseScenario.lowestCash < policy.criticalThreshold
+      ? "CRITICAL"
+      : policy.warningThreshold > 0 &&
+          baseScenario.lowestCash < policy.warningThreshold
+        ? "WARNING"
+        : policy.minimumCashBuffer > 0 &&
+            baseScenario.lowestCash < policy.minimumCashBuffer
+          ? "BELOW_BUFFER"
+          : "HEALTHY";
+
   return {
     accounts: accountRows,
     forecasts,
+    liquidityPolicy: policy,
+    scenarioSeries,
+    liquidityStatus,
     sourceMetrics: {
       automatedForecastCount,
       manualForecastCount,

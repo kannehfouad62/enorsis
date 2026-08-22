@@ -479,3 +479,122 @@ export async function syncPaymentRunsToTreasuryForecastAction() {
     ),
   );
 }
+
+export async function saveTreasuryLiquidityPolicyAction(data: FormData) {
+  const user = await requireAnyRole([...treasuryRoles]);
+
+  const minimumCashBuffer = Number(field(data, "minimumCashBuffer"));
+  const warningThreshold = Number(field(data, "warningThreshold"));
+  const criticalThreshold = Number(field(data, "criticalThreshold"));
+  const alertEnabled = field(data, "alertEnabled") === "on";
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (
+      ![minimumCashBuffer, warningThreshold, criticalThreshold].every(
+        Number.isFinite,
+      )
+    ) {
+      throw new Error("Enter valid liquidity threshold amounts.");
+    }
+
+    if (
+      minimumCashBuffer < 0 ||
+      warningThreshold < 0 ||
+      criticalThreshold < 0
+    ) {
+      throw new Error("Liquidity thresholds cannot be negative.");
+    }
+
+    if (criticalThreshold > warningThreshold) {
+      throw new Error(
+        "Critical threshold should be less than or equal to the warning threshold.",
+      );
+    }
+
+    await prisma.treasuryLiquidityPolicy.upsert({
+      where: {
+        tenantId: user.tenantId,
+      },
+      create: {
+        tenantId: user.tenantId,
+        minimumCashBuffer,
+        warningThreshold,
+        criticalThreshold,
+        alertEnabled,
+        updatedByUserId: user.id,
+      },
+      update: {
+        minimumCashBuffer,
+        warningThreshold,
+        criticalThreshold,
+        alertEnabled,
+        updatedByUserId: user.id,
+      },
+    });
+
+    revalidatePath("/app/requisition-to-order/treasury");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Liquidity policy could not be saved.";
+  }
+
+  if (errorMessage) {
+    redirect(treasuryPath(undefined, errorMessage));
+  }
+
+  redirect(treasuryPath("Liquidity policy saved."));
+}
+
+export async function createTreasuryForecastScenarioAction(data: FormData) {
+  const user = await requireAnyRole([...treasuryRoles]);
+
+  const name = field(data, "name");
+  const inflowMultiplier = Number(field(data, "inflowMultiplier"));
+  const outflowMultiplier = Number(field(data, "outflowMultiplier"));
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (name.length < 2) {
+      throw new Error("Scenario name must contain at least 2 characters.");
+    }
+
+    if (
+      !Number.isFinite(inflowMultiplier) ||
+      !Number.isFinite(outflowMultiplier) ||
+      inflowMultiplier < 0 ||
+      outflowMultiplier < 0 ||
+      inflowMultiplier > 5 ||
+      outflowMultiplier > 5
+    ) {
+      throw new Error("Scenario multipliers must be between 0 and 5.");
+    }
+
+    await prisma.treasuryForecastScenario.create({
+      data: {
+        tenantId: user.tenantId,
+        name,
+        inflowMultiplier,
+        outflowMultiplier,
+        createdByUserId: user.id,
+      },
+    });
+
+    revalidatePath("/app/requisition-to-order/treasury");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Treasury forecast scenario could not be created.";
+  }
+
+  if (errorMessage) {
+    redirect(treasuryPath(undefined, errorMessage));
+  }
+
+  redirect(treasuryPath("Treasury forecast scenario created."));
+}

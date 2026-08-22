@@ -3,7 +3,9 @@ import Link from "next/link";
 import {
   createTreasuryAccountAction,
   createTreasuryCashFlowForecastAction,
+  createTreasuryForecastScenarioAction,
   recordTreasuryBalanceAction,
+  saveTreasuryLiquidityPolicyAction,
   syncPaymentRunsToTreasuryForecastAction,
 } from "@/modules/treasury-operations/actions";
 import {
@@ -11,6 +13,7 @@ import {
 } from "@/modules/treasury-operations/queries";
 import {
   LiquidityForecastChart,
+  LiquidityScenarioChart,
 } from "./charts";
 
 const card =
@@ -99,6 +102,149 @@ export default async function TreasuryOperationsPage({
             </p>
           </div>
         ))}
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Liquidity policy & alerts
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Set governance thresholds for minimum cash, warning, and
+              critical liquidity levels.
+            </p>
+          </div>
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-black ${
+              data.liquidityStatus === "CRITICAL"
+                ? "bg-rose-100 text-rose-700"
+                : data.liquidityStatus === "WARNING"
+                  ? "bg-amber-100 text-amber-700"
+                  : data.liquidityStatus === "BELOW_BUFFER"
+                    ? "bg-orange-100 text-orange-700"
+                    : "bg-emerald-100 text-emerald-700"
+            }`}
+          >
+            {data.liquidityStatus}
+          </span>
+        </div>
+
+        <form
+          action={saveTreasuryLiquidityPolicyAction}
+          className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4"
+        >
+          <input
+            type="number"
+            step="0.01"
+            name="minimumCashBuffer"
+            defaultValue={data.liquidityPolicy.minimumCashBuffer}
+            placeholder="Minimum cash buffer"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            type="number"
+            step="0.01"
+            name="warningThreshold"
+            defaultValue={data.liquidityPolicy.warningThreshold}
+            placeholder="Warning threshold"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            type="number"
+            step="0.01"
+            name="criticalThreshold"
+            defaultValue={data.liquidityPolicy.criticalThreshold}
+            placeholder="Critical threshold"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <label className="flex items-center gap-3 rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold text-slate-700">
+            <input
+              type="checkbox"
+              name="alertEnabled"
+              defaultChecked={data.liquidityPolicy.alertEnabled}
+            />
+            Enable liquidity alerts
+          </label>
+          <button
+            type="submit"
+            className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white xl:col-span-4"
+          >
+            Save liquidity policy
+          </button>
+        </form>
+      </section>
+
+      <section className={card}>
+        <h2 className="text-xl font-black text-slate-950">
+          Scenario forecasting
+        </h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Compare base, upside, downside, and saved custom liquidity
+          assumptions over the same 30-day horizon.
+        </p>
+
+        <LiquidityScenarioChart
+          scenarios={data.scenarioSeries}
+        />
+
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
+          {data.scenarioSeries.slice(0, 5).map((scenario) => (
+            <div
+              key={scenario.name}
+              className="rounded-2xl bg-slate-50 p-4"
+            >
+              <p className="font-black text-slate-950">
+                {scenario.name}
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Lowest cash: {money(scenario.lowestCash)}
+              </p>
+              <p className="mt-1 text-xs text-slate-500">
+                Warning breach: {scenario.firstWarningDate ?? "None"}
+              </p>
+              <p className="mt-1 text-xs text-slate-500">
+                Critical breach: {scenario.firstCriticalDate ?? "None"}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <form
+          action={createTreasuryForecastScenarioAction}
+          className="mt-5 grid gap-3 md:grid-cols-[1fr_180px_180px_auto]"
+        >
+          <input
+            name="name"
+            required
+            placeholder="Custom scenario name"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            max="5"
+            name="inflowMultiplier"
+            defaultValue="1"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            max="5"
+            name="outflowMultiplier"
+            defaultValue="1"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <button
+            type="submit"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
+          >
+            Save scenario
+          </button>
+        </form>
       </section>
 
       <section className={card}>

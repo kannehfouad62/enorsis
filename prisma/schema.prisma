@@ -10615,3 +10615,30 @@ model TreasuryCashFlowForecast {
   @@index([sourceModule, sourceRecordId])
 }
 
+model TreasuryLiquidityPolicy {
+  id                    String   @id @default(cuid())
+  tenantId              String   @unique
+  minimumCashBuffer     Decimal  @default(0) @db.Decimal(20, 4)
+  warningThreshold      Decimal  @default(0) @db.Decimal(20, 4)
+  criticalThreshold     Decimal  @default(0) @db.Decimal(20, 4)
+  alertEnabled          Boolean  @default(true)
+  updatedByUserId       String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+}
+
+model TreasuryForecastScenario {
+  id                String   @id @default(cuid())
+  tenantId          String
+  name              String
+  inflowMultiplier  Decimal  @default(1) @db.Decimal(8, 4)
+  outflowMultiplier Decimal  @default(1) @db.Decimal(8, 4)
+  active            Boolean  @default(true)
+  createdByUserId   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, active, name])
+}
+
