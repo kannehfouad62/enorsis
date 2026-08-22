@@ -10710,6 +10710,7 @@ model TreasuryExternalAccountLink {
   treasuryAccountId String
   externalAccountId String
   externalAccountName String?
+  expectedFeedMinutes Int     @default(1440)
   active            Boolean  @default(true)
   createdByUserId   String
   createdAt         DateTime @default(now())
@@ -10733,5 +10734,36 @@ model TreasuryConnectivitySyncLog {
 
   @@index([tenantId, processedAt])
   @@index([integrationId, status, processedAt])
+}
+
+enum TreasuryConnectivityHealthStatus {
+  OPEN
+  RESOLVED
+}
+
+enum TreasuryConnectivityHealthSeverity {
+  WARNING
+  CRITICAL
+}
+
+model TreasuryConnectivityHealthIncident {
+  id                String                               @id @default(cuid())
+  tenantId          String
+  incidentKey       String                               @unique
+  integrationId     String
+  externalAccountLinkId String?
+  severity          TreasuryConnectivityHealthSeverity
+  status            TreasuryConnectivityHealthStatus    @default(OPEN)
+  incidentType      String
+  message           String
+  firstDetectedAt   DateTime                             @default(now())
+  lastDetectedAt    DateTime                             @default(now())
+  resolvedAt        DateTime?
+  createdAt         DateTime                             @default(now())
+  updatedAt         DateTime                             @updatedAt
+
+  @@index([tenantId, status, severity])
+  @@index([integrationId, status])
+  @@index([externalAccountLinkId, status])
 }
 

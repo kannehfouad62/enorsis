@@ -47,6 +47,8 @@ export async function createTreasuryExternalAccountLinkAction(
   const externalAccountName =
     field(data, "externalAccountName") ||
     null;
+  const expectedFeedMinutesRaw =
+    field(data, "expectedFeedMinutes") || "1440";
 
   let errorMessage: string | null = null;
 
@@ -54,6 +56,19 @@ export async function createTreasuryExternalAccountLinkAction(
     if (!externalAccountId) {
       throw new Error(
         "External account ID is required.",
+      );
+    }
+
+    const expectedFeedMinutes =
+      Number(expectedFeedMinutesRaw);
+
+    if (
+      !Number.isInteger(expectedFeedMinutes) ||
+      expectedFeedMinutes < 15 ||
+      expectedFeedMinutes > 10080
+    ) {
+      throw new Error(
+        "Expected feed interval must be between 15 and 10,080 minutes.",
       );
     }
 
@@ -101,11 +116,13 @@ export async function createTreasuryExternalAccountLinkAction(
         treasuryAccountId,
         externalAccountId,
         externalAccountName,
+        expectedFeedMinutes,
         createdByUserId: user.id,
       },
       update: {
         treasuryAccountId,
         externalAccountName,
+        expectedFeedMinutes,
         active: true,
       },
     });

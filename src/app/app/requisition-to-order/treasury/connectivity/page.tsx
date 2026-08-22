@@ -67,12 +67,14 @@ export default async function TreasuryConnectivityPage({
         </div>
       ) : null}
 
-      <section className="grid gap-4 md:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-6">
         {[
           ["Active connections", data.metrics.activeConnections],
           ["Mapped accounts", data.metrics.mappedAccounts],
           ["Successful syncs", data.metrics.successfulSyncs],
           ["Failed syncs", data.metrics.failedSyncs],
+          ["Open health incidents", data.metrics.openHealthIncidents],
+          ["Critical incidents", data.metrics.criticalHealthIncidents],
         ].map(([label, value]) => (
           <div key={String(label)} className={card}>
             <p className="text-xs font-black uppercase tracking-wide text-slate-500">
@@ -149,6 +151,17 @@ export default async function TreasuryConnectivityPage({
             className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
           />
 
+          <input
+            type="number"
+            name="expectedFeedMinutes"
+            min="15"
+            max="10080"
+            step="15"
+            defaultValue="1440"
+            placeholder="Expected feed interval (minutes)"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+
           <button
             type="submit"
             className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white xl:col-span-4"
@@ -216,6 +229,7 @@ export default async function TreasuryConnectivityPage({
                 <th className="pb-3">Provider</th>
                 <th className="pb-3">External account</th>
                 <th className="pb-3">Treasury account</th>
+                <th className="pb-3">Expected feed</th>
               </tr>
             </thead>
             <tbody>
@@ -240,6 +254,9 @@ export default async function TreasuryConnectivityPage({
                     {link.treasuryAccount?.name ??
                       link.treasuryAccountId}
                   </td>
+                  <td className="py-4">
+                    {link.expectedFeedMinutes} min
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -251,6 +268,75 @@ export default async function TreasuryConnectivityPage({
             </p>
           ) : null}
         </div>
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Connectivity health
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Missed balance feeds and repeated sync failures are detected
+              automatically and resolved when connectivity recovers.
+            </p>
+          </div>
+          <span className="rounded-full bg-rose-50 px-3 py-1 text-xs font-black text-rose-700">
+            {data.metrics.openHealthIncidents} open
+          </span>
+        </div>
+
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full min-w-[860px] text-left text-sm">
+            <thead className="text-xs uppercase text-slate-400">
+              <tr>
+                <th className="pb-3">Detected</th>
+                <th className="pb-3">Severity</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3">Type</th>
+                <th className="pb-3">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.healthIncidents.map((incident) => (
+                <tr
+                  key={incident.id}
+                  className="border-t border-slate-100"
+                >
+                  <td className="py-4">
+                    {incident.firstDetectedAt.toLocaleString()}
+                  </td>
+                  <td className="py-4 font-black">
+                    {incident.severity}
+                  </td>
+                  <td className="py-4">
+                    {incident.status}
+                  </td>
+                  <td className="py-4 font-bold">
+                    {incident.incidentType}
+                  </td>
+                  <td className="py-4 text-slate-600">
+                    {incident.message}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          {data.healthIncidents.length === 0 ? (
+            <p className="mt-4 text-sm text-slate-500">
+              No treasury connectivity health incidents have been recorded.
+            </p>
+          ) : null}
+        </div>
+
+        <p className="mt-4 text-xs text-slate-500">
+          Scheduled automation endpoint:
+          {" "}
+          /api/platform/treasury/connectivity/run
+          {" "}
+          (protected by CRON_SECRET).
+        </p>
       </section>
 
       <section className={card}>

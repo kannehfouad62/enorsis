@@ -31,6 +31,7 @@ export async function getTreasuryConnectivityWorkspace() {
     treasuryAccounts,
     accountLinks,
     syncLogs,
+    healthIncidents,
   ] = await Promise.all([
     prisma.integrationConnection.findMany({
       where: {
@@ -69,6 +70,15 @@ export async function getTreasuryConnectivityWorkspace() {
       },
       take: 100,
     }),
+    prisma.treasuryConnectivityHealthIncident.findMany({
+      where: {
+        tenantId,
+      },
+      orderBy: {
+        firstDetectedAt: "desc",
+      },
+      take: 100,
+    }),
   ]);
 
   return {
@@ -90,6 +100,7 @@ export async function getTreasuryConnectivityWorkspace() {
         ) ?? null,
     })),
     syncLogs,
+    healthIncidents,
     metrics: {
       activeConnections:
         integrations.length,
@@ -104,6 +115,17 @@ export async function getTreasuryConnectivityWorkspace() {
         syncLogs.filter(
           (item) =>
             item.status === "FAILED",
+        ).length,
+      openHealthIncidents:
+        healthIncidents.filter(
+          (item) =>
+            item.status === "OPEN",
+        ).length,
+      criticalHealthIncidents:
+        healthIncidents.filter(
+          (item) =>
+            item.status === "OPEN" &&
+            item.severity === "CRITICAL",
         ).length,
     },
   };
