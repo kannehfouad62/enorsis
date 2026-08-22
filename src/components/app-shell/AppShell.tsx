@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   Sparkles,
   Store,
+  UserRound,
   UsersRound,
   X,
 } from "lucide-react";
@@ -31,6 +32,7 @@ import {
   isHrefAllowedForCommercialPersona,
   type TenantCommercialPersonaValue,
 } from "@/core/tenancy/commercial-persona";
+import { Logo } from "@/components/Logo";
 import { SignOutButton } from "./SignOutButton";
 
 const navigation = [
@@ -126,7 +128,9 @@ export function AppShell({
   const pathname = usePathname();
   const router = useRouter();
   const searchRef = useRef<HTMLDivElement>(null);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [searching, setSearching] = useState(false);
@@ -222,11 +226,20 @@ export function AppShell({
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent) => {
+      const target = event.target as Node;
+
       if (
         searchRef.current &&
-        !searchRef.current.contains(event.target as Node)
+        !searchRef.current.contains(target)
       ) {
         setSearchOpen(false);
+      }
+
+      if (
+        userMenuRef.current &&
+        !userMenuRef.current.contains(target)
+      ) {
+        setUserMenuOpen(false);
       }
     };
 
@@ -454,14 +467,124 @@ export function AppShell({
             >
               <Settings2 className="h-5 w-5" />
             </Link>
-            <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white py-1.5 pl-1.5 pr-3 shadow-sm">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-sm font-black text-white">
-                {(user.name ?? user.email ?? "E").slice(0, 1).toUpperCase()}
-              </span>
-              <div className="hidden min-w-0 sm:block">
-                <p className="max-w-32 truncate text-sm font-bold">{user.name ?? "Administrator"}</p>
-                <p className="max-w-32 truncate text-xs text-slate-500">{user.roles[0]?.replaceAll("_", " ")}</p>
-              </div>
+            <div
+              ref={userMenuRef}
+              className="relative"
+            >
+              <button
+                type="button"
+                aria-expanded={userMenuOpen}
+                aria-haspopup="menu"
+                aria-label="Open user menu"
+                onClick={() =>
+                  setUserMenuOpen((open) => !open)
+                }
+                className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white py-1.5 pl-1.5 pr-3 text-left shadow-sm transition hover:border-blue-200 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-50"
+              >
+                <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-sm font-black text-white">
+                  {(user.name ?? user.email ?? "E")
+                    .slice(0, 1)
+                    .toUpperCase()}
+                </span>
+                <span className="hidden min-w-0 sm:block">
+                  <span className="block max-w-32 truncate text-sm font-bold">
+                    {user.name ?? "Administrator"}
+                  </span>
+                  <span className="block max-w-32 truncate text-xs text-slate-500">
+                    {user.roles[0]?.replaceAll("_", " ")}
+                  </span>
+                </span>
+                <ChevronDown
+                  className={`hidden h-4 w-4 text-slate-400 transition sm:block ${
+                    userMenuOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {userMenuOpen ? (
+                <div
+                  role="menu"
+                  className="absolute right-0 top-[calc(100%+0.6rem)] z-50 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl"
+                >
+                  <div className="rounded-xl bg-slate-50 p-4">
+                    <div className="flex items-start gap-3">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white">
+                        {(user.name ?? user.email ?? "E")
+                          .slice(0, 1)
+                          .toUpperCase()}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-black text-slate-950">
+                          {user.name ?? "Administrator"}
+                        </p>
+                        <p className="mt-0.5 truncate text-xs text-slate-500">
+                          {user.email ?? "No email available"}
+                        </p>
+                        <p className="mt-2 text-xs font-bold text-blue-700">
+                          {user.tenantName}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {user.roles.slice(0, 5).map((role) => (
+                        <span
+                          key={role}
+                          className="rounded-full bg-white px-2.5 py-1 text-[10px] font-black uppercase tracking-wide text-slate-600"
+                        >
+                          {role.replaceAll("_", " ")}
+                        </span>
+                      ))}
+                      {user.roles.length > 5 ? (
+                        <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-black text-slate-500">
+                          +{user.roles.length - 5}
+                        </span>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <div className="mt-2 space-y-1">
+                    <Link
+                      href="/app/settings/security"
+                      role="menuitem"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                    >
+                      <UserRound className="h-4 w-4 text-slate-500" />
+                      My account & security
+                    </Link>
+
+                    <Link
+                      href="/app/settings/organization"
+                      role="menuitem"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                    >
+                      <Building2 className="h-4 w-4 text-slate-500" />
+                      Organization settings
+                    </Link>
+
+                    <Link
+                      href="/app/notifications"
+                      role="menuitem"
+                      onClick={() => setUserMenuOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                    >
+                      <Bell className="h-4 w-4 text-slate-500" />
+                      Notifications
+                    </Link>
+
+                    <div className="my-1 border-t border-slate-100" />
+
+                    <SignOutButton
+                      variant="menu"
+                      onBeforeSignOut={() =>
+                        setUserMenuOpen(false)
+                      }
+                    />
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </header>
@@ -486,14 +609,15 @@ function SidebarContent({
 
   return (
     <>
-      <div className="flex h-20 items-center gap-3 border-b border-white/10 px-6">
-        <span className="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 shadow-lg shadow-blue-600/30">
-          <Sparkles className="h-5 w-5" />
-        </span>
-        <div>
-          <p className="text-lg font-black tracking-wide">ENORSIS</p>
-          <p className="text-[10px] font-semibold uppercase tracking-[.2em] text-cyan-300">Procurement OS</p>
-        </div>
+      <div className="flex h-20 items-center border-b border-white/10 px-6">
+        <Link
+          href="/app"
+          aria-label="Enorsis command center"
+          className="flex items-center gap-3"
+        >
+          <Logo theme="dark" size="sm" />
+          <span className="sr-only">Enorsis</span>
+        </Link>
       </div>
 
       <div className="px-4 py-4">
