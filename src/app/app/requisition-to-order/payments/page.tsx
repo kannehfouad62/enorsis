@@ -1,4 +1,7 @@
-import { createDraftPaymentRunAction } from "@/modules/payment-operations/actions";
+import {
+  createDraftPaymentRunAction,
+  submitPaymentRunForApprovalAction,
+} from "@/modules/payment-operations/actions";
 import { getPaymentOperationsWorkspace } from "@/modules/payment-operations/queries";
 
 const card =
@@ -62,10 +65,10 @@ export default async function PaymentOperationsPage({
         </h1>
 
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
-          Manage approved payment-readiness cases and create
-          draft payment runs for controlled accounts-payable processing.
-          Authorization, execution and settlement remain governed by
-          their respective workflow controls.
+          Manage approved payment-readiness cases, review draft
+          payment runs, and submit validated batches for finance
+          authorization. Payment execution and settlement remain
+          governed by their respective workflow controls.
         </p>
       </header>
 
@@ -308,6 +311,40 @@ export default async function PaymentOperationsPage({
                       );
                     })}
                   </div>
+
+                  {batch.status === "DRAFT" ? (
+                    <div className="mt-5 border-t border-slate-100 pt-4">
+                      <div className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                        <p className="font-black">Draft review required</p>
+                        <p className="mt-1 text-xs leading-5">
+                          Confirm the invoice count, total amount, supplier,
+                          payment date and included invoices before sending
+                          this run to finance authorization.
+                        </p>
+                      </div>
+
+                      <form
+                        action={submitPaymentRunForApprovalAction}
+                        className="mt-3"
+                      >
+                        <input
+                          type="hidden"
+                          name="paymentBatchId"
+                          value={batch.id}
+                        />
+                        <button
+                          type="submit"
+                          className="rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-black text-white hover:bg-blue-800"
+                        >
+                          Submit for authorization
+                        </button>
+                      </form>
+                    </div>
+                  ) : batch.status === "PENDING_APPROVAL" ? (
+                    <div className="mt-5 rounded-xl bg-blue-50 px-4 py-3 text-sm font-bold text-blue-800">
+                      Awaiting finance authorization
+                    </div>
+                  ) : null}
                 </article>
               );
             })

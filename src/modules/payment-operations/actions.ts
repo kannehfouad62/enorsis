@@ -165,3 +165,104 @@ export async function createDraftPaymentRunAction(data: FormData) {
     ),
   );
 }
+
+export async function submitPaymentRunForApprovalAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...financeRoles]);
+  const paymentBatchId = field(data, "paymentBatchId");
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: "DRAFT",
+      },
+      include: {
+        items: true,
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "This payment run is no longer a draft or is not available to your organization.",
+      );
+    }
+
+    const includedItems = batch.items.filter(
+      (item) => item.status === "INCLUDED",
+    );
+
+    if (includedItems.length === 0) {
+      throw new Error(
+        "A payment run must contain at least one included invoice before submission.",
+      );
+    }
+
+    if (Number(batch.totalAmount) <= 0 || batch.invoiceCount <= 0) {
+      throw new Error(
+        "The payment run total and invoice count must be greater than zero before submission.",
+      );
+    }
+
+    const itemTotal = includedItems.reduce(
+      (sum, item) => sum + Number(item.amount),
+      0,
+    );
+
+    if (Math.abs(itemTotal - Number(batch.totalAmount)) > 0.005) {
+      throw new Error(
+        "The payment run total does not match the included invoice total. Review the batch before submitting.",
+      );
+    }
+
+    const updated = await prisma.paymentBatch.updateMany({
+      where: {
+        id: batch.id,
+        tenantId: user.tenantId,
+        status: "DRAFT",
+      },
+      data: {
+        status: "PENDING_APPROVAL",
+      },
+    });
+
+    if (updated.count !== 1) {
+      throw new Error(
+        "The payment run changed while it was being submitted. Refresh and try again.",
+      );
+    }
+
+    batchNumber = batch.batchNumber;
+
+    revalidatePath("/app/requisition-to-order/payments");
+    revalidatePath("/app/requisition-to-order/payment-runs");
+  } catch (error) {
+    console.error("Payment run submission failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment run could not be submitted.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} submitted for authorization.`,
+    ),
+  );
+}
+
