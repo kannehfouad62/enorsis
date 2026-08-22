@@ -598,3 +598,142 @@ export async function createTreasuryForecastScenarioAction(data: FormData) {
 
   redirect(treasuryPath("Treasury forecast scenario created."));
 }
+
+export async function saveTreasuryFxPolicyAction(data: FormData) {
+  const user = await requireAnyRole([...treasuryRoles]);
+
+  const baseCurrencyCode =
+    field(data, "baseCurrencyCode").toUpperCase();
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (!/^[A-Z]{3}$/.test(baseCurrencyCode)) {
+      throw new Error(
+        "Base currency must be a valid 3-letter currency code.",
+      );
+    }
+
+    await prisma.treasuryFxPolicy.upsert({
+      where: {
+        tenantId: user.tenantId,
+      },
+      create: {
+        tenantId: user.tenantId,
+        baseCurrencyCode,
+        updatedByUserId: user.id,
+      },
+      update: {
+        baseCurrencyCode,
+        updatedByUserId: user.id,
+      },
+    });
+
+    revalidatePath("/app/requisition-to-order/treasury");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Treasury FX policy could not be saved.";
+  }
+
+  if (errorMessage) {
+    redirect(treasuryPath(undefined, errorMessage));
+  }
+
+  redirect(
+    treasuryPath(
+      `Treasury base currency set to ${baseCurrencyCode}.`,
+    ),
+  );
+}
+
+export async function recordTreasuryFxRateAction(data: FormData) {
+  const user = await requireAnyRole([...treasuryRoles]);
+
+  const fromCurrencyCode =
+    field(data, "fromCurrencyCode").toUpperCase();
+  const toCurrencyCode =
+    field(data, "toCurrencyCode").toUpperCase();
+  const rate = Number(field(data, "rate"));
+  const effectiveDateRaw = field(data, "effectiveDate");
+  const sourceReference =
+    field(data, "sourceReference") || null;
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (
+      !/^[A-Z]{3}$/.test(fromCurrencyCode) ||
+      !/^[A-Z]{3}$/.test(toCurrencyCode)
+    ) {
+      throw new Error(
+        "FX rate currencies must use valid 3-letter currency codes.",
+      );
+    }
+
+    if (
+      fromCurrencyCode === toCurrencyCode
+    ) {
+      throw new Error(
+        "FX rate source and destination currencies must be different.",
+      );
+    }
+
+    if (!Number.isFinite(rate) || rate <= 0) {
+      throw new Error(
+        "FX conversion rate must be greater than zero.",
+      );
+    }
+
+    const effectiveDate = new Date(
+      `${effectiveDateRaw}T12:00:00`,
+    );
+
+    if (
+      Number.isNaN(effectiveDate.getTime())
+    ) {
+      throw new Error(
+        "FX rate effective date is invalid.",
+      );
+    }
+
+    await prisma.treasuryFxRate.upsert({
+      where: {
+        tenantId_fromCurrencyCode_toCurrencyCode_effectiveDate: {
+          tenantId: user.tenantId,
+          fromCurrencyCode,
+          toCurrencyCode,
+          effectiveDate,
+        },
+      },
+      create: {
+        tenantId: user.tenantId,
+        fromCurrencyCode,
+        toCurrencyCode,
+        rate,
+        effectiveDate,
+        sourceReference,
+        recordedByUserId: user.id,
+      },
+      update: {
+        rate,
+        sourceReference,
+        recordedByUserId: user.id,
+      },
+    });
+
+    revalidatePath("/app/requisition-to-order/treasury");
+  } catch (error) {
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Treasury FX rate could not be recorded.";
+  }
+
+  if (errorMessage) {
+    redirect(treasuryPath(undefined, errorMessage));
+  }
+
+  redirect(treasuryPath("Treasury FX rate recorded."));
+}

@@ -10642,3 +10642,27 @@ model TreasuryForecastScenario {
   @@index([tenantId, active, name])
 }
 
+model TreasuryFxPolicy {
+  id              String   @id @default(cuid())
+  tenantId        String   @unique
+  baseCurrencyCode String  @default("USD")
+  updatedByUserId String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model TreasuryFxRate {
+  id              String   @id @default(cuid())
+  tenantId        String
+  fromCurrencyCode String
+  toCurrencyCode  String
+  rate            Decimal  @db.Decimal(20, 8)
+  effectiveDate   DateTime
+  sourceReference String?
+  recordedByUserId String
+  createdAt       DateTime @default(now())
+
+  @@unique([tenantId, fromCurrencyCode, toCurrencyCode, effectiveDate])
+  @@index([tenantId, fromCurrencyCode, toCurrencyCode, effectiveDate])
+}
+

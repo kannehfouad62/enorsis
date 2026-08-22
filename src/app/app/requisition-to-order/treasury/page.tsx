@@ -5,6 +5,8 @@ import {
   createTreasuryCashFlowForecastAction,
   createTreasuryForecastScenarioAction,
   recordTreasuryBalanceAction,
+  recordTreasuryFxRateAction,
+  saveTreasuryFxPolicyAction,
   saveTreasuryLiquidityPolicyAction,
   syncPaymentRunsToTreasuryForecastAction,
 } from "@/modules/treasury-operations/actions";
@@ -87,11 +89,41 @@ export default async function TreasuryOperationsPage({
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {[
-          ["Available cash", money(data.summary.totalAvailableCash)],
-          ["30-day inflows", money(data.summary.expectedInflows)],
-          ["30-day outflows", money(data.summary.expectedOutflows)],
-          ["Projected 30-day cash", money(data.summary.projected30DayCash)],
-          ["Lowest projected cash", money(data.summary.lowestProjectedCash)],
+          [
+            "Available cash",
+            money(
+              data.summary.totalAvailableCash,
+              data.baseCurrencyCode,
+            ),
+          ],
+          [
+            "30-day inflows",
+            money(
+              data.summary.expectedInflows,
+              data.baseCurrencyCode,
+            ),
+          ],
+          [
+            "30-day outflows",
+            money(
+              data.summary.expectedOutflows,
+              data.baseCurrencyCode,
+            ),
+          ],
+          [
+            "Projected 30-day cash",
+            money(
+              data.summary.projected30DayCash,
+              data.baseCurrencyCode,
+            ),
+          ],
+          [
+            "Lowest projected cash",
+            money(
+              data.summary.lowestProjectedCash,
+              data.baseCurrencyCode,
+            ),
+          ],
         ].map(([label, value]) => (
           <div key={label} className={card}>
             <p className="text-xs font-black uppercase tracking-wide text-slate-500">
@@ -102,6 +134,167 @@ export default async function TreasuryOperationsPage({
             </p>
           </div>
         ))}
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              FX exposure & base currency
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Normalize treasury balances and forecasts into one governed
+              base currency while preserving native-currency exposure.
+            </p>
+          </div>
+          <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
+            Base {data.baseCurrencyCode}
+          </span>
+        </div>
+
+        {data.missingFxCurrencies.length ? (
+          <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-bold text-amber-900">
+            Missing FX rate(s):{" "}
+            {data.missingFxCurrencies.join(", ")} →{" "}
+            {data.baseCurrencyCode}. These amounts are excluded from
+            normalized liquidity totals until a rate is recorded.
+          </div>
+        ) : null}
+
+        <div className="mt-5 grid gap-6 xl:grid-cols-2">
+          <form
+            action={saveTreasuryFxPolicyAction}
+            className="rounded-2xl border border-slate-200 p-4"
+          >
+            <p className="font-black text-slate-950">
+              Treasury base currency
+            </p>
+            <div className="mt-3 flex gap-3">
+              <input
+                name="baseCurrencyCode"
+                required
+                maxLength={3}
+                defaultValue={data.baseCurrencyCode}
+                className="min-w-0 flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm uppercase"
+              />
+              <button
+                type="submit"
+                className="rounded-xl bg-slate-950 px-4 py-2 text-sm font-black text-white"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+
+          <form
+            action={recordTreasuryFxRateAction}
+            className="grid gap-3 rounded-2xl border border-slate-200 p-4 md:grid-cols-2"
+          >
+            <input
+              name="fromCurrencyCode"
+              required
+              maxLength={3}
+              placeholder="From e.g. EUR"
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm uppercase"
+            />
+            <input
+              name="toCurrencyCode"
+              required
+              maxLength={3}
+              defaultValue={data.baseCurrencyCode}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm uppercase"
+            />
+            <input
+              type="number"
+              step="0.00000001"
+              min="0.00000001"
+              name="rate"
+              required
+              placeholder="Conversion rate"
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+            />
+            <input
+              type="date"
+              name="effectiveDate"
+              required
+              defaultValue={new Date().toISOString().slice(0, 10)}
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+            />
+            <input
+              name="sourceReference"
+              placeholder="Source / rate reference"
+              className="rounded-xl border border-slate-200 px-3 py-2 text-sm md:col-span-2"
+            />
+            <button
+              type="submit"
+              className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white md:col-span-2"
+            >
+              Record FX rate
+            </button>
+          </form>
+        </div>
+
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[820px] text-left text-sm">
+            <thead className="text-xs uppercase text-slate-400">
+              <tr>
+                <th className="pb-3">Currency</th>
+                <th className="pb-3 text-right">Cash</th>
+                <th className="pb-3 text-right">Inflows</th>
+                <th className="pb-3 text-right">Outflows</th>
+                <th className="pb-3 text-right">Net native</th>
+                <th className="pb-3 text-right">
+                  Net {data.baseCurrencyCode}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.currencyExposures.map((item) => (
+                <tr
+                  key={item.currencyCode}
+                  className="border-t border-slate-100"
+                >
+                  <td className="py-4 font-black">
+                    {item.currencyCode}
+                    {item.missingRate ? " · RATE MISSING" : ""}
+                  </td>
+                  <td className="py-4 text-right">
+                    {money(
+                      item.cashBalance,
+                      item.currencyCode,
+                    )}
+                  </td>
+                  <td className="py-4 text-right">
+                    {money(
+                      item.inflows,
+                      item.currencyCode,
+                    )}
+                  </td>
+                  <td className="py-4 text-right">
+                    {money(
+                      item.outflows,
+                      item.currencyCode,
+                    )}
+                  </td>
+                  <td className="py-4 text-right font-black">
+                    {money(
+                      item.netExposure,
+                      item.currencyCode,
+                    )}
+                  </td>
+                  <td className="py-4 text-right font-black text-blue-700">
+                    {item.missingRate
+                      ? "—"
+                      : money(
+                          item.baseCurrencyExposure,
+                          data.baseCurrencyCode,
+                        )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className={card}>
@@ -198,7 +391,11 @@ export default async function TreasuryOperationsPage({
                 {scenario.name}
               </p>
               <p className="mt-2 text-sm text-slate-600">
-                Lowest cash: {money(scenario.lowestCash)}
+                Lowest cash:{" "}
+                {money(
+                  scenario.lowestCash,
+                  data.baseCurrencyCode,
+                )}
               </p>
               <p className="mt-1 text-xs text-slate-500">
                 Warning breach: {scenario.firstWarningDate ?? "None"}
@@ -527,6 +724,16 @@ export default async function TreasuryOperationsPage({
               <p className="mt-4 text-2xl font-black text-slate-950">
                 {money(account.latestBalance, account.currencyCode)}
               </p>
+              {account.currencyCode !== data.baseCurrencyCode ? (
+                <p className="mt-1 text-xs font-bold text-blue-700">
+                  {account.missingFxRate
+                    ? `FX rate to ${data.baseCurrencyCode} missing`
+                    : `${money(
+                        account.baseCurrencyAmount,
+                        data.baseCurrencyCode,
+                      )} normalized`}
+                </p>
+              ) : null}
               <p className="mt-1 text-xs text-slate-500">
                 {account.latestBalanceDate
                   ? `Balance as of ${account.latestBalanceDate.toLocaleDateString()}`

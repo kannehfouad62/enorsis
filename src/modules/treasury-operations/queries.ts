@@ -22,11 +22,18 @@ export async function getTreasuryWorkspace() {
 
   const tenantId = session.user.tenantId;
   const today = new Date();
+  const now = new Date();
   const horizon = new Date(today);
   horizon.setDate(horizon.getDate() + 30);
 
-  const [accounts, forecasts, liquidityPolicy, savedScenarios] =
-    await Promise.all([
+  const [
+    accounts,
+    forecasts,
+    liquidityPolicy,
+    savedScenarios,
+    fxPolicy,
+    fxRates,
+  ] = await Promise.all([
     prisma.treasuryAccount.findMany({
       where: {
         tenantId,
@@ -64,6 +71,22 @@ export async function getTreasuryWorkspace() {
         name: "asc",
       },
     }),
+    prisma.treasuryFxPolicy.findUnique({
+      where: {
+        tenantId,
+      },
+    }),
+    prisma.treasuryFxRate.findMany({
+      where: {
+        tenantId,
+        effectiveDate: {
+          lte: now,
+        },
+      },
+      orderBy: {
+        effectiveDate: "desc",
+      },
+    }),
   ]);
 
   const snapshots = accounts.length
@@ -94,34 +117,153 @@ export async function getTreasuryWorkspace() {
     }
   }
 
+  const baseCurrencyCode =
+    fxPolicy?.baseCurrencyCode ?? "USD";
+
+  const latestRateByPair = new Map<
+    string,
+    (typeof fxRates)[number]
+  >();
+
+  for (const rate of fxRates) {
+    const key =
+      `${rate.fromCurrencyCode}->${rate.toCurrencyCode}`;
+
+    if (!latestRateByPair.has(key)) {
+      latestRateByPair.set(key, rate);
+    }
+  }
+
+  const convertToBase = (
+    amount: number,
+    currencyCode: string,
+  ) => {
+    if (currencyCode === baseCurrencyCode) {
+      return {
+        convertedAmount: amount,
+        rate: 1,
+        rateDate: null as Date | null,
+        sourceReference: "BASE_CURRENCY",
+        missingRate: false,
+      };
+    }
+
+    const direct = latestRateByPair.get(
+      `${currencyCode}->${baseCurrencyCode}`,
+    );
+
+    if (direct) {
+      return {
+        convertedAmount:
+          amount * Number(direct.rate),
+        rate: Number(direct.rate),
+        rateDate: direct.effectiveDate,
+        sourceReference:
+          direct.sourceReference ?? null,
+        missingRate: false,
+      };
+    }
+
+    const inverse = latestRateByPair.get(
+      `${baseCurrencyCode}->${currencyCode}`,
+    );
+
+    if (inverse && Number(inverse.rate) > 0) {
+      const rate = 1 / Number(inverse.rate);
+
+      return {
+        convertedAmount: amount * rate,
+        rate,
+        rateDate: inverse.effectiveDate,
+        sourceReference:
+          inverse.sourceReference ?? null,
+        missingRate: false,
+      };
+    }
+
+    return {
+      convertedAmount: 0,
+      rate: null,
+      rateDate: null,
+      sourceReference: null,
+      missingRate: true,
+    };
+  };
+
   const accountRows = accounts.map((account) => {
-    const snapshot = latestSnapshotByAccount.get(account.id) ?? null;
+    const snapshot =
+      latestSnapshotByAccount.get(account.id) ?? null;
+
+    const latestBalance = snapshot
+      ? Number(snapshot.availableBalance)
+      : 0;
+
+    const conversion = convertToBase(
+      latestBalance,
+      account.currencyCode,
+    );
+
     return {
       ...account,
-      latestBalance: snapshot
-        ? Number(snapshot.availableBalance)
-        : 0,
-      latestBalanceDate: snapshot?.balanceDate ?? null,
+      latestBalance,
+      latestBalanceDate:
+        snapshot?.balanceDate ?? null,
       latestLedgerBalance:
         snapshot?.ledgerBalance !== null &&
         snapshot?.ledgerBalance !== undefined
           ? Number(snapshot.ledgerBalance)
           : null,
+      baseCurrencyAmount:
+        conversion.convertedAmount,
+      fxRate: conversion.rate,
+      fxRateDate: conversion.rateDate,
+      fxSourceReference:
+        conversion.sourceReference,
+      missingFxRate: conversion.missingRate,
     };
   });
 
+  const normalizedForecasts = forecasts.map(
+    (item) => {
+      const conversion = convertToBase(
+        Number(item.amount),
+        item.currencyCode,
+      );
+
+      return {
+        ...item,
+        baseCurrencyAmount:
+          conversion.convertedAmount,
+        fxRate: conversion.rate,
+        fxRateDate: conversion.rateDate,
+        fxSourceReference:
+          conversion.sourceReference,
+        missingFxRate: conversion.missingRate,
+      };
+    },
+  );
+
   const totalAvailableCash = accountRows.reduce(
-    (sum, account) => sum + account.latestBalance,
+    (sum, account) =>
+      sum + account.baseCurrencyAmount,
     0,
   );
 
-  const expectedInflows = forecasts
+  const expectedInflows = normalizedForecasts
     .filter((item) => item.type === "INFLOW")
-    .reduce((sum, item) => sum + Number(item.amount), 0);
+    .reduce(
+      (sum, item) =>
+        sum + item.baseCurrencyAmount,
+      0,
+    );
 
-  const expectedOutflows = forecasts
+  const expectedOutflows = normalizedForecasts
     .filter((item) => item.type === "OUTFLOW")
-    .reduce((sum, item) => sum + Number(item.amount), 0);
+    .reduce(
+      (sum, item) =>
+        sum + item.baseCurrencyAmount,
+      0,
+    );
 
   const projected30DayCash =
     totalAvailableCash + expectedInflows - expectedOutflows;
@@ -150,21 +292,29 @@ export async function getTreasuryWorkspace() {
       day: "numeric",
     }).format(date);
 
-    const dayInflows = forecasts
+    const dayInflows = normalizedForecasts
       .filter(
         (item) =>
           item.type === "INFLOW" &&
           item.expectedDate.toISOString().slice(0, 10) === key,
       )
-      .reduce((sum, item) => sum + Number(item.amount), 0);
+      .reduce(
+        (sum, item) =>
+          sum + item.baseCurrencyAmount,
+        0,
+      );
 
-    const dayOutflows = forecasts
+    const dayOutflows = normalizedForecasts
       .filter(
         (item) =>
           item.type === "OUTFLOW" &&
           item.expectedDate.toISOString().slice(0, 10) === key,
       )
-      .reduce((sum, item) => sum + Number(item.amount), 0);
+      .reduce(
+        (sum, item) =>
+          sum + item.baseCurrencyAmount,
+        0,
+      );
 
     runningCash += dayInflows - dayOutflows;
 
@@ -182,14 +332,126 @@ export async function getTreasuryWorkspace() {
   );
 
   const automatedForecastCount =
-    forecasts.filter(
+    normalizedForecasts.filter(
       (item) =>
         item.sourceModule === "PAYMENT_BATCH",
     ).length;
 
   const manualForecastCount =
-    forecasts.length -
+    normalizedForecasts.length -
     automatedForecastCount;
+
+  const missingFxCurrencies = [
+    ...new Set(
+      [
+        ...accountRows
+          .filter(
+            (item) => item.missingFxRate,
+          )
+          .map(
+            (item) => item.currencyCode,
+          ),
+        ...normalizedForecasts
+          .filter(
+            (item) => item.missingFxRate,
+          )
+          .map(
+            (item) => item.currencyCode,
+          ),
+      ],
+    ),
+  ];
+
+  const exposureByCurrency = new Map<
+    string,
+    {
+      currencyCode: string;
+      cashBalance: number;
+      inflows: number;
+      outflows: number;
+      netExposure: number;
+      baseCurrencyExposure: number;
+      missingRate: boolean;
+    }
+  >();
+
+  for (const account of accountRows) {
+    const current =
+      exposureByCurrency.get(
+        account.currencyCode,
+      ) ?? {
+        currencyCode:
+          account.currencyCode,
+        cashBalance: 0,
+        inflows: 0,
+        outflows: 0,
+        netExposure: 0,
+        baseCurrencyExposure: 0,
+        missingRate: false,
+      };
+
+    current.cashBalance +=
+      account.latestBalance;
+    current.baseCurrencyExposure +=
+      account.baseCurrencyAmount;
+    current.missingRate ||= account.missingFxRate;
+
+    exposureByCurrency.set(
+      account.currencyCode,
+      current,
+    );
+  }
+
+  for (const item of normalizedForecasts) {
+    const current =
+      exposureByCurrency.get(
+        item.currencyCode,
+      ) ?? {
+        currencyCode:
+          item.currencyCode,
+        cashBalance: 0,
+        inflows: 0,
+        outflows: 0,
+        netExposure: 0,
+        baseCurrencyExposure: 0,
+        missingRate: false,
+      };
+
+    if (item.type === "INFLOW") {
+      current.inflows +=
+        Number(item.amount);
+      current.baseCurrencyExposure +=
+        item.baseCurrencyAmount;
+    } else {
+      current.outflows +=
+        Number(item.amount);
+      current.baseCurrencyExposure -=
+        item.baseCurrencyAmount;
+    }
+
+    current.missingRate ||= item.missingFxRate;
+
+    exposureByCurrency.set(
+      item.currencyCode,
+      current,
+    );
+  }
+
+  const currencyExposures = [
+    ...exposureByCurrency.values(),
+  ]
+    .map((item) => ({
+      ...item,
+      netExposure:
+        item.cashBalance +
+        item.inflows -
+        item.outflows,
+    }))
+    .sort(
+      (a, b) =>
+        Math.abs(b.baseCurrencyExposure) -
+        Math.abs(a.baseCurrencyExposure),
+    );
 
   const policy = liquidityPolicy
     ? {
@@ -284,7 +546,11 @@ export async function getTreasuryWorkspace() {
 
   return {
     accounts: accountRows,
-    forecasts,
+    forecasts: normalizedForecasts,
+    baseCurrencyCode,
+    currencyExposures,
+    missingFxCurrencies,
+    fxRates: fxRates.slice(0, 50),
     liquidityPolicy: policy,
     scenarioSeries,
     liquidityStatus,
