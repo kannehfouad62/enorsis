@@ -83,6 +83,18 @@ export default async function IntegrationHubPage() {
           <Field name="name" label="Connection name" required />
           <Field name="environment" label="Environment" value="PRODUCTION" />
           <Field name="baseUrl" label="Base URL" type="url" />
+          <label className="md:col-span-2 xl:col-span-4">
+            <span className="text-sm font-bold">
+              Provider configuration JSON
+            </span>
+            <textarea
+              className={input}
+              name="configuration"
+              rows={5}
+              defaultValue="{}"
+              placeholder='{"environment":"sandbox"}'
+            />
+          </label>
           <button className="rounded-xl bg-blue-700 px-5 py-3 font-black text-white">
             Create connection
           </button>

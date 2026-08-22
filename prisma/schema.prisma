@@ -10797,3 +10797,25 @@ model TreasuryCloseCertification {
   @@index([tenantId, status, periodEnd])
 }
 
+model EnterpriseProviderRecord {
+  id             String   @id @default(cuid())
+  tenantId       String
+  connectionId   String
+  provider       String
+  objectType     String
+  externalId     String
+  payload        Json
+  checksum       String
+  sourceUpdatedAt DateTime?
+  firstSeenAt    DateTime @default(now())
+  lastSeenAt     DateTime @default(now())
+  lastSyncRunId  String?
+  active         Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([connectionId, objectType, externalId])
+  @@index([tenantId, provider, objectType])
+  @@index([connectionId, lastSeenAt])
+}
+

@@ -32,7 +32,7 @@ function isPrivateIpv6(address: string) {
   );
 }
 
-async function assertSafeOutboundUrl(rawUrl: string) {
+export async function assertSafeOutboundUrl(rawUrl: string) {
   const url = new URL(rawUrl);
 
   if (
@@ -80,7 +80,7 @@ async function assertSafeOutboundUrl(rawUrl: string) {
   return url;
 }
 
-function resolveSecret(reference: string | null) {
+export function resolveIntegrationSecret(reference: string | null) {
   if (!reference) return null;
 
   const name = reference.startsWith("env:")
@@ -161,7 +161,7 @@ export async function deliverIntegrationJob(jobId: string) {
     const destination = await assertSafeOutboundUrl(
       job.integration.baseUrl,
     );
-    const secret = resolveSecret(job.integration.secretReference);
+    const secret = resolveIntegrationSecret(job.integration.secretReference);
 
     const response = await fetch(destination, {
       method: "POST",

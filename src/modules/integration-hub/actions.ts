@@ -42,7 +42,10 @@ export async function seedConnectorCatalogAction() {
           profile.definitionKey,
           profile.name,
           profile.provider,
-          "ERP",
+          profile.family === "BANKING" ||
+          profile.family === "SOURCE_TO_PAY"
+            ? "ERP"
+            : profile.family,
         ] as const,
     ),
     ["netsuite", "NetSuite", "Oracle", "ERP"],
@@ -97,7 +100,9 @@ export async function createConnectorConnectionAction(
       name: field(data, "name"),
       environment: field(data, "environment") || "PRODUCTION",
       baseUrl: field(data, "baseUrl") || null,
-      configuration: toJson({}),
+      configuration: toJson(
+        parseJsonRecord(field(data, "configuration")),
+      ),
       createdByUserId: user.id,
       updatedByUserId: user.id,
     },

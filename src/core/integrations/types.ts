@@ -12,11 +12,19 @@ export type ConnectorSyncResult = {
   summary?: Record<string, unknown>;
 };
 
+export type ConnectorCredentialReference = {
+  name: string;
+  credentialType: string;
+  secretReference: string;
+};
+
 export type ConnectorAdapterContext = {
   tenantId: string;
   connectionId: string;
+  baseUrl?: string | null;
   configuration: Record<string, unknown>;
   secretReferences: string[];
+  credentials: ConnectorCredentialReference[];
 };
 
 export type EnterpriseConnectorAdapter = {
@@ -25,6 +33,7 @@ export type EnterpriseConnectorAdapter = {
   ): Promise<ConnectorHealthResult>;
   runSync(
     context: ConnectorAdapterContext & {
+      runId?: string | null;
       direction: "INBOUND" | "OUTBOUND" | "BIDIRECTIONAL";
       mappingId?: string | null;
       cursor?: string | null;

@@ -1,6 +1,11 @@
 import type { EnterpriseConnectorAdapter } from "./types";
+import { netsuiteAdapter } from "./providers/netsuite";
+import { plaidTreasuryAdapter } from "./providers/plaid-treasury";
 
-const adapters = new Map<string, EnterpriseConnectorAdapter>();
+const adapters = new Map<string, EnterpriseConnectorAdapter>([
+  ["netsuite", netsuiteAdapter],
+  ["plaid-treasury", plaidTreasuryAdapter],
+]);
 
 export function registerEnterpriseConnectorAdapter(
   definitionKey: string,

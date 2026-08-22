@@ -30,9 +30,15 @@ export async function runConnectorHealthCheck(connectionId: string) {
     tenantId: connection.tenantId,
     connectionId: connection.id,
     configuration: asRecord(connection.configuration),
+    baseUrl: connection.baseUrl,
     secretReferences: connection.credentials.map(
       (credential) => credential.secretReference,
     ),
+    credentials: connection.credentials.map((credential) => ({
+      name: credential.name,
+      credentialType: credential.credentialType,
+      secretReference: credential.secretReference,
+    })),
   });
 
   await prisma.enterpriseConnectorConnection.update({
@@ -149,12 +155,19 @@ export async function executeIntegrationSync(runId: string) {
       tenantId: run.connection.tenantId,
       connectionId: run.connection.id,
       configuration: asRecord(run.connection.configuration),
+      baseUrl: run.connection.baseUrl,
       secretReferences: run.connection.credentials.map(
         (credential) => credential.secretReference,
       ),
+      credentials: run.connection.credentials.map((credential) => ({
+        name: credential.name,
+        credentialType: credential.credentialType,
+        secretReference: credential.secretReference,
+      })),
       direction: run.direction,
       mappingId: run.mappingId,
       cursor: run.cursor,
+      runId: run.id,
     });
 
     const now = new Date();
