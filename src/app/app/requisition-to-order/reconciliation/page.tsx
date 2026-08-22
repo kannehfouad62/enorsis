@@ -1,4 +1,5 @@
 import {
+  importBankStatementCsvAction,
   recordBankReconciliationAction,
   updateReconciliationResolutionAction,
 } from "@/modules/payment-reconciliation/actions";
@@ -66,6 +67,108 @@ export default async function PaymentReconciliationPage({
             </p>
           </div>
         ))}
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Import bank statement
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Upload a CSV statement and automatically match transactions
+              against Enorsis payment execution references.
+            </p>
+          </div>
+          <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-black text-blue-700">
+            CSV · up to 5,000 rows
+          </span>
+        </div>
+
+        <form
+          action={importBankStatementCsvAction}
+          className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_auto]"
+        >
+          <label className="text-xs font-bold text-slate-600">
+            Statement reference
+            <input
+              name="statementReference"
+              required
+              placeholder="AUG-2026-OPERATING-ACCOUNT"
+              className="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
+            />
+          </label>
+
+          <label className="text-xs font-bold text-slate-600">
+            CSV statement
+            <input
+              type="file"
+              name="statementFile"
+              accept=".csv,text/csv"
+              required
+              className="mt-1 block w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+            />
+          </label>
+
+          <button
+            type="submit"
+            className="self-end rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+          >
+            Import & reconcile
+          </button>
+        </form>
+
+        <div className="mt-4 rounded-xl bg-slate-50 p-4 text-xs leading-5 text-slate-600">
+          Required columns: <strong>reference</strong> and{" "}
+          <strong>amount</strong>. Optional supported columns include
+          transaction_date/date, currency/currency_code, and
+          description/memo. Matching is intentionally conservative:
+          Enorsis requires an exact normalized execution reference.
+        </div>
+
+        {data.statementImports.length ? (
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full min-w-[760px] text-left text-sm">
+              <thead className="text-xs uppercase text-slate-400">
+                <tr>
+                  <th className="pb-3">File</th>
+                  <th className="pb-3">Statement</th>
+                  <th className="pb-3">Status</th>
+                  <th className="pb-3 text-right">Rows</th>
+                  <th className="pb-3 text-right">Matched</th>
+                  <th className="pb-3 text-right">Exceptions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.statementImports.map((item) => (
+                  <tr
+                    key={item.id}
+                    className="border-t border-slate-100"
+                  >
+                    <td className="py-3 font-bold">
+                      {item.fileName}
+                    </td>
+                    <td className="py-3">
+                      {item.statementReference}
+                    </td>
+                    <td className="py-3">
+                      {item.status}
+                    </td>
+                    <td className="py-3 text-right">
+                      {item.totalRows}
+                    </td>
+                    <td className="py-3 text-right">
+                      {item.matchedRows}
+                    </td>
+                    <td className="py-3 text-right font-black text-rose-700">
+                      {item.exceptionRows}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
       </section>
 
       <section className={card}>

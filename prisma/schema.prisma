@@ -10395,3 +10395,57 @@ model BankPaymentReconciliation {
   @@index([bankReference])
 }
 
+enum BankStatementImportStatus {
+  PROCESSED
+  PARTIAL
+  FAILED
+}
+
+enum BankStatementRowStatus {
+  MATCHED
+  PARTIAL
+  UNMATCHED
+  DUPLICATE
+  INVALID
+}
+
+model BankStatementImport {
+  id               String                    @id @default(cuid())
+  tenantId         String
+  fileName         String
+  statementReference String
+  status           BankStatementImportStatus
+  totalRows        Int
+  matchedRows      Int                       @default(0)
+  exceptionRows    Int                       @default(0)
+  importedByUserId String
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, status])
+}
+
+model BankStatementImportRow {
+  id                String                 @id @default(cuid())
+  tenantId          String
+  importId          String
+  rowNumber         Int
+  transactionDate   DateTime?
+  reference         String?
+  description       String?
+  currencyCode      String?
+  amount            Decimal?               @db.Decimal(20, 4)
+  status            BankStatementRowStatus
+  paymentBatchId    String?
+  reconciliationId  String?
+  exceptionReason   String?
+  rawData           Json
+  createdAt         DateTime               @default(now())
+
+  @@index([tenantId, importId])
+  @@index([tenantId, status])
+  @@index([reference])
+  @@index([paymentBatchId])
+}
+
