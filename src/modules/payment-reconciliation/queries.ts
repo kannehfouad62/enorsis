@@ -27,6 +27,9 @@ export async function getPaymentReconciliationWorkspace() {
     statementExceptionRows,
     mappingProfiles,
     automationRules,
+    governanceCases,
+    closePeriods,
+    financeMembers,
   ] = await Promise.all([
     prisma.paymentBatch.findMany({
       where: {
@@ -85,6 +88,51 @@ export async function getPaymentReconciliationWorkspace() {
         name: "asc",
       },
     }),
+    prisma.reconciliationGovernanceCase.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+      },
+      orderBy: [
+        { dueAt: "asc" },
+        { createdAt: "desc" },
+      ],
+      take: 200,
+    }),
+    prisma.reconciliationClosePeriod.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+      },
+      orderBy: {
+        periodEnd: "desc",
+      },
+      take: 20,
+    }),
+    prisma.membership.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+        status: "ACTIVE",
+        roles: {
+          hasSome: [
+            "TENANT_OWNER",
+            "TENANT_ADMIN",
+            "FINANCE",
+            "ACCOUNTS_PAYABLE",
+          ] as never[],
+        },
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+            name: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+    }),
   ]);
 
   const reconciledIds = new Set(
@@ -123,6 +171,16 @@ export async function getPaymentReconciliationWorkspace() {
     statementExceptionRows,
     mappingProfiles,
     automationRules,
+    governanceCases,
+    closePeriods,
+    financeMembers: financeMembers.map((membership) => ({
+      userId: membership.user.id,
+      name:
+        membership.user.name ??
+        membership.user.email,
+      email: membership.user.email,
+      roles: membership.roles,
+    })),
     candidatePaymentBatches:
       unreconciled.map((batch) => ({
         id: batch.id,

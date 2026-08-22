@@ -268,6 +268,22 @@ export async function updateReconciliationResolutionAction(
       );
     }
 
+    if (resolutionStatus === "RESOLVED") {
+      const variance = Math.abs(
+        Number(reconciliation.expectedAmount) -
+          Number(reconciliation.settledAmount),
+      );
+
+      if (
+        reconciliation.status === "DUPLICATE" ||
+        variance >= 1000
+      ) {
+        throw new Error(
+          "This material or duplicate reconciliation exception requires maker-checker approval. Use the governance approval request instead.",
+        );
+      }
+    }
+
     const historyLine =
       `[${new Date().toISOString()}] ${resolutionStatus} by ${user.id}: ${resolutionNote}`;
 

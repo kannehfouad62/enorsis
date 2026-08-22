@@ -10486,3 +10486,57 @@ model BankReconciliationAutomationRule {
   @@index([tenantId, active, name])
 }
 
+enum ReconciliationGovernanceStatus {
+  OPEN
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+  CLOSED
+}
+
+enum ReconciliationCloseStatus {
+  OPEN
+  CLOSED
+}
+
+model ReconciliationGovernanceCase {
+  id                    String                         @id @default(cuid())
+  tenantId              String
+  reconciliationId      String                         @unique
+  ownerUserId           String?
+  dueAt                 DateTime?
+  materialityAmount     Decimal                        @default(1000) @db.Decimal(18, 2)
+  status                ReconciliationGovernanceStatus @default(OPEN)
+  resolutionRequest     String?
+  requestedByUserId     String?
+  requestedAt           DateTime?
+  approvalDecisionNote  String?
+  approvedByUserId      String?
+  approvedAt            DateTime?
+  rejectedByUserId      String?
+  rejectedAt            DateTime?
+  closedAt              DateTime?
+  createdAt             DateTime                       @default(now())
+  updatedAt             DateTime                       @updatedAt
+
+  @@index([tenantId, status, dueAt])
+  @@index([ownerUserId, status, dueAt])
+}
+
+model ReconciliationClosePeriod {
+  id                 String                    @id @default(cuid())
+  tenantId           String
+  periodStart        DateTime
+  periodEnd          DateTime
+  status             ReconciliationCloseStatus @default(OPEN)
+  closeNote          String?
+  createdByUserId    String
+  closedByUserId     String?
+  closedAt           DateTime?
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+
+  @@unique([tenantId, periodStart, periodEnd])
+  @@index([tenantId, status, periodEnd])
+}
+

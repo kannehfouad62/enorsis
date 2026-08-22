@@ -7,6 +7,12 @@ import {
   recordBankReconciliationAction,
   updateReconciliationResolutionAction,
 } from "@/modules/payment-reconciliation/actions";
+import {
+  assignReconciliationGovernanceAction,
+  closeReconciliationPeriodAction,
+  decideReconciliationResolutionApprovalAction,
+  requestReconciliationResolutionApprovalAction,
+} from "@/modules/reconciliation-governance/actions";
 import { getPaymentReconciliationWorkspace } from "@/modules/payment-reconciliation/queries";
 
 const card =
@@ -515,6 +521,273 @@ export default async function PaymentReconciliationPage({
             </p>
           ) : null}
         </div>
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Reconciliation governance & approvals
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              DUPLICATE exceptions and variances of 1,000 or more
+              require maker-checker approval before resolution.
+            </p>
+          </div>
+          <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-black text-violet-700">
+            {data.governanceCases.filter(
+              (item) => item.status !== "CLOSED",
+            ).length} governed
+          </span>
+        </div>
+
+        <div className="mt-5 space-y-4">
+          {data.reconciliations
+            .filter((item) => {
+              if (
+                item.status === "MATCHED" ||
+                item.resolutionStatus === "RESOLVED"
+              ) {
+                return false;
+              }
+
+              const variance = Math.abs(
+                Number(item.expectedAmount) -
+                  Number(item.settledAmount),
+              );
+
+              return (
+                item.status === "DUPLICATE" ||
+                variance >= 1000
+              );
+            })
+            .map((item) => {
+              const governance =
+                data.governanceCases.find(
+                  (entry) =>
+                    entry.reconciliationId === item.id,
+                );
+
+              return (
+                <article
+                  key={item.id}
+                  className="rounded-2xl border border-violet-200 bg-violet-50/30 p-5"
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <p className="font-black text-slate-950">
+                        {item.statementReference}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600">
+                        {item.status} ·{" "}
+                        {governance?.status ?? "OPEN"}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        Variance{" "}
+                        {money(
+                          Math.abs(
+                            Number(item.expectedAmount) -
+                              Number(item.settledAmount),
+                          ),
+                          item.currencyCode,
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <form
+                    action={assignReconciliationGovernanceAction}
+                    className="mt-4 grid gap-3 border-t border-violet-100 pt-4 md:grid-cols-[1fr_180px_auto]"
+                  >
+                    <input
+                      type="hidden"
+                      name="reconciliationId"
+                      value={item.id}
+                    />
+                    <select
+                      name="ownerUserId"
+                      defaultValue={
+                        governance?.ownerUserId ?? ""
+                      }
+                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                    >
+                      <option value="">
+                        Assign to me
+                      </option>
+                      {data.financeMembers.map((member) => (
+                        <option
+                          key={member.userId}
+                          value={member.userId}
+                        >
+                          {member.name}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="date"
+                      name="dueAt"
+                      defaultValue={
+                        governance?.dueAt
+                          ? governance.dueAt
+                              .toISOString()
+                              .slice(0, 10)
+                          : ""
+                      }
+                      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                    />
+                    <button
+                      type="submit"
+                      className="rounded-xl border border-violet-200 bg-white px-4 py-2.5 text-sm font-black text-violet-700"
+                    >
+                      Save ownership
+                    </button>
+                  </form>
+
+                  {governance?.status ===
+                  "PENDING_APPROVAL" ? (
+                    <form
+                      action={decideReconciliationResolutionApprovalAction}
+                      className="mt-3 grid gap-3 rounded-xl border border-violet-200 bg-white p-3 md:grid-cols-[140px_1fr_auto]"
+                    >
+                      <input
+                        type="hidden"
+                        name="governanceCaseId"
+                        value={governance.id}
+                      />
+                      <select
+                        name="decision"
+                        required
+                        defaultValue="APPROVE"
+                        className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                      >
+                        <option value="APPROVE">
+                          Approve
+                        </option>
+                        <option value="REJECT">
+                          Reject
+                        </option>
+                      </select>
+                      <input
+                        name="decisionNote"
+                        required
+                        minLength={5}
+                        placeholder="Independent approval decision note"
+                        className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                      />
+                      <button
+                        type="submit"
+                        className="rounded-lg bg-violet-700 px-3 py-2 text-sm font-black text-white"
+                      >
+                        Record decision
+                      </button>
+                    </form>
+                  ) : (
+                    <form
+                      action={requestReconciliationResolutionApprovalAction}
+                      className="mt-3 flex flex-wrap gap-3"
+                    >
+                      <input
+                        type="hidden"
+                        name="reconciliationId"
+                        value={item.id}
+                      />
+                      <input
+                        name="resolutionRequest"
+                        required
+                        minLength={10}
+                        placeholder="Describe the proposed material-exception resolution"
+                        className="min-w-[300px] flex-1 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                      />
+                      <button
+                        type="submit"
+                        className="rounded-xl bg-violet-700 px-4 py-2.5 text-sm font-black text-white"
+                      >
+                        Request approval
+                      </button>
+                    </form>
+                  )}
+                </article>
+              );
+            })}
+
+          {data.reconciliations.filter((item) => {
+            const variance = Math.abs(
+              Number(item.expectedAmount) -
+                Number(item.settledAmount),
+            );
+            return (
+              item.status !== "MATCHED" &&
+              item.resolutionStatus !== "RESOLVED" &&
+              (item.status === "DUPLICATE" ||
+                variance >= 1000)
+            );
+          }).length === 0 ? (
+            <p className="text-sm text-slate-500">
+              No material reconciliation exceptions currently require
+              maker-checker governance.
+            </p>
+          ) : null}
+        </div>
+      </section>
+
+      <section className={card}>
+        <h2 className="text-xl font-black text-slate-950">
+          Reconciliation period close
+        </h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Closing is blocked while any unresolved DUPLICATE or material
+          variance of 1,000 or more exists inside the selected period.
+        </p>
+
+        <form
+          action={closeReconciliationPeriodAction}
+          className="mt-5 grid gap-3 md:grid-cols-[180px_180px_1fr_auto]"
+        >
+          <input
+            type="date"
+            name="periodStart"
+            required
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            type="date"
+            name="periodEnd"
+            required
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <input
+            name="closeNote"
+            required
+            minLength={5}
+            placeholder="Period close certification note"
+            className="rounded-xl border border-slate-200 px-3 py-2 text-sm"
+          />
+          <button
+            type="submit"
+            className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+          >
+            Close period
+          </button>
+        </form>
+
+        {data.closePeriods.length ? (
+          <div className="mt-5 space-y-2">
+            {data.closePeriods.map((period) => (
+              <div
+                key={period.id}
+                className="flex flex-wrap items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3 text-sm"
+              >
+                <span className="font-bold text-slate-700">
+                  {period.periodStart.toLocaleDateString()} –{" "}
+                  {period.periodEnd.toLocaleDateString()}
+                </span>
+                <span className="font-black text-emerald-700">
+                  {period.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <section className={card}>
