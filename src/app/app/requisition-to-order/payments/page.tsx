@@ -372,6 +372,12 @@ export default async function PaymentOperationsPage({
             >
               Settlements
             </a>
+            <a
+              className={secondary}
+              href="/app/requisition-to-order/reconciliation"
+            >
+              Reconciliation
+            </a>
           </div>
         </div>
 

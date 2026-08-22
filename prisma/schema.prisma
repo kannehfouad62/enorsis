@@ -10353,3 +10353,33 @@ model SupplierBankingVerification {
   @@index([buyerSupplierId, status])
   @@index([sellerTenantId, status])
 }
+
+enum BankReconciliationStatus {
+  MATCHED
+  PARTIAL
+  UNMATCHED
+  DUPLICATE
+}
+
+model BankPaymentReconciliation {
+  id                 String                   @id @default(cuid())
+  tenantId           String
+  paymentBatchId     String                   @unique
+  statementReference String
+  bankReference      String?
+  currencyCode       String
+  expectedAmount     Decimal                  @db.Decimal(20, 4)
+  settledAmount      Decimal                  @db.Decimal(20, 4)
+  status             BankReconciliationStatus
+  reconciliationDate DateTime
+  notes              String?
+  recordedByUserId   String
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  @@index([tenantId, status])
+  @@index([tenantId, reconciliationDate])
+  @@index([statementReference])
+  @@index([bankReference])
+}
+
