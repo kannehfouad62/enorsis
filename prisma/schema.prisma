@@ -10449,3 +10449,22 @@ model BankStatementImportRow {
   @@index([paymentBatchId])
 }
 
+model BankStatementMappingProfile {
+  id                String   @id @default(cuid())
+  tenantId          String
+  name              String
+  providerName      String?
+  referenceColumn   String
+  amountColumn      String
+  dateColumn        String?
+  currencyColumn    String?
+  descriptionColumn String?
+  active            Boolean  @default(true)
+  createdByUserId   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, active, name])
+}
+

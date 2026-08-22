@@ -489,39 +489,87 @@ export async function importBankStatementCsvAction(
 
     const headers = parsed[0].map(normalizeHeader);
 
-    const dateIndex = firstHeaderIndex(headers, [
-      "transaction_date",
-      "date",
-      "posted_date",
-      "settlement_date",
-    ]);
-    const referenceIndex = firstHeaderIndex(headers, [
-      "reference",
-      "bank_reference",
-      "payment_reference",
-      "transaction_reference",
-    ]);
-    const amountIndex = firstHeaderIndex(headers, [
-      "amount",
-      "settled_amount",
-      "transaction_amount",
-      "credit",
-    ]);
-    const currencyIndex = firstHeaderIndex(headers, [
-      "currency",
-      "currency_code",
-      "ccy",
-    ]);
-    const descriptionIndex = firstHeaderIndex(headers, [
-      "description",
-      "memo",
-      "details",
-      "narrative",
-    ]);
+    const mappingProfileId =
+      field(data, "mappingProfileId") || null;
+
+    const mappingProfile = mappingProfileId
+      ? await prisma.bankStatementMappingProfile.findFirst({
+          where: {
+            id: mappingProfileId,
+            tenantId: user.tenantId,
+            active: true,
+          },
+        })
+      : null;
+
+    if (mappingProfileId && !mappingProfile) {
+      throw new Error(
+        "The selected bank statement mapping profile is not active or is unavailable.",
+      );
+    }
+
+    const customIndex = (
+      column: string | null | undefined,
+    ) => {
+      if (!column) return -1;
+      return headers.indexOf(
+        normalizeHeader(column),
+      );
+    };
+
+    const dateIndex = mappingProfile
+      ? customIndex(mappingProfile.dateColumn)
+      : firstHeaderIndex(headers, [
+          "transaction_date",
+          "date",
+          "posted_date",
+          "settlement_date",
+        ]);
+
+    const referenceIndex = mappingProfile
+      ? customIndex(
+          mappingProfile.referenceColumn,
+        )
+      : firstHeaderIndex(headers, [
+          "reference",
+          "bank_reference",
+          "payment_reference",
+          "transaction_reference",
+        ]);
+
+    const amountIndex = mappingProfile
+      ? customIndex(mappingProfile.amountColumn)
+      : firstHeaderIndex(headers, [
+          "amount",
+          "settled_amount",
+          "transaction_amount",
+          "credit",
+        ]);
+
+    const currencyIndex = mappingProfile
+      ? customIndex(mappingProfile.currencyColumn)
+      : firstHeaderIndex(headers, [
+          "currency",
+          "currency_code",
+          "ccy",
+        ]);
+
+    const descriptionIndex = mappingProfile
+      ? customIndex(
+          mappingProfile.descriptionColumn,
+        )
+      : firstHeaderIndex(headers, [
+          "description",
+          "memo",
+          "details",
+          "narrative",
+        ]);
 
     if (referenceIndex < 0 || amountIndex < 0) {
       throw new Error(
-        "The CSV must include reference and amount columns. Supported date/currency/description columns are optional.",
+        mappingProfile
+          ? `The selected mapping profile could not find its reference and/or amount column in this CSV. Expected "${mappingProfile.referenceColumn}" and "${mappingProfile.amountColumn}".`
+          : "The CSV must include reference and amount columns. Supported date/currency/description columns are optional.",
       );
     }
 

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   confirmDuplicateBankStatementRowAction,
   importBankStatementCsvAction,
@@ -102,6 +104,30 @@ export default async function PaymentReconciliationPage({
           </label>
 
           <label className="text-xs font-bold text-slate-600">
+            Mapping profile
+            <select
+              name="mappingProfileId"
+              defaultValue=""
+              className="mt-1 block w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              <option value="">
+                Automatic common-header detection
+              </option>
+              {data.mappingProfiles.map((profile) => (
+                <option
+                  key={profile.id}
+                  value={profile.id}
+                >
+                  {profile.name}
+                  {profile.providerName
+                    ? ` · ${profile.providerName}`
+                    : ""}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="text-xs font-bold text-slate-600">
             CSV statement
             <input
               type="file"
@@ -121,11 +147,20 @@ export default async function PaymentReconciliationPage({
         </form>
 
         <div className="mt-4 rounded-xl bg-slate-50 p-4 text-xs leading-5 text-slate-600">
-          Required columns: <strong>reference</strong> and{" "}
-          <strong>amount</strong>. Optional supported columns include
-          transaction_date/date, currency/currency_code, and
-          description/memo. Matching is intentionally conservative:
-          Enorsis requires an exact normalized execution reference.
+          When no profile is selected, required columns are{" "}
+          <strong>reference</strong> and <strong>amount</strong>.
+          Common date, currency, and description aliases are detected
+          automatically. A selected mapping profile overrides these
+          header aliases while preserving the same conservative payment
+          reference matching logic.
+          <div className="mt-3">
+            <Link
+              href="/app/requisition-to-order/reconciliation/mappings"
+              className="font-black text-blue-700"
+            >
+              Manage bank statement mapping profiles →
+            </Link>
+          </div>
         </div>
 
         {data.statementImports.length ? (
