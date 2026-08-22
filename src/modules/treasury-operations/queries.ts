@@ -168,9 +168,23 @@ export async function getTreasuryWorkspace() {
     totalAvailableCash,
   );
 
+  const automatedForecastCount =
+    forecasts.filter(
+      (item) =>
+        item.sourceModule === "PAYMENT_BATCH",
+    ).length;
+
+  const manualForecastCount =
+    forecasts.length -
+    automatedForecastCount;
+
   return {
     accounts: accountRows,
     forecasts,
+    sourceMetrics: {
+      automatedForecastCount,
+      manualForecastCount,
+    },
     summary: {
       totalAvailableCash,
       expectedInflows,

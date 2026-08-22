@@ -4,6 +4,7 @@ import {
   createTreasuryAccountAction,
   createTreasuryCashFlowForecastAction,
   recordTreasuryBalanceAction,
+  syncPaymentRunsToTreasuryForecastAction,
 } from "@/modules/treasury-operations/actions";
 import {
   getTreasuryWorkspace,
@@ -49,12 +50,24 @@ export default async function TreasuryOperationsPage({
           </p>
         </div>
 
-        <Link
-          href="/app/requisition-to-order/reconciliation/analytics"
-          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
-        >
-          Reconciliation analytics
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <form
+            action={syncPaymentRunsToTreasuryForecastAction}
+          >
+            <button
+              type="submit"
+              className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+            >
+              Sync AP cash flows
+            </button>
+          </form>
+          <Link
+            href="/app/requisition-to-order/reconciliation/analytics"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
+          >
+            Reconciliation analytics
+          </Link>
+        </div>
       </header>
 
       {params.message ? (
@@ -215,9 +228,25 @@ export default async function TreasuryOperationsPage({
       </section>
 
       <section className={card}>
-        <h2 className="text-xl font-black text-slate-950">
-          Expected cash flows
-        </h2>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Expected cash flows
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              AP payment runs can be synchronized as governed treasury
+              outflows while manual forecasts remain supported.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2 text-xs font-black">
+            <span className="rounded-full bg-blue-50 px-3 py-1 text-blue-700">
+              {data.sourceMetrics.automatedForecastCount} AP-sourced
+            </span>
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-slate-600">
+              {data.sourceMetrics.manualForecastCount} manual
+            </span>
+          </div>
+        </div>
 
         <form
           action={createTreasuryCashFlowForecastAction}
@@ -292,6 +321,7 @@ export default async function TreasuryOperationsPage({
                 <th className="pb-3">Type</th>
                 <th className="pb-3">Title</th>
                 <th className="pb-3">Status</th>
+                <th className="pb-3">Source</th>
                 <th className="pb-3 text-right">Amount</th>
               </tr>
             </thead>
@@ -309,6 +339,11 @@ export default async function TreasuryOperationsPage({
                   </td>
                   <td className="py-4">{item.title}</td>
                   <td className="py-4">{item.status}</td>
+                  <td className="py-4">
+                    {item.sourceModule === "PAYMENT_BATCH"
+                      ? "Accounts payable"
+                      : "Manual"}
+                  </td>
                   <td className="py-4 text-right font-black">
                     {money(Number(item.amount), item.currencyCode)}
                   </td>

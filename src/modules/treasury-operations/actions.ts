@@ -228,3 +228,254 @@ export async function createTreasuryCashFlowForecastAction(data: FormData) {
 
   redirect(treasuryPath("Treasury cash-flow forecast created."));
 }
+
+export async function syncPaymentRunsToTreasuryForecastAction() {
+  const user = await requireAnyRole([...treasuryRoles]);
+
+  let errorMessage: string | null = null;
+  let resultMessage: string | null = null;
+
+  try {
+    const batches = await prisma.paymentBatch.findMany({
+      where: {
+        tenantId: user.tenantId,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+
+    const batchIds = batches.map((batch) => batch.id);
+
+    const items = batchIds.length
+      ? await prisma.paymentBatchItem.findMany({
+          where: {
+            paymentBatchId: {
+              in: batchIds,
+            },
+          },
+          select: {
+            paymentBatchId: true,
+            supplierInvoiceId: true,
+          },
+        })
+      : [];
+
+    const invoiceIds = [
+      ...new Set(
+        items.map((item) => item.supplierInvoiceId),
+      ),
+    ];
+
+    const invoices = invoiceIds.length
+      ? await prisma.supplierInvoice.findMany({
+          where: {
+            tenantId: user.tenantId,
+            id: {
+              in: invoiceIds,
+            },
+          },
+          select: {
+            id: true,
+            invoiceNumber: true,
+            dueDate: true,
+          },
+        })
+      : [];
+
+    const invoiceById = new Map(
+      invoices.map((invoice) => [
+        invoice.id,
+        invoice,
+      ]),
+    );
+
+    const invoiceIdsByBatch = new Map<
+      string,
+      string[]
+    >();
+
+    for (const item of items) {
+      const current =
+        invoiceIdsByBatch.get(
+          item.paymentBatchId,
+        ) ?? [];
+      current.push(item.supplierInvoiceId);
+      invoiceIdsByBatch.set(
+        item.paymentBatchId,
+        current,
+      );
+    }
+
+    let created = 0;
+    let updated = 0;
+    let retired = 0;
+
+    for (const batch of batches) {
+      const sourceModule = "PAYMENT_BATCH";
+      const sourceRecordId = batch.id;
+
+      const existing =
+        await prisma.treasuryCashFlowForecast.findFirst({
+          where: {
+            tenantId: user.tenantId,
+            sourceModule,
+            sourceRecordId,
+          },
+        });
+
+      const isOpenPayment =
+        batch.status === "PENDING_APPROVAL" ||
+        batch.status === "APPROVED" ||
+        batch.status === "PROCESSING";
+
+      if (!isOpenPayment) {
+        if (
+          existing &&
+          existing.status !== "CANCELLED"
+        ) {
+          await prisma.treasuryCashFlowForecast.update({
+            where: {
+              id: existing.id,
+            },
+            data: {
+              status: "CANCELLED",
+              description: [
+                existing.description,
+                `Retired automatically because payment run ${batch.batchNumber} is ${batch.status}.`,
+              ]
+                .filter(Boolean)
+                .join("\n"),
+            },
+          });
+          retired += 1;
+        }
+
+        continue;
+      }
+
+      const linkedInvoiceIds =
+        invoiceIdsByBatch.get(batch.id) ?? [];
+
+      const linkedInvoices =
+        linkedInvoiceIds
+          .map((id) => invoiceById.get(id))
+          .filter(
+            (
+              invoice,
+            ): invoice is NonNullable<
+              typeof invoice
+            > => Boolean(invoice),
+          );
+
+      const dueDates = linkedInvoices
+        .map((invoice) => invoice.dueDate)
+        .filter(
+          (date): date is Date =>
+            date instanceof Date,
+        )
+        .sort(
+          (a, b) =>
+            a.getTime() - b.getTime(),
+        );
+
+      const expectedDate =
+        dueDates[0] ??
+        new Date(
+          batch.createdAt.getTime() +
+            3 * 24 * 60 * 60 * 1000,
+        );
+
+      const invoiceNumbers =
+        linkedInvoices
+          .map(
+            (invoice) =>
+              invoice.invoiceNumber,
+          )
+          .filter(Boolean);
+
+      const title =
+        `Payment run ${batch.batchNumber}`;
+
+      const description = [
+        "Automatically sourced from Accounts Payable payment operations.",
+        invoiceNumbers.length
+          ? `Invoices: ${invoiceNumbers.join(", ")}`
+          : null,
+        `Payment status: ${batch.status}`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      if (existing) {
+        await prisma.treasuryCashFlowForecast.update({
+          where: {
+            id: existing.id,
+          },
+          data: {
+            type: "OUTFLOW",
+            status: "EXPECTED",
+            title,
+            description,
+            currencyCode: batch.currencyCode,
+            amount: batch.totalAmount,
+            expectedDate,
+          },
+        });
+        updated += 1;
+      } else {
+        await prisma.treasuryCashFlowForecast.create({
+          data: {
+            tenantId: user.tenantId,
+            treasuryAccountId: null,
+            type: "OUTFLOW",
+            status: "EXPECTED",
+            title,
+            description,
+            currencyCode: batch.currencyCode,
+            amount: batch.totalAmount,
+            expectedDate,
+            sourceModule,
+            sourceRecordId,
+            createdByUserId: user.id,
+          },
+        });
+        created += 1;
+      }
+    }
+
+    revalidatePath(
+      "/app/requisition-to-order/treasury",
+    );
+
+    resultMessage =
+      `Treasury sync complete: ${created} created, ${updated} refreshed, ${retired} retired.`;
+  } catch (error) {
+    console.error(
+      "Payment-to-treasury forecast sync failed",
+      {
+        tenantId: user.tenantId,
+        actorUserId: user.id,
+        error,
+      },
+    );
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Payment forecasts could not be synchronized to treasury.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      treasuryPath(undefined, errorMessage),
+    );
+  }
+
+  redirect(
+    treasuryPath(
+      resultMessage ??
+        "Treasury forecasts synchronized.",
+    ),
+  );
+}
