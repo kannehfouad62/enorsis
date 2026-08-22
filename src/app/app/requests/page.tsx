@@ -38,7 +38,10 @@ export default async function PurchaseRequestsPage() {
       </div>
 
       {canCreate ? (
-        <section className={`${cardClass} mt-6`}>
+        <section
+          id="create-purchase-request"
+          className={`${cardClass} mt-6 scroll-mt-28`}
+        >
           <div className="flex items-center gap-3">
             <FilePlus2 className="h-5 w-5 text-blue-700" />
             <h2 className="text-xl font-black">Create purchase request</h2>
