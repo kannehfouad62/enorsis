@@ -22,6 +22,13 @@ const financeAuthorizationRoles = [
   "FINANCE",
 ] as const;
 
+const paymentExecutionRoles = [
+  "TENANT_OWNER",
+  "TENANT_ADMIN",
+  "FINANCE",
+  "ACCOUNTS_PAYABLE",
+] as const;
+
 function field(data: FormData, name: string) {
   return String(data.get(name) ?? "").trim();
 }
@@ -234,6 +241,8 @@ export async function submitPaymentRunForApprovalAction(
       },
       data: {
         status: "PENDING_APPROVAL",
+        submittedByUserId: user.id,
+        submittedAt: new Date(),
       },
     });
 
@@ -377,6 +386,8 @@ export async function authorizePaymentRunAction(
       },
       data: {
         status: "APPROVED",
+        approvedByUserId: user.id,
+        approvedAt: new Date(),
       },
     });
 
@@ -411,6 +422,144 @@ export async function authorizePaymentRunAction(
   redirect(
     paymentPath(
       `Payment run ${batchNumber ?? ""} authorized successfully.`,
+    ),
+  );
+}
+
+export async function executePaymentRunAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole(
+    [...paymentExecutionRoles],
+  );
+
+  const paymentBatchId = field(data, "paymentBatchId");
+  const paymentReference = field(
+    data,
+    "paymentReference",
+  );
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    if (paymentReference.length < 4) {
+      throw new Error(
+        "Enter a valid bank or payment execution reference.",
+      );
+    }
+
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: "APPROVED",
+      },
+      include: {
+        items: true,
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "This payment run is no longer authorized for execution or is not available to your organization.",
+      );
+    }
+
+    if (!batch.approvedByUserId) {
+      throw new Error(
+        "This payment run is missing authorization audit metadata and cannot be executed.",
+      );
+    }
+
+    if (batch.approvedByUserId === user.id) {
+      throw new Error(
+        "Segregation of duties prevents the payment authorizer from executing the same payment run.",
+      );
+    }
+
+    const includedItems = batch.items.filter(
+      (item) => item.status === "INCLUDED",
+    );
+
+    if (
+      includedItems.length !== batch.items.length ||
+      includedItems.length === 0
+    ) {
+      throw new Error(
+        "All payment-run items must be included and ready before execution.",
+      );
+    }
+
+    const now = new Date();
+
+    await prisma.$transaction(async (tx) => {
+      const updatedBatch =
+        await tx.paymentBatch.updateMany({
+          where: {
+            id: batch.id,
+            tenantId: user.tenantId,
+            status: "APPROVED",
+          },
+          data: {
+            status: "PROCESSING",
+            exportedByUserId: user.id,
+            exportedAt: now,
+            exportReference: paymentReference,
+          },
+        });
+
+      if (updatedBatch.count !== 1) {
+        throw new Error(
+          "The payment run changed while execution was being recorded. Refresh and try again.",
+        );
+      }
+
+      const updatedItems =
+        await tx.paymentBatchItem.updateMany({
+          where: {
+            paymentBatchId: batch.id,
+            status: "INCLUDED",
+          },
+          data: {
+            paymentReference,
+          },
+        });
+
+      if (updatedItems.count !== includedItems.length) {
+        throw new Error(
+          "Not all payment items could be marked with the execution reference.",
+        );
+      }
+    });
+
+    batchNumber = batch.batchNumber;
+
+    revalidatePath("/app/requisition-to-order/payments");
+    revalidatePath("/app/requisition-to-order/payment-runs");
+    revalidatePath("/app/requisition-to-order/settlements");
+  } catch (error) {
+    console.error("Payment run execution failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      paymentReference,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment run could not be executed.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} sent to payment processing with reference ${paymentReference}.`,
     ),
   );
 }

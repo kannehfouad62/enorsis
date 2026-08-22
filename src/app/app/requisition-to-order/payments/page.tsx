@@ -1,6 +1,7 @@
 import {
   authorizePaymentRunAction,
   createDraftPaymentRunAction,
+  executePaymentRunAction,
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
 import { getPaymentOperationsWorkspace } from "@/modules/payment-operations/queries";
@@ -30,6 +31,16 @@ export default async function PaymentOperationsPage({
       ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE"].includes(
         role,
       ),
+    );
+
+  const canExecutePaymentRun =
+    data.currentUserRoles.some((role) =>
+      [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ].includes(role),
     );
 
   const invoiceMap = new Map(
@@ -73,10 +84,10 @@ export default async function PaymentOperationsPage({
         </h1>
 
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
-          Manage approved payment-readiness cases, review draft
-          payment runs, and submit validated batches for finance
-          authorization. Payment execution and settlement remain
-          governed by their respective workflow controls.
+          Manage approved payment-readiness cases, review and
+          authorize payment runs, and send authorized batches into
+          controlled payment processing. Final settlement remains a
+          separate governed step.
         </p>
       </header>
 
@@ -389,8 +400,64 @@ export default async function PaymentOperationsPage({
                       )}
                     </div>
                   ) : batch.status === "APPROVED" ? (
-                    <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800">
-                      Authorized for payment execution
+                    <div className="mt-5 border-t border-slate-100 pt-4">
+                      <div className="rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
+                        <p className="font-black">
+                          Authorized for payment execution
+                        </p>
+                        <p className="mt-1 text-xs leading-5">
+                          Record the bank, treasury, ERP, or payment-provider
+                          execution reference before sending this batch into
+                          payment processing.
+                        </p>
+                      </div>
+
+                      {canExecutePaymentRun &&
+                      batch.approvedByUserId !==
+                        data.currentUserId ? (
+                        <form
+                          action={executePaymentRunAction}
+                          className="mt-3 flex flex-wrap items-end gap-3"
+                        >
+                          <input
+                            type="hidden"
+                            name="paymentBatchId"
+                            value={batch.id}
+                          />
+                          <label className="text-xs font-bold text-slate-600">
+                            Payment execution reference
+                            <input
+                              name="paymentReference"
+                              required
+                              placeholder="BANK-REF-123456"
+                              className="mt-1 block rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                            />
+                          </label>
+                          <button
+                            type="submit"
+                            className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white hover:bg-slate-800"
+                          >
+                            Execute payment run
+                          </button>
+                        </form>
+                      ) : (
+                        <p className="mt-3 text-xs font-bold text-slate-500">
+                          {batch.approvedByUserId ===
+                          data.currentUserId
+                            ? "You authorized this payment run, so segregation of duties prevents you from executing it."
+                            : "Your current role can review this authorized payment run but cannot execute it."}
+                        </p>
+                      )}
+                    </div>
+                  ) : batch.status === "PROCESSING" ? (
+                    <div className="mt-5 rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-900">
+                      <p className="font-black">
+                        Payment processing in progress
+                      </p>
+                      <p className="mt-1 text-xs">
+                        Execution reference:{" "}
+                        {batch.exportReference ?? "—"}
+                      </p>
                     </div>
                   ) : null}
                 </article>
