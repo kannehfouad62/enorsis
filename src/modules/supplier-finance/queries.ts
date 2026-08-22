@@ -48,6 +48,82 @@ export async function getSupplierFinanceIntelligence() {
     take: 1000,
   });
 
+  const invoiceIds = invoices.map((invoice) => invoice.id);
+
+  const paidItems = invoiceIds.length
+    ? await prisma.paymentBatchItem.findMany({
+        where: {
+          supplierInvoiceId: { in: invoiceIds },
+          status: "PAID",
+          paymentBatch: {
+            status: "COMPLETED",
+          },
+        },
+        include: {
+          paymentBatch: {
+            select: {
+              id: true,
+              batchNumber: true,
+              currencyCode: true,
+              exportReference: true,
+              completedAt: true,
+            },
+          },
+          supplierInvoice: {
+            select: {
+              id: true,
+              invoiceNumber: true,
+              totalAmount: true,
+            },
+          },
+        },
+        orderBy: {
+          paidAt: "desc",
+        },
+        take: 200,
+      })
+    : [];
+
+  const remittanceMap = new Map<
+    string,
+    {
+      batchId: string;
+      batchNumber: string;
+      currencyCode: string;
+      paymentReference: string | null;
+      completedAt: Date | null;
+      amount: number;
+      invoiceCount: number;
+    }
+  >();
+
+  for (const item of paidItems) {
+    const current = remittanceMap.get(
+      item.paymentBatchId,
+    ) ?? {
+      batchId: item.paymentBatch.id,
+      batchNumber: item.paymentBatch.batchNumber,
+      currencyCode: item.paymentBatch.currencyCode,
+      paymentReference:
+        item.paymentBatch.exportReference,
+      completedAt: item.paymentBatch.completedAt,
+      amount: 0,
+      invoiceCount: 0,
+    };
+
+    current.amount += Number(item.amount);
+    current.invoiceCount += 1;
+    remittanceMap.set(item.paymentBatchId, current);
+  }
+
+  const remittances = [...remittanceMap.values()]
+    .sort(
+      (a, b) =>
+        (b.completedAt?.getTime() ?? 0) -
+        (a.completedAt?.getTime() ?? 0),
+    )
+    .slice(0, 20);
+
   const orderIds = invoices.map((invoice) => invoice.sourceMarketplaceOrderId).filter((id): id is string => Boolean(id));
   const orders = orderIds.length
     ? await prisma.marketplaceSellerOrder.findMany({
@@ -197,5 +273,6 @@ export async function getSupplierFinanceIntelligence() {
     buyers,
     insights,
     recentInvoices: rows.slice(0, 20),
+    remittances,
   };
 }

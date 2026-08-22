@@ -84,6 +84,62 @@ export default async function SupplierFinancePage() {
         </div>
       </section>
 
+      <section className={`${card} mt-6`}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black">
+              Payments & remittances
+            </h2>
+            <p className="mt-2 text-sm text-slate-500">
+              Buyer payments that have completed settlement and are
+              available for reconciliation.
+            </p>
+          </div>
+          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
+            {data.remittances.length} settled
+          </span>
+        </div>
+
+        <div className="mt-5 space-y-3">
+          {data.remittances.length ? (
+            data.remittances.map((remittance) => (
+              <Link
+                key={remittance.batchId}
+                href={`/app/marketplace/remittances/${remittance.batchId}`}
+                className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 p-4 hover:bg-slate-50"
+              >
+                <div>
+                  <p className="font-black text-slate-950">
+                    {remittance.batchNumber}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {remittance.invoiceCount} paid invoice
+                    {remittance.invoiceCount === 1 ? "" : "s"}
+                    {" · "}
+                    {remittance.completedAt
+                      ? remittance.completedAt.toLocaleDateString()
+                      : "Settlement recorded"}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    Ref {remittance.paymentReference ?? "—"}
+                  </p>
+                </div>
+                <p className="font-black text-emerald-700">
+                  {currency(
+                    remittance.currencyCode,
+                    remittance.amount,
+                  )}
+                </p>
+              </Link>
+            ))
+          ) : (
+            <p className="text-sm text-slate-500">
+              No settled buyer payments are available yet.
+            </p>
+          )}
+        </div>
+      </section>
+
       <section className={`${card} mt-6 overflow-x-auto`}>
         <h2 className="text-xl font-black">Recent invoice performance</h2>
         <table className="mt-5 w-full min-w-[900px] text-left text-sm">

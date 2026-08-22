@@ -109,6 +109,117 @@ async function notifyPaymentOperationUsers({
   }
 }
 
+async function notifySupplierSettlementRecipients({
+  buyerTenantId,
+  paymentBatchId,
+  batchNumber,
+  invoiceIds,
+  paymentReference,
+}: {
+  buyerTenantId: string;
+  paymentBatchId: string;
+  batchNumber: string;
+  invoiceIds: string[];
+  paymentReference: string;
+}) {
+  try {
+    const invoices = await prisma.supplierInvoice.findMany({
+      where: {
+        tenantId: buyerTenantId,
+        id: { in: invoiceIds },
+        generatedBySellerTenantId: {
+          not: null,
+        },
+      },
+      select: {
+        id: true,
+        invoiceNumber: true,
+        generatedBySellerTenantId: true,
+      },
+    });
+
+    const bySellerTenant = new Map<
+      string,
+      string[]
+    >();
+
+    for (const invoice of invoices) {
+      if (!invoice.generatedBySellerTenantId) continue;
+
+      const current =
+        bySellerTenant.get(
+          invoice.generatedBySellerTenantId,
+        ) ?? [];
+
+      current.push(invoice.invoiceNumber);
+      bySellerTenant.set(
+        invoice.generatedBySellerTenantId,
+        current,
+      );
+    }
+
+    for (const [sellerTenantId, invoiceNumbers] of bySellerTenant) {
+      const memberships = await prisma.membership.findMany({
+        where: {
+          tenantId: sellerTenantId,
+          status: "ACTIVE",
+          roles: {
+            hasSome: [
+              "TENANT_OWNER",
+              "TENANT_ADMIN",
+              "SUPPLIER_MANAGER",
+              "FINANCE",
+            ] as never[],
+          },
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              email: true,
+            },
+          },
+        },
+      });
+
+      await Promise.allSettled(
+        memberships.map((membership) =>
+          createEnterpriseNotification({
+            tenantId: sellerTenantId,
+            eventType: "SupplierPayment.Settled",
+            recipientUserId: membership.user.id,
+            recipientAddress: membership.user.email,
+            title: "Buyer payment has settled",
+            message:
+              `Payment run ${batchNumber} has settled for invoice${invoiceNumbers.length === 1 ? "" : "s"} ${invoiceNumbers.join(", ")}. Payment reference: ${paymentReference}.`,
+            actionUrl:
+              `/app/marketplace/remittances/${paymentBatchId}`,
+            priority: "NORMAL",
+            channels: membership.user.email
+              ? ["IN_APP", "EMAIL"]
+              : ["IN_APP"],
+            data: {
+              sourceModule: "supplier-finance",
+              paymentBatchId,
+              invoiceNumbers,
+            },
+          }),
+        ),
+      );
+    }
+  } catch (error) {
+    console.error(
+      "Supplier settlement notification fan-out failed",
+      {
+        buyerTenantId,
+        paymentBatchId,
+        invoiceIds,
+        error,
+      },
+    );
+  }
+}
+
 function paymentPath(message?: string, error?: string) {
   const params = new URLSearchParams();
   if (message) params.set("message", message);
@@ -847,6 +958,14 @@ export async function settlePaymentRunAction(
         "FINANCE",
         "ACCOUNTS_PAYABLE",
       ],
+    });
+
+    await notifySupplierSettlementRecipients({
+      buyerTenantId: user.tenantId,
+      paymentBatchId: batch.id,
+      batchNumber: batch.batchNumber,
+      invoiceIds,
+      paymentReference: batch.exportReference,
     });
 
     revalidatePath(
