@@ -564,3 +564,195 @@ export async function executePaymentRunAction(
   );
 }
 
+export async function settlePaymentRunAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole(
+    [...paymentExecutionRoles],
+  );
+
+  const paymentBatchId = field(data, "paymentBatchId");
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    const batch = await prisma.paymentBatch.findFirst({
+      where: {
+        id: paymentBatchId,
+        tenantId: user.tenantId,
+        status: "PROCESSING",
+      },
+      include: {
+        items: true,
+      },
+    });
+
+    if (!batch) {
+      throw new Error(
+        "This payment run is no longer awaiting settlement or is not available to your organization.",
+      );
+    }
+
+    if (!batch.exportedByUserId || !batch.exportReference) {
+      throw new Error(
+        "This payment run is missing execution audit information and cannot be settled.",
+      );
+    }
+
+    if (batch.exportedByUserId === user.id) {
+      throw new Error(
+        "Segregation of duties prevents the payment executor from settling the same payment run.",
+      );
+    }
+
+    const payableItems = batch.items.filter(
+      (item) => item.status === "INCLUDED",
+    );
+
+    if (
+      payableItems.length !== batch.items.length ||
+      payableItems.length === 0
+    ) {
+      throw new Error(
+        "All payment-run items must still be awaiting settlement before completion.",
+      );
+    }
+
+    const invoiceIds = [
+      ...new Set(
+        payableItems.map(
+          (item) => item.supplierInvoiceId,
+        ),
+      ),
+    ];
+
+    const now = new Date();
+
+    await prisma.$transaction(async (tx) => {
+      const updatedBatch =
+        await tx.paymentBatch.updateMany({
+          where: {
+            id: batch.id,
+            tenantId: user.tenantId,
+            status: "PROCESSING",
+          },
+          data: {
+            status: "COMPLETED",
+            completedByUserId: user.id,
+            completedAt: now,
+          },
+        });
+
+      if (updatedBatch.count !== 1) {
+        throw new Error(
+          "The payment run changed while settlement was being recorded. Refresh and try again.",
+        );
+      }
+
+      const updatedItems =
+        await tx.paymentBatchItem.updateMany({
+          where: {
+            paymentBatchId: batch.id,
+            status: "INCLUDED",
+          },
+          data: {
+            status: "PAID",
+            paidAt: now,
+          },
+        });
+
+      if (updatedItems.count !== payableItems.length) {
+        throw new Error(
+          "Not all payment items could be marked as paid.",
+        );
+      }
+
+      const updatedInvoices =
+        await tx.supplierInvoice.updateMany({
+          where: {
+            tenantId: user.tenantId,
+            id: { in: invoiceIds },
+          },
+          data: {
+            status: "PAID",
+            paidAt: now,
+            paymentReference:
+              batch.exportReference,
+          },
+        });
+
+      if (updatedInvoices.count !== invoiceIds.length) {
+        throw new Error(
+          "Not all supplier invoices could be marked as paid.",
+        );
+      }
+
+      const updatedReadiness =
+        await tx.apPaymentReadinessCase.updateMany({
+          where: {
+            tenantId: user.tenantId,
+            paymentBatchId: batch.id,
+            status: "BATCHED",
+          },
+          data: {
+            status: "PAID",
+          },
+        });
+
+      if (
+        updatedReadiness.count !== invoiceIds.length
+      ) {
+        throw new Error(
+          "The linked payment-readiness records could not all be closed as paid.",
+        );
+      }
+    });
+
+    batchNumber = batch.batchNumber;
+
+    revalidatePath(
+      "/app/requisition-to-order/payments",
+    );
+    revalidatePath(
+      "/app/requisition-to-order/payment-runs",
+    );
+    revalidatePath(
+      "/app/requisition-to-order/settlements",
+    );
+    revalidatePath(
+      "/app/requisition-to-order/payment-readiness",
+    );
+    revalidatePath(
+      "/app/marketplace/invoices",
+    );
+    revalidatePath(
+      "/app/purchasing/invoices",
+    );
+  } catch (error) {
+    console.error("Payment settlement failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment run could not be settled.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      paymentPath(undefined, errorMessage),
+    );
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} settled successfully. Linked invoices are now paid.`,
+    ),
+  );
+}
+

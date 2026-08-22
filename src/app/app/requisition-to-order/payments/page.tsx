@@ -2,6 +2,7 @@ import {
   authorizePaymentRunAction,
   createDraftPaymentRunAction,
   executePaymentRunAction,
+  settlePaymentRunAction,
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
 import { getPaymentOperationsWorkspace } from "@/modules/payment-operations/queries";
@@ -42,6 +43,9 @@ export default async function PaymentOperationsPage({
         "ACCOUNTS_PAYABLE",
       ].includes(role),
     );
+
+  const canSettlePaymentRun =
+    canExecutePaymentRun;
 
   const invoiceMap = new Map(
     data.invoices.map((item) => [item.id, item]),
@@ -84,10 +88,10 @@ export default async function PaymentOperationsPage({
         </h1>
 
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
-          Manage approved payment-readiness cases, review and
-          authorize payment runs, and send authorized batches into
-          controlled payment processing. Final settlement remains a
-          separate governed step.
+          Manage the complete accounts-payable lifecycle from
+          approved payment readiness through payment-run review,
+          authorization, execution, settlement, and final paid status.
+          Each controlled transition remains auditable and permission-aware.
         </p>
       </header>
 
@@ -450,13 +454,62 @@ export default async function PaymentOperationsPage({
                       )}
                     </div>
                   ) : batch.status === "PROCESSING" ? (
-                    <div className="mt-5 rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-900">
+                    <div className="mt-5 border-t border-slate-100 pt-4">
+                      <div className="rounded-xl bg-violet-50 px-4 py-3 text-sm text-violet-900">
+                        <p className="font-black">
+                          Payment processing in progress
+                        </p>
+                        <p className="mt-1 text-xs">
+                          Execution reference:{" "}
+                          {batch.exportReference ?? "—"}
+                        </p>
+                        <p className="mt-1 text-xs leading-5">
+                          Confirm settlement only after the bank,
+                          treasury system, ERP, or payment provider
+                          confirms successful completion.
+                        </p>
+                      </div>
+
+                      {canSettlePaymentRun &&
+                      batch.exportedByUserId !==
+                        data.currentUserId ? (
+                        <form
+                          action={settlePaymentRunAction}
+                          className="mt-3"
+                        >
+                          <input
+                            type="hidden"
+                            name="paymentBatchId"
+                            value={batch.id}
+                          />
+                          <button
+                            type="submit"
+                            className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white hover:bg-emerald-800"
+                          >
+                            Confirm settlement
+                          </button>
+                        </form>
+                      ) : (
+                        <p className="mt-3 text-xs font-bold text-slate-500">
+                          {batch.exportedByUserId ===
+                          data.currentUserId
+                            ? "You executed this payment run, so segregation of duties prevents you from confirming its settlement."
+                            : "Your current role can review this payment run but cannot confirm settlement."}
+                        </p>
+                      )}
+                    </div>
+                  ) : batch.status === "COMPLETED" ? (
+                    <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-900">
                       <p className="font-black">
-                        Payment processing in progress
+                        Payment settled
                       </p>
                       <p className="mt-1 text-xs">
                         Execution reference:{" "}
                         {batch.exportReference ?? "—"}
+                      </p>
+                      <p className="mt-1 text-xs">
+                        Supplier invoices and payment-readiness records
+                        are closed as paid.
                       </p>
                     </div>
                   ) : null}
