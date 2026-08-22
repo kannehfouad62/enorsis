@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { requireAnyRole } from "@/core/auth/authorization";
+import { createEnterpriseNotification } from "@/core/notifications";
 import { prisma } from "@/lib/prisma";
 
 const financeRoles = [
@@ -31,6 +32,81 @@ const paymentExecutionRoles = [
 
 function field(data: FormData, name: string) {
   return String(data.get(name) ?? "").trim();
+}
+
+async function notifyPaymentOperationUsers({
+  tenantId,
+  eventType,
+  title,
+  message,
+  priority = "NORMAL",
+  targetRoles,
+  excludeUserIds = [],
+}: {
+  tenantId: string;
+  eventType: string;
+  title: string;
+  message: string;
+  priority?: "LOW" | "NORMAL" | "HIGH" | "URGENT";
+  targetRoles: readonly string[];
+  excludeUserIds?: string[];
+}) {
+  try {
+    const memberships = await prisma.membership.findMany({
+      where: {
+        tenantId,
+        status: "ACTIVE",
+        roles: {
+          hasSome: [...targetRoles] as never[],
+        },
+        ...(excludeUserIds.length
+          ? {
+              userId: {
+                notIn: excludeUserIds,
+              },
+            }
+          : {}),
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            email: true,
+          },
+        },
+      },
+    });
+
+    await Promise.allSettled(
+      memberships.map((membership) =>
+        createEnterpriseNotification({
+          tenantId,
+          eventType,
+          recipientUserId: membership.user.id,
+          recipientAddress: membership.user.email,
+          title,
+          message,
+          actionUrl: "/app/requisition-to-order/payments",
+          priority,
+          channels: membership.user.email
+            ? ["IN_APP", "EMAIL"]
+            : ["IN_APP"],
+          data: {
+            sourceModule: "payment-operations",
+          },
+        }),
+      ),
+    );
+  } catch (error) {
+    console.error(
+      "Payment lifecycle notification fan-out failed",
+      {
+        tenantId,
+        eventType,
+        error,
+      },
+    );
+  }
 }
 
 function paymentPath(message?: string, error?: string) {
@@ -254,6 +330,21 @@ export async function submitPaymentRunForApprovalAction(
 
     batchNumber = batch.batchNumber;
 
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.AuthorizationRequired",
+      title: "Payment run requires authorization",
+      message:
+        `Payment run ${batch.batchNumber} is awaiting finance authorization.`,
+      priority: "HIGH",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+      ],
+      excludeUserIds: [user.id],
+    });
+
     revalidatePath("/app/requisition-to-order/payments");
     revalidatePath("/app/requisition-to-order/payment-runs");
   } catch (error) {
@@ -399,6 +490,22 @@ export async function authorizePaymentRunAction(
 
     batchNumber = batch.batchNumber;
 
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.ExecutionRequired",
+      title: "Authorized payment run is ready to execute",
+      message:
+        `Payment run ${batch.batchNumber} has been authorized and is ready for payment execution.`,
+      priority: "HIGH",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+      excludeUserIds: [user.id],
+    });
+
     revalidatePath("/app/requisition-to-order/payments");
     revalidatePath("/app/requisition-to-order/payment-runs");
   } catch (error) {
@@ -534,6 +641,22 @@ export async function executePaymentRunAction(
     });
 
     batchNumber = batch.batchNumber;
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.SettlementRequired",
+      title: "Payment run is awaiting settlement confirmation",
+      message:
+        `Payment run ${batch.batchNumber} was executed with reference ${paymentReference} and now requires settlement confirmation.`,
+      priority: "HIGH",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+      excludeUserIds: [user.id],
+    });
 
     revalidatePath("/app/requisition-to-order/payments");
     revalidatePath("/app/requisition-to-order/payment-runs");
@@ -710,6 +833,21 @@ export async function settlePaymentRunAction(
     });
 
     batchNumber = batch.batchNumber;
+
+    await notifyPaymentOperationUsers({
+      tenantId: user.tenantId,
+      eventType: "PaymentRun.Settled",
+      title: "Payment run settled successfully",
+      message:
+        `Payment run ${batch.batchNumber} has settled successfully. Linked supplier invoices are now paid.`,
+      priority: "NORMAL",
+      targetRoles: [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ],
+    });
 
     revalidatePath(
       "/app/requisition-to-order/payments",
