@@ -50,6 +50,14 @@ export async function getPaymentReconciliationWorkspace() {
   const exceptions = reconciliations.filter(
     (item) => item.status !== "MATCHED",
   );
+  const openExceptions = exceptions.filter(
+    (item) =>
+      item.resolutionStatus !== "RESOLVED",
+  );
+  const resolvedExceptions = exceptions.filter(
+    (item) =>
+      item.resolutionStatus === "RESOLVED",
+  );
 
   const amount = (items: typeof reconciliations) =>
     items.reduce(
@@ -64,6 +72,9 @@ export async function getPaymentReconciliationWorkspace() {
       unreconciledCount: unreconciled.length,
       matchedCount: matched.length,
       exceptionCount: exceptions.length,
+      openExceptionCount: openExceptions.length,
+      resolvedExceptionCount:
+        resolvedExceptions.length,
       matchedAmount: amount(matched),
       exceptionAmount: amount(exceptions),
     },

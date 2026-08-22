@@ -10361,23 +10361,35 @@ enum BankReconciliationStatus {
   DUPLICATE
 }
 
+enum BankReconciliationResolutionStatus {
+  OPEN
+  ACKNOWLEDGED
+  INVESTIGATING
+  RESOLVED
+}
+
 model BankPaymentReconciliation {
-  id                 String                   @id @default(cuid())
+  id                 String                             @id @default(cuid())
   tenantId           String
-  paymentBatchId     String                   @unique
+  paymentBatchId     String                             @unique
   statementReference String
   bankReference      String?
   currencyCode       String
-  expectedAmount     Decimal                  @db.Decimal(20, 4)
-  settledAmount      Decimal                  @db.Decimal(20, 4)
+  expectedAmount     Decimal                            @db.Decimal(20, 4)
+  settledAmount      Decimal                            @db.Decimal(20, 4)
   status             BankReconciliationStatus
+  resolutionStatus   BankReconciliationResolutionStatus @default(OPEN)
   reconciliationDate DateTime
   notes              String?
+  resolutionNotes    String?
   recordedByUserId   String
-  createdAt          DateTime                 @default(now())
-  updatedAt          DateTime                 @updatedAt
+  resolvedByUserId   String?
+  resolvedAt         DateTime?
+  createdAt          DateTime                           @default(now())
+  updatedAt          DateTime                           @updatedAt
 
   @@index([tenantId, status])
+  @@index([tenantId, resolutionStatus])
   @@index([tenantId, reconciliationDate])
   @@index([statementReference])
   @@index([bankReference])

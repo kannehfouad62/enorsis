@@ -1,4 +1,7 @@
-import { recordBankReconciliationAction } from "@/modules/payment-reconciliation/actions";
+import {
+  recordBankReconciliationAction,
+  updateReconciliationResolutionAction,
+} from "@/modules/payment-reconciliation/actions";
 import { getPaymentReconciliationWorkspace } from "@/modules/payment-reconciliation/queries";
 
 const card =
@@ -52,7 +55,7 @@ export default async function PaymentReconciliationPage({
           ["Unreconciled", data.metrics.unreconciledCount],
           ["Matched", data.metrics.matchedCount],
           ["Exceptions", data.metrics.exceptionCount],
-          ["Matched value", money(data.metrics.matchedAmount, "USD")],
+          ["Open exceptions", data.metrics.openExceptionCount],
         ].map(([label, value]) => (
           <div key={String(label)} className={card}>
             <p className="text-xs font-black uppercase tracking-wide text-slate-500">
@@ -183,6 +186,121 @@ export default async function PaymentReconciliationPage({
               All eligible payment runs have reconciliation records.
             </p>
           )}
+        </div>
+      </section>
+
+      <section className={card}>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-black text-slate-950">
+              Reconciliation exception resolution
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Acknowledge, investigate, and resolve partial,
+              unmatched, or duplicate settlement evidence
+              without changing the original reconciliation
+              classification.
+            </p>
+          </div>
+          <span className="rounded-full bg-rose-50 px-3 py-1 text-xs font-black text-rose-700">
+            {data.metrics.openExceptionCount} open
+          </span>
+        </div>
+
+        <div className="mt-5 space-y-4">
+          {data.reconciliations
+            .filter(
+              (item) =>
+                item.status !== "MATCHED" &&
+                item.resolutionStatus !== "RESOLVED",
+            )
+            .map((item) => (
+              <article
+                key={item.id}
+                className="rounded-2xl border border-rose-200 bg-rose-50/40 p-5"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="font-black text-slate-950">
+                      {item.statementReference}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      {item.status}
+                      {" · "}
+                      {item.resolutionStatus}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Expected{" "}
+                      {money(
+                        item.expectedAmount,
+                        item.currencyCode,
+                      )}
+                      {" · "}Settled{" "}
+                      {money(
+                        item.settledAmount,
+                        item.currencyCode,
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                {item.resolutionNotes ? (
+                  <div className="mt-3 whitespace-pre-line rounded-xl bg-white p-3 text-xs leading-5 text-slate-600">
+                    {item.resolutionNotes}
+                  </div>
+                ) : null}
+
+                <form
+                  action={updateReconciliationResolutionAction}
+                  className="mt-4 grid gap-3 border-t border-rose-100 pt-4 md:grid-cols-[190px_1fr_auto]"
+                >
+                  <input
+                    type="hidden"
+                    name="reconciliationId"
+                    value={item.id}
+                  />
+                  <select
+                    name="resolutionStatus"
+                    required
+                    defaultValue={
+                      item.resolutionStatus === "OPEN"
+                        ? "ACKNOWLEDGED"
+                        : item.resolutionStatus
+                    }
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                  >
+                    <option value="ACKNOWLEDGED">
+                      Acknowledge
+                    </option>
+                    <option value="INVESTIGATING">
+                      Investigating
+                    </option>
+                    <option value="RESOLVED">
+                      Resolve
+                    </option>
+                  </select>
+                  <input
+                    name="resolutionNote"
+                    required
+                    minLength={5}
+                    placeholder="Investigation finding or corrective action"
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+                  />
+                  <button
+                    type="submit"
+                    className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+                  >
+                    Update exception
+                  </button>
+                </form>
+              </article>
+            ))}
+
+          {data.metrics.openExceptionCount === 0 ? (
+            <p className="text-sm text-slate-500">
+              No open reconciliation exceptions require action.
+            </p>
+          ) : null}
         </div>
       </section>
 

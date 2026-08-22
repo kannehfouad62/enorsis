@@ -122,9 +122,21 @@ export async function recordBankReconciliationAction(data: FormData) {
         expectedAmount: batch.totalAmount,
         settledAmount,
         status: classification,
+        resolutionStatus:
+          classification === "MATCHED"
+            ? "RESOLVED"
+            : "OPEN",
         reconciliationDate,
         notes,
         recordedByUserId: user.id,
+        resolvedByUserId:
+          classification === "MATCHED"
+            ? user.id
+            : null,
+        resolvedAt:
+          classification === "MATCHED"
+            ? new Date()
+            : null,
       },
     });
 
@@ -180,6 +192,171 @@ export async function recordBankReconciliationAction(data: FormData) {
   redirect(
     reconciliationPath(
       `Payment run ${batchNumber ?? ""} reconciled successfully.`,
+    ),
+  );
+}
+
+export async function updateReconciliationResolutionAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...reconciliationRoles]);
+
+  const reconciliationId = field(
+    data,
+    "reconciliationId",
+  );
+  const resolutionStatus = field(
+    data,
+    "resolutionStatus",
+  ) as
+    | "ACKNOWLEDGED"
+    | "INVESTIGATING"
+    | "RESOLVED";
+  const resolutionNote = field(
+    data,
+    "resolutionNote",
+  );
+
+  let errorMessage: string | null = null;
+
+  try {
+    if (
+      ![
+        "ACKNOWLEDGED",
+        "INVESTIGATING",
+        "RESOLVED",
+      ].includes(resolutionStatus)
+    ) {
+      throw new Error(
+        "Select a valid reconciliation resolution action.",
+      );
+    }
+
+    if (resolutionNote.length < 5) {
+      throw new Error(
+        "Provide a short corrective or investigation note.",
+      );
+    }
+
+    const reconciliation =
+      await prisma.bankPaymentReconciliation.findFirst({
+        where: {
+          id: reconciliationId,
+          tenantId: user.tenantId,
+          status: {
+            in: [
+              "PARTIAL",
+              "UNMATCHED",
+              "DUPLICATE",
+            ],
+          },
+        },
+      });
+
+    if (!reconciliation) {
+      throw new Error(
+        "This reconciliation exception is not available for resolution.",
+      );
+    }
+
+    if (
+      reconciliation.resolutionStatus ===
+      "RESOLVED"
+    ) {
+      throw new Error(
+        "This reconciliation exception is already resolved.",
+      );
+    }
+
+    const historyLine =
+      `[${new Date().toISOString()}] ${resolutionStatus} by ${user.id}: ${resolutionNote}`;
+
+    const resolutionNotes = [
+      reconciliation.resolutionNotes,
+      historyLine,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    await prisma.bankPaymentReconciliation.update({
+      where: {
+        id: reconciliation.id,
+      },
+      data: {
+        resolutionStatus,
+        resolutionNotes,
+        ...(resolutionStatus === "RESOLVED"
+          ? {
+              resolvedByUserId: user.id,
+              resolvedAt: new Date(),
+            }
+          : {
+              resolvedByUserId: null,
+              resolvedAt: null,
+            }),
+      },
+    });
+
+    await createEnterpriseNotification({
+      tenantId: user.tenantId,
+      eventType:
+        resolutionStatus === "RESOLVED"
+          ? "PaymentReconciliation.ExceptionResolved"
+          : "PaymentReconciliation.ExceptionProgressed",
+      recipientUserId: user.id,
+      recipientAddress: null,
+      title:
+        resolutionStatus === "RESOLVED"
+          ? "Reconciliation exception resolved"
+          : "Reconciliation exception updated",
+      message:
+        `Reconciliation ${reconciliation.statementReference} is now ${resolutionStatus}. ${resolutionNote}`,
+      actionUrl:
+        "/app/requisition-to-order/reconciliation",
+      priority:
+        resolutionStatus === "RESOLVED"
+          ? "NORMAL"
+          : "HIGH",
+      channels: ["IN_APP"],
+      data: {
+        reconciliationId: reconciliation.id,
+        paymentBatchId:
+          reconciliation.paymentBatchId,
+        classification: reconciliation.status,
+        resolutionStatus,
+      },
+    });
+
+    revalidatePath(
+      "/app/requisition-to-order/reconciliation",
+    );
+  } catch (error) {
+    console.error(
+      "Reconciliation exception resolution failed",
+      {
+        reconciliationId,
+        tenantId: user.tenantId,
+        actorUserId: user.id,
+        resolutionStatus,
+        error,
+      },
+    );
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The reconciliation exception could not be updated.";
+  }
+
+  if (errorMessage) {
+    redirect(
+      reconciliationPath(undefined, errorMessage),
+    );
+  }
+
+  redirect(
+    reconciliationPath(
+      `Reconciliation exception updated to ${resolutionStatus}.`,
     ),
   );
 }
