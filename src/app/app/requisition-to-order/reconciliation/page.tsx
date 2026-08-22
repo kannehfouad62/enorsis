@@ -91,7 +91,7 @@ export default async function PaymentReconciliationPage({
 
         <form
           action={importBankStatementCsvAction}
-          className="mt-5 grid gap-3 md:grid-cols-[1fr_1fr_auto]"
+          className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4"
         >
           <label className="text-xs font-bold text-slate-600">
             Statement reference
@@ -122,6 +122,27 @@ export default async function PaymentReconciliationPage({
                   {profile.providerName
                     ? ` · ${profile.providerName}`
                     : ""}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="text-xs font-bold text-slate-600">
+            Automation rule
+            <select
+              name="automationRuleId"
+              defaultValue=""
+              className="mt-1 block w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
+            >
+              <option value="">
+                Strict default rule
+              </option>
+              {data.automationRules.map((rule) => (
+                <option
+                  key={rule.id}
+                  value={rule.id}
+                >
+                  {rule.name}
                 </option>
               ))}
             </select>
@@ -159,6 +180,13 @@ export default async function PaymentReconciliationPage({
               className="font-black text-blue-700"
             >
               Manage bank statement mapping profiles →
+            </Link>
+            <span className="mx-2 text-slate-300">|</span>
+            <Link
+              href="/app/requisition-to-order/reconciliation/rules"
+              className="font-black text-blue-700"
+            >
+              Manage automation rules →
             </Link>
           </div>
         </div>

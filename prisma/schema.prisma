@@ -10468,3 +10468,21 @@ model BankStatementMappingProfile {
   @@index([tenantId, active, name])
 }
 
+model BankReconciliationAutomationRule {
+  id                   String   @id @default(cuid())
+  tenantId             String
+  name                 String
+  description          String?
+  amountTolerance      Decimal  @default(0.005) @db.Decimal(18, 4)
+  requireCurrencyMatch Boolean  @default(true)
+  maxDateVarianceDays  Int      @default(7)
+  allowPartialMatch    Boolean  @default(true)
+  active               Boolean  @default(true)
+  createdByUserId      String
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  @@unique([tenantId, name])
+  @@index([tenantId, active, name])
+}
+

@@ -26,6 +26,7 @@ export async function getPaymentReconciliationWorkspace() {
     statementImports,
     statementExceptionRows,
     mappingProfiles,
+    automationRules,
   ] = await Promise.all([
     prisma.paymentBatch.findMany({
       where: {
@@ -75,6 +76,15 @@ export async function getPaymentReconciliationWorkspace() {
         name: "asc",
       },
     }),
+    prisma.bankReconciliationAutomationRule.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+        active: true,
+      },
+      orderBy: {
+        name: "asc",
+      },
+    }),
   ]);
 
   const reconciledIds = new Set(
@@ -112,6 +122,7 @@ export async function getPaymentReconciliationWorkspace() {
     statementImports,
     statementExceptionRows,
     mappingProfiles,
+    automationRules,
     candidatePaymentBatches:
       unreconciled.map((batch) => ({
         id: batch.id,

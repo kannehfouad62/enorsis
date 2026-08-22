@@ -508,6 +508,25 @@ export async function importBankStatementCsvAction(
       );
     }
 
+    const automationRuleId =
+      field(data, "automationRuleId") || null;
+
+    const automationRule = automationRuleId
+      ? await prisma.bankReconciliationAutomationRule.findFirst({
+          where: {
+            id: automationRuleId,
+            tenantId: user.tenantId,
+            active: true,
+          },
+        })
+      : null;
+
+    if (automationRuleId && !automationRule) {
+      throw new Error(
+        "The selected reconciliation automation rule is not active or is unavailable.",
+      );
+    }
+
     const customIndex = (
       column: string | null | undefined,
     ) => {
@@ -589,6 +608,8 @@ export async function importBankStatementCsvAction(
         exportReference: true,
         currencyCode: true,
         totalAmount: true,
+        exportedAt: true,
+        completedAt: true,
       },
     });
 
@@ -726,17 +747,66 @@ export async function importBankStatementCsvAction(
               } else {
                 const expected = Number(batch.totalAmount);
                 const variance = Math.abs(expected - amount);
+                const tolerance = automationRule
+                  ? Number(automationRule.amountTolerance)
+                  : 0.005;
 
-                if (variance <= 0.005) {
+                const currencyMismatch =
+                  Boolean(
+                    automationRule?.requireCurrencyMatch &&
+                    currency &&
+                    currency !== batch.currencyCode,
+                  );
+
+                const paymentAnchorDate =
+                  batch.completedAt ?? batch.exportedAt;
+
+                const dateVarianceDays =
+                  automationRule &&
+                  transactionDate &&
+                  paymentAnchorDate
+                    ? Math.abs(
+                        transactionDate.getTime() -
+                          paymentAnchorDate.getTime(),
+                      ) /
+                      (24 * 60 * 60 * 1000)
+                    : null;
+
+                const dateOutsideWindow =
+                  Boolean(
+                    automationRule &&
+                    dateVarianceDays !== null &&
+                    dateVarianceDays >
+                      automationRule.maxDateVarianceDays,
+                  );
+
+                if (currencyMismatch) {
+                  rowStatus = "UNMATCHED";
+                  exceptionReason =
+                    `Reference matched, but statement currency ${currency} does not match payment currency ${batch.currencyCode}.`;
+                } else if (dateOutsideWindow) {
+                  rowStatus = "UNMATCHED";
+                  exceptionReason =
+                    `Reference matched, but settlement date is outside the configured ±${automationRule?.maxDateVarianceDays ?? 0}-day window.`;
+                } else if (variance <= tolerance) {
                   rowStatus = "MATCHED";
-                } else if (amount > 0 && amount < expected) {
+                } else if (
+                  amount > 0 &&
+                  amount < expected &&
+                  (automationRule?.allowPartialMatch ?? true)
+                ) {
                   rowStatus = "PARTIAL";
                   exceptionReason =
                     `Bank settled less than expected by ${batch.currencyCode} ${(expected - amount).toFixed(2)}.`;
                 } else {
                   rowStatus = "UNMATCHED";
                   exceptionReason =
-                    "Reference matched, but settlement amount does not satisfy matched or partial rules.";
+                    automationRule &&
+                    !automationRule.allowPartialMatch &&
+                    amount > 0 &&
+                    amount < expected
+                      ? "Reference matched, but this automation rule does not permit partial settlement classification."
+                      : `Reference matched, but settlement amount variance ${variance.toFixed(4)} exceeds the configured tolerance ${tolerance.toFixed(4)}.`;
                 }
 
                 const reconciliation =
@@ -763,8 +833,13 @@ export async function importBankStatementCsvAction(
                       reconciliationDate:
                         transactionDate ?? new Date(),
                       notes:
-                        description ??
-                        "Created automatically from bank statement CSV import.",
+                        [
+                          description ??
+                            "Created automatically from bank statement CSV import.",
+                          automationRule
+                            ? `Automation rule: ${automationRule.name}`
+                            : "Automation rule: strict default",
+                        ].join("\n"),
                       recordedByUserId: user.id,
                       resolvedByUserId:
                         rowStatus === "MATCHED"
