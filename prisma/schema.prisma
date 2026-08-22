@@ -10767,3 +10767,33 @@ model TreasuryConnectivityHealthIncident {
   @@index([externalAccountLinkId, status])
 }
 
+enum TreasuryCloseCertificationStatus {
+  CERTIFIED
+  REVOKED
+}
+
+model TreasuryCloseCertification {
+  id                           String                           @id @default(cuid())
+  tenantId                     String
+  periodStart                  DateTime
+  periodEnd                    DateTime
+  status                       TreasuryCloseCertificationStatus @default(CERTIFIED)
+  baseCurrencyCode             String
+  availableCash               Decimal                          @db.Decimal(20, 4)
+  projected30DayCash           Decimal                          @db.Decimal(20, 4)
+  criticalLiquidityAlerts      Int
+  criticalConnectivityIncidents Int
+  materialReconciliationBlockers Int
+  pendingReconciliationApprovals Int
+  missingFxRateCount           Int
+  attestationNote              String
+  certifiedByUserId            String
+  certifiedAt                  DateTime                         @default(now())
+  revokedAt                    DateTime?
+  createdAt                    DateTime                         @default(now())
+  updatedAt                    DateTime                         @updatedAt
+
+  @@unique([tenantId, periodStart, periodEnd])
+  @@index([tenantId, status, periodEnd])
+}
+

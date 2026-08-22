@@ -62,6 +62,12 @@ export default async function TreasuryOperationsPage({
           >
             Bank & ERP connections
           </Link>
+          <Link
+            href="/app/requisition-to-order/treasury/executive"
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-700"
+          >
+            Executive report
+          </Link>
           <form
             action={syncPaymentRunsToTreasuryForecastAction}
           >
