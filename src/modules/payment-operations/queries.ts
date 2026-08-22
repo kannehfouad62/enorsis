@@ -96,6 +96,8 @@ export async function getPaymentOperationsWorkspace() {
     : [];
 
   return {
+    currentUserId: session.user.id,
+    currentUserRoles: session.user.roles,
     readyCases,
     batches,
     items,

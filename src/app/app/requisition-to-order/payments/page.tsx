@@ -1,4 +1,5 @@
 import {
+  authorizePaymentRunAction,
   createDraftPaymentRunAction,
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
@@ -23,6 +24,13 @@ export default async function PaymentOperationsPage({
 }) {
   const data = await getPaymentOperationsWorkspace();
   const params = await searchParams;
+
+  const canAuthorizePaymentRun =
+    data.currentUserRoles.some((role) =>
+      ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE"].includes(
+        role,
+      ),
+    );
 
   const invoiceMap = new Map(
     data.invoices.map((item) => [item.id, item]),
@@ -341,8 +349,48 @@ export default async function PaymentOperationsPage({
                       </form>
                     </div>
                   ) : batch.status === "PENDING_APPROVAL" ? (
-                    <div className="mt-5 rounded-xl bg-blue-50 px-4 py-3 text-sm font-bold text-blue-800">
-                      Awaiting finance authorization
+                    <div className="mt-5 border-t border-slate-100 pt-4">
+                      <div className="rounded-xl bg-blue-50 px-4 py-3 text-sm text-blue-900">
+                        <p className="font-black">
+                          Awaiting finance authorization
+                        </p>
+                        <p className="mt-1 text-xs leading-5">
+                          A different authorized finance user must review
+                          and approve this payment run before execution.
+                        </p>
+                      </div>
+
+                      {canAuthorizePaymentRun &&
+                      batch.createdByUserId !==
+                        data.currentUserId ? (
+                        <form
+                          action={authorizePaymentRunAction}
+                          className="mt-3"
+                        >
+                          <input
+                            type="hidden"
+                            name="paymentBatchId"
+                            value={batch.id}
+                          />
+                          <button
+                            type="submit"
+                            className="rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-black text-white hover:bg-emerald-800"
+                          >
+                            Authorize payment run
+                          </button>
+                        </form>
+                      ) : (
+                        <p className="mt-3 text-xs font-bold text-slate-500">
+                          {batch.createdByUserId ===
+                          data.currentUserId
+                            ? "You created this payment run, so segregation of duties prevents you from authorizing it."
+                            : "Your current role can review this payment run but cannot authorize it."}
+                        </p>
+                      )}
+                    </div>
+                  ) : batch.status === "APPROVED" ? (
+                    <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800">
+                      Authorized for payment execution
                     </div>
                   ) : null}
                 </article>

@@ -16,6 +16,12 @@ const financeRoles = [
   "PLATFORM_SUPPORT",
 ] as const;
 
+const financeAuthorizationRoles = [
+  "TENANT_OWNER",
+  "TENANT_ADMIN",
+  "FINANCE",
+] as const;
+
 function field(data: FormData, name: string) {
   return String(data.get(name) ?? "").trim();
 }
@@ -262,6 +268,149 @@ export async function submitPaymentRunForApprovalAction(
   redirect(
     paymentPath(
       `Payment run ${batchNumber ?? ""} submitted for authorization.`,
+    ),
+  );
+}
+
+export async function authorizePaymentRunAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole(
+    [...financeAuthorizationRoles],
+  );
+
+  const paymentBatchId = field(data, "paymentBatchId");
+
+  let batchNumber: string | null = null;
+  let errorMessage: string | null = null;
+
+  try {
+    const [batch, membership] = await Promise.all([
+      prisma.paymentBatch.findFirst({
+        where: {
+          id: paymentBatchId,
+          tenantId: user.tenantId,
+          status: "PENDING_APPROVAL",
+        },
+        include: {
+          items: true,
+        },
+      }),
+      prisma.membership.findUnique({
+        where: {
+          tenantId_userId: {
+            tenantId: user.tenantId,
+            userId: user.id,
+          },
+        },
+        select: {
+          approvalLimitUsd: true,
+          status: true,
+          roles: true,
+        },
+      }),
+    ]);
+
+    if (!batch) {
+      throw new Error(
+        "This payment run is no longer awaiting authorization or is not available to your organization.",
+      );
+    }
+
+    if (!membership || membership.status !== "ACTIVE") {
+      throw new Error(
+        "Your active tenant membership could not be verified for payment authorization.",
+      );
+    }
+
+    if (batch.createdByUserId === user.id) {
+      throw new Error(
+        "Segregation of duties prevents the payment-run creator from authorizing the same run.",
+      );
+    }
+
+    const totalUsd = Number(batch.totalUsdEquivalent);
+
+    if (
+      membership.approvalLimitUsd !== null &&
+      totalUsd > Number(membership.approvalLimitUsd)
+    ) {
+      throw new Error(
+        `This payment run exceeds your approval limit of USD ${Number(
+          membership.approvalLimitUsd,
+        ).toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}.`,
+      );
+    }
+
+    const includedItems = batch.items.filter(
+      (item) => item.status === "INCLUDED",
+    );
+
+    if (includedItems.length === 0) {
+      throw new Error(
+        "This payment run has no included invoices and cannot be authorized.",
+      );
+    }
+
+    const itemTotal = includedItems.reduce(
+      (sum, item) => sum + Number(item.amount),
+      0,
+    );
+
+    if (
+      Math.abs(itemTotal - Number(batch.totalAmount)) >
+      0.005
+    ) {
+      throw new Error(
+        "The payment run total no longer matches its included invoices. Review the run before authorization.",
+      );
+    }
+
+    const updated = await prisma.paymentBatch.updateMany({
+      where: {
+        id: batch.id,
+        tenantId: user.tenantId,
+        status: "PENDING_APPROVAL",
+      },
+      data: {
+        status: "APPROVED",
+      },
+    });
+
+    if (updated.count !== 1) {
+      throw new Error(
+        "The payment run changed while authorization was being recorded. Refresh and try again.",
+      );
+    }
+
+    batchNumber = batch.batchNumber;
+
+    revalidatePath("/app/requisition-to-order/payments");
+    revalidatePath("/app/requisition-to-order/payment-runs");
+  } catch (error) {
+    console.error("Payment run authorization failed", {
+      paymentBatchId,
+      tenantId: user.tenantId,
+      actorUserId: user.id,
+      error,
+    });
+
+    errorMessage =
+      error instanceof Error
+        ? error.message
+        : "The payment run could not be authorized.";
+  }
+
+  if (errorMessage) {
+    redirect(paymentPath(undefined, errorMessage));
+  }
+
+  redirect(
+    paymentPath(
+      `Payment run ${batchNumber ?? ""} authorized successfully.`,
     ),
   );
 }
