@@ -262,6 +262,116 @@ export async function getSidebarActionCountsForUser(
     );
   }
 
+  // Payment Operations action badge is role- and user-specific.
+  // It counts only work the current user can actually act on.
+  if (
+    user.commercialPersona !== "SUPPLIER" &&
+    user.roles.some((role) =>
+      [
+        "TENANT_OWNER",
+        "TENANT_ADMIN",
+        "FINANCE",
+        "ACCOUNTS_PAYABLE",
+      ].includes(role),
+    )
+  ) {
+    jobs.push(
+      (async () => {
+        const canAuthorize = user.roles.some((role) =>
+          ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE"].includes(
+            role,
+          ),
+        );
+
+        const canExecuteOrSettle = user.roles.some((role) =>
+          [
+            "TENANT_OWNER",
+            "TENANT_ADMIN",
+            "FINANCE",
+            "ACCOUNTS_PAYABLE",
+          ].includes(role),
+        );
+
+        const [
+          readyToBatch,
+          ownDrafts,
+          awaitingAuthorization,
+          readyToExecute,
+          settlementPending,
+        ] = await Promise.all([
+          prisma.apPaymentReadinessCase.count({
+            where: {
+              tenantId: user.tenantId,
+              status: "APPROVED",
+              paymentBatchId: null,
+            },
+          }),
+          prisma.paymentBatch.count({
+            where: {
+              tenantId: user.tenantId,
+              status: "DRAFT",
+              createdByUserId: user.id,
+            },
+          }),
+          canAuthorize
+            ? prisma.paymentBatch.count({
+                where: {
+                  tenantId: user.tenantId,
+                  status: "PENDING_APPROVAL",
+                  createdByUserId: {
+                    not: user.id,
+                  },
+                },
+              })
+            : Promise.resolve(0),
+          canExecuteOrSettle
+            ? prisma.paymentBatch.count({
+                where: {
+                  tenantId: user.tenantId,
+                  status: "APPROVED",
+                  OR: [
+                    {
+                      approvedByUserId: {
+                        not: user.id,
+                      },
+                    },
+                    {
+                      approvedByUserId: null,
+                    },
+                  ],
+                },
+              })
+            : Promise.resolve(0),
+          canExecuteOrSettle
+            ? prisma.paymentBatch.count({
+                where: {
+                  tenantId: user.tenantId,
+                  status: "PROCESSING",
+                  OR: [
+                    {
+                      exportedByUserId: {
+                        not: user.id,
+                      },
+                    },
+                    {
+                      exportedByUserId: null,
+                    },
+                  ],
+                },
+              })
+            : Promise.resolve(0),
+        ]);
+
+        counts["/app/requisition-to-order/payments"] =
+          readyToBatch +
+          ownDrafts +
+          awaitingAuthorization +
+          readyToExecute +
+          settlementPending;
+      })(),
+    );
+  }
+
   // Buyer-managed supplier document review remains tenant-scoped.
   if (
     user.commercialPersona !== "SUPPLIER" &&
