@@ -606,6 +606,12 @@ export default async function PaymentOperationsPage({
                         Supplier invoices and payment-readiness records
                         are closed as paid.
                       </p>
+                      <a
+                        href={`/app/requisition-to-order/remittances/${batch.id}`}
+                        className="mt-3 inline-block rounded-xl bg-white px-3 py-2 text-xs font-black text-emerald-800 shadow-sm ring-1 ring-emerald-200"
+                      >
+                        Open remittance advice
+                      </a>
                     </div>
                   ) : null}
                 </article>
