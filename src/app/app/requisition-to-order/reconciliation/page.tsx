@@ -194,6 +194,13 @@ export default async function PaymentReconciliationPage({
             >
               Manage automation rules →
             </Link>
+            <span className="mx-2 text-slate-300">|</span>
+            <Link
+              href="/app/requisition-to-order/reconciliation/analytics"
+              className="font-black text-blue-700"
+            >
+              Treasury intelligence →
+            </Link>
           </div>
         </div>
 
