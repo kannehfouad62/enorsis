@@ -32,11 +32,19 @@ export default async function IntegrationHubPage() {
         and durable synchronization.
       </p>
 
-      <form action={seedConnectorCatalogAction} className="mt-6">
-        <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">
-          Initialize enterprise connector catalog
-        </button>
-      </form>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <form action={seedConnectorCatalogAction}>
+          <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">
+            Initialize enterprise connector catalog
+          </button>
+        </form>
+        <a
+          href="/app/settings/integration-hub/readiness"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 font-black text-slate-800"
+        >
+          Production readiness
+        </a>
+      </div>
 
       <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {ENTERPRISE_INTEGRATION_PROVIDER_PROFILES.filter(
