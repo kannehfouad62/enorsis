@@ -114,32 +114,65 @@ export async function createConnectorConnectionAction(
 export async function addConnectorCredentialAction(
   data: FormData,
 ) {
-  await requireAnyRole([
+  const user = await requireAnyRole([
     "TENANT_OWNER",
     "TENANT_ADMIN",
     "PLATFORM_SUPER_ADMIN",
     "PLATFORM_SUPPORT",
   ]);
 
-  await prisma.enterpriseConnectorCredential.create({
-    data: {
-      connectionId: field(data, "connectionId"),
-      name: field(data, "name"),
-      credentialType: field(data, "credentialType") as
-        | "API_KEY"
-        | "BEARER_TOKEN"
-        | "BASIC_AUTH"
-        | "OAUTH2"
-        | "CLIENT_CERTIFICATE"
-        | "SSH_KEY"
-        | "DATABASE_CREDENTIAL"
-        | "CUSTOM",
-      secretReference: field(data, "secretReference"),
-      expiresAt: field(data, "expiresAt")
-        ? new Date(field(data, "expiresAt"))
-        : null,
-    },
-  });
+  const connectionId = field(data, "connectionId");
+  const name = field(data, "name");
+
+  const connection =
+    await prisma.enterpriseConnectorConnection.findFirstOrThrow({
+      where: {
+        id: connectionId,
+        tenantId: user.tenantId,
+      },
+      select: { id: true },
+    });
+
+  const existing =
+    await prisma.enterpriseConnectorCredential.findFirst({
+      where: {
+        connectionId: connection.id,
+        name,
+      },
+      select: { id: true },
+    });
+
+  const dataToWrite = {
+    name,
+    credentialType: field(data, "credentialType") as
+      | "API_KEY"
+      | "BEARER_TOKEN"
+      | "BASIC_AUTH"
+      | "OAUTH2"
+      | "CLIENT_CERTIFICATE"
+      | "SSH_KEY"
+      | "DATABASE_CREDENTIAL"
+      | "CUSTOM",
+    secretReference: field(data, "secretReference"),
+    expiresAt: field(data, "expiresAt")
+      ? new Date(field(data, "expiresAt"))
+      : null,
+    status: "ACTIVE" as const,
+  };
+
+  if (existing) {
+    await prisma.enterpriseConnectorCredential.update({
+      where: { id: existing.id },
+      data: dataToWrite,
+    });
+  } else {
+    await prisma.enterpriseConnectorCredential.create({
+      data: {
+        connectionId: connection.id,
+        ...dataToWrite,
+      },
+    });
+  }
 
   revalidatePath("/app/settings/integration-hub");
 }
@@ -219,5 +252,63 @@ export async function healthCheckConnectorAction(data: FormData) {
   ]);
 
   await runConnectorHealthCheck(field(data, "connectionId"));
+  revalidatePath("/app/settings/integration-hub");
+}
+
+export async function deleteConnectorCredentialAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "PLATFORM_SUPER_ADMIN",
+    "PLATFORM_SUPPORT",
+  ]);
+
+  const credential =
+    await prisma.enterpriseConnectorCredential.findFirstOrThrow({
+      where: {
+        id: field(data, "credentialId"),
+        connection: {
+          tenantId: user.tenantId,
+        },
+      },
+      select: { id: true },
+    });
+
+  await prisma.enterpriseConnectorCredential.delete({
+    where: { id: credential.id },
+  });
+
+  revalidatePath("/app/settings/integration-hub");
+}
+
+export async function updateConnectorStatusAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "PLATFORM_SUPER_ADMIN",
+    "PLATFORM_SUPPORT",
+  ]);
+
+  const status = field(data, "status") as
+    | "DRAFT"
+    | "ACTIVE"
+    | "PAUSED"
+    | "ERROR";
+
+  await prisma.enterpriseConnectorConnection.updateMany({
+    where: {
+      id: field(data, "connectionId"),
+      tenantId: user.tenantId,
+    },
+    data: {
+      status,
+      updatedByUserId: user.id,
+    },
+  });
+
   revalidatePath("/app/settings/integration-hub");
 }

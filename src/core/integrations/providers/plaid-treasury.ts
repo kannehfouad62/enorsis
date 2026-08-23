@@ -310,3 +310,52 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
     };
   },
 };
+
+export async function listPlaidTreasuryAccounts(
+  context: ConnectorAdapterContext,
+) {
+  const response = await plaidPost(
+    context,
+    "/accounts/balance/get",
+  );
+
+  const accounts = Array.isArray(response.accounts)
+    ? response.accounts
+    : [];
+
+  return accounts.map((raw) => {
+    const account = record(raw);
+    const balances = record(account.balances);
+
+    return {
+      accountId: String(account.account_id ?? ""),
+      name: String(account.name ?? "Plaid account"),
+      officialName:
+        account.official_name == null
+          ? null
+          : String(account.official_name),
+      type:
+        account.type == null
+          ? null
+          : String(account.type),
+      subtype:
+        account.subtype == null
+          ? null
+          : String(account.subtype),
+      current:
+        balances.current == null
+          ? null
+          : Number(balances.current),
+      available:
+        balances.available == null
+          ? null
+          : Number(balances.available),
+      currencyCode:
+        balances.iso_currency_code == null
+          ? null
+          : String(
+              balances.iso_currency_code,
+            ).toUpperCase(),
+    };
+  });
+}
