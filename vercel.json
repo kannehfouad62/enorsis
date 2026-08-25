@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/platform/integrations/process-all",
+      "schedule": "*/15 * * * *"
+    }
+  ]
+}

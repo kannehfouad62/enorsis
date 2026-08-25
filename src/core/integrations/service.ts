@@ -87,6 +87,8 @@ export async function processQueuedIntegrationSyncs({
 }: {
   limit?: number;
 }) {
+  await recoverStaleIntegrationSyncRuns();
+
   const runs = await prisma.enterpriseIntegrationSyncRun.findMany({
     where: { status: "QUEUED" },
     include: {
@@ -121,6 +123,50 @@ export async function processQueuedIntegrationSyncs({
   }
 
   return results;
+}
+
+export async function recoverStaleIntegrationSyncRuns({
+  staleMinutes = 10,
+}: {
+  staleMinutes?: number;
+} = {}) {
+  const cutoff = new Date(
+    Date.now() - Math.max(staleMinutes, 1) * 60_000,
+  );
+
+  const staleRuns =
+    await prisma.enterpriseIntegrationSyncRun.findMany({
+      where: {
+        status: "RUNNING",
+        startedAt: {
+          lt: cutoff,
+        },
+      },
+      select: {
+        id: true,
+      },
+    });
+
+  if (!staleRuns.length) {
+    return { recovered: 0 };
+  }
+
+  await prisma.enterpriseIntegrationSyncRun.updateMany({
+    where: {
+      id: {
+        in: staleRuns.map((run) => run.id),
+      },
+      status: "RUNNING",
+    },
+    data: {
+      status: "FAILED",
+      completedAt: new Date(),
+      errorMessage:
+        "Integration processor stopped before the run completed. Queue a new sync to retry.",
+    },
+  });
+
+  return { recovered: staleRuns.length };
 }
 
 export async function executeIntegrationSync(runId: string) {

@@ -9,6 +9,7 @@ import {
   deleteConnectorCredentialAction,
   healthCheckConnectorAction,
   queueConnectorSyncAction,
+  retryConnectorSyncAction,
   seedConnectorCatalogAction,
   updateConnectorStatusAction,
 } from "@/modules/integration-hub/actions";
@@ -135,6 +136,29 @@ export default async function IntegrationHubPage() {
                   {connection.connectorDefinition.provider} —{" "}
                   {connection.connectorDefinition.name}
                 </p>
+
+                <div className="mt-3 grid gap-2 text-xs text-slate-500 sm:grid-cols-2">
+                  <div className="rounded-xl bg-white p-3">
+                    <p className="font-black text-slate-800">
+                      Last successful sync
+                    </p>
+                    <p className="mt-1">
+                      {connection.lastSuccessfulSyncAt
+                        ? connection.lastSuccessfulSyncAt.toLocaleString()
+                        : "No successful sync yet"}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-white p-3">
+                    <p className="font-black text-slate-800">
+                      Last failed sync
+                    </p>
+                    <p className="mt-1">
+                      {connection.lastFailedSyncAt
+                        ? connection.lastFailedSyncAt.toLocaleString()
+                        : "No failed sync recorded"}
+                    </p>
+                  </div>
+                </div>
 
                 {profile ? (
                   <div className="mt-4 rounded-xl bg-white p-3 text-xs text-slate-600">
@@ -467,8 +491,12 @@ export default async function IntegrationHubPage() {
                 <th className="px-4 py-3">Connection</th>
                 <th className="px-4 py-3">Direction</th>
                 <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">Read</th>
                 <th className="px-4 py-3">Written</th>
+                <th className="px-4 py-3">Skipped</th>
                 <th className="px-4 py-3">Failed</th>
+                <th className="px-4 py-3">Completed</th>
+                <th className="px-4 py-3">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
@@ -481,13 +509,59 @@ export default async function IntegrationHubPage() {
                     {run.direction}
                   </td>
                   <td className="px-4 py-3">
-                    {run.status}
+                    <span
+                      className={`rounded-full px-2.5 py-1 text-[11px] font-black ${
+                        run.status === "SUCCEEDED"
+                          ? "bg-emerald-100 text-emerald-700"
+                          : run.status === "FAILED"
+                            ? "bg-rose-100 text-rose-700"
+                            : run.status === "PARTIALLY_SUCCEEDED"
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-slate-100 text-slate-700"
+                      }`}
+                    >
+                      {run.status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    {run.recordsRead}
                   </td>
                   <td className="px-4 py-3">
                     {run.recordsWritten}
                   </td>
                   <td className="px-4 py-3">
+                    {run.recordsSkipped}
+                  </td>
+                  <td className="px-4 py-3">
                     {run.recordsFailed}
+                  </td>
+                  <td className="px-4 py-3 text-xs text-slate-500">
+                    {run.completedAt
+                      ? run.completedAt.toLocaleString()
+                      : "—"}
+                  </td>
+                  <td className="px-4 py-3">
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={`/app/settings/integration-hub/runs/${run.id}`}
+                        className="rounded-lg bg-white px-3 py-2 text-xs font-black text-blue-700 ring-1 ring-slate-200"
+                      >
+                        Details
+                      </a>
+                      {run.status === "FAILED" ||
+                      run.status === "PARTIALLY_SUCCEEDED" ? (
+                        <form action={retryConnectorSyncAction}>
+                          <input
+                            type="hidden"
+                            name="runId"
+                            value={run.id}
+                          />
+                          <button className="rounded-lg bg-slate-950 px-3 py-2 text-xs font-black text-white">
+                            Retry
+                          </button>
+                        </form>
+                      ) : null}
+                    </div>
                   </td>
                 </tr>
               ))}

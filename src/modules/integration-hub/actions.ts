@@ -312,3 +312,44 @@ export async function updateConnectorStatusAction(
 
   revalidatePath("/app/settings/integration-hub");
 }
+
+export async function retryConnectorSyncAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([
+    "TENANT_OWNER",
+    "TENANT_ADMIN",
+    "PLATFORM_SUPER_ADMIN",
+    "PLATFORM_SUPPORT",
+  ]);
+
+  const runId = field(data, "runId");
+
+  const run =
+    await prisma.enterpriseIntegrationSyncRun.findFirstOrThrow({
+      where: {
+        id: runId,
+        connection: {
+          tenantId: user.tenantId,
+        },
+      },
+      select: {
+        connectionId: true,
+        mappingId: true,
+        direction: true,
+      },
+    });
+
+  await queueIntegrationSync({
+    connectionId: run.connectionId,
+    mappingId: run.mappingId,
+    direction: run.direction,
+    requestedByUserId: user.id,
+    triggerType: "RETRY",
+  });
+
+  revalidatePath("/app/settings/integration-hub");
+  revalidatePath(
+    `/app/settings/integration-hub/runs/${runId}`,
+  );
+}

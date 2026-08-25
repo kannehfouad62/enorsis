@@ -168,10 +168,45 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
       ? response.accounts
       : [];
     const map = accountMap(context);
+    const mappedEntries = Object.entries(map).filter(
+      ([externalId, treasuryAccountId]) =>
+        externalId &&
+        typeof treasuryAccountId === "string" &&
+        treasuryAccountId.length > 0,
+    );
+
+    const treasuryAccountIds = [
+      ...new Set(
+        mappedEntries.map(([, treasuryAccountId]) =>
+          String(treasuryAccountId),
+        ),
+      ),
+    ];
+
+    const treasuryAccounts = treasuryAccountIds.length
+      ? await prisma.treasuryAccount.findMany({
+          where: {
+            id: { in: treasuryAccountIds },
+            tenantId: context.tenantId,
+            active: true,
+          },
+        })
+      : [];
+
+    const treasuryAccountsById = new Map(
+      treasuryAccounts.map((account) => [account.id, account]),
+    );
 
     let written = 0;
     let skipped = 0;
     let failed = 0;
+    const diagnostics: Array<{
+      externalId: string | null;
+      accountName: string | null;
+      status: "WRITTEN" | "SKIPPED" | "FAILED";
+      reason: string;
+      treasuryAccountId?: string | null;
+    }> = [];
     const now = new Date();
     const balanceDate = new Date(now);
     balanceDate.setMinutes(0, 0, 0);
@@ -218,20 +253,30 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
 
       if (!treasuryAccountId) {
         skipped += 1;
+        diagnostics.push({
+          externalId,
+          accountName:
+            account.name == null ? null : String(account.name),
+          status: "SKIPPED",
+          reason: "No Enorsis Treasury account mapping exists.",
+        });
         continue;
       }
 
       const treasuryAccount =
-        await prisma.treasuryAccount.findFirst({
-          where: {
-            id: treasuryAccountId,
-            tenantId: context.tenantId,
-            active: true,
-          },
-        });
+        treasuryAccountsById.get(treasuryAccountId);
 
       if (!treasuryAccount) {
         failed += 1;
+        diagnostics.push({
+          externalId,
+          accountName:
+            account.name == null ? null : String(account.name),
+          treasuryAccountId,
+          status: "FAILED",
+          reason:
+            "Mapped Enorsis Treasury account is missing, inactive, or belongs to another tenant.",
+        });
         continue;
       }
 
@@ -241,8 +286,19 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
           treasuryAccount.currencyCode,
       ).toUpperCase();
 
-      if (currencyCode !== treasuryAccount.currencyCode) {
+      if (
+        currencyCode !==
+        treasuryAccount.currencyCode.toUpperCase()
+      ) {
         failed += 1;
+        diagnostics.push({
+          externalId,
+          accountName:
+            account.name == null ? null : String(account.name),
+          treasuryAccountId,
+          status: "FAILED",
+          reason: `Currency mismatch: Plaid ${currencyCode}, Treasury ${treasuryAccount.currencyCode}.`,
+        });
         continue;
       }
 
@@ -260,6 +316,15 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
         !Number.isFinite(available)
       ) {
         failed += 1;
+        diagnostics.push({
+          externalId,
+          accountName:
+            account.name == null ? null : String(account.name),
+          treasuryAccountId,
+          status: "FAILED",
+          reason:
+            "Plaid account did not return a finite available or current balance.",
+        });
         continue;
       }
 
@@ -294,6 +359,14 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
       });
 
       written += 1;
+      diagnostics.push({
+        externalId,
+        accountName:
+          account.name == null ? null : String(account.name),
+        treasuryAccountId,
+        status: "WRITTEN",
+        reason: "Treasury balance snapshot written successfully.",
+      });
     }
 
     return {
@@ -305,7 +378,12 @@ export const plaidTreasuryAdapter: EnterpriseConnectorAdapter = {
         provider: "PLAID",
         balanceTimestamp: balanceDate.toISOString(),
         stagedAccounts: accounts.length,
+        configuredMappings: mappedEntries.length,
+        validTreasuryMappings: treasuryAccounts.length,
         treasurySnapshotsWritten: written,
+        accountsSkipped: skipped,
+        accountsFailed: failed,
+        diagnostics,
       },
     };
   },
