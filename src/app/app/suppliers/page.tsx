@@ -30,6 +30,27 @@ export default async function SuppliersPage() {
         Onboard, qualify and govern suppliers with risk, ESG and compliance context.
       </p>
 
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link
+          href="/app/suppliers/collaboration"
+          className="rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white"
+        >
+          Collaboration operations
+        </Link>
+        <Link
+          href="/app/suppliers/collaboration/requests"
+          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-800"
+        >
+          Documents & action requests
+        </Link>
+        <Link
+          href="/app/suppliers/access"
+          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-800"
+        >
+          Supplier access
+        </Link>
+      </div>
+
       <div className="mt-8 grid gap-5 sm:grid-cols-4">
         <Metric icon={UsersRound} label="Suppliers" value={String(suppliers.length)} />
         <Metric icon={CircleCheckBig} label="Approved" value={String(suppliers.filter((item) => item.status === "APPROVED").length)} />
