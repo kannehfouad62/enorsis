@@ -38,6 +38,12 @@ export default async function SuppliersPage() {
           Collaboration operations
         </Link>
         <Link
+          href="/app/suppliers/qualification"
+          className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-800"
+        >
+          Qualification & onboarding
+        </Link>
+        <Link
           href="/app/suppliers/collaboration/requests"
           className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-black text-slate-800"
         >
