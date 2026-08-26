@@ -1,180 +1,480 @@
 import Link from "next/link";
 import {
+  ArrowLeft,
   FileUp,
+  Inbox,
   ListChecks,
 } from "lucide-react";
+
 import {
-  createSupplierActionRequestAction,
-  reviewSupplierActionRequestAction,
-  shareSupplierDocumentAction,
-} from "@/modules/supplier-collaboration-governance/actions";
-import { getSupplierCollaborationRequestsWorkspace } from "@/modules/supplier-collaboration-governance/queries";
+  acknowledgeSupplierSharedDocumentAction,
+  respondSupplierActionRequestAction,
+  shareSupplierDocumentToBuyerAction,
+} from "@/modules/supplier-self-collaboration/actions";
+import { getSupplierSelfCollaborationWorkspace } from "@/modules/supplier-self-collaboration/queries";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
+
 const input =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm";
 
 export default async function SupplierCollaborationRequestsPage() {
-  const data = await getSupplierCollaborationRequestsWorkspace();
+  const data =
+    await getSupplierSelfCollaborationWorkspace();
+
+  const supplierDocuments =
+    data.sharedDocuments.filter(
+      (document) =>
+        document.direction ===
+        "SUPPLIER_TO_BUYER",
+    );
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           <p className="text-xs font-black uppercase tracking-[.22em] text-blue-700">
-            B6.3 · Collaboration Completion
+            Buyer requests & document exchange
           </p>
+
           <h1 className="mt-3 text-4xl font-black">
-            Shared Documents & Action Requests
+            Documents & Action Requests
           </h1>
+
           <p className="mt-3 max-w-4xl leading-7 text-slate-600">
-            Exchange governed document references with suppliers,
-            issue structured requests, receive supplier responses,
-            and close or reopen requests with an auditable status.
+            Review buyer-issued requests, provide
+            governed responses, acknowledge received
+            documents and exchange supporting document
+            references.
           </p>
         </div>
+
         <Link
           href="/app/supplier-portal/collaboration"
-          className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
         >
-          Collaboration Operations
+          <ArrowLeft className="h-4 w-4" />
+          Collaboration workspace
         </Link>
       </div>
 
-      <section className="mt-8 grid gap-6 xl:grid-cols-2">
-        <div className={card}>
-          <FileUp className="h-5 w-5 text-blue-700" />
-          <h2 className="mt-3 text-xl font-black">
-            Share document with supplier
-          </h2>
-          <form action={shareSupplierDocumentAction} className="mt-4 grid gap-3">
-            <SupplierSelect suppliers={data.suppliers} />
-            <input className={input} name="title" placeholder="Document title" required />
-            <input className={input} name="documentRef" placeholder="Document / private file reference" required />
-            <input className={input} name="documentType" placeholder="Document type" />
-            <input className={input} name="supplierEmail" type="email" placeholder="Supplier contact email" />
-            <textarea className={`${input} min-h-24`} name="description" placeholder="Description" />
-            <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">
-              Share document
-            </button>
-          </form>
-        </div>
+      <section className="mt-8 grid gap-4 md:grid-cols-3">
+        <Metric
+          label="Open buyer requests"
+          value={data.metrics.openActionRequests}
+        />
 
-        <div className={card}>
-          <ListChecks className="h-5 w-5 text-blue-700" />
-          <h2 className="mt-3 text-xl font-black">
-            Create supplier action request
-          </h2>
-          <form action={createSupplierActionRequestAction} className="mt-4 grid gap-3">
-            <SupplierSelect suppliers={data.suppliers} />
-            <select className={input} name="requestType" defaultValue="GENERAL">
-              <option value="GENERAL">General</option>
-              <option value="DOCUMENT">Document</option>
-              <option value="COMPLIANCE">Compliance</option>
-              <option value="INVOICE">Invoice</option>
-              <option value="SHIPMENT">Shipment</option>
-              <option value="CONTRACT">Contract</option>
-            </select>
-            <input className={input} name="title" placeholder="Request title" required />
-            <textarea className={`${input} min-h-24`} name="description" placeholder="What should the supplier do?" />
-            <select className={input} name="priority" defaultValue="NORMAL">
-              <option value="LOW">Low</option>
-              <option value="NORMAL">Normal</option>
-              <option value="HIGH">High</option>
-              <option value="CRITICAL">Critical</option>
-            </select>
-            <input className={input} name="contextType" placeholder="Context type" />
-            <input className={input} name="contextReference" placeholder="Context reference" />
-            <input className={input} name="supplierEmail" type="email" placeholder="Supplier contact email" />
-            <input className={input} name="dueAt" type="datetime-local" />
-            <button className="rounded-xl bg-slate-950 px-4 py-3 text-sm font-black text-white">
-              Send action request
-            </button>
-          </form>
-        </div>
+        <Metric
+          label="Documents awaiting acknowledgement"
+          value={
+            data.metrics
+              .unacknowledgedBuyerDocuments
+          }
+        />
+
+        <Metric
+          label="Documents shared with buyer"
+          value={supplierDocuments.length}
+        />
       </section>
 
-      <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">Supplier action requests</h2>
-        <div className="mt-4 space-y-4">
-          {data.requests.map((request) => (
-            <article key={request.id} className="rounded-2xl bg-slate-50 p-5">
-              <div className="flex flex-wrap justify-between gap-3">
-                <div>
-                  <p className="text-xs font-black uppercase text-blue-700">
-                    {request.priority} · {request.status}
-                  </p>
-                  <h3 className="mt-1 font-black">{request.title}</h3>
-                  <p className="mt-1 text-xs text-slate-500">
-                    {request.supplier?.tradingName ??
-                      request.supplier?.legalName ??
-                      request.supplierId}
-                  </p>
-                </div>
-                <span className="text-xs text-slate-500">
-                  Due {request.dueAt?.toLocaleString() ?? "not set"}
-                </span>
-              </div>
-              <p className="mt-3 text-sm leading-6 text-slate-600">
-                {request.description ?? "No description"}
-              </p>
-              {request.responseText ? (
-                <div className="mt-3 rounded-xl bg-white p-4 text-sm">
-                  <p className="font-black">Supplier response</p>
-                  <p className="mt-1 text-slate-600">{request.responseText}</p>
-                  {request.responseDocumentRef ? (
-                    <p className="mt-2 text-xs text-slate-500">
-                      Document: {request.responseDocumentRef}
+      <section className="mt-8 grid gap-6 xl:grid-cols-[1fr_380px]">
+        <div className={card}>
+          <ListChecks className="h-6 w-6 text-blue-700" />
+
+          <h2 className="mt-4 text-xl font-black">
+            Buyer action requests
+          </h2>
+
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            These requests were issued by buyers to your
+            organization. You can respond, but buyer-side
+            review and closure remain independently
+            controlled.
+          </p>
+
+          <div className="mt-6 space-y-5">
+            {data.actionRequests.length > 0 ? (
+              data.actionRequests.map((request) => (
+                <article
+                  key={request.id}
+                  className="rounded-2xl border border-slate-100 bg-slate-50 p-5"
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                        {formatStatus(
+                          request.requestType,
+                        )}{" "}
+                        ·{" "}
+                        {formatStatus(
+                          request.priority,
+                        )}
+                      </p>
+
+                      <h3 className="mt-2 text-lg font-black">
+                        {request.title}
+                      </h3>
+
+                      <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                        {request.description ??
+                          "No description provided."}
+                      </p>
+                    </div>
+
+                    <StatusBadge
+                      value={request.status}
+                    />
+                  </div>
+
+                  <div className="mt-4 grid gap-3 text-xs text-slate-500 sm:grid-cols-2">
+                    <p>
+                      Requested:{" "}
+                      {request.requestedAt.toLocaleString()}
                     </p>
+
+                    <p>
+                      Due:{" "}
+                      {request.dueAt?.toLocaleString() ??
+                        "Not specified"}
+                    </p>
+
+                    {request.contextReference ? (
+                      <p className="sm:col-span-2">
+                        Context:{" "}
+                        {request.contextType
+                          ? `${formatStatus(request.contextType)} · `
+                          : ""}
+                        {
+                          request.contextReference
+                        }
+                      </p>
+                    ) : null}
+                  </div>
+
+                  {request.responseText ||
+                  request.responseDocumentRef ? (
+                    <div className="mt-4 rounded-xl bg-white p-4">
+                      <p className="text-xs font-black uppercase tracking-wide text-slate-500">
+                        Current supplier response
+                      </p>
+
+                      {request.responseText ? (
+                        <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-slate-700">
+                          {
+                            request.responseText
+                          }
+                        </p>
+                      ) : null}
+
+                      {request.responseDocumentRef ? (
+                        <p className="mt-2 text-sm font-semibold text-blue-700">
+                          Supporting reference:{" "}
+                          {
+                            request.responseDocumentRef
+                          }
+                        </p>
+                      ) : null}
+
+                      {request.respondedAt ? (
+                        <p className="mt-2 text-xs text-slate-500">
+                          Responded{" "}
+                          {request.respondedAt.toLocaleString()}
+                        </p>
+                      ) : null}
+                    </div>
                   ) : null}
-                </div>
-              ) : null}
-              <form action={reviewSupplierActionRequestAction} className="mt-4 grid gap-2 md:grid-cols-[1fr_auto_auto_auto]">
-                <input type="hidden" name="requestId" value={request.id} />
-                <input className="rounded-xl border border-slate-200 px-3 py-2 text-sm" name="reviewNotes" placeholder="Review notes" />
-                <button name="decision" value="REVIEWED" className="rounded-xl border border-slate-200 px-3 py-2 text-xs font-black">
-                  Mark reviewed
-                </button>
-                <button name="decision" value="COMPLETE" className="rounded-xl bg-emerald-700 px-3 py-2 text-xs font-black text-white">
-                  Complete
-                </button>
-                <button name="decision" value="REOPEN" className="rounded-xl bg-amber-600 px-3 py-2 text-xs font-black text-white">
-                  Reopen
-                </button>
-              </form>
-            </article>
-          ))}
+
+                  {request.reviewNotes ? (
+                    <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
+                      <p className="text-xs font-black uppercase tracking-wide text-amber-700">
+                        Buyer review note
+                      </p>
+
+                      <p className="mt-2 text-sm leading-6 text-amber-900">
+                        {request.reviewNotes}
+                      </p>
+                    </div>
+                  ) : null}
+
+                  {![
+                    "COMPLETED",
+                    "CANCELLED",
+                    "CLOSED",
+                  ].includes(request.status) ? (
+                    <form
+                      action={
+                        respondSupplierActionRequestAction
+                      }
+                      className="mt-5 grid gap-3"
+                    >
+                      <input
+                        type="hidden"
+                        name="requestId"
+                        value={request.id}
+                      />
+
+                      <textarea
+                        className={`${input} min-h-28`}
+                        name="responseText"
+                        defaultValue={
+                          request.responseText ?? ""
+                        }
+                        placeholder="Describe your response to this buyer request"
+                      />
+
+                      <input
+                        className={input}
+                        name="responseDocumentRef"
+                        defaultValue={
+                          request.responseDocumentRef ??
+                          ""
+                        }
+                        placeholder="Supporting document reference"
+                      />
+
+                      <button className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">
+                        Submit response to buyer
+                      </button>
+                    </form>
+                  ) : (
+                    <p className="mt-4 text-sm font-semibold text-emerald-700">
+                      This request is closed and no longer
+                      accepts supplier responses.
+                    </p>
+                  )}
+                </article>
+              ))
+            ) : (
+              <div className="rounded-2xl bg-slate-50 px-4 py-6 text-sm font-semibold text-slate-500">
+                No buyer action requests have been
+                issued to your company.
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className={card}>
+          <FileUp className="h-6 w-6 text-blue-700" />
+
+          <h2 className="mt-4 text-xl font-black">
+            Share document reference
+          </h2>
+
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Share a governed document reference with the
+            buyer. Qualification evidence should continue
+            to use the dedicated Qualification Documents
+            workspace.
+          </p>
+
+          <form
+            action={
+              shareSupplierDocumentToBuyerAction
+            }
+            className="mt-5 grid gap-3"
+          >
+            <input
+              className={input}
+              name="title"
+              placeholder="Document title"
+              required
+            />
+
+            <input
+              className={input}
+              name="documentType"
+              placeholder="Document type"
+            />
+
+            <input
+              className={input}
+              name="documentRef"
+              placeholder="Private file / document reference"
+              required
+            />
+
+            <textarea
+              className={`${input} min-h-24`}
+              name="description"
+              placeholder="Description"
+            />
+
+            <button className="rounded-xl bg-slate-950 px-4 py-3 text-sm font-black text-white">
+              Share with buyer
+            </button>
+          </form>
         </div>
       </section>
 
       <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">Shared document exchange</h2>
+        <div className="flex items-center gap-3">
+          <Inbox className="h-6 w-6 text-blue-700" />
+
+          <div>
+            <h2 className="text-xl font-black">
+              Documents received from buyers
+            </h2>
+
+            <p className="mt-1 text-sm text-slate-500">
+              Acknowledge buyer-issued documents without
+              modifying the original governed record.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-5 space-y-4">
+          {data.buyerDocuments.length > 0 ? (
+            data.buyerDocuments.map((document) => (
+              <article
+                key={document.id}
+                className="rounded-2xl border border-slate-100 bg-slate-50 p-5"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-wide text-blue-700">
+                      {document.documentType
+                        ? formatStatus(
+                            document.documentType,
+                          )
+                        : "Shared document"}
+                    </p>
+
+                    <h3 className="mt-1 font-black">
+                      {document.title}
+                    </h3>
+
+                    {document.description ? (
+                      <p className="mt-2 text-sm leading-6 text-slate-600">
+                        {document.description}
+                      </p>
+                    ) : null}
+
+                    <p className="mt-3 text-xs text-slate-500">
+                      Reference:{" "}
+                      {document.documentRef}
+                    </p>
+
+                    <p className="mt-1 text-xs text-slate-500">
+                      Shared{" "}
+                      {document.sharedAt.toLocaleString()}
+                    </p>
+                  </div>
+
+                  <StatusBadge
+                    value={document.status}
+                  />
+                </div>
+
+                {document.acknowledgedAt ? (
+                  <p className="mt-4 text-sm font-semibold text-emerald-700">
+                    Acknowledged{" "}
+                    {document.acknowledgedAt.toLocaleString()}
+                    {document.acknowledgedBy
+                      ? ` by ${document.acknowledgedBy}`
+                      : ""}
+                  </p>
+                ) : (
+                  <form
+                    action={
+                      acknowledgeSupplierSharedDocumentAction
+                    }
+                    className="mt-4"
+                  >
+                    <input
+                      type="hidden"
+                      name="documentId"
+                      value={document.id}
+                    />
+
+                    <button className="rounded-xl bg-blue-700 px-4 py-2.5 text-sm font-black text-white">
+                      Acknowledge receipt
+                    </button>
+                  </form>
+                )}
+              </article>
+            ))
+          ) : (
+            <div className="rounded-2xl bg-slate-50 px-4 py-6 text-sm font-semibold text-slate-500">
+              No documents have been shared with your
+              company by buyers.
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className={`${card} mt-8`}>
+        <h2 className="text-xl font-black">
+          Documents shared with buyers
+        </h2>
+
         <div className="mt-4 overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead className="bg-slate-50 text-xs uppercase text-slate-500">
               <tr>
-                <th className="px-4 py-3">Supplier</th>
-                <th className="px-4 py-3">Document</th>
-                <th className="px-4 py-3">Direction</th>
-                <th className="px-4 py-3">Reference</th>
-                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">
+                  Document
+                </th>
+                <th className="px-4 py-3">
+                  Type
+                </th>
+                <th className="px-4 py-3">
+                  Reference
+                </th>
+                <th className="px-4 py-3">
+                  Shared
+                </th>
+                <th className="px-4 py-3">
+                  Status
+                </th>
               </tr>
             </thead>
+
             <tbody className="divide-y divide-slate-100">
-              {data.documents.map((document) => (
-                <tr key={document.id}>
-                  <td className="px-4 py-3">
-                    {document.supplier?.tradingName ??
-                      document.supplier?.legalName ??
-                      document.supplierId}
+              {supplierDocuments.length > 0 ? (
+                supplierDocuments.map(
+                  (document) => (
+                    <tr key={document.id}>
+                      <td className="px-4 py-3 font-bold">
+                        {document.title}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {document.documentType
+                          ? formatStatus(
+                              document.documentType,
+                            )
+                          : "—"}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {document.documentRef}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {document.sharedAt.toLocaleDateString()}
+                      </td>
+
+                      <td className="px-4 py-3">
+                        {formatStatus(
+                          document.status,
+                        )}
+                      </td>
+                    </tr>
+                  ),
+                )
+              ) : (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className="px-4 py-8 text-center text-slate-500"
+                  >
+                    Your company has not shared any
+                    collaboration documents yet.
                   </td>
-                  <td className="px-4 py-3 font-bold">{document.title}</td>
-                  <td className="px-4 py-3">{document.direction}</td>
-                  <td className="px-4 py-3">{document.documentRef}</td>
-                  <td className="px-4 py-3">{document.status}</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -183,24 +483,45 @@ export default async function SupplierCollaborationRequestsPage() {
   );
 }
 
-function SupplierSelect({
-  suppliers,
+function Metric({
+  label,
+  value,
 }: {
-  suppliers: Array<{
-    id: string;
-    supplierNumber: string;
-    legalName: string;
-    tradingName: string | null;
-  }>;
+  label: string;
+  value: number;
 }) {
   return (
-    <select className={input} name="supplierId" required>
-      <option value="">Select supplier</option>
-      {suppliers.map((supplier) => (
-        <option key={supplier.id} value={supplier.id}>
-          {supplier.tradingName ?? supplier.legalName} · {supplier.supplierNumber}
-        </option>
-      ))}
-    </select>
+    <article className={card}>
+      <p className="text-xs font-black uppercase tracking-[.12em] text-slate-500">
+        {label}
+      </p>
+
+      <p className="mt-2 text-3xl font-black">
+        {value.toLocaleString()}
+      </p>
+    </article>
   );
+}
+
+function StatusBadge({
+  value,
+}: {
+  value: string;
+}) {
+  return (
+    <span className="rounded-full bg-white px-3 py-1 text-[11px] font-black uppercase tracking-wide text-slate-700">
+      {formatStatus(value)}
+    </span>
+  );
+}
+
+function formatStatus(value: string) {
+  return value
+    .split("_")
+    .map(
+      (part) =>
+        part.charAt(0) +
+        part.slice(1).toLowerCase(),
+    )
+    .join(" ");
 }
