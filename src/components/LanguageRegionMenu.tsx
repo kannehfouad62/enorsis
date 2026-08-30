@@ -13,6 +13,12 @@ import {
   useState,
 } from "react";
 
+import {
+  useLocale,
+  useTranslations,
+} from "next-intl";
+import { useRouter } from "next/navigation";
+
 type RegionCode =
   | "US"
   | "GB"
@@ -74,31 +80,26 @@ const languages: Array<{
   code: LanguageCode;
   label: string;
   nativeLabel: string;
-  available: boolean;
 }> = [
   {
     code: "en",
     label: "English",
     nativeLabel: "English",
-    available: true,
   },
   {
     code: "fr",
     label: "French",
     nativeLabel: "Français",
-    available: false,
   },
   {
     code: "es",
     label: "Spanish",
     nativeLabel: "Español",
-    available: false,
   },
   {
     code: "ar",
     label: "Arabic",
     nativeLabel: "العربية",
-    available: false,
   },
 ];
 
@@ -112,6 +113,7 @@ function detectRegion(): RegionCode {
       : navigator.language.toUpperCase();
 
   if (locale.includes("-GB")) return "GB";
+
   if (
     locale.includes("-FR") ||
     locale.includes("-DE") ||
@@ -123,6 +125,7 @@ function detectRegion(): RegionCode {
   ) {
     return "EU";
   }
+
   if (locale.includes("-CA")) return "CA";
   if (locale.includes("-AU")) return "AU";
   if (locale.includes("-US")) return "US";
@@ -131,64 +134,63 @@ function detectRegion(): RegionCode {
 }
 
 export function LanguageRegionMenu() {
+  const router = useRouter();
+
+  const activeLocale =
+    useLocale() as LanguageCode;
+
+  const t =
+    useTranslations("languageRegion");
+
   const rootRef =
     useRef<HTMLDivElement>(null);
+
   const [open, setOpen] =
     useState(false);
-  const [language, setLanguage] =
-    useState<LanguageCode>("en");
-  const [region, setRegion] =
+
+    const language = activeLocale;
+
+    const [region, setRegion] =
     useState<RegionCode>("GLOBAL");
 
   useEffect(() => {
-    try {
-      const stored =
-        window.localStorage.getItem(
-          STORAGE_KEY,
-        );
-
-      if (stored) {
-        const parsed = JSON.parse(
-          stored,
-        ) as {
-          language?: LanguageCode;
-          region?: RegionCode;
-        };
-
-        if (
-          languages.some(
-            (item) =>
-              item.code ===
-                parsed.language &&
-              item.available,
-          )
-        ) {
-          setLanguage(
-            parsed.language ?? "en",
+    const timeout = window.setTimeout(() => {
+      try {
+        const stored =
+          window.localStorage.getItem(
+            STORAGE_KEY,
           );
+
+        if (stored) {
+          const parsed = JSON.parse(
+            stored,
+          ) as {
+            region?: RegionCode;
+          };
+
+          if (
+            parsed.region &&
+            regions.some(
+              (item) =>
+                item.code ===
+                  parsed.region,
+            )
+          ) {
+            setRegion(parsed.region);
+            return;
+          }
         }
 
-        if (
-          regions.some(
-            (item) =>
-              item.code ===
-              parsed.region,
-          )
-        ) {
-          setRegion(
-            parsed.region ??
-              "GLOBAL",
-          );
-        } else {
-          setRegion(detectRegion());
-        }
-      } else {
+        setRegion(detectRegion());
+      } catch {
         setRegion(detectRegion());
       }
-    } catch {
-      setRegion(detectRegion());
-    }
+    }, 0);
+
+    return () =>
+      window.clearTimeout(timeout);
   }, []);
+
 
   useEffect(() => {
     const handler = (
@@ -220,6 +222,11 @@ export function LanguageRegionMenu() {
     document.documentElement.lang =
       language;
 
+    document.documentElement.dir =
+      language === "ar"
+        ? "rtl"
+        : "ltr";
+
     try {
       window.localStorage.setItem(
         STORAGE_KEY,
@@ -233,11 +240,54 @@ export function LanguageRegionMenu() {
     }
   }, [language, region]);
 
+  function selectLanguage(
+    nextLanguage: LanguageCode,
+  ) {
+    if (nextLanguage === language) {
+      setOpen(false);
+      return;
+    }
+  
+    try {
+      window.localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          language: nextLanguage,
+          region,
+        }),
+      );
+  
+      window.localStorage.setItem(
+        "enorsis.locale",
+        nextLanguage,
+      );
+    } catch {
+      // Preference persistence is best-effort.
+    }
+  
+    setOpen(false);
+  
+    window.location.assign(
+      `/api/locale?locale=${encodeURIComponent(
+        nextLanguage,
+      )}&redirect=${encodeURIComponent(
+        window.location.pathname +
+          window.location.search,
+      )}`,
+    );
+  }
+
   const selectedRegion =
     regions.find(
       (item) =>
         item.code === region,
     ) ?? regions[0];
+
+  const selectedLanguage =
+    languages.find(
+      (item) =>
+        item.code === language,
+    ) ?? languages[0];
 
   return (
     <div
@@ -246,7 +296,7 @@ export function LanguageRegionMenu() {
     >
       <button
         type="button"
-        aria-label="Language and region"
+        aria-label={t("title")}
         aria-expanded={open}
         aria-haspopup="dialog"
         onClick={() =>
@@ -258,6 +308,7 @@ export function LanguageRegionMenu() {
         className="flex items-center gap-1.5 rounded-xl border border-transparent px-2.5 py-2 text-slate-700 transition hover:border-slate-200 hover:bg-slate-50"
       >
         <Globe2 size={19} />
+
         <span className="hidden text-xs font-black lg:inline">
           {region === "GLOBAL"
             ? "Global"
@@ -266,6 +317,7 @@ export function LanguageRegionMenu() {
                 "/",
               )}
         </span>
+
         <ChevronDown
           size={13}
           className={`transition ${
@@ -279,20 +331,20 @@ export function LanguageRegionMenu() {
       {open ? (
         <div
           role="dialog"
-          aria-label="Language and region preferences"
+          aria-label={t("title")}
           className="absolute right-0 top-[calc(100%+0.75rem)] z-[100] w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,.18)]"
         >
           <div className="flex items-start justify-between border-b border-slate-100 px-5 py-4">
             <div>
               <p className="text-sm font-black text-slate-950">
-                Language & region
+                {t("title")}
               </p>
+
               <p className="mt-1 text-xs leading-5 text-slate-500">
-                Personalize your
-                Enorsis public-site
-                experience.
+                {t("description")}
               </p>
             </div>
+
             <button
               type="button"
               aria-label="Close language and region menu"
@@ -307,61 +359,57 @@ export function LanguageRegionMenu() {
 
           <div className="p-5">
             <p className="text-[11px] font-black uppercase tracking-[.16em] text-slate-500">
-              Interface language
+              {t("interfaceLanguage")}
             </p>
 
             <div className="mt-3 grid gap-2 sm:grid-cols-2">
               {languages.map(
-                (item) => (
-                  <button
-                    key={item.code}
-                    type="button"
-                    disabled={
-                      !item.available
-                    }
-                    onClick={() => {
-                      if (
-                        item.available
-                      ) {
-                        setLanguage(
+                (item) => {
+                  const selected =
+                    language === item.code;
+
+                  return (
+                    <button
+                      key={item.code}
+                      type="button"
+                      onClick={() =>
+                        selectLanguage(
                           item.code,
-                        );
+                        )
                       }
-                    }}
-                    className={`flex items-center justify-between rounded-2xl border px-3 py-3 text-left transition ${
-                      language ===
-                        item.code &&
-                      item.available
-                        ? "border-blue-200 bg-blue-50"
-                        : "border-slate-200 bg-white"
-                    } ${
-                      item.available
-                        ? "hover:border-blue-200 hover:bg-slate-50"
-                        : "cursor-not-allowed opacity-55"
-                    }`}
-                  >
-                    <span>
-                      <span className="block text-sm font-black text-slate-900">
-                        {
-                          item.nativeLabel
-                        }
+                      className={`flex items-center justify-between rounded-2xl border px-3 py-3 text-left transition ${
+                        selected
+                          ? "border-blue-200 bg-blue-50"
+                          : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"
+                      }`}
+                    >
+                      <span>
+                        <span className="block text-sm font-black text-slate-900">
+                          {
+                            item.nativeLabel
+                          }
+                        </span>
+
+                        <span className="mt-0.5 block text-[10px] font-semibold text-slate-500">
+                          {selected
+                            ? t(
+                                "selected",
+                              )
+                            : t(
+                                "select",
+                              )}
+                        </span>
                       </span>
-                      <span className="mt-0.5 block text-[10px] font-semibold text-slate-500">
-                        {item.available
-                          ? "Available"
-                          : "Coming soon"}
-                      </span>
-                    </span>
-                    {language ===
-                      item.code &&
-                    item.available ? (
-                      <Check
-                        size={16}
-                        className="text-blue-700"
-                      />
-                    ) : null}
-                  </button>
-                ),
+
+                      {selected ? (
+                        <Check
+                          size={16}
+                          className="text-blue-700"
+                        />
+                      ) : null}
+                    </button>
+                  );
+                },
               )}
             </div>
 
@@ -372,8 +420,9 @@ export function LanguageRegionMenu() {
                 size={14}
                 className="text-blue-700"
               />
+
               <p className="text-[11px] font-black uppercase tracking-[.16em] text-slate-500">
-                Region
+                {t("regionCurrency")}
               </p>
             </div>
 
@@ -398,6 +447,7 @@ export function LanguageRegionMenu() {
                     <span className="font-semibold">
                       {item.label}
                     </span>
+
                     <span
                       className={`text-xs font-black ${
                         region ===
@@ -406,7 +456,9 @@ export function LanguageRegionMenu() {
                           : "text-slate-400"
                       }`}
                     >
-                      {item.currency}
+                      {
+                        item.currency
+                      }
                     </span>
                   </button>
                 ),
@@ -415,10 +467,16 @@ export function LanguageRegionMenu() {
 
             <div className="mt-5 rounded-2xl bg-slate-50 p-4">
               <p className="text-xs font-black text-slate-900">
-                Current preference
+                {t(
+                  "currentPreference",
+                )}
               </p>
+
               <p className="mt-1 text-xs leading-5 text-slate-500">
-                English ·{" "}
+                {
+                  selectedLanguage.nativeLabel
+                }{" "}
+                ·{" "}
                 {
                   selectedRegion.label
                 }{" "}
@@ -427,15 +485,9 @@ export function LanguageRegionMenu() {
                   selectedRegion.currency
                 }
               </p>
+
               <p className="mt-2 text-[10px] leading-4 text-slate-400">
-                Region preference is
-                saved in this browser
-                and is ready for
-                localized pricing,
-                currency display and
-                regulatory content as
-                those experiences are
-                enabled.
+                {t("storageNote")}
               </p>
             </div>
           </div>

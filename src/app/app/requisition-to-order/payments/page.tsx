@@ -10,6 +10,7 @@ import {
   submitPaymentRunForApprovalAction,
 } from "@/modules/payment-operations/actions";
 import { getPaymentOperationsWorkspace } from "@/modules/payment-operations/queries";
+import { LocalizedText } from "@/components/LocalizedText";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -159,7 +160,7 @@ export default async function PaymentOperationsPage({
 
         <div className="mt-6 grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 p-5">
-            <h3 className="font-black text-slate-950">Payment pipeline</h3>
+            <h3 className="font-black text-slate-950"><LocalizedText namespace="paymentsPage" messageKey="paymentPipeline" /></h3>
             <div className="mt-4 space-y-4">
               {[
                 ["Authorization", data.financeMetrics.awaitingAuthorizationUsd],
@@ -191,7 +192,7 @@ export default async function PaymentOperationsPage({
           </div>
 
           <div className="rounded-2xl border border-slate-200 p-5">
-            <h3 className="font-black text-slate-950">Top supplier exposure</h3>
+            <h3 className="font-black text-slate-950"><LocalizedText namespace="paymentsPage" messageKey="topSupplierExposure" /></h3>
             <p className="mt-1 text-xs text-slate-500">
               Largest unpaid supplier balances currently visible to accounts payable.
             </p>
@@ -209,7 +210,7 @@ export default async function PaymentOperationsPage({
                   </div>
                 ))
               ) : (
-                <p className="text-sm text-slate-500">No unpaid supplier exposure is currently recorded.</p>
+                <p className="text-sm text-slate-500"><LocalizedText namespace="paymentsPage" messageKey="noUnpaidExposure" /></p>
               )}
             </div>
           </div>
@@ -265,7 +266,9 @@ export default async function PaymentOperationsPage({
             <p className="mt-1 text-sm text-slate-600">
               Readiness cases that passed the
               governed payment gate and have not
-              been assigned to a payment run.
+              been assigned to a payment run. Use an Enorsis payment
+              run here, or record settlement through your existing
+              bank, ERP or treasury system from External payments.
             </p>
           </div>
 
@@ -374,6 +377,12 @@ export default async function PaymentOperationsPage({
             </a>
             <a
               className={secondary}
+              href="/app/requisition-to-order/settlements/external"
+            >
+              External payments
+            </a>
+            <a
+              className={secondary}
               href="/app/requisition-to-order/reconciliation"
             >
               Reconciliation
@@ -417,7 +426,7 @@ export default async function PaymentOperationsPage({
 
                   {batch.description?.includes("[HOLD:") ? (
                     <div className="mt-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
-                      <p className="font-black">Payment hold active</p>
+                      <p className="font-black"><LocalizedText namespace="paymentsPage" messageKey="paymentHoldActive" /></p>
                       <p className="mt-1 whitespace-pre-line text-xs leading-5">
                         {batch.description
                           .split("\n")
@@ -458,13 +467,13 @@ export default async function PaymentOperationsPage({
                         required
                         className="rounded-lg border border-amber-300 bg-white px-3 py-2 text-xs"
                       >
-                        <option value="">Place hold...</option>
-                        <option value="BANKING_REVIEW">Banking review</option>
-                        <option value="COMPLIANCE_REVIEW">Compliance review</option>
-                        <option value="TAX_REVIEW">Tax review</option>
-                        <option value="SUPPLIER_DISPUTE">Supplier dispute</option>
-                        <option value="CASH_MANAGEMENT">Cash management</option>
-                        <option value="OTHER">Other</option>
+                        <option value=""><LocalizedText namespace="paymentsPage" messageKey="placeHold" /></option>
+                        <option value="BANKING_REVIEW"><LocalizedText namespace="paymentsPage" messageKey="bankingReview" /></option>
+                        <option value="COMPLIANCE_REVIEW"><LocalizedText namespace="paymentsPage" messageKey="complianceReview" /></option>
+                        <option value="TAX_REVIEW"><LocalizedText namespace="paymentsPage" messageKey="taxReview" /></option>
+                        <option value="SUPPLIER_DISPUTE"><LocalizedText namespace="paymentsPage" messageKey="supplierDispute" /></option>
+                        <option value="CASH_MANAGEMENT"><LocalizedText namespace="paymentsPage" messageKey="cashManagement" /></option>
+                        <option value="OTHER"><LocalizedText namespace="paymentsPage" messageKey="other" /></option>
                       </select>
                       <input
                         name="reason"
@@ -520,7 +529,7 @@ export default async function PaymentOperationsPage({
                   {batch.status === "DRAFT" ? (
                     <div className="mt-5 border-t border-slate-100 pt-4">
                       <div className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">
-                        <p className="font-black">Draft review required</p>
+                        <p className="font-black"><LocalizedText namespace="paymentsPage" messageKey="draftReviewRequired" /></p>
                         <p className="mt-1 text-xs leading-5">
                           Confirm the invoice count, total amount, supplier,
                           payment date and included invoices before sending
@@ -560,12 +569,12 @@ export default async function PaymentOperationsPage({
                             required
                             className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs"
                           >
-                            <option value="">Cancel reason</option>
-                            <option value="DUPLICATE_BATCH">Duplicate batch</option>
-                            <option value="INCORRECT_AMOUNT">Incorrect amount</option>
-                            <option value="INCORRECT_PAYMENT_DATE">Incorrect payment date</option>
-                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
-                            <option value="OTHER">Other</option>
+                            <option value=""><LocalizedText namespace="paymentsPage" messageKey="cancelReason" /></option>
+                            <option value="DUPLICATE_BATCH"><LocalizedText namespace="paymentsPage" messageKey="duplicateBatch" /></option>
+                            <option value="INCORRECT_AMOUNT"><LocalizedText namespace="paymentsPage" messageKey="incorrectAmount" /></option>
+                            <option value="INCORRECT_PAYMENT_DATE"><LocalizedText namespace="paymentsPage" messageKey="incorrectPaymentDate" /></option>
+                            <option value="SUPPLIER_HOLD"><LocalizedText namespace="paymentsPage" messageKey="supplierPaymentHold" /></option>
+                            <option value="OTHER"><LocalizedText namespace="paymentsPage" messageKey="other" /></option>
                           </select>
                           <input
                             name="reason"
@@ -630,11 +639,11 @@ export default async function PaymentOperationsPage({
                         >
                           <input type="hidden" name="paymentBatchId" value={batch.id} />
                           <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
-                            <option value="">Cancel reason</option>
-                            <option value="APPROVAL_WITHDRAWN">Approval withdrawn</option>
-                            <option value="INCORRECT_AMOUNT">Incorrect amount</option>
-                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
-                            <option value="OTHER">Other</option>
+                            <option value=""><LocalizedText namespace="paymentsPage" messageKey="cancelReason" /></option>
+                            <option value="APPROVAL_WITHDRAWN"><LocalizedText namespace="paymentsPage" messageKey="approvalWithdrawn" /></option>
+                            <option value="INCORRECT_AMOUNT"><LocalizedText namespace="paymentsPage" messageKey="incorrectAmount" /></option>
+                            <option value="SUPPLIER_HOLD"><LocalizedText namespace="paymentsPage" messageKey="supplierPaymentHold" /></option>
+                            <option value="OTHER"><LocalizedText namespace="paymentsPage" messageKey="other" /></option>
                           </select>
                           <input name="reason" required minLength={5} placeholder="Explain cancellation" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
                           <button type="submit" className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-xs font-black text-rose-700">
@@ -700,11 +709,11 @@ export default async function PaymentOperationsPage({
                         >
                           <input type="hidden" name="paymentBatchId" value={batch.id} />
                           <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
-                            <option value="">Cancel reason</option>
-                            <option value="EXECUTION_WITHDRAWN">Execution withdrawn</option>
-                            <option value="BANKING_DETAILS_CHANGED">Banking details changed</option>
-                            <option value="SUPPLIER_HOLD">Supplier/payment hold</option>
-                            <option value="OTHER">Other</option>
+                            <option value=""><LocalizedText namespace="paymentsPage" messageKey="cancelReason" /></option>
+                            <option value="EXECUTION_WITHDRAWN"><LocalizedText namespace="paymentsPage" messageKey="executionWithdrawn" /></option>
+                            <option value="BANKING_DETAILS_CHANGED"><LocalizedText namespace="paymentsPage" messageKey="bankingDetailsChanged" /></option>
+                            <option value="SUPPLIER_HOLD"><LocalizedText namespace="paymentsPage" messageKey="supplierPaymentHold" /></option>
+                            <option value="OTHER"><LocalizedText namespace="paymentsPage" messageKey="other" /></option>
                           </select>
                           <input name="reason" required minLength={5} placeholder="Explain cancellation" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
                           <button type="submit" className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-xs font-black text-rose-700">
@@ -765,13 +774,13 @@ export default async function PaymentOperationsPage({
                         >
                           <input type="hidden" name="paymentBatchId" value={batch.id} />
                           <select name="reasonCode" required className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs">
-                            <option value="">Failure reason</option>
-                            <option value="BANK_REJECTED">Bank rejected payment</option>
-                            <option value="INVALID_BANK_DETAILS">Invalid banking details</option>
-                            <option value="INSUFFICIENT_FUNDS">Insufficient funds</option>
-                            <option value="PROVIDER_ERROR">Payment provider error</option>
-                            <option value="COMPLIANCE_HOLD">Compliance hold</option>
-                            <option value="OTHER">Other</option>
+                            <option value=""><LocalizedText namespace="paymentsPage" messageKey="failureReason" /></option>
+                            <option value="BANK_REJECTED"><LocalizedText namespace="paymentsPage" messageKey="bankRejectedPayment" /></option>
+                            <option value="INVALID_BANK_DETAILS"><LocalizedText namespace="paymentsPage" messageKey="invalidBankingDetails" /></option>
+                            <option value="INSUFFICIENT_FUNDS"><LocalizedText namespace="paymentsPage" messageKey="insufficientFunds" /></option>
+                            <option value="PROVIDER_ERROR"><LocalizedText namespace="paymentsPage" messageKey="paymentProviderError" /></option>
+                            <option value="COMPLIANCE_HOLD"><LocalizedText namespace="paymentsPage" messageKey="complianceHold" /></option>
+                            <option value="OTHER"><LocalizedText namespace="paymentsPage" messageKey="other" /></option>
                           </select>
                           <input name="reason" required minLength={5} placeholder="Describe the confirmed execution failure" className="rounded-lg border border-rose-200 bg-white px-3 py-2 text-xs" />
                           <button type="submit" className="rounded-lg bg-rose-700 px-3 py-2 text-xs font-black text-white">
@@ -782,7 +791,7 @@ export default async function PaymentOperationsPage({
                     </div>
                   ) : batch.status === "CANCELLED" ? (
                     <div className="mt-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-900">
-                      <p className="font-black">Payment run closed</p>
+                      <p className="font-black"><LocalizedText namespace="paymentsPage" messageKey="paymentRunClosed" /></p>
                       <p className="mt-1 text-xs leading-5">
                         This run was cancelled or recorded as failed. Its linked readiness cases were released for controlled re-batching after correction.
                       </p>

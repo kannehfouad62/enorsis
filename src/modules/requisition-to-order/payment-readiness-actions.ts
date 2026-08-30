@@ -27,9 +27,9 @@ export async function assessPaymentReadinessAction(data: FormData) {
 
   await assessPaymentReadiness({
     threeWayMatchCaseId: field(data, "threeWayMatchCaseId"),
-    supplierInvoiceId: field(data, "supplierInvoiceId"),
-    invoiceNumber: field(data, "invoiceNumber") || null,
-    supplierId: field(data, "supplierId") || null,
+    supplierInvoiceId: "",
+    invoiceNumber: null,
+    supplierId: null,
     dueDate: field(data, "dueDate") ? new Date(field(data, "dueDate")) : null,
     discountDate: field(data, "discountDate") ? new Date(field(data, "discountDate")) : null,
     discountAmount: field(data, "discountAmount") ? Number(field(data, "discountAmount")) : null,

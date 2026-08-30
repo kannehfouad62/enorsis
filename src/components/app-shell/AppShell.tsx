@@ -23,6 +23,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -35,75 +36,466 @@ import {
 import { Logo } from "@/components/Logo";
 import { SignOutButton } from "./SignOutButton";
 
-const navigation = [
-  { href: "/app", label: "Command center", icon: Gauge, roles: [] },
+const navigationTranslationKeys: Record<string, string> = {
+  "Platform": "platform",
+  "Platform command center": "platformCommandCenter",
+  "Tenant context": "tenantContext",
+  "Tenant administration": "tenantAdministration",
+  "Supplier verification": "supplierVerification",
+  "Licensing & entitlements": "licensingEntitlements",
+  "Integration readiness": "integrationReadiness",
+  "Platform activity & audit": "platformActivityAudit",
+  "Active tenant workspace": "activeTenantWorkspace",
+  "Home": "home",
+  "Command center": "commandCenter",
+  "Supplier command center": "supplierCommandCenter",
+  "My work": "myWork",
+  "Notifications": "notifications",
+  "Buy": "buy",
+  "Guided buying": "guidedBuying",
+  "Purchase requests": "purchaseRequests",
+  "Strategic sourcing": "strategicSourcing",
+  "Procure to pay": "procureToPay",
+  "Suppliers": "suppliers",
+  "Supplier directory": "supplierDirectory",
+  "Supplier discovery": "supplierDiscovery",
+  "Qualification & onboarding": "qualificationOnboarding",
+  "Compliance & risk": "complianceRisk",
+  "Supplier performance": "supplierPerformance",
+  "Finance": "finance",
+  "Supplier invoices": "supplierInvoices",
+  "Payment readiness": "paymentReadiness",
+  "Payment operations": "paymentOperations",
+  "External settlements": "externalSettlements",
+  "Reconciliation": "reconciliation",
+  "Operations": "operations",
+  "Warehouse & receiving": "warehouseReceiving",
+  "Logistics & freight": "logisticsFreight",
+  "Inventory & materials": "inventoryMaterials",
+  "Contracts": "contracts",
+  "Intelligence": "intelligence",
+  "Analytics command center": "analyticsCommandCenter",
+  "Spend intelligence": "spendIntelligence",
+  "AI workspace": "aiWorkspace",
+  "Risk & governance": "riskGovernance",
+  "Seller profile": "sellerProfile",
+  "Company profile": "companyProfile",
+  "Products & services": "productsServices",
+  "Qualifications": "qualifications",
+  "Certifications & documents": "certificationsDocuments",
+  "Orders & fulfillment": "ordersFulfillment",
+  "Buyer orders": "buyerOrders",
+  "Shipments & delivery": "shipmentsDelivery",
+  "Returns & claims": "returnsClaims",
+  "Payment confirmations": "paymentConfirmations",
+  "Buyer collaboration": "buyerCollaboration",
+  "Supplier portal": "supplierPortal",
+  "Messages & activity": "messagesActivity",
+  "Buyer requests & tasks": "buyerRequestsTasks",
+  "Performance & compliance": "performanceCompliance",
+  "ESG & sustainability": "esgSustainability"
+};
+
+type SidebarNavItem = {
+  href: string;
+  label: string;
+  icon: typeof Gauge;
+  roles: string[];
+  personas?: TenantCommercialPersonaValue[];
+  platformOnly?: boolean;
+};
+
+type SidebarNavGroup = {
+  label: string;
+  items: SidebarNavItem[];
+};
+
+const platformNavigation: SidebarNavGroup[] = [
   {
-    href: "/app/platform/tenant-context",
-    label: "Tenant context",
-    icon: Building2,
-    roles: ["PLATFORM_SUPER_ADMIN"],
+    label: "Platform",
+    items: [
+      {
+        href: "/app",
+        label: "Platform command center",
+        icon: Gauge,
+        roles: [],
+        platformOnly: true,
+      },
+      {
+        href: "/app/platform/tenant-context",
+        label: "Tenant context",
+        icon: Building2,
+        roles: ["PLATFORM_SUPER_ADMIN"],
+        platformOnly: true,
+      },
+      {
+        href: "/app/settings/tenants",
+        label: "Tenant administration",
+        icon: Building2,
+        roles: ["PLATFORM_SUPER_ADMIN"],
+        platformOnly: true,
+      },
+      {
+        href: "/app/platform/supplier-verification",
+        label: "Supplier verification",
+        icon: FileCheck2,
+        roles: ["PLATFORM_SUPER_ADMIN"],
+        platformOnly: true,
+      },
+      {
+        href: "/app/settings/licensing",
+        label: "Licensing & entitlements",
+        icon: ShieldCheck,
+        roles: ["PLATFORM_SUPER_ADMIN"],
+        platformOnly: true,
+      },
+      {
+        href: "/app/settings/integration-hub/readiness",
+        label: "Integration readiness",
+        icon: Network,
+        roles: ["PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
+        platformOnly: true,
+      },
+      {
+        href: "/app/activity-log",
+        label: "Platform activity & audit",
+        icon: ShieldCheck,
+        roles: ["PLATFORM_SUPER_ADMIN", "PLATFORM_AUDITOR"],
+        platformOnly: true,
+      },
+    ],
   },
-  {
-    href: "/app/marketplace/seller-profile",
-    label: "Seller profile",
-    icon: Store,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
-    sellerOnly: true,
-  },
-  { href: "/app/modules", label: "Enterprise modules", icon: LayoutGrid, roles: [] },
-  { href: "/app/notifications", label: "Notifications", icon: Bell, roles: [] },
-  { href: "/app/requests", label: "Purchase requests", icon: Boxes, roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
-  {
-    href: "/app/marketplace/orders",
-    label: "Marketplace orders",
-    icon: Store,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
-    sellerOnly: true,
-  },
-  {
-    href: "/app/marketplace/invoices",
-    label: "Supplier finance",
-    icon: CircleDollarSign,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "FINANCE"],
-    sellerOnly: true,
-  },
-  {
-    href: "/app/warehouse-operations",
-    label: "Inventory & receiving",
-    icon: Boxes,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "WAREHOUSE_OPERATOR", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
-  },
-  {
-    href: "/app/logistics",
-    label: "Shipping monitor",
-    icon: Globe2,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "LOGISTICS_MONITOR", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
-  },
-  {
-    href: "/app/purchasing/invoices",
-    label: "Invoices",
-    icon: CircleDollarSign,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "FINANCE", "ACCOUNTS_PAYABLE", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
-  },
-  {
-    href: "/app/requisition-to-order/payments",
-    label: "Payment operations",
-    icon: CircleDollarSign,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "FINANCE", "ACCOUNTS_PAYABLE", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
-  },
-  {
-    href: "/app/requisition-to-order/receipts",
-    label: "Goods receipts",
-    icon: FileCheck2,
-    roles: ["TENANT_OWNER", "TENANT_ADMIN", "PROCUREMENT_MANAGER", "BUYER", "ACCOUNTS_PAYABLE", "PLATFORM_SUPER_ADMIN", "PLATFORM_SUPPORT"],
-  },
-  { href: "/app/sourcing", label: "Strategic sourcing", icon: Network, roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/suppliers", label: "Supplier intelligence", icon: UsersRound, roles: ["SUPPLIER_MANAGER", "BUYER", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/contracts", label: "Contracts", icon: FileCheck2, roles: ["LEGAL", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/analytics/spend", label: "Spend intelligence", icon: CircleDollarSign, roles: ["FINANCE", "PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/agents", label: "AI agent workforce", icon: Bot, roles: ["PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"] },
-  { href: "/app/resilience", label: "Risk & governance", icon: ShieldCheck, roles: ["RISK_COMPLIANCE", "AUDITOR", "PLATFORM_AUDITOR", "TENANT_ADMIN", "TENANT_OWNER"] },
 ];
+
+const buyerNavigation: SidebarNavGroup[] = [
+  {
+    label: "Home",
+    items: [
+      { href: "/app", label: "Command center", icon: Gauge, roles: [] },
+      { href: "/app/workflows", label: "My work", icon: FileCheck2, roles: [] },
+      { href: "/app/notifications", label: "Notifications", icon: Bell, roles: [] },
+    ],
+  },
+  {
+    label: "Buy",
+    items: [
+      {
+        href: "/app/buying",
+        label: "Guided buying",
+        icon: Store,
+        roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requests",
+        label: "Purchase requests",
+        icon: Boxes,
+        roles: ["REQUESTER", "BUYER", "PROCUREMENT_MANAGER", "APPROVER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/sourcing",
+        label: "Strategic sourcing",
+        icon: Network,
+        roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requisition-to-order",
+        label: "Procure to pay",
+        icon: FileCheck2,
+        roles: ["BUYER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+    ],
+  },
+  {
+    label: "Suppliers",
+    items: [
+      {
+        href: "/app/suppliers",
+        label: "Supplier directory",
+        icon: UsersRound,
+        roles: ["SUPPLIER_MANAGER", "BUYER", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/marketplace/suppliers",
+        label: "Supplier discovery",
+        icon: Store,
+        roles: ["BUYER", "PROCUREMENT_MANAGER", "SUPPLIER_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/suppliers/qualification",
+        label: "Qualification & onboarding",
+        icon: FileCheck2,
+        roles: ["BUYER", "PROCUREMENT_MANAGER", "SUPPLIER_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/suppliers/compliance",
+        label: "Compliance & risk",
+        icon: ShieldCheck,
+        roles: ["SUPPLIER_MANAGER", "RISK_COMPLIANCE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/suppliers/performance",
+        label: "Supplier performance",
+        icon: Gauge,
+        roles: ["SUPPLIER_MANAGER", "PROCUREMENT_MANAGER", "PROCUREMENT_EXECUTIVE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+    ],
+  },
+  {
+    label: "Finance",
+    items: [
+      {
+        href: "/app/purchasing/invoices",
+        label: "Supplier invoices",
+        icon: CircleDollarSign,
+        roles: ["BUYER", "PROCUREMENT_MANAGER", "FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requisition-to-order/payment-readiness",
+        label: "Payment readiness",
+        icon: FileCheck2,
+        roles: ["FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requisition-to-order/payments",
+        label: "Payment operations",
+        icon: CircleDollarSign,
+        roles: ["FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requisition-to-order/settlements/external",
+        label: "External settlements",
+        icon: CircleDollarSign,
+        roles: ["FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/requisition-to-order/reconciliation",
+        label: "Reconciliation",
+        icon: FileCheck2,
+        roles: ["FINANCE", "ACCOUNTS_PAYABLE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+    ],
+  },
+  {
+    label: "Operations",
+    items: [
+      {
+        href: "/app/warehouse-operations",
+        label: "Warehouse & receiving",
+        icon: Boxes,
+        roles: ["WAREHOUSE_OPERATOR", "LOGISTICS_MONITOR", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/logistics",
+        label: "Logistics & freight",
+        icon: Globe2,
+        roles: ["LOGISTICS_MONITOR", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/inventory",
+        label: "Inventory & materials",
+        icon: Boxes,
+        roles: ["WAREHOUSE_OPERATOR", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/contracts",
+        label: "Contracts",
+        icon: FileCheck2,
+        roles: ["LEGAL", "BUYER", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+    ],
+  },
+  {
+    label: "Intelligence",
+    items: [
+      {
+        href: "/app/analytics",
+        label: "Analytics command center",
+        icon: Sparkles,
+        roles: ["PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "FINANCE", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER", "VIEWER"],
+      },
+      {
+        href: "/app/analytics/spend",
+        label: "Spend intelligence",
+        icon: CircleDollarSign,
+        roles: ["FINANCE", "PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "TENANT_ADMIN", "TENANT_OWNER", "VIEWER"],
+      },
+      {
+        href: "/app/ai/workspace",
+        label: "AI workspace",
+        icon: Bot,
+        roles: ["PROCUREMENT_EXECUTIVE", "PROCUREMENT_MANAGER", "RISK_COMPLIANCE", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+      {
+        href: "/app/resilience",
+        label: "Risk & governance",
+        icon: ShieldCheck,
+        roles: ["RISK_COMPLIANCE", "AUDITOR", "TENANT_ADMIN", "TENANT_OWNER"],
+      },
+    ],
+  },
+];
+
+const supplierNavigation: SidebarNavGroup[] = [
+  {
+    label: "Home",
+    items: [
+      { href: "/app", label: "Supplier command center", icon: Gauge, roles: [] },
+      { href: "/app/notifications", label: "Notifications", icon: Bell, roles: [] },
+    ],
+  },
+  {
+    label: "Seller profile",
+    items: [
+      {
+        href: "/app/marketplace/seller-profile",
+        label: "Company profile",
+        icon: Building2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/marketplace/catalog",
+        label: "Products & services",
+        icon: Store,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/supplier-portal/qualification",
+        label: "Qualifications",
+        icon: FileCheck2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/supplier-portal/documents",
+        label: "Certifications & documents",
+        icon: FileCheck2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+    ],
+  },
+  {
+    label: "Orders & fulfillment",
+    items: [
+      {
+        href: "/app/marketplace/orders",
+        label: "Buyer orders",
+        icon: Store,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/logistics",
+        label: "Shipments & delivery",
+        icon: Globe2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "LOGISTICS_MONITOR"],
+      },
+      {
+        href: "/app/claims",
+        label: "Returns & claims",
+        icon: Boxes,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+    ],
+  },
+  {
+    label: "Finance",
+    items: [
+      {
+        href: "/app/marketplace/invoices",
+        label: "Supplier invoices",
+        icon: CircleDollarSign,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "FINANCE"],
+      },
+      {
+        href: "/app/requisition-to-order/settlements/external",
+        label: "Payment confirmations",
+        icon: CircleDollarSign,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "FINANCE"],
+      },
+    ],
+  },
+  {
+    label: "Buyer collaboration",
+    items: [
+      {
+        href: "/app/supplier-portal",
+        label: "Supplier portal",
+        icon: UsersRound,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/supplier-portal/collaboration",
+        label: "Messages & activity",
+        icon: Bell,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+      {
+        href: "/app/supplier-portal/collaboration/requests",
+        label: "Buyer requests & tasks",
+        icon: FileCheck2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER"],
+      },
+    ],
+  },
+  {
+    label: "Performance & compliance",
+    items: [
+      {
+        href: "/app/sustainability",
+        label: "ESG & sustainability",
+        icon: ShieldCheck,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "RISK_COMPLIANCE"],
+      },
+      {
+        href: "/app/contracts",
+        label: "Contracts",
+        icon: FileCheck2,
+        roles: ["TENANT_OWNER", "TENANT_ADMIN", "SUPPLIER_MANAGER", "LEGAL"],
+      },
+    ],
+  },
+];
+
+function visibleGroupsForUser(
+  user: AppShellProps["user"],
+  isPlatformOperator: boolean,
+) {
+  if (isPlatformOperator) {
+    return [
+      ...platformNavigation,
+      {
+        label: "Active tenant workspace",
+        items:
+          user.commercialPersona === "SUPPLIER"
+            ? supplierNavigation.flatMap((group) => group.items)
+            : user.commercialPersona === "BUYER_SUPPLIER"
+              ? [
+                  ...buyerNavigation.flatMap((group) => group.items),
+                  ...supplierNavigation.flatMap((group) => group.items),
+                ]
+              : buyerNavigation.flatMap((group) => group.items),
+      },
+    ];
+  }
+
+  if (user.commercialPersona === "SUPPLIER") {
+    return supplierNavigation;
+  }
+
+  if (user.commercialPersona === "BUYER_SUPPLIER") {
+    return [
+      ...buyerNavigation.map((group) => ({
+        ...group,
+        label: `Buying · ${group.label}`,
+      })),
+      ...supplierNavigation.map((group) => ({
+        ...group,
+        label: `Selling · ${group.label}`,
+      })),
+    ];
+  }
+
+  return buyerNavigation;
+}
+
 
 type SearchResult = {
   id: string;
@@ -131,6 +523,7 @@ export function AppShell({
   user,
   actionCounts: initialActionCounts = {},
 }: AppShellProps) {
+  const tShell = useTranslations("shell");
   const pathname = usePathname();
   const router = useRouter();
   const searchRef = useRef<HTMLDivElement>(null);
@@ -184,8 +577,6 @@ export function AppShell({
     const normalized = query.trim();
 
     if (normalized.length < 2) {
-      setRecordResults([]);
-      setSearching(false);
       return;
     }
 
@@ -312,13 +703,13 @@ export function AppShell({
       {mobileOpen ? (
         <div className="fixed inset-0 z-50 lg:hidden">
           <button
-            aria-label="Close navigation"
+            aria-label={tShell("closeNavigation")}
             className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
           <aside className="relative flex h-full w-[min(88vw,20rem)] flex-col bg-slate-950 text-white shadow-2xl">
             <button
-              aria-label="Close navigation"
+              aria-label={tShell("closeNavigation")}
               onClick={() => setMobileOpen(false)}
               className="absolute right-4 top-4 rounded-lg p-2 text-slate-400 hover:bg-white/10 hover:text-white"
             >
@@ -336,7 +727,7 @@ export function AppShell({
       <div className="lg:pl-72">
         <header className="sticky top-0 z-40 flex h-20 items-center gap-4 border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl sm:px-6 xl:px-10">
           <button
-            aria-label="Open navigation"
+            aria-label={tShell("openNavigation")}
             className="rounded-xl border border-slate-200 p-2.5 text-slate-700 lg:hidden"
             onClick={() => setMobileOpen(true)}
           >
@@ -349,11 +740,21 @@ export function AppShell({
           >
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
-              aria-label="Search Enorsis"
+              aria-label={tShell("searchEnorsis")}
               value={query}
               onChange={(event) => {
-                setQuery(event.target.value);
+                const nextQuery =
+                  event.target.value;
+
+                setQuery(nextQuery);
                 setSearchOpen(true);
+
+                if (
+                  nextQuery.trim().length < 2
+                ) {
+                  setRecordResults([]);
+                  setSearching(false);
+                }
               }}
               onFocus={() => setSearchOpen(true)}
               onKeyDown={(event) => {
@@ -375,7 +776,7 @@ export function AppShell({
                   setSearchOpen(false);
                 }
               }}
-              placeholder="Search suppliers, requests, contracts and insights"
+              placeholder={tShell("searchPlaceholder")}
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50"
             />
 
@@ -383,14 +784,14 @@ export function AppShell({
               <div className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 max-h-[32rem] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
                 {searching ? (
                   <p className="px-3 py-3 text-xs font-semibold text-slate-500">
-                    Searching Enorsis…
+                    {tShell("searching")}
                   </p>
                 ) : null}
 
                 {recordResults.length > 0 ? (
                   <div>
                     <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
-                      Records
+                      {tShell("records")}
                     </p>
                     {recordResults.map((result) => (
                       <Link
@@ -418,7 +819,7 @@ export function AppShell({
                 {workspaceResults.length > 0 ? (
                   <div className={recordResults.length > 0 ? "mt-2 border-t border-slate-100 pt-2" : ""}>
                     <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
-                      Workspaces
+                      {tShell("workspaces")}
                     </p>
                     {workspaceResults.map((module) => (
                       <Link
@@ -440,7 +841,7 @@ export function AppShell({
 
                 {!searching && !hasSearchResults ? (
                   <p className="px-3 py-5 text-center text-sm text-slate-500">
-                    No matching records or workspaces.
+                    {tShell("noResults")}
                   </p>
                 ) : null}
               </div>
@@ -451,8 +852,8 @@ export function AppShell({
             <Link
               href="/app/notifications"
               className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50"
-              aria-label="Open notifications"
-              title="Notifications"
+              aria-label={tShell("openNotifications")}
+              title={tShell("notifications")}
             >
               <Bell className="h-5 w-5" />
               {(actionCounts["/app/notifications"] ?? 0) > 0 ? (
@@ -469,7 +870,7 @@ export function AppShell({
             <Link
               href="/app/settings/organization"
               className="hidden rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50 sm:block"
-              aria-label="Settings"
+              aria-label={tShell("settings")}
             >
               <Settings2 className="h-5 w-5" />
             </Link>
@@ -481,7 +882,7 @@ export function AppShell({
                 type="button"
                 aria-expanded={userMenuOpen}
                 aria-haspopup="menu"
-                aria-label="Open user menu"
+                aria-label={tShell("openUserMenu")}
                 onClick={() =>
                   setUserMenuOpen((open) => !open)
                 }
@@ -494,7 +895,7 @@ export function AppShell({
                 </span>
                 <span className="hidden min-w-0 sm:block">
                   <span className="block max-w-32 truncate text-sm font-bold">
-                    {user.name ?? "Administrator"}
+                    {user.name ?? tShell("administrator")}
                   </span>
                   <span className="block max-w-32 truncate text-xs text-slate-500">
                     {user.roles[0]?.replaceAll("_", " ")}
@@ -521,10 +922,10 @@ export function AppShell({
                       </span>
                       <div className="min-w-0">
                         <p className="truncate text-sm font-black text-slate-950">
-                          {user.name ?? "Administrator"}
+                          {user.name ?? tShell("administrator")}
                         </p>
                         <p className="mt-0.5 truncate text-xs text-slate-500">
-                          {user.email ?? "No email available"}
+                          {user.email ?? tShell("noEmail")}
                         </p>
                         <p className="mt-2 text-xs font-bold text-blue-700">
                           {user.tenantName}
@@ -557,7 +958,7 @@ export function AppShell({
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                     >
                       <UserRound className="h-4 w-4 text-slate-500" />
-                      My account & security
+                      {tShell("myAccount")}
                     </Link>
 
                     <Link
@@ -567,7 +968,7 @@ export function AppShell({
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                     >
                       <Building2 className="h-4 w-4 text-slate-500" />
-                      Organization settings
+                      {tShell("organizationSettings")}
                     </Link>
 
                     <Link
@@ -609,6 +1010,24 @@ function SidebarContent({
   user: AppShellProps["user"];
   actionCounts: Record<string, number>;
 }) {
+  const tNav = useTranslations("navigation");
+  const tShell = useTranslations("shell");
+
+  const translateNavigationLabel = (label: string) => {
+    if (label.startsWith("Buying · ")) {
+      const base = label.slice("Buying · ".length);
+      const key = navigationTranslationKeys[base];
+      return `${tNav("buying")} · ${key ? tNav(key) : base}`;
+    }
+    if (label.startsWith("Selling · ")) {
+      const base = label.slice("Selling · ".length);
+      const key = navigationTranslationKeys[base];
+      return `${tNav("selling")} · ${key ? tNav(key) : base}`;
+    }
+    const key = navigationTranslationKeys[label];
+    return key ? tNav(key) : label;
+  };
+
   const isPlatformOperator = user.roles.some((role) =>
     role.startsWith("PLATFORM_"),
   );
@@ -633,8 +1052,8 @@ function SidebarContent({
         ) ? (
           <Link
             href="/app/marketplace/seller-profile"
-            aria-label={`Open seller profile for ${user.tenantName}`}
-            title="Open seller profile"
+            aria-label={`${tShell("openSellerProfile")} · ${user.tenantName}`}
+            title={tShell("openSellerProfile")}
             className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:border-cyan-300/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60"
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300 transition group-hover:bg-cyan-300/20">
@@ -645,10 +1064,10 @@ function SidebarContent({
                 {user.tenantName}
               </span>
               <span className="block text-xs text-slate-400">
-                {commercialPersonaLabel(user.commercialPersona)} tenant
+                {commercialPersonaLabel(user.commercialPersona)} {tShell("tenant")}
               </span>
               <span className="mt-1 block text-[10px] font-black uppercase tracking-wide text-cyan-300">
-                Open seller profile
+                {tShell("openSellerProfile")}
               </span>
             </span>
             <span className="text-lg font-black text-cyan-300 transition group-hover:translate-x-0.5">
@@ -658,8 +1077,8 @@ function SidebarContent({
         ) : (
           <Link
             href="/app/settings/organization"
-            aria-label={`Open organization settings for ${user.tenantName}`}
-            title="Open organization settings"
+            aria-label={`${tShell("openOrganizationSettings")} · ${user.tenantName}`}
+            title={tShell("openOrganizationSettings")}
             className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300">
@@ -670,7 +1089,7 @@ function SidebarContent({
                 {user.tenantName}
               </span>
               <span className="block text-xs text-slate-500">
-                {commercialPersonaLabel(user.commercialPersona)} tenant
+                {commercialPersonaLabel(user.commercialPersona)} {tShell("tenant")}
               </span>
             </span>
             <ChevronDown className="h-4 w-4 text-slate-500" />
@@ -679,77 +1098,102 @@ function SidebarContent({
       </div>
 
       <nav className="flex-1 overflow-y-auto px-4 pb-4">
-        <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Workspace</p>
-        <div className="space-y-1">
-          {navigation
-            .filter((item) => {
-              const sellerOnly =
-                "sellerOnly" in item &&
-                item.sellerOnly === true;
+        <div className="space-y-6">
+          {visibleGroupsForUser(user, isPlatformOperator).map((group) => {
+            const visibleItems = group.items
+              .filter((item) => {
+                if (
+                  item.platformOnly &&
+                  !isPlatformOperator
+                ) {
+                  return false;
+                }
 
-              if (sellerOnly) {
-                return (
-                  !isPlatformOperator &&
-                  ["SUPPLIER", "BUYER_SUPPLIER"].includes(
+                if (
+                  item.personas &&
+                  !item.personas.includes(
                     user.commercialPersona,
                   )
-                );
-              }
+                ) {
+                  return false;
+                }
 
-              return (
-                isPlatformOperator ||
-                isHrefAllowedForCommercialPersona(
-                  item.href,
-                  user.commercialPersona,
-                )
+                if (
+                  !isPlatformOperator &&
+                  !isHrefAllowedForCommercialPersona(
+                    item.href,
+                    user.commercialPersona,
+                  )
+                ) {
+                  return false;
+                }
+
+                return (
+                  item.roles.length === 0 ||
+                  item.roles.some((role) =>
+                    user.roles.includes(role),
+                  ) ||
+                  isPlatformOperator
+                );
+              })
+              .filter(
+                (item, index, items) =>
+                  items.findIndex(
+                    (candidate) =>
+                      candidate.href === item.href,
+                  ) === index,
               );
-            })
-            .filter((item) =>
-              item.roles.length === 0 ||
-              item.roles.some((role) => user.roles.includes(role)),
-            )
-            .map(({ href, label, icon: Icon }) => {
-            const active = href === "/app" ? pathname === href : pathname.startsWith(href);
-            const actionCount = actionCounts[href] ?? 0;
+
+            if (visibleItems.length === 0) {
+              return null;
+            }
+
             return (
-              <Link
-                key={href}
-                href={href}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${active ? "bg-blue-600 text-white shadow-lg shadow-blue-950/40" : "text-slate-400 hover:bg-white/10 hover:text-white"}`}
-              >
-                <Icon className="h-4 w-4" />
-                <span className="min-w-0 flex-1 truncate">{label}</span>
-                <ActionBadge count={actionCount} active={active} />
-              </Link>
+              <div key={group.label}>
+                <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">
+                  {translateNavigationLabel(group.label)}
+                </p>
+
+                <div className="space-y-1">
+                  {visibleItems.map(
+                    ({ href, label, icon: Icon }) => {
+                      const active =
+                        href === "/app"
+                          ? pathname === href
+                          : pathname.startsWith(href);
+                      const actionCount =
+                        actionCounts[href] ?? 0;
+
+                      return (
+                        <Link
+                          key={`${group.label}:${href}`}
+                          href={href}
+                          className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+                            active
+                              ? "bg-blue-600 text-white shadow-lg shadow-blue-950/40"
+                              : "text-slate-400 hover:bg-white/10 hover:text-white"
+                          }`}
+                        >
+                          <Icon className="h-4 w-4" />
+                          <span className="min-w-0 flex-1 truncate">
+                            {translateNavigationLabel(label)}
+                          </span>
+                          <ActionBadge
+                            count={actionCount}
+                            active={active}
+                          />
+                        </Link>
+                      );
+                    },
+                  )}
+                </div>
+              </div>
             );
           })}
         </div>
         <p className="px-3 pb-2 pt-6 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">Organization</p>
         {user.roles.some((role) => ["PLATFORM_SUPER_ADMIN", "TENANT_OWNER", "TENANT_ADMIN"].includes(role)) ? (
           <>
-            {user.roles.includes("PLATFORM_SUPER_ADMIN") ? (
-              <Link
-                href="/app/platform/supplier-verification"
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-                  pathname.startsWith("/app/platform/supplier-verification")
-                    ? "bg-blue-600 text-white shadow-lg shadow-blue-950/40"
-                    : "text-slate-400 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <FileCheck2 className="h-4 w-4" />
-                <span className="min-w-0 flex-1 truncate">
-                  Supplier verification
-                </span>
-                <ActionBadge
-                  count={
-                    actionCounts["/app/platform/supplier-verification"] ?? 0
-                  }
-                  active={pathname.startsWith(
-                    "/app/platform/supplier-verification",
-                  )}
-                />
-              </Link>
-            ) : null}
             <Link href="/app/settings/organization" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition hover:bg-white/10 hover:text-white">
               <Globe2 className="h-4 w-4" /> Global configuration
             </Link>

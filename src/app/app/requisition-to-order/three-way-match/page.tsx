@@ -4,6 +4,7 @@ import {
   resolveThreeWayMatchExceptionAction,
 } from "@/modules/requisition-to-order/three-way-match-actions";
 import { getThreeWayMatchWorkspace } from "@/modules/requisition-to-order/three-way-match-queries";
+import { LocalizedText } from "@/components/LocalizedText";
 
 const input =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
@@ -15,22 +16,22 @@ export default async function ThreeWayMatchPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
-      <h1 className="mt-3 text-4xl font-black">Three-Way Match</h1>
+      <h1 className="mt-3 text-4xl font-black"><LocalizedText namespace="threeWayMatchPage" messageKey="threeWayMatch" /></h1>
       <p className="mt-3 max-w-3xl leading-7 text-slate-600">
         Reconcile purchase orders, accepted receipts, and supplier invoices
         before payment approval.
       </p>
 
       <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">Create match case</h2>
+        <h2 className="text-xl font-black"><LocalizedText namespace="threeWayMatchPage" messageKey="createMatchCase" /></h2>
         <form
           action={createThreeWayMatchCaseAction}
           className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4"
         >
           <label>
-            <span className="text-sm font-bold">Purchase order</span>
+            <span className="text-sm font-bold"><LocalizedText namespace="threeWayMatchPage" messageKey="purchaseOrder" /></span>
             <select className={input} name="purchaseOrderExecutionId" required>
-              <option value="">Select purchase order</option>
+              <option value=""><LocalizedText namespace="threeWayMatchPage" messageKey="selectPurchaseOrder" /></option>
               {data.orders.map((order) => (
                 <option key={order.id} value={order.id}>
                   {order.orderNumber}
@@ -39,9 +40,9 @@ export default async function ThreeWayMatchPage() {
             </select>
           </label>
           <label>
-            <span className="text-sm font-bold">Goods receipt</span>
+            <span className="text-sm font-bold"><LocalizedText namespace="threeWayMatchPage" messageKey="goodsReceipt" /></span>
             <select className={input} name="goodsReceiptSessionId" required>
-              <option value="">Select receipt</option>
+              <option value=""><LocalizedText namespace="threeWayMatchPage" messageKey="selectReceipt" /></option>
               {data.receipts.map((receipt) => (
                 <option key={receipt.id} value={receipt.id}>
                   {receipt.receiptNumber} —{" "}
@@ -50,13 +51,25 @@ export default async function ThreeWayMatchPage() {
               ))}
             </select>
           </label>
-          <Field name="supplierInvoiceId" label="Supplier invoice ID" required />
-          <Field name="invoiceNumber" label="Invoice number" />
+          <label>
+            <span className="text-sm font-bold"><LocalizedText namespace="threeWayMatchPage" messageKey="supplierInvoice" /></span>
+            <select className={input} name="supplierInvoiceId" required>
+              <option value=""><LocalizedText namespace="threeWayMatchPage" messageKey="selectSupplierInvoice" /></option>
+              {data.supplierInvoices.map((invoice) => (
+                <option key={invoice.id} value={invoice.id}>
+                  {invoice.invoiceNumber} — {invoice.supplier.legalName} —{" "}
+                  {invoice.currencyCode} {invoice.totalAmount.toString()}
+                </option>
+              ))}
+            </select>
+          </label>
           <Field name="lineReference" label="Line reference" required />
           <Field name="lineDescription" label="Line description" required />
           <Field name="invoicedQuantity" label="Invoiced quantity" type="number" required />
           <Field name="invoiceUnitPrice" label="Invoice unit price" type="number" required />
-          <Field name="invoiceAmount" label="Invoice amount" type="number" required />
+          <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-900">
+            Invoice number and total amount are derived from the selected supplier invoice.
+          </div>
           <Field name="quantityTolerancePercent" label="Quantity tolerance %" type="number" value="0" />
           <Field name="amountTolerancePercent" label="Amount tolerance %" type="number" value="0" />
           <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">
@@ -66,7 +79,7 @@ export default async function ThreeWayMatchPage() {
       </section>
 
       <section className={`${card} mt-6`}>
-        <h2 className="text-xl font-black">Match cases</h2>
+        <h2 className="text-xl font-black"><LocalizedText namespace="threeWayMatchPage" messageKey="matchCases" /></h2>
         <div className="mt-5 grid gap-5 xl:grid-cols-2">
           {data.matchCases.map((matchCase) => (
             <article key={matchCase.id} className="rounded-2xl bg-slate-50 p-5">

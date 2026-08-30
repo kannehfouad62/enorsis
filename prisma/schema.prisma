@@ -314,6 +314,33 @@ enum MatchExceptionType {
   OTHER
 }
 
+enum PaymentSettlementChannel {
+  ENORSIS_NATIVE
+  EXTERNAL
+}
+
+enum PaymentSettlementStatus {
+  BUYER_RECORDED
+  AWAITING_SUPPLIER_CONFIRMATION
+  CONFIRMED
+  DISPUTED
+  CONFIRMATION_OVERDUE
+  CANCELLED
+}
+
+enum ExternalPaymentMethod {
+  ACH
+  WIRE_TRANSFER
+  BANK_TRANSFER
+  CHECK
+  CARD
+  ERP_PAYMENT
+  TREASURY_PLATFORM
+  MOBILE_MONEY
+  CASH
+  OTHER
+}
+
 enum PaymentBatchStatus {
   DRAFT
   PENDING_APPROVAL
@@ -3706,6 +3733,44 @@ model PaymentBatchItem {
   @@index([paymentBatchId, status])
 }
 
+model PaymentSettlement {
+  id                         String                   @id @default(cuid())
+  tenantId                   String
+  sellerTenantId             String?
+  supplierInvoiceId          String
+  readinessCaseId            String?
+  paymentBatchId             String?
+  channel                    PaymentSettlementChannel
+  status                     PaymentSettlementStatus @default(BUYER_RECORDED)
+  currencyCode               String
+  invoiceAmount              Decimal                  @db.Decimal(18, 2)
+  paymentAmount              Decimal                  @db.Decimal(18, 2)
+  usdEquivalent              Decimal                  @db.Decimal(18, 2)
+  externalPaymentMethod      ExternalPaymentMethod?
+  externalSystemName         String?
+  paymentReference           String?
+  paymentDate                DateTime?
+  evidenceReference          String?
+  buyerRecordedByUserId      String?
+  buyerRecordedAt            DateTime?
+  supplierConfirmedByUserId  String?
+  supplierConfirmedAt        DateTime?
+  supplierDisputedByUserId   String?
+  supplierDisputedAt         DateTime?
+  disputeReason              String?
+  notes                      String?
+  createdAt                  DateTime                  @default(now())
+  updatedAt                  DateTime                  @updatedAt
+
+  @@unique([tenantId, supplierInvoiceId, paymentReference])
+  @@index([tenantId, status, createdAt])
+  @@index([sellerTenantId, status, createdAt])
+  @@index([supplierInvoiceId, status])
+  @@index([readinessCaseId])
+  @@index([paymentBatchId])
+  @@index([paymentReference])
+}
+
 model AiAgentTask {
   id                String                @id @default(cuid())
   tenantId          String
@@ -6939,6 +7004,7 @@ model ApPaymentReadinessCase {
   threeWayMatchCaseId String
   supplierInvoiceId   String
   paymentBatchId      String?
+  settlementChannel   PaymentSettlementChannel?
   readinessNumber     String
   invoiceNumber       String?
   supplierId          String?
@@ -6965,6 +7031,7 @@ model ApPaymentReadinessCase {
   @@index([tenantId, status, dueDate])
   @@index([supplierInvoiceId])
   @@index([paymentBatchId])
+  @@index([settlementChannel, status])
 }
 
 model ApPaymentReadinessCheck {

@@ -29,6 +29,19 @@ export async function assessPaymentReadiness(input: {
     throw new Error("Three-way match must be approved for payment first.");
   }
 
+  const invoice = await prisma.supplierInvoice.findFirst({
+    where: {
+      id: matchCase.supplierInvoiceId,
+      tenantId: matchCase.tenantId,
+    },
+  });
+
+  if (!invoice) {
+    throw new Error(
+      "The approved three-way match is not linked to a valid supplier invoice.",
+    );
+  }
+
   const unresolvedMatchExceptions = matchCase.exceptions.some((item) =>
     ["OPEN", "INVESTIGATING"].includes(item.status),
   );
@@ -66,13 +79,13 @@ export async function assessPaymentReadiness(input: {
     data: {
       tenantId: matchCase.tenantId,
       threeWayMatchCaseId: matchCase.id,
-      supplierInvoiceId: input.supplierInvoiceId,
+      supplierInvoiceId: invoice.id,
       readinessNumber,
-      invoiceNumber: input.invoiceNumber ?? null,
-      supplierId: input.supplierId ?? null,
+      invoiceNumber: invoice.invoiceNumber,
+      supplierId: invoice.supplierId,
       currencyCode: matchCase.currencyCode,
       invoiceAmount: matchCase.invoiceAmount,
-      dueDate: input.dueDate ?? null,
+      dueDate: input.dueDate ?? invoice.dueDate ?? null,
       discountDate: input.discountDate ?? null,
       discountAmount: input.discountAmount ?? null,
       status: blocked ? "BLOCKED" : "READY",

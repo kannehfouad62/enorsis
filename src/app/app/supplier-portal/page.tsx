@@ -9,6 +9,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { getSupplierPortalWorkspace } from "@/modules/supplier-portal/queries";
+import { LocalizedText } from "@/components/LocalizedText";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -57,6 +58,12 @@ export default async function SupplierPortalPage() {
             className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
           >
             Team & Access
+          </Link>
+          <Link
+            href="/app/requisition-to-order/settlements/external"
+            className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
+          >
+            Payment confirmations
           </Link>
         </div>
       </div>
@@ -121,7 +128,7 @@ export default async function SupplierPortalPage() {
       <div className="mt-6 grid gap-6 xl:grid-cols-3">
         <section className={card}>
           <Building2 className="h-6 w-6 text-blue-700" />
-          <h2 className="mt-4 text-xl font-black">Company Profile</h2>
+          <h2 className="mt-4 text-xl font-black"><LocalizedText namespace="supplierPortalPage" messageKey="companyProfile" /></h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">
             Govern the legal and marketplace-facing identity buyers use to
             understand your organization.
@@ -277,7 +284,7 @@ export default async function SupplierPortalPage() {
           <div className="flex items-center gap-3">
             <ShieldCheck className="h-6 w-6 text-blue-700" />
             <div>
-              <h2 className="text-xl font-black">Qualification Tasks</h2>
+              <h2 className="text-xl font-black"><LocalizedText namespace="supplierPortalPage" messageKey="qualificationTasks" /></h2>
               <p className="mt-1 text-sm text-slate-500">
                 Requirements assigned to your organization for completion.
               </p>
@@ -320,7 +327,7 @@ export default async function SupplierPortalPage() {
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         <section className={card}>
           <UsersRound className="h-6 w-6 text-blue-700" />
-          <h2 className="mt-4 text-xl font-black">Team & Access</h2>
+          <h2 className="mt-4 text-xl font-black"><LocalizedText namespace="supplierPortalPage" messageKey="teamAccess" /></h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">
             {data.metrics.activeTeamUsers.toLocaleString()} active team member
             {data.metrics.activeTeamUsers === 1 ? "" : "s"} currently belong to
@@ -337,7 +344,7 @@ export default async function SupplierPortalPage() {
 
         <section className={card}>
           <MessagesSquare className="h-6 w-6 text-blue-700" />
-          <h2 className="mt-4 text-xl font-black">Buyer Collaboration</h2>
+          <h2 className="mt-4 text-xl font-black"><LocalizedText namespace="supplierPortalPage" messageKey="buyerCollaboration" /></h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">
             You have {data.metrics.unreadBuyerMessages.toLocaleString()} unread
             buyer message
@@ -345,6 +352,12 @@ export default async function SupplierPortalPage() {
             collaboration is presented as received buyer activity rather than
             buyer administration of your own company.
           </p>
+          <Link
+            href="/app/requisition-to-order/settlements/external"
+            className="mt-6 inline-flex text-sm font-black text-blue-700"
+          >
+            Review payment confirmations →
+          </Link>
         </section>
       </div>
     </div>

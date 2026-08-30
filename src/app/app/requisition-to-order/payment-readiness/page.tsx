@@ -7,6 +7,7 @@ import {
   releasePaymentHoldAction,
 } from "@/modules/requisition-to-order/payment-readiness-actions";
 import { getPaymentReadinessWorkspace } from "@/modules/requisition-to-order/payment-readiness-queries";
+import { LocalizedText } from "@/components/LocalizedText";
 
 const input = "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5";
 const card = "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -25,8 +26,8 @@ export default async function PaymentReadinessPage({
   return (
     <div className="mx-auto max-w-7xl px-4 py-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <h1 className="mt-3 text-4xl font-black">Accounts Payable & Payment Readiness</h1>
-        <Link href="/app/requisition-to-order/banking-verification" className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white">Supplier banking verification</Link>
+        <h1 className="mt-3 text-4xl font-black"><LocalizedText namespace="paymentReadinessPage" messageKey="title" /></h1>
+        <Link href="/app/requisition-to-order/banking-verification" className="rounded-xl bg-blue-700 px-4 py-3 text-sm font-black text-white"><LocalizedText namespace="paymentReadinessPage" messageKey="supplierBankingVerification" /></Link>
       </div>
 
       {params.approvalError ? (
@@ -42,12 +43,12 @@ export default async function PaymentReadinessPage({
       ) : null}
 
       <section className={`${card} mt-8`}>
-        <h2 className="text-xl font-black">Assess invoice readiness</h2>
+        <h2 className="text-xl font-black"><LocalizedText namespace="paymentReadinessPage" messageKey="assessInvoiceReadiness" /></h2>
         <form action={assessPaymentReadinessAction} className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <label>
-            <span className="text-sm font-bold">Approved match case</span>
+            <span className="text-sm font-bold"><LocalizedText namespace="paymentReadinessPage" messageKey="approvedMatchCase" /></span>
             <select className={input} name="threeWayMatchCaseId" required>
-              <option value="">Select match case</option>
+              <option value=""><LocalizedText namespace="paymentReadinessPage" messageKey="selectMatchCase" /></option>
               {data.matchCases.map((matchCase) => (
                 <option key={matchCase.id} value={matchCase.id}>
                   {matchCase.matchNumber} — {matchCase.invoiceNumber ?? matchCase.supplierInvoiceId}
@@ -55,9 +56,9 @@ export default async function PaymentReadinessPage({
               ))}
             </select>
           </label>
-          <Field name="supplierInvoiceId" label="Supplier invoice ID" required />
-          <Field name="invoiceNumber" label="Invoice number" />
-          <Field name="supplierId" label="Supplier ID" />
+          <div className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-blue-900">
+            Supplier invoice identity is inherited from the approved three-way match.
+          </div>
           <Field name="dueDate" label="Due date" type="date" />
           <Field name="discountDate" label="Discount date" type="date" />
           <Field name="discountAmount" label="Discount amount" type="number" />
@@ -65,12 +66,12 @@ export default async function PaymentReadinessPage({
           <Check name="supplierCompliant" label="Supplier compliant" />
           <Check name="taxValidated" label="Tax validated" />
           <Check name="duplicateInvoiceDetected" label="Duplicate detected" />
-          <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white">Assess readiness</button>
+          <button className="rounded-xl bg-slate-950 px-5 py-3 font-black text-white"><LocalizedText namespace="paymentReadinessPage" messageKey="assessReadiness" /></button>
         </form>
       </section>
 
       <section className={`${card} mt-6`}>
-        <h2 className="text-xl font-black">Readiness cases</h2>
+        <h2 className="text-xl font-black"><LocalizedText namespace="paymentReadinessPage" messageKey="readinessCases" /></h2>
         <div className="mt-5 grid gap-5 xl:grid-cols-2">
           {data.readinessCases.map((readinessCase) => (
             <article key={readinessCase.id} className="rounded-2xl bg-slate-50 p-5">
@@ -89,7 +90,7 @@ export default async function PaymentReadinessPage({
               </div>
 
               <div className="mt-5 border-t border-slate-200 pt-4">
-                <p className="text-xs font-black uppercase text-slate-500">Payment holds</p>
+                <p className="text-xs font-black uppercase text-slate-500"><LocalizedText namespace="paymentReadinessPage" messageKey="paymentHolds" /></p>
                 <div className="mt-3 space-y-3">
                   {readinessCase.holds.map((hold) => (
                     <div key={hold.id} className="rounded-xl bg-white p-3">
@@ -99,7 +100,7 @@ export default async function PaymentReadinessPage({
                         <form action={releasePaymentHoldAction} className="mt-3 flex gap-2">
                           <input type="hidden" name="holdId" value={hold.id} />
                           <input className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm" name="releaseReason" placeholder="Release reason" required />
-                          <button className="rounded-xl bg-emerald-700 px-4 py-2 text-sm font-black text-white">Release</button>
+                          <button className="rounded-xl bg-emerald-700 px-4 py-2 text-sm font-black text-white"><LocalizedText namespace="paymentReadinessPage" messageKey="release" /></button>
                         </form>
                       ) : null}
                     </div>
@@ -118,7 +119,7 @@ export default async function PaymentReadinessPage({
               ) ? (
                 <form action={approvePaymentReadinessAction} className="mt-5">
                   <input type="hidden" name="readinessCaseId" value={readinessCase.id} />
-                  <button className="rounded-xl bg-blue-700 px-4 py-2 text-sm font-black text-white">Approve readiness</button>
+                  <button className="rounded-xl bg-blue-700 px-4 py-2 text-sm font-black text-white"><LocalizedText namespace="paymentReadinessPage" messageKey="approveReadiness" /></button>
                 </form>
               ) : null}
 
@@ -126,7 +127,7 @@ export default async function PaymentReadinessPage({
                 <form action={assignPaymentBatchAction} className="mt-5 flex gap-2">
                   <input type="hidden" name="readinessCaseId" value={readinessCase.id} />
                   <input className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm" name="paymentBatchId" placeholder="Existing payment batch ID" required />
-                  <button className="rounded-xl bg-violet-700 px-4 py-2 text-sm font-black text-white">Assign batch</button>
+                  <button className="rounded-xl bg-violet-700 px-4 py-2 text-sm font-black text-white"><LocalizedText namespace="paymentReadinessPage" messageKey="assignBatch" /></button>
                 </form>
               ) : null}
             </article>

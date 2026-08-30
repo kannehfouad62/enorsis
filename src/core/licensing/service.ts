@@ -80,6 +80,129 @@ export async function getFeatureAccess(
   };
 }
 
+export async function getFeatureAccessBatch(
+  tenantId: string,
+  featureKeys: readonly (FeatureKey | string)[],
+) {
+  const uniqueFeatureKeys = [...new Set(featureKeys)];
+  const decisions = new Map<string, FeatureAccessDecision>();
+
+  if (uniqueFeatureKeys.length === 0) {
+    return decisions;
+  }
+
+  const now = new Date();
+
+  const [features, subscription] = await Promise.all([
+    prisma.platformFeature.findMany({
+      where: {
+        key: { in: uniqueFeatureKeys },
+      },
+      include: {
+        entitlements: {
+          where: {
+            tenantId,
+            startsAt: { lte: now },
+            OR: [{ expiresAt: null }, { expiresAt: { gt: now } }],
+          },
+          take: 1,
+        },
+      },
+    }),
+    prisma.tenantSubscription.findFirst({
+      where: {
+        tenantId,
+        status: { in: [...activeStatuses] },
+        startsAt: { lte: now },
+        OR: [{ endsAt: null }, { endsAt: { gt: now } }],
+      },
+      include: {
+        edition: {
+          include: {
+            features: {
+              where: { enabled: true },
+              select: { featureId: true },
+            },
+          },
+        },
+      },
+      orderBy: { startsAt: "desc" },
+    }),
+  ]);
+
+  const featuresByKey = new Map(
+    features.map((feature) => [feature.key, feature]),
+  );
+
+  const enabledFeatureIds = new Set(
+    subscription?.edition.features.map((item) => item.featureId) ?? [],
+  );
+
+  for (const featureKey of uniqueFeatureKeys) {
+    const feature = featuresByKey.get(featureKey);
+
+    if (!feature || !feature.active) {
+      decisions.set(featureKey, {
+        allowed: false,
+        source: "UNKNOWN_FEATURE",
+        featureKey,
+      });
+      continue;
+    }
+
+    const override = feature.entitlements[0];
+
+    if (override?.effect === "DENY") {
+      decisions.set(featureKey, {
+        allowed: false,
+        source: "TENANT_DENY",
+        featureKey,
+      });
+      continue;
+    }
+
+    if (override?.effect === "ALLOW") {
+      decisions.set(featureKey, {
+        allowed: true,
+        source: "TENANT_ALLOW",
+        featureKey,
+      });
+      continue;
+    }
+
+    if (!subscription) {
+      decisions.set(featureKey, {
+        allowed: false,
+        source: "NO_SUBSCRIPTION",
+        featureKey,
+      });
+      continue;
+    }
+
+    if (
+      feature.managedPaaSOnly &&
+      subscription.edition.code !== "MANAGED_PAAS"
+    ) {
+      decisions.set(featureKey, {
+        allowed: false,
+        source: "MANAGED_PAAS_ONLY",
+        featureKey,
+        editionCode: subscription.edition.code,
+      });
+      continue;
+    }
+
+    decisions.set(featureKey, {
+      allowed: enabledFeatureIds.has(feature.id),
+      source: "EDITION",
+      featureKey,
+      editionCode: subscription.edition.code,
+    });
+  }
+
+  return decisions;
+}
+
 export async function hasFeature(
   tenantId: string,
   featureKey: FeatureKey | string,

@@ -29,6 +29,36 @@ export async function createThreeWayMatchCase(input: {
       include: { lines: true },
     });
 
+  const invoice = await prisma.supplierInvoice.findFirst({
+    where: {
+      id: input.supplierInvoiceId,
+      tenantId: execution.tenantId,
+    },
+  });
+
+  if (!invoice) {
+    throw new Error(
+      "The selected supplier invoice was not found in the active tenant.",
+    );
+  }
+
+  if (
+    invoice.sourcePurchaseOrderExecutionId &&
+    invoice.sourcePurchaseOrderExecutionId !== execution.id
+  ) {
+    throw new Error(
+      "The selected supplier invoice does not belong to the selected purchase order execution.",
+    );
+  }
+
+  if (
+    invoice.currencyCode.toUpperCase() !== execution.currencyCode.toUpperCase()
+  ) {
+    throw new Error(
+      `Invoice currency ${invoice.currencyCode} does not match purchase order currency ${execution.currencyCode}.`,
+    );
+  }
+
   if (receipt.purchaseOrderExecutionId !== execution.id) {
     throw new Error(
       "The selected receipt does not belong to the selected purchase order.",
@@ -53,7 +83,8 @@ export async function createThreeWayMatchCase(input: {
       ? (receivedQuantity / orderedQuantity) * poAmount
       : 0;
 
-  const amountVariance = input.invoiceAmount - receiptAmount;
+  const authoritativeInvoiceAmount = Number(invoice.totalAmount);
+  const amountVariance = authoritativeInvoiceAmount - receiptAmount;
   const quantityVariance = input.invoicedQuantity - receivedQuantity;
   const poUnitPrice =
     orderedQuantity > 0 ? poAmount / orderedQuantity : 0;
@@ -105,14 +136,14 @@ export async function createThreeWayMatchCase(input: {
       tenantId: execution.tenantId,
       purchaseOrderExecutionId: execution.id,
       goodsReceiptSessionId: receipt.id,
-      supplierInvoiceId: input.supplierInvoiceId,
+      supplierInvoiceId: invoice.id,
       matchNumber,
-      invoiceNumber: input.invoiceNumber ?? null,
+      invoiceNumber: invoice.invoiceNumber,
       currencyCode: execution.currencyCode,
       status,
       poAmount,
       receiptAmount,
-      invoiceAmount: input.invoiceAmount,
+      invoiceAmount: authoritativeInvoiceAmount,
       amountVariance,
       quantityTolerancePercent: input.quantityTolerancePercent,
       amountTolerancePercent: input.amountTolerancePercent,
@@ -128,7 +159,7 @@ export async function createThreeWayMatchCase(input: {
           poUnitPrice,
           invoiceUnitPrice: input.invoiceUnitPrice,
           poLineAmount: poAmount,
-          invoiceLineAmount: input.invoiceAmount,
+          invoiceLineAmount: authoritativeInvoiceAmount,
           quantityVariance,
           priceVariance,
           amountVariance,
@@ -157,7 +188,7 @@ export async function createThreeWayMatchCase(input: {
                     : "MEDIUM",
                 title: `${lineStatus.replaceAll("_", " ")} detected`,
                 description:
-                  `PO ${execution.orderNumber}, receipt ${receipt.receiptNumber}, invoice ${input.invoiceNumber ?? input.supplierInvoiceId}.`,
+                  `PO ${execution.orderNumber}, receipt ${receipt.receiptNumber}, invoice ${invoice.invoiceNumber}.`,
                 ownerUserId: input.actorUserId,
               },
             },
@@ -177,7 +208,7 @@ export async function createThreeWayMatchCase(input: {
       matchCaseId: matchCase.id,
       matchNumber,
       status,
-      supplierInvoiceId: input.supplierInvoiceId,
+      supplierInvoiceId: invoice.id,
     },
   });
 

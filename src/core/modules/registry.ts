@@ -5,7 +5,7 @@ import {
 import { hasAnyRole, type EnorsisRole } from "@/core/auth/authorization";
 import {
   FEATURE_KEYS,
-  hasFeature,
+  getFeatureAccessBatch,
   type FeatureKey,
 } from "@/core/licensing";
 import type { ModuleRegistryEntry } from "./types";
@@ -447,26 +447,41 @@ export async function getAccessibleModules({
           select: { commercialPersona: true },
         }))?.commercialPersona ?? "BUYER") as TenantCommercialPersonaValue);
 
-  const decisions = await Promise.all(
-    moduleRegistry.map(async (module) => {
-      if (!module.active) return null;
-      if (isPlatformOperator) return module;
-      if (
-        !isHrefAllowedForCommercialPersona(
-          module.href,
-          tenantCommercialPersona,
-        )
-      ) return null;
-      if (!hasAnyRole(userRoles, module.roles)) return null;
-      if (!module.featureKey) return module;
+  const roleAndPersonaEligibleModules = moduleRegistry.filter((module) => {
+    if (!module.active) return false;
+    if (isPlatformOperator) return true;
 
-      return (await hasFeature(tenantId, module.featureKey))
-        ? module
-        : null;
-    }),
+    if (
+      !isHrefAllowedForCommercialPersona(
+        module.href,
+        tenantCommercialPersona,
+      )
+    ) {
+      return false;
+    }
+
+    return hasAnyRole(userRoles, module.roles);
+  });
+
+  if (isPlatformOperator) {
+    return roleAndPersonaEligibleModules;
+  }
+
+  const featureKeys = roleAndPersonaEligibleModules
+    .map((module) => module.featureKey)
+    .filter(
+      (featureKey): featureKey is FeatureKey =>
+        featureKey !== null,
+    );
+
+  const featureAccess = await getFeatureAccessBatch(
+    tenantId,
+    featureKeys,
   );
 
-  return decisions.filter(
-    (module): module is ModuleRegistryEntry => module !== null,
+  return roleAndPersonaEligibleModules.filter(
+    (module) =>
+      !module.featureKey ||
+      featureAccess.get(module.featureKey)?.allowed === true,
   );
 }

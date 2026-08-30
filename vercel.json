@@ -7,6 +7,10 @@
     {
       "path": "/api/platform/requisition-to-order/process-sla-escalations",
       "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/platform/requisition-to-order/process-external-settlement-sla",
+      "schedule": "0 */6 * * *"
     }
   ]
 }

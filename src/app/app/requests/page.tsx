@@ -7,6 +7,7 @@ import {
 import Link from "next/link";
 import { PurchaseRequestForm } from "@/components/purchase-requests/PurchaseRequestForm";
 import { getPurchaseRequestWorkspace } from "@/modules/purchase-requests/queries";
+import { LocalizedText } from "@/components/LocalizedText";
 
 const inputClass =
   "mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-100";
@@ -44,7 +45,7 @@ export default async function PurchaseRequestsPage() {
         >
           <div className="flex items-center gap-3">
             <FilePlus2 className="h-5 w-5 text-blue-700" />
-            <h2 className="text-xl font-black">Create purchase request</h2>
+            <h2 className="text-xl font-black"><LocalizedText namespace="requestsPage" messageKey="createPurchaseRequest" /></h2>
           </div>
           <PurchaseRequestForm
             baseCurrency={tenant.baseCurrencyCode}
@@ -76,7 +77,7 @@ export default async function PurchaseRequestsPage() {
               </div>
 
               <p className="mt-5 text-sm leading-6 text-slate-600">{request.businessJustification}</p>
-              <Link className="mt-5 inline-flex rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white" href={`/app/requests/${request.id}`}>Open request</Link>
+              <Link className="mt-5 inline-flex rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-black text-white" href={`/app/requests/${request.id}`}><LocalizedText namespace="requestsPage" messageKey="openRequest" /></Link>
             </article>
           );
         })}
@@ -97,7 +98,7 @@ function ScopeSelect({ label, name, options }: { label: string; name: string; op
   return (
     <Field label={label}>
       <select className={inputClass} name={name} defaultValue="">
-        <option value="">Organization level</option>
+        <option value=""><LocalizedText namespace="requestsPage" messageKey="organizationLevel" /></option>
         {options.map((option) => <option key={option.id} value={option.id}>{option.name}</option>)}
       </select>
     </Field>

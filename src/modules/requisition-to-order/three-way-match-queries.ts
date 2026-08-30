@@ -6,7 +6,7 @@ export async function getThreeWayMatchWorkspace() {
   const session = await auth();
   if (!session?.user) redirect("/login");
 
-  const [orders, receipts, matchCases] = await Promise.all([
+  const [orders, receipts, supplierInvoices, matchCases] = await Promise.all([
     prisma.purchaseOrderExecution.findMany({
       where: {
         tenantId: session.user.tenantId,
@@ -22,6 +22,18 @@ export async function getThreeWayMatchWorkspace() {
       include: { purchaseOrderExecution: true },
       orderBy: { receivedAt: "desc" },
     }),
+    prisma.supplierInvoice.findMany({
+      where: {
+        tenantId: session.user.tenantId,
+        submittedAt: { not: null },
+        paidAt: null,
+      },
+      include: {
+        supplier: true,
+        lines: { orderBy: { lineNumber: "asc" } },
+      },
+      orderBy: { createdAt: "desc" },
+    }),
     prisma.threeWayMatchCase.findMany({
       where: { tenantId: session.user.tenantId },
       include: {
@@ -34,5 +46,5 @@ export async function getThreeWayMatchWorkspace() {
     }),
   ]);
 
-  return { orders, receipts, matchCases };
+  return { orders, receipts, supplierInvoices, matchCases };
 }

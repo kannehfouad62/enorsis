@@ -252,6 +252,12 @@ export async function createDraftPaymentRunAction(data: FormData) {
       );
     }
 
+    if (readiness.settlementChannel === "EXTERNAL") {
+      throw new Error(
+        "This payment-readiness case is assigned to external settlement. Complete or cancel the external settlement workflow before creating an Enorsis payment run.",
+      );
+    }
+
     const invoice = await prisma.supplierInvoice.findFirstOrThrow({
       where: {
         id: readiness.supplierInvoiceId,
@@ -369,6 +375,7 @@ export async function createDraftPaymentRunAction(data: FormData) {
         data: {
           status: "BATCHED",
           paymentBatchId: batch.id,
+          settlementChannel: "ENORSIS_NATIVE",
           batchedAt: new Date(),
         },
       });
@@ -1160,6 +1167,7 @@ export async function cancelPaymentRunAction(
         data: {
           status: "APPROVED",
           paymentBatchId: null,
+          settlementChannel: null,
           batchedAt: null,
         },
       });
@@ -1303,6 +1311,7 @@ export async function recordPaymentExecutionFailureAction(
         data: {
           status: "APPROVED",
           paymentBatchId: null,
+          settlementChannel: null,
           batchedAt: null,
         },
       });
