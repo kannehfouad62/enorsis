@@ -16,7 +16,6 @@ import {
 import { getPaymentReconciliationWorkspace } from "@/modules/payment-reconciliation/queries";
 import { getExternalSettlementReconciliationSummary } from "@/modules/payment-operations/external-settlement-queries";
 import { auth } from "@/auth";
-import { LocalizedText } from "@/components/LocalizedText";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -154,11 +153,11 @@ export default async function PaymentReconciliationPage({
               <table className="w-full min-w-[760px] text-left text-sm">
                 <thead className="text-xs uppercase text-slate-400">
                   <tr>
-                    <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="reference" /></th>
-                    <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="status" /></th>
-                    <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="method" /></th>
-                    <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="paymentDate" /></th>
-                    <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="amount" /></th>
+                    <th className="pb-3">Reference</th>
+                    <th className="pb-3">Status</th>
+                    <th className="pb-3">Method</th>
+                    <th className="pb-3">Payment date</th>
+                    <th className="pb-3 text-right">Amount</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -333,12 +332,12 @@ export default async function PaymentReconciliationPage({
             <table className="w-full min-w-[760px] text-left text-sm">
               <thead className="text-xs uppercase text-slate-400">
                 <tr>
-                  <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="file" /></th>
-                  <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="statement" /></th>
-                  <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="status" /></th>
-                  <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="rows" /></th>
-                  <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="matched" /></th>
-                  <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="exceptions" /></th>
+                  <th className="pb-3">File</th>
+                  <th className="pb-3">Statement</th>
+                  <th className="pb-3">Status</th>
+                  <th className="pb-3 text-right">Rows</th>
+                  <th className="pb-3 text-right">Matched</th>
+                  <th className="pb-3 text-right">Exceptions</th>
                 </tr>
               </thead>
               <tbody>
@@ -459,10 +458,10 @@ export default async function PaymentReconciliationPage({
                       defaultValue="MATCHED"
                       className="mt-1 block w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
                     >
-                      <option value="MATCHED"><LocalizedText namespace="reconciliationPage" messageKey="matched" /></option>
-                      <option value="PARTIAL"><LocalizedText namespace="reconciliationPage" messageKey="partial" /></option>
-                      <option value="UNMATCHED"><LocalizedText namespace="reconciliationPage" messageKey="unmatched" /></option>
-                      <option value="DUPLICATE"><LocalizedText namespace="reconciliationPage" messageKey="duplicate" /></option>
+                      <option value="MATCHED">Matched</option>
+                      <option value="PARTIAL">Partial</option>
+                      <option value="UNMATCHED">Unmatched</option>
+                      <option value="DUPLICATE">Duplicate</option>
                     </select>
                   </label>
 
@@ -1045,13 +1044,13 @@ export default async function PaymentReconciliationPage({
           <table className="w-full min-w-[900px] text-left text-sm">
             <thead className="text-xs uppercase text-slate-400">
               <tr>
-                <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="statement" /></th>
-                <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="bankRef" /></th>
-                <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="status" /></th>
-                <th className="pb-3"><LocalizedText namespace="reconciliationPage" messageKey="date" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="expected" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="settled" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="reconciliationPage" messageKey="variance" /></th>
+                <th className="pb-3">Statement</th>
+                <th className="pb-3">Bank ref</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3">Date</th>
+                <th className="pb-3 text-right">Expected</th>
+                <th className="pb-3 text-right">Settled</th>
+                <th className="pb-3 text-right">Variance</th>
               </tr>
             </thead>
             <tbody>

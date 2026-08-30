@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import {
   ChevronDown,
 } from "lucide-react";
@@ -10,17 +9,15 @@ import {
 } from "./LanguageRegionMenu";
 
 const links = [
-  ["home", "/"],
-  ["platform", "/platform"],
-  ["solutions", "/solutions"],
-  ["whoWeServe", "/who-we-serve"],
-  ["pricing", "/pricing"],
+  ["Home", "/"],
+  ["Our Platform", "/platform"],
+  ["Solutions", "/solutions"],
+  ["Who We Serve", "/who-we-serve"],
+  ["Pricing", "/pricing"],
 ] as const;
 
 export function Navbar() {
-  const t = useTranslations("public");
-
-  return (
+return (
     <header className="site-header">
       <div className="wide-shell flex h-[76px] items-center justify-between gap-5">
         <Link
@@ -38,24 +35,24 @@ export function Navbar() {
                 href={href}
                 className="relative after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-blue-600 after:transition-all hover:after:w-full"
               >
-                {t(name)}
+                {name}
               </Link>
             ),
           )}
 
           <div className="group relative">
             <button className="flex items-center gap-1">
-              {t("resources")}
+              Resources
               <ChevronDown
                 size={14}
               />
             </button>
             <div className="resource-menu">
               <Link href="/resources/guides">
-                {t("guides")}
+                Guides & eBooks
               </Link>
               <Link href="/resources/publications">
-                {t("publications")}
+                Publications
               </Link>
             </div>
           </div>
@@ -73,14 +70,14 @@ export function Navbar() {
             href="/dashboard"
             className="hidden rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm sm:inline-flex"
           >
-            {t("login")}
+            Login
           </Link>
 
           <Link
             href="/onboarding"
             className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20"
           >
-            {t("requestDemo")}
+            Request a Demo
           </Link>
 
           <LanguageRegionMenu />

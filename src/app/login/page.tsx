@@ -5,7 +5,6 @@ import { Suspense } from "react";
 
 import { auth } from "@/auth";
 import { LoginForm } from "@/components/auth/LoginForm";
-import { LocalizedText } from "@/components/LocalizedText";
 
 const signals = [
   { icon: Globe2, label: "Global tenant isolation" },
@@ -67,7 +66,7 @@ export default async function LoginPage() {
           <p className="text-xs font-bold uppercase tracking-[.24em] text-blue-700">
             Secure workspace
           </p>
-          <h2 className="mt-3 text-4xl font-black tracking-tight"><LocalizedText namespace="loginPage" messageKey="welcomeBack" /></h2>
+          <h2 className="mt-3 text-4xl font-black tracking-tight">Welcome back</h2>
           <p className="mt-3 leading-7 text-slate-600">
             Sign in with the development administrator credentials configured in
             your local environment.

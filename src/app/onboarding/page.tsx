@@ -10,7 +10,6 @@ import {
   WalletCards,
 } from "lucide-react";
 
-import { LocalizedText } from "@/components/LocalizedText";
 const countries = [
   "United States",
   "United Kingdom",
@@ -42,7 +41,7 @@ export default function Page() {
       <div className="shell py-16 md:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="max-w-3xl">
-            <p className="eyebrow-blue"><LocalizedText namespace="onboardingPage" messageKey="requestDemoWorkspace" /></p>
+            <p className="eyebrow-blue">Request a demo · Workspace discovery</p>
             <h1 className="mt-3 text-4xl font-black tracking-[-.04em] text-slate-950 sm:text-5xl">
               See how Enorsis can transform your procurement operating model.
             </h1>

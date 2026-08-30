@@ -23,7 +23,6 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -523,8 +522,7 @@ export function AppShell({
   user,
   actionCounts: initialActionCounts = {},
 }: AppShellProps) {
-  const tShell = useTranslations("shell");
-  const pathname = usePathname();
+const pathname = usePathname();
   const router = useRouter();
   const searchRef = useRef<HTMLDivElement>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -703,13 +701,13 @@ export function AppShell({
       {mobileOpen ? (
         <div className="fixed inset-0 z-50 lg:hidden">
           <button
-            aria-label={tShell("closeNavigation")}
+            aria-label="Close navigation"
             className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
           <aside className="relative flex h-full w-[min(88vw,20rem)] flex-col bg-slate-950 text-white shadow-2xl">
             <button
-              aria-label={tShell("closeNavigation")}
+              aria-label="Close navigation"
               onClick={() => setMobileOpen(false)}
               className="absolute right-4 top-4 rounded-lg p-2 text-slate-400 hover:bg-white/10 hover:text-white"
             >
@@ -727,7 +725,7 @@ export function AppShell({
       <div className="lg:pl-72">
         <header className="sticky top-0 z-40 flex h-20 items-center gap-4 border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl sm:px-6 xl:px-10">
           <button
-            aria-label={tShell("openNavigation")}
+            aria-label="Open navigation"
             className="rounded-xl border border-slate-200 p-2.5 text-slate-700 lg:hidden"
             onClick={() => setMobileOpen(true)}
           >
@@ -740,7 +738,7 @@ export function AppShell({
           >
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
-              aria-label={tShell("searchEnorsis")}
+              aria-label="Search Enorsis"
               value={query}
               onChange={(event) => {
                 const nextQuery =
@@ -776,7 +774,7 @@ export function AppShell({
                   setSearchOpen(false);
                 }
               }}
-              placeholder={tShell("searchPlaceholder")}
+              placeholder="Search suppliers, requests, contracts and insights"
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-50"
             />
 
@@ -784,14 +782,14 @@ export function AppShell({
               <div className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-50 max-h-[32rem] overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
                 {searching ? (
                   <p className="px-3 py-3 text-xs font-semibold text-slate-500">
-                    {tShell("searching")}
+                    Searching Enorsis…
                   </p>
                 ) : null}
 
                 {recordResults.length > 0 ? (
                   <div>
                     <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
-                      {tShell("records")}
+                      Records
                     </p>
                     {recordResults.map((result) => (
                       <Link
@@ -819,7 +817,7 @@ export function AppShell({
                 {workspaceResults.length > 0 ? (
                   <div className={recordResults.length > 0 ? "mt-2 border-t border-slate-100 pt-2" : ""}>
                     <p className="px-3 pb-2 pt-2 text-[10px] font-black uppercase tracking-[.18em] text-slate-400">
-                      {tShell("workspaces")}
+                      Workspaces
                     </p>
                     {workspaceResults.map((module) => (
                       <Link
@@ -841,7 +839,7 @@ export function AppShell({
 
                 {!searching && !hasSearchResults ? (
                   <p className="px-3 py-5 text-center text-sm text-slate-500">
-                    {tShell("noResults")}
+                    No matching records or workspaces.
                   </p>
                 ) : null}
               </div>
@@ -852,8 +850,8 @@ export function AppShell({
             <Link
               href="/app/notifications"
               className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50"
-              aria-label={tShell("openNotifications")}
-              title={tShell("notifications")}
+              aria-label="Open notifications"
+              title="Notifications"
             >
               <Bell className="h-5 w-5" />
               {(actionCounts["/app/notifications"] ?? 0) > 0 ? (
@@ -870,7 +868,7 @@ export function AppShell({
             <Link
               href="/app/settings/organization"
               className="hidden rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600 hover:bg-slate-50 sm:block"
-              aria-label={tShell("settings")}
+              aria-label="Settings"
             >
               <Settings2 className="h-5 w-5" />
             </Link>
@@ -882,7 +880,7 @@ export function AppShell({
                 type="button"
                 aria-expanded={userMenuOpen}
                 aria-haspopup="menu"
-                aria-label={tShell("openUserMenu")}
+                aria-label="Open user menu"
                 onClick={() =>
                   setUserMenuOpen((open) => !open)
                 }
@@ -895,7 +893,7 @@ export function AppShell({
                 </span>
                 <span className="hidden min-w-0 sm:block">
                   <span className="block max-w-32 truncate text-sm font-bold">
-                    {user.name ?? tShell("administrator")}
+                    {user.name ?? "Administrator"}
                   </span>
                   <span className="block max-w-32 truncate text-xs text-slate-500">
                     {user.roles[0]?.replaceAll("_", " ")}
@@ -922,10 +920,10 @@ export function AppShell({
                       </span>
                       <div className="min-w-0">
                         <p className="truncate text-sm font-black text-slate-950">
-                          {user.name ?? tShell("administrator")}
+                          {user.name ?? "Administrator"}
                         </p>
                         <p className="mt-0.5 truncate text-xs text-slate-500">
-                          {user.email ?? tShell("noEmail")}
+                          {user.email ?? "No email available"}
                         </p>
                         <p className="mt-2 text-xs font-bold text-blue-700">
                           {user.tenantName}
@@ -958,7 +956,7 @@ export function AppShell({
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                     >
                       <UserRound className="h-4 w-4 text-slate-500" />
-                      {tShell("myAccount")}
+                      My account & security
                     </Link>
 
                     <Link
@@ -968,7 +966,7 @@ export function AppShell({
                       className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
                     >
                       <Building2 className="h-4 w-4 text-slate-500" />
-                      {tShell("organizationSettings")}
+                      Organization settings
                     </Link>
 
                     <Link
@@ -1010,23 +1008,6 @@ function SidebarContent({
   user: AppShellProps["user"];
   actionCounts: Record<string, number>;
 }) {
-  const tNav = useTranslations("navigation");
-  const tShell = useTranslations("shell");
-
-  const translateNavigationLabel = (label: string) => {
-    if (label.startsWith("Buying · ")) {
-      const base = label.slice("Buying · ".length);
-      const key = navigationTranslationKeys[base];
-      return `${tNav("buying")} · ${key ? tNav(key) : base}`;
-    }
-    if (label.startsWith("Selling · ")) {
-      const base = label.slice("Selling · ".length);
-      const key = navigationTranslationKeys[base];
-      return `${tNav("selling")} · ${key ? tNav(key) : base}`;
-    }
-    const key = navigationTranslationKeys[label];
-    return key ? tNav(key) : label;
-  };
 
   const isPlatformOperator = user.roles.some((role) =>
     role.startsWith("PLATFORM_"),
@@ -1052,8 +1033,8 @@ function SidebarContent({
         ) ? (
           <Link
             href="/app/marketplace/seller-profile"
-            aria-label={`${tShell("openSellerProfile")} · ${user.tenantName}`}
-            title={tShell("openSellerProfile")}
+            aria-label={`$Open seller profile · ${user.tenantName}`}
+            title="Open seller profile"
             className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:border-cyan-300/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60"
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300 transition group-hover:bg-cyan-300/20">
@@ -1064,10 +1045,10 @@ function SidebarContent({
                 {user.tenantName}
               </span>
               <span className="block text-xs text-slate-400">
-                {commercialPersonaLabel(user.commercialPersona)} {tShell("tenant")}
+                {commercialPersonaLabel(user.commercialPersona)} tenant
               </span>
               <span className="mt-1 block text-[10px] font-black uppercase tracking-wide text-cyan-300">
-                {tShell("openSellerProfile")}
+                Open seller profile
               </span>
             </span>
             <span className="text-lg font-black text-cyan-300 transition group-hover:translate-x-0.5">
@@ -1077,8 +1058,8 @@ function SidebarContent({
         ) : (
           <Link
             href="/app/settings/organization"
-            aria-label={`${tShell("openOrganizationSettings")} · ${user.tenantName}`}
-            title={tShell("openOrganizationSettings")}
+            aria-label={`$Open organization settings · ${user.tenantName}`}
+            title="Open organization settings"
             className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-cyan-300/10 text-cyan-300">
@@ -1089,7 +1070,7 @@ function SidebarContent({
                 {user.tenantName}
               </span>
               <span className="block text-xs text-slate-500">
-                {commercialPersonaLabel(user.commercialPersona)} {tShell("tenant")}
+                {commercialPersonaLabel(user.commercialPersona)} tenant
               </span>
             </span>
             <ChevronDown className="h-4 w-4 text-slate-500" />
@@ -1151,7 +1132,7 @@ function SidebarContent({
             return (
               <div key={group.label}>
                 <p className="px-3 pb-2 text-[10px] font-bold uppercase tracking-[.2em] text-slate-600">
-                  {translateNavigationLabel(group.label)}
+                  {group.label}
                 </p>
 
                 <div className="space-y-1">
@@ -1176,7 +1157,7 @@ function SidebarContent({
                         >
                           <Icon className="h-4 w-4" />
                           <span className="min-w-0 flex-1 truncate">
-                            {translateNavigationLabel(label)}
+                            {label}
                           </span>
                           <ActionBadge
                             count={actionCount}

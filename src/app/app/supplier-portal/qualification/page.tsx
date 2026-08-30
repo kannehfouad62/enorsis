@@ -11,7 +11,6 @@ import {
   updateSupplierQualificationTaskAction,
 } from "@/modules/supplier-qualification-self-service/actions";
 import { getSupplierPortalWorkspace } from "@/modules/supplier-portal/queries";
-import { LocalizedText } from "@/components/LocalizedText";
 
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
@@ -81,7 +80,7 @@ export default async function SupplierQualificationResponsePage() {
         <div className="flex items-center gap-3">
           <ClipboardList className="h-6 w-6 text-blue-700" />
           <div>
-            <h2 className="text-2xl font-black"><LocalizedText namespace="supplierQualificationPage" messageKey="questionnaires" /></h2>
+            <h2 className="text-2xl font-black">Questionnaires</h2>
             <p className="mt-1 text-sm text-slate-500">
               Save work in progress or submit completed responses to the buyer.
             </p>
@@ -123,7 +122,7 @@ export default async function SupplierQualificationResponsePage() {
                     <div className="mt-5 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-900">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
                       <div>
-                        <p className="font-black"><LocalizedText namespace="supplierQualificationPage" messageKey="submittedToBuyer" /></p>
+                        <p className="font-black">Submitted to buyer</p>
                         <p className="mt-1 text-sm">
                           This response is locked while buyer review is pending.
                         </p>
@@ -192,7 +191,7 @@ export default async function SupplierQualificationResponsePage() {
         <div className="flex items-center gap-3">
           <ShieldCheck className="h-6 w-6 text-blue-700" />
           <div>
-            <h2 className="text-2xl font-black"><LocalizedText namespace="supplierQualificationPage" messageKey="qualificationTasks" /></h2>
+            <h2 className="text-2xl font-black">Qualification Tasks</h2>
             <p className="mt-1 text-sm text-slate-500">
               Track assigned requirements, blockers and completion evidence.
             </p>

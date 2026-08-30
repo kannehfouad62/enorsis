@@ -5,7 +5,6 @@ import {
   escalatePurchaseRequestApprovalAction,
 } from "@/modules/purchase-requests/actions";
 import { getPurchaseRequestDetail } from "@/modules/purchase-requests/queries";
-import { LocalizedText } from "@/components/LocalizedText";
 
 export default async function PurchaseRequestDetailPage({
   params,
@@ -39,7 +38,7 @@ export default async function PurchaseRequestDetailPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 xl:px-10 xl:py-12">
-      <Link className="text-sm font-black text-blue-700" href="/app/requests"><LocalizedText namespace="requestDetailPage" messageKey="backToRequests" /></Link>
+      <Link className="text-sm font-black text-blue-700" href="/app/requests">← Purchase requests</Link>
       <div className="mt-5 rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
         <div className="flex flex-wrap justify-between gap-4">
           <div>
@@ -54,7 +53,7 @@ export default async function PurchaseRequestDetailPage({
 
         <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50"><tr><th className="p-3"><LocalizedText namespace="requestDetailPage" messageKey="line" /></th><th className="p-3"><LocalizedText namespace="requestDetailPage" messageKey="description" /></th><th className="p-3"><LocalizedText namespace="requestDetailPage" messageKey="qty" /></th><th className="p-3"><LocalizedText namespace="requestDetailPage" messageKey="unitPrice" /></th><th className="p-3"><LocalizedText namespace="requestDetailPage" messageKey="total" /></th></tr></thead>
+            <thead className="bg-slate-50"><tr><th className="p-3">Line</th><th className="p-3">Description</th><th className="p-3">Qty</th><th className="p-3">Unit price</th><th className="p-3">Total</th></tr></thead>
             <tbody>{request.lines.map((line) => <tr key={line.id} className="border-t border-slate-100"><td className="p-3">{line.lineNumber}</td><td className="p-3 font-semibold">{line.description}</td><td className="p-3">{line.quantity.toString()} {line.unitOfMeasure}</td><td className="p-3">{request.originalCurrency} {line.unitPrice.toString()}</td><td className="p-3 font-black">{request.originalCurrency} {line.lineTotal.toString()}</td></tr>)}</tbody>
           </table>
         </div>
@@ -96,7 +95,7 @@ export default async function PurchaseRequestDetailPage({
                 defaultValue=""
                 className="rounded-xl border border-amber-200 bg-white px-3 py-2.5 text-sm"
               >
-                <option value="" disabled><LocalizedText namespace="requestDetailPage" messageKey="selectEscalationApprover" /></option>
+                <option value="" disabled>Select escalation approver</option>
                 {escalationApprovers.map((approver) => (
                   <option key={approver.userId} value={approver.userId}>
                     {approver.name} · {approver.email} · Limit USD{" "}
@@ -128,8 +127,8 @@ export default async function PurchaseRequestDetailPage({
                   Approve
                 </button>
               ) : null}
-              <button className="rounded-xl bg-amber-600 px-4 py-2.5 text-sm font-black text-white" name="decision" value="RETURNED"><LocalizedText namespace="requestDetailPage" messageKey="return" /></button>
-              <button className="rounded-xl bg-red-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="REJECTED"><LocalizedText namespace="requestDetailPage" messageKey="reject" /></button>
+              <button className="rounded-xl bg-amber-600 px-4 py-2.5 text-sm font-black text-white" name="decision" value="RETURNED">Return</button>
+              <button className="rounded-xl bg-red-700 px-4 py-2.5 text-sm font-black text-white" name="decision" value="REJECTED">Reject</button>
             </div>
           </form>
         ) : null}
@@ -140,7 +139,7 @@ export default async function PurchaseRequestDetailPage({
           <form action={cancelPurchaseRequestAction} className="mt-6 flex flex-wrap gap-3 rounded-2xl border border-red-100 bg-red-50 p-4">
             <input type="hidden" name="purchaseRequestId" value={request.id} />
             <input className="min-w-64 flex-1 rounded-xl border border-red-200 bg-white px-4 py-3" name="cancellationReason" placeholder="Cancellation reason" required />
-            <button className="rounded-xl bg-red-700 px-4 py-3 text-sm font-black text-white"><LocalizedText namespace="requestDetailPage" messageKey="cancelRequest" /></button>
+            <button className="rounded-xl bg-red-700 px-4 py-3 text-sm font-black text-white">Cancel request</button>
           </form>
         ) : null}
       </div>

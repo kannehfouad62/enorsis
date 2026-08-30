@@ -18,7 +18,6 @@ import {
   LiquidityScenarioChart,
 } from "./charts";
 
-import { LocalizedText } from "@/components/LocalizedText";
 const card =
   "rounded-3xl border border-slate-200 bg-white p-6 shadow-sm";
 
@@ -182,12 +181,12 @@ export default async function TreasuryOperationsPage({
           <table className="w-full min-w-[860px] text-left text-sm">
             <thead className="text-xs uppercase text-slate-400">
               <tr>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="detected" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="severity" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="status" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="breachDate" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="projectedCash" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="threshold" /></th>
+                <th className="pb-3">Detected</th>
+                <th className="pb-3">Severity</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3">Breach date</th>
+                <th className="pb-3 text-right">Projected cash</th>
+                <th className="pb-3 text-right">Threshold</th>
               </tr>
             </thead>
             <tbody>
@@ -343,11 +342,11 @@ export default async function TreasuryOperationsPage({
           <table className="w-full min-w-[820px] text-left text-sm">
             <thead className="text-xs uppercase text-slate-400">
               <tr>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="currency" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="cash" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="inflows" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="outflows" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="netNative" /></th>
+                <th className="pb-3">Currency</th>
+                <th className="pb-3 text-right">Cash</th>
+                <th className="pb-3 text-right">Inflows</th>
+                <th className="pb-3 text-right">Outflows</th>
+                <th className="pb-3 text-right">Net native</th>
                 <th className="pb-3 text-right">
                   Net {data.baseCurrencyCode}
                 </th>
@@ -586,12 +585,12 @@ export default async function TreasuryOperationsPage({
               defaultValue="OPERATING"
               className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
             >
-              <option value="OPERATING"><LocalizedText namespace="treasuryPage" messageKey="operating" /></option>
-              <option value="PAYROLL"><LocalizedText namespace="treasuryPage" messageKey="payroll" /></option>
-              <option value="TAX"><LocalizedText namespace="treasuryPage" messageKey="tax" /></option>
-              <option value="RESERVE"><LocalizedText namespace="treasuryPage" messageKey="reserve" /></option>
-              <option value="INVESTMENT"><LocalizedText namespace="treasuryPage" messageKey="investment" /></option>
-              <option value="OTHER"><LocalizedText namespace="treasuryPage" messageKey="other" /></option>
+              <option value="OPERATING">Operating</option>
+              <option value="PAYROLL">Payroll</option>
+              <option value="TAX">Tax</option>
+              <option value="RESERVE">Reserve</option>
+              <option value="INVESTMENT">Investment</option>
+              <option value="OTHER">Other</option>
             </select>
             <input
               name="currencyCode"
@@ -706,8 +705,8 @@ export default async function TreasuryOperationsPage({
             defaultValue="OUTFLOW"
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
           >
-            <option value="INFLOW"><LocalizedText namespace="treasuryPage" messageKey="inflow" /></option>
-            <option value="OUTFLOW"><LocalizedText namespace="treasuryPage" messageKey="outflow" /></option>
+            <option value="INFLOW">Inflow</option>
+            <option value="OUTFLOW">Outflow</option>
           </select>
           <input
             name="title"
@@ -741,7 +740,7 @@ export default async function TreasuryOperationsPage({
             defaultValue=""
             className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm"
           >
-            <option value=""><LocalizedText namespace="treasuryPage" messageKey="unallocatedAccount" /></option>
+            <option value="">Unallocated account</option>
             {data.accounts.map((account) => (
               <option key={account.id} value={account.id}>
                 {account.name}
@@ -765,12 +764,12 @@ export default async function TreasuryOperationsPage({
           <table className="w-full min-w-[760px] text-left text-sm">
             <thead className="text-xs uppercase text-slate-400">
               <tr>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="date" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="type" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="title" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="status" /></th>
-                <th className="pb-3"><LocalizedText namespace="treasuryPage" messageKey="source" /></th>
-                <th className="pb-3 text-right"><LocalizedText namespace="treasuryPage" messageKey="amount" /></th>
+                <th className="pb-3">Date</th>
+                <th className="pb-3">Type</th>
+                <th className="pb-3">Title</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3">Source</th>
+                <th className="pb-3 text-right">Amount</th>
               </tr>
             </thead>
             <tbody>
