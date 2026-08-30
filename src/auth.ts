@@ -103,7 +103,7 @@ function authorizeRecoveryAdministrator(email: string, password: string) {
   };
 }
 
-export const { auth, handlers, signIn, signOut } = NextAuth({
+export const { auth, handlers, signIn, signOut, unstable_update } = NextAuth({
   pages: { signIn: "/login" },
   session: { strategy: "jwt" },
   providers: [
@@ -137,7 +137,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (!request.nextUrl.pathname.startsWith("/app")) return true;
       return Boolean(session?.user);
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger, session }) {
       if (user) {
         token.userId = user.id;
         token.tenantId = user.tenantId;
@@ -151,6 +151,37 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         token.departmentScopeIds = user.departmentScopeIds;
         token.mustChangePassword = user.mustChangePassword;
         token.sessionVersion = user.sessionVersion;
+      } else if (
+        trigger === "update" &&
+        Array.isArray(token.roles) &&
+        token.roles.includes("PLATFORM_SUPER_ADMIN") &&
+        session?.user &&
+        typeof session.user.tenantId === "string" &&
+        typeof session.user.tenantSlug === "string" &&
+        typeof session.user.tenantName === "string"
+      ) {
+        const targetTenant = await prisma.tenant.findFirst({
+          where: {
+            id: session.user.tenantId,
+            status: TenantStatus.ACTIVE,
+          },
+          select: {
+            id: true,
+            slug: true,
+            name: true,
+          },
+        });
+
+        if (targetTenant) {
+          token.tenantId = targetTenant.id;
+          token.tenantSlug = targetTenant.slug;
+          token.tenantName = targetTenant.name;
+          token.membershipId = `platform-context:${targetTenant.id}`;
+          token.approvalLimitUsd = null;
+          token.legalEntityScopeIds = [];
+          token.siteScopeIds = [];
+          token.departmentScopeIds = [];
+        }
       } else if (
         typeof token.userId === "string" &&
         typeof token.sessionVersion === "number" &&

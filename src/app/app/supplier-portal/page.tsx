@@ -256,7 +256,15 @@ export default async function SupplierPortalPage() {
                         : "No due date"}
                     </p>
                   </div>
-                  <StatusBadge value={questionnaire.status} />
+                  <div className="flex items-center gap-3">
+                    <StatusBadge value={questionnaire.status} />
+                    <Link
+                      href="/app/supplier-portal/qualification"
+                      className="text-xs font-black text-blue-700"
+                    >
+                      Open →
+                    </Link>
+                  </div>
                 </div>
               ))
             ) : (
@@ -291,7 +299,15 @@ export default async function SupplierPortalPage() {
                         : "No due date"}
                     </p>
                   </div>
-                  <StatusBadge value={task.status} />
+                  <div className="flex items-center gap-3">
+                    <StatusBadge value={task.status} />
+                    <Link
+                      href="/app/supplier-portal/qualification"
+                      className="text-xs font-black text-blue-700"
+                    >
+                      Open →
+                    </Link>
+                  </div>
                 </div>
               ))
             ) : (

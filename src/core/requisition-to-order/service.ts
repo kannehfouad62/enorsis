@@ -244,3 +244,98 @@ export async function raiseRequisitionOrderException(input: {
 
   return exception;
 }
+
+export async function updateRequisitionOrderException(input: {
+  exceptionId: string;
+  actorUserId?: string | null;
+  ownerUserId?: string | null;
+  status:
+    | "OPEN"
+    | "INVESTIGATING"
+    | "RESOLVED";
+  note?: string | null;
+}) {
+  const existing =
+    await prisma.requisitionOrderException.findUniqueOrThrow({
+      where: { id: input.exceptionId },
+      include: {
+        journey: true,
+      },
+    });
+
+  const updated =
+    await prisma.requisitionOrderException.update({
+      where: { id: input.exceptionId },
+      data: {
+        status: input.status,
+        ownerUserId:
+          input.ownerUserId === undefined
+            ? undefined
+            : input.ownerUserId,
+      },
+    });
+
+  await prisma.requisitionOrderMilestone.create({
+    data: {
+      journeyId: existing.journeyId,
+      milestoneType:
+        input.status === "RESOLVED"
+          ? "EXCEPTION_RESOLVED"
+          : "EXCEPTION_RAISED",
+      title: `Exception ${input.status.replaceAll("_", " ")}`,
+      description: input.note ?? null,
+      actorUserId: input.actorUserId ?? null,
+      sourceModule: "requisition-to-order",
+      sourceRecordId: existing.id,
+      metadata: toJson({
+        exceptionId: existing.id,
+        code: existing.code,
+        previousStatus: existing.status,
+        nextStatus: input.status,
+        ownerUserId:
+          input.ownerUserId ?? existing.ownerUserId,
+      }),
+    },
+  });
+
+  await publishDomainEvent({
+    tenantId: existing.journey.tenantId,
+    eventType: "RequisitionOrderJourney.ExceptionUpdated",
+    aggregateType: "RequisitionOrderException",
+    aggregateId: existing.id,
+    sourceModule: "requisition-to-order",
+    correlationId: existing.journey.correlationId,
+    actorUserId: input.actorUserId ?? null,
+    payload: {
+      journeyId: existing.journeyId,
+      exceptionId: existing.id,
+      previousStatus: existing.status,
+      status: input.status,
+      ownerUserId:
+        input.ownerUserId ?? existing.ownerUserId,
+    },
+  });
+
+  await recordEnterpriseActivity({
+    tenantId: existing.journey.tenantId,
+    activityType: "RequisitionOrderJourney.ExceptionUpdated",
+    sourceModule: "requisition-to-order",
+    title: `RTO exception ${input.status.toLowerCase()}`,
+    description:
+      input.note ??
+      `${existing.code}: ${existing.title}`,
+    severity:
+      input.status === "RESOLVED"
+        ? "SUCCESS"
+        : "INFO",
+    actorUserId: input.actorUserId ?? null,
+    subjectType: "RequisitionOrderException",
+    subjectId: existing.id,
+    subjectLabel: existing.code,
+    actionUrl:
+      "/app/requisition-to-order/assurance",
+    correlationId: existing.journey.correlationId,
+  });
+
+  return updated;
+}

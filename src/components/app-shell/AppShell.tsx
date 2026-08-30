@@ -38,6 +38,12 @@ import { SignOutButton } from "./SignOutButton";
 const navigation = [
   { href: "/app", label: "Command center", icon: Gauge, roles: [] },
   {
+    href: "/app/platform/tenant-context",
+    label: "Tenant context",
+    icon: Building2,
+    roles: ["PLATFORM_SUPER_ADMIN"],
+  },
+  {
     href: "/app/marketplace/seller-profile",
     label: "Seller profile",
     icon: Store,

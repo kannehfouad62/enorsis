@@ -54,6 +54,27 @@ export default async function RequisitionToOrderPage({
         </div>
       ) : null}
 
+      <div className="mt-6 flex flex-wrap gap-3">
+        <a
+          href="/app/requisition-to-order/assurance"
+          className="rounded-xl bg-blue-700 px-5 py-3 text-sm font-black text-white"
+        >
+          Lifecycle assurance
+        </a>
+        <a
+          href="/app/requisition-to-order/certification"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
+        >
+          Process certification
+        </a>
+        <a
+          href="/app/requisition-to-order/analytics"
+          className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-800"
+        >
+          RTO analytics
+        </a>
+      </div>
+
       <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         <Metric label="All journeys" value={data.totals.all} />
         <Metric label="Awaiting approval" value={data.totals.awaitingApproval} />

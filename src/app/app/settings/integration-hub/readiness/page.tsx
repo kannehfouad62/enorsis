@@ -22,10 +22,10 @@ export default async function ProviderReadinessPage() {
             Provider Operational Readiness
           </h1>
           <p className="mt-3 max-w-4xl leading-7 text-slate-600">
-            Verify native adapter availability, environment-backed
-            credential references, provider health, connection state
-            and recent synchronization evidence before enabling
-            production data flows.
+            Verify the full enterprise provider catalog, native
+            adapter availability, configuration state, credential
+            readiness, provider health, synchronization evidence and
+            certification status before enabling production data flows.
           </p>
           <p className="mt-2 text-xs text-slate-400">
             Generated{" "}
@@ -43,19 +43,27 @@ export default async function ProviderReadinessPage() {
         </Link>
       </div>
 
-      <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <section className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-7">
         {[
           [
-            "Connections",
+            "Providers",
             data.summary.total,
           ],
           [
-            "Production ready",
+            "Configured",
+            data.summary.configured,
+          ],
+          [
+            "Operationally ready",
             data.summary.ready,
           ],
           [
-            "Blocked",
-            data.summary.blocked,
+            "Certified",
+            data.summary.certified,
+          ],
+          [
+            "Customer account required",
+            data.summary.customerAccountRequired,
           ],
           [
             "Native adapters",
@@ -100,19 +108,41 @@ export default async function ProviderReadinessPage() {
                     {" · "}
                     {connection.environment}
                   </p>
+                  {connection.catalogOnly ? (
+                    <p className="mt-2 text-xs font-bold text-slate-400">
+                      Catalog provider · tenant connection not yet configured
+                    </p>
+                  ) : null}
                 </div>
 
-                <span
-                  className={`rounded-full px-3 py-1 text-xs font-black ${
-                    connection.ready
-                      ? "bg-emerald-100 text-emerald-700"
-                      : "bg-rose-100 text-rose-700"
-                  }`}
-                >
-                  {connection.ready
-                    ? "READY"
-                    : "BLOCKED"}
-                </span>
+                <div className="flex flex-wrap justify-end gap-2">
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-black ${
+                      connection.certification.passed
+                        ? "bg-emerald-100 text-emerald-700"
+                        : connection.certification.level ===
+                            "CUSTOMER_ACCOUNT_REQUIRED"
+                          ? "bg-violet-100 text-violet-700"
+                          : "bg-blue-100 text-blue-700"
+                    }`}
+                  >
+                    {connection.certification.level.replaceAll(
+                      "_",
+                      " ",
+                    )}
+                  </span>
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-black ${
+                      connection.ready
+                        ? "bg-emerald-100 text-emerald-700"
+                        : "bg-slate-100 text-slate-600"
+                    }`}
+                  >
+                    {connection.ready
+                      ? "OPERATIONALLY READY"
+                      : "NOT READY"}
+                  </span>
+                </div>
               </div>
 
               <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -154,6 +184,64 @@ export default async function ProviderReadinessPage() {
                 ))}
               </div>
 
+              <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                {[
+                  [
+                    "Implementation",
+                    connection.adapterRegistered
+                      ? "READY"
+                      : "PENDING",
+                  ],
+                  [
+                    "Health verification",
+                    connection.certification.healthVerified
+                      ? "PASSED"
+                      : "PENDING",
+                  ],
+                  [
+                    "Sync verification",
+                    connection.certification.syncVerified
+                      ? "PASSED"
+                      : "PENDING",
+                  ],
+                  [
+                    "Certification",
+                    connection.certification.passed
+                      ? "PASSED"
+                      : "PENDING",
+                  ],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="rounded-2xl border border-slate-200 bg-white p-4"
+                  >
+                    <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
+                      {label}
+                    </p>
+                    <p className="mt-2 text-sm font-black text-slate-900">
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {connection.certification.externalPrerequisitePending &&
+              connection.certification.externalPrerequisite ? (
+                <div className="mt-5 rounded-2xl border border-violet-200 bg-violet-50 p-4">
+                  <p className="text-sm font-black text-violet-900">
+                    External certification prerequisite
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-violet-800">
+                    {connection.certification.externalPrerequisite}
+                  </p>
+                  <p className="mt-2 text-xs text-violet-700">
+                    The native adapter remains implemented and available.
+                    Enorsis will certify the provider when customer-authorized
+                    credentials become available.
+                  </p>
+                </div>
+              ) : null}
+
               {connection.blockers.length ? (
                 <div className="mt-5 rounded-2xl border border-rose-200 bg-rose-50 p-4">
                   <p className="text-sm font-black text-rose-900">
@@ -175,7 +263,8 @@ export default async function ProviderReadinessPage() {
                 </div>
               )}
 
-              {connection.credentialChecks.length ? (
+              {!connection.catalogOnly &&
+              connection.credentialChecks.length ? (
                 <div className="mt-5 overflow-x-auto">
                   <table className="w-full min-w-[760px] text-left text-sm">
                     <thead className="text-xs uppercase text-slate-400">
@@ -315,7 +404,7 @@ export default async function ProviderReadinessPage() {
         {data.connections.length === 0 ? (
           <div className={card}>
             <p className="text-sm text-slate-500">
-              No enterprise provider connections have been configured.
+              No enterprise provider catalog entries are available.
             </p>
           </div>
         ) : null}

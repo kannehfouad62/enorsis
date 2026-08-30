@@ -81,3 +81,144 @@ export async function raiseJourneyExceptionAction(data: FormData) {
   });
   revalidatePath("/app/requisition-to-order");
 }
+
+const assuranceFindingDefinitions = {
+  APPROVAL_ROUTE_MISSING: {
+    title: "Approval route missing",
+    severity: "HIGH",
+    description:
+      "Lifecycle assurance detected a journey awaiting approval without a recorded approval route.",
+  },
+  APPROVER_MISSING: {
+    title: "Approver assignment missing",
+    severity: "HIGH",
+    description:
+      "Lifecycle assurance detected approval routing without assigned approver decisions.",
+  },
+  PO_EVIDENCE_MISSING: {
+    title: "Purchase-order evidence missing",
+    severity: "HIGH",
+    description:
+      "Lifecycle assurance detected a journey state that requires a purchase order, but no purchase-order execution exists.",
+  },
+  RECEIPT_EVIDENCE_MISSING: {
+    title: "Receipt evidence missing",
+    severity: "HIGH",
+    description:
+      "Lifecycle assurance detected receipt progress without a goods-receipt session.",
+  },
+  CLOSED_WITH_OPEN_EXCEPTION: {
+    title: "Closed journey has unresolved exceptions",
+    severity: "CRITICAL",
+    description:
+      "Lifecycle assurance detected a closed journey with one or more unresolved exceptions.",
+  },
+  REQUIRED_DATE_OVERDUE: {
+    title: "Required-by date overdue",
+    severity: "MEDIUM",
+    description:
+      "Lifecycle assurance detected that the required-by date has passed while the journey remains open.",
+  },
+  PAYMENT_READINESS_MISSING: {
+    title: "Payment readiness evidence missing",
+    severity: "MEDIUM",
+    description:
+      "Lifecycle assurance detected an approved-for-payment three-way match without an AP payment-readiness case.",
+  },
+  STATUS_EXCEPTION_MISMATCH: {
+    title: "Journey status and exception state mismatch",
+    severity: "MEDIUM",
+    description:
+      "Lifecycle assurance detected unresolved journey exceptions while the journey status is not EXCEPTION.",
+  },
+} as const;
+
+export async function promoteAssuranceFindingAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...allowedRoles]);
+  const journeyId = field(data, "journeyId");
+  const code = field(data, "code");
+
+  const definition =
+    assuranceFindingDefinitions[
+      code as keyof typeof assuranceFindingDefinitions
+    ];
+
+  if (!definition) {
+    throw new Error(
+      "Unsupported lifecycle-assurance finding.",
+    );
+  }
+
+  const { prisma } = await import("@/lib/prisma");
+
+  const journey =
+    await prisma.requisitionOrderJourney.findFirstOrThrow({
+      where: {
+        id: journeyId,
+        tenantId: user.tenantId,
+      },
+      include: {
+        exceptions: {
+          where: { code },
+          orderBy: { createdAt: "desc" },
+        },
+      },
+    });
+
+  const duplicateOpenException =
+    journey.exceptions.find(
+      (exception) =>
+        ![
+          "RESOLVED",
+          "CLOSED",
+          "DISMISSED",
+        ].includes(exception.status),
+    );
+
+  if (!duplicateOpenException) {
+    await raiseRequisitionOrderException({
+      journeyId,
+      code,
+      title: definition.title,
+      description: definition.description,
+      severity: definition.severity,
+      actorUserId: user.id,
+    });
+  }
+
+  revalidatePath("/app/requisition-to-order");
+  revalidatePath(
+    "/app/requisition-to-order/assurance",
+  );
+}
+
+export async function updateJourneyExceptionAction(
+  data: FormData,
+) {
+  const user = await requireAnyRole([...allowedRoles]);
+
+  const { updateRequisitionOrderException } =
+    await import("@/core/requisition-to-order/service");
+
+  const exceptionId = field(data, "exceptionId");
+  const status = field(data, "status") as
+    | "OPEN"
+    | "INVESTIGATING"
+    | "RESOLVED";
+
+  await updateRequisitionOrderException({
+    exceptionId,
+    actorUserId: user.id,
+    ownerUserId:
+      field(data, "ownerUserId") || undefined,
+    status,
+    note: field(data, "note") || null,
+  });
+
+  revalidatePath("/app/requisition-to-order");
+  revalidatePath(
+    "/app/requisition-to-order/assurance",
+  );
+}

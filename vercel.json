@@ -3,6 +3,10 @@
     {
       "path": "/api/platform/integrations/process-all",
       "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/platform/requisition-to-order/process-sla-escalations",
+      "schedule": "*/15 * * * *"
     }
   ]
 }

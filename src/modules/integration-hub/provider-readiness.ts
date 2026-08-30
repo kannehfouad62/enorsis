@@ -1,10 +1,12 @@
 import { redirect } from "next/navigation";
 
 import { auth } from "@/auth";
+import { ENTERPRISE_INTEGRATION_PROVIDER_PROFILES } from "@/core/integrations";
 import {
   listEnterpriseConnectorAdapters,
 } from "@/core/integrations";
 import { prisma } from "@/lib/prisma";
+import { getProviderCertificationPolicy } from "./provider-certification";
 
 function envName(reference: string) {
   const name = reference.startsWith("env:")
@@ -53,7 +55,7 @@ export async function getProviderOperationalReadiness() {
           orderBy: {
             createdAt: "desc",
           },
-          take: 5,
+          take: 20,
         },
       },
       orderBy: {
@@ -122,10 +124,52 @@ export async function getProviderOperationalReadiness() {
     const statusReady =
       connection.status === "ACTIVE";
 
+    const certificationPolicy =
+      getProviderCertificationPolicy(
+        connection.connectorDefinition.key,
+      );
+
+    const successfulRuns =
+      connection.syncRuns.filter(
+        (run) =>
+          run.status === "SUCCEEDED" ||
+          run.status === "PARTIALLY_SUCCEEDED",
+      );
+
+    const successfulWriteRun =
+      successfulRuns.find(
+        (run) => run.recordsWritten > 0,
+      ) ?? null;
+
+    const hasConfiguredCredentials =
+      credentialChecks.length > 0 &&
+      missingCredentials.length === 0;
+
+    const externalPrerequisitePending =
+      Boolean(
+        certificationPolicy.externalPrerequisite &&
+          !healthReady &&
+          !successfulWriteRun,
+      );
+
+    const certificationLevel =
+      externalPrerequisitePending
+        ? "CUSTOMER_ACCOUNT_REQUIRED"
+        : successfulWriteRun && healthReady
+          ? "LIVE_CERTIFIED"
+          : healthReady
+            ? "HEALTH_VERIFIED"
+            : adapterRegistered &&
+                hasConfiguredCredentials
+              ? "CONFIGURATION_READY"
+              : "IMPLEMENTED";
+
+    const certificationPassed =
+      certificationLevel === "LIVE_CERTIFIED";
+
     const ready =
       adapterRegistered &&
-      credentialChecks.length > 0 &&
-      missingCredentials.length === 0 &&
+      hasConfiguredCredentials &&
       statusReady &&
       healthReady;
 
@@ -178,6 +222,15 @@ export async function getProviderOperationalReadiness() {
       );
     }
 
+    if (
+      certificationPolicy.externalPrerequisite &&
+      externalPrerequisitePending
+    ) {
+      blockers.push(
+        certificationPolicy.externalPrerequisite,
+      );
+    }
+
     return {
       id: connection.id,
       name: connection.name,
@@ -197,6 +250,30 @@ export async function getProviderOperationalReadiness() {
       credentialChecks,
       ready,
       blockers,
+      certification: {
+        level: certificationLevel,
+        passed: certificationPassed,
+        externalPrerequisite:
+          certificationPolicy.externalPrerequisite,
+        externalPrerequisitePending,
+        healthVerified: healthReady,
+        syncVerified: Boolean(successfulWriteRun),
+        latestSuccessfulWriteRun:
+          successfulWriteRun
+            ? {
+                id: successfulWriteRun.id,
+                createdAt:
+                  successfulWriteRun.createdAt.toISOString(),
+                completedAt:
+                  successfulWriteRun.completedAt?.toISOString() ??
+                  null,
+                recordsWritten:
+                  successfulWriteRun.recordsWritten,
+                recordsFailed:
+                  successfulWriteRun.recordsFailed,
+              }
+            : null,
+      },
       latestRun: latestRun
         ? {
             id: latestRun.id,
@@ -226,29 +303,125 @@ export async function getProviderOperationalReadiness() {
     };
   });
 
+  const configuredDefinitionKeys = new Set(
+    readiness.map((item) => item.definitionKey),
+  );
+
+  const catalogOnlyProviders =
+    ENTERPRISE_INTEGRATION_PROVIDER_PROFILES
+      .filter(
+        (profile) =>
+          !configuredDefinitionKeys.has(
+            profile.definitionKey,
+          ),
+      )
+      .map((profile) => {
+        const certificationPolicy =
+          getProviderCertificationPolicy(
+            profile.definitionKey,
+          );
+
+        const level =
+          certificationPolicy.externalPrerequisite
+            ? "CUSTOMER_ACCOUNT_REQUIRED"
+            : registeredAdapters.has(
+                  profile.definitionKey,
+                )
+              ? "IMPLEMENTED"
+              : "IMPLEMENTED";
+
+        return {
+          id: `catalog:${profile.definitionKey}`,
+          name: profile.name,
+          provider: profile.provider,
+          definitionKey: profile.definitionKey,
+          definitionName: profile.name,
+          environment: "NOT CONFIGURED",
+          status: "NOT_CONFIGURED",
+          healthStatus: "UNKNOWN",
+          baseUrl: null,
+          adapterRegistered:
+            registeredAdapters.has(
+              profile.definitionKey,
+            ),
+          credentialChecks: [],
+          ready: false,
+          blockers: [
+            "No tenant connection has been configured.",
+            ...(certificationPolicy.externalPrerequisite
+              ? [
+                  certificationPolicy.externalPrerequisite,
+                ]
+              : []),
+          ],
+          certification: {
+            level,
+            passed: false,
+            externalPrerequisite:
+              certificationPolicy.externalPrerequisite,
+            externalPrerequisitePending: Boolean(
+              certificationPolicy.externalPrerequisite,
+            ),
+            healthVerified: false,
+            syncVerified: false,
+            latestSuccessfulWriteRun: null,
+          },
+          latestRun: null,
+          latestFailedRun: null,
+          catalogOnly: true,
+        };
+      });
+
+  const providers = [
+    ...readiness.map((item) => ({
+      ...item,
+      catalogOnly: false,
+    })),
+    ...catalogOnlyProviders,
+  ].sort((a, b) =>
+    `${a.provider} ${a.definitionName}`.localeCompare(
+      `${b.provider} ${b.definitionName}`,
+    ),
+  );
+
   return {
     generatedAt: new Date().toISOString(),
-    connections: readiness,
+    connections: providers,
     summary: {
-      total: readiness.length,
+      total: providers.length,
+      configured:
+        providers.filter(
+          (item) => !item.catalogOnly,
+        ).length,
       ready:
-        readiness.filter(
+        providers.filter(
           (item) => item.ready,
         ).length,
       blocked:
-        readiness.filter(
+        providers.filter(
           (item) => !item.ready,
         ).length,
       nativeAdapters:
-        readiness.filter(
+        providers.filter(
           (item) =>
             item.adapterRegistered,
         ).length,
       healthy:
-        readiness.filter(
+        providers.filter(
           (item) =>
             item.healthStatus ===
             "HEALTHY",
+        ).length,
+      certified:
+        providers.filter(
+          (item) =>
+            item.certification.passed,
+        ).length,
+      customerAccountRequired:
+        providers.filter(
+          (item) =>
+            item.certification.level ===
+            "CUSTOMER_ACCOUNT_REQUIRED",
         ).length,
     },
   };

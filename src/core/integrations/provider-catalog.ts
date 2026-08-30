@@ -35,7 +35,12 @@ export const ENTERPRISE_INTEGRATION_PROVIDER_PROFILES =
       provider: "Oracle",
       name: "Oracle NetSuite SuiteTalk REST",
       family: "ERP",
-      credentialTypes: ["OAUTH2", "BEARER_TOKEN"],
+      credentialTypes: [
+        "OAUTH2",
+        "BEARER_TOKEN",
+        "CLIENT_CERTIFICATE",
+        "CUSTOM",
+      ],
       supportedObjects: [
         "VENDOR",
         "PURCHASE_ORDER",
@@ -46,7 +51,7 @@ export const ENTERPRISE_INTEGRATION_PROVIDER_PROFILES =
       endpointHint:
         "https://<account>.suitetalk.api.netsuite.com",
       notes:
-        "Use OAuth 2.0 bearer credentials through a governed secret reference. Configure accountId and optional recordTypes. Provider records are staged with checksums for audit and replay.",
+        "Preferred production mode is OAuth 2.0 client credentials using NETSUITE_CLIENT_ID, NETSUITE_CERTIFICATE_ID and NETSUITE_PRIVATE_KEY secret references. A NETSUITE_ACCESS_TOKEN reference remains supported for testing. Configure accountId, oauthMode and optional recordTypes; provider records are staged with checksums and sync diagnostics for audit and replay.",
     },
     {
       definitionKey: "sap-s4hana",
